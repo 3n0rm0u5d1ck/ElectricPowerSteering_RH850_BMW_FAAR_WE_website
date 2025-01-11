@@ -1,0 +1,577 @@
+---
+layout: default
+title: UserManual_DataImport
+nav_order: 13
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Data Import </p>
+<p>User Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors: </p>
+<p>Matthias Wernicke </p>
+<p>Version: </p>
+<p>2.0 </p>
+<p>Status: </p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>1 </p>
+<p>History </p>
+<p>Author </p>
+<p>Date </p>
+<p>Version </p>
+<p>Remarks </p>
+<p>Wk </p>
+<p>2009-08-27 </p>
+<p>1.0  </p>
+<p>Initial version </p>
+<p>Wk </p>
+<p>2011-01-07 </p>
+<p>2.0 </p>
+<p>Document scope extended: description of </p>
+<p>general import mechanisms, description of </p>
+<p>special import functions completed </p>
+<p> </p>
+<p>Contents </p>
+<p>1</p>
+<p> </p>
+<p>History....................................................................................................................... 2</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>About this Document ............................................................................................... 3</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>Use Cases................................................................................................................. 4</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>Approach .................................................................................................................. 6</p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Definition of import mode via difference analysis ........................................ 7</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Interactive definition of import mode ........................................................... 8</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Preset of import mode (automatic merge)................................................... 8</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>Preparation of workspace........................................................................... 8</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>Automatic pre-setting of import mode for new imported objects.................. 9</p>
+<p> </p>
+<p>4.3.3</p>
+<p> </p>
+<p>Resulting behavior of DaVinci Developer.................................................... 9</p>
+<p> </p>
+<p>5</p>
+<p> </p>
+<p>Special Import Functions......................................................................................... 9</p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Overwrite Import Mode Preset.................................................................. 10</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Update Diagnostic Configuration .............................................................. 11</p>
+<p> </p>
+<p>6</p>
+<p> </p>
+<p>Contact.................................................................................................................... 12</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>2 </p>
+<p>About this Document </p>
+<p>This  document  describes  the  specific  features  of  DaVinci  Developer  for  importing  data </p>
+<p>according to the AUTOSAR SWC Template. It is applicable for the import of AUTOSAR </p>
+<p>XML files or DCF files (DaVinci Configuration File).   </p>
+<p>For  details  about  the  import  function  for  the  ECU  Configuration  Template,  please  see </p>
+<p>TechnicalReference_EcuConfigurationFiles.pdf. </p>
+<p>Abbreviations and Items used in this Document: </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>PIM </p>
+<p>Per-Instance Memory </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>3 </p>
+<p>Use Cases </p>
+<p>The specific import/update features of DaVinci Developer are relevant for scenarios, where </p>
+<p>several  involved  persons  (e.g.  the  OEM  and  the  TIER1)  both  contribute  SWC  design </p>
+<p>artifacts to the overall project. </p>
+<p> </p>
+<p>Figure 1 shows an example, where the TIER1 needs to integrate a SWC of the OEM </p>
+<p> </p>
+<p> </p>
+<p>OEM defines an atomic component type with some port prototypes (A). OEM exports </p>
+<p>the component type and passes it to the TIER1 </p>
+<p> </p>
+<p>TIER1 imports the component type, and integrates it as component prototype into a </p>
+<p>composition type, which already has some other component prototypes and port </p>
+<p>prototypes (red color in B). </p>
+<p> </p>
+<p>OEM changes the atomic component type, e.g. by adding some port prototypes and </p>
+<p>removing others (C). OEM exports the component type and passes it to the TIER1 </p>
+<p> </p>
+<p>TIER1 imports the component type, and expects that the changes of the OEM are </p>
+<p>incorporated (D) </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>OEM Workspace</p>
+<p>TIER1 Workspace</p>
+<p>A</p>
+<p>B</p>
+<p>C</p>
+<p>D</p>
+<p> </p>
+<p>Figure 1: Import/Update Example 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 2 shows an example, where the TIER1 needs to extend a composition of the OEM </p>
+<p> </p>
+<p> </p>
+<p>OEM defines a composition type with some port prototypes and component </p>
+<p>prototypes (A). OEM exports the composition type and passes it to the TIER1 </p>
+<p> </p>
+<p>TIER1 imports the composition type, and makes changes like adding further port </p>
+<p>prototypes, component prototypes and connector prototypes (red color in B). TIER1 </p>
+<p>considers these changes as “private” and does not return these changes to the OEM. </p>
+<p> </p>
+<p>OEM changes the composition, e.g. by adding some port prototypes and removing </p>
+<p>others (C). OEM exports the composition type and passes it to the TIER1 </p>
+<p> </p>
+<p>TIER1 imports the composition type, and expects that the changes of the OEM are </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>incorporated as well as the changes done by the TIER1 (D) </p>
+<p> </p>
+<p>Composition1</p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>OEM Workspace</p>
+<p>TIER1 Workspace</p>
+<p>A</p>
+<p>B</p>
+<p>C</p>
+<p>D</p>
+<p> </p>
+<p>Figure 2: Import/Update Example 2 </p>
+<p> </p>
+<p>4 </p>
+<p>Approach </p>
+<p>The  import  process  in  DaVinci  Developer  considers  individual  objects  within  the  import </p>
+<p>context (set of AUTOSAR XML files or DCF files) and the workspace, see Figure 3. The </p>
+<p>objects are identified by the combination of object type and object short name. Based on </p>
+<p>this identification, the set of objects may be completely disjunctive, or (partially) overlap. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>Workspace</p>
+<p>Obj1</p>
+<p>Obj2</p>
+<p>Obj3</p>
+<p>Import Context</p>
+<p>Import</p>
+<p>Obj2</p>
+<p>Obj3</p>
+<p>Obj4</p>
+<p> </p>
+<p>Figure 3: Import Context and Workspace </p>
+<p> </p>
+<p>The  import  mode  of  an  object  controls  the  behavior  of  DaVinci  Developer  during  the </p>
+<p>import  process.  The  import  mode  is  expressed  from  the  target  workspace  point  of  view </p>
+<p>with the following options </p>
+<p> </p>
+<p>Keep </p>
+<p>The object in the workspace is not changed </p>
+<p> </p>
+<p>Overwrite </p>
+<p>The object in the workspace is overwritten by the imported object </p>
+<p> </p>
+<p>DaVinci Developer supports the following ways to define the import mode of the objects </p>
+<p> </p>
+<p>Interactively during the import process (user decision not persistent) </p>
+<p> </p>
+<p>Via difference analysis before starting the import process (user decision not </p>
+<p>persistent) </p>
+<p> </p>
+<p>By presetting the import mode (persistent) </p>
+<p>The  user  can  select  the  approach  individually  for  each  import  process  by  checking  the </p>
+<p>according options in the import dialog. </p>
+<p>4.1 </p>
+<p>Definition of import mode via difference analysis </p>
+<p>Before </p>
+<p>running </p>
+<p>the </p>
+<p>import </p>
+<p>process </p>
+<p>DaVinci </p>
+<p>Developer </p>
+<p>opens </p>
+<p>a </p>
+<p>dialog </p>
+<p>showing </p>
+<p>the </p>
+<p>differences </p>
+<p>between </p>
+<p>the </p>
+<p>objects </p>
+<p>in </p>
+<p>the </p>
+<p>workspace </p>
+<p>and </p>
+<p>in </p>
+<p>the </p>
+<p>import </p>
+<p>context. </p>
+<p>This </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>difference  dialog  allows  the  user  to  browse  the  differences  and  select  the  import  mode </p>
+<p>(“Keep” or “Overwrite”) for each object. </p>
+<p>4.2 </p>
+<p>Interactive definition of import mode </p>
+<p>During the import process DaVinci Developer raises dialogs allowing the user to define the </p>
+<p>import mode. Such dialog is raised for each individual object. For convenience reasons, </p>
+<p>these dialogs offer the option to remember the selected import mode for all other objects of </p>
+<p>the same type, or for all remaining objects. </p>
+<p>The interactive definition of import mode offers “Merge object” as import mode. This option </p>
+<p>is relevant for objects, which have sub-objects. It performs an additive merge of the sub-</p>
+<p>objects. Instead of the import mode “Keep”, the option “Create new object” is offered. This </p>
+<p>option leaves the existing objects in the workspace unchanged, and creates a new object </p>
+<p>(with different name) instead. </p>
+<p>4.3 </p>
+<p>Preset of import mode (automatic merge) </p>
+<p>For the following types of objects: </p>
+<p> </p>
+<p>Port prototypes </p>
+<p> </p>
+<p>Component prototypes </p>
+<p>the  import  mode  (“Keep”  or  “Overwrite”)  can  be  preset.  So  this  approach  is  especially </p>
+<p>useful  in  case  the  import  process  will  be  repeated  in  future.  These  settings  become </p>
+<p>effective, if the user chooses “Overwrite” as import mode for a component type. </p>
+<p>4.3.1 </p>
+<p>Preparation of workspace </p>
+<p>Before running the import process the user can specify the import mode as attribute for </p>
+<p>each  object.  These  attributes  are  persistently  stored  in  the  workspace.  To  enable  this </p>
+<p>approach the workspace must contains the following attribute definitions: </p>
+<p> </p>
+<p>Attribute Definition </p>
+<p>Object Type </p>
+<p>Type </p>
+<p>Range </p>
+<p>IMPORT_MODE_PRESET_PORT </p>
+<p>Port Prototype </p>
+<p>Enumeration </p>
+<p>Keep, Overwrite </p>
+<p>IMPORT_MODE_PRESET_COMPONENT </p>
+<p>Component Prototype </p>
+<p>Enumeration </p>
+<p>Keep, Overwrite </p>
+<p> </p>
+<p>The recommended default for these attribute definitions is “Keep”. This will ensure that all </p>
+<p>new objects, which are created by the user, will get the import mode “Keep”. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>These attribute definitions are also contained in the file ImportModePreset.arxml, located </p>
+<p>in the “Data” folder of the DaVinci Developer installation. By importing this file, the attribute </p>
+<p>definitions will be created. </p>
+<p> </p>
+<p>After that, the user can set the attribute values to “Overwrite” for all those objects, which </p>
+<p>should be automatically updated and potentially deleted during import. The user can set </p>
+<p>the  attribute  values  either  manually  (please  refer  to  the  DaVinci  DEV  online  help  for </p>
+<p>details) or using an according special import function (see chapter 5.1). </p>
+<p>4.3.2 </p>
+<p>Automatic pre-setting of import mode for new imported objects </p>
+<p>By an according option in the import dialog, the user may define the value of the import </p>
+<p>mode preset attribute for  all  those objects, which  are  created  during  the  import  process </p>
+<p>(i.e. which did not exist in the workspace before the import). It is recommended to set this </p>
+<p>option to “Overwrite”. </p>
+<p>4.3.3 </p>
+<p>Resulting behavior of DaVinci Developer </p>
+<p>Assuming that the recommendations mentioned above are fulfilled, DaVinci Developer will </p>
+<p>have the following behavior: </p>
+<p> </p>
+<p>All imported port prototypes and component prototypes have “Overwrite” as import </p>
+<p>mode preset </p>
+<p> </p>
+<p>All port prototypes and component prototypes created by the user have “Keep” as </p>
+<p>import mode preset </p>
+<p> </p>
+<p>The imported port prototypes and component prototypes will be automatically </p>
+<p>updated when the user runs the import again. This includes also deletion of formerly </p>
+<p>imported, now obsolete port prototypes and component prototypes. </p>
+<p> </p>
+<p>Port prototypes and component prototypes created by the user will remain </p>
+<p>unchanged </p>
+<p>This behavior supports the typical use cases (see chapter 3) </p>
+<p> </p>
+<p>5 </p>
+<p>Special Import Functions </p>
+<p>Besides </p>
+<p>the </p>
+<p>generic </p>
+<p>import </p>
+<p>functionality, </p>
+<p>DaVinci </p>
+<p>Developer </p>
+<p>provides </p>
+<p>special </p>
+<p>import </p>
+<p>functions.  These  special  import  functions  have  a  predefined  behavior  in  terms  of  the </p>
+<p>imported content and in terms of how to react in case of conflicts. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>5.1 </p>
+<p>Overwrite Import Mode Preset </p>
+<p>You may use this function to initially prepare a given workspace for the usage of automatic </p>
+<p>merge based on the import mode preset attributes (see chapter 4.2). This function does </p>
+<p>not actually import any data, but it sets the import mode preset attribute for all objects in </p>
+<p>the  workspace,  which  also  exist  in  the  import  context.  The  user  can  define  the  value </p>
+<p>(“Keep”  or  “Overwrite”).  The  function  is  called  via  the  menu  File  |  Special  Import  | </p>
+<p>Overwrite Import Mode Preset. You may select the AUTOSAR XML files to be imported </p>
+<p>via the Import from XML Dialog. Please refer to the DaVinci DEV online help for details </p>
+<p>about this dialog. </p>
+<p> </p>
+<p>Example:  Assuming  an  initial  workspace  as  shown  in  Figure  4,  where  all  objects  have </p>
+<p>attribute  value  “Keep”  (e.g.  because  this  is  the  default  of  the  attribute  definition). When </p>
+<p>calling this special import function and selecting “Overwrite” as value for the import mode </p>
+<p>preset attribute, the component prototype “SWC2” and all four port prototypes of the import </p>
+<p>context will be tagged as “Overwrite”. All other objects remain at “Keep”. </p>
+<p> </p>
+<p>Composition1</p>
+<p>SWC2</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>Workspace (Initial)</p>
+<p>Composition1</p>
+<p>SWC1</p>
+<p>SWC2</p>
+<p>Import Context</p>
+<p>Workspace after special import</p>
+<p>Legend:</p>
+<p>“Overwrite”</p>
+<p>“Keep”</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4: Function “Overwrite import mode preset” </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>5.2 </p>
+<p>Update Diagnostic Configuration </p>
+<p>You may use this function to update those parts of the application SWCs in the workspace, </p>
+<p>which  are  related  to  diagnostic  functionality.  The  function  is  called  via  the  menu  File  | </p>
+<p>Special Import | Update Diagnostic Configuration. You may select the AUTOSAR XML </p>
+<p>files to be  imported  via  the  Import  from  XML  Dialog.  Please  refer  to the  DaVinci  DEV </p>
+<p>online help for details about this dialog. </p>
+<p> </p>
+<p>This function ensures that  the  SWCs  in  the  workspace  match  to  the  imported  XML  file, </p>
+<p>while preserving the modifications you made at the SWCs. This is reached by the following </p>
+<p>behavior: </p>
+<p>If the objects in the imported XML file not yet exist in the workspace, they are created by </p>
+<p>the  special  import function.  If  an  object  already  exists,  the following  update  approach  is </p>
+<p>performed: </p>
+<p> </p>
+<p> </p>
+<p>Constants are overwritten </p>
+<p> </p>
+<p>Data Types are overwritten </p>
+<p> </p>
+<p>Port Interfaces are overwritten </p>
+<p> </p>
+<p>Exception: the Init Value of the Calibration Element Prototypes of Calibration Port </p>
+<p>Interfaces are not changed. </p>
+<p> </p>
+<p>Component Types </p>
+<p> </p>
+<p>The Properties of the Component Type are overwritten, except for the </p>
+<p>Implementation Code Type and Supports Multiple Instantiation Flag  </p>
+<p> </p>
+<p>Port Prototypes </p>
+<p> </p>
+<p>Existing  Port  Prototypes  are  overwritten,  except for  the  Port  API Options and </p>
+<p>the Communication Specification </p>
+<p> </p>
+<p>Missing Port Prototypes are created </p>
+<p> </p>
+<p>Obsolete Diagnostic Port Prototypes* are deleted </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Data Import </p>
+<p> </p>
+<p>2011, Vector Informatik GmbH </p>
+<p>Version: 2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Runnable Entities </p>
+<p> </p>
+<p>Existing  Runnable  Entities  are  merged  as  follows:  the  Symbol  and  Can  Be </p>
+<p>Invoked Concurrently is not changed, the Trigger list and Port Access lists are </p>
+<p>merged.  </p>
+<p> </p>
+<p>Missing Runnable Entities are created </p>
+<p> </p>
+<p>Exclusive Areas, Inter-Runnable Variables and Calibration Parameters </p>
+<p> </p>
+<p>Existing objects are overwritten </p>
+<p> </p>
+<p>Missing objects are added </p>
+<p> </p>
+<p>Per-Instance Memory </p>
+<p> </p>
+<p>Existing PIMs are overwritten </p>
+<p> </p>
+<p>Missing PIMs are added </p>
+<p> </p>
+<p>Obsolete Diagnostic PIMs** are deleted </p>
+<p> </p>
+<p>Note: This special import function does not consider the import mode preset attributes (see </p>
+<p>chapter 4.2). </p>
+<p> </p>
+<p>*) Diagnostic Port Prototypes are Port Prototypes, which contain an attribute with a value </p>
+<p>other than the default for an attribute definition, which contains “PDM_ID” in its name </p>
+<p> </p>
+<p>**) Diagnostic PIMs are PIMs, which contain an attribute with a value other than the default </p>
+<p>for an attribute definition, which contains “PDM_ID” in its name </p>
+<p>6 </p>
+<p>Contact </p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p>www.vector-informatik.com </p>
+</body>
+</html>
+{% endraw %}

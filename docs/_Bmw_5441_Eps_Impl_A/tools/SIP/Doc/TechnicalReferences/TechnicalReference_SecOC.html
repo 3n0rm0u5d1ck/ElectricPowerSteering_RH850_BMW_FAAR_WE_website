@@ -1,0 +1,2102 @@
+---
+layout: default
+title: TechnicalReference_SecOC
+nav_order: 110
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Secure Onboard </b></p>
+<p><b>Communication </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 3.0.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Heiko Hübler, Markus Bart, Gunnar Meiss </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>2 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Heiko Hübler </p>
+<p>2014-10-02 </p>
+<p>1.00.00 </p>
+<p>ESCAN00078719: AR4-667: </p>
+<p>CONC_607_SecureOnboardCommunicati</p>
+<p>on </p>
+<p>Heiko Hübler </p>
+<p>2015-07-20 </p>
+<p>1.01.00 </p>
+<p>ESCAN00084099: FEAT-1475: SecOC-</p>
+<p>Extensions, TP, CSM and encryption </p>
+<p>Gunnar Meiss </p>
+<p>2016-02-25 </p>
+<p>1.02.00 </p>
+<p>ESCAN00088549: FEAT-1631: Trigger </p>
+<p>Transmit API with SduLength In/Out </p>
+<p>according to ASR4.2.2 </p>
+<p>Heiko Hübler </p>
+<p>2016-11-11 </p>
+<p>1.03.00 </p>
+<p>FEATC-379: SecOC Release </p>
+<p>Gunnar Meiss </p>
+<p>2017-02-27 </p>
+<p>2.00.00 </p>
+<p>FEATC-852: FEAT-2365: Support </p>
+<p>standalone distribution of AR4.3 SecOC </p>
+<p>Heiko Hübler </p>
+<p>2017-03-13 </p>
+<p>2.01.00 </p>
+<p>ESCAN00094184: BETA version - the </p>
+<p>BSW module is in BETA state </p>
+<p>Heiko Hübler </p>
+<p>2017-07-26 </p>
+<p>3.00.00 </p>
+<p>STORYC-919: Development Mode </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_SecureOnboardCommunication.pdf </p>
+<p>V4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>V4.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>V1.0.0 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>3 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 8</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations .......................................................................................... 8</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Secured PDUs ................................................................................... 8</p>
+<p> </p>
+<p>3.1.2.1</p>
+<p> </p>
+<p>Reception of Secured PDUs ............................................ 9</p>
+<p> </p>
+<p>3.1.2.2</p>
+<p> </p>
+<p>Transmission of Secured PDUs ....................................... 9</p>
+<p> </p>
+<p>3.1.2.3</p>
+<p> </p>
+<p>Secured PDU Collections................................................. 9</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Generic Freshness value interface ..................................................... 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Development Mode .......................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 10</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 10</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 12</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 12</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 12</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 12</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 13</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 15</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Services provided by SecOC ........................................................................... 15</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>SecOC_InitMemory .......................................................................... 15</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>SecOC_Init ...................................................................................... 15</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>SecOC_DeInit .................................................................................. 16</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>SecOC_GetVersionInfo .................................................................... 16</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>SecOC_Transmit .............................................................................. 17</p>
+<p> </p>
+<p>5.1.6</p>
+<p> </p>
+<p>SecOC_VerifyStatusOverride ........................................................... 17</p>
+<p> </p>
+<p>5.1.7</p>
+<p> </p>
+<p>SecOC_SetDevelopmentMode ........................................................ 18</p>
+<p> </p>
+<p>5.1.8</p>
+<p> </p>
+<p>SecOC_MainFunctionRx .................................................................. 18</p>
+<p> </p>
+<p>5.1.9</p>
+<p> </p>
+<p>SecOC_MainFunctionTx .................................................................. 19</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services used by SecOC ................................................................................. 19</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 20</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>SecOC_RxIndication ........................................................................ 20</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>4 </p>
+<p>based on template version 5.9.0 </p>
+<p>5.3.2</p>
+<p> </p>
+<p>SecOC_TxConfirmation ................................................................... 20</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>SecOC_TriggerTransmit................................................................... 21</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>SecOC_TpRxIndication .................................................................... 21</p>
+<p> </p>
+<p>5.3.5</p>
+<p> </p>
+<p>SecOC_TpTxConfirmation ............................................................... 22</p>
+<p> </p>
+<p>5.3.6</p>
+<p> </p>
+<p>SecOC_CopyRxData ....................................................................... 22</p>
+<p> </p>
+<p>5.3.7</p>
+<p> </p>
+<p>SecOC_CopyTxData ........................................................................ 23</p>
+<p> </p>
+<p>5.3.8</p>
+<p> </p>
+<p>SecOC_StartOfReception ................................................................ 24</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 24</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Notifications ..................................................................................... 24</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 24</p>
+<p> </p>
+<p>5.4.2.1</p>
+<p> </p>
+<p>SecOC_VerificationStatusCallout ................................... 25</p>
+<p> </p>
+<p>5.4.2.2</p>
+<p> </p>
+<p>SecOC_GetTxFreshnessTruncData ............................... 25</p>
+<p> </p>
+<p>5.4.2.3</p>
+<p> </p>
+<p>SecOC_GetTxFreshness ............................................... 26</p>
+<p> </p>
+<p>5.4.2.4</p>
+<p> </p>
+<p>SecOC_SPduTxConfirmation ........................................ 27</p>
+<p> </p>
+<p>5.4.2.5</p>
+<p> </p>
+<p>SecOC_GetRxFreshnessAuthData ................................ 27</p>
+<p> </p>
+<p>5.4.2.6</p>
+<p> </p>
+<p>SecOC_GetRxFreshness............................................... 28</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 30</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Client Server Interface ..................................................................... 30</p>
+<p> </p>
+<p>5.5.1.1</p>
+<p> </p>
+<p>Provide Ports on SecOC Side ........................................ 30</p>
+<p> </p>
+<p>5.5.1.1.1</p>
+<p> </p>
+<p>[Provide Port] ............................................. 30</p>
+<p> </p>
+<p>5.5.1.2</p>
+<p> </p>
+<p>Require Ports on SecOC Side ....................................... 30</p>
+<p> </p>
+<p>5.5.1.2.1</p>
+<p> </p>
+<p>[Require Port] ............................................. 30</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 32</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 32</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary ...................................................................................................................... 33</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 33</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 34</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>5 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.3 Architecture Overview ......................................................... 7</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 8</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ................................. 8</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 11</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 11</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 12</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 13</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>SecOC_InitMemory .................................................................................. 15</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>SecOC_Init ............................................................................................... 15</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>SecOC_DeInit ........................................................................................... 16</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>SecOC_GetVersionInfo ............................................................................ 16</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>SecOC_Transmit ...................................................................................... 17</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>SecOC_VerifyStatusOverride ................................................................... 18</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>SecOC_SetDevelopmentMode ................................................................. 18</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>SecOC_ MainFunctionRx ......................................................................... 18</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>SecOC_ MainFunctionTx .......................................................................... 19</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Services used by the SecOC .................................................................... 19</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>SecOC_RxIndication ................................................................................ 20</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>SecOC_TxConfirmation ............................................................................ 20</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>SecOC_TriggerTransmit ........................................................................... 21</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>SecOC_TpRxIndication ............................................................................ 22</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>SecOC_TpTxConfirmation ........................................................................ 22</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>SecOC_CopyRxData ................................................................................ 23</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>SecOC_CopyTxData ................................................................................ 23</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>SecOC_StartOfReception ......................................................................... 24</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>[SecOC_VerificationStatusCallout] ............................................................ 25</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>[SecOC_GetTxFreshnessTruncData] ....................................................... 26</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>[SecOC_GetTxFreshness] ........................................................................ 26</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>[SecOC_SPduTxConfirmation] ................................................................. 27</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>[SecOC_GetRxFreshnessAuthData] ......................................................... 28</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>[SecOC_GetRxFreshness] ....................................................................... 29</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>[Provide Port] ............................................................................................ 30</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>[Require Port] ........................................................................................... 31</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 33</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>6 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Authentication of interface PDUs </p>
+<p><b>&gt; </b></p>
+<p>Verification of interface PDUs </p>
+<p>2.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Support of lower layer Tp interface  </p>
+<p><b>&gt; </b></p>
+<p>Support of CSM 4.2 </p>
+<p>3.01.00 </p>
+<p><b>&gt; </b></p>
+<p>Trigger Transmit API with SduLength as in/out parameter </p>
+<p>4.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Generic Freshness value interface </p>
+<p><b>&gt; </b></p>
+<p>Verification status override api </p>
+<p>5.00.00 </p>
+<p><b>&gt; </b></p>
+<p>QM release </p>
+<p><b>&gt; </b></p>
+<p>Support of splitting a Secured Message into an Authentic and an </p>
+<p>Cryptographic PDU </p>
+<p><b>&gt; </b></p>
+<p>Support of Autosar 4.3 CSM </p>
+<p><b>&gt; </b></p>
+<p>Post Build Loadable and Post Build Selectable </p>
+<p>6.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Support standalone distribution of AR4.3 SecOC </p>
+<p>7.01.00 </p>
+<p><b>&gt; </b></p>
+<p>Removed support of CAL and CSM 4.2  </p>
+<p><b>&gt; </b></p>
+<p>Removed SecOC internal Freshness Counter Support </p>
+<p><b>&gt; </b></p>
+<p>SafeBSW release  </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>7 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module SecOC as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>SecOC_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>SecOC_MODULE_ID   </p>
+<p>150 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the precise AUTOSAR Release 3.x please see the release specific documentation.  </p>
+<p> </p>
+<p>The AUTOSAR SecOC module provides a mechanism to authenticate and verify I-PDUs. </p>
+<p>The SecOC module aims for resource-efficient and practicable authentication  </p>
+<p>mechanisms for critical data on the level of PDUs. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the SecOC is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.3 Architecture Overview   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>8 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>SecOC. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Authentication during direct transmission </p>
+<p>Authentication during triggered transmission </p>
+<p>Verification during bus interface reception </p>
+<p>Authentication during transport protocol transmission </p>
+<p>Verification during transport protocol reception </p>
+<p>Use of CSM 4.3 </p>
+<p>RTE Service Interface: </p>
+<p><b>&gt; </b></p>
+<p>Verification Status Service </p>
+<p><b>&gt; </b></p>
+<p>Counter Management Service </p>
+<p><b>&gt; </b></p>
+<p>Generic Freshness Value interface </p>
+<p><b>&gt; </b></p>
+<p>Verification Status Configuration Service </p>
+<p><b>&gt; </b></p>
+<p>Support of splitting a Secured Message into an Authentic and an Cryptographic PDU </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>PduR APIs according to Autosar 4.3 </p>
+<p>Authentic PDUs with dynamic length </p>
+<p>DataId as part of SecOC_VerificationStatusType </p>
+<p>Reception Overflow Strategies  </p>
+<p>Tp Interface to Upper Layer </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Secured PDUs </b></p>
+<p>A Secured PDU is the combination of: </p>
+<p>Authentic PDU | Truncated Freshness Value | Truncated Authenticator (Big Endian Style) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>9 </p>
+<p>based on template version 5.9.0 </p>
+<p>To generate the Authenticator following data is used: </p>
+<p>Data Id | Authentic PDU | Complete Freshness value </p>
+<p><b>3.1.2.1 </b></p>
+<p><b>Reception of Secured PDUs  </b></p>
+<p>The SecOC is used to verify received Secured PDUs. If the verification is successful the </p>
+<p>Authentic PDU is passed to the upper layer. </p>
+<p><b>3.1.2.2 </b></p>
+<p><b>Transmission of Secured PDUs </b></p>
+<p>The SecOC adds to an Authentic PDU the truncated Freshness Value and the Truncated </p>
+<p>Authenticator and passes the build Secured PDU to the Lower Layer. </p>
+<p><b>3.1.2.3 </b></p>
+<p><b>Secured PDU Collections </b></p>
+<p>A Secured PDU Collection splits a Secured PDU into two separate PDUs, the Authentic </p>
+<p>PDU and the Cryptographic PDU. The Authentic PDU contatins the Payload passed from </p>
+<p>the Upper Layer and the Cryptographic PDU contains the truncated freshness value and </p>
+<p>the truncated authenticator. </p>
+<p>To  improve  the  reliability,  the  two  messages  can  be  linked  by  a  Message  Linker.  The </p>
+<p>message  linker  is  a  byte  from  the Authentic  PDU  that  is  attached  to  the  Cryptographic </p>
+<p>PDU.  On  Reception  side  the  verification  is  only  started  if  the  message  linker  of  the </p>
+<p>authentic and the cryptographic PDU are equal.  </p>
+<p><b>3.1.3 </b></p>
+<p><b>Generic Freshness value interface </b></p>
+<p>The Generic Freshness value interface is used by the SecOC to get a Freshness value to </p>
+<p>verify or generate a MAC. </p>
+<p>On Reception side the SecOC can use two different generic freshness value interfaces to </p>
+<p>get the freshness verify value. Which callout is used by the SecOC can be configured per </p>
+<p>Rx Processing. </p>
+<p>SecOC_GetRxFreshnessAuthData  this  callout  is  used  if  the  Freshness  Management </p>
+<p>Component </p>
+<p>needs </p>
+<p>additional </p>
+<p>information </p>
+<p>from </p>
+<p>the </p>
+<p>Authentic </p>
+<p>PDU </p>
+<p>to </p>
+<p>generate </p>
+<p>the </p>
+<p>freshness verify value. (For details see 5.4.2.5) </p>
+<p>SecOC_GetRxFreshness  this  callout  can  be  used  for  all  common  freshness  value  use </p>
+<p>cases, e.g. Freshness Counter and Freshness Timestamp. (For details see 5.4.2.6) </p>
+<p>On Transmission side the SecOC can use two different generic freshness value interfaces </p>
+<p>to get the freshness verify value. Which callout is used by the SecOC can be configured </p>
+<p>per Tx Processing. </p>
+<p>SecOC_GetTxFreshnessTruncData  this  callout  is  used  if  the  Freshness  Management </p>
+<p>Component  provides  the  complete  freshness  value  and  the  truncated  freshness  value. </p>
+<p>(For details see 5.4.2.2) </p>
+<p>SecOC_GetTxFreshness  this  callout  is  used  if  the  Freshness  Management  Component </p>
+<p>provides only the complete freshness value. (For details see 5.4.2.3) </p>
+<p>After  a  transmit  request  is  passed  successful  to  the  lower  layer  component  the  callout </p>
+<p>SecOC_SPduTxConfirmation is called, this callout can be used to increment the freshness </p>
+<p>value within the Freshness Management Component. (For details see 5.4.2.4) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>10 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>3.2 </b></p>
+<p><b>Development Mode </b></p>
+<p>If  the  development  mode  is  active  during  runtime all  PDUs  will  be  passed to the  Upper </p>
+<p>Layer, even if the verification fails.  </p>
+<p>The development mode must be enabled in the configuration with the configuration switch </p>
+<p>/MICROSAR/SecOC/SecOCGeneral/SecOCEnableDevelopmentMode. </p>
+<p>To  enable  the  development mode during  runtime the API  SecOC_SetDevelopmentMode </p>
+<p>must be called. </p>
+<p><b>3.3 </b></p>
+<p><b>Initialization </b></p>
+<p>If  not  already  done  by  the  startup  code,  the  statically  initialized  RAM  variables   </p>
+<p>must be initialized by calling SecOC_InitMemory(). </p>
+<p>The SecOC itself is initialized by calling SecOC_Init().The module can be reset with   </p>
+<p>SecOC_DeInit().  </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>The </p>
+<p>SecOC </p>
+<p>has </p>
+<p>the </p>
+<p>main </p>
+<p>functions </p>
+<p>SecOC_MainFunctionRx() </p>
+<p>and </p>
+<p>SecOC_MainFunctionTx(). </p>
+<p>The authentication or verification of a PDU will always take place within the main function. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>SecOC_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported SecOC ID is 150. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.1. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x01 </p>
+<p>SECOC_SID_INIT </p>
+<p>0x02 </p>
+<p>SECOC_SID_GET_VERSION_INFO </p>
+<p>0x03 </p>
+<p>SECOC_SID_TRANSMIT </p>
+<p>0x04 </p>
+<p>SECOC_SID_CANCEL_TRANSMIT </p>
+<p>0x05 </p>
+<p>SECOC_SID_DE_INIT </p>
+<p>0x08 </p>
+<p>SECOC_SID_FRESHNESS_VALUE_READ </p>
+<p>0x09 </p>
+<p>SECOC_SID_FRESHNESS_VALUE_WRITE </p>
+<p>0x0B </p>
+<p>SECOC_SID_VERIFY_STATUS_OVERRIDE </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>11 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x0C </p>
+<p>SECOC_SID_RX_INDICATION </p>
+<p>0x0E </p>
+<p>SECOC_SID_TX_CONFIRMATION </p>
+<p>0x0F </p>
+<p>SECOC_SID_TRIGGER_TRANSMIT </p>
+<p>0x14 </p>
+<p>SECOC_SID_MAIN_FUNCTION_RX </p>
+<p>0x15 </p>
+<p>SECOC_SID_MAIN_FUNCTION_TX </p>
+<p>0x43 </p>
+<p>SECOC_SID_COPY_TX_DATA </p>
+<p>0x44 </p>
+<p>SECOC_SID_COPY_RX_DATA </p>
+<p>0x45 </p>
+<p>SECOC_SID_TP_RX_INDICATION </p>
+<p>0x46 </p>
+<p>SECOC_SID_START_OF_RECEPTION </p>
+<p>0x48 </p>
+<p>SECOC_SID_TP_TX_CONFIRMATION </p>
+<p>0x50 </p>
+<p>SECOC_SID_SET_DEVELOPMENT_MODE </p>
+<p>0x80 </p>
+<p>SECOC_SID_INTERNAL </p>
+<p>Table 3-3  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>An API service was called with a NULL pointer </p>
+<p>0x02 </p>
+<p>API service used without module initialization or PduR_Init called </p>
+<p>0x03 </p>
+<p>Invalid I-PDU identifier </p>
+<p>0x04 </p>
+<p>Crypto service failed </p>
+<p>0x05 </p>
+<p>Unable to get Freshness Value </p>
+<p>0x06 </p>
+<p>Freshness Value at limit </p>
+<p>0x07 </p>
+<p>An API service was called with an invalid parameter </p>
+<p>Table 3-4  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>12 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR SecOC into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the SecOC contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>SecOC.c </p>
+<p>Source file of the SecOC module</p>
+<p> </p>
+<p>SecOC.h </p>
+<p>Main header file which shall be included by modules using the SecOC </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool [config tool]. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>SecOC_Cfg.h </p>
+<p>This file contains:   </p>
+<p><b>&gt; </b></p>
+<p>global constant macros  </p>
+<p><b>&gt; </b></p>
+<p>global function macros  </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures  </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes  </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes  </p>
+<p>of CONFIG-CLASS PRE-COMPILE data. </p>
+<p>SecOC_Cbk.h </p>
+<p>This is the generated header file of SecOC containing prototypes for lower </p>
+<p>layers. </p>
+<p>SecOC_Cot.h </p>
+<p>This is the generated header file of SecOC containing callout prototypes. </p>
+<p>SecOC_Lcfg.h </p>
+<p>This file contains:  </p>
+<p><b>&gt; </b></p>
+<p>global constant macros   </p>
+<p><b>&gt; </b></p>
+<p>global function macros   </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures   </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes  </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes   </p>
+<p>of CONFIG-CLASS LINK data. </p>
+<p>SecOC_Lcfg.c </p>
+<p>This file contains:  </p>
+<p><b>&gt; </b></p>
+<p>local constant macros  </p>
+<p><b>&gt; </b></p>
+<p>local function macros  </p>
+<p><b>&gt; </b></p>
+<p>local data types and structures  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>13 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p><b>&gt; </b></p>
+<p>local data prototypes  </p>
+<p><b>&gt; </b></p>
+<p>local data   </p>
+<p><b>&gt; </b></p>
+<p>global data  </p>
+<p>of CONFIG-CLASS LINK data. </p>
+<p>SecOC_PBcfg.h </p>
+<p>This file contains:  </p>
+<p><b>&gt; </b></p>
+<p>global constant macros  </p>
+<p><b>&gt; </b></p>
+<p>global function macros  </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures  </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes  </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes  </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>SecOC_PBcfg.c </p>
+<p>This file contains:  </p>
+<p><b>&gt; </b></p>
+<p>local constant macros  </p>
+<p><b>&gt; </b></p>
+<p>local function macros  </p>
+<p><b>&gt; </b></p>
+<p>local data types and structures  </p>
+<p><b>&gt; </b></p>
+<p>local data prototypes  </p>
+<p><b>&gt; </b></p>
+<p>local data  </p>
+<p><b>&gt; </b></p>
+<p>global data  </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>SecOC_Types.h </p>
+<p>This file contains the static type definitions. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The handling of entering and leaving critical sections is provided by the RTE. </p>
+<p>Following critical sections are offered: </p>
+<p><b>&gt; </b></p>
+<p>SECOC_EXCLUSIVE_AREA_TXSTATE </p>
+<p>Used to provide exclusive access to the Tx state value. </p>
+<p>Used in following functions: </p>
+<p><b>&gt; </b></p>
+<p>SecOC_MainFunctionRx</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SecOC_MainFunctionTx</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SecOC_Transmit</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SecOC_TxConfirmation</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SecOC_TriggerTransmit</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SECOC_EXCLUSIVE_AREA_RXSTATE </p>
+<p>Used to provide exclusive access to the Rx state value. </p>
+<p>Used in following functions: </p>
+<p><b>&gt; </b></p>
+<p>SecOC_MainFunctionRx</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>SecOC_MainFunctionTx</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>14 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>&gt; </b></p>
+<p>SecOC_RxIndication</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>15 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Services provided by SecOC </b></p>
+<p><b>5.1.1 </b></p>
+<p><b>SecOC_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Function for *_INIT_*-variable initialization. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Module must not be initializedFunction shall be called from task level </p>
+<p>Service to initialize module global variables at power up. This function can be used to initialize the variables </p>
+<p>in *_INIT_* sections in case they are not initialized by the startup code.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-1  </p>
+<p>SecOC_InitMemory </p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>SecOC_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_Init </b>(const SecOC_ConfigType *config) </p>
+<p><b>Parameter </b></p>
+<p>config [in] </p>
+<p>Configuration structure for initializing the module </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initialization function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Specification of module initialization </p>
+<p>&gt; </p>
+<p>Interrupts have to be disabled.The module has to be uninitialized. </p>
+<p>This function initializes the module SecOC. It initializes all variables and sets the module state to initialized.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-2  </p>
+<p>SecOC_Init </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>16 </p>
+<p>based on template version 5.9.0 </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>SecOC_DeInit </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_DeInit </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Deinitialization function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Specification of module initialization </p>
+<p>&gt; </p>
+<p>Interrupts have to be disabled.The module has to be uninitialized. </p>
+<p>This function stops the secure onboard communication. All buffered I-PDU are removed and have to be </p>
+<p>optained again, if needed, after SecOC_Init has been called. By a call to SecOC_DeInit the AUTOSAR </p>
+<p>SecOC module is put into an not initialized state (SecOC_UNINIT).  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-3  </p>
+<p>SecOC_DeInit </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>SecOC_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_GetVersionInfo </b>(Std_VersionInfoType *versioninfo) </p>
+<p><b>Parameter </b></p>
+<p>versioninfo [out] </p>
+<p>Pointer to where to store the version information </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Input parameter must not be NULL.Function shall be called from task level </p>
+<p>SecOC_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID of the </p>
+<p>component.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-4  </p>
+<p>SecOC_GetVersionInfo </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>17 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.1.5 </b></p>
+<p><b>SecOC_Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_Transmit </b>(PduIdType id, const PduInfoType *info) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>ID of the Authentic I-PDU to be transmitted. </p>
+<p>info [in] </p>
+<p>A pointer to a structure with Authentic I-PDU related data that shall be </p>
+<p>transmitted: data length and pointer to I-SDU buffer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType E_OK: request is accepted by the SecOC module. </p>
+<p>transmission is continued. E_NOT_OK: request is not accepted by the SecOC </p>
+<p>module. transmission is aborted. </p>
+<p><b>Functional Description </b></p>
+<p>Transmits an Authentic I-PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Function is called by the PDUR to request authentication and transmission of an Authentic I-PDU.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-5  </p>
+<p>SecOC_Transmit </p>
+<p><b>5.1.6 </b></p>
+<p><b>SecOC_VerifyStatusOverride </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_VerifyStatusOverride </b>(uint16 freshnessValueID, uint8 </p>
+<p>overrideStatus, uint8 numberOfMessagesToOverride) </p>
+<p><b>Parameter </b></p>
+<p>freshnessValueID [in] </p>
+<p>ID of the Freshness Value which when used to authenticate data, results in </p>
+<p>SecOC_VerifyStatus equal to OverrideStatus independent of the actual </p>
+<p>authentication status. </p>
+<p>overrideStatus [in] </p>
+<p>0 = Override VerifyStatus to &quot;Fail&quot; until further notice 1 = Override </p>
+<p>VerifyStatus to &quot;Fail&quot; until NumberOfMessagesToOverride is reached 2 = </p>
+<p>Cancel Override of VerifyStatus 41 = Override VerifyStatus to &quot;Pass&quot; until </p>
+<p>NumberOfMessagesToOverride is reached; only available if </p>
+<p>SecOCEnableForcedPassOverride is set to TRUE </p>
+<p>numberOfMessagesToOverride </p>
+<p>[in] </p>
+<p>Number of sequential VerifyStatus to override when using a specific </p>
+<p>counter for authentication verification. This is only considered when </p>
+<p>OverrideStatus is equal to 1 or 41. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType E_OK: request successful E_NOT_OK: request failed </p>
+<p><b>Functional Description </b></p>
+<p>Sets verification status override. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This service provides the ability to override the VerifyStatus with &quot;Fail&quot; or &quot;Pass&quot; when using a specific </p>
+<p>Freshness Value to verify authenticity of data making up an I-PDU. Using this interface, VerifyStatus may </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>18 </p>
+<p>based on template version 5.9.0 </p>
+<p>be overridden 1. Indefinitely for received I-PDUs which use the specific Freshness Value for authentication </p>
+<p>verification 2. For a number of sequentially received I-PDUs which use the specific Freshness Value for </p>
+<p>authentication verification.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>Table 5-6  </p>
+<p>SecOC_VerifyStatusOverride </p>
+<p><b>5.1.7 </b></p>
+<p><b>SecOC_SetDevelopmentMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_SetDevelopmentMode </b>(boolean enableDevMode) </p>
+<p><b>Parameter </b></p>
+<p>enableDevMode [in] </p>
+<p>TRUE  - Development Mode is enabled. </p>
+<p>FALSE - Development Mode is disabled </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>Enables/Disables the development mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>Table 5-7  </p>
+<p>SecOC_SetDevelopmentMode </p>
+<p> </p>
+<p><b>5.1.8 </b></p>
+<p><b>SecOC_MainFunctionRx </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_</b></p>
+<p> </p>
+<p><b>MainFunctionRx </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>Void </p>
+<p>None </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>This function verifies the received Secured PDUs.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the BSW Scheduler. </p>
+<p>Call Context </p>
+<p>This function must be called on task level. </p>
+<p>Table 5-8  </p>
+<p>SecOC_ MainFunctionRx </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>19 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.1.9 </b></p>
+<p><b>SecOC_MainFunctionTx </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_</b></p>
+<p> </p>
+<p><b>MainFunctionTx </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>Void </p>
+<p>None </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>Authenticates the Authentic PDUs before transmission. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the BSW Scheduler. </p>
+<p>Call Context </p>
+<p>This function must be called on task level. </p>
+<p>Table 5-9  </p>
+<p>SecOC_ MainFunctionTx </p>
+<p><b>5.2 </b></p>
+<p><b>Services used by SecOC </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>SecOC are listed. For details about prototype and functionality refer to the documentation </p>
+<p>of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>PDUR </p>
+<p>PduR_SecOCTransmit </p>
+<p>PDUR </p>
+<p>PduR_SecOCRxIndication </p>
+<p>PDUR </p>
+<p>PduR_SecOCTxConfirmation </p>
+<p>CSM </p>
+<p>Csm_MacGenerateStart </p>
+<p>CSM </p>
+<p>Csm_MacGenerateUpdate </p>
+<p>CSM </p>
+<p>Csm_MacGenerateFinish </p>
+<p>CSM </p>
+<p>Csm_MacVerifyStart </p>
+<p>CSM </p>
+<p>Csm_MacVerifyUpdate </p>
+<p>CSM </p>
+<p>Csm_MacVerifyFinish </p>
+<p>CSM </p>
+<p>Csm_MacGenerate </p>
+<p>CSM </p>
+<p>Csm_MacVerify </p>
+<p>Table 5-10  </p>
+<p>Services used by the SecOC </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>20 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.3 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This chapter describes the callback functions that are implemented by the SecOC and can </p>
+<p>be invoked by other modules. The prototypes of the callback functions are provided in the </p>
+<p>header file </p>
+<p>SecOC_Cbk.h</p>
+<p> by the SecOC. </p>
+<p><b>5.3.1 </b></p>
+<p><b>SecOC_RxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_RxIndication </b>(PduIdType id, const PduInfoType *info) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>ID of the received Secured I-PDU. </p>
+<p>info [in] </p>
+<p>A pointer to a structure with Secured I-PDU related data: data length and </p>
+<p>pointer to I-SDU buffer. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Callback is called when a Secured I-PDU is received. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Called by the PDUR to indicate direct reception of a Secured I-PDU from a lower layer communication </p>
+<p>interface. This call triggers the verification of the received Secured I-PDU.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-11  </p>
+<p>SecOC_RxIndication </p>
+<p><b>5.3.2 </b></p>
+<p><b>SecOC_TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_TxConfirmation </b>(PduIdType id) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>ID of the transmitted Secured I-PDU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Callback is called to confirm a transmission. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The lower layer communication interface module confirms the transmission of a Secured I-PDU via PDUR.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-12  </p>
+<p>SecOC_TxConfirmation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>21 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.3.3 </b></p>
+<p><b>SecOC_TriggerTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_TriggerTransmit </b>(PduIdType id, PduInfoType *info) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>ID of the Authentic I-PDU to be transmitted. </p>
+<p>info [in,out] </p>
+<p>Contains a pointer to a buffer (SduDataPtr) where the SDU data shall be </p>
+<p>copied to, and the available buffer size in SduLengh. On return, the service will </p>
+<p>indicate the length of the copied SDU data in SduLength. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK SDU has been copied and SduLength indicates the number of copied </p>
+<p>bytes. </p>
+<p>Std_ReturnType </p>
+<p>E_NOT_OK No data has been copied, because SecOC is not initialized or </p>
+<p>TxPDUId is not valid or PDUInfoPtr is NULL_PTR or SduDataPtr is </p>
+<p>NULL_PTR or SduLength is too small </p>
+<p><b>Functional Description </b></p>
+<p>Callback is called ba the Lower Layer to get a Secured I-PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called when a lower layer communication module expects a Secured I-PDU to be </p>
+<p>transmitted. The SecOC module copies the Secured I-PDU into the buffer of the lower layer communication </p>
+<p>module.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-13  </p>
+<p>SecOC_TriggerTransmit </p>
+<p> </p>
+<p><b>5.3.4 </b></p>
+<p><b>SecOC_TpRxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_TpRxIndication </b>(PduIdType id, Std_ReturnType result) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>Identification of the received I-PDU. </p>
+<p>result [in] </p>
+<p>Result of the reception. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Callback is called to indicate a completed reception. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called after an I-PDU has been received via the TP API, the result indicates whether the </p>
+<p>transmission was successful or not.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>22 </p>
+<p>based on template version 5.9.0 </p>
+<p>Table 5-14  </p>
+<p>SecOC_TpRxIndication </p>
+<p> </p>
+<p><b>5.3.5 </b></p>
+<p><b>SecOC_TpTxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_TpTxConfirmation </b>(PduIdType id, Std_ReturnType result) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>Identification of the transmitted I-PDU. </p>
+<p>result [in] </p>
+<p>Result of the transmission of the I-PDU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Callback is called to indicate a completed transmission. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This function is called after the I-PDU has been transmitted on its network, the result indicates whether the </p>
+<p>transmission was successful or not.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-15  </p>
+<p>SecOC_TpTxConfirmation </p>
+<p> </p>
+<p><b>5.3.6 </b></p>
+<p><b>SecOC_CopyRxData </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>SecOC_CopyRxData </b>(PduIdType id, const PduInfoType *info, </p>
+<p>PduLengthType *bufferSizePtr) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>Identification of the received I-PDU. </p>
+<p>info [in] </p>
+<p>Provides the source buffer (SduDataPtr) and the number of bytes to be copied </p>
+<p>(SduLength). An SduLength of 0 can be used to query the current amount of </p>
+<p>available buffer in the upper layer module. In this case, the SduDataPtr may be </p>
+<p>a NULL_PTR. </p>
+<p>bufferSizePtr [out] </p>
+<p>Available receive buffer after data has been copied. </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType BUFREQ_OK: Data copied successfully. </p>
+<p>BUFREQ_E_NOT_OK: Data was not copied because an error occurred. </p>
+<p><b>Functional Description </b></p>
+<p>This callback copies the received I-PDU segment. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This function is called to provide the received data of an I-PDU segment (N-PDU) to the upper layer. Each </p>
+<p>call to this function provides the next part of the I-PDU data. The size of the remaining data is written to the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>23 </p>
+<p>based on template version 5.9.0 </p>
+<p>position indicated by bufferSizePtr.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-16  </p>
+<p>SecOC_CopyRxData </p>
+<p> </p>
+<p><b>5.3.7 </b></p>
+<p><b>SecOC_CopyTxData </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>SecOC_CopyTxData </b>(PduIdType id, const PduInfoType *info, </p>
+<p>RetryInfoType *retry, PduLengthType *availableDataPtr) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>Identification of the transmitted I-PDU. </p>
+<p>info [in] </p>
+<p>Provides the destination buffer (SduDataPtr) and the number of bytes to be </p>
+<p>copied (SduLength). If not enough transmit data is available, no data is copied </p>
+<p>by the upper layer module and BUFREQ_E_BUSY is returned. The lower layer </p>
+<p>module may retry the call. An SduLength of 0 can be used to indicate state </p>
+<p>changes in the retry parameter or to query the current amount of available </p>
+<p>data in the upper layer module. In this case, the SduDataPtr may be a </p>
+<p>NULL_PTR. </p>
+<p>retry [in] </p>
+<p>This parameter is used to acknowledge transmitted data or to retransmit data </p>
+<p>after transmission problems. </p>
+<p>availableDataPtr [out] </p>
+<p>Indicates the remaining number of bytes that are available in the upper layer </p>
+<p>module's Tx buffer. availableDataPtr can be used by TP modules that support </p>
+<p>dynamic payload lengths (e.g. FrIsoTp) to determine the size of the following </p>
+<p>CFs. </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType BUFREQ_OK: Data has been copied to the transmit </p>
+<p>buffer completely as requested. BUFREQ_E_BUSY: Request could not be </p>
+<p>fulfilled, because the required amount of Tx data is not available. The lower </p>
+<p>layer module may retry this call later on. No data has been copied. </p>
+<p>BUFREQ_E_NOT_OK: Data has not been copied. Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This callback copies the transmitted I-PDU segment. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This function is called to acquire the transmit data of an I-PDU segment (N-PDU). Each call to this function </p>
+<p>provides the next part of the I-PDU data unless retry-&gt;TpDataState is TP_DATARETRY. In this case the </p>
+<p>function restarts to copy the data beginning at the offset from the current position indicated by retry-</p>
+<p>&gt;TxTpDataCnt. The size of the remaining data is written to the position indicated by availableDataPtr.  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-17  </p>
+<p>SecOC_CopyTxData </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>24 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.3.8 </b></p>
+<p><b>SecOC_StartOfReception </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>SecOC_StartOfReception </b>(PduIdType id, const PduInfoType </p>
+<p>*info, PduLengthType TpSduLength, PduLengthType *bufferSizePtr) </p>
+<p><b>Parameter </b></p>
+<p>id [in] </p>
+<p>Identification of the I-PDU. </p>
+<p>info [in] </p>
+<p>Pointer to a PduInfoType structure containing the payload data (without </p>
+<p>protocol information) and payload length of the first frame or single frame of a </p>
+<p>transport protocol I-PDU reception. Depending on the global parameter </p>
+<p>MetaDataLength, additional bytes containing MetaData (e.g. the CAN ID) are </p>
+<p>appended after the payload data, increasing the length accordingly. If neither </p>
+<p>first/single frame data nor MetaData are available, this parameter is set to </p>
+<p>NULL_PTR. </p>
+<p>TpSduLength [in] </p>
+<p>Total length of the N-SDU to be received. </p>
+<p>bufferSizePtr [out] </p>
+<p>Available receive buffer in the receiving module. This parameter will be used to </p>
+<p>compute the Block Size (BS) in the transport protocol module. </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType BUFREQ_OK: Connection has been accepted. </p>
+<p>bufferSizePtr indicates the available receive buffer; reception is continued. If </p>
+<p>no buffer of the requested size is available, a receive buffer size of 0 shall be </p>
+<p>indicated by bufferSizePtr. BUFREQ_E_NOT_OK: Connection has been </p>
+<p>rejected; reception is aborted. bufferSizePtr remains unchanged. </p>
+<p>BUFREQ_E_OVFL: No buffer of the required length can be provided; </p>
+<p>reception is aborted. bufferSizePtr remains unchanged. </p>
+<p><b>Functional Description </b></p>
+<p>This callback is called to indicate the start of a segmented reception. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This function is called at the start of receiving an N-SDU. The N-SDU might be fragmented into multiple N-</p>
+<p>PDUs (FF with one or more following CFs) or might consist of a single N-PDU (SF).  </p>
+<p>Call context </p>
+<p>FunctionCallcontext </p>
+<p>Table 5-18  </p>
+<p>SecOC_StartOfReception </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.4.1 </b></p>
+<p><b>Notifications </b></p>
+<p><b>5.4.2 </b></p>
+<p><b>Callout Functions  </b></p>
+<p>At its configurable interfaces the SecOC defines callout functions. The declarations of the </p>
+<p>callout functions  are  provided  by  the  BSW module,  i.e.  the  SecOC.  It  is the  integrator's </p>
+<p>task to provide the corresponding function definitions. The definitions of the callouts can be </p>
+<p>adjusted to the system's needs. The SecOC callout function declarations are described in </p>
+<p>the following tables: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>25 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.4.2.1 </b></p>
+<p><b>SecOC_VerificationStatusCallout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>SecOC_VerificationStatusCallout </b></p>
+<p> </p>
+<p>(SecOC_VerificationStatusType </p>
+<p>verificationStatus )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOC_VerificationSt</p>
+<p>atusType </p>
+<p>verificationStatus</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Service is used to propagate the status of each verification attempt from the SecOC  </p>
+<p>module to other modules. This service can be configured such that:  </p>
+<p><b>&gt; </b></p>
+<p>Only: “False” Verification Status is propagated to modules  </p>
+<p><b>&gt; </b></p>
+<p>Both: “True” and “False” Verification Status is propagated to modules  </p>
+<p><b>&gt; </b></p>
+<p>None: “No Verification Status is propagated“ </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-19  </p>
+<p>[SecOC_VerificationStatusCallout] </p>
+<p><b>5.4.2.2 </b></p>
+<p><b>SecOC_GetTxFreshnessTruncData </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_GetTxFreshnessTruncData </b></p>
+<p> </p>
+<p>(uint16 SecOCFreshnessValueID,  </p>
+<p>uint8* SecOCFreshnessValue, uint32* SecOCFreshnessValueLength, uint8* </p>
+<p>SecOCTruncatedFreshnessValue, uint32* SecOCTruncatedFreshnessValueLength)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOCFreshnessValueI</p>
+<p>D </p>
+<p>Holds the identifier of the freshness value. </p>
+<p> </p>
+<p>SecOCFreshnessValueL</p>
+<p>ength </p>
+<p>Holds the length of the provided freshness in bits. </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValueLength </p>
+<p>Provides the truncated freshness length configured for </p>
+<p>this freshness. The function may adapt the value if </p>
+<p>needed or can leave it unchanged if the configured length </p>
+<p>and provided length is the same. </p>
+<p>SecOCFreshnessValue  Holds the current freshness value </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValue </p>
+<p>Holds the truncated freshness to be included into the </p>
+<p>Secured I-PDU. The parameter is optional. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>26 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: request successful </p>
+<p>E_NOT_OK: request failed, a freshness value cannot be provided due to </p>
+<p>general issues for freshness or this FreshnessValueId.  </p>
+<p>E_BUSY: The freshness information can temporarily not be provided </p>
+<p><b>Functional Description </b></p>
+<p>This interface is used by the SecOC to obtain the current freshness value. The interface function provides </p>
+<p>also the truncated freshness transmitted in the secured I-PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-20  </p>
+<p>[SecOC_GetTxFreshnessTruncData] </p>
+<p><b>5.4.2.3 </b></p>
+<p><b>SecOC_GetTxFreshness </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_GetTxFreshness </b></p>
+<p> </p>
+<p>(uint16 SecOCFreshnessValueID,  uint8* </p>
+<p>SecOCFreshnessValue, uint32* SecOCFreshnessValueLength)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOCFreshnessValueI</p>
+<p>D </p>
+<p>Holds the identifier of the freshness value. </p>
+<p> </p>
+<p>SecOCFreshnessValueL</p>
+<p>ength </p>
+<p>Holds the length of the provided freshness in bits. </p>
+<p>SecOCFreshnessValue  Holds the current freshness value </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: request successful </p>
+<p>E_NOT_OK: request failed, a freshness value cannot be provided due to </p>
+<p>general issues for freshness or this FreshnessValueId.  </p>
+<p>E_BUSY: The freshness information can temporarily not be provided </p>
+<p><b>Functional Description </b></p>
+<p>This interface is used by the SecOC to obtain the current freshness value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-21  </p>
+<p>[SecOC_GetTxFreshness] </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>27 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.4.2.4 </b></p>
+<p><b>SecOC_SPduTxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>SecOC_SPduTxConfirmation </b></p>
+<p> </p>
+<p>(uint16 SecOCFreshnessValueID)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOCFreshnessValueI</p>
+<p>D </p>
+<p>Holds the identifier of the freshness value. </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This interface is used by the SecOC to indicate that the Secured I-PDU has been initiated for transmission. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-22  </p>
+<p>[SecOC_SPduTxConfirmation] </p>
+<p><b>5.4.2.5 </b></p>
+<p><b>SecOC_GetRxFreshnessAuthData </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_GetRxFreshnessAuthData </b></p>
+<p> </p>
+<p>(uint16 SecOCFreshnessValueID, </p>
+<p>    const uint8 *SecOCTruncatedFreshnessValue,  </p>
+<p>    uint32 SecOCTruncatedFreshnessValueLength, </p>
+<p>    const uint8 *SecOCAuthDataFreshnessValue, </p>
+<p>    uint16 SecOCAuthDataFreshnessValueLength </p>
+<p>    uint16 SecOCAuthVerifyAttempts, </p>
+<p>    uint8 *SecOCFreshnessValue, </p>
+<p>    uint32 *SecOCFreshnessValueLength)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOCFreshnessValueI</p>
+<p>D </p>
+<p>Holds the identifier of the freshness value. </p>
+<p> </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValue </p>
+<p>Holds the truncated freshness value that was contained in </p>
+<p>the Secured I-PDU. </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValueLength </p>
+<p>Holds the length in bits of the truncated freshness </p>
+<p>value. </p>
+<p>SecOCAuthDataFreshne</p>
+<p>ssValue </p>
+<p>The parameter holds a part of the received, not yet </p>
+<p>authenticated PDU. </p>
+<p>SecOCAuthDataFreshne</p>
+<p>ssValueLength </p>
+<p>This is the length value in bits that holds the freshness </p>
+<p>from the authentic PDU. The parameter is optional (see </p>
+<p>description). </p>
+<p>SecOCAuthVerifyAttem</p>
+<p>pts </p>
+<p>Holds the number of authentication verify attempts of </p>
+<p>this PDU since the last reception. The value is 0 for the </p>
+<p>first attempt and incremented on every unsuccessful </p>
+<p>verification attempt. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>28 </p>
+<p>based on template version 5.9.0 </p>
+<p>SecOCFreshnessValue  Holds the length in bits of the freshness value. </p>
+<p>SecOCFreshnessValueL</p>
+<p>ength </p>
+<p>Holds the freshness value to be used for the calculation </p>
+<p>of the authenticator. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: request successful </p>
+<p>E_NOT_OK: request failed, a freshness value cannot be provided due to </p>
+<p>general issues for freshness or this FreshnessValueId.  </p>
+<p>E_BUSY: The freshness information can temporarily not be provided. </p>
+<p><b>Functional Description </b></p>
+<p>This interface is used by the SecOC to obtain the current freshness value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>None </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-23  </p>
+<p>[SecOC_GetRxFreshnessAuthData] </p>
+<p><b>5.4.2.6 </b></p>
+<p><b>SecOC_GetRxFreshness </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>SecOC_GetRxFreshness</b></p>
+<p> </p>
+<p>(uint16 SecOCFreshnessValueID, </p>
+<p>    const uint8 *SecOCTruncatedFreshnessValue,  </p>
+<p>    uint32 SecOCTruncatedFreshnessValueLength, </p>
+<p>    uint16 SecOCAuthVerifyAttempts, </p>
+<p>    uint8 *SecOCFreshnessValue, </p>
+<p>    uint32 *SecOCFreshnessValueLength)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>SecOCFreshnessValueI</p>
+<p>D </p>
+<p>Holds the identifier of the freshness value. </p>
+<p> </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValue </p>
+<p>Holds the truncated freshness value that was contained in </p>
+<p>the Secured I-PDU. </p>
+<p>SecOCTruncatedFreshn</p>
+<p>essValueLength </p>
+<p>Holds the length in bits of the truncated freshness </p>
+<p>value. </p>
+<p>SecOCAuthVerifyAttem</p>
+<p>pts </p>
+<p>Holds the number of authentication verify attempts of </p>
+<p>this PDU since the last reception. The value is 0 for the </p>
+<p>first attempt and incremented on every unsuccessful </p>
+<p>verification attempt. </p>
+<p>SecOCFreshnessValue  Holds the length in bits of the freshness value. </p>
+<p>SecOCFreshnessValueL</p>
+<p>ength </p>
+<p>Holds the freshness value to be used for the calculation </p>
+<p>of the authenticator. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: request successful </p>
+<p>E_NOT_OK: request failed, a freshness value cannot be provided due to </p>
+<p>general issues for freshness or this FreshnessValueId.  </p>
+<p>E_BUSY: The freshness information can temporarily not be provided. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>29 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Functional Description </b></p>
+<p>This interface is used by the SecOC to obtain the current freshness value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>None </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>task context </p>
+<p>Table 5-24  </p>
+<p>[SecOC_GetRxFreshness] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>30 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.5 </b></p>
+<p><b>Service Ports  </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>Client Server Interface </b></p>
+<p>A client server interface is related to a Provide Port at the server side and a Require Port </p>
+<p>at client side.  </p>
+<p><b>5.5.1.1 </b></p>
+<p><b>Provide Ports on SecOC Side </b></p>
+<p>At  the  Provide  Ports  of  the  SecOC  the API  functions  described  in  5.1  are  available  as </p>
+<p>Runnable Entities. The Runnable Entities are invoked via Operations. The mapping from a </p>
+<p>SWC client call to an Operation is performed by the RTE. In this mapping the RTE adds </p>
+<p>Port Defined Argument Values to the client call of the SWC, if configured. </p>
+<p>The  following  sub-chapters  present  the  Provide  Ports  defined  for  the  SecOC  and  the </p>
+<p>Operations defined for the Provide Ports, the API functions related to the Operations to be </p>
+<p>added by the RTE. </p>
+<p><b>5.5.1.1.1 </b></p>
+<p><b>[Provide Port] </b></p>
+<p><b>Operation </b></p>
+<p><b>API Function </b></p>
+<p><b>Port Defined Argument Values </b></p>
+<p>SecOCVerifyStatusOverride </p>
+<p>SecOC_VerifyStatusOverride </p>
+<p>uint16 freshnessValueId, uint8 </p>
+<p>overrideStatus, uint8 </p>
+<p>numberOfMessagesToOverride </p>
+<p>Table 5-25  </p>
+<p>[Provide Port] </p>
+<p><b>5.5.1.2 </b></p>
+<p><b>Require Ports on SecOC Side </b></p>
+<p>At its Require Ports the SecOC calls Operations. These Operations have to be provided by </p>
+<p>the  SWCs  by  means  of  Runnable  Entities.  These  Runnable  Entities  implement  the </p>
+<p>callback functions expected by the SecOC. </p>
+<p>The </p>
+<p>following </p>
+<p>sub-chapters </p>
+<p>present </p>
+<p>the </p>
+<p>Require </p>
+<p>Ports </p>
+<p>defined </p>
+<p>for </p>
+<p>the </p>
+<p>SecOC, </p>
+<p>the </p>
+<p>Operations  that  are  called  from  the  SecOC  and  the  related  Notifications,  which  are </p>
+<p>described in chapter 5.4. </p>
+<p><b>5.5.1.2.1 </b></p>
+<p><b>[Require Port] </b></p>
+<p><b>Operation </b></p>
+<p><b>Notification </b></p>
+<p>{SecOC_VerificationStatusService} </p>
+<p>Is used to propagate the status of each authentication attempt. </p>
+<p>{SecOC_GetTxFreshnessTruncData} </p>
+<p>This operation is used by the SecOC to obtain the freshness that </p>
+<p>corresponds to the freshnessValueId. The operation provides the </p>
+<p>freshness and also the truncated freshness that shall be placed </p>
+<p>into the Secured-IPDU. </p>
+<p>{GetTxFreshness} </p>
+<p>This operation is used by the SecOC to obtain the freshness that </p>
+<p>corresponds to the freshnessValueId. </p>
+<p>{SPduTxConfirmation} </p>
+<p>This operation is used by the SecOC to indicate that the Secured </p>
+<p>I-PDU has been initiated for transmission. </p>
+<p>{GetRxFreshness} </p>
+<p>This interface is used by the SecOC to obtain the current </p>
+<p>freshness value. This operation provides also a part of the </p>
+<p>Authentic-PDU data if configured. </p>
+<p>{GetRxFreshnessAuthData} </p>
+<p>This interface is used by the SecOC to obtain the current </p>
+<p>freshness value. This operation provides also a part of the </p>
+<p>Authentic-PDU data if configured. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>31 </p>
+<p>based on template version 5.9.0 </p>
+<p>Table 5-26  </p>
+<p>[Require Port] </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>32 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The SecOC supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-POST-BUILD-LOADABLE </p>
+<p><b>&gt; </b></p>
+<p>VARIANT- POST-BUILD-SELECTABLE </p>
+<p>The </p>
+<p>configuration </p>
+<p>classes </p>
+<p>of </p>
+<p>the </p>
+<p>SecOC </p>
+<p>parameters </p>
+<p>depend </p>
+<p>on </p>
+<p>the </p>
+<p>supported </p>
+<p>configuration variants. For their definitions please see the SecOC_bswmd.arxml file. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>33 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary </b></p>
+<p><b>7.1 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>PDU </p>
+<p>Protocol data unit </p>
+<p>I-PDU </p>
+<p>Interface protocol data unit </p>
+<p>Table 7-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Secure Onboard Communication </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.0.0 </p>
+<p>34 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,880 @@
+---
+layout: default
+title: DlogClassic_IntegrationManual
+nav_order: 2
+parent: Dlog
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Dlog Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.3.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.3.1</p>
+<p>2017-12-14</p>
+<p>Update NvM configuration</p>
+<p>5.3.0</p>
+<p>2017-11-09</p>
+<p>Version Update</p>
+<p>5.2.1</p>
+<p>2017-10-12</p>
+<p>Fix RDBI commands</p>
+<p>5.2.0</p>
+<p>2017-09-14</p>
+<p>Fix RDBI commands</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>Remove deprecated stuff, change FirstStartFlag to ProgId</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>Initial version for SP2021</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 1 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>4</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>4</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>4</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>5</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>6</b></p>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p><b>7</b></p>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>8</b></p>
+<p>5.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>8</p>
+<p>5.1.1</p>
+<p>CRC Library</p>
+<p>8</p>
+<p>5.1.2</p>
+<p>DCM</p>
+<p>8</p>
+<p>5.1.3</p>
+<p>MemIf</p>
+<p>8</p>
+<p>5.1.4</p>
+<p>NvM</p>
+<p>8</p>
+<p>5.1.5</p>
+<p>RTE</p>
+<p>8</p>
+<p>5.2</p>
+<p>Dependencies on BMW modules</p>
+<p>8</p>
+<p>5.2.1</p>
+<p>Bootmanager</p>
+<p>8</p>
+<p>5.2.2</p>
+<p>BUtil</p>
+<p>8</p>
+<p>5.2.3</p>
+<p>Coding</p>
+<p>9</p>
+<p>5.2.4</p>
+<p>DlogUser</p>
+<p>9</p>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>10</b></p>
+<p>6.1</p>
+<p>Configuration of other Modules</p>
+<p>10</p>
+<p>6.1.1</p>
+<p>Dcm</p>
+<p>10</p>
+<p>6.1.1.1</p>
+<p>Read Data By Identifier</p>
+<p>10</p>
+<p>6.1.1.2</p>
+<p>Routine Control</p>
+<p>10</p>
+<p>6.1.2</p>
+<p>Nvm</p>
+<p>11</p>
+<p>6.1.3</p>
+<p>MemIf</p>
+<p>12</p>
+<p>6.2</p>
+<p>Configuration</p>
+<p>12</p>
+<p>6.2.1</p>
+<p>DlogGeneral</p>
+<p>12</p>
+<p>6.2.2</p>
+<p>DlogFeatures</p>
+<p>13</p>
+<p>6.2.3</p>
+<p>DlogUser</p>
+<p>13</p>
+<p>6.2.4</p>
+<p>DlogSharedGeneral</p>
+<p>13</p>
+<p>6.2.4.1</p>
+<p>Logistic</p>
+<p>13</p>
+<p>6.2.5</p>
+<p>DlogSharedInterface</p>
+<p>13</p>
+<p>6.2.6</p>
+<p>DlogSharedPlatform</p>
+<p>13</p>
+<p>6.3</p>
+<p>ECC error handling</p>
+<p>14</p>
+<p>6.4</p>
+<p>Configuration of the RTE</p>
+<p>14</p>
+<p>6.5</p>
+<p>Software Integration</p>
+<p>15</p>
+<p>6.5.1</p>
+<p>Startup/Initialisation</p>
+<p>15</p>
+<p>6.5.1.1</p>
+<p>Preconditions</p>
+<p>15</p>
+<p>6.5.1.2</p>
+<p>Postconditions</p>
+<p>15</p>
+<p>6.5.2</p>
+<p>Normal Operation</p>
+<p>15</p>
+<p>6.5.3</p>
+<p>Shutdown/Deactivation</p>
+<p>15</p>
+<p>6.5.3.1</p>
+<p>Preconditions</p>
+<p>15</p>
+<p>6.5.3.2</p>
+<p>Postconditions</p>
+<p>15</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 2 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p>6.5.4</p>
+<p>Memory Mapping</p>
+<p>16</p>
+<p><b>7</b></p>
+<p><b>Post Integration</b></p>
+<p><b>17</b></p>
+<p>7.1</p>
+<p>SWE Generator Config File</p>
+<p>17</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 3 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4/aBAC Modules please refer to [1].</p>
+<p>This document only describes topics related to the Dlog BAC4/aBAC Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW system</p>
+<p>function Dlog.</p>
+<p><b>Functional overview</b></p>
+<p>The Data Logistic is part of the BootManager, Bootloader and Application. It is needed for every ECU to</p>
+<p>get production information</p>
+<p>identify software and hardware</p>
+<p>check compatibility of hardware and software</p>
+<p>check compatibility of all software units (SWEs)</p>
+<p>check at startup if the software is valid and may be started.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 4 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>API</p>
+<p>Application Programming Interface</p>
+<p>Application</p>
+<p>Application stands for</p>
+<p>the high-level</p>
+<p>part</p>
+<p>of</p>
+<p>software that</p>
+<p>uses the APIs</p>
+<p>provided by the modules.</p>
+<p>It can also mean the driving application that does</p>
+<p>not belong to the Bootloader.</p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>CCC</p>
+<p>Car Communication Computer</p>
+<p>Central Pia Master</p>
+<p>Central</p>
+<p>instance</p>
+<p>controlling</p>
+<p>and</p>
+<p>managing</p>
+<p>Pia</p>
+<p>functionality</p>
+<p>(PIA-</p>
+<p>Zentralinstanz).</p>
+<p>Coding</p>
+<p>Coding Client</p>
+<p>DTC</p>
+<p>Diagnostic Trouble Code -&gt; Fehlercode des Fehlerspeichereintrages</p>
+<p>ECU</p>
+<p>Electronic Control Unit</p>
+<p>FAT</p>
+<p>Flash-Absicherungs-Tool</p>
+<p>FZG</p>
+<p>Fahrzeug</p>
+<p>HO</p>
+<p>Handelsorganisation (BMW)</p>
+<p>HW</p>
+<p>Hardware</p>
+<p>IDRL</p>
+<p>Individual Data Recovery - light</p>
+<p>OS</p>
+<p>Operating System</p>
+<p>Pia</p>
+<p>Personalisierung, Individualisierung, Adaption (Personalization, Individualiza-</p>
+<p>tion, Adaptation)</p>
+<p>Pia value</p>
+<p>Scalar setting used by a Pia function.</p>
+<p>PiaClient</p>
+<p>Basic software module providing services for Pia functions.</p>
+<p>Profile</p>
+<p>Union of all personal Pia values.</p>
+<p>RAM Block</p>
+<p>The part</p>
+<p>of</p>
+<p>an NVRAM Block that</p>
+<p>resides in the RAM.</p>
+<p>A RAM block is</p>
+<p>used as shared memory interface between the NVRAM manager and the</p>
+<p>PiaClient.</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>SG</p>
+<p>Steuergerät</p>
+<p>SGID</p>
+<p>Steuergeräte-ID, Diagnoseadresse, Steuergeräte-Adresse</p>
+<p>SID</p>
+<p>Service Identifier</p>
+<p>SW</p>
+<p>Software</p>
+<p>SW-C</p>
+<p>Software Component</p>
+<p>UDS</p>
+<p>Universal Diagnostic Services</p>
+<p>VIN</p>
+<p>Vehicle Identification Number</p>
+<p>VIN7</p>
+<p>The last 7 digits of the 17-digit VIN</p>
+<p>All abbreviations used throughout this document -- except the ones listed here -- can be found in the</p>
+<p>official AUTOSAR glossary [2].</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 5 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>[1]</p>
+<p>BAC4 General Concept for the Module Integration</p>
+<p>BAC4_General_Concepts_for_the_Module_Integration.pdf</p>
+<p>[2]</p>
+<p>Glossary</p>
+<p>AUTOSAR_TR_Glossary</p>
+<p>[3]</p>
+<p>Specification of CRC Routines</p>
+<p>AUTOSAR_SWS_CRCLibrary</p>
+<p>[4]</p>
+<p>Specification of Diagnostic Communication Manager</p>
+<p>AUTOSAR_SWS_DiagnosticCommunicationManager</p>
+<p>[5]</p>
+<p>Specification of Memory Abstraction Interface</p>
+<p>AUTOSAR_SWS_MemoryAbstractionInterface</p>
+<p>[6]</p>
+<p>Specification of NVRAM Manager</p>
+<p>AUTOSAR_SWS_NVRAMManager</p>
+<p>[7]</p>
+<p>Specification of RTE Software</p>
+<p>AUTOSAR_SWS_RTE</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 6 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p>Dlog has been validated on HWs where erased flash cells can be read without triggering a ECC exception.</p>
+<p>Nevertheless it should also run on other types of HWs, see section 6.3, ``ECC error handling'' for details.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 7 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p><b>CRC Library</b></p>
+<p>In the Bootmanager, the CRC Library [3] is used for checking the SWEs against data corruption.</p>
+<p><b>DCM</b></p>
+<p>The module Dcm [4] will call functionality of the module DataLogistic when a ReadDataByIdentifier,</p>
+<p>WriteDataByIdentifier or RoutineControl has been received for an logistic operation. In Application the</p>
+<p>corresponding R-ports of the Dcm for these operations shall be connected with the corresponding</p>
+<p>P-ports of the module DataLogistic. In Bootloader the Dcm calls the C-Api of DataLogistic.</p>
+<p><b>MemIf</b></p>
+<p>In Bootloader, the NV-RAM blocks are initialized via MemIf [5].</p>
+<p><b>NvM</b></p>
+<p>In Application, the NV-RAM blocks are initialized through the NvM [6].</p>
+<p><b>RTE</b></p>
+<p>Only in Application the module DataLogistic is realized as a software component and is using RTE</p>
+<p>services [7] for client/server as well as sender/receiver communication to communicate with other SWCs.</p>
+<p><b>Dependencies on BMW modules</b></p>
+<p><b>Bootmanager</b></p>
+<p>In Bootmanager, the file</p>
+<p>Bmhw_Platform_Cfg.h</p>
+<p>is #included. It must define the function</p>
+<p>BM_CLEAR_HARDWARE_ECC_ERROR_FLAG()</p>
+<p>.</p>
+<p><b>BUtil</b></p>
+<p>The BUtil library provides utility functions used by Dlog.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 8 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Coding</b></p>
+<p>The connection to the module Coding is used in Application. There are two connections between Coding</p>
+<p>and DataLogistic. The module Coding provides functions to get the CAF-IDs. The module DataLogistic</p>
+<p>provides the current programming ID for the Coding and other concerned modules.</p>
+<p>The corresponding P-/R-ports of the module DataLogistic shall be connected with the corresponding</p>
+<p>R-/P-ports of the module Coding.</p>
+<p><b>DlogUser</b></p>
+<p>If the configuration parameter</p>
+<p>DlogShared/DlogSharedPlatform/MultiCpuEnable</p>
+<p>is set to true,</p>
+<p>the multi cpu features of the Dlog module are enabled. In this case, the user/integrator needs to</p>
+<p>implement the functions declared in</p>
+<p>DlogUser.h</p>
+<p>. In the application, where the RTE is enabled, the C/S</p>
+<p>interfaces</p>
+<p>DlogUser_Svk</p>
+<p>,</p>
+<p>DlogUser_DevelopmentInfo</p>
+<p>and</p>
+<p>DlogUser_SweProgrammingStatus</p>
+<p>need to be provided.</p>
+<p>If the configuration parameters</p>
+<p>Dlog/Dlog_Features/ExceptionHandlerHandleSWEErrors</p>
+<p>and</p>
+<p>DlogShared/DlogSharedPlatform/HandleEccRom</p>
+<p>are set to TRUE, the user/integrator needs to</p>
+<p>implement the function</p>
+<p>Dlog_UserTriggerEccCheck()</p>
+<p>(see section 6.3, ``ECC error handling'' for</p>
+<p>details).</p>
+<p>The API documentation can be found in the</p>
+<p>Dlog_User.h</p>
+<p>header file in doxygen format.</p>
+<p><b>ProgId</b></p>
+<p>In the Application, there is a special P-Port</p>
+<p>ProgId</p>
+<p>(see section 6.4, ``Configuration of the RTE''). It can</p>
+<p>be used by the user/integrator to retrieve the Programming Id, which changes after each reprogramming.</p>
+<p>So it can be used to determine whether the ECU has been reprogrammed since the last check of this Id.</p>
+<p>The Id can then be saved to NvM to check for the next reprogramming.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 9 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before the module Dlog is compiled and linked.</p>
+<p><b>Dcm</b></p>
+<p><b>Read Data By Identifier</b></p>
+<p>The following RDBI commands shall be configured within Dcm.</p>
+<p><b>Id</b></p>
+<p><b>Length (bytes)</b></p>
+<p><b>Connect to (RTE interface)</b></p>
+<p>0x2504</p>
+<p>12</p>
+<p>TimingParameters</p>
+<p>0x8000</p>
+<p>16</p>
+<p>EcuUid</p>
+<p>0xf101</p>
+<p>Variable, max=RteSvkArrayMaxSize</p>
+<p>1</p>
+<p>SvkCurrent</p>
+<p>0xf102</p>
+<p>4 +<i> f</i> + 8<i> ∗</i> (<i>ns</i> +<i> nh</i>)</p>
+<p>2</p>
+<p>SvkSystemSupplier</p>
+<p>0xf103</p>
+<p>4 +<i> f</i> + 8<i> ∗</i> (<i>ns</i> +<i> nh</i>)</p>
+<p>2</p>
+<p>SvkPlant</p>
+<p>0xf10[i+4]</p>
+<p>4 +<i> f</i> + 8<i> ∗</i> (<i>ns</i> +<i> nh</i>)</p>
+<p>2</p>
+<p>SvkBackup[i]</p>
+<p>0xf152</p>
+<p>2</p>
+<p>HWModificationIndex</p>
+<p>0xf18b</p>
+<p>3</p>
+<p>EcuManufacturingDate</p>
+<p>0xf18c</p>
+<p>EcuSerialNumberLength</p>
+<p>3</p>
+<p>EcuSerialNumber</p>
+<p>0xf190</p>
+<p>17</p>
+<p>Vin</p>
+<p><b>Routine Control</b></p>
+<p>The following RC command shall be configured within Dcm.</p>
+<p><b>ReadDevelopmentInfoField</b></p>
+<p><b>Id</b></p>
+<p>0x205</p>
+<p><b>Fixed Length</b></p>
+<p>False</p>
+<p><b>Start Routine</b></p>
+<p>Dlog_RoutineControlStartReadDevelopmentInfoField</p>
+<p><b>Input Signals</b></p>
+<p><b>Id</b></p>
+<p><b>Pos</b></p>
+<p><b>Length (bytes)</b></p>
+<p>0</p>
+<p>0</p>
+<p>8 (variable)</p>
+<p><b>Output Signals</b></p>
+<p><b>Id</b></p>
+<p><b>Pos</b></p>
+<p><b>Length (bytes)</b></p>
+<p>0</p>
+<p>0</p>
+<p>DevelopmentInfoLength (variable)</p>
+<p><b>Stop Routine</b></p>
+<p>&lt;None&gt;</p>
+<p><b>Info Routine</b></p>
+<p>&lt;None&gt;</p>
+<p>1</p>
+<p>Configuration parameter, see DlogClassic_paramef.arxml.</p>
+<p>2</p>
+<p>Where<i> ns</i> the number of SWEs,<i> nh</i> the number of HWEs and<i> f</i> the length of the fingerprint.</p>
+<p>3</p>
+<p>Configuration parameter, see DlogShared_paramef.arxml.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 10 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Nvm</b></p>
+<p>The Dlog needs the following Nvm blocks to store the logistic data.</p>
+<p><b>NVM_BLOCK_BOOT_PROG_DATA</b></p>
+<p>NvMBlockHeaderInclude</p>
+<p>Dlog_Nvm.h</p>
+<p>NvMBlockJobPriority</p>
+<p>0</p>
+<p>NvMBlockManagementType</p>
+<p>NVM_BLOCK_NATIVE</p>
+<p>NvMBlockWriteProt</p>
+<p>True</p>
+<p>NvMInitBlockCallback</p>
+<p>-</p>
+<p>NvMNvBlockLength</p>
+<p>48</p>
+<p>4</p>
+<p>NvMNvBlockNum</p>
+<p>1</p>
+<p>NvMRamBlockDataAddress</p>
+<p>Dlog_ProgData</p>
+<p>NvMResistantToChangedSw</p>
+<p>true, if NvMDynamicConfiguration = true</p>
+<p>NvMRomBlockDataAddress</p>
+<p>-</p>
+<p>NvMRomBlockNum</p>
+<p>0</p>
+<p>NvMSelectBlockForReadall</p>
+<p>true</p>
+<p>NvMSelectBlockForWriteAll</p>
+<p>false</p>
+<p>NvMSingleBlockCallback</p>
+<p>-</p>
+<p>NvMWriteBlockOnce</p>
+<p>False</p>
+<p><b>Write Frequency:</b></p>
+<p>This block will be written on</p>
+<p>authentication</p>
+<p>Write Data By Identifier VIN</p>
+<p>programming the ECU</p>
+<p>first start up after programming the ECU.</p>
+<p><b>NVM_BLOCK_BOOT_SVK_HISTORY</b></p>
+<p>NvMBlockHeaderInclude</p>
+<p>Dlog_Nvm.h</p>
+<p>NvMBlockJobPriority</p>
+<p>0</p>
+<p>NvMBlockManagementType</p>
+<p>NVM_BLOCK_NATIVE</p>
+<p>NvMBlockWriteProt</p>
+<p>False</p>
+<p>NvMInitBlockCallback</p>
+<p>-</p>
+<p>NvMNvBlockLength</p>
+<p>10</p>
+<p>4</p>
+<p>NvMNvBlockNum</p>
+<p>1</p>
+<p>NvMRamBlockDataAddress</p>
+<p>Dlog_SvkHistory</p>
+<p>NvMResistantToChangedSw</p>
+<p>true, if NvMDynamicConfiguration = true</p>
+<p>NvMRomBlockDataAddress</p>
+<p>-</p>
+<p>NvMRomBlockNum</p>
+<p>0</p>
+<p>NvMSelectBlockForReadall</p>
+<p>true</p>
+<p>NvMSelectBlockForWriteAll</p>
+<p>false</p>
+<p>NvMSingleBlockCallback</p>
+<p>-</p>
+<p>NvMWriteBlockOnce</p>
+<p>False</p>
+<p>4</p>
+<p>block length might differ depending on the used compiler and compiler settings</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 11 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Write Frequency:</b></p>
+<p>This block will be written after programming the ECU with a valid application.</p>
+<p><b>NVM_BLOCK_DLOG_SVK_ENTRY</b></p>
+<p>NvMBlockHeaderInclude</p>
+<p>Dlog_Nvm.h</p>
+<p>NvMBlockJobPriority</p>
+<p>0</p>
+<p>NvMBlockManagementType</p>
+<p>NVM_BLOCK_DATASET</p>
+<p>NvMBlockWriteProt</p>
+<p>False</p>
+<p>NvMInitBlockCallback</p>
+<p>-</p>
+<p>NvMNvBlockLength</p>
+<p>8 + 8<i> ∗</i> MaxNumberOfHistorySgbmIds</p>
+<p>NvMNvBlockNum</p>
+<p>2 + DlogNumberOfSvkBackups</p>
+<p>NvMRamBlockDataAddress</p>
+<p>-</p>
+<p>NvMResistantToChangedSw</p>
+<p>true, if NvMDynamicConfiguration = true</p>
+<p>NvMRomBlockDataAddress</p>
+<p>-</p>
+<p>NvMRomBlockNum</p>
+<p>0</p>
+<p>NvMSelectBlockForReadall</p>
+<p>false</p>
+<p>NvMSelectBlockForWriteAll</p>
+<p>false</p>
+<p>NvMSingleBlockCallback</p>
+<p>-</p>
+<p>NvMWriteBlockOnce</p>
+<p>False</p>
+<p><b>Write Frequency:</b></p>
+<p>This block will be written after programming the ECU with a valid application.</p>
+<p><b>MemIf</b></p>
+<p>When not using the Nvm,</p>
+<p>Dlog_InitNvm()</p>
+<p>shall be called at startup in order to read the NV blocks via</p>
+<p>MemIf. All blocks described in 0 must be configured to be used via the MemIf module.</p>
+<p><b>Configuration</b></p>
+<p>For details about the configuration parameters of the module Dlog please refer to the description in the</p>
+<p>Dlog*_paramdef.arxml files.</p>
+<p>The Dlog configuration contains the following containers:</p>
+<p>DlogGeneral</p>
+<p>DlogFeatures</p>
+<p>DlogUser</p>
+<p>DlogSharedGeneral</p>
+<p>DlogSharedInterface</p>
+<p>DlogSharedPlatform</p>
+<p><b>DlogGeneral</b></p>
+<p>This container contains the general configuration (parameters) of the Dlog module.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 12 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>DlogFeatures</b></p>
+<p>This container contains the switches for enabling and disabling certain features of the Dlog module.</p>
+<p>Depending on whether the Dlog module is used in Application, Bootloader or Bootmanager, different</p>
+<p>features need to be enabled or disabled.</p>
+<p><b>DlogUser</b></p>
+<p>This Container contains user defined callbacks.</p>
+<p><b>DlogSharedGeneral</b></p>
+<p>This container can be found in the DlogShared module, which contains the configuration parameters that</p>
+<p>are shared between Application, Bootloader and Bootmanager. Therefore, there shall be only one</p>
+<p>parameter configuration file, which is then used during the generation of the Dlog module in Application,</p>
+<p>Bootloader and Bootmanager. For details on the &lt;Module&gt;Shared concept, please refer to [1].</p>
+<p>For this container, the make verify rule not only verifies the configuration but also outputs information</p>
+<p>about the SWE configuration in a human readable format.</p>
+<p><b>Logistic</b></p>
+<p>This container contains the general logistic parameters. Special attention should be given to the choice of</p>
+<p>DlogHweTableLocation. The default is</p>
+<p>DLOG_HWE_LOC_ROM</p>
+<p>which puts the HWE table into a read-only</p>
+<p>memory section and should be ok in most cases. This memory section shall be placed somewhere,</p>
+<p>where it cannot be overwritten by an application or bootloader update. Note that the HWE table is read</p>
+<p>during normal operation in bootloader and application. Depending on your hardware this may interfere</p>
+<p>with the garbage collection of the Flash EEPROM Emulation for example. In such a case, the HWE table</p>
+<p>should be placed in RAM (</p>
+<p>DLOG_HWE_LOC_RAM</p>
+<p>). Then it is the responsibility of the integrator initialize</p>
+<p>this RAM location with the corresponding values in ROM during ECU startup.</p>
+<p><b>DlogSharedInterface</b></p>
+<p>This container contains options for interfaces to other modules.</p>
+<p><b>DlogSharedPlatform</b></p>
+<p>This container contains platform dependent functions.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 13 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>ECC error handling</b></p>
+<p>If the hardware supports ECC error detection,</p>
+<p>DlogShared/DlogSharedPlatform/HandleEccRom</p>
+<p>should be set to TRUE.</p>
+<p>Whenever ROM (Flash) ECC errors occur, it is expected, that either</p>
+<p>Dlog_RomAccessExceptionHandler()</p>
+<p>is called directly in the context of the CPU exception, or</p>
+<p>the ECC error is registered and</p>
+<p>Dlog_RomAccessExceptionHandler()</p>
+<p>is called later but must</p>
+<p>return before the function</p>
+<p>Dlog_UserTriggerEccCheck()</p>
+<p>returns.</p>
+<p>If the ECC error is not handled by</p>
+<p>Dlog_RomAccessExceptionHandler()</p>
+<p>, i.e. if</p>
+<p>ExceptionHandlerHandleSWEErrors</p>
+<p>is set to</p>
+<p>FALSE</p>
+<p>or the exception did not occur on a flash</p>
+<p>segment containing the valid flags of an SWE,</p>
+<p>Dlog_UserRomAccessExceptionHandler()</p>
+<p>is called.</p>
+<p><b>Configuration of the RTE</b></p>
+<p>After performing the steps indicated in section 6.1, ``Configuration of other Modules'' and section 6.2,</p>
+<p>``Configuration'', the RTE configuration can be started. Except for connecting the ports according to the</p>
+<p>table below, no special Rte configuration is needed for Dlog.</p>
+<p><b>Port</b></p>
+<p>5</p>
+<p><b>SWC / BSW</b></p>
+<p>Coding_Svk</p>
+<p>Coding</p>
+<p>DETService</p>
+<p>DET</p>
+<p>DevelopmentInfoField</p>
+<p>DCM</p>
+<p>DlogUser_DevelopmentInfo</p>
+<p>User defined SWC</p>
+<p>DlogUser_SvkCurrent</p>
+<p>User defined SWC</p>
+<p>DlogUser_SvkHistory</p>
+<p>User defined SWC</p>
+<p>DlogUser_SweProgrammingStatus</p>
+<p>User defined SWC</p>
+<p>EcuInfo</p>
+<p>Any SWC who needs it</p>
+<p>EcuSerialNumber</p>
+<p>DCM</p>
+<p>FlashTimingParameter</p>
+<p>DCM</p>
+<p>HWModificationIndex</p>
+<p>DCM</p>
+<p>InitBlockProgData</p>
+<p>NvM</p>
+<p>InitBlockSvkBackup&lt;x&gt;</p>
+<p>NvM</p>
+<p>InitBlockSvkHistory</p>
+<p>NvM</p>
+<p>InitBlockSvkPlant</p>
+<p>NvM</p>
+<p>InitBlockSvkSysSupp</p>
+<p>NvM</p>
+<p>LifeCycle</p>
+<p>BswM</p>
+<p>LifeCycleRequest</p>
+<p>BswM</p>
+<p>ManufacturingDate</p>
+<p>DCM</p>
+<p>NvMAdmin_DlogProgData</p>
+<p>NvM</p>
+<p>NvMNotifyJobFinished_DlogProgData</p>
+<p>NvM</p>
+<p>NvMService_DlogProgData</p>
+<p>NvM</p>
+<p>NvMService_DlogSvkEntry</p>
+<p>NvM</p>
+<p>NvMService_DlogSvkHistory</p>
+<p>NvM</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 14 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p>ProgId</p>
+<p>Any SWC who needs it (e.g. Coding)</p>
+<p>SgbdIdx</p>
+<p>DCM</p>
+<p>SvkBackup&lt;x&gt;</p>
+<p>DCM</p>
+<p>SvkCurrent</p>
+<p>DCM</p>
+<p>SvkPlant</p>
+<p>DCM</p>
+<p>SvkSysSupplier</p>
+<p>DCM</p>
+<p>SweInfo</p>
+<p>Any SWC who needs it</p>
+<p>SweSignatureAccess</p>
+<p>Any SWC who needs it</p>
+<p>SwfkDeleteSupported</p>
+<p>DCM</p>
+<p>Vin</p>
+<p>DCM</p>
+<p><b>Software Integration</b></p>
+<p><b>Startup/Initialisation</b></p>
+<p><b>Preconditions</b></p>
+<p>Before the INIT-Mode is requested, the following preconditions shall be satisfied:</p>
+<p>NvM_ReadAll</p>
+<p>must be finished</p>
+<p><b>Postconditions</b></p>
+<p>The Dlog module switches to INITIALIZED-Mode and then to RUNNING-Mode.</p>
+<p>The FirstStartMode switches according to the FristStartFlag</p>
+<p><b>Normal Operation</b></p>
+<p>Nothing to be done here.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p><b>Preconditions</b></p>
+<p>Before the STOPPED-Mode is requested, the Dlog module must be in RUNNING-Mode.</p>
+<p><b>Postconditions</b></p>
+<p>The Dlog module switches to STOPPED-Mode.</p>
+<p>5</p>
+<p>Some of these ports might be not available depending on the specific configuration of the Dlog module</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 15 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Memory Mapping</b></p>
+<p>The following memory sections shall be defined in their corresponding application SWEs and marked as</p>
+<p>overlay in all other SWEs:</p>
+<p>APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_DESCRIPTION_TABLE</p>
+<p>The description table, i.e. SGBM-ID and optional Development Info Field of SWE &lt;x&gt;.</p>
+<p>APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_FLASH_STATUS</p>
+<p>The flash status, i.e. CRC, Valid Flags, and Programming Dependency Flags of SWE &lt;x&gt;.</p>
+<p>APPL_&lt;START|STOP&gt;_SEC_CONST_SWE&lt;x&gt;_SIGNATURE</p>
+<p>The signature of SWE &lt;x&gt;.</p>
+<p>The following memory sections shall be defined in the bootloader SWEs and marked as overlay in all</p>
+<p>other SWEs:</p>
+<p>BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_DESCRIPTION_TABLE</p>
+<p>The description table, i.e. SGBM-ID and optional Development Info Field of the boot SWE.</p>
+<p>BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_FLASH_STATUS</p>
+<p>The flash status, i.e. CRC, Valid Flags, and Programming Dependency Flags of the boot SWE.</p>
+<p>BL_&lt;START|STOP&gt;_SEC_CONST_BOOTSWE_SIGNATURE</p>
+<p>The signature of the boot SWE.</p>
+<p>Dlog_&lt;START|STOP&gt;_SEC_CONST_SHARED_SWE_DATA</p>
+<p>Shared Data, that is located in the Bootloader and also accessd from Bootmanager and Application.</p>
+<p>Dlog_&lt;START|STOP&gt;_SEC_CONST_SHARED_MEMSEGTBL_DATA</p>
+<p>The memory segmentation table.</p>
+<p>The following memory sections shall be defined in the bootmanager and marked as overlay in all SWEs:</p>
+<p>Dlog_&lt;START|STOP&gt;_SEC_CONST_BM_HW_DESCRIPTION_TABLE</p>
+<p>The hardware description table,</p>
+<p>i.e.</p>
+<p>the SGBM-IDs of</p>
+<p>the HWEs,</p>
+<p>the ECU serial</p>
+<p>number</p>
+<p>and the</p>
+<p>manufacturing data.</p>
+<p>Dlog_&lt;START|STOP&gt;_SEC_VAR_SHARED_SWESTATUS</p>
+<p>The SWE status, i.e. the error flags for the SWEs</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 16 of 17</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>7</b></p>
+<p><b>Post Integration</b></p>
+<p><b>SWE Generator Config File</b></p>
+<p>After the Dlog/DlogShared module is fully configured, it is possible to generate a template configuration</p>
+<p>file for the SWE Generator. This is done by</p>
+<p>make g e n e r a t e _ D l o g _ s w e c o n f i g</p>
+<p>[ Dlog_SWE_CONFIG_FILE=&lt;SweConfigFile &gt; ]</p>
+<p>[ Dlog_SWE_CFG_OUTPUT_FILE=&lt;SweCfgOutputFile &gt;]</p>
+<p>The optional parameter</p>
+<p>Dlog_SWE_CONFIG_FILE</p>
+<p>defines the SWE configuration file. By default,</p>
+<p>sample/swecfg/DlogSweCfg_1.arxml</p>
+<p>is chosen, which is a sample configuration for the SWE</p>
+<p>number 1.</p>
+<p>The optional parameter</p>
+<p>Dlog_SWE_CFG_OUTPUT_FILE</p>
+<p>defines the output file name. By default, this is</p>
+<p>swegenerator_1.cfg</p>
+<p>. Note, that this is only the file name, not the full path. The output path will always</p>
+<p>be</p>
+<p>$(Dlog_OUTPUT_PATH)</p>
+<p>.</p>
+<p>The SWE configuration file (don't confuse it with the SWE Generator configuration file) is a simple</p>
+<p>ARXML parameter configuration file containing the following 3 parameters:</p>
+<p><b>Parameter</b></p>
+<p><b>Description</b></p>
+<p>SweNr</p>
+<p>Integer containing the SWE number for which the SWE Generator configuration file shall</p>
+<p>be</p>
+<p>written.</p>
+<p>SgbmId</p>
+<p>String containing the SgbmId of the SWE.</p>
+<p>SweStatusAtEnd</p>
+<p>Boolean defining whether the SWE Flash Status shall</p>
+<p>be placed at the end (TRUE)</p>
+<p>or at the</p>
+<p>beginning (FALSE) of the SWE.</p>
+<p>DlogClassic_IntegrationManual.pdf, Version 5.3.1, Software Platforms</p>
+<p>Page 17 of 17</p>
+</body>
+</html>
+{% endraw %}

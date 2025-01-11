@@ -1,0 +1,4566 @@
+---
+layout: default
+title: ProductInformation_2_MSR4-MICROSARSafe
+nav_order: 62
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Safe </b></p>
+<p>Product Information </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.9.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Jonas Wolf </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>2 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Jonas Wolf </p>
+<p>2015-10-31 </p>
+<p>1.0.0 </p>
+<p>Initial creation. </p>
+<p>Jonas Wolf </p>
+<p>2015-11-13 </p>
+<p>1.0.1 </p>
+<p>Remove GPT safety feature, add COM </p>
+<p>constraints </p>
+<p>Jonas Wolf </p>
+<p>2015-11-26 </p>
+<p>1.0.2 </p>
+<p>Adapt release types </p>
+<p>Jonas Wolf </p>
+<p>2015-12-01 </p>
+<p>1.0.3 </p>
+<p>Review of TSRs finished </p>
+<p>Jonas Wolf </p>
+<p>2015-12-10 </p>
+<p>1.0.4 </p>
+<p>Review comments by visrn </p>
+<p>Jonas Wolf </p>
+<p>2015-12-17 </p>
+<p>1.0.5 </p>
+<p>Safety manager mail contact details </p>
+<p>changed </p>
+<p>Jonas Wolf </p>
+<p>2016-01-19 </p>
+<p>1.1.0 </p>
+<p>Review by vismoe; Partitioning details </p>
+<p>added. </p>
+<p>Jonas Wolf </p>
+<p>2016-01-19 </p>
+<p>1.1.1 </p>
+<p>Fix term for SafeWDG </p>
+<p>Jonas Wolf </p>
+<p>2016-01-26 </p>
+<p>1.1.2 </p>
+<p>Fix typos </p>
+<p>Jonas Wolf </p>
+<p>2016-01-29 </p>
+<p>1.1.3 </p>
+<p>Update information from safety manual </p>
+<p>Jonas Wolf </p>
+<p>2016-03-08 </p>
+<p>1.2.0 </p>
+<p>Update information from safety manual </p>
+<p>Update roadmap </p>
+<p>Update Safety Case delivery </p>
+<p>Update of format </p>
+<p>Update delivery process </p>
+<p>Jonas Wolf </p>
+<p>2016-06-28 </p>
+<p>1.2.1 </p>
+<p>Update of lead time for production delivery </p>
+<p>Jonas Wolf </p>
+<p>2016-08-08 </p>
+<p>1.3.0 </p>
+<p>Update of roadmap </p>
+<p>Jonas Wolf </p>
+<p>2016-08-08 </p>
+<p>1.3.1 </p>
+<p>Remove constraint of PDUR </p>
+<p>Jonas Wolf </p>
+<p>2016-09-05 </p>
+<p>1.3.2 </p>
+<p>Update of roadmap </p>
+<p>Jonas Wolf </p>
+<p>2016-10-26 </p>
+<p>1.4.0 </p>
+<p>Update on XCP and AMD cluster </p>
+<p>Update on Ethernet </p>
+<p>Update on lead time for Safety Case for </p>
+<p>ASIL A/B </p>
+<p>Update of document structure </p>
+<p>Jonas Wolf </p>
+<p>2016-12-12  </p>
+<p>1.4.1 </p>
+<p>Update on Ethernet availability </p>
+<p>Jonas Wolf </p>
+<p>2017-01-10 </p>
+<p>1.5.0 </p>
+<p>Availability information revised </p>
+<p>Moved TLS to Ethernet cluster </p>
+<p>Removed constraint on COM </p>
+<p>Jonas Wolf </p>
+<p>2017-03-16 </p>
+<p>1.6.0 </p>
+<p>Added information that post build is not </p>
+<p>recommended </p>
+<p>Detail information on delivery dates </p>
+<p>Update to AUTOSAR 4.3 </p>
+<p>Update of availability </p>
+<p>Rene Isau </p>
+<p>2017-03-23 </p>
+<p>1.6.1 </p>
+<p>Corrected minor typos </p>
+<p>Rene Isau </p>
+<p>2017-03-27 </p>
+<p>1.6.2 </p>
+<p>Updated delivery time for Safety Case </p>
+<p>Jonas Wolf </p>
+<p>2017-06-20 </p>
+<p>1.7.0 </p>
+<p>Introduced new delivery type </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>3 </p>
+<p>based on template version 5.12.0 </p>
+<p>Production (Safety-ready) </p>
+<p>Update of Technical Safety Requirements </p>
+<p>Jonas Wolf </p>
+<p>2017-07-14 </p>
+<p>1.7.1 </p>
+<p>Added information on SOMEIPTP </p>
+<p>Jonas Wolf </p>
+<p>2017-08-15 </p>
+<p>1.8.0 </p>
+<p>Added information on vSENT, SafeETH, </p>
+<p>XFs, OEM SWCs </p>
+<p>Update of illustrations to fix typos </p>
+<p>Jonas Wolf </p>
+<p>2017-08-17 </p>
+<p>1.8.1 </p>
+<p>Added information on Safety Case </p>
+<p>Jonas Wolf </p>
+<p>2017-08-18 </p>
+<p>1.9.0 </p>
+<p>Simplification of delivery process and more </p>
+<p>information on issue reporting </p>
+<p>Incorporate safety manual updates </p>
+<p>Jonas Wolf </p>
+<p>2017-12-12 </p>
+<p>1.9.1 </p>
+<p>Make information about delivery process </p>
+<p>more precise </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> ISO </p>
+<p>ISO 26262 </p>
+<p>Road vehicles — Functional safety </p>
+<p>2011/2012 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>4 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose ............................................................................................................. 8</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Scope ................................................................................................................ 8</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Overview ............................................................................................................ 8</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Safety Concept ............................................................................................................. 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Overview ............................................................................................................ 9</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Partitioning Options ............................................................................................ 9</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Safety Concept ................................................................................................ 10</p>
+<p> </p>
+<p>2.3.1</p>
+<p> </p>
+<p>Technical Solution ............................................................................ 10</p>
+<p> </p>
+<p>2.3.2</p>
+<p> </p>
+<p>Tool Confidence ............................................................................... 11</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>Technical Safety Requirements ........................................................................ 12</p>
+<p> </p>
+<p>2.4.1</p>
+<p> </p>
+<p>Initialization ...................................................................................... 12</p>
+<p> </p>
+<p>2.4.2</p>
+<p> </p>
+<p>Self-test ............................................................................................ 12</p>
+<p> </p>
+<p>2.4.3</p>
+<p> </p>
+<p>Reset of ECU ................................................................................... 12</p>
+<p> </p>
+<p>2.4.4</p>
+<p> </p>
+<p>Data Consistency ............................................................................. 13</p>
+<p> </p>
+<p>2.4.5</p>
+<p> </p>
+<p>Non-volatile Memory ........................................................................ 13</p>
+<p> </p>
+<p>2.4.6</p>
+<p> </p>
+<p>Hard Real-time Scheduling .............................................................. 14</p>
+<p> </p>
+<p>2.4.7</p>
+<p> </p>
+<p>Memory Protection ........................................................................... 14</p>
+<p> </p>
+<p>2.4.8</p>
+<p> </p>
+<p>Communication ................................................................................ 14</p>
+<p> </p>
+<p>2.4.8.1</p>
+<p> </p>
+<p>Inter ECU Communication ............................................. 14</p>
+<p> </p>
+<p>2.4.8.2</p>
+<p> </p>
+<p>Intra ECU Communication ............................................. 15</p>
+<p> </p>
+<p>2.4.9</p>
+<p> </p>
+<p>Monitoring of Software ..................................................................... 16</p>
+<p> </p>
+<p>2.4.10</p>
+<p> </p>
+<p>Operating Modes ............................................................................. 17</p>
+<p> </p>
+<p>2.4.11</p>
+<p> </p>
+<p>Peripheral In- and output .................................................................. 17</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Assumptions .................................................................................................... 18</p>
+<p> </p>
+<p>2.5.1</p>
+<p> </p>
+<p>Environment ..................................................................................... 18</p>
+<p> </p>
+<p>2.5.1.1</p>
+<p> </p>
+<p>Safety Concept .............................................................. 18</p>
+<p> </p>
+<p>2.5.1.2</p>
+<p> </p>
+<p>Use of MICROSAR Safe Components ........................... 19</p>
+<p> </p>
+<p>2.5.1.3</p>
+<p> </p>
+<p>Partitioning ..................................................................... 21</p>
+<p> </p>
+<p>2.5.1.4</p>
+<p> </p>
+<p>Resources ..................................................................... 22</p>
+<p> </p>
+<p>2.5.2</p>
+<p> </p>
+<p>Process ............................................................................................ 22</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Delivery Process ......................................................................................................... 25</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Overview .......................................................................................................... 25</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Deliverables ..................................................................................................... 26</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Safety Manual .................................................................................. 26</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Verification Tools .............................................................................. 26</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>5 </p>
+<p>based on template version 5.12.0 </p>
+<p>3.2.3</p>
+<p> </p>
+<p>Safety Case ..................................................................................... 27</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Prerequisites .................................................................................................... 28</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Prototype SIPs and Evaluation Bundles ........................................................... 28</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Components of MICROSAR Safe ............................................................................... 29</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Operating System ............................................................................................ 29</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Microcontroller Abstraction (MCAL) .................................................................. 30</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>External Components (EXT) ............................................................................ 38</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>System Services .............................................................................................. 41</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Crypto Services ............................................................................................... 44</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>Diagnostic Services ......................................................................................... 45</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>Memory Services ............................................................................................. 47</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>Communication ................................................................................................ 48</p>
+<p> </p>
+<p>4.9</p>
+<p> </p>
+<p>Advanced Measurement and Debug (AMD) ..................................................... 52</p>
+<p> </p>
+<p>4.10</p>
+<p> </p>
+<p>XCP ................................................................................................................. 53</p>
+<p> </p>
+<p>4.11</p>
+<p> </p>
+<p>CAN ................................................................................................................. 53</p>
+<p> </p>
+<p>4.12</p>
+<p> </p>
+<p>LIN ................................................................................................................... 56</p>
+<p> </p>
+<p>4.13</p>
+<p> </p>
+<p>FlexRay ........................................................................................................... 57</p>
+<p> </p>
+<p>4.14</p>
+<p> </p>
+<p>Ethernet ........................................................................................................... 59</p>
+<p> </p>
+<p>4.15</p>
+<p> </p>
+<p>Libraries (LIBS) ................................................................................................ 60</p>
+<p> </p>
+<p>4.16</p>
+<p> </p>
+<p>Audio/Video Bridging (AVB) ............................................................................. 60</p>
+<p> </p>
+<p>4.17</p>
+<p> </p>
+<p>Vehicle-to-Grid (V2G) ....................................................................................... 60</p>
+<p> </p>
+<p>4.18</p>
+<p> </p>
+<p>Vehicle-to-X (V2X) ........................................................................................... 60</p>
+<p> </p>
+<p>4.19</p>
+<p> </p>
+<p>Input/Output (IO) .............................................................................................. 60</p>
+<p> </p>
+<p>4.20</p>
+<p> </p>
+<p>Runtime Environment (RTE) ............................................................................ 62</p>
+<p> </p>
+<p>4.21</p>
+<p> </p>
+<p>Hardware Security Module (HSM) .................................................................... 63</p>
+<p> </p>
+<p>4.22</p>
+<p> </p>
+<p>OEM-specific Components .............................................................................. 63</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Safety Management .................................................................................................... 64</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Issue Management ...................................................................................................... 65</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 66</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 66</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 67</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 68</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>6 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>Structure of MICROSAR Safe ..................................................................... 8</p>
+<p> </p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>BSW in “QM”-partition (left), BSW in “ASIL”-partition (right) ...................... 10</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Overview of delivery process for safety projects ....................................... 25</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Component OS ......................................................................................... 29</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Component ADCDRV ............................................................................... 30</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Component CANDRV ............................................................................... 30</p>
+<p> </p>
+<p>Table 4-4 </p>
+<p> </p>
+<p>Component LINDRV ................................................................................. 30</p>
+<p> </p>
+<p>Table 4-5 </p>
+<p> </p>
+<p>Component FRDRV .................................................................................. 31</p>
+<p> </p>
+<p>Table 4-6 </p>
+<p> </p>
+<p>Component ETHDRV ............................................................................... 31</p>
+<p> </p>
+<p>Table 4-7 </p>
+<p> </p>
+<p>Component WETHDRV ............................................................................ 31</p>
+<p> </p>
+<p>Table 4-8 </p>
+<p> </p>
+<p>Component ETHSWTDRV ........................................................................ 32</p>
+<p> </p>
+<p>Table 4-9 </p>
+<p> </p>
+<p>Component FLSDRV ................................................................................ 32</p>
+<p> </p>
+<p>Table 4-10 </p>
+<p> </p>
+<p>Component EEPDRV ............................................................................... 32</p>
+<p> </p>
+<p>Table 4-11 </p>
+<p> </p>
+<p>Component SPIDRV ................................................................................. 33</p>
+<p> </p>
+<p>Table 4-12 </p>
+<p> </p>
+<p>Component FLSTST ................................................................................. 33</p>
+<p> </p>
+<p>Table 4-13 </p>
+<p> </p>
+<p>Component vIICDRV ................................................................................ 33</p>
+<p> </p>
+<p>Table 4-14 </p>
+<p> </p>
+<p>Component CORTST ............................................................................... 34</p>
+<p> </p>
+<p>Table 4-15 </p>
+<p> </p>
+<p>Component RAMTST ............................................................................... 34</p>
+<p> </p>
+<p>Table 4-16 </p>
+<p> </p>
+<p>Component OCUDRV ............................................................................... 34</p>
+<p> </p>
+<p>Table 4-17 </p>
+<p> </p>
+<p>Component ICUDRV ................................................................................ 35</p>
+<p> </p>
+<p>Table 4-18 </p>
+<p> </p>
+<p>Component PWMDRV .............................................................................. 35</p>
+<p> </p>
+<p>Table 4-19 </p>
+<p> </p>
+<p>Component CRYPTO (HW) ...................................................................... 35</p>
+<p> </p>
+<p>Table 4-20 </p>
+<p> </p>
+<p>Component CRYPTO (HW) ...................................................................... 36</p>
+<p> </p>
+<p>Table 4-21 </p>
+<p> </p>
+<p>Component MCUDRV .............................................................................. 36</p>
+<p> </p>
+<p>Table 4-22 </p>
+<p> </p>
+<p>Component GPTDRV ............................................................................... 36</p>
+<p> </p>
+<p>Table 4-23 </p>
+<p> </p>
+<p>Component PORTDRV ............................................................................. 37</p>
+<p> </p>
+<p>Table 4-24 </p>
+<p> </p>
+<p>Component DIODRV ................................................................................ 37</p>
+<p> </p>
+<p>Table 4-25 </p>
+<p> </p>
+<p>Component WDGDRV .............................................................................. 37</p>
+<p> </p>
+<p>Table 4-26 </p>
+<p> </p>
+<p>Component WETHDRV ............................................................................ 38</p>
+<p> </p>
+<p>Table 4-27 </p>
+<p> </p>
+<p>Component CANTRCV ............................................................................. 38</p>
+<p> </p>
+<p>Table 4-28 </p>
+<p> </p>
+<p>Component FRTRCV ................................................................................ 38</p>
+<p> </p>
+<p>Table 4-29 </p>
+<p> </p>
+<p>Component LINTRCV ............................................................................... 39</p>
+<p> </p>
+<p>Table 4-30 </p>
+<p> </p>
+<p>Component ETHTRCV ............................................................................. 39</p>
+<p> </p>
+<p>Table 4-31 </p>
+<p> </p>
+<p>Component vSBC ..................................................................................... 39</p>
+<p> </p>
+<p>Table 4-32 </p>
+<p> </p>
+<p>Component DRVEXT ................................................................................ 40</p>
+<p> </p>
+<p>Table 4-33 </p>
+<p> </p>
+<p>Component vPSI5 DRV ............................................................................ 40</p>
+<p> </p>
+<p>Table 4-34 </p>
+<p> </p>
+<p>Component WETHTRCV .......................................................................... 40</p>
+<p> </p>
+<p>Table 4-35 </p>
+<p> </p>
+<p>Component BSWM ................................................................................... 41</p>
+<p> </p>
+<p>Table 4-36 </p>
+<p> </p>
+<p>Component COMM ................................................................................... 41</p>
+<p> </p>
+<p>Table 4-37 </p>
+<p> </p>
+<p>Component DET ....................................................................................... 41</p>
+<p> </p>
+<p>Table 4-38 </p>
+<p> </p>
+<p>Component ECUM.................................................................................... 42</p>
+<p> </p>
+<p>Table 4-39 </p>
+<p> </p>
+<p>Component STBM .................................................................................... 42</p>
+<p> </p>
+<p>Table 4-40 </p>
+<p> </p>
+<p>Component TM ......................................................................................... 43</p>
+<p> </p>
+<p>Table 4-41 </p>
+<p> </p>
+<p>Component WDGM .................................................................................. 43</p>
+<p> </p>
+<p>Table 4-42 </p>
+<p> </p>
+<p>Component WDGIF .................................................................................. 43</p>
+<p> </p>
+<p>Table 4-43 </p>
+<p> </p>
+<p>Component CSM ...................................................................................... 44</p>
+<p> </p>
+<p>Table 4-44 </p>
+<p> </p>
+<p>Component CRYIF ................................................................................... 44</p>
+<p> </p>
+<p>Table 4-45 </p>
+<p> </p>
+<p>Component CRYPTO (SW) ...................................................................... 44</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>7 </p>
+<p>based on template version 5.12.0 </p>
+<p>Table 4-46 </p>
+<p> </p>
+<p>Component DCM ...................................................................................... 45</p>
+<p> </p>
+<p>Table 4-47 </p>
+<p> </p>
+<p>Component DEM ...................................................................................... 45</p>
+<p> </p>
+<p>Table 4-48 </p>
+<p> </p>
+<p>Component FIM ........................................................................................ 46</p>
+<p> </p>
+<p>Table 4-49 </p>
+<p> </p>
+<p>Component J1939DCM ............................................................................ 46</p>
+<p> </p>
+<p>Table 4-50 </p>
+<p> </p>
+<p>Component vDRM .................................................................................... 46</p>
+<p> </p>
+<p>Table 4-51 </p>
+<p> </p>
+<p>Component vDES ..................................................................................... 47</p>
+<p> </p>
+<p>Table 4-52 </p>
+<p> </p>
+<p>Component NVM ...................................................................................... 47</p>
+<p> </p>
+<p>Table 4-53 </p>
+<p> </p>
+<p>Component MEMIF................................................................................... 47</p>
+<p> </p>
+<p>Table 4-54 </p>
+<p> </p>
+<p>Component FEE ....................................................................................... 48</p>
+<p> </p>
+<p>Table 4-55 </p>
+<p> </p>
+<p>Component EA ......................................................................................... 48</p>
+<p> </p>
+<p>Table 4-56 </p>
+<p> </p>
+<p>Component COM ...................................................................................... 48</p>
+<p> </p>
+<p>Table 4-57 </p>
+<p> </p>
+<p>Component IPDUM................................................................................... 49</p>
+<p> </p>
+<p>Table 4-58 </p>
+<p> </p>
+<p>Component NM ........................................................................................ 49</p>
+<p> </p>
+<p>Table 4-59 </p>
+<p> </p>
+<p>Component PDUR .................................................................................... 49</p>
+<p> </p>
+<p>Table 4-60 </p>
+<p> </p>
+<p>Component COMXF ................................................................................. 50</p>
+<p> </p>
+<p>Table 4-61 </p>
+<p> </p>
+<p>Component SOMEIPXF ............................................................................ 50</p>
+<p> </p>
+<p>Table 4-62 </p>
+<p> </p>
+<p>Component E2EXF ................................................................................... 50</p>
+<p> </p>
+<p>Table 4-63 </p>
+<p> </p>
+<p>Component SECOC ................................................................................. 51</p>
+<p> </p>
+<p>Table 4-64 </p>
+<p> </p>
+<p>Component LDCOM ................................................................................. 51</p>
+<p> </p>
+<p>Table 4-65 </p>
+<p> </p>
+<p>Component SOMEIPTP ............................................................................ 51</p>
+<p> </p>
+<p>Table 4-66 </p>
+<p> </p>
+<p>Component vDBG .................................................................................... 52</p>
+<p> </p>
+<p>Table 4-67 </p>
+<p> </p>
+<p>Component DLT ....................................................................................... 52</p>
+<p> </p>
+<p>Table 4-68 </p>
+<p> </p>
+<p>Component vRTM ..................................................................................... 52</p>
+<p> </p>
+<p>Table 4-69 </p>
+<p> </p>
+<p>Component XCP ....................................................................................... 53</p>
+<p> </p>
+<p>Table 4-70 </p>
+<p> </p>
+<p>Component J1939TP ................................................................................ 53</p>
+<p> </p>
+<p>Table 4-71 </p>
+<p> </p>
+<p>Component J1939NM ............................................................................... 53</p>
+<p> </p>
+<p>Table 4-72 </p>
+<p> </p>
+<p>Component J1939RM ............................................................................... 54</p>
+<p> </p>
+<p>Table 4-73 </p>
+<p> </p>
+<p>Component CANXCP ............................................................................... 54</p>
+<p> </p>
+<p>Table 4-74 </p>
+<p> </p>
+<p>Component CANTSYN ............................................................................. 54</p>
+<p> </p>
+<p>Table 4-75 </p>
+<p> </p>
+<p>Component CANTP .................................................................................. 55</p>
+<p> </p>
+<p>Table 4-76 </p>
+<p> </p>
+<p>Component CANIF ................................................................................... 55</p>
+<p> </p>
+<p>Table 4-77 </p>
+<p> </p>
+<p>Component CANNM ................................................................................. 55</p>
+<p> </p>
+<p>Table 4-78 </p>
+<p> </p>
+<p>Component CANSM ................................................................................. 56</p>
+<p> </p>
+<p>Table 4-79 </p>
+<p> </p>
+<p>Component vLINXCP ............................................................................... 56</p>
+<p> </p>
+<p>Table 4-80 </p>
+<p> </p>
+<p>Component LINTP and LINIF.................................................................... 56</p>
+<p> </p>
+<p>Table 4-81 </p>
+<p> </p>
+<p>Component LINNM ................................................................................... 57</p>
+<p> </p>
+<p>Table 4-82 </p>
+<p> </p>
+<p>Component LINSM ................................................................................... 57</p>
+<p> </p>
+<p>Table 4-83 </p>
+<p> </p>
+<p>Component FRARTP ................................................................................ 57</p>
+<p> </p>
+<p>Table 4-84 </p>
+<p> </p>
+<p>Component FRXCP .................................................................................. 58</p>
+<p> </p>
+<p>Table 4-85 </p>
+<p> </p>
+<p>Component FRTSYN ................................................................................ 58</p>
+<p> </p>
+<p>Table 4-86 </p>
+<p> </p>
+<p>Component FRTP ..................................................................................... 58</p>
+<p> </p>
+<p>Table 4-87 </p>
+<p> </p>
+<p>Component FRIF ...................................................................................... 59</p>
+<p> </p>
+<p>Table 4-88 </p>
+<p> </p>
+<p>Component FRNM .................................................................................... 59</p>
+<p> </p>
+<p>Table 4-89 </p>
+<p> </p>
+<p>Component FRSM .................................................................................... 59</p>
+<p> </p>
+<p>Table 4-90 </p>
+<p> </p>
+<p>Component CRC ...................................................................................... 60</p>
+<p> </p>
+<p>Table 4-91 </p>
+<p> </p>
+<p>Component E2E ....................................................................................... 60</p>
+<p> </p>
+<p>Table 4-92 </p>
+<p> </p>
+<p>Component vSENT ................................................................................... 61</p>
+<p> </p>
+<p>Table 4-93 </p>
+<p> </p>
+<p>Component RTE ....................................................................................... 62</p>
+<p> </p>
+<p>Table 4-94 </p>
+<p> </p>
+<p>Component E2EPW .................................................................................. 63</p>
+<p> </p>
+<p>Table 4-95 </p>
+<p> </p>
+<p>Component vHSM .................................................................................... 63</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 66</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 67</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>8 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p><b>1.1 </b></p>
+<p><b>Purpose </b></p>
+<p>This  document  provides  product  information  on  MICROSAR Safe.  MICROSAR Safe  are </p>
+<p>the ISO 26262-compliant parts of MICROSAR developed as Software Safety Element out </p>
+<p>of Context (SEooC). </p>
+<p>This </p>
+<p>document </p>
+<p>should </p>
+<p>provide </p>
+<p>the </p>
+<p>reader </p>
+<p>with </p>
+<p>sufficient </p>
+<p>information </p>
+<p>to </p>
+<p>decide </p>
+<p>if </p>
+<p>MICROSAR Safe is an option for a specific project. This document should also give the </p>
+<p>reader a good impression of what to expect from MICROSAR Safe. </p>
+<p><b>1.2 </b></p>
+<p><b>Scope </b></p>
+<p>MICROSAR Safe </p>
+<p>comprises </p>
+<p>SafeBSW </p>
+<p>and </p>
+<p>SafeRTE. </p>
+<p>SafeBSW </p>
+<p>comprises </p>
+<p>further </p>
+<p>components, e.g. MICROSAR SafeOS and MICROSAR SafeWDG. </p>
+<p> </p>
+<p>Figure 1-1 </p>
+<p>Structure of MICROSAR Safe </p>
+<p>This document only provides information for Vector’s MICROSAR product MICROSAR 4. </p>
+<p>The information in this document is only applicable to MICROSAR Safe offers quoted by </p>
+<p>31.10.2015 and later. </p>
+<p><b>1.3 </b></p>
+<p><b>Overview </b></p>
+<p>In  Section  2  the  safety  concept  is  summarized.  The  lists  of  assumed  requirements, </p>
+<p>components and constraints are detailed. </p>
+<p>In Section 3 the delivery process is described. </p>
+<p>In Section 4 the components of MICROSAR Safe and their availability is described. </p>
+<p>In Section 5 information on the safety management is provided. </p>
+<p>In Section 6 requirements for issue management are defined. </p>
+<p>MICROSAR Safe</p>
+<p> </p>
+<p>MICROSAR SafeBSW</p>
+<p> </p>
+<p>MICROSAR SafeRTE</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>9 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2 </b></p>
+<p><b>Safety Concept </b></p>
+<p><b>2.1 </b></p>
+<p><b>Overview </b></p>
+<p>The user of MICROSAR Safe is responsible for the overall safety concept. </p>
+<p>The  user  of  MICROSAR Safe  can  allocate  safety  requirements  up  to  ASIL  D  to  some </p>
+<p>MICROSAR Safe  components.  The  assumed  safety  requirements  and  the  components </p>
+<p>they affect are listed in the next section. </p>
+<p>The  user  of  MICROSAR Safe  can  use  all  components  of  MICROSAR Safe  within  the </p>
+<p>same  partition,  since  they  are  developed  according  to  the  same  ISO 26262-compliant </p>
+<p>process. </p>
+<p>MICROSAR Safe is configurable software to serve as many use-cases as possible. The </p>
+<p>user of MICROSAR Safe is responsible for the adequate configuration of the components </p>
+<p>of MICROSAR Safe in the context of an item development. </p>
+<p>A common safety concept involves the following set of components of MICROSAR Safe: </p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeOS can be used to implement memory partitioning and achieve </p>
+<p>freedom from interference with respect to memory,  </p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeWDG can be used to implement deadline, alive and logic monitoring </p>
+<p>to achieve freedom from interference with respect to timing and execution,  </p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeE2E can be used to achieve freedom from interference with respect </p>
+<p>to exchange of information. </p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeRTE can be used to communicate between application software </p>
+<p>components within in the ECU. </p>
+<p>The use of these components allows to effectively separate software components of </p>
+<p>different quality levels (QM, ASIL A-D). </p>
+<p>Additional components from MICROSAR Safe can be used to optimize the number of </p>
+<p>partitions and thus minimize the number of partition switches or to allocate additional </p>
+<p>safety requirements to the BSW. </p>
+<p>Vector is open to discuss your safety concept to select the components of </p>
+<p>MICROSAR Safe that best fit your needs. </p>
+<p><b>2.2 </b></p>
+<p><b>Partitioning Options </b></p>
+<p>There are two memory partitioning options available with MICROSAR Safe. </p>
+<p>The  first  option  is  to  run  the  BSW  in  a  “non-trusted”  or  ”QM”-partition.  This  requires  a </p>
+<p>MICROSAR SafeOS </p>
+<p>with </p>
+<p>Scalability </p>
+<p>Class </p>
+<p>3 </p>
+<p>or </p>
+<p>4 </p>
+<p>(SC3 </p>
+<p>or </p>
+<p>SC4) </p>
+<p>and </p>
+<p>a </p>
+<p>MICROSAR SafeWDG for timing supervision. This option is suitable if only a  very small </p>
+<p>part  of  the  ECU  software  is  safety-related.  The  MICROSAR SafeWDG  is  then  put  in  a </p>
+<p>separate “ASIL”-partition together with the safety-related application software. </p>
+<p>The second option is to run the BSW in the same partition as the rest of the safety-related </p>
+<p>application </p>
+<p>software. </p>
+<p>This </p>
+<p>option </p>
+<p>requires </p>
+<p>that </p>
+<p>all </p>
+<p>BSW </p>
+<p>components </p>
+<p>are </p>
+<p>used </p>
+<p>as </p>
+<p>MICROSAR Safe components. This option is suitable if a huge part of the ECU software is </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>10 </p>
+<p>based on template version 5.12.0 </p>
+<p>safety-related  and  frequently  interacts  with  the  BSW.  This  option  still  allows  application </p>
+<p>software with QM level or lower ASIL. The parallel use of lower quality application software </p>
+<p>requires a MICROSAR SafeOS with Scalability Class 3 or 4 (SC3 or SC4) then. </p>
+<p>For the scope of this document BSW also includes MCAL and EXT components.  </p>
+<p>MCAL </p>
+<p>and </p>
+<p>EXT </p>
+<p>components </p>
+<p>interfacing </p>
+<p>with </p>
+<p>the </p>
+<p>BSW </p>
+<p>(e.g. </p>
+<p>DIO, </p>
+<p>CANDRV </p>
+<p>or </p>
+<p>CANTRCVDRV) need to be assigned in the same partition as the interfacing BSW. Other </p>
+<p>MCAL  and  EXT  components  not  interfacing  with  the  BSW  (e.g. ADC  or  PWM)  can  be </p>
+<p>assigned to a different partition. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The user of MICROSAR Safe should check with the MCAL provider if the MCAL is </p>
+<p>available with the required ASIL as soon as possible. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>BSW in “QM”-partition (left), BSW in “ASIL”-partition (right) </p>
+<p><b>2.3 </b></p>
+<p><b>Safety Concept </b></p>
+<p>It is assumed that the user of  MICROSAR Safe is responsible for overall system safety. </p>
+<p>MICROSAR Safe can provide parts of safety mechanisms to its user. It is also assumed </p>
+<p>that the user of MICROSAR Safe verifies the robustness and effectiveness of the safety </p>
+<p>mechanisms within its system based on the configuration of MICROSAR Safe. </p>
+<p><b>2.3.1 </b></p>
+<p><b>Technical Solution </b></p>
+<p>Possible  hardware  faults  (transient  or  permanent)  are  detected  and  handled  by  the </p>
+<p>application  (user of  MICROSAR Safe) according  to  the  required ASIL  necessary  for the </p>
+<p>project. This  also  implies  protection  against  Single  Event  Upsets  (SEUs)  in  volatile  and </p>
+<p>non-volatile memory, as well as faults in registers and processing logic. </p>
+<p>The hardware manual is assumed to be complete and correct. </p>
+<p>MICROSAR  Safe  does  not  implement  mechanisms  to  mitigate  random  hardware  faults. </p>
+<p>Instead,  MICROSAR  Safe  relies  on  hardware  mechanisms,  such  as  ECC  memory  and </p>
+<p>lock-step cores. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>11 </p>
+<p>based on template version 5.12.0 </p>
+<p>Note  that  multi-core  controllers  with  cores  that  provide  different  levels  of  diagnostic </p>
+<p>coverage are considered during development of the MICROSAR Safe operating system. </p>
+<p>However,  they  also  require  a  detailed  analysis  of  core  interdependency  by  the  user  of </p>
+<p>MICROSAR Safe. </p>
+<p>It is assumed that systematic hardware faults are handled on system or application level </p>
+<p>by the user of MICROSAR Safe. </p>
+<p>Systematic faults in software are prevented by implementation of an ISO 26262-compliant </p>
+<p>development  process.  It  is  assumed  that  development  according  to  an  ISO  26262-</p>
+<p>compliant development process implicitly ensures freedom from interference with respect </p>
+<p>to memory. </p>
+<p>MICROSAR  Safe  does  not  implement  redundant  (inverted)  data  storage  to  mitigate </p>
+<p>software faults. </p>
+<p>It  is  assumed  that  software  with  a  different  quality  level  is  separated  using  a  memory </p>
+<p>protection unit (MPU) (see also TSR-7). The user of MICROSAR Safe must ensure that </p>
+<p>write access to the same memory parts is only possible for software of the same or higher </p>
+<p>quality level. </p>
+<p>Depending on the requirements of the item, timing and program flow must be monitored. </p>
+<p>MICROSAR  Safe  provide  mechanisms  to  implement  this  monitoring  (see  also  TSR-13, </p>
+<p>TSR-14 and TSR-15). MICROSAR Safe does not automatically monitor itself for intended </p>
+<p>timing and program flow. </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>components </p>
+<p>without </p>
+<p>allocated </p>
+<p>safety </p>
+<p>requirements </p>
+<p>are </p>
+<p>developed </p>
+<p>according  to  an  ISO  26262-compliant  development  process  to  provide  an  argument  for </p>
+<p>coexistence.  </p>
+<p>If  safety  requirements  are  implemented  in  components  of  MICROSAR  Safe,  Vector </p>
+<p>ensures  that  they  are  locally  non-complex.  For  locally  non-complex  components  no </p>
+<p>diverse implementation of algorithms is designed. </p>
+<p><b>2.3.2 </b></p>
+<p><b>Tool Confidence </b></p>
+<p>MICROSAR Safe must be configured using the DaVinci tools. MICROSAR Safe must be </p>
+<p>compiled by using a compiler for the target hardware. These tools must be evaluated with </p>
+<p>respect to their impact on functional safety by the user. </p>
+<p>It  is  assumed  that  the  user  of  MICROSAR  Safe  evaluates  and  qualifies  the  defined </p>
+<p>compiler (incl. options) and linker according to ISO 26262 Part 8 Clause 11. </p>
+<p>The  DaVinci  Developer  and  DaVinci  Configurator  are  assumed  to  have  an  impact  on </p>
+<p>functional safety. In the first place, only a tool error detection level of two can be expected. </p>
+<p>The resulting tool confidence level (TCL) would require a qualification of those tools. </p>
+<p>To ensure freedom from interference with respect to memory for the BSW, Vector provides </p>
+<p>the MICROSAR Safe Silence Verifier (MSSV).  </p>
+<p>To ensure freedom from interference with respect to memory and to detect additional faults </p>
+<p>that may have been introduced by the DaVinci tools for the RTE, Vector provides the RTE </p>
+<p>Analyzer. </p>
+<p>If  MSSV  and  RTE  Analyzer  are  used  according  to  their  Technical  References  and  the </p>
+<p>Safety Manual, the tool confidence level for the DaVinci tools can be reduced to TCL1 by </p>
+<p>the user of MICROSAR Safe. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>12 </p>
+<p>based on template version 5.12.0 </p>
+<p>Tools  by  Vector  do  not  implement  mechanisms  to  handle  hardware  faults  on  the  host </p>
+<p>development computer. </p>
+<p><b>2.4 </b></p>
+<p><b>Technical Safety Requirements </b></p>
+<p>The  items  listed  in  this  section  are  the  assumed  technical  safety  requirements  on  the </p>
+<p>Safety  Element  out  of  Context  MICROSAR  Safe.  These  requirements  are  expected  to </p>
+<p>match the requirements in the actual item development. </p>
+<p>All technical safety requirements (TSRs) are assigned an ASIL D (unless otherwise stated) </p>
+<p>to service as many projects as possible. </p>
+<p>No fault tolerant time intervals are given. Timing depends on the used hardware and its </p>
+<p>configuration. It is assumed that the user configures MICROSAR Safe adequately for the </p>
+<p>intended use. </p>
+<p>No  safe  state  is  defined  since  MICROSAR  Safe  allows  the  user  to  define  the  desired </p>
+<p>behavior in case of a detected fault. </p>
+<p>The Safety Manual provided with a delivery shows the details on the support of a safety </p>
+<p>feature on component level. </p>
+<p><b>2.4.1 </b></p>
+<p><b>Initialization </b></p>
+<p><b>TSR-1 </b></p>
+<p><b>MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>initialize </b></p>
+<p><b>itself </b></p>
+<p><b>and </b></p>
+<p><b>its </b></p>
+<p><b>controlled hardware. </b></p>
+<p>It is sensible for safety-related systems to start performing potentially hazardous actions </p>
+<p>only  in  a  defined  and  intended  state.  For  example,  adequate  setup  of  clocks  may  be </p>
+<p>required to reach required fault tolerant times. </p>
+<p>Components  of  MICROSAR  Safe  initialize  their  variables.  For  post  build  selectable  and </p>
+<p>post  build  loadable  configurations  MICROSAR  Safe  components  use  a  consistent  and </p>
+<p>defined set of configuration data. </p>
+<p>Hardware-specific components of MICROSAR Safe describe in their Technical References </p>
+<p>what hardware units are controlled. </p>
+<p>The user of MICROSAR Safe shall ensure that initialization functions of MICROSAR Safe </p>
+<p>are called in the right order and at the right point in time. </p>
+<p>The user of MICROSAR Safe is also responsible for the startup code and main function. </p>
+<p><b>2.4.2 </b></p>
+<p><b>Self</b>-<b>test </b></p>
+<p><b>TSR-2 </b></p>
+<p><b>MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>mechanisms </b></p>
+<p><b>to </b></p>
+<p><b>perform </b></p>
+<p><b>self-tests </b></p>
+<p><b>of </b></p>
+<p><b>hardware. </b></p>
+<p>Self-tests of hardware may be required to achieve the required single-point or latent fault </p>
+<p>metrics. Usually these tests are performed cyclically or during start-up. </p>
+<p>MICROSAR Safe provides mechanisms to perform self-tests of hardware. The details on </p>
+<p>the provided self-tests are described in the component-specific part of the Safety Manual </p>
+<p>provided with a delivery. </p>
+<p><b>2.4.3 </b></p>
+<p><b>Reset of ECU </b></p>
+<p><b>TSR-3 </b></p>
+<p><b>MICROSAR Safe shall provide a mechanism to reset the ECU. </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>13 </p>
+<p>based on template version 5.12.0 </p>
+<p>Resetting the CPU of the ECU is in most cases an appropriate measure to achieve a safe </p>
+<p>state in case of a detected fault. </p>
+<p>It is assumed that the reset (and powerless) state of a microcontroller leads to the safe </p>
+<p>state  of  the  ECU  and  system,  since  a  reset  may  occur  at  any  time  due  to  e.g.  random </p>
+<p>hardware fault.  </p>
+<p>MICROSAR Safe does not reset the CPU without request. </p>
+<p><b>2.4.4 </b></p>
+<p><b>Data Consistency </b></p>
+<p><b>TSR-101876  MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>mechanisms </b></p>
+<p><b>to </b></p>
+<p><b>ensure </b></p>
+<p><b>data </b></p>
+<p><b>consistency. </b></p>
+<p>Concurrent  access  to  resources  (e.g.  variables)  from  e.g.  task  and  interrupt  level,  may </p>
+<p>lead to data inconsistencies. </p>
+<p>MICROSAR Safe provides functions to enable or disable interrupts, spin-locks, resources </p>
+<p>or abstractions (i.e. exclusive areas) to enable the user of MICROSAR Safe to ensure data </p>
+<p>consistency.  </p>
+<p>MICROSAR Safe will not unintentionally enable or disable the mechanisms to ensure data </p>
+<p>consistency. </p>
+<p>MICROSAR  Safe  also  uses  this  functionality  in  its  own  components  to  ensure  data </p>
+<p>consistency. </p>
+<p><b>2.4.5 </b></p>
+<p><b>Non-volatile Memory </b></p>
+<p><b>TSR-4 </b></p>
+<p><b>MICROSAR  Safe  shall  provide  a  mechanism  to  store  data  in  non-volatile </b></p>
+<p><b>memory. </b></p>
+<p>Calibration or other application  data may  be  safety-related,  i.e.  if  there  is data available </p>
+<p>from non-volatile memory it shall not be corrupted by either software or hardware. </p>
+<p>MICROSAR Safe implements an &quot;end-to-end protection&quot; in the Non-volatile RAM Manager </p>
+<p>(NvM)  to  ensure  that  data  is  neither  corrupted  nor  masqueraded  in  either  software  or </p>
+<p>hardware. </p>
+<p>Note that hardware may not even start storing data in non-volatile memory or loose it at </p>
+<p>any time. </p>
+<p>Availability of data is, thus, not guaranteed. Availability may be increased by redundantly </p>
+<p>storing </p>
+<p>data </p>
+<p>in </p>
+<p>non-volatile </p>
+<p>memory. </p>
+<p>The </p>
+<p>user </p>
+<p>of </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>shall </p>
+<p>handle </p>
+<p>unavailability of data on application level. </p>
+<p><b>TSR-5 </b></p>
+<p><b>MICROSAR  Safe  shall  provide  a  mechanism  to  retrieve  data  from  non-</b></p>
+<p><b>volatile memory. </b></p>
+<p>Calibration or other application  data may  be  safety-related,  i.e.  if  there  is data available </p>
+<p>from non-volatile memory it shall not be corrupted by either software or hardware. </p>
+<p>MICROSAR Safe implements an &quot;end-to-end protection&quot; in the Non-volatile RAM Manager </p>
+<p>(NvM)  to  ensure  that  data  is  neither  corrupted  nor  masqueraded  in  either  software  or </p>
+<p>hardware. </p>
+<p>Note that hardware may not even start storing data in non-volatile memory or loose it at </p>
+<p>any time. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>14 </p>
+<p>based on template version 5.12.0 </p>
+<p>Availability of data is, thus, not guaranteed. Availability may be increased by redundantly </p>
+<p>storing </p>
+<p>data </p>
+<p>in </p>
+<p>non-volatile </p>
+<p>memory. </p>
+<p>The </p>
+<p>user </p>
+<p>of </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>shall </p>
+<p>handle </p>
+<p>unavailability of data on application level. </p>
+<p>Note that if data is written more than once and the latest data in the non-volatile memory </p>
+<p>gets corrupted, older (uncorrupted) data may be returned to the user of MICROSAR Safe. </p>
+<p><b>2.4.6 </b></p>
+<p><b>Hard Real-time Scheduling </b></p>
+<p><b>TSR-6 </b></p>
+<p><b>MICROSAR Safe shall provide hard real-time scheduling properties. </b></p>
+<p>Hard  real-time  scheduling  is  not  required  for  safety  in  the  first  place,  since  deadline </p>
+<p>violations  can  usually  be  detected  and  a  safe  state  entered.  However,  hard  real-time </p>
+<p>scheduling may support argumentation in some cases. </p>
+<p>For  fail-operational  systems  hard  real-time  scheduling  properties  are  essential  for  the </p>
+<p>software that needs to stay operational. </p>
+<p>The  operating  system  of  MICROSAR  Safe  implements  fixed  priority  scheduling  and  the </p>
+<p>immediate  priority  ceiling  protocol  specified  by  AUTOSAR  to  guarantee  hard  real-time </p>
+<p>scheduling properties. </p>
+<p>The operating system of MICROSAR Safe also provides an upper bound for the execution </p>
+<p>time of its functionality. </p>
+<p>Note that fail-operational requirements on a system usually require a second independent </p>
+<p>channel of control. </p>
+<p>Note that fail-operational requirements require analyses of the worst-case execution time </p>
+<p>(WCET) of the software that needs to stay operational. </p>
+<p><b>2.4.7 </b></p>
+<p><b>Memory Protection </b></p>
+<p><b>TSR-7 </b></p>
+<p><b>MICROSAR Safe shall provide mechanisms to protect software applications </b></p>
+<p><b>from unspecified memory access. </b></p>
+<p>Partitioning in software is often introduced because of different quality levels of  software </p>
+<p>and different responsibilities of software development on one ECU. </p>
+<p>Memory  partitioning  relies  on  the  memory  protection  unit  (MPU)  in  hardware  for  the </p>
+<p>effectiveness of the mechanism. </p>
+<p>MICROSAR Safe  configures  exactly  the  configured memory  access  rights  for each  task </p>
+<p>and ISR at the hardware interface of the MPU.  </p>
+<p>Note that MICROSAR Safe does not necessarily control all available protection units (e.g. </p>
+<p>system MPUs or peripheral protection units). </p>
+<p>The  user  of  MICROSAR  Safe  is  responsible  for  adequate  configuration  of  the  memory </p>
+<p>partitions. </p>
+<p><b>2.4.8 </b></p>
+<p><b>Communication </b></p>
+<p><b>2.4.8.1 </b></p>
+<p><b>Inter ECU Communication </b></p>
+<p><b>TSR-10 MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>mechanisms </b></p>
+<p><b>to </b></p>
+<p><b>protect </b></p>
+<p><b>communication </b></p>
+<p><b>between ECUs. </b></p>
+<p>Communication </p>
+<p>between </p>
+<p>ECUs </p>
+<p>may </p>
+<p>be </p>
+<p>corrupted, </p>
+<p>unintentionally </p>
+<p>replayed, </p>
+<p>lost </p>
+<p>or </p>
+<p>masked. To protect against these failure modes MICROSAR Safe provides the end-to-end </p>
+<p>(E2E) protection mechanism defined by AUTOSAR. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>15 </p>
+<p>based on template version 5.12.0 </p>
+<p>MICROSAR Safe detects repetition, loss, insertion, masking, reodering and corruption of </p>
+<p>messages between ECUs. </p>
+<p>MICROSAR Safe allows the usage of cyclic redundancy checks (CRCs) and cryptographic </p>
+<p>algorithms to protect the integrity of messages between ECUs. </p>
+<p>CRCs provide a certain hamming distance given a polynomial and maximum data block </p>
+<p>size. </p>
+<p>Cryptographic </p>
+<p>hash </p>
+<p>functions </p>
+<p>or </p>
+<p>message </p>
+<p>authentication </p>
+<p>codes </p>
+<p>(MACs) </p>
+<p>provide </p>
+<p>a </p>
+<p>probabilistic  statement  on  data  corruption  detection  depending  on  the  hash  function  or </p>
+<p>MAC, data block size and hash value size. </p>
+<p>The  user  of  MICROSAR  Safe  is  responsible  for  the  selection  of  the  E2E  profile  or </p>
+<p>algorithm that is adequate to the requirements of the item development. </p>
+<p><b>TSR-104422  MICROSAR  Safe  shall  provide  mechanisms  to  communicate  between </b></p>
+<p><b>ECUs. </b></p>
+<p>The use of end-to-end protection mechanisms requires additional data to be computed in </p>
+<p>software  and  sent  over  the  network.  For ASIL A  it  might  be  acceptable  to  reduce  fault </p>
+<p>detection capabilities to reduce this overhead. </p>
+<p>MICROSAR Safe detects if there are no incoming messages in a configured time frame </p>
+<p>and if messages have been corrupted on the bus. </p>
+<p>MICROSAR Safe does not unintentionally repeat, discard, delay, insert, mask, reorder or </p>
+<p>corrupt messages in software.  </p>
+<p>MICROSAR Safe cannot detect if old, repeated or masked data was received. MICROSAR </p>
+<p>Safe cannot detect if messages are unintentionally reordered or if some messages have </p>
+<p>been lost. </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>does </p>
+<p>not </p>
+<p>provide </p>
+<p>mechanisms </p>
+<p>to </p>
+<p>detect </p>
+<p>latent </p>
+<p>faults </p>
+<p>in </p>
+<p>the </p>
+<p>communication hardware, e.g. runtime check of the CRC check in the CAN controller. </p>
+<p>The  user  of  MICROSAR  Safe  is  responsible  to  decide  whether  reduced  fault  detection </p>
+<p>capabilities  are acceptable. This should  include  an  analysis on  a per signal base of the </p>
+<p>underlying system requirements of the item. </p>
+<p>Note this TSR is only assigned an ASIL A. For higher ASILs Vector requires the usage of </p>
+<p>an end-to-end protection mechanism (see TSR-10). </p>
+<p><b>2.4.8.2 </b></p>
+<p><b>Intra ECU Communication </b></p>
+<p><b>TSR-16 MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>mechanisms </b></p>
+<p><b>to </b></p>
+<p><b>communicate </b></p>
+<p><b>within </b></p>
+<p><b>its </b></p>
+<p><b>applications. </b></p>
+<p>Software components need to communicate in order to fulfill their task. </p>
+<p>MICROSAR  Safe  provides  mechanisms  to  communicate  within  OS  applications  without </p>
+<p>end-to-end protection. </p>
+<p>MICROSAR  Safe  does  not  unintentionally  repeat,  delay,  insert,  mask,  corrupt  or  loose </p>
+<p>data communicated within OS applications. </p>
+<p>MICROSAR Safe assumes protection of the memory against random hardware faults by </p>
+<p>the system, e.g. via ECC RAM and lock-step mode. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>16 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>TSR-12 MICROSAR  Safe  shall  provide  mechanisms  to  communicate  between  its </b></p>
+<p><b>applications. </b></p>
+<p>Mixed ASIL  or multi-core  systems  need  to  exchange  safety-related  information  between </p>
+<p>applications. </p>
+<p>MICROSAR Safe provides mechanisms to communicate between OS applications without </p>
+<p>end-to-end protection. </p>
+<p>MICROSAR  Safe  does  not  unintentionally  repeat,  delay,  insert,  mask,  corrupt  or  loose </p>
+<p>data communicated between OS applications. </p>
+<p>MICROSAR Safe assumes protection of the memory against random hardware faults by </p>
+<p>the system, e.g. via ECC RAM and lock-step mode. </p>
+<p><b>2.4.9 </b></p>
+<p><b>Monitoring of Software </b></p>
+<p>MICROSAR  Safe  provides  monitoring  mechanisms  to  supervise  correct  execution  of </p>
+<p>software.  These  mechanisms  must </p>
+<p>be </p>
+<p>configured </p>
+<p>by </p>
+<p>the </p>
+<p>user </p>
+<p>of </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>according to the requirements within the context of the item development. </p>
+<p><b>TSR-13 MICROSAR Safe shall provide a mechanism to detect faults in program flow. </b></p>
+<p>Program flow can be corrupted by random hardware faults or software faults. </p>
+<p>The user of MICROSAR Safe can configure a graph of the logical program flow that is then </p>
+<p>supervised  by  MICROSAR Safe. A  transition  from  one  checkpoint  to  another that  is  not </p>
+<p>allowed is detected. </p>
+<p><b>TSR-14 MICROSAR Safe shall provide a mechanism to detect stuck software. </b></p>
+<p>Alive monitoring is used to reset the software or controller in case it is unresponsive. </p>
+<p>The user of MICROSAR Safe can configure entities that need to regularly report their alive </p>
+<p>status  that  is  then  supervised  by  MICROSAR  Safe.  Omission  of  a  regular  report  is </p>
+<p>detected. </p>
+<p><b>TSR-15 MICROSAR Safe shall provide a mechanism to detect deadline violations. </b></p>
+<p>Deadlines are important to reach a safe state within the defined fault tolerant time interval.  </p>
+<p>The user of MICROSAR Safe can configure a tolerable time interval for each transition in a </p>
+<p>logical  program  flow  graph  that  is  then  supervised  by  MICROSAR  Safe.  Violation  of  a </p>
+<p>deadline is detected. </p>
+<p><b>TSR-8 </b></p>
+<p><b>MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>detect </b></p>
+<p><b>time </b></p>
+<p><b>budget </b></p>
+<p><b>violations. </b></p>
+<p>Budgets for task execution times, inter-arrival times and locking times allow to identify the </p>
+<p>originator of a deadline violation. </p>
+<p>The  user  of  MICROSAR  Safe  can  configure  budgets  for  execution  times  of  tasks  and </p>
+<p>category 2 ISRs, inter-arrival times and duration of locks (e.g. resource or interrupt locks) </p>
+<p>that are then supervised by MICROSAR Safe. Exhaustion of budgets is detected. </p>
+<p><b>TSR-9 </b></p>
+<p><b>MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>terminate </b></p>
+<p><b>software </b></p>
+<p><b>applications. </b></p>
+<p>Terminating a complete OS application may be used as a safety mechanisms to mitigate a </p>
+<p>software fault within this OS application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>17 </p>
+<p>based on template version 5.12.0 </p>
+<p>MICROSAR Safe terminates exactly the requested OS application and only upon request. </p>
+<p>Note  that  MICROSAR  Safe  will  not  terminate  OS  applications  automatically  without </p>
+<p>configuration or request. </p>
+<p><b>2.4.10 </b></p>
+<p><b>Operating Modes </b></p>
+<p><b>TSR-100551  MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>switch </b></p>
+<p><b>between </b></p>
+<p><b>operating modes. </b></p>
+<p>Fault detection and mitigation often result in a degraded or safe state. These modes can </p>
+<p>be configured and switched in BswM and Rte. </p>
+<p>MICROSAR Safe does not unintentionally switch between operating modes. MICROSAR </p>
+<p>Safe switches to exactly the requested operating mode. </p>
+<p><b>2.4.11 </b></p>
+<p><b>Peripheral In- and output </b></p>
+<p><b>TSR-17 MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>read </b></p>
+<p><b>input </b></p>
+<p><b>data </b></p>
+<p><b>from </b></p>
+<p><b>peripheral units. </b></p>
+<p>Input  of  data  from  microcontroller  peripheral  units  is  required  to  implement  almost  any </p>
+<p>safety-related system. </p>
+<p>MICROSAR  Safe  provides  the  data  read  from  peripheral  units  without  corruption  or </p>
+<p>unintentional delay.  </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>does </p>
+<p>not </p>
+<p>unintentionally </p>
+<p>reorder </p>
+<p>nor </p>
+<p>masquerade </p>
+<p>data </p>
+<p>read </p>
+<p>from </p>
+<p>peripheral units. </p>
+<p>Note that the peripheral hardware may not provide sufficient diagnostic coverage without </p>
+<p>redundant input. </p>
+<p>For example, DIO and SPI drivers provided by Vector support the reading input data from </p>
+<p>peripheral units as safety feature. </p>
+<p><b>TSR-18 MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>provide </b></p>
+<p><b>a </b></p>
+<p><b>mechanism </b></p>
+<p><b>to </b></p>
+<p><b>write </b></p>
+<p><b>output </b></p>
+<p><b>data </b></p>
+<p><b>to </b></p>
+<p><b>peripheral units. </b></p>
+<p>Output of data from microcontroller peripheral units is required to implement almost any </p>
+<p>safety-related system. </p>
+<p>MICROSAR Safe writes the data provided at the software interfaces without corruption or </p>
+<p>unintentional delay.  </p>
+<p>MICROSAR Safe does not unintentionally trigger peripheral output units. </p>
+<p>MICROSAR </p>
+<p>Safe </p>
+<p>does </p>
+<p>not </p>
+<p>unintentionally </p>
+<p>reorder </p>
+<p>nor </p>
+<p>masquerade </p>
+<p>data </p>
+<p>read </p>
+<p>from </p>
+<p>peripheral units. </p>
+<p>Note  that  the  peripheral  hardware  may  require  additional mechanisms  on  application  or </p>
+<p>system level to ensure sufficient safety. </p>
+<p>For  example,  DIO  and  SPI  drivers  provided  by  Vector  support  the  output  of  data  to </p>
+<p>peripheral units as  safety  feature  (e.g.  to  trigger external watchdogs  or switch  actuation </p>
+<p>paths). </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>18 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2.5 </b></p>
+<p><b>Assumptions </b></p>
+<p><b>2.5.1 </b></p>
+<p><b>Environment </b></p>
+<p><b>2.5.1.1 </b></p>
+<p><b>Safety Concept </b></p>
+<p><b>The user of MICROSAR Safe shall be responsible for the functional safety concept. </b></p>
+<p>The  overall  functional  safety  concept  is  in  the  responsibility  of  the  user  of  MICROSAR </p>
+<p>Safe.  MICROSAR  Safe  can  only  provide  parts  that  can  be  used  to  implement  the </p>
+<p>functional safety concept of the item. </p>
+<p>It is also the responsibility of the user of MICROSAR Safe to configure MICROSAR Safe </p>
+<p>as intended by the user's safety concept.  </p>
+<p>The safety concept shall only rely on safety features explicitly described in this document. </p>
+<p>If a component from MICROSAR Safe does not explicitly describe safety features in this </p>
+<p>safety manual, this component has been developed according to the methods for ASIL D </p>
+<p>to provide coexistence with other ASIL components. </p>
+<p><b>&gt; </b></p>
+<p>Example: NvM provides safety features for writing and reading of data, the lower </p>
+<p>layers, i.e. MemIf, Ea, Fee and drivers, only provide the ASIL for coexistence. </p>
+<p>The safety concept shall <b>not </b>rely on functionality that is <b>not </b>explicitly described as safety </p>
+<p>feature in this document. This functionality may fail silently in case of a detected fault.  </p>
+<p><b>&gt; </b></p>
+<p>Example: If a potential out-of-bounds memory access, e.g. due to invalid input or </p>
+<p>misconfiguration, is detected the requested function will not be performed. An error via </p>
+<p>DET is only reported if error reporting is enabled. </p>
+<p><b>The user of MICROSAR Safe shall adequately address hardware faults. </b></p>
+<p>The components of MICROSAR Safe can support in the detection and handling of some </p>
+<p>hardware faults (e.g. using watchdog). </p>
+<p>MICROSAR Safe does not provide redundant data storage. </p>
+<p>The  user  of  MICROSAR  Safe  especially  shall  address  faults  in  volatile  random  access </p>
+<p>memory, non-volatile memory, e.g. flash or EEPROM, and the CPU. </p>
+<p>MICROSAR Safe relies on the adequate detection of faults in memory and the CPU by </p>
+<p>other  means,  e.g.  hardware.  Thus,  Vector  recommends  using  lock-step  CPUs  together </p>
+<p>with ECC memory. </p>
+<p><b>The user of MICROSAR Safe shall ensure that the reset or powerless state is a safe </b></p>
+<p><b>state of the system. </b></p>
+<p>Vector uses this assumption in its safety analyses and development process. </p>
+<p><b>The  user  of  MICROSAR Safe  shall  implement  a  timing  monitoring  using  e.g.  a </b></p>
+<p><b>watchdog. </b></p>
+<p>The  components  of  MICROSAR  Safe  do  not  provide  mechanisms  to  monitor  their  own </p>
+<p>timing behavior. </p>
+<p>The watchdog stack that is part of MICROSAR Safe can be used to fulfill this assumption. </p>
+<p>If  the  safety  concept  also  requires  logic  monitoring,  the  watchdog  stack  that  is  part  of </p>
+<p>MICROSAR Safe can be used to implement it. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>19 </p>
+<p>based on template version 5.12.0 </p>
+<p>The watchdog is one way to perform timing monitoring. Today the watchdog is the most </p>
+<p>common approach. In future, there may be different approaches e.g. by monitoring using a </p>
+<p>different ECU. </p>
+<p>The  timing  protection  provided  by  the  operating  system  can  only  partially  replace  the </p>
+<p>usage of a timing monitoring by a watchdog, because e.g. deadline violations cannot be </p>
+<p>directly detected by the OS timing protection. </p>
+<p><b>The user of MICROSAR Safe shall ensure an end-to-end protection for safety-related </b></p>
+<p><b>communication between ECUs. </b></p>
+<p>The communication components of MICROSAR Safe do not assume sending or receiving </p>
+<p>as a safety requirement, because considered faults can only be detected using additional </p>
+<p>information like a cycle counter. Vector always assumes that an end-to-end protection or </p>
+<p>equivalent mechanism is implemented on application level. </p>
+<p>Considered faults in communication are: </p>
+<p><b>&gt; </b></p>
+<p>Failure of communication peer  </p>
+<p><b>&gt; </b></p>
+<p>Message masquerading  </p>
+<p><b>&gt; </b></p>
+<p>Message corruption </p>
+<p><b>&gt; </b></p>
+<p>Unintended message repetition  </p>
+<p><b>&gt; </b></p>
+<p>Insertion of messages  </p>
+<p><b>&gt; </b></p>
+<p>Re-sequencing  </p>
+<p><b>&gt; </b></p>
+<p>Message loss  </p>
+<p><b>&gt; </b></p>
+<p>Message delay </p>
+<p>This requirement can be fulfilled by e.g. using the end-to-end protection wrapper for safety </p>
+<p>related communication. </p>
+<p><b>The user of MICROSAR Safe shall ensure data consistency for its application. </b></p>
+<p>Data consistency is not automatically provided when using MICROSAR Safe. MICROSAR </p>
+<p>Safe only provides services to support enforcement of data consistency. Their application </p>
+<p>is in the responsibility of the user of MICROSAR Safe. </p>
+<p>To  ensure  data  consistency  in  an  application,  critical  sections  need  to  be  identified  and </p>
+<p>protected. </p>
+<p>To identify critical sections in the code, e.g. review or static code analysis can be used. </p>
+<p>To protect critical sections, e.g. the services to disable and enable interrupts provided by </p>
+<p>the MICROSAR Safe operating system can be used. </p>
+<p>To verify correctly implemented protection, e.g. stress testing or review can be used. </p>
+<p>Note the AUTOSAR specification with respect to nesting and sequence of calls to interrupt </p>
+<p>enabling and disabling functions. </p>
+<p><b>2.5.1.2 </b></p>
+<p><b>Use of MICROSAR Safe Components </b></p>
+<p><b>The  user  of  MICROSAR Safe  shall  adequately  select the  type  definitions  to  reflect </b></p>
+<p><b>the hardware platform and compiler environment. </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>20 </p>
+<p>based on template version 5.12.0 </p>
+<p>The  user  of  MICROSAR Safe  is  responsible  for  selecting  the  correct  platform  types </p>
+<p>(</p>
+<p>PlatformTypes.h</p>
+<p>) and compiler abstraction (</p>
+<p>Compiler.h</p>
+<p>). Especially the size of the </p>
+<p>predefined types shall match the target environment. </p>
+<p>Example: A </p>
+<p>uint32</p>
+<p> shall be mapped to an unsigned integer type with a size of 32 bits. </p>
+<p>The user of MICROSAR Safe can use the platform types provided by Vector. Vector has </p>
+<p>created and verified the platform types mapping according to the information provided by </p>
+<p>the user of MICROSAR Safe. </p>
+<p><b>The user of MICROSAR Safe shall initialize all components of MICROSAR Safe prior </b></p>
+<p><b>to using them. </b></p>
+<p>This constraint is required by AUTOSAR anyway. Vector uses this assumption in its safety </p>
+<p>analyses and development process. </p>
+<p>Correct initialization can be verified, e.g. during integration testing. </p>
+<p><b>The  user  of  MICROSAR Safe  shall  only  pass  valid  pointers  at  all  interfaces  to </b></p>
+<p><b>MICROSAR Safe components. </b></p>
+<p>Plausibility checks on pointers are performed by MICROSAR Safe (see also SMI-18), but </p>
+<p>they are limited. MICROSAR Safe components potentially use provided pointers to write to </p>
+<p>the location in memory. </p>
+<p>Also the length and pointer of a buffer provided to a MICROSAR Safe component need to </p>
+<p>be consistent. </p>
+<p>This assumption also applies to QM as well as ASIL components. </p>
+<p>This can e.g. be verified using static code analysis tools, reviews and integration testing. </p>
+<p><b>The user of MICROSAR Safe shall only retain pointers provided by MICROSAR Safe </b></p>
+<p><b>where explicitly stated. </b></p>
+<p>Some  MICROSAR  Safe  components  provide  call-outs  to  user  or  application  code.  The </p>
+<p>pointers passed to these call-outs may have limited validity. </p>
+<p>The user of MICROSAR Safe shall ensure that pointers are not used neither for reading </p>
+<p>nor  for  writing  after  returning  from  the  call-out.  Exceptions  of  this  rule  are  explicitly </p>
+<p>documented for the respective call-out. </p>
+<p><b>The </b></p>
+<p><b>user </b></p>
+<p><b>of </b></p>
+<p><b>MICROSAR Safe </b></p>
+<p><b>shall </b></p>
+<p><b>enable </b></p>
+<p><b>plausibility </b></p>
+<p><b>checks </b></p>
+<p><b>for </b></p>
+<p><b>the </b></p>
+<p><b>MICROSAR Safe components. </b></p>
+<p>This setting is necessary to introduce defensive programming and increase robustness at </p>
+<p>the interfaces as required by ISO 26262. </p>
+<p>This setting does not enable error reporting to the DET component. </p>
+<p>This setting is enforced by an MSSV plug-in. </p>
+<p><b>The user of MICROSAR Safe shall configure and use the interrupt system correctly. </b></p>
+<p>The user of MICROSAR Safe is responsible for a correct and consistent configuration and </p>
+<p>usage of the interrupt system. </p>
+<p>Especially the following topics shall be verified: </p>
+<p><b>&gt; </b></p>
+<p>Consistent configuration of interrupt category, level and priority in OS and MCAL </p>
+<p>modules </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>21 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>&gt; </b></p>
+<p>Correct assignment of logical channels/instances to interrupt vectors in case of MCAL </p>
+<p>modules with multiple channels/instances </p>
+<p><b>&gt; </b></p>
+<p>The interrupt controller is configured in a mode which processes interrupts of the same </p>
+<p>level sequentially to avoid unbounded interrupt nesting&quot; </p>
+<p><b>The </b></p>
+<p><b>user </b></p>
+<p><b>of </b></p>
+<p><b>MICROSAR </b></p>
+<p><b>Safe </b></p>
+<p><b>shall </b></p>
+<p><b>not </b></p>
+<p><b>use </b></p>
+<p><b>functionality </b></p>
+<p><b>of </b></p>
+<p><b>MICROSAR Safe </b></p>
+<p><b>components marked with a BETA-ESCAN. </b></p>
+<p>Functionality marked with a BETA-ESCAN is not thoroughly tested by Vector.  </p>
+<p>Vector ensures that functionality marked with a BETA-ESCAN can be completely disabled. </p>
+<p>The list of ESCANs (incl. BETA-ESCANs) is provided with a delivery. </p>
+<p><b>2.5.1.3 </b></p>
+<p><b>Partitioning </b></p>
+<p><b>The user of MICROSAR Safe shall ensure that for one AUTOSAR functional cluster </b></p>
+<p><b>(e.g.  System  Services,  Operating  System,  CAN,  COM,  etc.)  only  components  from </b></p>
+<p><b>Vector are used. </b></p>
+<p>This assumption is required because of dependencies within the development process of </p>
+<p>Vector. </p>
+<p>This assumption does not apply to the MCAL or the EXT cluster. </p>
+<p>Vector  may  have  requirements  on  MCAL  or  EXT  components  depending  on  the  upper </p>
+<p>layers  that  are  used  and  provided  by  Vector.  For  example,  the  watchdog  driver  is </p>
+<p>considered </p>
+<p>to </p>
+<p>have </p>
+<p>safety </p>
+<p>requirements </p>
+<p>allocated </p>
+<p>to </p>
+<p>its </p>
+<p>initialization </p>
+<p>and </p>
+<p>triggering </p>
+<p>services. Details are described in the component specific parts of this safety manual. </p>
+<p>This assumption does not apply to components that are not provided by Vector. </p>
+<p>In  case  the  partitioning  solution  is  used,  this  assumption  only  partially  applies  to  the </p>
+<p>System Services cluster. Only the Watchdog Manager and Watchdog Interface need to be </p>
+<p>used from Vector then, because the Watchdog Manager and Watchdog Interface will be </p>
+<p>placed in separate memory partitions apart from the other System Services components. </p>
+<p><b>The user of MICROSAR Safe shall provide an argument for coexistence for software </b></p>
+<p><b>that resides in the same partition as components from MICROSAR Safe. </b></p>
+<p>Vector  considers  an  ISO 26262-compliant  development  process  for  the  software  as  an </p>
+<p>argument  for  coexistence  (see  [1]  Part  9  Clause  6).  Vector  assumes  that  especially </p>
+<p>freedom from interference with respect to memory is provided by an ISO 26262-compliant </p>
+<p>development process. </p>
+<p>Redundant data storage as the only measure by the other software is not considered a </p>
+<p>sufficient measure. </p>
+<p>In general Vector components do not implement methods to interface with other software </p>
+<p>(e.g.  components,  hooks,  callouts)  in  other  partitions.  They  assume  that  all  interfacing </p>
+<p>components  reside  in  the  same  partition.  Interfacing  components  are  described  in  the </p>
+<p>respective technical reference. </p>
+<p>If  an  argument  for  coexistence  cannot  be  provided,  other  means  of  separation  shall  be </p>
+<p>implemented (e.g. trusted or non-trusted function calls). </p>
+<p>If ASIL components provided by Vector are used, this requirement is fulfilled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>22 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>The  user  of  MICROSAR  Safe  shall  verify  that  the  memory  mapping  is  consistent </b></p>
+<p><b>with the partitioning concept. </b></p>
+<p>The volatile data of every component shall be placed in the associated memory partition. </p>
+<p>This can be verified e.g. by review of the linker map file. </p>
+<p>The </p>
+<p>memory </p>
+<p>sections </p>
+<p>for </p>
+<p>each </p>
+<p>component </p>
+<p>placed </p>
+<p>in </p>
+<p>RAM </p>
+<p>can </p>
+<p>be </p>
+<p>identified </p>
+<p><i>&lt;MIP&gt;</i>_START_SEC_VAR[_&lt;xxx&gt;]</p>
+<p>, where </p>
+<p><i>&lt;MIP&gt;</i></p>
+<p> is the Module Implementation Prefix of </p>
+<p>the component. </p>
+<p><b>2.5.1.4 </b></p>
+<p><b>Resources </b></p>
+<p><b>The user of MICROSAR Safe shall provide sufficient resources in RAM, ROM, stack </b></p>
+<p><b>and CPU runtime for MICROSAR Safe. </b></p>
+<p>Selection  of  the  microcontroller  and  memory  capacities  as  well  as  dimensioning  of  the </p>
+<p>stacks is in the responsibility of the user of MICROSAR Safe. </p>
+<p>If MICROSAR Safe components have specific requirements, these are documented in the </p>
+<p>respective Technical Reference document. </p>
+<p><b>2.5.2 </b></p>
+<p><b>Process </b></p>
+<p><b>The  user  of  MICROSAR Safe  shall  follow  the  instructions  of  the  corresponding </b></p>
+<p><b>Technical Reference of the components. </b></p>
+<p>Especially </p>
+<p>deviations </p>
+<p>from  AUTOSAR </p>
+<p>specifications </p>
+<p>are </p>
+<p>described </p>
+<p>in </p>
+<p>the </p>
+<p>Technical </p>
+<p>References. </p>
+<p>If there are constraints for the implementation of an exclusive area, these are described in </p>
+<p>the Technical References. </p>
+<p><b>The user of MICROSAR Safe shall verify all code that is modified during integration </b></p>
+<p><b>of MICROSAR Safe. </b></p>
+<p>Code </p>
+<p>that </p>
+<p>is </p>
+<p>typically </p>
+<p>modified </p>
+<p>by </p>
+<p>the </p>
+<p>user </p>
+<p>of </p>
+<p>MICROSAR Safe </p>
+<p>during </p>
+<p>integration </p>
+<p>comprises generated templates, hooks, callouts, or similar. </p>
+<p>This assumption also applies if interfaces between components are looped through user-</p>
+<p>defined functions. </p>
+<p>Vector  assumes  that  this  verification  also  covers  ISO  26262:6-9.  Vector  assumes  that </p>
+<p>modified code that belongs to a Vector component, e.g. EcuM callouts or OS trace hooks </p>
+<p>can  at  least  coexist  with  this  component,  because  no  separation  in  memory  or  time  is </p>
+<p>implemented. </p>
+<p>Example: Callouts of the EcuM are executed in the context of the EcuM. </p>
+<p>Non-trusted functions provided by the Vector operating system can be used to implement </p>
+<p>a separation in memory in code modified by the user of MICROSAR Safe. </p>
+<p><b>The user of MICROSAR Safe shall only modify source code of MICROSAR Safe that </b></p>
+<p><b>is explicitly allowed to be changed. </b></p>
+<p>Usually  no  source  code  of  MICROSAR Safe  is  allowed  to  be  changed  by  the  user  of </p>
+<p>MICROSAR Safe. </p>
+<p>The  user  of </p>
+<p>MICROSAR Safe </p>
+<p>can </p>
+<p>check </p>
+<p>if </p>
+<p>the </p>
+<p>source </p>
+<p>code </p>
+<p>was </p>
+<p>modified </p>
+<p>by </p>
+<p>e.g, </p>
+<p>comparing it to the original delivery. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>23 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>The </b></p>
+<p><b>user </b></p>
+<p><b>of </b></p>
+<p><b>MICROSAR Safe </b></p>
+<p><b>shall </b></p>
+<p><b>verify </b></p>
+<p><b>generated </b></p>
+<p><b>functions </b></p>
+<p><b>according </b></p>
+<p><b>to </b></p>
+<p><b>ISO 26262:6-9. </b></p>
+<p>Generated functions can be identified when searching through the generated code. </p>
+<p>An example of generated functions is the configured rules of the Basic Software Manager </p>
+<p>(BSWM). Their correctness can only be verified by the user of MICROSAR Safe. Please </p>
+<p>note, however, that BSWM does not provide safety features. </p>
+<p>This requirement does not apply to MICROSAR SafeRTE. </p>
+<p><b>The  user  of  MICROSAR Safe  shall  execute  the  MICROSAR Safe  Silence  Verifier </b></p>
+<p><b>(MSSV). </b></p>
+<p>MSSV is used to detect potential out-of-bounds accesses by Vector's basic software based </p>
+<p>on inconsistent configuration. </p>
+<p>If  the  report  shows  “Overall  Check  Result:  Fail&quot;,  please  contact  the  Safety  Manager  at </p>
+<p>Vector. See Section 0 for contact details. </p>
+<p><b>The  user  of  MICROSAR Safe  shall  perform  the  integration  (ISO 26262:6-10)  and </b></p>
+<p><b>verification (ISO 26262:6-11) processes as required by ISO 26262. </b></p>
+<p>Especially the safety mechanisms shall be verified in the final target ECU. </p>
+<p>Vector assumes that by performing the integration and verification processes as required </p>
+<p>by  ISO 26262  the  generated  configuration  data,  e.g.  data  tables,  task  priorities  or  PDU </p>
+<p>handles,  are  sufficiently  checked. An  additional  review  of  the  configuration  data  is  then </p>
+<p>considered not necessary. </p>
+<p>Integration  does  not  apply  to  a  MICROSAR Safe  component  that  consists  of  several </p>
+<p>subcomponents.  This  integration  is  already  performed  by  Vector.  The  integration  of </p>
+<p>subcomponents  is  validated  during  creation  of  the  safety  case  by  Vector  based  on  the </p>
+<p>configuration handed in by the user of MICROSAR Safe. </p>
+<p>However, integration of all MICROSAR Safe components in the specific use-case of the </p>
+<p>user of  MICROSAR Safe  is the  responsibility  of  the user of  MICROSAR Safe. This  also </p>
+<p>includes the hardware-software integration in the context of the target ECU. </p>
+<p><b>The </b></p>
+<p><b>user </b></p>
+<p><b>of </b></p>
+<p><b>MICROSAR Safe </b></p>
+<p><b>shall </b></p>
+<p><b>ensure </b></p>
+<p><b>that </b></p>
+<p><b>a </b></p>
+<p><b>consistent </b></p>
+<p><b>set </b></p>
+<p><b>of </b></p>
+<p><b>generated </b></p>
+<p><b>configuration is used for verification and production. </b></p>
+<p>Make sure that the same generated files are used for testing and production code. E.g. be </p>
+<p>aware that configuration can be changed in the DaVinci tools without generating the code </p>
+<p>again. </p>
+<p>Make sure that all generated files have the same configuration basis, i.e. always generate </p>
+<p>the MICROSAR Safe configuration for all components for a relevant release of the ECU </p>
+<p>software. </p>
+<p>The use of post build loadable is supported but not recommended by Vector. Post build </p>
+<p>loadable  increases  complexity  of  verification  and  validation  processes  due  to  increased </p>
+<p>number of variants. There is no support by Vector to qualify the post build loadable tool </p>
+<p>chain provided by Vector to create binary data without a qualified compiler. </p>
+<p><b>The user of MICROSAR Safe shall verify the integrity of the delivery by Vector. </b></p>
+<p>Run the </p>
+<p>SIPModificationChecker.exe</p>
+<p> and verify that the source code, BSWMD and </p>
+<p>safety manual files are unchanged. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>24 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>The user of MICROSAR Safe shall verify the consistency of the binary downloaded </b></p>
+<p><b>into the ECU's flash memory. </b></p>
+<p>This  also </p>
+<p>includes </p>
+<p>re-programming </p>
+<p>of </p>
+<p>flash </p>
+<p>memory </p>
+<p>via </p>
+<p>a </p>
+<p>diagnostics </p>
+<p>service.  The </p>
+<p>consistency of the downloaded binary can be checked by the bootloader or the application. </p>
+<p>MICROSAR Safe assumes a correct program image. </p>
+<p><b>The user of MICROSAR Safe shall evaluate all tools (incl. compiler) that are used by </b></p>
+<p><b>the user of MICROSAR Safe according to ISO 26262:8-11. </b></p>
+<p>Evaluation especially shall be performed for the compiler, linker, debugging and test tools. </p>
+<p>Vector provides a guideline for the evaluation of the Tool Confidence Level (TCL) for the </p>
+<p>tools provided by Vector (e.g. DaVinci Configurator PRO). </p>
+<p>Vector  has  evaluated  the  tools  exclusively  used  by  Vector  during  the  development  of </p>
+<p>MICROSAR Safe. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>25 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3 </b></p>
+<p><b>Delivery Process </b></p>
+<p><b>3.1 </b></p>
+<p><b>Overview </b></p>
+<p>Figure  3-1  provides  an  overview  on  the  delivery  process  for  series  production  safety </p>
+<p>projects. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Overview of delivery process for safety projects </p>
+<p>The first delivery is provided in standard lead time. The release type of the first delivery will </p>
+<p>be Pre-Production. The Production SIP offer position is invoiced after shipment of the Pre-</p>
+<p>Production delivery. </p>
+<p>The  Production  (Safety-ready)  delivery  must  be  explicitly  requested  from  Vector.  This </p>
+<p>Production (Safety-ready) delivery is the basis for the Safety Case. It has a lead time of 26 </p>
+<p>weeks.  It  can  be  requested  by  providing  a  date  in  the  field  “Production  (Safety-ready) </p>
+<p>Delivery Date” in a Questionnaire Step II. </p>
+<p>The Production (Safe) delivery comprises the Safety Case for the delivered software. The </p>
+<p>delivery date of the Production (Safe) delivery is  confirmed in the Questionnaire Step III </p>
+<p>which is sent within two weeks after the Production (Safety-ready) delivery. </p>
+<p>Vector needs 12 weeks to create the Safety Case. This period includes the necessary time </p>
+<p>if validation of the MICROSAR Safe component test indicates retesting of components at </p>
+<p>Vector. With the delivery of the Safety Case the corresponding offer position is invoiced. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>26 </p>
+<p>based on template version 5.12.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If the process described above does not match the schedule of your project, please get </p>
+<p>in contact with Vector as soon as possible. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Attention </b></p>
+<p>Vector  requires  ordering  Maintenance  at  least  until  Start  of  Production  of  the </p>
+<p>project. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>Deliverables </b></p>
+<p><b>3.2.1 </b></p>
+<p><b>Safety Manual </b></p>
+<p>The Safety Manual defines requirements for integration of MICROSAR Safe. The content </p>
+<p>of the Safety Manual is specific for the ASIL components for a delivery. </p>
+<p>The Safety Manual is provided as starting from the first delivery.  </p>
+<p>The  Safety  Manual  provided  with  a  Development  and  Pre-Production  delivery  has  draft </p>
+<p>status. The Safety Manual provided with the Production  (Safety-ready) delivery has final </p>
+<p>status. </p>
+<p>The Safety Manual with draft status may be incomplete with respect to components that </p>
+<p>are currently under development or hardware-specific. </p>
+<p><b>3.2.2 </b></p>
+<p><b>Verification Tools </b></p>
+<p>Vector provides additional verification tools to verify freedom from interference with respect </p>
+<p>to memory and consistent configuration. </p>
+<p>These verification tools currently are: </p>
+<p><b>&gt; </b></p>
+<p><b>MICROSAR Safe Silence Verifier </b></p>
+<p><b>&gt; </b></p>
+<p>Used to ensure freedom from interference with respect to memory of basic software </p>
+<p><b>&gt; </b></p>
+<p>Enforce configuration constraints </p>
+<p><b>&gt; </b></p>
+<p><b>RTE Analyzer </b></p>
+<p><b>&gt; </b></p>
+<p>Used to ensure freedom from interference with respect to memory of RTE </p>
+<p><b>&gt; </b></p>
+<p>Enforce configuration constraints </p>
+<p><b>&gt; </b></p>
+<p>Provide configuration feedback for integration testing </p>
+<p><b>&gt; </b></p>
+<p>Provided for SafeRTE only </p>
+<p><b>&gt; </b></p>
+<p><b>WdgVerify </b></p>
+<p><b>&gt; </b></p>
+<p>Check of consistent configuration of Watchdog Manager and Watchdog Interface </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>27 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>&gt; </b></p>
+<p>Provided for SafeWDG only </p>
+<p><b>&gt; </b></p>
+<p><b>OS BackReader </b></p>
+<p><b>&gt; </b></p>
+<p>Provide configuration feedback for easier verification </p>
+<p><b>&gt; </b></p>
+<p>Provided for generation six operating systems only </p>
+<p><b>3.2.3 </b></p>
+<p><b>Safety Case </b></p>
+<p>The  Safety  Case  confirms  to  the  user  of  MICROSAR Safe  that  all  activities  required  by </p>
+<p>ISO 26262 have been completed by Vector. </p>
+<p>The Safety Case by Vector is required to assume that the delivered software is ISO 26262-</p>
+<p>compliant ASIL software. </p>
+<p>The  Safety  Case  is  provided  with  the  Production (Safe)  delivery.  The  Production (Safe) </p>
+<p>delivery is based on a Production (Safety-ready) delivery. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Attention </b></p>
+<p>For projects with the highest ASIL C or D, you are required to send the configuration of </p>
+<p>the MICROSAR Safe components to Vector. The configuration is required 12 weeks </p>
+<p>before Vector can deliver a Safety Case. </p>
+<p>You will only receive a Safety Case if you provide the configuration of the </p>
+<p>MICROSAR Safe components to Vector. </p>
+<p>For projects with the highest ASIL A or B, the configuration does not need to be </p>
+<p>provided to Vector. The Safety Case is provided 12 weeks after the Production (Safety-</p>
+<p>ready) delivery. </p>
+<p>The described timeline assumes that hardware and compiler (incl. options) are not </p>
+<p>changed after the Production (Safety-ready) delivery. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The </p>
+<p>configuration </p>
+<p>of </p>
+<p>the </p>
+<p>MICROSAR Safe </p>
+<p>components </p>
+<p>is </p>
+<p>required </p>
+<p>to </p>
+<p>validate </p>
+<p>the </p>
+<p>MICROSAR Safe component tests. </p>
+<p>The Safety Case is fixed for the following characteristics: </p>
+<p><b>&gt; </b></p>
+<p>Set of MICROSAR Safe components (incl. their version) </p>
+<p><b>&gt; </b></p>
+<p>Configuration of MICROSAR Safe components (for ASIL C/D) </p>
+<p><b>&gt; </b></p>
+<p>Microcontroller derivative </p>
+<p><b>&gt; </b></p>
+<p>External hardware units (e.g. external watchdogs or SBCs) </p>
+<p><b>&gt; </b></p>
+<p>Compiler (incl. version and options) </p>
+<p><b>&gt; </b></p>
+<p>Linker (incl. version and options) </p>
+<p>If </p>
+<p>an </p>
+<p>additional </p>
+<p>Safety </p>
+<p>Case </p>
+<p>is </p>
+<p>required, </p>
+<p>e.g. </p>
+<p>for </p>
+<p>another </p>
+<p>project </p>
+<p>with </p>
+<p>different </p>
+<p>characteristics, the safety case can be ordered again. </p>
+<p>The Safety Case also comprises the confirmation review of the completeness of the Safety </p>
+<p>Case by Vector’s independent quality department. The confirmation review ensures that all </p>
+<p>work products required to argue functional safety are available at Vector. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>28 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.3 </b></p>
+<p><b>Prerequisites </b></p>
+<p>For  the  creation  of  the  Safety  Case  for  MICROSAR Safe  the  following  information  is </p>
+<p>required 20 weeks prior to the Production (Safety-Ready) delivery: </p>
+<p><b>&gt; </b></p>
+<p>Final versions of the microcontroller manuals and microcontroller target specification, </p>
+<p><b>&gt; </b></p>
+<p>Final version of the safety manual of the microcontroller, </p>
+<p><b>&gt; </b></p>
+<p>Compiler version and options, </p>
+<p><b>&gt; </b></p>
+<p>Information about potential requirements and restrictions which are required by 3</p>
+<p>rd</p>
+<p> </p>
+<p>party safety software to all other software, e.g. provided by a safety manual. </p>
+<p>For the creation of the Safety Case for MICROSAR Safe the following information is </p>
+<p>required 12 weeks prior to Safety Case delivery </p>
+<p><b>&gt; </b></p>
+<p>Customer configuration of MICROSAR Safe is available (for ASIL C/D). </p>
+<p><b>3.4 </b></p>
+<p><b>Prototype SIPs and Evaluation Bundles </b></p>
+<p>Prototype SIPs and Evaluation Bundles cannot be used for series production. Thus, Vector </p>
+<p>does not offer a Safety Case for Prototype SIPs and Evaluation Bundles. </p>
+<p>Prototype SIPs and Evaluation Bundles comprise the verification tools and a <b>draft version </b></p>
+<p>of the Safety Manual. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>29 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4 </b></p>
+<p><b>Components of MICROSAR Safe </b></p>
+<p>This  section  comprises  details  on  safety  functionality,  constraints,  dependencies  and </p>
+<p>availability of MICROSAR Safe components. </p>
+<p>Please  note the  availability  of  a  component  in  the following  sections. Availability  of  HLP </p>
+<p>components depends on the specific hardware derivative. </p>
+<p>Features mentioned in Beta-ESCANS may not be used in safety-related projects. </p>
+<p>Unless </p>
+<p>otherwise </p>
+<p>noted, </p>
+<p>each </p>
+<p>component </p>
+<p>requires </p>
+<p>coexistence </p>
+<p>with </p>
+<p>all </p>
+<p>interfacing </p>
+<p>software. </p>
+<p><b>4.1 </b></p>
+<p><b>Operating System </b></p>
+<p><b>Short Name </b></p>
+<p>Operating System </p>
+<p><b>Abbreviation </b></p>
+<p>OS </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Memory partitioning </p>
+<p><b>&gt; </b></p>
+<p>Immediate priority ceiling protocol and the scheduling algorithm </p>
+<p><b>&gt; </b></p>
+<p>Timing protection </p>
+<p><b>&gt; </b></p>
+<p>Schedule tables </p>
+<p><b>&gt; </b></p>
+<p>Killing of applications </p>
+<p><b>&gt; </b></p>
+<p>Inter OS application communication </p>
+<p>And all safety features required by other MICROSAR Safe </p>
+<p>components. </p>
+<p><b>Availability </b></p>
+<p>HLP component; available for the major automotive microcontrollers </p>
+<p><b>Major constraints </b></p>
+<p>For SC3 and SC4 a Memory Protection Unit (MPU) in hardware is </p>
+<p>necessary. </p>
+<p>For SC2 and SC4 also a high-resolution timer in hardware is </p>
+<p>necessary. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None; The OS can protect itself from other components using the </p>
+<p>MPU if configured. </p>
+<p>Table 4-1  </p>
+<p>Component OS </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>30 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.2 </b></p>
+<p><b>Microcontroller Abstraction (MCAL) </b></p>
+<p><b>Short Name </b></p>
+<p>Analog/Digital Conversion Driver </p>
+<p><b>Abbreviation </b></p>
+<p>ADCDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-2  </p>
+<p>Component ADCDRV </p>
+<p><b>Short Name </b></p>
+<p>CAN Driver </p>
+<p><b>Abbreviation </b></p>
+<p>CANDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-3  </p>
+<p>Component CANDRV </p>
+<p><b>Short Name </b></p>
+<p>LIN Driver </p>
+<p><b>Abbreviation </b></p>
+<p>LINDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-4  </p>
+<p>Component LINDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>31 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Driver </p>
+<p><b>Abbreviation </b></p>
+<p>FRDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-5  </p>
+<p>Component FRDRV </p>
+<p><b>Short Name </b></p>
+<p>Ethernet Driver </p>
+<p><b>Abbreviation </b></p>
+<p>ETHDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-6  </p>
+<p>Component ETHDRV </p>
+<p><b>Short Name </b></p>
+<p>Wireless Ethernet Driver </p>
+<p><b>Abbreviation </b></p>
+<p>WETHDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-7  </p>
+<p>Component WETHDRV </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>32 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Ethernet Switch Driver </p>
+<p><b>Abbreviation </b></p>
+<p>ETHSWTDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-8  </p>
+<p>Component ETHSWTDRV </p>
+<p><b>Short Name </b></p>
+<p>Flash Driver </p>
+<p><b>Abbreviation </b></p>
+<p>FLSDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-9  </p>
+<p>Component FLSDRV </p>
+<p><b>Short Name </b></p>
+<p>EEPROM Driver </p>
+<p><b>Abbreviation </b></p>
+<p>EEPDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-10  </p>
+<p>Component EEPDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>33 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Serial Peripheral Interface (SPI) Driver </p>
+<p><b>Abbreviation </b></p>
+<p>SPIDRV </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Sending and receiving features if used with WDGEXT or SBC </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-11  </p>
+<p>Component SPIDRV </p>
+<p><b>Short Name </b></p>
+<p>Flash Test </p>
+<p><b>Abbreviation </b></p>
+<p>FLSTST </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-12  </p>
+<p>Component FLSTST </p>
+<p><b>Short Name </b></p>
+<p>I²C Driver </p>
+<p><b>Abbreviation </b></p>
+<p>vIICDRV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-13  </p>
+<p>Component vIICDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>34 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Core Test </p>
+<p><b>Abbreviation </b></p>
+<p>CORTST </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-14  </p>
+<p>Component CORTST </p>
+<p><b>Short Name </b></p>
+<p>RAM Test </p>
+<p><b>Abbreviation </b></p>
+<p>RAMTST </p>
+<p><b>Safety functionality </b></p>
+<p>n/a; Vector considers the RAM Test as specified by AUTOSAR as not </p>
+<p>sensible to use to increase diagnostic coverage. Thus, it is not part of </p>
+<p>MICROSAR Safe solution. </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-15  </p>
+<p>Component RAMTST </p>
+<p><b>Short Name </b></p>
+<p>Output Capture Unit Driver </p>
+<p><b>Abbreviation </b></p>
+<p>OCUDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-16  </p>
+<p>Component OCUDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>35 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Input Capture Unit Driver </p>
+<p><b>Abbreviation </b></p>
+<p>ICUDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-17  </p>
+<p>Component ICUDRV </p>
+<p><b>Short Name </b></p>
+<p>Pulse Width Modulation Driver </p>
+<p><b>Abbreviation </b></p>
+<p>PWMDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-18  </p>
+<p>Component PWMDRV </p>
+<p><b>Short Name </b></p>
+<p>Hardware CRY Driver </p>
+<p><b>Abbreviation </b></p>
+<p>CRYPTO (HW) </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Hardware accelerated encryption and decryption </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-19  </p>
+<p>Component CRYPTO (HW) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>36 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Hardware CRY Driver for HSM </p>
+<p><b>Abbreviation </b></p>
+<p>CRYPTO (vHSM) </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-20  </p>
+<p>Component CRYPTO (HW) </p>
+<p> </p>
+<p><b>Short Name </b></p>
+<p>Microcontroller Unit (MCU) Driver </p>
+<p><b>Abbreviation </b></p>
+<p>MCUDRV </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Must provide reset functionality as safety feature </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-21  </p>
+<p>Component MCUDRV </p>
+<p><b>Short Name </b></p>
+<p>General Purpose Timer Driver </p>
+<p><b>Abbreviation </b></p>
+<p>GPTDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-22  </p>
+<p>Component GPTDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>37 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Port Driver </p>
+<p><b>Abbreviation </b></p>
+<p>PORTDRV </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Must provide port direction setting functionality as safety feature </p>
+<p><b>Availability </b></p>
+<p>Not provided by Vector </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-23  </p>
+<p>Component PORTDRV </p>
+<p><b>Short Name </b></p>
+<p>Digital Input/Output Driver </p>
+<p><b>Abbreviation </b></p>
+<p>DIODRV </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Must provide I/O functionality as safety feature if used by </p>
+<p>WDGDRV. </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>HW specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-24  </p>
+<p>Component DIODRV </p>
+<p><b>Short Name </b></p>
+<p>Watchdog Driver </p>
+<p><b>Abbreviation </b></p>
+<p>WDGDRV </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Provides triggering and mode setting functionality as safety feature </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>Requires MICROSAR Safe WDGM and WDGIF. </p>
+<p>Table 4-25  </p>
+<p>Component WDGDRV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>38 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Wireless Ethernet Driver </p>
+<p><b>Abbreviation </b></p>
+<p>WETHDRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-26  </p>
+<p>Component WETHDRV </p>
+<p><b>4.3 </b></p>
+<p><b>External Components (EXT) </b></p>
+<p><b>Short Name </b></p>
+<p>CAN Transceiver </p>
+<p><b>Abbreviation </b></p>
+<p>CANTRCV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None; The CANTRCV for vSBC provides a configuration option to </p>
+<p>cross partitions in case CANTRCV and vSBC are assigned to </p>
+<p>different partitions. </p>
+<p>Table 4-27  </p>
+<p>Component CANTRCV </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Transceiver </p>
+<p><b>Abbreviation </b></p>
+<p>FRTRCV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-28  </p>
+<p>Component FRTRCV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>39 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>LIN Transceiver </p>
+<p><b>Abbreviation </b></p>
+<p>LINTRCV </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None; The LINTRCV for vSBC provides a configuration option to </p>
+<p>cross partitions in case LINTRCV and vSBC are assigned to different </p>
+<p>partitions. </p>
+<p>Table 4-29  </p>
+<p>Component LINTRCV </p>
+<p><b>Short Name </b></p>
+<p>Ethernet Transceiver </p>
+<p><b>Abbreviation </b></p>
+<p>ETHTRCV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-30  </p>
+<p>Component ETHTRCV </p>
+<p> </p>
+<p><b>Short Name </b></p>
+<p>System Basis Chip Driver </p>
+<p><b>Abbreviation </b></p>
+<p>vSBC </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Initialize watchdog in SBC </p>
+<p><b>&gt; </b></p>
+<p>Set mode of watchdog in SBC </p>
+<p><b>&gt; </b></p>
+<p>Trigger watchdog in SBC </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>If SPIDRV is used the sending and receiving features of the SBC </p>
+<p>driver must be provided as safety feature. </p>
+<p><b>&gt; </b></p>
+<p>If DIODRV is used the I/O functionality must be provided as safety </p>
+<p>feature. </p>
+<p>Table 4-31  </p>
+<p>Component vSBC </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>40 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>External Driver (includes EXTADC, EEPEXT, FLSEXT, ETHSWTEXT </p>
+<p>and WDGEXT) </p>
+<p><b>Abbreviation </b></p>
+<p>DRVEXT </p>
+<p><b>Safety functionality </b></p>
+<p>See corresponding MCAL driver </p>
+<p><b>Availability </b></p>
+<p>HLP component </p>
+<p><b>Major constraints </b></p>
+<p>Hardware specific </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>See corresponding MCAL driver </p>
+<p>In case of WDGEXT: </p>
+<p><b>&gt; </b></p>
+<p>If SPIDRV is used the sending and receiving features of the SBC </p>
+<p>driver must be provided as safety feature. </p>
+<p><b>&gt; </b></p>
+<p>If DIODRV is used the I/O functionality must be provided as safety </p>
+<p>feature. </p>
+<p>Table 4-32  </p>
+<p>Component DRVEXT </p>
+<p><b>Short Name </b></p>
+<p>PSI5 Driver </p>
+<p><b>Abbreviation </b></p>
+<p>vPSI5 DRV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-33  </p>
+<p>Component vPSI5 DRV </p>
+<p><b>Short Name </b></p>
+<p>Wireless Ethernet Transceiver </p>
+<p><b>Abbreviation </b></p>
+<p>WETHTRCV </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-34  </p>
+<p>Component WETHTRCV </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>41 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.4 </b></p>
+<p><b>System Services </b></p>
+<p><b>Short Name </b></p>
+<p>Basic Software Manager </p>
+<p><b>Abbreviation </b></p>
+<p>BSWM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-35  </p>
+<p>Component BSWM </p>
+<p><b>Short Name </b></p>
+<p>Communication Manager </p>
+<p><b>Abbreviation </b></p>
+<p>COMM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-36  </p>
+<p>Component COMM </p>
+<p><b>Short Name </b></p>
+<p>Default Error Tracer </p>
+<p><b>Abbreviation </b></p>
+<p>DET </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-37  </p>
+<p>Component DET </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>42 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>ECU State Manager </p>
+<p><b>Abbreviation </b></p>
+<p>ECUM </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Validation of all postbuild configurable BSW module configuration </p>
+<p>parameters. </p>
+<p><b>&gt; </b></p>
+<p>Set programmable interrupts during the startup phase. </p>
+<p><b>&gt; </b></p>
+<p>Initialize drivers prior the start of the OS. </p>
+<p><b>&gt; </b></p>
+<p>Determine the Postbuild configuration data. </p>
+<p><b>&gt; </b></p>
+<p>Initialize drivers prior Postbuild data is available. </p>
+<p><b>&gt; </b></p>
+<p>Reset the ECU. </p>
+<p><b>&gt; </b></p>
+<p>Generate a RAM Hash. </p>
+<p><b>&gt; </b></p>
+<p>Check the RAM Hash. </p>
+<p><b>&gt; </b></p>
+<p>Re-initialize drivers during a restart. </p>
+<p><b>&gt; </b></p>
+<p>Set the current shutdown target of the ECU. </p>
+<p><b>&gt; </b></p>
+<p>Initiate the ECU shutdown depending on the shutdown target. </p>
+<p><b>&gt; </b></p>
+<p>Notify Errors from the ECU management. </p>
+<p><b>&gt; </b></p>
+<p>Complete the ECU shutdown process. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>Defensive behavior is not available. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>The Operating System must provide the core ID retrieval service </p>
+<p>as safety feature. </p>
+<p>Table 4-38  </p>
+<p>Component ECUM </p>
+<p><b>Short Name </b></p>
+<p>Synchronized Time Base Manager </p>
+<p><b>Abbreviation </b></p>
+<p>STBM </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined. </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-39  </p>
+<p>Component STBM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>43 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Time Service </p>
+<p><b>Abbreviation </b></p>
+<p>TM </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-40  </p>
+<p>Component TM </p>
+<p><b>Short Name </b></p>
+<p>Watchdog Manager </p>
+<p><b>Abbreviation </b></p>
+<p>WDGM </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Alive monitoring </p>
+<p><b>&gt; </b></p>
+<p>Deadline monitoring </p>
+<p><b>&gt; </b></p>
+<p>Logic monitoring </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>Needs to be mapped to a partition with the highest ASIL of the ECU. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>WDGIF must be used with same ASIL from MICROSAR Safe. </p>
+<p>Table 4-41  </p>
+<p>Component WDGM </p>
+<p><b>Short Name </b></p>
+<p>Watchdog Interface </p>
+<p><b>Abbreviation </b></p>
+<p>WDGIF </p>
+<p><b>Safety functionality </b></p>
+<p>Based on WDGM </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>Needs to be mapped to a partition with the highest ASIL of the ECU. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>WDGM must have same ASIL assigned. </p>
+<p><b>&gt; </b></p>
+<p>Watchdog driver must provide triggering and mode setting </p>
+<p>functionality as safety feature. </p>
+<p><b>&gt; </b></p>
+<p>Watchdog driver may be an internal or external watchdog or a </p>
+<p>system basis chip (SBC). </p>
+<p>Table 4-42  </p>
+<p>Component WDGIF </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>44 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.5 </b></p>
+<p><b>Crypto Services </b></p>
+<p><b>Short Name </b></p>
+<p>Cryptographic Service Manager </p>
+<p><b>Abbreviation </b></p>
+<p>CSM </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Compute hash functions </p>
+<p><b>&gt; </b></p>
+<p>Compute MAC functions </p>
+<p><b>&gt; </b></p>
+<p>Verify MAC functions </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>If safety functionality is used, the CRY component must provide the </p>
+<p>cryptographic algorithms as safety feature. </p>
+<p>Table 4-43  </p>
+<p>Component CSM </p>
+<p><b>Short Name </b></p>
+<p>Cryptographic Primitive Library </p>
+<p><b>Abbreviation </b></p>
+<p>CRYIF </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-44  </p>
+<p>Component CRYIF </p>
+<p><b>Short Name </b></p>
+<p>Cryptographic Primitive Library </p>
+<p><b>Abbreviation </b></p>
+<p>CRYPTO (SW) </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Cryptographic algorithms </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-45  </p>
+<p>Component CRYPTO (SW) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>45 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.6 </b></p>
+<p><b>Diagnostic Services </b></p>
+<p><b>Short Name </b></p>
+<p>Diagnostic Communication Manager </p>
+<p><b>Abbreviation </b></p>
+<p>DCM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Process not yet completely implemented, but argument that </p>
+<p>component fulfills freedom from interference can be provided. </p>
+<p><b>Major constraints </b></p>
+<p>DCM does <b>only </b>support the following features: </p>
+<p><b>&gt; </b></p>
+<p>DCM handles only the following diagnostic services internally: </p>
+<p>0x10, 0x14, 0x19, 0x27, 0x28, 0x3E, 0x85 </p>
+<p><b>&gt; </b></p>
+<p>Handling of multiple diagnostic clients is supported with pseudo </p>
+<p>parallel handling (NRC 0x21 on server busy). </p>
+<p><b>&gt; </b></p>
+<p>Request notification callbacks (OEM/SYS supplier </p>
+<p>indication/confirmation) are supported. </p>
+<p>Other diagnostic services are provided as a template that can be </p>
+<p>verified by the customer. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-46  </p>
+<p>Component DCM </p>
+<p><b>Short Name </b></p>
+<p>Diagnostic Event Manager </p>
+<p><b>Abbreviation </b></p>
+<p>DEM </p>
+<p><b>Safety functionality </b></p>
+<p>None; Vector considers degradation via DEM and FIM for safety-</p>
+<p>related functionality not sensible. </p>
+<p><b>Availability </b></p>
+<p>Process not yet completely implemented, but argument that </p>
+<p>component fulfills freedom from interference can be provided. </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>OBD-II features are not available </p>
+<p><b>&gt; </b></p>
+<p>WWH-OBD features are not available </p>
+<p><b>&gt; </b></p>
+<p>J1939 features are not available </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-47  </p>
+<p>Component DEM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>46 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Function Inhibition Manager </p>
+<p><b>Abbreviation </b></p>
+<p>FIM </p>
+<p><b>Safety functionality </b></p>
+<p>None; Vector considers degradation via DEM and FIM for safety-</p>
+<p>related functionality not sensible. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>No cyclic event evaluation </p>
+<p><b>&gt; </b></p>
+<p>No calibration support (except post-build loadable) </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-48  </p>
+<p>Component FIM </p>
+<p><b>Short Name </b></p>
+<p>J1939 Diagnostic Communication Manager </p>
+<p><b>Abbreviation </b></p>
+<p>J1939DCM </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-49  </p>
+<p>Component J1939DCM </p>
+<p><b>Short Name </b></p>
+<p>Diagnostic Request Manager </p>
+<p><b>Abbreviation </b></p>
+<p>vDRM </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-50  </p>
+<p>Component vDRM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>47 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Diagnostic Event Synchronizer </p>
+<p><b>Abbreviation </b></p>
+<p>vDES </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-51  </p>
+<p>Component vDES </p>
+<p><b>4.7 </b></p>
+<p><b>Memory Services </b></p>
+<p><b>Short Name </b></p>
+<p>Non-volatile Memory Manager </p>
+<p><b>Abbreviation </b></p>
+<p>NVM </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Loading of data </p>
+<p><b>&gt; </b></p>
+<p>Storing of data </p>
+<p>see Section 2.4.5</p>
+<p>. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-52  </p>
+<p>Component NVM </p>
+<p><b>Short Name </b></p>
+<p>Memory Interface </p>
+<p><b>Abbreviation </b></p>
+<p>MEMIF </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-53  </p>
+<p>Component MEMIF </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>48 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Flash EEPROM Emulation </p>
+<p><b>Abbreviation </b></p>
+<p>FEE </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-54  </p>
+<p>Component FEE </p>
+<p><b>Short Name </b></p>
+<p>EEPROM Abstraction </p>
+<p><b>Abbreviation </b></p>
+<p>EA </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-55  </p>
+<p>Component EA </p>
+<p><b>4.8 </b></p>
+<p><b>Communication </b></p>
+<p><b>Short Name </b></p>
+<p>COM </p>
+<p><b>Abbreviation </b></p>
+<p>COM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>Com TP Interface (Dynamic Length Signals) is not available </p>
+<p><b>&gt; </b></p>
+<p>Meta Data Support is not available </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-56  </p>
+<p>Component COM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>49 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>I-PDU Manager </p>
+<p><b>Abbreviation </b></p>
+<p>IPDUM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-57  </p>
+<p>Component IPDUM </p>
+<p><b>Short Name </b></p>
+<p>Network Manager </p>
+<p><b>Abbreviation </b></p>
+<p>NM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-58  </p>
+<p>Component NM </p>
+<p><b>Short Name </b></p>
+<p>PDU Router </p>
+<p><b>Abbreviation </b></p>
+<p>PDUR </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-59  </p>
+<p>Component PDUR </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>50 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>COM Transformer </p>
+<p><b>Abbreviation </b></p>
+<p>COMXF </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Transformation of sender/receiver communication </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeRTE must be used due to verification concept of </p>
+<p>the transformer. </p>
+<p>Table 4-60  </p>
+<p>Component COMXF </p>
+<p><b>Short Name </b></p>
+<p>SOME/IP Transformer </p>
+<p><b>Abbreviation </b></p>
+<p>SOMEIPXF </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeRTE must be used due to verification concept of </p>
+<p>the transformer. </p>
+<p>Table 4-61  </p>
+<p>Component SOMEIPXF </p>
+<p><b>Short Name </b></p>
+<p>End-to-End (E2E) Transformer </p>
+<p><b>Abbreviation </b></p>
+<p>E2EXF </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Protection of data for communication between ECUs </p>
+<p><b>&gt; </b></p>
+<p>Verification of data protection for communication between ECUs </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>Supports all AUTOSAR E2E profiles if configured via System </p>
+<p>Extract </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>MICROSAR SafeRTE must be used due to verification concept of </p>
+<p>the transformer. </p>
+<p><b>&gt; </b></p>
+<p>COMXF and SOMEIPXF have to have the same ASIL as E2EXF. </p>
+<p>Table 4-62  </p>
+<p>Component E2EXF </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>51 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Secure On-board Communication </p>
+<p><b>Abbreviation </b></p>
+<p>SECOC </p>
+<p><b>Safety functionality </b></p>
+<p>None; Vector considers the usage of SECOC for end-to-end </p>
+<p>protection not sensible. </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-63  </p>
+<p>Component SECOC </p>
+<p><b>Short Name </b></p>
+<p>Large Data COM </p>
+<p><b>Abbreviation </b></p>
+<p>LDCOM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-64  </p>
+<p>Component LDCOM </p>
+<p><b>Short Name </b></p>
+<p>SOME/IP TP </p>
+<p><b>Abbreviation </b></p>
+<p>SOMEIPTP </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-65  </p>
+<p>Component SOMEIPTP </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>52 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.9 </b></p>
+<p><b>Advanced Measurement and Debug (AMD) </b></p>
+<p><b>Short Name </b></p>
+<p>Debug </p>
+<p><b>Abbreviation </b></p>
+<p>vDBG </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Currently not planned to be part of MICROSAR Safe since not used in </p>
+<p>series production software. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-66  </p>
+<p>Component vDBG </p>
+<p><b>Short Name </b></p>
+<p>Debug Log and Trace </p>
+<p><b>Abbreviation </b></p>
+<p>DLT </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Currently not planned to be part of MICROSAR Safe since not used in </p>
+<p>series production software. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-67  </p>
+<p>Component DLT </p>
+<p><b>Short Name </b></p>
+<p>Runtime Measurement </p>
+<p><b>Abbreviation </b></p>
+<p>vRTM </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Disabling of all module functionality. </p>
+<p><b>&gt; </b></p>
+<p><b>If RTM is not part of series production software, it is not </b></p>
+<p><b>required to be ordered as ASIL software. </b></p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>RTM must be disabled according to Safety Manual during normal </p>
+<p>operation. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-68  </p>
+<p>Component vRTM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>53 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.10 </b></p>
+<p><b>XCP </b></p>
+<p><b>Short Name </b></p>
+<p>Universal Calibration Protocol (XCP) </p>
+<p><b>Abbreviation </b></p>
+<p>XCP </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Disabling of all module functionality. </p>
+<p><b>&gt; </b></p>
+<p><b>If XCP is not part of series production software, it is not </b></p>
+<p><b>required to be ordered as ASIL software. </b></p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>XCP must be disabled according to Safety Manual during normal </p>
+<p>operation. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-69  </p>
+<p>Component XCP </p>
+<p><b>4.11 </b></p>
+<p><b>CAN </b></p>
+<p><b>Short Name </b></p>
+<p>J1939 Transport Protocol </p>
+<p><b>Abbreviation </b></p>
+<p>J1939TP </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-70  </p>
+<p>Component J1939TP </p>
+<p><b>Short Name </b></p>
+<p>J1939 Network Manager </p>
+<p><b>Abbreviation </b></p>
+<p>J1939NM </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-71  </p>
+<p>Component J1939NM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>54 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>J1939 Resource Manager </p>
+<p><b>Abbreviation </b></p>
+<p>J1939RM </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-72  </p>
+<p>Component J1939RM </p>
+<p><b>Short Name </b></p>
+<p>CAN Universal Calibration Protocol (XCP) </p>
+<p><b>Abbreviation </b></p>
+<p>CANXCP </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Disabling of all module functionality. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>XCP must be disabled according to Safety Manual during normal </p>
+<p>operation. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-73  </p>
+<p>Component CANXCP </p>
+<p><b>Short Name </b></p>
+<p>CAN Time Synchronization </p>
+<p><b>Abbreviation </b></p>
+<p>CANTSYN </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined. </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined. </p>
+<p>Table 4-74  </p>
+<p>Component CANTSYN </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>55 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>CAN Transport Protocol </p>
+<p><b>Abbreviation </b></p>
+<p>CANTP </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>No unidirectional configurations are supported, i.e. at least one Rx </p>
+<p>and one Tx SDU must be configured. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-75  </p>
+<p>Component CANTP </p>
+<p><b>Short Name </b></p>
+<p>CAN Interface </p>
+<p><b>Abbreviation </b></p>
+<p>CANIF </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>Single channel optimization is not available </p>
+<p><b>&gt; </b></p>
+<p>Only one CAN driver is supported </p>
+<p><b>&gt; </b></p>
+<p>J1939 dynamic address mapping is not available </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-76  </p>
+<p>Component CANIF </p>
+<p><b>Short Name </b></p>
+<p>CAN Network Manager </p>
+<p><b>Abbreviation </b></p>
+<p>CANNM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-77  </p>
+<p>Component CANNM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>56 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>CAN Station Manager </p>
+<p><b>Abbreviation </b></p>
+<p>CANSM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-78  </p>
+<p>Component CANSM </p>
+<p><b>4.12 </b></p>
+<p><b>LIN </b></p>
+<p><b>Short Name </b></p>
+<p>LIN Universal Calibration Protocol (XCP) </p>
+<p><b>Abbreviation </b></p>
+<p>vLINXCP </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Disabling of all module functionality. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>XCP must be disabled according to Safety Manual during normal </p>
+<p>operation. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-79  </p>
+<p>Component vLINXCP </p>
+<p><b>Short Name </b></p>
+<p>LIN Transport Protocol and LIN Interface </p>
+<p><b>Abbreviation </b></p>
+<p>LINTP and LINIF </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-80  </p>
+<p>Component LINTP and LINIF </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>57 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>LIN Network Manager </p>
+<p><b>Abbreviation </b></p>
+<p>LINNM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-81  </p>
+<p>Component LINNM </p>
+<p><b>Short Name </b></p>
+<p>LIN Station Manager </p>
+<p><b>Abbreviation </b></p>
+<p>LINSM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-82  </p>
+<p>Component LINSM </p>
+<p><b>4.13 </b></p>
+<p><b>FlexRay </b></p>
+<p><b>Short Name </b></p>
+<p>FlexRay AUTOSAR TP </p>
+<p><b>Abbreviation </b></p>
+<p>FRARTP </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-83  </p>
+<p>Component FRARTP </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>58 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Universal Calibration Protocol (XCP) </p>
+<p><b>Abbreviation </b></p>
+<p>FRXCP </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Disabling of all module functionality. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>XCP must be disabled according to Safety Manual during normal </p>
+<p>operation. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-84  </p>
+<p>Component FRXCP </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Time Synchronization </p>
+<p><b>Abbreviation </b></p>
+<p>FRTSYN </p>
+<p><b>Safety functionality </b></p>
+<p>To be determined. </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined. </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined. </p>
+<p>Table 4-85  </p>
+<p>Component FRTSYN </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Transport Protocol </p>
+<p><b>Abbreviation </b></p>
+<p>FRTP </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-86  </p>
+<p>Component FRTP </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>59 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Interface </p>
+<p><b>Abbreviation </b></p>
+<p>FRIF </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p><b>&gt; </b></p>
+<p>Customized job list execution scheduling is not available </p>
+<p><b>&gt; </b></p>
+<p>Measurement of the delay/overlapping is not available </p>
+<p><b>&gt; </b></p>
+<p>Support of 3rd party drivers is not available </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>All interfacing BSW components must reside in the same partition. </p>
+<p>Table 4-87  </p>
+<p>Component FRIF </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Network Manager </p>
+<p><b>Abbreviation </b></p>
+<p>FRNM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-88  </p>
+<p>Component FRNM </p>
+<p><b>Short Name </b></p>
+<p>FlexRay Station Manager </p>
+<p><b>Abbreviation </b></p>
+<p>FRSM </p>
+<p><b>Safety functionality </b></p>
+<p>None </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-89  </p>
+<p>Component FRSM </p>
+<p><b>4.14 </b></p>
+<p><b>Ethernet </b></p>
+<p>The  components  (ETHXCP,  SOAD,  TCPIP,  ETHIF,  ETHSM,  DOIP,  UDPNM,  SD  and </p>
+<p>ETHTSYN) of Ethernet are currently planned for MICROSAR Safe. Availability is provided </p>
+<p>upon request. The components (vTLS, vETHFW and vETM) of Ethernet are currently not </p>
+<p>planned for MICROSAR Safe. </p>
+<p>There is no safety functionality planned for the Ethernet components. Major constraints are </p>
+<p>not yet determined. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>60 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.15 </b></p>
+<p><b>Libraries (LIBS) </b></p>
+<p><b>Short Name </b></p>
+<p>Cyclic Redundancy Check (CRC) Library </p>
+<p><b>Abbreviation </b></p>
+<p>CRC </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Calculate CRCs with different polynomials. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>None </p>
+<p>Table 4-90  </p>
+<p>Component CRC </p>
+<p><b>Short Name </b></p>
+<p>End-to-end (E2E) Library </p>
+<p><b>Abbreviation </b></p>
+<p>E2E </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Create end-to-end protection for data and verify end-to-end </p>
+<p>protection information. </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>The CRC library from MICROSAR Safe is required. </p>
+<p>Table 4-91  </p>
+<p>Component E2E </p>
+<p><b>4.16 </b></p>
+<p><b>Audio/Video Bridging (AVB) </b></p>
+<p>The </p>
+<p>components </p>
+<p>(AVTP, </p>
+<p>BMCA </p>
+<p>and </p>
+<p>PTP) </p>
+<p>of </p>
+<p>AVB </p>
+<p>are </p>
+<p>currently </p>
+<p>not </p>
+<p>part </p>
+<p>of </p>
+<p>MICROSAR Safe. </p>
+<p><b>4.17 </b></p>
+<p><b>Vehicle-to-Grid (V2G) </b></p>
+<p>The components (vDNS, vEXI, vHTTP, vXMLSecurity and vSCC) of V2G are currently not </p>
+<p>part of MICROSAR Safe. </p>
+<p><b>4.18 </b></p>
+<p><b>Vehicle-to-X (V2X) </b></p>
+<p>The  components  (V2XBTP,  V2XFAC,  V2XGN,  V2XM)  of  V2X  are  currently  not  part  of </p>
+<p>MICROSAR Safe. </p>
+<p><b>4.19 </b></p>
+<p><b>Input/Output (IO) </b></p>
+<p>The component vDIOHWAB is template code only. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>61 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>Single Edge Nibble Transmission (SENT) </p>
+<p><b>Abbreviation </b></p>
+<p>vSENT </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>I/O functionality </p>
+<p><b>Availability </b></p>
+<p>Not yet available </p>
+<p><b>Major constraints </b></p>
+<p>To be determined </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>To be determined </p>
+<p>Table 4-92  </p>
+<p>Component vSENT </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>62 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4.20 </b></p>
+<p><b>Runtime Environment (RTE) </b></p>
+<p><b>Short Name </b></p>
+<p>Runtime Environment </p>
+<p><b>Abbreviation </b></p>
+<p>RTE </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>Explicit Sender/Receiver communication with last-is-best semantic </p>
+<p><b>&gt; </b></p>
+<p>Explicit Sender/Receiver communication with queued semantic </p>
+<p><b>&gt; </b></p>
+<p>Implicit Sender/Receiver communication </p>
+<p><b>&gt; </b></p>
+<p>Client/Server communication </p>
+<p><b>&gt; </b></p>
+<p>Explicit Inter-Runnable Variables </p>
+<p><b>&gt; </b></p>
+<p>Implicit Inter-Runnable Variables </p>
+<p><b>&gt; </b></p>
+<p>Per-Instance Memory </p>
+<p><b>&gt; </b></p>
+<p>Calibration parameters </p>
+<p><b>&gt; </b></p>
+<p>NVM access </p>
+<p><b>&gt; </b></p>
+<p>Mode management </p>
+<p><b>&gt; </b></p>
+<p>Exclusive areas for data consistency </p>
+<p><b>&gt; </b></p>
+<p>Scheduling of executable entities </p>
+<p><b>&gt; </b></p>
+<p>Triggering of executable entities </p>
+<p><b>Availability </b></p>
+<p>Available </p>
+<p><b>Major constraints </b></p>
+<p>The following features of RTE are not available for SafeRTE: </p>
+<p><b>&gt; </b></p>
+<p>Minimum Start Interval </p>
+<p><b>&gt; </b></p>
+<p>Inter-ECU Client/Server communication </p>
+<p><b>&gt; </b></p>
+<p>Runnable activation reason </p>
+<p><b>&gt; </b></p>
+<p>Transformers (will be supported when they are available) </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>The Operating System must provide the following safety features: </p>
+<p><b>&gt; </b></p>
+<p>Interrupt enabling and disabling </p>
+<p><b>&gt; </b></p>
+<p>Resource handling </p>
+<p><b>&gt; </b></p>
+<p>Task handling </p>
+<p><b>&gt; </b></p>
+<p>Alarm handling </p>
+<p><b>&gt; </b></p>
+<p>Core ID retrieval </p>
+<p><b>&gt; </b></p>
+<p>Spinlock handling </p>
+<p><b>&gt; </b></p>
+<p>Event handling </p>
+<p><b>&gt; </b></p>
+<p>Scheduling </p>
+<p><b>&gt; </b></p>
+<p>Schedule table handling </p>
+<p><b>&gt; </b></p>
+<p>IOC </p>
+<p>If the OS from MICROSAR Safe is used these dependencies are </p>
+<p>fulfilled </p>
+<p>If saving and loading safety-related data is required, the NVM must </p>
+<p>provide saving and loading as safety feature. If the NVM from </p>
+<p>MICROSAR Safe is used, this dependency is fulfilled. </p>
+<p>Table 4-93  </p>
+<p>Component RTE </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>63 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Short Name </b></p>
+<p>E2E Protection Wrapper </p>
+<p><b>Abbreviation </b></p>
+<p>E2EPW </p>
+<p><b>Safety functionality </b></p>
+<p><b>&gt; </b></p>
+<p>End-to-end protection of signal groups </p>
+<p><b>Availability </b></p>
+<p>Available for the following profiles: </p>
+<p><b>&gt; </b></p>
+<p>Profile 1 </p>
+<p><b>&gt; </b></p>
+<p>Profile 2 </p>
+<p><b>&gt; </b></p>
+<p>JLR </p>
+<p><b>&gt; </b></p>
+<p>VCC </p>
+<p><b>Major constraints </b></p>
+<p>None </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p><b>&gt; </b></p>
+<p>E2EPW is using RTE. Either SafeRTE is used or argument for </p>
+<p>coexistence of RTE with E2EPW must be provided by the user of </p>
+<p>MICROSAR Safe. </p>
+<p>Table 4-94  </p>
+<p>Component E2EPW </p>
+<p><b>4.21 </b></p>
+<p><b>Hardware Security Module (HSM) </b></p>
+<p><b>Short Name </b></p>
+<p>Hardware Security Module (HSM) </p>
+<p><b>Abbreviation </b></p>
+<p>vHSM </p>
+<p><b>Safety functionality </b></p>
+<p>n/a </p>
+<p><b>Availability </b></p>
+<p>Not scheduled to be part of MICROSAR Safe. </p>
+<p><b>Major constraints </b></p>
+<p>n/a </p>
+<p><b>Additional </b></p>
+<p><b>dependencies to other </b></p>
+<p><b>components </b></p>
+<p>n/a </p>
+<p>Table 4-95  </p>
+<p>Component vHSM </p>
+<p><b>4.22 </b></p>
+<p><b>OEM-specific Components </b></p>
+<p>OEM-specific components for several OEMs are scheduled to be part of MICROSAR Safe. </p>
+<p>Thus, Vector supports using all basic software modules as ASIL for at least the following </p>
+<p>OEMs that have OEM-specific basic software components: </p>
+<p><b>&gt; </b></p>
+<p>Toyota Motor Company (TMC) </p>
+<p><b>&gt; </b></p>
+<p>Ford (Ford) </p>
+<p>Moreover, </p>
+<p>OEM-specific </p>
+<p>software </p>
+<p>components </p>
+<p>are </p>
+<p>scheduled </p>
+<p>to </p>
+<p>be </p>
+<p>part </p>
+<p>of </p>
+<p>MICROSAR Safe.  Especially,  General  Motors  (GM)  Supplier  Utility  Modules  (SUMs)  are </p>
+<p>developed according to ISO 26262. However, they are not yet available. </p>
+<p>More details and information for other OEMs is available upon request. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>64 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5 </b></p>
+<p><b>Safety Management </b></p>
+<p>Vector </p>
+<p>has </p>
+<p>performed </p>
+<p>reference </p>
+<p>functional </p>
+<p>safety </p>
+<p>assessments </p>
+<p>together </p>
+<p>with </p>
+<p>an </p>
+<p>independent assessor for the MICROSAR Safe products. </p>
+<p>The  Vector-internal  quality  management  department  regularly  performs  functional  safety </p>
+<p>audits. </p>
+<p>If you are interested in a project specific functional safety audit and assessment, please </p>
+<p>contact the safety manager. </p>
+<p>Vector’s Safety Manager for the MICROSAR Safe solution is: </p>
+<p><b>&gt; </b></p>
+<p>Jonas Wolf </p>
+<p><b>&gt; </b></p>
+<p>SafetyManagerPES@vector.com </p>
+<p>For reasons of efficiency, ASIL A and ASIL B are handled equally at Vector. Also ASIL C </p>
+<p>and ASIL D are handled equally. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>65 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>6 </b></p>
+<p><b>Issue Management </b></p>
+<p>The user of  MICROSAR Safe is required to provide a contact to Vector that will receive </p>
+<p>notification about safety-related issues. The user of  MICROSAR Safe is also required to </p>
+<p>notify </p>
+<p>Vector </p>
+<p>when </p>
+<p>the </p>
+<p>contact </p>
+<p>changes. </p>
+<p>The </p>
+<p>contact </p>
+<p>provided </p>
+<p>by </p>
+<p>the </p>
+<p>user </p>
+<p>of </p>
+<p>MICROSAR Safe must be available even after Start of Production of the project for which </p>
+<p>the safety case is provided. </p>
+<p>Vector will notify safety-related issues for 15 years after the safety case is delivered. </p>
+<p>Vector recommends installing an email distribution box, e.g. standard-sw@customer.com. </p>
+<p>This mailbox must be checked within adequate time intervals by the responsible persons. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>66 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>Configuration data</p>
+<p> </p>
+<p>Data that is used to adapt the MICROSAR Safe component to the </p>
+<p>specific use-case of the user of MICROSAR Safe. Configuration data </p>
+<p>typically comprises among others: feature selection, routing tables, </p>
+<p>channel tables, task priorities, memory block descriptions.</p>
+<p> </p>
+<p>Critical section</p>
+<p> </p>
+<p>A section of code that needs to be protected from concurrent access. A </p>
+<p>critical section may be protected by using the AUTOSAR exclusive area </p>
+<p>concept.</p>
+<p> </p>
+<p>Generated code</p>
+<p> </p>
+<p>Source code that is generated as a result of the configuration in DaVinci </p>
+<p>Configurator Pro</p>
+<p> </p>
+<p>MICROSAR Safe</p>
+<p> </p>
+<p>MICROSAR Safe comprises MICROSAR SafeBSW and MICROSAR </p>
+<p>SafeRTE as Safety Element out of Context. MICROSAR SafeBSW is a </p>
+<p>set of components, that are developed according to ISO 26262 [1], and </p>
+<p>are provided by Vector in the context of this delivery. The list of </p>
+<p>MICROSAR Safe components in this delivery can be taken from the </p>
+<p>documentation of the delivery.</p>
+<p> </p>
+<p>Partition</p>
+<p> </p>
+<p>A set of memory regions that is accessible by tasks and ISRs. Synonym </p>
+<p>to OSApplication. </p>
+<p> </p>
+<p>Safety Case </p>
+<p>The Safety Case of MICROSAR Safe can be used as an argument that </p>
+<p>the safety requirements for an item are complete and satisfied by </p>
+<p>evidence compiled from work products of the safety activities during </p>
+<p>development. </p>
+<p>The Safety Case of MICROSAR Safe is progressively compiled by the </p>
+<p>work products that are generated during the safety lifecycle of the </p>
+<p>MICROSAR Safe lifecycle. </p>
+<p>The user of MICROSAR Safe is provided a Safety Case Report that </p>
+<p>confirms the requested ASIL for the delivered software to the user of </p>
+<p>MICROSAR Safe. </p>
+<p>Safety Manual </p>
+<p>The Safety Manual details the requirements for the user of </p>
+<p>MICROSAR Safe for integration of MICROSAR Safe into the item </p>
+<p>development. </p>
+<p>User of </p>
+<p>MICROSAR Safe </p>
+<p>Integrator and user of components from MICROSAR Safe provided by </p>
+<p>Vector. </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>67 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECC </p>
+<p>Error Correcting Code </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>EEPROM </p>
+<p>Eletronically Ereasable and Programmable Read-only Memory </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>HLP </p>
+<p>Hardware License Package </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>QM </p>
+<p>Quality Management </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>SLP </p>
+<p>Software License Package </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>TCL </p>
+<p>Tool Confidence Level </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR Safe </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.9.1 </p>
+<p>68 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

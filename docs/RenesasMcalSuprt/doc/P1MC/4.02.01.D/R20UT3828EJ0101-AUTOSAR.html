@@ -1,0 +1,4494 @@
+---
+layout: default
+title: R20UT3828EJ0101-AUTOSAR
+nav_order: 18
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Getting Started Document for</p>
+<p> </p>
+<p>P1x-C MCAL Driver</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.0.3</p>
+<p>User's </p>
+<p>Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target </p>
+<p>Device: </p>
+<p>RH850/P1x-C</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.1.01 May 2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>                          2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>3 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Notice </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses and </p>
+<p>damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical information </p>
+<p>described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas Electronics </p>
+<p>disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, modification, copy or </p>
+<p>otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and undersea </p>
+<p>repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics disclaims any </p>
+<p>and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics product for which the </p>
+<p>product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the ranges </p>
+<p>specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation characteristics, </p>
+<p>installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of the use of Renesas </p>
+<p>Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your products/system. </p>
+<p>Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the final products or </p>
+<p>systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each Renesas </p>
+<p>Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, including </p>
+<p>without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all these applicable </p>
+<p>laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your noncompliance with </p>
+<p>applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or sale </p>
+<p>is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or technologies for (1) </p>
+<p>any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, such as nuclear weapons, </p>
+<p>chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering such weapons, (2) any purpose </p>
+<p>relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of disturbing international peace and </p>
+<p>security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or technologies to any third party whether directly </p>
+<p>or indirectly with knowledge or reason to know that the third party or any other party will engage in the activities described above. When </p>
+<p>exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall comply with any applicable export control laws and </p>
+<p>regulations promulgated and administered by the governments of the countries asserting jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from your </p>
+<p>resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p> </p>
+<p>.</p>
+<p><b>                                                                                                                                                                                                                   </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>4 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>ARXML/arxml</p>
+<p> </p>
+<p>AUTOSAR xml</p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>Automotive Open System Architecture</p>
+<p> </p>
+<p>BSWMDT</p>
+<p> </p>
+<p>Basic Software Module Description Template</p>
+<p> </p>
+<p>&lt;MSN&gt;</p>
+<p> </p>
+<p>Module Short Name</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>GUI</p>
+<p> </p>
+<p>Graphical User Interface</p>
+<p> </p>
+<p>MB</p>
+<p> </p>
+<p>Mega Bytes</p>
+<p> </p>
+<p>MHz</p>
+<p> </p>
+<p>Mega Hertz</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>Random Access Memory</p>
+<p> </p>
+<p>xml/XML</p>
+<p> </p>
+<p>eXtensible Markup Language</p>
+<p> </p>
+<p>&lt;MICRO_VARIANT&gt; </p>
+<p>P1x-C </p>
+<p>&lt;MICRO_SUB_VARIANT&gt; </p>
+<p> P1H-C, P1M-C , P1H-CE </p>
+<p>AUTOSAR_VERSION </p>
+<p>4.0.3 </p>
+<p>DEVICE_NAME </p>
+<p>Example :R7F701372EAFP </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Terminology</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>.xml</p>
+<p> </p>
+<p>XML File.</p>
+<p> </p>
+<p>.one</p>
+<p> </p>
+<p>Project Settings file.</p>
+<p> </p>
+<p>.arxml</p>
+<p> </p>
+<p>AUTOSAR XML File.</p>
+<p> </p>
+<p>ECU Configuration </p>
+<p>Parameter Definition File</p>
+<p> </p>
+<p>The ECU Configuration Parameter Definition is of type XML, which contains the </p>
+<p>definition for AUTOSAR software components i.e. definitions for Modules, </p>
+<p>Containers and Parameters. The format of the XML File will be compliant with </p>
+<p>AUTOSAR ECU specification standards.</p>
+<p> </p>
+<p>ECU Configuration </p>
+<p>Description File</p>
+<p> </p>
+<p>The ECU Configuration Description file in XML format, which contains the </p>
+<p>configured values for Parameters, Containers and Modules. ECU Configuration </p>
+<p>Description XML File format will be compliant with the AUTOSAR ECU </p>
+<p>specification standards.</p>
+<p> </p>
+<p>BSWMDT File</p>
+<p> </p>
+<p>The BSWMDT File in XML format, which is the template for the Basic Software </p>
+<p>Module Description. BSWMDT File format will be compliant with the AUTOSAR </p>
+<p>BSWMDT specification standards.</p>
+<p> </p>
+<p>Configuration XML File</p>
+<p> </p>
+<p>Configuration XML File is in XML format, which contains command line </p>
+<p>options and options for input/output file path.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>6 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>Table Of Contents </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction .................................................................... 11</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>ECU Configuration Editor (ECU  Spectrum) ................. 13</b></p>
+<p> </p>
+<p><b>2.1.</b></p>
+<p> </p>
+<p><b>Installation Of ECU Configuration Editor (ECU  Spectrum) ............................................... 13</b></p>
+<p> </p>
+<p><b>2.2.</b></p>
+<p> </p>
+<p><b>ECU Spectrum Input and Output Files ................................................................................. 20</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Configuration Using ECU    Configuration Editor (ECU </b></p>
+<p><b>Spectrum)   ......................................................................................... 21</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>Creating New Project ............................................................................................................. 21</b></p>
+<p> </p>
+<p><b>3.2.</b></p>
+<p> </p>
+<p><b>Configuration .......................................................................................................................... 22</b></p>
+<p> </p>
+<p>3.2.1.</p>
+<p> </p>
+<p>Parameter Configuration .............................................................................................. 24</p>
+<p> </p>
+<p>3.2.2.</p>
+<p> </p>
+<p>Distinguish Between Containers .................................................................................. 24</p>
+<p> </p>
+<p>3.2.3.</p>
+<p> </p>
+<p>Save Project................................................................................................................. 25</p>
+<p> </p>
+<p>3.2.4.</p>
+<p> </p>
+<p>Validation ..................................................................................................................... 25</p>
+<p> </p>
+<p><b>3.3.</b></p>
+<p> </p>
+<p><b>Generate ECU Configuration Description ........................................................................... 26</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Generation Tool .............................................................. 29</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>ECU Configuration Description File .............................................................................................. 29</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Velocity template files .................................................................................................................. 29</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>Configuration XML File .......................................................................................................... 29</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>Usage ....................................................................................................................................... 29</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>Tool Installation Requirements ............................................................................................. 30</b></p>
+<p> </p>
+<p>4.5.1.</p>
+<p> </p>
+<p>Hardware Requirements .............................................................................................. 30</p>
+<p> </p>
+<p>4.5.2.</p>
+<p> </p>
+<p>Software Requirements ................................................................................................ 31</p>
+<p> </p>
+<p>4.5.3.</p>
+<p> </p>
+<p>Limitations .................................................................................................................... 31</p>
+<p> </p>
+<p><b>4.6.</b></p>
+<p> </p>
+<p><b>Tool Installation ...................................................................................................................... 31</b></p>
+<p> </p>
+<p>4.6.1.</p>
+<p> </p>
+<p>Pre Requisite ............................................................................................................... 31</p>
+<p> </p>
+<p>4.6.2.</p>
+<p> </p>
+<p>Installation Steps ......................................................................................................... 31</p>
+<p> </p>
+<p><b>4.7.</b></p>
+<p> </p>
+<p><b>Tool Un-Installation ................................................................................................................ 37</b></p>
+<p> </p>
+<p><b>4.8.</b></p>
+<p> </p>
+<p><b>Common Messages ............................................................................................................... 37</b></p>
+<p> </p>
+<p>4.8.1.</p>
+<p> </p>
+<p>Error </p>
+<p>Messages</p>
+<p> ............................................................................................................ 37</p>
+<p> </p>
+<p>4.8.2.</p>
+<p> </p>
+<p>Warning Messages ...................................................................................................... 39</p>
+<p> </p>
+<p>4.8.3.</p>
+<p> </p>
+<p>Information Messages ................................................................................................. 39</p>
+<p> </p>
+<p><b>4.9.</b></p>
+<p> </p>
+<p><b>BSWMDT File .......................................................................................................................... 40</b></p>
+<p> </p>
+<p><b>4.10.</b></p>
+<p> </p>
+<p><b>User Environment Settings ................................................................................................... 40</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Application Example ...................................................... 43</b></p>
+<p> </p>
+<p><b>5.1.</b></p>
+<p> </p>
+<p><b>Folder Structure...................................................................................................................... 43</b></p>
+<p> </p>
+<p><b>5.2.</b></p>
+<p> </p>
+<p><b>Compiler, Linker and Assembler ......................................................................................... 43</b></p>
+<p> </p>
+<p>5.2.1.</p>
+<p> </p>
+<p>Compiler ...................................................................................................................... 43</p>
+<p> </p>
+<p>5.2.2.</p>
+<p> </p>
+<p>Linker ........................................................................................................................... 44</p>
+<p> </p>
+<p>5.2.3.</p>
+<p> </p>
+<p>Assembler .................................................................................................................... 45</p>
+<p> </p>
+<p><b>5.3.</b></p>
+<p> </p>
+<p><b>Batchfile Description ............................................................................................................. 45</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>8 </b></p>
+<p><b>5.4.</b></p>
+<p> </p>
+<p><b>Makefile Description .............................................................................................................. 45</b></p>
+<p> </p>
+<p>5.4.1.</p>
+<p> </p>
+<p>App_&lt;Msn&gt;_&lt;variant&gt;_Sample.mak .......................................................................... 45</p>
+<p> </p>
+<p><b>5.5.</b></p>
+<p> </p>
+<p><b>Integrating The &lt;MSN&gt; Driver Component  With  Other Components ............................ 51</b></p>
+<p> </p>
+<p><b>5.6.</b></p>
+<p> </p>
+<p><b>Building The &lt;MSN&gt; Driver Component ............................................................................. 52</b></p>
+<p> </p>
+<p>5.6.1.</p>
+<p> </p>
+<p>Targets Supported By The Sample Base Makefile ..................................................... 53</p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Support For Different Interrupt Categories .................. 55</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>GNU MAKE Environment ............................................... 57</b></p>
+<p> </p>
+<p><b>7.1.</b></p>
+<p> </p>
+<p><b>Build Process With GNUMAKE ............................................................................................. 57</b></p>
+<p> </p>
+<p><b>7.2.</b></p>
+<p> </p>
+<p><b>Build Process Without GNUMAKE ....................................................................................... 57</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>Load Binaries ................................................................. 61</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Appendix......................................................................... 63</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>List Of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>Installation Initiation ........................................................................................................... 14</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Splash Screen .................................................................................................................... 14</p>
+<p> </p>
+<p>Figure 2-3</p>
+<p> </p>
+<p>ECU Spectrum installation step 1....................................................................................... 15</p>
+<p> </p>
+<p>Figure 2-4</p>
+<p> </p>
+<p>ECU Spectrum installation step 2....................................................................................... 15</p>
+<p> </p>
+<p>Figure 2-5</p>
+<p> </p>
+<p>ECU Spectrum installation step 3 ...................................................................................... 16</p>
+<p> </p>
+<p>Figure 2-6</p>
+<p> </p>
+<p>ECU Spectrum installation step 4 ...................................................................................... 16</p>
+<p> </p>
+<p>Figure 2-7</p>
+<p> </p>
+<p>ECU Spectrum installation step 5....................................................................................... 17</p>
+<p> </p>
+<p>Figure 2-8</p>
+<p> </p>
+<p>ECU Spectrum installation step 6....................................................................................... 17</p>
+<p> </p>
+<p>Figure 2-9</p>
+<p> </p>
+<p>ECU Spectrum installation step 7....................................................................................... 18</p>
+<p> </p>
+<p>Figure 2-10</p>
+<p> </p>
+<p>ECU Spectrum installation step 8....................................................................................... 19</p>
+<p> </p>
+<p>Figure 2-11</p>
+<p> </p>
+<p>ECU Spectrum installation step 9....................................................................................... 19</p>
+<p> </p>
+<p>Figure 2-12</p>
+<p> </p>
+<p>ECU Spectrum Overview ................................................................................................... 20</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Creating New Project ......................................................................................................... 22</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Adding New Module Instance ............................................................................................ 23</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>GUI for Configuration ......................................................................................................... 23</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Parameter Configuration .................................................................................................... 24</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Distinguish Between Containers ........................................................................................ 25</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Validation ........................................................................................................................... 26</p>
+<p> </p>
+<p>Figure 3-7</p>
+<p> </p>
+<p>Description File Generation ............................................................................................... 27</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Generation Tool Overview ................................................................................................. 29</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>MCAL Generator installation step 1 ................................................................................... 31</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>MCAL Generator installation step 2 ................................................................................... 32</p>
+<p> </p>
+<p>Figure 4-4       MCAL Generator installation step 3 ................................................................................... 32</p>
+<p> </p>
+<p>Figure 4-5       MCAL Generator installation step 4 ................................................................................... 33</p>
+<p> </p>
+<p>Figure 4-6       MCAL Generator installation step 5 ................................................................................... 33</p>
+<p> </p>
+<p>Figure 4-7       MCAL Generator installation step 6 ................................................................................... 34</p>
+<p> </p>
+<p>Figure 4-8       MCAL Generator installation step 7 ................................................................................... 34</p>
+<p> </p>
+<p>Figure 4-9       MCAL Generator installation step 8 ................................................................................... 35</p>
+<p> </p>
+<p>Figure 4-10     MCAL Generator installation step 9 ................................................................................... 35</p>
+<p> </p>
+<p>Figure 4-11     MCAL Generator installation step 10 ................................................................................. 36</p>
+<p> </p>
+<p>Figure 4-12     MCAL Generator installation step 11 ................................................................................. 36</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List Of Tables </b></p>
+<p><b> </b></p>
+<p>Table 5-1</p>
+<p> </p>
+<p>Compiler, Linker And Assembler Version Details .............................................................. 43</p>
+<p> </p>
+<p>Table 5-2</p>
+<p> </p>
+<p>Compiler Options ............................................................................................................... 43</p>
+<p> </p>
+<p>Table 5-3</p>
+<p> </p>
+<p>Linker Options .................................................................................................................... 44</p>
+<p> </p>
+<p>Table 5-4</p>
+<p> </p>
+<p>Assembler Options ............................................................................................................ 45</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p>CAT1 and CAT2 Naming Convention ................................................................................ 55</p>
+<p> </p>
+<p>Table 6-2</p>
+<p> </p>
+<p>List of ISR Names that need to be configured and published in Os.h .................................... </p>
+<p> </p>
+<p>                        (CAT2) or used in the interrupt vector table (CAT1) for &lt;MSN&gt; Driver .............................. 56</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>10 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Introduction </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 1</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>11 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This document describes the information about installation, usage of ECU </p>
+<p>Configuration Editor (ECU Spectrum), MCAL Code Generator Tool and </p>
+<p>references to sections in the Component User Manuals that helps the user </p>
+<p>reference for building the executable. </p>
+<p> </p>
+<p>ECU Spectrum is a tool that dynamically generates GUI controls for specified </p>
+<p>AUTOSAR components according to ECU Configuration Parameter Definition </p>
+<p>File and generates ECU Configuration Description file complying with </p>
+<p>AUTOSAR standards. </p>
+<p> </p>
+<p>MCAL Code Generator Tool is a command line tool that accepts ECU </p>
+<p>Configuration Description File(s), BSWMDT File and Configuration XML File </p>
+<p>as input and generates the C source and header files based on the </p>
+<p>configuration of the module. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1 </b></p>
+<p><b>                                                                                                                      Introduction </b></p>
+<p> </p>
+<p><b>12 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>ECU Configuration Editor (ECU Spectrum) </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 2 </b></p>
+<p> </p>
+<p><b>13 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Chapter 2 </b></p>
+<p><b>ECU Configuration Editor (ECU </b></p>
+<p><b> </b></p>
+<p><b>Spectrum) </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1. </b></p>
+<p><b>Installation Of ECU Configuration Editor (ECU </b></p>
+<p><b> </b></p>
+<p><b>Spectrum) </b></p>
+<p> </p>
+<p> </p>
+<p>The Following procedure is to be followed for proper installation of the </p>
+<p>software: </p>
+<p> </p>
+<p>Copy all the files from the installation disk to a separate folder on to the hard </p>
+<p>disk of the computer on which the application is to be installed (recommended </p>
+<p>but not mandatory). Initialize the ‘setup.exe’ file (This can also be done by </p>
+<p>directly clicking on the same file in the installation disk). </p>
+<p> </p>
+<p>An Install Shield application is invoked which guides the user throughout the </p>
+<p>installation of the software. </p>
+<p> </p>
+<p>The ECU Spectrum installation Disk1 consists of the following files: </p>
+<p> </p>
+<p>• </p>
+<p>data1.cab </p>
+<p> </p>
+<p>• </p>
+<p>data1.hdr </p>
+<p> </p>
+<p>• </p>
+<p>data2.cab </p>
+<p> </p>
+<p>• </p>
+<p>engine32.cab </p>
+<p> </p>
+<p>• </p>
+<p>layout.bin </p>
+<p> </p>
+<p>• </p>
+<p>setup.bmp </p>
+<p> </p>
+<p>• </p>
+<p>setup.exe </p>
+<p> </p>
+<p>• </p>
+<p>setup.ibt </p>
+<p> </p>
+<p>• </p>
+<p>setup.ini </p>
+<p> </p>
+<p>• </p>
+<p>setup.inx </p>
+<p> </p>
+<p>• </p>
+<p>setup.skin </p>
+<p> </p>
+<p> </p>
+<p>The user is recommended to take backup of the installation disk before </p>
+<p>proceeding with the actual installation. Due to certain reasons if the installation </p>
+<p>procedure is aborted, the backup can be used. </p>
+<p> </p>
+<p>The installation procedure is divided into ten steps. The details of all the steps </p>
+<p>are given below. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 2                                                                           ECU Configuration Editor (ECU Spectrum)</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>14 </b></p>
+<p> </p>
+<p><b>Step 1: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-1 </b></p>
+<p><b>Installation Initiation </b></p>
+<p> </p>
+<p>Run ‘setup.exe’ by double clicking on the setup.exe icon. This operation shows </p>
+<p>the progress indication dialog as shown in the above Figure 2-1. After </p>
+<p>displaying above Figure 2-1, for few minutes ECU Spectrum splash screen will </p>
+<p>appear. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-2 </b></p>
+<p><b>Splash Screen </b></p>
+<p> </p>
+<p> </p>
+<p>After displaying splash screen for few seconds following 'Preparing Setup' </p>
+<p>dialog box appears (Refer Figure 2-3). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>ECU Configuration Editor (ECU Spectrum) </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      </b></p>
+<p><b> </b></p>
+<p><b>   Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p><b>15 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 2-3 </b></p>
+<p><b>ECU Spectrum installation step 1</b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Step 2: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-4 </b></p>
+<p><b>ECU Spectrum installation step 2 </b></p>
+<p> </p>
+<p>After completion of the above operation, another dialog box is displayed (Refer </p>
+<p>Figure 2-4) in order to get confirmation from the user to proceed with the </p>
+<p>installation. The user can cancel the installation of software by selecting </p>
+<p>‘Cancel’ button’. To proceed with the installation select ‘Next’ button. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 2                                                                           ECU Configuration Editor (ECU Spectrum)</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>16 </b></p>
+<p><b>Step 3: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-5 </b></p>
+<p><b>ECU Spectrum installation step 3 </b></p>
+<p> </p>
+<p> </p>
+<p>On selecting ‘Next’ button in Step 2, a dialog box is invoked displaying the </p>
+<p>license agreement. If the terms and conditions of the agreement are </p>
+<p>acceptable then select ‘Yes’ button else select ‘No’ button to abort the </p>
+<p>installation. The user can select ‘Back’ button in order to modify previously </p>
+<p>made settings. (Refer Figure 2-5) </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Step 4: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                           </p>
+<p><b>Figure 2-6 </b></p>
+<p><b>ECU Spectrum installation step 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>ECU Configuration Editor (ECU Spectrum) </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      </b></p>
+<p><b> </b></p>
+<p><b>   Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p><b>17 </b></p>
+<p><b>Step 5: </b></p>
+<p> </p>
+<p>‘Customer Information’ dialog is displayed. Enter the User Name, Company </p>
+<p>Name and Serial Number and click on ‘Next’ button to proceed for further </p>
+<p>installation procedure. (Refer Figure 2-6) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-7 </b></p>
+<p><b>ECU Spectrum installation step 5 </b></p>
+<p> </p>
+<p>Dialog box is displayed for user registration confirmation. Check the appeared </p>
+<p>user registration information, if yes click on ‘Yes’ button. (Refer Figure 2-7). If </p>
+<p>not click on ‘No’ and re-enter the user registration information. </p>
+<p><b> </b></p>
+<p><b>Step 6: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-8 </b></p>
+<p><b>ECU Spectrum installation step 6 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 2                                                                           ECU Configuration Editor (ECU Spectrum)</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>18 </b></p>
+<p> </p>
+<p>Next, a dialog box allowing the user to select the destination folder is </p>
+<p>displayed (Refer Figure 2-8). The default directory for installation selected by </p>
+<p>the Install shield is C:\Program Files\ECU Spectrum R3.0. However the user </p>
+<p>can select the folder for installation of his/her choice using the ‘Browse’ </p>
+<p>button. The user can cancel the installation of software by selecting 'Cancel' </p>
+<p>button and click on 'Next' button to proceed for further installation procedure. </p>
+<p> </p>
+<p> </p>
+<p><b>Step 7: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-9 </b></p>
+<p><b>ECU Spectrum installation step 7 </b></p>
+<p> </p>
+<p>Next, a dialog box allowing the user to select the program folder is displayed. </p>
+<p>By default, the name of the folder is ‘ECU Spectrum R3.0’ and the user is </p>
+<p>allowed to change the folder name. (Refer Figure 2-9) </p>
+<p> </p>
+<p>Select ‘Next’ button to continue the installation and ‘Cancel’ button to abort the </p>
+<p>installation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>ECU Configuration Editor (ECU Spectrum) </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p><b>19 </b></p>
+<p> </p>
+<p><b>Step 8: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-10 </b></p>
+<p><b>ECU Spectrum installation step 8 </b></p>
+<p> </p>
+<p>After selecting the appropriate folder for installation, the install wizard will </p>
+<p>display a dialog box displaying the status of the files being copied. (Refer </p>
+<p>Figure 2-10). </p>
+<p> </p>
+<p>The user is allowed to abort the installation by pressing ‘Cancel’ button. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Step 9: </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-11 </b></p>
+<p><b>ECU Spectrum installation step 9 </b></p>
+<p><b> </b></p>
+<p>After confirmation from the user for copying the files mentioned in Step 8, the </p>
+<p>install wizard will automatically install the ECU Spectrum application, based on  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 2                                                                           ECU Configuration Editor (ECU Spectrum)</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>20 </b></p>
+<p><b>L</b></p>
+<p> </p>
+<p><b>L</b></p>
+<p> </p>
+<p> </p>
+<p>the selections made by the user. After completion of the installation procedure,</p>
+<p> </p>
+<p>a dialog gets displayed to intimating the user about completion of the </p>
+<p>installation process. (Refer Figure 2-11). </p>
+<p> </p>
+<p> </p>
+<p><b>Step 10: </b>Click on ‘Finish’ button to complete the installation process. </p>
+<p> </p>
+<p> </p>
+<p><b>2.2. </b></p>
+<p><b>ECU Spectrum Input and Output Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ECU Spectrum takes ECU Configuration Parameter Definition File(s) as input. </p>
+<p>It reads the definitions, provides a generic interface to edit values for all the </p>
+<p>configuration parameters and generates the ECU Configuration Description </p>
+<p>file(s) in XML format. It resolves relatively simple dependencies explicitly </p>
+<p>defined in the ECU Configuration Parameter Definition file. On the </p>
+<p>Plug-In </p>
+<p>side,</p>
+<p> the user can choose the MCAL Code Generator Tool executable for the </p>
+<p>individual components that takes ECU Configuration Description File as input </p>
+<p>and generates the required ‘C’ source and header files. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR</b></p>
+<p> </p>
+<p><b>XM </b></p>
+<p><b>AUTOSA</b></p>
+<p><b>R XML</b></p>
+<p> </p>
+<p> </p>
+<p>ECU </p>
+<p>CONFIGURATI</p>
+<p>ON </p>
+<p>PARAMETER </p>
+<p>DEFINITION</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ECU </p>
+<p>SPECTRUM</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR</b></p>
+<p> </p>
+<p><b>XM </b></p>
+<p><b>AUTOSA</b></p>
+<p><b>R XML</b></p>
+<p> </p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p> </p>
+<p>DESCRIPTIO</p>
+<p>N</p>
+<p> </p>
+<p><b>. ONE</b> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PROJECT </p>
+<p>SETTING FILE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MCAL </b></p>
+<p><b>CODE </b></p>
+<p><b>GENERATOR </b></p>
+<p><b>TOOLS</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>C </b></p>
+<p><b>FILE</b></p>
+<p> </p>
+<p><b>C </b></p>
+<p><b>FILE</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>HEADER </b></p>
+<p><b>AND </b></p>
+<p><b>SOURCE </b></p>
+<p><b>FILES</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 2-12 </b></p>
+<p><b>ECU Spectrum Overview </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Configuration Using ECU Configuration Editor (ECU Spectrum)                                         Chapter 3 </b></p>
+<p> </p>
+<p><b>21 </b></p>
+<p><b>Chapter 3 </b></p>
+<p><b>Configuration Using ECU    </b></p>
+<p><b>Configuration Editor (ECU Spectrum) </b></p>
+<p> </p>
+<p> </p>
+<p>This section gives details about procedure for creating a new project, </p>
+<p>configuring the parameters, saving a project, validating the current GUI </p>
+<p>configuration and generating ECU Configuration Description file of ECU </p>
+<p>Spectrum. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>Creating New Project </b></p>
+<p> </p>
+<p> </p>
+<p>Creating a ‘New Project’ loads the modules from specified ECU Configuration </p>
+<p>Parameter Definition File into the Software. New Project is created using “File - </p>
+<p>&gt; New Project” from the main menu. </p>
+<p> </p>
+<p> </p>
+<p>Steps to be followed: </p>
+<p> </p>
+<p>1. </p>
+<p>Select “File -&gt; New Project”. </p>
+<p> </p>
+<p>2. </p>
+<p>Select the AUTOSAR Version. Default AUTOSAR version is 4.0.x. </p>
+<p> </p>
+<p>3. </p>
+<p>Browse a valid Project Settings file name (of type ‘.one’). </p>
+<p> </p>
+<p>4. </p>
+<p>Browse a valid ECU Configuration Parameter Definition File name (of type </p>
+<p>                                               ‘*.xml /*.arxml’). </p>
+<p> </p>
+<p>5. </p>
+<p>Click on ‘OK’ button. </p>
+<p> </p>
+<p>6. </p>
+<p>Follow step 4 to load more than one definition file. </p>
+<p> </p>
+<p> </p>
+<p>The modules available in the selected files get loaded into the software and it </p>
+<p>is saved in the specified Project Settings file location. Specified Project </p>
+<p>Settings File name is displayed on the title bar of the ECU Spectrum along with </p>
+<p>the respective AUTOSAR version. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 3                                        Configuration Using ECU Configuration Editor (ECU Spectrum)</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>22 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 3-1 </b></p>
+<p><b>Creating New Project </b></p>
+<p> </p>
+<p>The modules available in the selected files get loaded into the Software and it </p>
+<p>is saved in the specified Project Settings location. Specified Project Settings </p>
+<p>file name is displayed on the Title bar of the Software. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.2. </b></p>
+<p><b>Configuration </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Right click on the module in the 'Left Selection View', a popup menu having </p>
+<p>'New Module’ option is displayed. On selecting this option, the instance of the </p>
+<p>module is created. The ECU Spectrum will assign a short name to the newly </p>
+<p>created module automatically. On selecting the newly created module, controls </p>
+<p>are displayed in the 'Right Configuration View' for configuration. Edit the data </p>
+<p>and validate the current GUI configuration. </p>
+<p>Errors/Warnings/Messages </p>
+<p>is </p>
+<p>displayed in the ‘Message Info’ window, if any. </p>
+<p> </p>
+<p>The user can configure any number of modules, containers, parameters, and </p>
+<p>references depending on the Multiplicity specified in the ECU Configuration </p>
+<p>Parameter Definition File. </p>
+<p> </p>
+<p>Right clicking on the instance of the module in 'Left Selection View', a popup </p>
+<p>menu having ‘Insert Copy’ ,‘Delete’ ,’Expand’ and ’Collapse’ option is </p>
+<p>displayed. Using ’Insert Copy’, the copy of selected element with configured </p>
+<p>values is inserted. ‘Insert Copy’ option is displayed in the pop up menu based </p>
+<p>on the multiplicity.  Using ‘Delete’, user can delete the selected element. </p>
+<p>‘Expand’ is used to expand the selected element and ‘Collapse’ is used to </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Configuration Using ECU Configuration Editor (ECU Spectrum)                                         Chapter 3 </b></p>
+<p> </p>
+<p><b>23 </b></p>
+<p>collapse the selected element. </p>
+<p> </p>
+<p>Existing Project Settings can be configured in following ways: </p>
+<p> </p>
+<p>1.  Right Click on the module and add an instance of the module. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-2 </b></p>
+<p><b>Adding New Module Instance </b></p>
+<p> </p>
+<p>2.Click on the instance of the module, user will find a grid on right view for </p>
+<p>configuration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-3 </b></p>
+<p><b>GUI for Configuration </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>  Chapter 3 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>       Configuration Using ECU Configuration Editor (ECU Spectrum) </b></p>
+<p> </p>
+<p><b>24 </b></p>
+<p> </p>
+<p><b>3.2.1. </b></p>
+<p><b>Parameter Configuration </b></p>
+<p> </p>
+<p>Short Name, Definition Type, Lower multiplicity, Upper multiplicity, Minimum </p>
+<p>value, Maximum value, Implementation config class, Implementation config </p>
+<p>variant,  Default value and Long Name are displayed in ‘Attributes’ grid  and </p>
+<p>Description of the parameter is displayed in the ’Description’ display area on </p>
+<p>click of the parameter in the ‘Right Configuration View’ as shown in the </p>
+<p>following figure. Configure the parameter and press ‘ENTER’ button. Following </p>
+<p>are the types of the parameters: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-4 </b></p>
+<p><b>Parameter Configuration </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.2.2. </b></p>
+<p><b>Distinguish Between Containers </b></p>
+<p> </p>
+<p>On selecting the newly created module in the ‘Left Selection View’, controls are </p>
+<p>displayed in the 'Right Configuration View' for configuration. Name of the </p>
+<p>containers is displayed at the top of the ‘Right Configuration View’ as shown in </p>
+<p>the following figure. On selecting the container, Parameters and sub- </p>
+<p>containers is displayed in the grid control as shown in the following figure. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Configuration Using ECU Configuration Editor (ECU Spectrum)                                         Chapter 3 </b></p>
+<p> </p>
+<p><b>25 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-5 </b></p>
+<p><b>Distinguish Between Containers </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.2.3. </b></p>
+<p><b>Save Project </b></p>
+<p> </p>
+<p>Using “File-&gt; Save Project” menu item, current GUI configuration can be saved </p>
+<p>with specified Project Settings file name. </p>
+<p> </p>
+<p><b>3.2.4. </b></p>
+<p><b>Validation </b></p>
+<p> </p>
+<p>The modules configuration can be checked for correctness and completeness </p>
+<p>in validation. Before generation of ECU Configuration Description, validate the </p>
+<p>configured values of the modules. Select “Project -&gt; Validate” or press ‘F8’ key, </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 3 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>       Configuration Using ECU Configuration Editor (ECU Spectrum) </b></p>
+<p> </p>
+<p><b>26 </b></p>
+<p> </p>
+<p> </p>
+<p>a current GUI configuration is validated and list of Errors/Warnings/Messages </p>
+<p>is displayed in the ‘Message Info’ window, if any. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-6 </b></p>
+<p><b>Validation </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.3. </b></p>
+<p><b>Generate ECU Configuration Description </b></p>
+<p> </p>
+<p> </p>
+<p>This generates the ECU Configuration Description File, which contains the </p>
+<p>configured values for Parameters, Containers and Modules. The generated </p>
+<p>ECU Configuration Description File format will be compliant with </p>
+<p>the </p>
+<p>AUTOSAR</p>
+<p> ECU specification standards. After validation of the configured </p>
+<p>values, to generate the ECU Configuration Description follow the below steps: </p>
+<p> </p>
+<p>1. </p>
+<p>Select “Generate -&gt; ECU Configuration Description”. </p>
+<p> </p>
+<p>2. </p>
+<p>Check the ‘Select all’ Check box. </p>
+<p> </p>
+<p>3. </p>
+<p>Specify the ECU Configuration Description File name (of type '*.xml/ </p>
+<p>                                               *.arxml’). </p>
+<p> </p>
+<p>4. </p>
+<p>Click ‘Generate’ button </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Configuration Using ECU Configuration Editor (ECU Spectrum)                                         Chapter 3 </b></p>
+<p> </p>
+<p><b>27 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-7 </b></p>
+<p><b>Description File Generation </b></p>
+<p> </p>
+<p>Successful generation message is displayed in the ‘Result’ display area. The </p>
+<p>ECU Configuration Description data for all modules is generated at the </p>
+<p>specified location. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 3 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>       Configuration Using ECU Configuration Editor (ECU Spectrum) </b></p>
+<p> </p>
+<p><b>28 </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>29 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Generation Tool </b></p>
+<p> </p>
+<p> </p>
+<p>The MCAL Generator Tool is a template based code generator. The template language is </p>
+<p>Velocity  Scripting.  The  template  parsing  is  done  by  Apache  Velocity  engine.  MCAL </p>
+<p>Generator  Tool  will  generate  the  configuration  source  files  for  the  module  and  their </p>
+<p>respective variant specified along with the command line arguments.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 4-1 </b></p>
+<p><b>Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b>ECU Configuration Description File </b></p>
+<p> </p>
+<p> </p>
+<p>This file will contain WDG Driver specific configuration information. This file </p>
+<p>should be generated by AUTOSAR specified Configuration Editor. </p>
+<p> </p>
+<p><b>4.2. </b></p>
+<p><b>Velocity template files </b></p>
+<p> </p>
+<p>They are interpreted by the MCAL Generator Tool in order to provide </p>
+<p>user input validation and generate the final output file needed by the </p>
+<p>AUTOSAR configuration chain. They are the &quot;logic&quot; of the MCAL Code </p>
+<p>Generator Tool. </p>
+<p> </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>Configuration XML File </b></p>
+<p> </p>
+<p> </p>
+<p>This file is used to specify which velocity template to use and their location        </p>
+<p>and the name of the output file generated. </p>
+<p><b>4.4. </b></p>
+<p><b>Usage </b></p>
+<p> </p>
+<p> </p>
+<p>This section provides the information regarding usage of the Generation </p>
+<p>Tool. It also provides the syntax of the command line arguments (input </p>
+<p>filenames and options). </p>
+<p> </p>
+<p> </p>
+<p>Generation Tool executable is invoked as shown below. </p>
+<p> </p>
+<p><b>Output header files and </b></p>
+<p><b>source files </b></p>
+<p><b>ECU Configuration </b></p>
+<p><b>Description File </b></p>
+<p><b>and BSWMDT File </b></p>
+<p>                                                                                          </p>
+<p> </p>
+<p><b>MCAL    </b></p>
+<p><b>Generator </b></p>
+<p><b>Tool </b></p>
+<p><b>Velocity template </b></p>
+<p><b>files for &lt;MSN&gt; </b></p>
+<p><b>Configuration XML </b></p>
+<p><b>File </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>30 </b></p>
+<p> </p>
+<p> </p>
+<p>MCALGenerator.exe&lt;space&gt;&lt;Description_File_Path&gt;&lt;space&gt;&lt;Module_Name</p>
+<p>&gt;&lt;space&gt;&lt;AR_Package&gt;&lt;space&gt;&lt;Template_Path&gt;&lt;space&gt;–</p>
+<p>o&lt;space&gt;[Output_Path]&lt;space&gt;–e&lt;space&gt;[Ecu_Variant]&lt;space&gt; </p>
+<p>–ref&lt;space&gt;[Reference_Module]&lt;space&gt;[Reference_Description_XML_File] </p>
+<p> </p>
+<p>Where, </p>
+<p> </p>
+<p>1. </p>
+<p>Description_File_Path: The path to the description ARXML file. </p>
+<p> </p>
+<p>2. </p>
+<p> Module_Name:  The  name  of  the  module  for  which  the  code  has  to  be </p>
+<p>generated. </p>
+<p> </p>
+<p>3. </p>
+<p>AR_Package: The AR-Package name as specified in the Description file. </p>
+<p>While specifying the AR_Package, the full path of the AR_Package is to be </p>
+<p>specified. See the example for more clarity. </p>
+<p> </p>
+<p>4. </p>
+<p>Template_Path: The path to the module configuration files for the specified </p>
+<p>module. This path should also   contain the code generation templates. </p>
+<p> </p>
+<p>5. </p>
+<p>The “Output_Path” is an optional argument to specify the location for the </p>
+<p>generated source files. The argument   should be preceded with optional </p>
+<p>argument identifier –o </p>
+<p>For example: –o configcode this will generate the code in a folder named </p>
+<p>“configcode”. </p>
+<p> </p>
+<p>If the output path is not specified, the source files will be generated in the </p>
+<p>folder where the MCALGenerator.exe is kept. </p>
+<p> </p>
+<p>6. </p>
+<p>The “Ecu_Variant” is an optional argument to specify the variant model. The </p>
+<p>argument should be preceded with optional argument identifier –e. </p>
+<p>For example: –e 701372.This will generate the code for the variant 701372 </p>
+<p> </p>
+<p>7. </p>
+<p>The “Reference_Module” and “Reference_Description_XML_File” is an </p>
+<p>optional argument to specify the reference module and its corresponding </p>
+<p>xml file. As per our earlier concept, we had the module whose </p>
+<p>configuration files have to be generated and its reference module in the </p>
+<p>same XML file. But now, based on our  new mechanism, we can have the </p>
+<p>module whose configuration files has to be generated and its reference </p>
+<p>module in the same XML file or we can have the reference modules in a </p>
+<p>different XML file. Both the description file as well as the reference file </p>
+<p>should have the same ARPACKAGE name. The argument should be </p>
+<p>preceded with an optional argument identifier -ref. </p>
+<p>For example: </p>
+<p>-ref </p>
+<p>Dem0&quot;..\..external\X1X\common_platform\generic\stubs\4.0.3\Dem\config\Dem_&lt;M</p>
+<p>sn&gt;.arxml&quot;</p>
+<p> </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>Tool Installation Requirements </b></p>
+<p> </p>
+<p> </p>
+<p>The minimum hardware and software requirements for proper installation of </p>
+<p>Module Specific Generation Tool is listed below. This ensures optimal </p>
+<p>performance of the Tool. </p>
+<p> </p>
+<p><b>4.5.1. </b></p>
+<p><b>Hardware Requirements </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Processor </b></p>
+<p>Pentium/equivalent processor @ 500 MHz or greater </p>
+<p> </p>
+<p><b>Memory </b></p>
+<p>RAM 64MB or greater </p>
+<p> </p>
+<p><b>Hard Disk Drive </b></p>
+<p>500 MB or greater storage capacity </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>31 </b></p>
+<p><b>4.5.2. </b></p>
+<p><b>Software Requirements </b></p>
+<p> </p>
+<p><b>Operating System </b></p>
+<p>Microsoft Windows Platform </p>
+<p> </p>
+<p><b>4.5.3. </b></p>
+<p><b>Limitations </b></p>
+<p> </p>
+<p>Command Line characters are limited to 128 depending upon the operating </p>
+<p>system. </p>
+<p> </p>
+<p><b>4.6. </b></p>
+<p><b>Tool Installation </b></p>
+<p> </p>
+<p>The installation procedure of MCAL Generation Tool is provided in the </p>
+<p>section below </p>
+<p> </p>
+<p><b>4.6.1. </b></p>
+<p><b>Pre Requisite </b></p>
+<p> </p>
+<p>Module Specific Generation Tool executable runs on Windows platforms only. </p>
+<p> </p>
+<p><b>4.6.2. </b></p>
+<p><b>Installation Steps </b></p>
+<p> </p>
+<p>Run ‘MCALCodegenerator_Installer’ by double clicking on the </p>
+<p>MCALCodegenerator_Installer.exe icon. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-2 </b></p>
+<p><b>MCAL Generator installation step 1 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>32 </b></p>
+<p> </p>
+<p>Select the option to select install or remove or update the software </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-3 </b></p>
+<p><b>MCAL Generator installation step 2 </b></p>
+<p> </p>
+<p> </p>
+<p>Accept the software User Agreement </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-4 MCAL Generator installation step 3 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>33 </b></p>
+<p>Fill the User Information </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-5 MCAL Generator installation step 4 </b></p>
+<p> </p>
+<p> </p>
+<p>Select the license file </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 4-6 MCAL Generator installation step 5 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>34 </b></p>
+<p> </p>
+<p> </p>
+<p>The default directory for installation selected by the Install shield is </p>
+<p>C:\Renesas\CodeGenerator. However, the user can select the folder for installation of </p>
+<p>choice using the ‘Browse’ button.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-7 MCAL Generator installation step 6 </b></p>
+<p> </p>
+<p> </p>
+<p>The license information based on the selected license file will be displayed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 4-8 MCAL Generator installation step 7 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>35 </b></p>
+<p>Click Install </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-9 MCAL Generator installation step 8  </b></p>
+<p> </p>
+<p>Select the folder where the program shortcut to be placed </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-10 MCAL Generator installation step 9  </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>36 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 4-11 MCAL Generator installation step 10  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 4-12 MCAL Generator installation step 11 </b></p>
+<p> </p>
+<p>Click on ‘Finish’ button to complete the installation process. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>37 </b></p>
+<p><b>4.7. </b></p>
+<p><b>Tool Un-Installation </b></p>
+<p> </p>
+<p> </p>
+<p>To un-install, use the remove option in step 2</p>
+<p> </p>
+<p> </p>
+<p><b>4.8. </b></p>
+<p><b>Common Messages </b></p>
+<p> </p>
+<p>This section contains the list of error/warning/information messages </p>
+<p> </p>
+<p>which is common for AUTOSAR Renesas R3.2.2 and R4.0.3 X1x MCAL Driver </p>
+<p>module that is will be generated by the Generation Tool. </p>
+<p> </p>
+<p><b>4.8.1. </b></p>
+<p><b>Error </b></p>
+<p><b>Messages</b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>ERR000001: File &lt;File_Name&gt; does not exist. </b></p>
+<p> </p>
+<p>This error occurs, if the input &lt;File_Name&gt; is not found. </p>
+<p> </p>
+<p><b>ERR000002: Name of the Generation Tool Configuration XML File is not </b></p>
+<p><b>given along with &lt;-C/-CONFIG&gt; option. </b></p>
+<p> </p>
+<p>This error occurs, if the name of the Generation Tool Configuration XML File is </p>
+<p>not given along with &lt;-C/-CONFIG&gt; option. </p>
+<p> </p>
+<p><b>ERR000003: File &lt;File name&gt; is not as per XML standard. </b></p>
+<p> </p>
+<p>This error occurs, if the input &lt;File name&gt; is not as per XML standard. </p>
+<p> </p>
+<p><b>ERR000004: Cannot open the &lt;Log file name&gt; file. </b></p>
+<p> </p>
+<p>This error will occur, if unable to open the &lt;Log file name&gt; file. </p>
+<p> </p>
+<p><b>ERR000005: Name of output directory is not given along with &lt;-O/- </b></p>
+<p><b>OUTPUT&gt; option. </b></p>
+<p> </p>
+<p>This error will occur, if the output directory name is not given along with &lt;-O/- </p>
+<p>OUTPUT&gt; option. </p>
+<p> </p>
+<p><b>ERR000006: Name of output directory is not given in OUTPUT-PATH tag </b></p>
+<p><b>in &lt;File name&gt;. </b></p>
+<p> </p>
+<p>This error will occur, if the output directory is not given in OUTPUT-PATH tag in </p>
+<p>configuration file. </p>
+<p> </p>
+<p><b>ERR000007: The Generation Tool expects inputs. </b></p>
+<p> </p>
+<p>This error occurs, if the no option is provided in the command line and none of </p>
+<p>the option in the configuration file is set. </p>
+<p> </p>
+<p><b>ERR000008: The option &lt;option&gt; is not supported by the Generation </b></p>
+<p><b>Tool. The Generation Tool supports &lt; -O/-OUTPUT, -Osrc , -Oinc, -H/-HELP,   -</b></p>
+<p><b>L/-LOG, -C/-CONFIGFILE and -D/-DRYRUN&gt;&quot;   options. </b></p>
+<p> </p>
+<p>This error will occur, if the invalid &lt;option&gt; is provided to the tool. </p>
+<p> </p>
+<p><b>ERR000009: Invalid output directory name &lt;output directory name&gt; as </b></p>
+<p><b>the file with same name exists. </b></p>
+<p> </p>
+<p>This error will occur, if the &lt;output directory name&gt; already exists. </p>
+<p> </p>
+<p><b>ERR000010: Invalid output directory name &lt;output directory name&gt; </b></p>
+<p><b>Directory name should not contain any of \*\?\&quot;\|\: characters. </b></p>
+<p> </p>
+<p>This error will occur, if the &lt;output directory name&gt; path contains junk </p>
+<p>character. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>38 </b></p>
+<p> </p>
+<p> </p>
+<p><b>ERR000011: ECU Configuration Description File is not provided as input </b></p>
+<p><b>to the Generation Tool. </b></p>
+<p> </p>
+<p>This error will occur, if the ECU Configuration Description File is not given in </p>
+<p>the command line or in configuration file. </p>
+<p> </p>
+<p><b>ERR000012: The input &lt;File name&gt; is not as per XML standard. Provide </b></p>
+<p><b>the ECU Configuration Description File as input on the command line. </b></p>
+<p> </p>
+<p>This error will occur, if the ECU Configuration Description File is not as per </p>
+<p>XML standard. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR000015: The 'device_name' tag should be present as child of </b></p>
+<p><b>'TRANSLATION-FILE-PATH'' tag in &lt;File name&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the device mentioned in ECU Configuration Description </p>
+<p>File is not present in </p>
+<p> </p>
+<p>'TRANSLATION-FILE-PATH’ tag in the &lt;File name&gt;. </p>
+<p> </p>
+<p><b>ERR000016: ‘DEVICE-FILE-PATH’ tag in &lt;File name&gt; is empty. </b></p>
+<p> </p>
+<p>This error occurs, if the translation file &lt;File name&gt; doesn’t have ‘DEVICE- </p>
+<p>FILE-PATH’ tags. </p>
+<p> </p>
+<p><b>ERR000017: The 'device_name’ tag should be present as child of </b></p>
+<p><b>‘DEVICE-FILE-PATH' tag in &lt;File name&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the device mentioned in ECU Configuration Description </p>
+<p>File is not present in </p>
+<p> </p>
+<p>‘DEVICE-FILE-PATH’ tag. </p>
+<p> </p>
+<p><b>ERR000018: Cannot create directory &lt;output directory name&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if unable to create output directory &lt;output directory </p>
+<p>name&gt;. </p>
+<p> </p>
+<p><b>ERR000019: Cannot open &lt;File name&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if unable to open &lt;File name&gt;. </p>
+<p> </p>
+<p><b>ERR000020: The macro label &lt;macro label&gt; should be unique in &lt; </b></p>
+<p><b>translation file name&gt; translation C Header File. </b></p>
+<p> </p>
+<p>This error occurs, if macro label is not unique in translation C Header File. </p>
+<p> </p>
+<p><b>ERR000021: The macro definition for &lt;macro label&gt; macro is not found </b></p>
+<p><b>in &lt;translation file name&gt; translation C Header File. The macro label </b></p>
+<p><b>format should be &lt;label format&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if macro definition is not found in translation C Header </p>
+<p>File. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR000022: The macro value for &lt;macro label&gt; macro is empty in </b></p>
+<p><b>&lt;translation file name&gt; translation C Header File. </b></p>
+<p> </p>
+<p>This error occurs, if macro label value is empty in translation C Header File. </p>
+<p> </p>
+<p><b>ERR000023: The macro definition for &lt;macro value&gt; macro is not found </b></p>
+<p><b>in input device specific C Header File(s). </b></p>
+<p> </p>
+<p>This error occurs, if macro definition is not found in input device specific C </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>39 </b></p>
+<p>Header File(s). </p>
+<p> </p>
+<p><b>ERR000024: The macro value for &lt;macro value&gt; macro is empty in input </b></p>
+<p><b>device specific C Header File(s). </b></p>
+<p> </p>
+<p>This error occurs, if macro value is empty in input device specific C Header </p>
+<p>File(s). </p>
+<p> </p>
+<p><b>ERR000025: Path &lt;Configured Reference Path&gt; provided for Bsw Module </b></p>
+<p><b>is incorrect. </b></p>
+<p> </p>
+<p>This error occurs, if the reference provided for Bsw Module Component is </p>
+<p>incorrect. </p>
+<p> </p>
+<p><b>ERR000026: BSWMDT content is not present in the input file(s) for </b></p>
+<p><b>‘&lt;Module Name&gt;’ module. </b></p>
+<p> </p>
+<p>This error occurs, if the module specific BSWMDT content is not present in </p>
+<p>the input files. </p>
+<p> </p>
+<p><b>ERR000027: &lt;MSN&gt; BSWMDT File of either AUTOSAR R3.2 or R4.0 </b></p>
+<p><b>should be given as input. </b></p>
+<p> </p>
+<p>This error occurs, if the both R3.2 and R4.0 BSWMDT file given to the input to </p>
+<p>the generation tool. </p>
+<p> </p>
+<p><b>ERR000028: </b></p>
+<p><b>'MODULE-DESCRIPTION-REF' </b></p>
+<p><b>element should be present in </b></p>
+<p><b>the description file of '&lt;Module Name&gt;' module. </b></p>
+<p> </p>
+<p>This error occurs, if the </p>
+<p>MODULE-DESCRIPTION-REF </p>
+<p>element is not </p>
+<p>present module specific description file. </p>
+<p> </p>
+<p><b>ERR000029: AUTOSAR version of BSWMDT File and Module Description </b></p>
+<p><b>File is different. </b></p>
+<p> </p>
+<p>This error occurs, if the AUTOSAR version of the BSWMDT File and module </p>
+<p>description file is different. </p>
+<p> </p>
+<p><b>4.8.2. </b></p>
+<p><b>Warning Messages </b></p>
+<p><b> </b></p>
+<p><b>WRN000001: As per AUTOSAR ECU Configuration Description File </b></p>
+<p><b>naming convention, the file extension should be '.arxml' for file. </b></p>
+<p> </p>
+<p>This warning occurs, if ECU Configuration Description file having an </p>
+<p>extension other than ’.arxml’. </p>
+<p> </p>
+<p><b>4.8.3. </b></p>
+<p><b>Information Messages </b></p>
+<p> </p>
+<p><b>INF000001: Tool Version: </b></p>
+<p> </p>
+<p>This is to display Tool Version for each execution of the tool. </p>
+<p> </p>
+<p><b>INF000002: Command line arguments: </b></p>
+<p> </p>
+<p>This is to display the command line arguments for each execution of the tool. </p>
+<p> </p>
+<p><b>INF000003: The valid inputs are provided below. </b></p>
+<p> </p>
+<p>This information occurs, if the command line option is not given. </p>
+<p> </p>
+<p><b>INF000004: Opened file &lt;filename&gt; at &lt;time&gt;. </b></p>
+<p> </p>
+<p>This information occurs, during opening the file. </p>
+<p> </p>
+<p><b>INF000005: Error(s) and Warning(s) detected. </b></p>
+<p> </p>
+<p>This information displays the number of errors and warnings. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>40 </b></p>
+<p> </p>
+<p> </p>
+<p><b>INF000006: Execution completed successfully. </b></p>
+<p> </p>
+<p>This information occurs, if the execution completed successfully. </p>
+<p> </p>
+<p><b>INF000007: Execution completed successfully with warnings. </b></p>
+<p> </p>
+<p>This information occurs, if the execution completed successfully with </p>
+<p>warnings. </p>
+<p> </p>
+<p>I<b>NF000008: Execution terminated due to command line errors. </b></p>
+<p> </p>
+<p>This information occurs, if the execution terminated due to command line </p>
+<p>errors. </p>
+<p> </p>
+<p><b>INF000009: Execution terminated due to error in the input file. </b></p>
+<p> </p>
+<p>This information occurs, if the execution terminated due to error in the input </p>
+<p>file. </p>
+<p> </p>
+<p><b>INF000010: Execution terminated due to error, during the structure </b></p>
+<p><b>generation in the output file. </b></p>
+<p> </p>
+<p>This information occurs, if the execution terminated during structure </p>
+<p>generation in output file. </p>
+<p> </p>
+<p><b>4.9. </b></p>
+<p><b>BSWMDT File </b></p>
+<p> </p>
+<p> </p>
+<p>The BSWMDT File is the template for the Basic Software Module Description. </p>
+<p>Module specific Generation Tool uses “Common Published Information” from </p>
+<p>module specific BSWMDT file. BSWMDT file should not be updated manually </p>
+<p>since it is “Static Configuration” file. </p>
+<p> </p>
+<p> </p>
+<p>The required elements from BSWMDT File by module specific Generation </p>
+<p>Tool is as follows: </p>
+<p> </p>
+<p>BSW-MODULE-DESCRIPTION </p>
+<p> </p>
+<p>• </p>
+<p>MODULE-ID </p>
+<p> </p>
+<p>• </p>
+<p>BSW-IMPLEMENTATION </p>
+<p> </p>
+<p>• </p>
+<p>SW-VERSION </p>
+<p> </p>
+<p>• </p>
+<p>VENDOR-ID </p>
+<p> </p>
+<p>• </p>
+<p>AR-RELEASE-VERSION </p>
+<p> </p>
+<p>• </p>
+<p>VENDOR-API-INFIX </p>
+<p> </p>
+<p>In case of multiple driver support implementation, VENDOR-API-INFIX is </p>
+<p>mandatory. In case of single driver support implementation, VENDOR-</p>
+<p>API- INFIX is not used. </p>
+<p> </p>
+<p><b>4.10. </b></p>
+<p><b>User Environment Settings  </b></p>
+<p> </p>
+<p>Edit and update user settings to SetEnv.bat file located at @ </p>
+<p>external\X1X\P1x-</p>
+<p>C\common_family\Sample_Application\ghs\SetEnv.bat </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Generation Tool                  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 4 </b></p>
+<p> </p>
+<p><b>41 </b></p>
+<p><b>Example </b></p>
+<p><b>Set MCAL Generator path </b></p>
+<p>SETMCAL_GEN_EXEC= </p>
+<p>C:\Renesas\CodeGenerator\code_generator\MCALGenerator.exe </p>
+<p><b>Set root folder </b></p>
+<p><b> </b></p>
+<p>SET ROOT_FOLDER=U: </p>
+<p><b>Set GNU Make Path </b></p>
+<p>SET GNU_PATH=&quot;C:\Program Files (x86)\GnuWin32\bin&quot; </p>
+<p><b>Set Compiler install directory </b></p>
+<p><b> </b></p>
+<p>SET COMPILER_INSTALL_DIR=&quot;C:\ghs\</p>
+<p> </p>
+<p>comp_201517&quot; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>       Generation Tool </b></p>
+<p> </p>
+<p><b>42 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                                Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>43 </b></p>
+<p> </p>
+<p><b>Chapter 5 </b></p>
+<p><b>Application Example </b></p>
+<p> </p>
+<p> </p>
+<p><b>5.1. </b></p>
+<p><b>Folder Structure </b></p>
+<p> </p>
+<p> </p>
+<p>Refer Section “Integration and Build Process” in the respective component </p>
+<p>User Manuals. </p>
+<p> </p>
+<p> </p>
+<p><b>5.2. </b></p>
+<p><b>Compiler, Linker and Assembler </b></p>
+<p> </p>
+<p>This section provides information about the details of Compiler, Linker and </p>
+<p>Assembler used for building the MCAL Driver Component.</p>
+<p> </p>
+<p> </p>
+<p><b>Table 5-1 </b></p>
+<p><b>Compiler, Linker And Assembler </b></p>
+<p><b>Version Details </b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>Workbench Version</p>
+<p> </p>
+<p>Green Hills Multi V6.1.6</p>
+<p> </p>
+<p>Compiler Version</p>
+<p> </p>
+<p>GreenHills C V6.1.6 Compiler Version V2015.1.7</p>
+<p> </p>
+<p>Linker Version</p>
+<p> </p>
+<p>ELXR Version 2015.1.7</p>
+<p> </p>
+<p>Assembler Version</p>
+<p> </p>
+<p>EAST Version 2015.1.7</p>
+<p> </p>
+<p> </p>
+<p>In the batch file </p>
+<p>X1X/&lt;MICRO_VARIANT&gt;/common_family/Sample_Application/&lt;compiler&gt;/Se</p>
+<p>tEnv.bat set the COMPILER_INSTALL_DIR=&quot;C:\ghs\comp_201517&quot; according </p>
+<p>to the GHS installation path.  </p>
+<p> </p>
+<p><b>5.2.1. Compiler </b></p>
+<p> </p>
+<p>The compiler switches used for building the MCAL Driver Component using </p>
+<p> </p>
+<p>Green Hills C Compiler versions are provided. </p>
+<p> </p>
+<p> </p>
+<p><b>                            Table 5-2 </b></p>
+<p><b>Compiler Options </b></p>
+<p> </p>
+<p><b>Option</b></p>
+<p> </p>
+<p><b>Meaning</b></p>
+<p> </p>
+<p>-cpu=rh850g3m  </p>
+<p> </p>
+<p>Specifies a particular rh850g3m core target </p>
+<p>processor</p>
+<p> </p>
+<p>-prepare_dispose</p>
+<p> </p>
+<p>Instructs compiler to use the prepare and dispose </p>
+<p>instructions for function prologue and epilogue</p>
+<p> </p>
+<p>-no_callt</p>
+<p> </p>
+<p>Prevents the compiler from using the ‘callt’ </p>
+<p>instruction even when compiling for V850E</p>
+<p> </p>
+<p>-sda=all</p>
+<p> </p>
+<p>Small data memory model allows access to 64KB </p>
+<p>RAM and 64KB ROM</p>
+<p> </p>
+<p>-reserve_r2</p>
+<p> </p>
+<p>Reserves r2 register for use by the user</p>
+<p> </p>
+<p>-gsize</p>
+<p> </p>
+<p>Controls use of the gsize utility to determine</p>
+<p> the </p>
+<p>size of the output executable. </p>
+<p>-</p>
+<p>Osize</p>
+<p> </p>
+<p>Enables optimization for size</p>
+<p> </p>
+<p>-g</p>
+<p> </p>
+<p>Generates source level debugging information</p>
+<p> </p>
+<p>-Wundef</p>
+<p> </p>
+<p>Enables the warning that is issued for undefined </p>
+<p>symbols in preprocessor expressions </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>44 </b></p>
+<p> </p>
+<p><b>Option</b></p>
+<p> </p>
+<p><b>Meaning</b></p>
+<p> </p>
+<p>-c</p>
+<p> </p>
+<p>Produces object file for each source file</p>
+<p> </p>
+<p>--short_enum </p>
+<p>Store enumerations in the smallest possible type. </p>
+<p>-Wshadow </p>
+<p>Controls a warning that is issued if the </p>
+<p>declaration of a local variable <i>shadows </i>the </p>
+<p>declaration of a variable of the same name </p>
+<p>declared at the global scope, or at an outer </p>
+<p>scope. </p>
+<p>-nofloatio </p>
+<p>Controls the use of floating-point in stdio </p>
+<p>operations.</p>
+<p><b> </b></p>
+<p>Off (-nofloatio) </p>
+<p>--prototype_errors </p>
+<p>Controls the treatment of functions that are </p>
+<p>referenced or called when no prototype has been </p>
+<p>provided.</p>
+<p><b> </b></p>
+<p>Errors (--prototype_errors) </p>
+<p>--diag_error 193 </p>
+<p>Sets the specified diagnostics message to the </p>
+<p>level of error </p>
+<p>-dual_debug </p>
+<p>Enables the generation of DWARF, COFF, or </p>
+<p>BSD debugging information in the object file </p>
+<p>--no_commons </p>
+<p>Allocates uninitialized global variables to a </p>
+<p>section and initializes them to zero at program </p>
+<p>startup. </p>
+<p>-inline_prologue </p>
+<p>Forces the compiler to use inline code </p>
+<p>sequences.This option may adversely impact the </p>
+<p>size of the generated code, so it should only be </p>
+<p>used when necessary (for example, when the </p>
+<p>routines may not exist in memory yet). </p>
+<p>-</p>
+<p>ignore_callt_state_in_inte</p>
+<p>rrupts </p>
+<p>Do not save the CTPSW and CTPC registers in </p>
+<p>interrupt routines generated by the compiler. </p>
+<p>-large_sda </p>
+<p>Generate 23-bit SDA relocations for load/store </p>
+<p>instructions- Increases the size of the SDA to 8 </p>
+<p>MB. </p>
+<p>-shorten_loads </p>
+<p>Convert 23-bit SDA relocations to 16-bit in </p>
+<p>load/store instructions when possible </p>
+<p>-shorten_moves </p>
+<p>Convert 32 and 48-bit move relocations to 16-bit </p>
+<p>in move instructions when possible </p>
+<p>-delete </p>
+<p>Controls the removal from the executable of </p>
+<p>functions that are unused and unreferenced </p>
+<p> </p>
+<p><b>5.2.2. Linker </b></p>
+<p> </p>
+<p>The linker switches used for building the MCAL Driver Component using Green </p>
+<p>Hills Linker are provided. The memory placements can be done using the linker </p>
+<p>file. </p>
+<p> </p>
+<p> </p>
+<p>                           <b>Table 5-3 </b></p>
+<p><b>Linker Options </b></p>
+<p> </p>
+<p><b>Option</b></p>
+<p> </p>
+<p><b>Meaning</b></p>
+<p> </p>
+<p>Same as Compiler </p>
+<p>options</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                               Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>45 </b></p>
+<p><b>5.2.3. Assembler </b></p>
+<p> </p>
+<p>The Assembler settings used for WDG Driver component is as follows: </p>
+<p> </p>
+<p><b>                          Table 5-4 </b></p>
+<p>Assembler Options </p>
+<p> </p>
+<p><b>Option</b></p>
+<p> </p>
+<p><b>Meaning</b></p>
+<p> </p>
+<p>Same as Compiler </p>
+<p>options apart -c</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.3. </b></p>
+<p><b>Batchfile Description </b></p>
+<p> </p>
+<p>Batch file is available in the folder </p>
+<p>X1X/&lt;MICRO_VARIANT&gt;/common_family/Sample_Application/&lt;compiler&gt; </p>
+<p>The file is: </p>
+<p> </p>
+<p>• SampleApp.bat </p>
+<p> </p>
+<p>Usage: </p>
+<p>SampleApp.bat Msn Variant Compile_Option </p>
+<p>Msn - Module Short Name to be generated e.g. Port, Can, Adc, All.. </p>
+<p>Variant - Device variant e.g. 701372 </p>
+<p>Compile_Option - clean/build/generate. </p>
+<p>clean for clean </p>
+<p>build for incremental build </p>
+<p>generate for code generation    </p>
+<p>Note: If Compile_Option is left blank, then batch will clean, generate and </p>
+<p>compile files. </p>
+<p> </p>
+<p><b>5.4. </b></p>
+<p><b>Makefile Description </b></p>
+<p> </p>
+<p>Makefile is available in the folder “X1X\&lt; MICRO_VARIANT </p>
+<p>&gt;\modules\&lt;msn&gt;\sample_application\make\&lt;compiler&gt;”.</p>
+<p>  </p>
+<p>The Makefiles with the guidelines provided in AUTOSAR BSW Makefile </p>
+<p>Interface Specification, which enables easy integration with other components </p>
+<p>and the application. </p>
+<p> </p>
+<p>The files is: </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>App_&lt;Msn&gt;_&lt;MICRO_VARIANT&gt;Sample.mak</p>
+<p>  </p>
+<p>(Contains the device specific instructions). </p>
+<p> </p>
+<p> </p>
+<p><b>5.4.1. </b></p>
+<p><b>App_&lt;Msn&gt;_&lt;variant&gt;_Sample.mak </b></p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p># Makefile to compile and build the Sample application with the AUTOSAR </p>
+<p>&lt;MSN&gt; # </p>
+<p> </p>
+<p># Driver Component (For Test purposes only) </p>
+<p># </p>
+<p> </p>
+<p># Compatible with GNU Make 3.81 for Win32.                                   # </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>46 </b></p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p># Definitions of global environment variables </p>
+<p>   # </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>#Get name of the current application </p>
+<p> </p>
+<p>CURRENT_APPL = App_&lt;Msn&gt; </p>
+<p> </p>
+<p> </p>
+<p># Get the project directory into variable &quot;PROJECT_ROOT&quot; </p>
+<p> </p>
+<p>PROJECT_ROOT = $(shell cd)\..\..\..\..\..\.. </p>
+<p> </p>
+<p>COMMON_SAMPLE_CORE_PATH =     </p>
+<p>$(PROJECT_ROOT)\$(MICRO_FAMILY)\common_platform </p>
+<p>                                  \modules\&lt;Msn&gt;\sample_application </p>
+<p>                           </p>
+<p> </p>
+<p># Get the current working directory into variable &quot;SAMPLE_ROOT_PATH&quot; </p>
+<p>SAMPLE_ROOT_PATH = </p>
+<p>$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules</p>
+<p>&lt;Msn&gt;\sample_application\$(MICRO_SUB_VARIANT)</p>
+<p> </p>
+<p> </p>
+<p># Get the current working directory into variable &quot;STUBS&quot; </p>
+<p>STUBS_PATH = </p>
+<p>$(PROJECT_ROOT)\$(MICRO_FAMILY) </p>
+<p>                                                                           \common_platform\generic </p>
+<p>                                  \stubs\$(AUTOSAR_VERSION) </p>
+<p> </p>
+<p># Get current configuration path </p>
+<p> </p>
+<p>&lt;MSN&gt;_CONFIG_PATH = </p>
+<p>$(SAMPLE_ROOT_PATH)\$(AUTOSAR_VERSION) </p>
+<p> </p>
+<p> </p>
+<p># Get ARXML path </p>
+<p> </p>
+<p>                                       ARXML_CONFIG_PATH =  $(PROJECT_ROOT) </p>
+<p>                                                                                  \$(MICRO_FAMILY)\$(MICRO_VARIANT) </p>
+<p>                                                                                  \common_family\generator</p>
+<p> </p>
+<p> </p>
+<p># Get BSWMDT path </p>
+<p> </p>
+<p>&lt;MSN&gt;_BSWMDT_CONFIG_PATH </p>
+<p>= $(PROJECT_ROOT) </p>
+<p>                                                                                                    \$(MICRO_FAMILY) </p>
+<p>                                                                                                    \$(MICRO_VARIANT) </p>
+<p>                                                                                                    \modules\&lt;Msn&gt;                                                                                                          </p>
+<p>\generator</p>
+<p> </p>
+<p> </p>
+<p># Get current configuration file path </p>
+<p> </p>
+<p>&lt;MSN&gt;_CONFIG_FILE = $(MSN_CONFIG_PATH) \config </p>
+<p>                                         \App_&lt;MSN&gt;_$(MICRO_SUB_VARIANT)_ </p>
+<p>                                         $(DEVICE_NAME)_Sample.arxml</p>
+<p> </p>
+<p> </p>
+<p>                           </p>
+<p>   # Path to ECUM Configuration File which is required for this module </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                               Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>47 </b></p>
+<p>ECUM_CONFIG_PATH = $(STUBS_PATH)\EcuM </p>
+<p> </p>
+<p>ECUM_CONFIG_FILE = &quot;$(ECUM_CONFIG_PATH)\xml\EcuM_Icu.arxml&quot; </p>
+<p>endif </p>
+<p> </p>
+<p># Path to BSWMDT Configuration File which is required for MSN Sample                   </p>
+<p>Application </p>
+<p> </p>
+<p>                                         ifeq ($(AUTOSAR_VERSION), 3.2.2) </p>
+<p>                                        MSN_BSWMDT_CONFIG_FILE =                     </p>
+<p>&quot;$(MSN_BSWMDT_CONFIG_PATH)\R322_$(MODULE_NAME)_$(MICRO_V</p>
+<p>ARIANT)_BSWMDT.arxml&quot; </p>
+<p>                                         else </p>
+<p>                                         ICU_BSWMDT_CONFIG_FILE =          </p>
+<p>&quot;$(MSN_BSWMDT_CONFIG_PATH)\R403_$(MODULE_NAME)_$(MICRO_V</p>
+<p>ARIANT)_BSWMDT.arxml&quot; </p>
+<p>                                         endif </p>
+<p>                               </p>
+<p>                                         # Version check for inter modules required </p>
+<p>                                        MSN_VERSION_CHECK_REQ = yes </p>
+<p> </p>
+<p># Database to be linked together with the current application </p>
+<p> </p>
+<p># Define 'no' to isolate database from the application </p>
+<p> </p>
+<p>&lt;MSN&gt;_DBASE_REQ = yes </p>
+<p> </p>
+<p> </p>
+<p># Get the name of the SRECORD file </p>
+<p> </p>
+<p> </p>
+<p>                                        CURRENT_APPL_SRECORD = </p>
+<p>                                         $(CURRENT_APPL)_$(MICRO_SUB_VARIANT)_Sample</p>
+<p> </p>
+<p> </p>
+<p># Name of the database if generated separately </p>
+<p> </p>
+<p>&lt;MSN&gt;_DB = &lt;Msn&gt;_PBcfg </p>
+<p> </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p># Final executable </p>
+<p># </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>EXE = $(CURRENT_APPL)_</p>
+<p> </p>
+<p>MICRO_ </p>
+<p>&lt;SUB_VARIANT&gt;_Sample.$(EXE_FILE_SUFFIX) </p>
+<p>LIBRARIES_TO_BUILD = </p>
+<p>OBJECTS_LINK_ONLY = </p>
+<p> </p>
+<p>OBJECT_OUTPUT_PATH </p>
+<p>= $(SAMPLE_ROOT_PATH)\obj\ghs </p>
+<p>GENERATED_SOURCE_FILES </p>
+<p>= </p>
+<p>CC_FILES_TO_BUILD = </p>
+<p> </p>
+<p>CPP_FILES_TO_BUILD = </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>48 </b></p>
+<p> </p>
+<p>ASM_FILES_TO_BUILD = </p>
+<p> </p>
+<p> </p>
+<p>CC_INCLUDE_PATH = </p>
+<p>CPP_INCLUDE_PATH = </p>
+<p>ASM_INCLUDE_PATH = </p>
+<p> </p>
+<p> </p>
+<p>PREPROCESSOR_DEFINES </p>
+<p>= </p>
+<p> </p>
+<p> </p>
+<p>LIBRARIES_LINK_ONLY = </p>
+<p>DIRECTORIES_TO_CREATE </p>
+<p>= </p>
+<p>DEPEND_GCC_OPTS = </p>
+<p> </p>
+<p> </p>
+<p>MAKE_CLEAN_RULES = </p>
+<p>MAKE_GENERATE_RULES </p>
+<p>= </p>
+<p>MAKE_COMPILE_RULES </p>
+<p>= </p>
+<p>MAKE_DEBUG_RULES = </p>
+<p>MAKE_CONFIG_RULES = </p>
+<p>MAKE_ADD_RULES = </p>
+<p> </p>
+<p> </p>
+<p>MAKE_DEBUG_RULES = </p>
+<p>MAKE_</p>
+<p> </p>
+<p>CONFIG_RULES = </p>
+<p>MAKE_ADD_RULES = </p>
+<p> </p>
+<p>MAKE_DEBUG_RULES += debug_base_make </p>
+<p> </p>
+<p>STD_LIBRARY = </p>
+<p> </p>
+<p>LNKFILE = </p>
+<p>$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules\&lt;msn</p>
+<p>&gt;\sample_application\make\ghs\$(CURRENT_APPL)_$(MICRO_SUB_VARIA</p>
+<p>NT)_$(DEVICE_NAME)_Sample.ld </p>
+<p> </p>
+<p>LNKFILE_DB = </p>
+<p>$(PROJECT_ROOT)\$(MICRO_FAMILY)\$(MICRO_VARIANT)\modules\&lt;ms</p>
+<p>n&gt;\sample_application)\make\ghs\$(CURRENT_APPL)_$(MICRO_SUB_VARI</p>
+<p>ANT)_$(DEVICE_NAME)_Sample_db.ld </p>
+<p> </p>
+<p> </p>
+<p>                           .PHONY: MAKE_CLEAN_RULES MAKE_GENERATE_RULES  </p>
+<p>                           MAKE_COMPILE_RULES \ </p>
+<p>                           MAKE_DEBUG_RULES MAKE_CONFIG_RULES MAKE_ADD_RULES </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p># Modules to be included in the project </p>
+<p># </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>############################################################## </p>
+<p># Sample Application </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                               Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>49 </b></p>
+<p> </p>
+<p># </p>
+<p> </p>
+<p>include </p>
+<p>$(COMMON_SAMPLE_CORE_PATH)\make\$(CURRENT_APPL)_Common_S </p>
+<p>ample_Defs.mak </p>
+<p> </p>
+<p>include </p>
+<p>$(COMMON_SAMPLE_CORE_PATH)\make\$(CURRENT_APPL)_Common_S </p>
+<p>ample_rules.mak </p>
+<p> </p>
+<p> </p>
+<p>SAMPLE_CORE_PATH = $(SAMPLE_ROOT_PATH) </p>
+<p> </p>
+<p>include </p>
+<p>$(SAMPLE_CORE_PATH)\make\$(CURRENT_APPL</p>
+<p> </p>
+<p>_$(MICRO_SUB_VARIANT)_Sample_defs.mak</p>
+<p> </p>
+<p>include </p>
+<p>$(SAMPLE_CORE_PATH)\make\$(CURRENT_APPL</p>
+<p> </p>
+<p>_$(MICRO_SUB_VARIANT)_Sample_rules.mak </p>
+<p> </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p> </p>
+<p># DET Module Core Path </p>
+<p> </p>
+<p># </p>
+<p> </p>
+<p>#DET_CORE_PATH = $(STUBS_PATH)\Det </p>
+<p> </p>
+<p>#include $(DET_CORE_PATH)\make\det_defs.mak </p>
+<p> </p>
+<p>#include $(DET_CORE_PATH)\make\det_rules.mak </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p> </p>
+<p># OS Module Core Path </p>
+<p> </p>
+<p># </p>
+<p> </p>
+<p>OS_CORE_PATH = $(STUBS_PATH)\os </p>
+<p> include $(OS_CORE_PATH)\make\os_defs.mak </p>
+<p> include $(OS_CORE_PATH)\make\</p>
+<p> </p>
+<p>os_rules.mak </p>
+<p> ############################################################# </p>
+<p> </p>
+<p>                              </p>
+<p>                              </p>
+<p>                                          ############################################################## </p>
+<p>                                          # ECUM Module Core Path </p>
+<p>                                          # </p>
+<p>                                          ECUM_CORE_PATH = $(STUBS_PATH)\EcuM </p>
+<p>                                          include $(ECUM_CORE_PATH)\make\ecum_defs.mak </p>
+<p>                                          include $(ECUM_CORE_PATH)\make\ecum_rules.mak </p>
+<p>                                          ############################################################## </p>
+<p> </p>
+<p> ############################################################## </p>
+<p> </p>
+<p> # Scheduler Manager Module Core Path </p>
+<p> </p>
+<p> # </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>50 </b></p>
+<p> </p>
+<p> </p>
+<p> ifeq ($(AUTOSAR_VERSION), 3.2.2) </p>
+<p> SCHM_CORE_PATH = $(STUBS_PATH)\SchM </p>
+<p> include $(SCHM_CORE_PATH)\make\schm_defs.mak </p>
+<p> else </p>
+<p> RTE_CORE_PATH = $(STUBS_PATH)\SchM </p>
+<p> include $(RTE_CORE_PATH)\make\rte_defs.mak </p>
+<p> endif  </p>
+<p> ############################################################# </p>
+<p> </p>
+<p> # &lt;MSN&gt; Driver Component </p>
+<p> </p>
+<p> # </p>
+<p> </p>
+<p>&lt;MSN&gt;_CORE_PATH = </p>
+<p> $(PROJECT_ROOT</p>
+<p> </p>
+<p>\$(MICRO_FAMILY)\  common_platform </p>
+<p> \modules\&lt;msn&gt; </p>
+<p> include $(&lt;MSN&gt;_CORE_PATH)\make\renesas_&lt;msn&gt;_defs.mak  </p>
+<p> include $(&lt;MSN&gt;_CORE_PATH)\make\renesas</p>
+<p> </p>
+<p>_&lt;msn&gt;_check.mak </p>
+<p> include $(&lt;MSN&gt;_CORE_PATH)\make\renesas_&lt;msn&gt;_rules.mak </p>
+<p> </p>
+<p> </p>
+<p> ############################################################# </p>
+<p> </p>
+<p> </p>
+<p>############################################################## </p>
+<p> </p>
+<p># Command to generate standalone database </p>
+<p># </p>
+<p>                             </p>
+<p>$(MSN_DB).$(S_RECORD_SUFFIX):$(MSN_DB).$(OBJ_FILE_SUFFIX) </p>
+<p>$(LNKFILE_DB) </p>
+<p>@echo    ********************************************************************* </p>
+<p>                                         @echo Building the standalone database ...   </p>
+<p>                                         $(DBLINKER) $(LNKFILE_DB) \ </p>
+<p>                                         &quot;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(OBJ_FILE_SUFFIX)&quot; \ </p>
+<p>-map=&quot;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(MAP_FILE_SUFFIX)&quot; \ </p>
+<p>-o &quot;$(OBJECT_OUTPUT_PATH)\$(MSN_DB).$(EXE_FILE_SUFFIX)&quot; </p>
+<p>                                         @echo Generating Motorola S-Record file... </p>
+<p>                                         $(CONVERTER) $(SFLAGS)                                       </p>
+<p>                                        </p>
+<p>&quot;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(EXE_FILE_SUFFIX)&quot; \ </p>
+<p>    </p>
+<p> </p>
+<p>                            -o &quot;$(OBJECT_OUTPUT_PATH)\$(ICU_DB).$(S_RECORD_SUFFIX)&quot; </p>
+<p>                                          @echo Done ... </p>
+<p> </p>
+<p>############################################################## </p>
+<p>################## </p>
+<p> </p>
+<p>$(&lt;MSN&gt;_DB).$(S_RECORD_SUFFIX):$(&lt;MSN&gt;_DB).$(OBJ_FILE_SUFFIX </p>
+<p>) $(LNKFILE_DB) </p>
+<p> </p>
+<p>@echo ********************************************************************* </p>
+<p> </p>
+<p>@echo Building the standalone database ... </p>
+<p> </p>
+<p>$(DBLINKER) $(LNKFILE_DB) \ </p>
+<p>&quot;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(OBJ_FILE_SUFFIX)&quot; \ </p>
+<p>-map=&quot;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(MAP_FILE_SUFFIX)&quot; \ </p>
+<p> </p>
+<p>-o &quot;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(EXE_FILE_SUFFIX)&quot; </p>
+<p> </p>
+<p>@echo Generating Motorola S-Record file... </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                               Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>51 </b></p>
+<p> </p>
+<p>$(CONVERTER) $(SFLAGS) </p>
+<p>&quot;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(EXE_FILE_SUFFIX)&quot; \ </p>
+<p> </p>
+<p>-o &quot;$(OBJECT_OUTPUT_PATH)\$(&lt;MSN&gt;_DB).$(S_RECORD_SUFFIX)&quot; </p>
+<p> </p>
+<p>@echo Done ... </p>
+<p> </p>
+<p>                              </p>
+<p>     </p>
+<p>############################################################### </p>
+<p> </p>
+<p># End of the Base Make script                                                  # </p>
+<p>############################################################### </p>
+<p> </p>
+<p><b>5.5. </b></p>
+<p><b>Integrating The &lt;MSN&gt; Driver Component  With </b></p>
+<p><b> </b></p>
+<p><b>Other Components </b></p>
+<p> </p>
+<p>This section explains the procedure to integrate the &lt;MSN&gt;Driver Component </p>
+<p>with other BSW components and the application. </p>
+<p> </p>
+<p>Depending on the various configurations, the following modules are required to </p>
+<p>be integrated with the &lt;MSN&gt;Driver Component: </p>
+<p> </p>
+<p>• </p>
+<p>&lt;MSN&gt;Interface (Folder ‘Sample_Application’ where the sample </p>
+<p>application  for &lt;MSN&gt; exists. The variable ‘&lt;MSN&gt;_CORE_PATH’ </p>
+<p>and the corresponding module Makefile names must be suitably </p>
+<p>changed in the base Makefile) </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Development Error Tracer (Folder ‘Det’ where the DET module files exist. </p>
+<p>The variable ‘DET_CORE_PATH’ and the corresponding module </p>
+<p>Makefile names must be suitably changed in the base Makefile) </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Scheduler Manager (Folder ‘SchM’ where the SCHM module exists. </p>
+<p>The variable ‘RTE_CORE_PATH’ and the corresponding module </p>
+<p>Makefile names must be suitably changed in the base Makefile) </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>MCU Interface (Folder ‘Mcu’ in the give example. The variables </p>
+<p>‘MCU_CONFIG_PATH’ and ‘MCU_CONFIG_FILE’ must be suitably </p>
+<p>changed in the module Makefile </p>
+<p>(Software_Source_Code\ssc\mak\renesas_&lt;MSN&gt;_rules.mak) and </p>
+<p>the base Makefile). </p>
+<p> </p>
+<p> </p>
+<p>All the above folders are given only as examples and they have to be </p>
+<p>replaced with actual component folders. It is assumed that every component </p>
+<p>has the corresponding module Makefiles. </p>
+<p> </p>
+<p>Apart from the above BSW components, few other folders are provided as </p>
+<p>mentioned below: </p>
+<p> </p>
+<p>• </p>
+<p>AUTOSAR Type definition Files (Folder ‘common\include’, where the </p>
+<p>header files containing standard definitions that are common to all </p>
+<p>components are placed. The variable ‘STUB_CORE_PATH’ and the </p>
+<p>corresponding module Makefile names must be suitably changed in the </p>
+<p>base Makefile) </p>
+<p> </p>
+<p>• </p>
+<p>RH850 specific Files (Folder ‘X1X\common_platform\generic\include’,where </p>
+<p>the header files that are common to all components but specific to Renesas </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>52 </b></p>
+<p> </p>
+<p>V850 microcontroller are placed. The variable ‘ </p>
+<p>GENERIC_PLATFORM_PATH’ and the corresponding module Makefile </p>
+<p>names must be suitably changed in the base Makefile) </p>
+<p> </p>
+<p>Compiler specific Files (Folder ‘compiler’, where the header files that are </p>
+<p>common to all components but specific to GreenHills Compiler are placed. </p>
+<p>The variable ‘COMPILER_PATH’ and the corresponding module Makefile </p>
+<p>names must be suitably changed in the base Makefile). </p>
+<p> </p>
+<p><b>5.6. </b></p>
+<p><b>Building The &lt;MSN&gt; Driver Component </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the procedure to build the &lt;MSN&gt;Driver Component for </p>
+<p>any given configuration. </p>
+<p> </p>
+<p>The &lt;MSN&gt; Driver Configuration Description file (.arxml) has to be given as </p>
+<p>input to the &lt;MSN&gt; Driver Generation Tool. The tool generates output files </p>
+<p>namely &lt;Msn&gt;_Lcfg.c, &lt;Msn&gt;_PBcfg.c, &lt;Msn&gt;_Cbk.h and &lt;Msn&gt;_Cfg.h. </p>
+<p> </p>
+<p> </p>
+<p><b>Following variables must be defined in the base Makefile described in </b></p>
+<p><b>Section 5.2.1 (Makefile Description) </b></p>
+<p> </p>
+<p>• </p>
+<p>PROJECT_ROOT: Root directory where the projects for all components </p>
+<p>exist. </p>
+<p> </p>
+<p>• </p>
+<p>SPECIFIC_APPL_ROOT_PATH: Directory where the &lt;MSN&gt; sample </p>
+<p>application exists. </p>
+<p> </p>
+<p>• </p>
+<p>OBJECT_OUTPUT_PATH: Directory where the module specific output </p>
+<p>files are generated. </p>
+<p> </p>
+<p>• </p>
+<p>STARTUP_&lt;family&gt;_CORE_PATH: Core path for the variant specific </p>
+<p>statup files exist. </p>
+<p> </p>
+<p>• </p>
+<p>STUB_CORE_PATH: Core path for the stub files exist. </p>
+<p> </p>
+<p>• </p>
+<p>COMPILER_PATH: Directory where the compiler files exist. </p>
+<p> </p>
+<p>• </p>
+<p>DEVICE_FILE_PATH: Directory where the device files exists. </p>
+<p> </p>
+<p>• </p>
+<p>MSN_CORE_PATH: Core path for the &lt;MSN&gt; Driver Component </p>
+<p>folder. </p>
+<p> </p>
+<p>• </p>
+<p>MSN_TOOL_PATH: Directory where the module specific tool exe exist. </p>
+<p> </p>
+<p>• </p>
+<p>CC_INCLUDE_PATH: Path variable where all the header files can be </p>
+<p>found by the compiler. </p>
+<p> </p>
+<p>• </p>
+<p>CC_FILES_TO_BUILD: Variable that contains the list of source files, to </p>
+<p>be compiled and linked. </p>
+<p> </p>
+<p>• </p>
+<p>&lt;MSN&gt;_clean_generated_files: This target can be used to clean the </p>
+<p>configuration source and header files generated by the &lt;MSN&gt; Driver </p>
+<p>Generation Tool. </p>
+<p> </p>
+<p>• </p>
+<p>debug_&lt;MSN&gt;_makefile: This target can be used to print the debug </p>
+<p>information such as paths used by &lt;MSN&gt; Driver Component. </p>
+<p> </p>
+<p>• </p>
+<p>generate_&lt;MSN&gt;_config: This target can be used to invoke the &lt;MSN&gt; </p>
+<p>Driver Generation Tool which in turn takes the ECU Configuration </p>
+<p>Description files (App_&lt;MSN&gt;_&lt;DEVICE_NAME&gt;_Sample.arxml) as </p>
+<p>an input and generates the configuration source and header files. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Application Example                                                                                                               Chapter 5</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>53 </b></p>
+<p><b>Following variables must be defined in the Module Makefile described in </b></p>
+<p><b>Section 5.2.1 (Makefile Description): </b></p>
+<p> </p>
+<p>• </p>
+<p>PROJECT_ROOT: Root directory where the projects for all components </p>
+<p>exist. </p>
+<p> </p>
+<p>• </p>
+<p>MSN_CONFIG_PATH: Configuration path for description file of the </p>
+<p>&lt;MSN&gt; Driver Component. </p>
+<p> </p>
+<p>• </p>
+<p>MSN_CONFIG_FILE: Name of the &lt;MSN&gt; Driver Component description </p>
+<p>file. </p>
+<p> </p>
+<p>• </p>
+<p>STUB_CONFIG_PATH: Configuration path for description file of the stub. </p>
+<p> </p>
+<p>• </p>
+<p>MCU_CONFIG_FILE:  Name of the MCU Driver Component description </p>
+<p>file. </p>
+<p> </p>
+<p>• </p>
+<p>ARXML_CONFIG_PATH: ARXML Configuration file path used for the </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        &lt;MSN&gt; Driver Component. </p>
+<p> </p>
+<p>• </p>
+<p>ARXML_CONFIG_FILE: ARXML Configuration file used for the &lt;MSN&gt; </p>
+<p>    Driver Component. </p>
+<p> </p>
+<p>• </p>
+<p>BSWMDT_CONFIG_PATH: Path for &lt;MSN&gt; BSWMDT file. </p>
+<p> </p>
+<p>• </p>
+<p>BSWMDT_CONFIG_FILE: Name of the &lt;MSN&gt; BSWMDT file. </p>
+<p> </p>
+<p>• </p>
+<p>GENERIC_STUB_PATH: Directory where the generic stub exist. </p>
+<p> </p>
+<p>• </p>
+<p>GENERIC_PLATFORM_PATH: Directory where the generic platform </p>
+<p>files exist. </p>
+<p> </p>
+<p>• </p>
+<p>CC_INCLUDE_PATH: Path variable where all the header files can be </p>
+<p>found by the compiler. </p>
+<p> </p>
+<p>• </p>
+<p>CC_FILES_TO_BUILD: Variable that contains the list of source files, to </p>
+<p>be compiled and linked. </p>
+<p> </p>
+<p>• </p>
+<p>&lt;MSN&gt;_DB: Name of the Post-build configuration file. </p>
+<p> </p>
+<p>The above mentioned variables must be used by the user to build the base </p>
+<p>Makefile. </p>
+<p> </p>
+<p>A sample base Makefile (App_&lt;MSN&gt;_</p>
+<p> &lt;</p>
+<p>MICRO_SUB_VARIANT&gt; </p>
+<p>_Device_Sample.mak) has been provided with the product for reference. </p>
+<p>This file can be modified to suit the developer’s needs. </p>
+<p> </p>
+<p>The targets that are supported in the base Makefile enable the user in build </p>
+<p>and cleanup activities during/after the build process. They are listed below: </p>
+<p> </p>
+<p> </p>
+<p><b>5.6.1. </b></p>
+<p><b>Targets Supported By The Sample Base Makefile </b></p>
+<p> </p>
+<p><b>5.6.1.1. </b></p>
+<p><b>debug_base_make </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “debug_base_make” as a parameter </p>
+<p>prints all the variables that are used in the base Makefile. This can be used to </p>
+<p>print various paths and file names to see if they are correct. </p>
+<p> </p>
+<p><b>5.6.1.2. </b></p>
+<p><b>clean_objs </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “clean_objs” as a parameter deletes all </p>
+<p>the object files from the output folder </p>
+<p>(“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\Sample_application\&lt;</p>
+<p> </p>
+<p>MICRO_SUB_VARIANT &gt;\obj” in this case). </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                Application Example                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>54 </b></p>
+<p> </p>
+<p><b>5.6.1.3. </b></p>
+<p><b>clean </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “clean” as a parameter deletes tool </p>
+<p>generated files in the configuration output folders </p>
+<p>(“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\sample_application\&lt;</p>
+<p> </p>
+<p>MICRO_SUB_VARIANT&gt;\src” and </p>
+<p> </p>
+<p>“X1X\&lt;MICRO_VARIANT&gt;\modules\&lt;msn&gt;\Sample_application\&lt;</p>
+<p> </p>
+<p>MICRO_SUB_VARIANT&gt;\include”in this case) </p>
+<p> </p>
+<p>. </p>
+<p><b>5.6.1.4. </b></p>
+<p><b>clean_all </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “clean_all” as a parameter deletes all </p>
+<p>files such as object file, list files and map files from the output folder </p>
+<p>(“X1X\&lt;</p>
+<p> MICRO_VARIANT</p>
+<p> &gt; </p>
+<p>          \modules\&lt;msn&gt;\sample_application\&lt;</p>
+<p> </p>
+<p>MICRO_SUB_VARIANT</p>
+<p>         </p>
+<p>&gt;\obj\&lt;compiler&gt;” in this case). </p>
+<p> </p>
+<p><b>5.6.1.5. </b></p>
+<p><b>generate_&lt;msn&gt;_config </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “generate_&lt;MSN&gt;_config” as a </p>
+<p>parameter invokes the &lt;MSN&gt; Driver Generation Tool. The tool takes the </p>
+<p>ECU Configuration Description File(s) (“X1X\&lt; MICRO_VARIANT </p>
+<p>&gt;\modules\&lt;msn&gt;\Sample_application\&lt;MICRO_SUB_VARIANT&gt;\</p>
+<p> </p>
+<p>AUTOSAR_VERSION </p>
+<p> </p>
+<p>config\&lt;MSN&gt;_Sample_ &lt;MICRO_SUB_VARIANT&gt;\.arxml” as input and </p>
+<p>generates the output files in folders </p>
+<p> </p>
+<p>“X1X\&lt; MICRO_VARIANT &gt;\modules\&lt;msn&gt;\Sample_application\&lt; </p>
+<p>MICRO_SUB_VARIANT&gt;\</p>
+<p> </p>
+<p>AUTOSAR_VERSION \src” and </p>
+<p> </p>
+<p>“X1X\&lt; MICRO_VARIANT &gt;1\modules\&lt;msn&gt;\Sample_application\&lt; </p>
+<p>MICRO_SUB_VARIANT&gt;\</p>
+<p> </p>
+<p>AUTOSAR_VERSION \include”). </p>
+<p> </p>
+<p> </p>
+<p><b>5.6.1.6. </b></p>
+<p><b>App_&lt;MSN&gt;_&lt; MICRO_SUB_VARIANT &gt;_Sample.out </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “Sample.out” as a parameter invokes the </p>
+<p>compiler and linker sequentially. Then it generates the executable </p>
+<p>“</p>
+<p>App_&lt;MSN&gt;_&lt;</p>
+<p>MICRO_SUB_VARIANT</p>
+<p>&gt;_Sample</p>
+<p>.out”. </p>
+<p> </p>
+<p><b>5.6.1.7. </b></p>
+<p><b>&lt;Msn&gt;_PBcfg.s37 </b></p>
+<p> </p>
+<p>Invoking the Make utility and passing “&lt;Msn&gt;_PBcfg.s37” as a parameter </p>
+<p>invokes </p>
+<p>the compiler and linker sequentially and generates the Motorola S-Record file </p>
+<p>“&lt;Msn&gt;_PBcfg.s37” in the output folder. </p>
+<p>This scenario typically arises when post-build parameters are modified and </p>
+<p>only the database needs to be flashed into the device without disturbing the </p>
+<p>other ROM contents. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Support For Different Interrupt Categories           </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Chapter 6                                                                                       </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>55 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Chapter 6  Support For Different Interrupt Categories </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The &lt;MSN&gt; Driver supports CAT1 and CAT2 interrupt categories: </p>
+<p> </p>
+<p><b>CAT1 </b></p>
+<p> </p>
+<p>In  CAT1 type  of  interrupt ISR does not use  an  operating system service. In </p>
+<p>practice, the OS does not handle these interrupts, and the interrupt handler is </p>
+<p>implemented  in  the  driver  code,  with  the  only  restriction  that  OS  services </p>
+<p>cannot be called. Typically, these are the fastest highest priority interrupts. </p>
+<p> </p>
+<p><b>CAT2 </b></p>
+<p> </p>
+<p>In CAT2 type of interrupt wherein the ISR is handled by the system and OS </p>
+<p>calls can be called from the handler. </p>
+<p> </p>
+<p>For CAT1 and CAT2, the selection of interrupt category is for each interrupt in </p>
+<p>the module. Individual MCAL module does not contain any option for interrupt </p>
+<p>category configuration. The user has to configure the ISR category in OS and </p>
+<p>also </p>
+<p>to </p>
+<p>use </p>
+<p>the </p>
+<p>right </p>
+<p>MCAL </p>
+<p>specified </p>
+<p>name </p>
+<p>and </p>
+<p>MCAL </p>
+<p>expects </p>
+<p>&quot;ISR(INTERRUPT_NAME)&quot; keyword defined in OS in case of CAT2. </p>
+<p> </p>
+<p><b>Notes </b></p>
+<p><b>1.   </b>The understanding is Os module does not publish short name handles for </p>
+<p>CAT1 OsIsr container. But it should be defined in the interrupt vector table </p>
+<p>by the OS. </p>
+<p> </p>
+<p><b>2.   </b>The understanding is that Os module should publish short name handles </p>
+<p>for CAT2 OsIsr container according to ecuc_sws_2108 requirement by </p>
+<p>adding the Os_&quot; pefix to the configured interrupt name. </p>
+<p> </p>
+<p> </p>
+<p><b>Reference between the &lt;MSN&gt; module and OS: </b></p>
+<p> </p>
+<p>&lt;Msn&gt; module's &lt;Module&gt;_Irq.c/h files include &quot;Os.h&quot; header file to obtain the </p>
+<p>interrupt  category information configured in  the  OS.  Therefore following pre- </p>
+<p>processor definitions are  expected to  be  published in  Os.h  file  by  the  OS  in </p>
+<p>case of CAT2 or to be used in the interrupt vector table in case of CAT1. </p>
+<p> </p>
+<p> </p>
+<p><b>Table 6-1 </b></p>
+<p><b>CAT1 and CAT2 Naming Convention </b></p>
+<p> </p>
+<p><b>Interrupt Category</b></p>
+<p> </p>
+<p><b>Naming Convention</b></p>
+<p> </p>
+<p>CAT1</p>
+<p> </p>
+<p>&lt;MCAL_INTERRUPT_NAME&gt;_ ISR</p>
+<p> </p>
+<p>CAT2</p>
+<p> </p>
+<p>&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR</p>
+<p> </p>
+<p>CAT2 (In case the handles of </p>
+<p>the OsIsr container are </p>
+<p>generated without ‘Os_’ prefix </p>
+<p>by Os generation tool)</p>
+<p> </p>
+<p>Os_&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> Chapter 6                                                                           Support For Different Interrupt Categories </b></p>
+<p> </p>
+<p><b>56 </b></p>
+<p><b> </b></p>
+<p><b>MCAL in Stand Alone: </b></p>
+<p> </p>
+<p>In  case  if  the  MCAL  modules  are  to  be  used   stand  alone  without  having </p>
+<p>standard Autosar Os module, the user has to prepare an Os.h stub file with the </p>
+<p>published  handles  only  for  those  interrupt  names  which  are  to  be  used  as </p>
+<p>CAT2. </p>
+<p> </p>
+<p><b>Table 6-2 </b></p>
+<p><b>List of ISR Names that need to be configured and published in Os.h </b></p>
+<p><b>(CAT2) or used in the interrupt vector table (CAT1) for &lt;MSN&gt; Driver </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Sl. </b></p>
+<p><b>No.</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>CAT1</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>CAT2</b></p>
+<p> </p>
+<p><b>CAT2(In case the handles of the </b></p>
+<p><b>OsIsr container are generated </b></p>
+<p><b>without ‘Os_’ prefix by Os </b></p>
+<p><b>generation tool)</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>&lt;MSN&gt;n_SGm_ISR</p>
+<p> </p>
+<p>&lt;MSN&gt;n_SGm_CAT2_ISR</p>
+<p> </p>
+<p>Os_&lt;MSN&gt;n_SGm_CAT2_ISR</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>&lt;MSN&gt;_DMA_CHxy_ISR</p>
+<p> </p>
+<p>&lt;MSN&gt;_DMA_CHxy_CAT2_ISR</p>
+<p> </p>
+<p>Os_&lt;MSN&gt;_DMA_CHxy_CAT2_IS </p>
+<p>R</p>
+<p> </p>
+<p> </p>
+<p>Where </p>
+<p> </p>
+<p>‘n’ indicate HW Unit number </p>
+<p> </p>
+<p>‘m’ indicate SG Unit number </p>
+<p> </p>
+<p>‘xy’ indicate DMA channel Id number </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> GNU MAKE Environment  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 7 </b></p>
+<p> </p>
+<p><b>57 </b></p>
+<p><b>Chapter 7 </b></p>
+<p><b>GNU MAKE Environment </b></p>
+<p> </p>
+<p>Every component is delivered with the necessary Make scripts that are </p>
+<p>required to integrate the component with the application. The scripts are </p>
+<p>compatible with GNU Make version 3.81. </p>
+<p> </p>
+<p> </p>
+<p>All the delivered Makefiles have to be included in the project level base </p>
+<p>Makefile in order to build the component together with the application. Refer </p>
+<p>section “<b>Integration and Build Process</b>” of the respective component User </p>
+<p>Manuals for more information on the Makefile variables and their usage. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.1. </b></p>
+<p><b>Build Process With GNUMAKE </b></p>
+<p> </p>
+<p> </p>
+<p>When the batch file of certain application is built, the GNU Make utility will be </p>
+<p>searched by batch file. The GNU Make utility should be present in the default </p>
+<p>path specified by GNUMAKE\PATH variable. By making use of the GNU Make </p>
+<p>utility the batch file will be compiled. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.2. </b></p>
+<p><b>Build Process Without GNUMAKE </b></p>
+<p> </p>
+<p> </p>
+<p>If GNU Make utility is not present at the default path or present in some other </p>
+<p>directory the following procedure is followed to set the Environmental variable </p>
+<p>GNUMAKE\PATH. </p>
+<p> </p>
+<p>1.   Right click on “My Computer” select properties, user will find System </p>
+<p>Properties. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 7  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     GNU MAKE Environment </b></p>
+<p> </p>
+<p><b>58 </b></p>
+<p> </p>
+<p>2.   In System Properties select “Advanced” option, user will find </p>
+<p>“Environmental Variables” at the bottom side of window. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>3.   Click on “Environmental Variables”, user will find “Environment Variables” </p>
+<p>window in that, select “New”. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> GNU MAKE Environment  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 7 </b></p>
+<p> </p>
+<p><b>59 </b></p>
+<p> </p>
+<p>4.   After step 3, user can find “New User Variable” window with “Variable </p>
+<p>name” and “Variable path” options which needs to be set, Variable name </p>
+<p>will be set as GNUMAKE and Variable path is the path of the directory </p>
+<p>where GNU Make utility is present and click ok. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>5.   After step 4, in “System Properties” window click “Apply” and then “Ok”. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>GNU Make utility version 3.81 must be separately downloaded and installed to </p>
+<p>use the Makefiles delivered along with the component. More information on the </p>
+<p>utility can be found at http://www.gnu.org/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 7  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     GNU MAKE Environment </b></p>
+<p> </p>
+<p><b>60 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Load Binaries                                                                                                                           Chapter 8</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    </b></p>
+<p> </p>
+<p><b>61 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>Load Binaries </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Once the Executable or S-Record is generated using the project level base </p>
+<p>Makefile, it needs to be downloaded into the target using a Flash programmer. </p>
+<p> </p>
+<p>The user has to read the instructions provided in the Flash programmer’s User </p>
+<p>Manual thoroughly before using it. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  Chapter 8                                                 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>            Load Binaries                                                                                                                                                                                                                                         </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>              </b></p>
+<p><b>62 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Appendix  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Chapter 9                                                                                                                          </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>63 </b></p>
+<p><b>Chapter 9 </b></p>
+<p><b>Appendix </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> Chapter 9   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Appendix </b></p>
+<p> </p>
+<p><b>64 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>65 </b></p>
+<p> </p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>15-Sep-2014</p>
+<p> </p>
+<p>2. </p>
+<p>The following changes are made : </p>
+<p>1. </p>
+<p>Added section 5.2. Compiler, Linker and Assembler in </p>
+<p>Chapter 5. </p>
+<p>2. </p>
+<p>Added section 5.3. Batch file Description in Chapter 5. </p>
+<p>3. </p>
+<p>Supported device name changed throughout the document. </p>
+<p>4. </p>
+<p>Added R-number to the document. </p>
+<p>1.0.1 </p>
+<p> </p>
+<p> 25-Apr-2016 </p>
+<p>3 </p>
+<p>The following changes are made: </p>
+<p>1. </p>
+<p>Added Section 4.10 – User Environment settings. </p>
+<p>2. </p>
+<p>Removed Description of Translation XML file from Chapter 9 </p>
+<p>3. </p>
+<p>Updated Copyright year </p>
+<p>4. </p>
+<p>Added example for reference in section 4.4 </p>
+<p>5. </p>
+<p>In Chapter 4 Figure 4-2 has been updated as per version </p>
+<p>change </p>
+<p>6. </p>
+<p>Compiler Option Table updated  </p>
+<p>7. </p>
+<p>In Chapter 5 Section 5.4.1 Trxml changed to Arxml format </p>
+<p>8. </p>
+<p>Chapter 9 Section 9.1 Configuration XML file remove since </p>
+<p>not relevant  </p>
+<p>9. </p>
+<p>Document name corrected in second last and last page. </p>
+<p>10.  Compiler options updated in the section 5.2 </p>
+<p> </p>
+<p>1.0.2 </p>
+<p>17-Feb-2017 </p>
+<p>4 </p>
+<p>The following changes are made: </p>
+<p>1. </p>
+<p>Updated R-number of the document. </p>
+<p>2. </p>
+<p>Notice and copyright are updated. </p>
+<p> </p>
+<p>1.0.3 </p>
+<p>09-May-2017 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Getting Started Document for P1x-C MCAL Driver User' Manual </b></p>
+<p><b>Version 1.0.3 </b></p>
+<p> </p>
+<p>Publication Date: Rev.1.01, May 09, 2017 </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 4.1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Getting Started Document for P1x-C MCAL Driver </p>
+<p> </p>
+<p>User's Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3828EJ0101 </p>
+</body>
+</html>
+{% endraw %}

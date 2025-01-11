@@ -1,0 +1,5158 @@
+---
+layout: default
+title: TechnicalReference_XCP
+nav_order: 1
+parent: Universal Measurement and Calibration Protocol (XCP)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR XCP </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 2.0.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Andreas Herkommer </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Andreas Herkommer </p>
+<p>2017-02-13 </p>
+<p>1.00.00 </p>
+<p>Initial Version </p>
+<p>Andreas Herkommer </p>
+<p>2017-11-14 </p>
+<p>2.00.00 </p>
+<p>Added new API Xcp_SetStimMode </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_XCP.pdf </p>
+<p>2.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>3.4.1 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DEM.pdf </p>
+<p>5.2.0 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>V1.0.0 </p>
+<p>[5] </p>
+<p> ASAM </p>
+<p>ASAM_XCP_Part2-Protocol-Layer-Specification_V1-1-</p>
+<p>0.pdf </p>
+<p>V1.1 </p>
+<p><b>Scope of the Document </b></p>
+<p>This document describes the features, APIs, and integration of the XCP Protocol Layer. </p>
+<p>This document does not cover the XCP Transport Layers for CAN, FlexRay and Ethernet, </p>
+<p>which are available at Vector Informatik.   </p>
+<p>Further information about XCP on CAN, FlexRay and  Ethernet Transport Layers can be </p>
+<p>found in their documentation. </p>
+<p>Please </p>
+<p>also </p>
+<p>refer </p>
+<p>to </p>
+<p>“The </p>
+<p>Universal </p>
+<p>Measurement </p>
+<p>and </p>
+<p>Calibration </p>
+<p>Protocol </p>
+<p>Family” </p>
+<p>specification by ASAM e.V. </p>
+<p>The XCP Protocol Layer is a hardware independent protocol that can be ported to almost </p>
+<p>any  hardware.  Due  to  there  are  numerous  combinations  of  micro  controllers,  compilers </p>
+<p>and memory models it cannot be guaranteed that it will run properly on any of the above </p>
+<p>mentioned combinations. </p>
+<p>Please  note  that  in  this  document  the  term Application  is  not  used  strictly  for  the  user </p>
+<p>software but also for any higher software layer, like e.g. a Communication Control Layer. </p>
+<p>Therefore, Application refers to any of the software components using XCP. </p>
+<p>The API of the functions is described in a separate chapter at the end of this document.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Info</b> </p>
+<p>The source code of the XCP Protocol Layer, configuration examples and </p>
+<p>documentation are available on the Internet at www.vector-informatik.de in a functional </p>
+<p>restricted form. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History .................................................................................................... 10</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................. 11</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ...................................................................................... 11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 13</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 13</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 13</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 15</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 15</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 15</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 16</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Block Transfer Communication Model .............................................................. 16</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Slave Device Identification ............................................................................... 17</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>XCP Station Identifier ....................................................................... 17</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>XCP Generic Identification ............................................................... 17</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Seed &amp; Key ...................................................................................................... 17</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Checksum Calculation ..................................................................................... 18</p>
+<p> </p>
+<p>3.8.1</p>
+<p> </p>
+<p>Custom CRC calculation .................................................................. 18</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>Memory Access by Application ......................................................................... 18</p>
+<p> </p>
+<p>3.9.1</p>
+<p> </p>
+<p>Memory Read and Write Protection ................................................. 18</p>
+<p> </p>
+<p>3.9.2</p>
+<p> </p>
+<p>Special use case “Type Safe Copy” ................................................. 19</p>
+<p> </p>
+<p>3.10</p>
+<p> </p>
+<p>Event Codes .................................................................................................... 19</p>
+<p> </p>
+<p>3.11</p>
+<p> </p>
+<p>Service Request Messages ............................................................................. 20</p>
+<p> </p>
+<p>3.12</p>
+<p> </p>
+<p>User Defined Command ................................................................................... 20</p>
+<p> </p>
+<p>3.13</p>
+<p> </p>
+<p>Synchronous Data Transfer ............................................................................. 20</p>
+<p> </p>
+<p>3.13.1</p>
+<p> </p>
+<p>Synchronous Data Acquisition (DAQ) ............................................... 20</p>
+<p> </p>
+<p>3.13.2</p>
+<p> </p>
+<p>DAQ Timestamp ............................................................................... 21</p>
+<p> </p>
+<p>3.13.3</p>
+<p> </p>
+<p>Power-Up Data Transfer .................................................................. 21</p>
+<p> </p>
+<p>3.13.4</p>
+<p> </p>
+<p>Data Stimulation (STIM) ................................................................... 22</p>
+<p> </p>
+<p>3.13.5</p>
+<p> </p>
+<p>Bypassing ........................................................................................ 22</p>
+<p> </p>
+<p>3.13.6</p>
+<p> </p>
+<p>Data Acquisition Plug &amp; Play Mechanisms ....................................... 22</p>
+<p> </p>
+<p>3.13.7</p>
+<p> </p>
+<p>Event Channel Plug &amp; Play Mechanism ........................................... 23</p>
+<p> </p>
+<p>3.13.8</p>
+<p> </p>
+<p>Send Queue ..................................................................................... 23</p>
+<p> </p>
+<p>3.13.9</p>
+<p> </p>
+<p>Data consistency .............................................................................. 23</p>
+<p> </p>
+<p>3.14</p>
+<p> </p>
+<p>The Online Data Calibration Model .................................................................. 24</p>
+<p> </p>
+<p>3.14.1</p>
+<p> </p>
+<p>Page Switching ................................................................................ 24</p>
+<p> </p>
+<p>3.14.2</p>
+<p> </p>
+<p>Page Switching Plug &amp; Play Mechanism .......................................... 24</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p>3.14.3</p>
+<p> </p>
+<p>Calibration Data Page Copying ........................................................ 24</p>
+<p> </p>
+<p>3.14.4</p>
+<p> </p>
+<p>Freeze Mode Handling ..................................................................... 24</p>
+<p> </p>
+<p>3.15</p>
+<p> </p>
+<p>Flash Programming .......................................................................................... 25</p>
+<p> </p>
+<p>3.15.1</p>
+<p> </p>
+<p>Flash Programming by the ECU’s Application .................................. 25</p>
+<p> </p>
+<p>3.15.2</p>
+<p> </p>
+<p>Flash Programming Plug &amp; Play Mechanism ................................... 25</p>
+<p> </p>
+<p>3.15.3</p>
+<p> </p>
+<p>Flash Programming with a Flash Kernel ........................................... 26</p>
+<p> </p>
+<p>3.16</p>
+<p> </p>
+<p>Multi Core Support ........................................................................................... 26</p>
+<p> </p>
+<p>3.16.1</p>
+<p> </p>
+<p>Type Safe Copy ............................................................................... 26</p>
+<p> </p>
+<p>3.16.2</p>
+<p> </p>
+<p>DAQ/STIM with Multi Core ............................................................... 27</p>
+<p> </p>
+<p>3.17</p>
+<p> </p>
+<p>En- / Disabling the XCP module ....................................................................... 28</p>
+<p> </p>
+<p>3.18</p>
+<p> </p>
+<p>XCP measurement during the post event time ................................................. 28</p>
+<p> </p>
+<p>3.19</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 29</p>
+<p> </p>
+<p>3.19.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 29</p>
+<p> </p>
+<p>3.19.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 30</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 31</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 31</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 31</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Templates – user modifiable ............................................................. 31</p>
+<p> </p>
+<p>4.1.3</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 31</p>
+<p> </p>
+<p>4.1.4</p>
+<p> </p>
+<p>Generated a2l files ........................................................................... 31</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 32</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_0 ............................................................ 32</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_1 ............................................................ 32</p>
+<p> </p>
+<p>4.2.3</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_2 ............................................................ 32</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Memory Mapping ............................................................................................. 33</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 34</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 34</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by XCP ............................................................................... 35</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Xcp_InitMemory ............................................................................... 35</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Xcp_Init ............................................................................................ 35</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Xcp_Event ....................................................................................... 36</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Xcp_StimEventStatus ...................................................................... 36</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Xcp_MainFunction ........................................................................... 37</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Xcp_SendEvent ............................................................................... 38</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>Xcp_PutChar.................................................................................... 38</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>Xcp_Print ......................................................................................... 39</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>Xcp_Disconnect ............................................................................... 39</p>
+<p> </p>
+<p>5.2.10</p>
+<p> </p>
+<p>Xcp_SendCrm .................................................................................. 40</p>
+<p> </p>
+<p>5.2.11</p>
+<p> </p>
+<p>Xcp_GetVersionInfo ......................................................................... 40</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2.12</p>
+<p> </p>
+<p>Xcp_ModifyProtectionStatus ............................................................ 41</p>
+<p> </p>
+<p>5.2.13</p>
+<p> </p>
+<p>Xcp_GetSessionStatus .................................................................... 42</p>
+<p> </p>
+<p>5.2.14</p>
+<p> </p>
+<p>Xcp_GetXcpDataPointer .................................................................. 42</p>
+<p> </p>
+<p>5.2.15</p>
+<p> </p>
+<p>Xcp_SetStimMode ........................................................................... 43</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services provided by the XCP Protocol Layer and called by the XCP </p>
+<p>Transport Layer ................................................................................................ 43</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Xcp_TlRxIndication .......................................................................... 43</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Xcp_TlTxConfirmation ...................................................................... 44</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>Xcp_SetActiveTl ............................................................................... 44</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>Xcp_GetActiveTl .............................................................................. 45</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>XCP Transport Layer Services called by the XCP Protocol Layer .................... 46</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_Send .............................................................................. 46</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_SendFlush ..................................................................... 47</p>
+<p> </p>
+<p>5.4.3</p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_TlService ........................................................................ 47</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Application Services called by the XCP Protocol Layer .................................... 48</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>XcpAppl_GetTimestamp .................................................................. 49</p>
+<p> </p>
+<p>5.5.2</p>
+<p> </p>
+<p>XcpAppl_GetPointer......................................................................... 49</p>
+<p> </p>
+<p>5.5.3</p>
+<p> </p>
+<p>XcpAppl_GetIdData ......................................................................... 50</p>
+<p> </p>
+<p>5.5.4</p>
+<p> </p>
+<p>XcpAppl_GetSeed ........................................................................... 51</p>
+<p> </p>
+<p>5.5.5</p>
+<p> </p>
+<p>XcpAppl_Unlock ............................................................................... 51</p>
+<p> </p>
+<p>5.5.6</p>
+<p> </p>
+<p>XcpAppl_CalibrationWrite ................................................................ 52</p>
+<p> </p>
+<p>5.5.7</p>
+<p> </p>
+<p>XcpAppl_MeasurementRead ........................................................... 53</p>
+<p> </p>
+<p>5.5.8</p>
+<p> </p>
+<p>XcpAppl_CheckReadAccess ............................................................ 53</p>
+<p> </p>
+<p>5.5.9</p>
+<p> </p>
+<p>XcpAppl_CheckProgramAccess....................................................... 54</p>
+<p> </p>
+<p>5.5.10</p>
+<p> </p>
+<p>XcpAppl_UserService ...................................................................... 54</p>
+<p> </p>
+<p>5.5.11</p>
+<p> </p>
+<p>XcpAppl_OpenCmdIf ....................................................................... 55</p>
+<p> </p>
+<p>5.5.12</p>
+<p> </p>
+<p>XcpAppl_SendStall .......................................................................... 55</p>
+<p> </p>
+<p>5.5.13</p>
+<p> </p>
+<p>XcpAppl_DisableNormalOperation ................................................... 56</p>
+<p> </p>
+<p>5.5.14</p>
+<p> </p>
+<p>XcpAppl_StartBootLoader ................................................................ 57</p>
+<p> </p>
+<p>5.5.15</p>
+<p> </p>
+<p>XcpAppl_Reset ................................................................................ 57</p>
+<p> </p>
+<p>5.5.16</p>
+<p> </p>
+<p>XcpAppl_ProgramStart .................................................................... 58</p>
+<p> </p>
+<p>5.5.17</p>
+<p> </p>
+<p>XcpAppl_FlashClear ........................................................................ 58</p>
+<p> </p>
+<p>5.5.18</p>
+<p> </p>
+<p>XcpAppl_FlashProgram ................................................................... 59</p>
+<p> </p>
+<p>5.5.19</p>
+<p> </p>
+<p>XcpAppl_DaqResume ...................................................................... 59</p>
+<p> </p>
+<p>5.5.20</p>
+<p> </p>
+<p>XcpAppl_DaqResumeStore ............................................................. 60</p>
+<p> </p>
+<p>5.5.21</p>
+<p> </p>
+<p>XcpAppl_DaqResumeClear ............................................................. 61</p>
+<p> </p>
+<p>5.5.22</p>
+<p> </p>
+<p>XcpAppl_CalResumeStore............................................................... 61</p>
+<p> </p>
+<p>5.5.23</p>
+<p> </p>
+<p>XcpAppl_GetCalPage ...................................................................... 62</p>
+<p> </p>
+<p>5.5.24</p>
+<p> </p>
+<p>XcpAppl_SetCalPage ....................................................................... 62</p>
+<p> </p>
+<p>5.5.25</p>
+<p> </p>
+<p>XcpAppl_CopyCalPage .................................................................... 63</p>
+<p> </p>
+<p>5.5.26</p>
+<p> </p>
+<p>XcpAppl_SetFreezeMode ................................................................ 64</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.5.27</p>
+<p> </p>
+<p>XcpAppl_GetFreezeMode ................................................................ 65</p>
+<p> </p>
+<p>5.5.28</p>
+<p> </p>
+<p>XcpAppl_CalculateChecksum .......................................................... 65</p>
+<p> </p>
+<p>5.5.29</p>
+<p> </p>
+<p>XcpAppl_ConStateNotification ......................................................... 66</p>
+<p> </p>
+<p>5.5.30</p>
+<p> </p>
+<p>XcpAppl_MemCpy ........................................................................... 66</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Services used by XCP ..................................................................................... 67</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 68</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 68</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 69</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 69</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 71</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.1 Architecture Overview ....................................................... 11</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the XCP ............................................... 12</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Connection State Machine ........................................................................ 16</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Data consistency ...................................................................................... 23</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Application of Xcp_Event function on Multi Core systems ......................... 28</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history.................................................................................... 10</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 13</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Deviations from AUTOSAR standard conform features ............................. 13</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Deviations from ASAM standard conform features .................................... 15</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 15</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>States ....................................................................................................... 15</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>Event codes .............................................................................................. 20</p>
+<p> </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 29</p>
+<p> </p>
+<p>Table 3-8 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 30</p>
+<p> </p>
+<p>Table 3-9 </p>
+<p> </p>
+<p>Errors reported to DEM ............................................................................. 30</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 31</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Templates ................................................................................................. 31</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 31</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 34</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Xcp_ChannelStruct ................................................................................... 34</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Xcp_InitMemory ........................................................................................ 35</p>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<p>Xcp_Init .................................................................................................... 35</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Xcp_Event ................................................................................................ 36</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Xcp_StimEventStatus ............................................................................... 37</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Xcp_MainFunction .................................................................................... 37</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Xcp_SendEvent ........................................................................................ 38</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Xcp_PutChar ............................................................................................ 39</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Xcp_Print .................................................................................................. 39</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>Xcp_Disconnect ........................................................................................ 40</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Xcp_SendCrm .......................................................................................... 40</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Xcp_GetVersionInfo .................................................................................. 41</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Xcp_ModifyProtectionStatus ..................................................................... 41</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>Xcp_GetSessionStatus ............................................................................. 42</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>Xcp_GetXcpDataPointer ........................................................................... 43</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>Xcp_SetStimMode .................................................................................... 43</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Xcp_TlRxIndication ................................................................................... 44</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>Xcp_TlTxConfirmation .............................................................................. 44</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>Xcp_SetActiveTl ....................................................................................... 45</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>Xcp_GetActiveTl ....................................................................................... 46</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_Send ....................................................................................... 46</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_SendFlush .............................................................................. 47</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>&lt;Bus&gt;Xcp_TlService ................................................................................ 48</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>XcpAppl_GetTimestamp ........................................................................... 49</p>
+<p> </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>XcpAppl_GetPointer ................................................................................. 50</p>
+<p> </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>XcpAppl_GetIdData .................................................................................. 51</p>
+<p> </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>XcpAppl_GetSeed .................................................................................... 51</p>
+<p> </p>
+<p>Table 5-29 </p>
+<p> </p>
+<p>XcpAppl_Unlock ....................................................................................... 52</p>
+<p> </p>
+<p>Table 5-30 </p>
+<p> </p>
+<p>XcpAppl_CalibrationWrite ......................................................................... 52</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p>Table 5-31 </p>
+<p> </p>
+<p>XcpAppl_MeasurementRead .................................................................... 53</p>
+<p> </p>
+<p>Table 5-32 </p>
+<p> </p>
+<p>XcpAppl_CheckReadAccess .................................................................... 54</p>
+<p> </p>
+<p>Table 5-33 </p>
+<p> </p>
+<p>XcpAppl_CheckProgramAccess ............................................................... 54</p>
+<p> </p>
+<p>Table 5-34 </p>
+<p> </p>
+<p>XcpAppl_UserService ............................................................................... 55</p>
+<p> </p>
+<p>Table 5-35 </p>
+<p> </p>
+<p>XcpAppl_OpenCmdIf ................................................................................ 55</p>
+<p> </p>
+<p>Table 5-36 </p>
+<p> </p>
+<p>XcpAppl_SendStall ................................................................................... 56</p>
+<p> </p>
+<p>Table 5-37 </p>
+<p> </p>
+<p>XcpAppl_DisableNormalOperation ........................................................... 56</p>
+<p> </p>
+<p>Table 5-38 </p>
+<p> </p>
+<p>XcpAppl_StartBootLoader ........................................................................ 57</p>
+<p> </p>
+<p>Table 5-39 </p>
+<p> </p>
+<p>XcpAppl_Reset ......................................................................................... 58</p>
+<p> </p>
+<p>Table 5-40 </p>
+<p> </p>
+<p>XcpAppl_ProgramStart ............................................................................. 58</p>
+<p> </p>
+<p>Table 5-41 </p>
+<p> </p>
+<p>XcpAppl_FlashClear ................................................................................. 59</p>
+<p> </p>
+<p>Table 5-42 </p>
+<p> </p>
+<p>XcpAppl_FlashProgram ............................................................................ 59</p>
+<p> </p>
+<p>Table 5-43 </p>
+<p> </p>
+<p>XcpAppl_DaqResume .............................................................................. 60</p>
+<p> </p>
+<p>Table 5-44 </p>
+<p> </p>
+<p>XcpAppl_DaqResumeStore ...................................................................... 61</p>
+<p> </p>
+<p>Table 5-45 </p>
+<p> </p>
+<p>XcpAppl_DaqResumeClear ...................................................................... 61</p>
+<p> </p>
+<p>Table 5-46 </p>
+<p> </p>
+<p>XcpAppl_CalResumeStore ....................................................................... 62</p>
+<p> </p>
+<p>Table 5-47 </p>
+<p> </p>
+<p>XcpAppl_GetCalPage ............................................................................... 62</p>
+<p> </p>
+<p>Table 5-48 </p>
+<p> </p>
+<p>XcpAppl_SetCalPage ............................................................................... 63</p>
+<p> </p>
+<p>Table 5-49 </p>
+<p> </p>
+<p>XcpAppl_CopyCalPage ............................................................................ 64</p>
+<p> </p>
+<p>Table 5-50 </p>
+<p> </p>
+<p>XcpAppl_SetFreezeMode ......................................................................... 64</p>
+<p> </p>
+<p>Table 5-51 </p>
+<p> </p>
+<p>XcpAppl_GetFreezeMode......................................................................... 65</p>
+<p> </p>
+<p>Table 5-52 </p>
+<p> </p>
+<p>XcpAppl_CalculateChecksum ................................................................... 66</p>
+<p> </p>
+<p>Table 5-53 </p>
+<p> </p>
+<p>XcpAppl_ConStateNotification .................................................................. 66</p>
+<p> </p>
+<p>Table 5-54 </p>
+<p> </p>
+<p>XcpAppl_MemCpy .................................................................................... 67</p>
+<p> </p>
+<p>Table 5-55 </p>
+<p> </p>
+<p>Services used by the XCP ........................................................................ 67</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 70</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.xx </p>
+<p>Initial Version of re-factored AR4 Protocol Layer. </p>
+<p>2.00.xx </p>
+<p>Series production of MultiCore feature. </p>
+<p>3.00.xx </p>
+<p>Bugfixes and Continuous STIM feature. </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module XCP as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>XCP_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>XCP_MODULE_ID   </p>
+<p>212 decimal </p>
+<p>(according to ref. [4]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the XCP is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.1 Architecture Overview  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>The following figure shows the interfaces to adjacent modules of the XCP. The interfaces </p>
+<p>of the XCP Protocol Layer and the application call-back header are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the XCP </p>
+<p><b> class Module Structure Adjacency</b></p>
+<p><b>Application</b></p>
+<p><b>XCP</b></p>
+<p><b>XcpOnCan</b></p>
+<p><b>XcpOnFr</b></p>
+<p><b>XcpOnTcpIp</b></p>
+<p><b>CanIf</b></p>
+<p><b>FrIf</b></p>
+<p><b>SoAd</b></p>
+<p><b>XcpAppl</b></p>
+<p>Must be implemented </p>
+<p>by the user</p>
+<p><b>DET</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The  Universal  Measurement </p>
+<p>and  Calibration  Protocol  (XCP)  is  standardized  by  the </p>
+<p>European ASAM  working  committee  for  standardization  of  interfaces  used  in  calibration </p>
+<p>and measurement data acquisition. XCP is a higher level protocol used for communication </p>
+<p>between  a  measurement  and  calibration  system  (MCS,  i.e.  CANape)  and  an  electronic </p>
+<p>control unit (ECU). The implementation supports the ASAM XCP 1.1 Specification. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Deviations from AUTOSAR standard conform features </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Deviations from ASAM standard conform features </p>
+<p>Vector Informatik provides further XCP functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-4   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>ASAM XCP Version 1.1 </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations</b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not or only partly supported: </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>ASR </b></p>
+<p><b>Version </b></p>
+<p>Functional </p>
+<p>The following features are not supported: </p>
+<p>•</p>
+<p> </p>
+<p>The command </p>
+<p>GET_SLAVE_ID</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>A CDD as transport layer </p>
+<p>4.2.2 </p>
+<p>API </p>
+<p>The following APIs are not provided by XCP: </p>
+<p>•</p>
+<p> </p>
+<p>Xcp_SetTransmissionMode </p>
+<p>4.2.2 </p>
+<p>API </p>
+<p>The API Xcp_&lt;Module&gt;TriggerTransmit is only supported for transport </p>
+<p>layer FrIf. </p>
+<p>4.2.2 </p>
+<p>Table 3-2  </p>
+<p>Deviations from AUTOSAR standard conform features </p>
+<p> </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>ASAM </b></p>
+<p><b>Version </b></p>
+<p>Functional </p>
+<p>1.6.4.1.2.4 Get general information on DAQ processor: </p>
+<p>1.1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p>•</p>
+<p> </p>
+<p>Bitwise stimulation is not supported </p>
+<p>Functional </p>
+<p>1.6.4.2 Static DAQ list configuration (stat): </p>
+<p>•</p>
+<p> </p>
+<p>Static DAQ lists are not supported; only dynamic DAQ lists are </p>
+<p>supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.7.2.3 Interleaved Communication Model: </p>
+<p>•</p>
+<p> </p>
+<p>Multiple request messages are not allowed to be transmitted by the </p>
+<p>XCP master before receiving the corresponding response </p>
+<p>message </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.6.5.2.4 Set Data Format before Programming: </p>
+<p>•</p>
+<p> </p>
+<p>Only the default programming format is supported, therefore the </p>
+<p>command </p>
+<p>PROGRAM_FORMAT</p>
+<p> is not supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.6.5.2.2 Get specific information for a sector: </p>
+<p>•</p>
+<p> </p>
+<p>The command </p>
+<p>GET_SECTOR_INFO</p>
+<p> does not return a Program </p>
+<p>Sequence Number </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.6.5.2.7 Program Verify: </p>
+<p>•</p>
+<p> </p>
+<p>The command </p>
+<p>PROGRAM_VERIFY</p>
+<p> is not supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>Daq configuration: </p>
+<p>•</p>
+<p> </p>
+<p>Number of DAQ lists is limited to 0xFF </p>
+<p>•</p>
+<p> </p>
+<p>Maximum DTO length is limited to 0xFF </p>
+<p>•</p>
+<p> </p>
+<p>DAQ does not support address extension </p>
+<p>•</p>
+<p> </p>
+<p>DAQ-list and event channel prioritization is not supported </p>
+<p>•</p>
+<p> </p>
+<p>DAQ bit offset not supported </p>
+<p>•</p>
+<p> </p>
+<p>The resume bits in DAQ lists are not set (no indication in response </p>
+<p>of command </p>
+<p>GET_DAQ_LIST_MODE</p>
+<p>) </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>5.1.10  ODT Optimization: </p>
+<p>•</p>
+<p> </p>
+<p>The ODT Optimization is not supported </p>
+<p>1.2 </p>
+<p>Functional </p>
+<p>1.2 Table of Event Codes: </p>
+<p>•</p>
+<p> </p>
+<p>XCP does not send any event packet natively. If required, the </p>
+<p>implementation has to be added to application </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>Overload indication by an event is not supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.3 Table of Service Request Codes (SERV): </p>
+<p>•</p>
+<p> </p>
+<p>The Service Request </p>
+<p>SERV_RESET </p>
+<p>is not supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.6.1.2.9 Build Checksum over memory range: </p>
+<p>•</p>
+<p> </p>
+<p>The checksum type </p>
+<p>XCP_CRC_16 </p>
+<p>or </p>
+<p>XCP_CRC_32</p>
+<p> is only supported </p>
+<p>if the checksum calculation is forwarded to a AUTOSAR CRC </p>
+<p>module </p>
+<p>•</p>
+<p> </p>
+<p>Maximum checksum block size is 0xFFFF </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>1.6.3 Page Switching Commands (PAG): </p>
+<p>•</p>
+<p> </p>
+<p>The command </p>
+<p>GET_PAGE_INFO</p>
+<p> is not supported </p>
+<p>•</p>
+<p> </p>
+<p>The command </p>
+<p>GET_SEGMENT_INFO</p>
+<p> is not supported </p>
+<p>•</p>
+<p> </p>
+<p>Only one segment and two pages are supported </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>Seed and Key: </p>
+<p>•</p>
+<p> </p>
+<p>The seed size and key size must be equal or less MAX_CTO-2 </p>
+<p>1.1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p>Functional </p>
+<p>Consistency only supported on ODT level. </p>
+<p>1.1 </p>
+<p>Functional </p>
+<p>No other identification field type supported than “absolute ODT number”. </p>
+<p>1.1 </p>
+<p>Table 3-3  </p>
+<p>Deviations from ASAM standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>Support of CAN-FD </p>
+<p>Support transmission and reception of DTO on multiple cores simultaneously. </p>
+<p>Table 3-4  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>The XCP gets initialized by call of the following services: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.1 Xcp_InitMemory </p>
+<p>•</p>
+<p> </p>
+<p>5.2.2 Xcp_Init </p>
+<p>Xcp_InitMemory has to be called if memory is not initialized by start-up code. </p>
+<p>The EcuM takes care of initialization, if no EcuM is used these functions have to be called </p>
+<p>by application in correct order. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The  XCP’s  connection  state  machine  is  shown  in  Figure  3-1,  comprises  the  following </p>
+<p>states:  </p>
+<p><b>State Name </b></p>
+<p><b>Description </b></p>
+<p>XCP_CON_STATE_DISCONNECTED </p>
+<p>In this state neither CTO nor DTO messages can be received or </p>
+<p>transmitted, except of the Connect CTO. </p>
+<p>XCP_CON_STATE_CONNECTED </p>
+<p> </p>
+<p>In this state communication is fully supported. </p>
+<p>XCP_CON_STATE_RESUME </p>
+<p> </p>
+<p>In this state CTO messages (except of Connection CTO) are </p>
+<p>rejected, whereas DTO messages can be received and </p>
+<p>transmitted. </p>
+<p>Table 3-5  </p>
+<p>States </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Connection State Machine </p>
+<p>The  states  can  be  changed  by  the  XCP  master  by  sending  the  CTOs </p>
+<p>Connect</p>
+<p>  and </p>
+<p>Disconnect</p>
+<p>. Additionally, the connection can be broken by the service: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.9 Xcp_Disconnect </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>The Xcp provides a MainFunction: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.5 Xcp_MainFunction </p>
+<p>It must be called cyclically and performs the following tasks: </p>
+<p><b>&gt; </b></p>
+<p>Checksum calculation which is done asynchronously in configurable chunks to prevent </p>
+<p>extensive runtime </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode Handling </p>
+<p>The Xcp MainFunction is normally called by the SchM. If you use a 3</p>
+<p>rd</p>
+<p> party SchM you </p>
+<p>must configure it accordingly such that the function is called cyclically. </p>
+<p><b>3.5 </b></p>
+<p><b>Block Transfer Communication Model </b></p>
+<p>In  the  standard  communication  model,  each  request  packet  is  responded  by  a  single </p>
+<p>response packet or an error packet. To speed up memory uploads, downloads and flash </p>
+<p>programming the XCP commands </p>
+<p>UPLOAD</p>
+<p>, </p>
+<p>DOWNLOAD</p>
+<p> and </p>
+<p>PROGRAM</p>
+<p> support a block transfer </p>
+<p>mode similar to ISO/DIS 15765-2. </p>
+<p>In  the  Master  Block  Transfer  Mode  can  the  master  transmit  subsequent  (up  to  the </p>
+<p>maximum block size MAX_BS) request packets to the slave without getting any response </p>
+<p>in between. The slave responds after transmission of the last request packet of the block. </p>
+<p><b> stm Connection State Machine</b></p>
+<p>Resume Mode</p>
+<p>Ini ti al</p>
+<p><b>DISCONNECTED</b></p>
+<p><b>CONNECTED</b></p>
+<p><b>RESUME</b></p>
+<p>Xcp_CmdStd_Connect</p>
+<p>Xcp_Disconnect</p>
+<p>Xcp_CmdStd_Connect</p>
+<p>[ON]</p>
+<p>[OFF]</p>
+<p>Xcp_Init</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p>In Slave Block Transfer Mode the slave can respond subsequent (there is no limitation) to </p>
+<p>a request without additional requests in between. </p>
+<p>The Block Transfer Mode is limited to a block size of 255 Bytes. On bus systems with a </p>
+<p>large  max  CTO  (e.g. 254 Bytes)  this Mode might  be  counterproductive  and  should  stay </p>
+<p>disabled. </p>
+<p><b>3.6 </b></p>
+<p><b>Slave Device Identification </b></p>
+<p><b>3.6.1 </b></p>
+<p><b>XCP Station Identifier </b></p>
+<p>The  XCP  station  identifier  is  an ASCII  string  that  identifies  the  ECU’s  software  program </p>
+<p>version. </p>
+<p>The  MCS  can  interpret  this  identifier  as  file  name  for  the  ECU  database.  The  ECU </p>
+<p>developer should change the XCP station identifier with each program change. This will </p>
+<p>prevent database mix-ups and grant the correct access of measurement and calibration </p>
+<p>objects  from  the  MCS  to  the  ECU.  Another  benefit  of  the  usage  of  the  XCP  station </p>
+<p>identifier is the automatic assignment of the correct ECU database at program start of the </p>
+<p>MCS via the plug &amp; play mechanism. The plug &amp; play mechanism prevents the user from </p>
+<p>selecting the wrong ECU database. </p>
+<p><b>3.6.2 </b></p>
+<p><b>XCP Generic Identification </b></p>
+<p>The XCP provides a generic mechanism for identification by the </p>
+<p>GET_ID</p>
+<p> command. For this </p>
+<p>purpose a call-back exist which can be implemented by the user to provide the requested </p>
+<p>information (see 5.5.3 XcpAppl_GetIdData). </p>
+<p><b>3.7 </b></p>
+<p><b>Seed &amp; Key </b></p>
+<p>The </p>
+<p>seed </p>
+<p>and </p>
+<p>key </p>
+<p>feature </p>
+<p>allows </p>
+<p>individual </p>
+<p>access </p>
+<p>protection </p>
+<p>for </p>
+<p>calibration, </p>
+<p>flash </p>
+<p>programming,  synchronous  data  acquisition  and  data  stimulation.  The  MCS  requests  a </p>
+<p>seed  (a  few  data  bytes)  from  the  ECU  and  calculates  a  key  based  on  a  proprietary </p>
+<p>algorithm and sends it back to the ECU. </p>
+<p>If </p>
+<p>Seed  &amp;  Key  is  enabled  in </p>
+<p>the  configuration  tool  the  following  APIs </p>
+<p>need  to  be </p>
+<p>implemented by the user: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.4 XcpAppl_GetSeed </p>
+<p>•</p>
+<p> </p>
+<p>5.5.5 XcpAppl_Unlock </p>
+<p>The  XcpAppl_GetSeed  call-back function  returns a  seed  that  is  transferred  to  the  MCS. </p>
+<p>The  XcpAppl_Unlock  call-back  function  has  to  verify  a  received  key  based  on  the  seed </p>
+<p>and then return the resource that shall be unlocked. </p>
+<p>The  protection  state  can  also  individually  be  modified  by  the  application.  The  following </p>
+<p>service can be used for this purpose: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.12 Xcp_ModifyProtectionStatus </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the usage of CANape: </p>
+<p>The calculation of the key is done in a DLL, which is developed by the ECU </p>
+<p>manufacturer and which must be located in the EXEC directory of CANape. CANape </p>
+<p>can access the ECU only if the ECU accepts the key. If the key is not valid, the ECU </p>
+<p>stays locked. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.8 </b></p>
+<p><b>Checksum Calculation </b></p>
+<p>The  XCP  Protocol  Layer  supports  calculation  of  a  checksum  over  a  specific  memory </p>
+<p>range. The XCP Protocol Layer supports all XCP ADD algorithms and the CRC16CCITT </p>
+<p>checksum  calculation  algorithm.  If  the  AUTOSAR  CRC  Module  is  used  also  the  XCP </p>
+<p>CRC32 algorithm can be used. </p>
+<p>If checksum calculation is enabled the background task has to be called cyclically. </p>
+<p><b>3.8.1 </b></p>
+<p><b>Custom CRC calculation </b></p>
+<p>The Protocol Layer also allows the calculation of the CRC by the application. For this the </p>
+<p>call-back is called: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.28 XcpAppl_CalculateChecksum </p>
+<p>This call-back can either calculate the checksum synchronously and return </p>
+<p>XCP_CMD_OK</p>
+<p> or </p>
+<p>it can trigger the calculation and return </p>
+<p>XCP_CMD_PENDING</p>
+<p> for asynchronous calculation of </p>
+<p>the checksum. In each case the response frame has to be assembled. </p>
+<p><b>3.9 </b></p>
+<p><b>Memory Access by Application </b></p>
+<p>Memory access to measure or to calibrate variables is performed by two call-backs that </p>
+<p>can be modified by the user to his needs. Please note that these API are only used for </p>
+<p>polling  access  by  default.  DAQ/STIM  uses  direct  memory  access  out  of  performance </p>
+<p>reasons. </p>
+<p>DAQ/STIM </p>
+<p>access </p>
+<p>via </p>
+<p>these </p>
+<p>call-backs </p>
+<p>can </p>
+<p>be </p>
+<p>enabled </p>
+<p>by </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpDAQMemAccessByApplication</p>
+<p>.</p>
+<p> </p>
+<p>The following call-backs are called by the Protocol Layer whenever a memory access is </p>
+<p>performed: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.6 XcpAppl_CalibrationWrite </p>
+<p>•</p>
+<p> </p>
+<p>5.5.7 XcpAppl_MeasurementRead </p>
+<p>These APIs can be used to perform  the memory access synchronously, asynchronously </p>
+<p>(e.g.  for  EEPROM  access),  and  they  can  deny  the  memory  access,  depending  on  the </p>
+<p>return value. </p>
+<p><b>3.9.1 </b></p>
+<p><b>Memory Read and Write Protection </b></p>
+<p>Memory protection can easily be performed by the two above mentioned call-backs </p>
+<p>returning </p>
+<p>XCP_ERR_ACCESS_DENIED</p>
+<p>. </p>
+<p>Additionally the configuration switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpMemoryReadProtection</p>
+<p> enables the call-</p>
+<p>back: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p>•</p>
+<p> </p>
+<p>5.5.8 XcpAppl_CheckReadAccess </p>
+<p>This call-back is required for other services like CRC calculation to check the requested </p>
+<p>memory size beforehand. </p>
+<p>As Flash programming uses a different memory access mechanism, a different set of call-</p>
+<p>backs is used. </p>
+<p>The configuration switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming/XcpProgrammingWriteProtection</p>
+<p> enables </p>
+<p>the call-back: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.9 XcpAppl_CheckProgramAccess </p>
+<p>This call-back can be used to check the memory range whenever a flash segment is </p>
+<p>cleared or programmed. </p>
+<p><b>3.9.2 </b></p>
+<p><b>Special use case “Type Safe Copy” </b></p>
+<p>The above mentioned APIs will also be used if the feature “Type Safe Copy” is enabled. If </p>
+<p>this is the case polling as well as DAQ/STIM measurement will use these functions to </p>
+<p>read/write data. The template code for these functions performs read/write access in an </p>
+<p>atomic way for basic data types (e.g. uint16 / uint32). </p>
+<p><b>3.10 </b></p>
+<p><b>Event Codes </b></p>
+<p>The slave device may report events by sending asynchronous event packets (EV), which </p>
+<p>contain event codes, to the master device. The transmission is not guaranteed due to the </p>
+<p>fact that these event packets are not acknowledged. </p>
+<p>The </p>
+<p>transmission </p>
+<p>of </p>
+<p>event </p>
+<p>codes </p>
+<p>is </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>configuration </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpAsynchMessage/XcpEventCodes</p>
+<p>. The transmission is done </p>
+<p>by the service: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.6 Xcp_SendEvent. </p>
+<p>The event codes can be found in the following table. </p>
+<p><b>Event </b></p>
+<p><b>Code </b></p>
+<p><b>Description </b></p>
+<p>XCP_EVC_RESUME_MODE </p>
+<p>0x00</p>
+<p> </p>
+<p>The slave indicates that it is starting in RESUME </p>
+<p>mode. </p>
+<p>XCP_EVC_CLEAR_DAQ </p>
+<p>0x01</p>
+<p> </p>
+<p>The slave indicates that the DAQ configuration in non-</p>
+<p>volatile memory has been cleared. </p>
+<p>XCP_EVC_STORE_DAQ </p>
+<p>0x02</p>
+<p> </p>
+<p>The slave indicates that the DAQ configuration has </p>
+<p>been stored into non-volatile memory. </p>
+<p>XCP_EVC_STORE_CAL </p>
+<p>0x03</p>
+<p> </p>
+<p>The slave indicates that the calibration data has been </p>
+<p>stored. </p>
+<p>XCP_EVC_CMD_PENDING </p>
+<p>0x05</p>
+<p> </p>
+<p>The slave requests the master to restart the time-out </p>
+<p>detection. </p>
+<p>XCP_EVC_DAQ_OVERLOAD </p>
+<p>0x06</p>
+<p> </p>
+<p>The slave indicates an overload situation when </p>
+<p>transferring DAQ lists. </p>
+<p>XCP_EVC_SESSION_TERMINATED </p>
+<p>0x07</p>
+<p> </p>
+<p>The slave indicates to the master that it autonomously </p>
+<p>decided to disconnect the current XCP session. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p>XCP_EVC_TIME_SYNC </p>
+<p>0x08</p>
+<p> </p>
+<p>Transfer of externally triggered timestamp. </p>
+<p>XCP_EVC_STIM_TIMEOUT </p>
+<p>0x09</p>
+<p> </p>
+<p>Indication of a STIM timeout. </p>
+<p>XCP_EVC_SLEEP </p>
+<p>0x0A</p>
+<p> </p>
+<p>Slave entering SLEEP mode. </p>
+<p>XCP_EVC_WAKE_UP </p>
+<p>0x0B</p>
+<p> </p>
+<p>Slave leaving SLEEP mode. </p>
+<p>XCP_EVC_USER </p>
+<p>0xFE</p>
+<p> </p>
+<p>User-defined event. </p>
+<p>XCP_EVC_TRANSPORT </p>
+<p>0xFF</p>
+<p> </p>
+<p>Transport layer specific event. </p>
+<p>Table 3-6  </p>
+<p>Event codes </p>
+<p><b>3.11 </b></p>
+<p><b>Service Request Messages  </b></p>
+<p>The slave device may request some action to be performed by the master device. This is </p>
+<p>done by the transmission of a Service Request Packet (SERV) that contains the service </p>
+<p>request  code.  The  transmission  of  service  request  packets  is  asynchronous  and  not </p>
+<p>guaranteed because these packets are not acknowledged. </p>
+<p>The service request messages can be sent by the following functions: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.7 Xcp_PutChar </p>
+<p>•</p>
+<p> </p>
+<p>5.2.8 Xcp_Print </p>
+<p><b>3.12 </b></p>
+<p><b>User Defined Command </b></p>
+<p>The  XCP  Protocol  allows  having  a  user  defined  command  with  an  application  specific </p>
+<p>functionality. </p>
+<p>The </p>
+<p>user </p>
+<p>defined </p>
+<p>command </p>
+<p>is </p>
+<p>enabled </p>
+<p>by </p>
+<p>setting </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpUserDefinedCommand</p>
+<p> and upon reception of </p>
+<p>the </p>
+<p>user </p>
+<p>command </p>
+<p>the  following </p>
+<p>callback </p>
+<p>function </p>
+<p>is </p>
+<p>called  by </p>
+<p>the </p>
+<p>XCP </p>
+<p>command </p>
+<p>processor: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.10 XcpAppl_UserService </p>
+<p><b>3.13 </b></p>
+<p><b>Synchronous Data Transfer </b></p>
+<p><b>3.13.1 </b></p>
+<p><b>Synchronous Data Acquisition (DAQ) </b></p>
+<p>The </p>
+<p>synchronous </p>
+<p>data </p>
+<p>transfer </p>
+<p>can </p>
+<p>be </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>container </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim</p>
+<p>. In this mode, the MCS configures tables of </p>
+<p>memory </p>
+<p>addresses </p>
+<p>in </p>
+<p>the </p>
+<p>XCP </p>
+<p>Protocol </p>
+<p>Layer. </p>
+<p>These </p>
+<p>tables </p>
+<p>contain </p>
+<p>pointers </p>
+<p>to </p>
+<p>measurement objects, which have been configured previously for the measurement in the </p>
+<p>MCS. Each configured table is assigned to an event channel. </p>
+<p>The function Xcp_Event(x) has to be called for each event channel with the corresponding </p>
+<p>event  channel  number  as  parameter.  The  application  has  to  ensure  that  Xcp_Event  is </p>
+<p>called with the correct cycle time. Note that the event channel numbers are given by the </p>
+<p>GenTool </p>
+<p>by </p>
+<p>configuring </p>
+<p>/MICROSAR/Xcp/XcpConfig/XcpEventChannel</p>
+<p>. </p>
+<p>Symbolic </p>
+<p>name </p>
+<p>values for each event channel are generated by the GenTool. </p>
+<p>The  ECU  automatically  transmits  the  current  value  of  the  measurement  objects  via </p>
+<p>messages to the MCS, when the function Xcp_Event is executed in the ECU’s code with </p>
+<p>the corresponding event channel number. This means that the data can be transmitted at </p>
+<p>any particular point of the ECU code when the data values are valid. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p>The data acquisition mode can be used in multiple configurations that are described within </p>
+<p>the next chapters. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the usage of CANape: </p>
+<p>It is recommended to enable both data acquisition plug &amp; play mechanisms to detect </p>
+<p>the DAQ settings. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.13.2 </b></p>
+<p><b>DAQ Timestamp </b></p>
+<p>There are two methods to generate timestamps for data acquisition signals. </p>
+<p>1. By the MCS tool on reception of the message </p>
+<p>2. By the ECU (XCP slave) </p>
+<p>The time precision of the MCS tool is adequate for the most applications; however, some </p>
+<p>applications  like  the  monitoring  of  the  OSEK  operating  system  or  measurement  on </p>
+<p>FlexRay  with  an  event  cycle  time  smaller  than  the  FlexRay  cycle  time  require  higher </p>
+<p>precision timestamps. In such cases, ECU generated timestamps are recommended. </p>
+<p>The timestamp must be implemented in a call-back which returns the current value: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.1 XcpAppl_GetTimestamp </p>
+<p>There are several possibilities to implement such a timestamp: </p>
+<p><b>&gt; </b></p>
+<p>16bit Counter variable, incremented by software in a fast task (.e.g. 1ms task) for </p>
+<p>applications where such a resolution is sufficient and returned in the above mentioned </p>
+<p>call-back. </p>
+<p><b>&gt; </b></p>
+<p>32bit General Purpose Timer of the used µC, configured to a certain repetition rate </p>
+<p>(e.g. 1µs increment) for applications that require a high resolution of the timestamp </p>
+<p>and returned in the above mentioned call-back. </p>
+<p>The resolution and increment value of this timer must be configured in the configuration </p>
+<p>tool accordingly. </p>
+<p><b>3.13.3 </b></p>
+<p><b>Power-Up Data Transfer  </b></p>
+<p>Power-up data transfer (also called resume mode) allows automatic data transfer (DAQ) of </p>
+<p>the  slave  directly  after  power-up. Automotive  applications  would  e.g.  be  measurements </p>
+<p>during cold start. </p>
+<p>The slave and the master have to store all the necessary communication parameters for </p>
+<p>the automatic data transfer after power-up. Therefore the following functions have to be </p>
+<p>implemented in the slave. </p>
+<p>•</p>
+<p> </p>
+<p>5.5.19 XcpAppl_DaqResume </p>
+<p>•</p>
+<p> </p>
+<p>5.5.20 XcpAppl_DaqResumeStore </p>
+<p>•</p>
+<p> </p>
+<p>5.5.21 XcpAppl_DaqResumeClear  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p>To </p>
+<p>use </p>
+<p>the </p>
+<p>resume </p>
+<p>mode </p>
+<p>the </p>
+<p>compiler </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpResumeMode</p>
+<p> has to be enabled. </p>
+<p>Keep also in mind that the Xcp_MainFunction has to be called cyclically in order for the </p>
+<p>resume mode to work. If Resume Mode is enabled by the MCS tool the before mentioned </p>
+<p>call-back XcpAppl_DaqResumeStore is called by the Xcp_MainFunction. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the use of CANape: </p>
+<p>Start the resume mode with the menu command Measurement | Start and push the </p>
+<p>button “Measure offline” on the dialog box. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.13.4 </b></p>
+<p><b>Data Stimulation (STIM)  </b></p>
+<p>Synchronous Data Stimulation is the inverse mode of Synchronous Data Acquisition. </p>
+<p>The  STIM  processor  buffers  incoming  data  stimulation  packets.  When  an  event  occurs </p>
+<p>(</p>
+<p>Xcp_Event</p>
+<p> is called), which triggers a DAQ list in data stimulation mode, the buffered </p>
+<p>data is transferred to the slave device’s memory. </p>
+<p>To </p>
+<p>use </p>
+<p>data </p>
+<p>stimulation </p>
+<p>(STIM) </p>
+<p>the </p>
+<p>configuration </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpSynchronousDataStimulation</p>
+<p>  has  to  be </p>
+<p>enabled. </p>
+<p>With the API Xcp_SetStimMode the mode of the write operation can be selected. </p>
+<p><b>3.13.5 </b></p>
+<p><b>Bypassing  </b></p>
+<p>Bypassing  can  be  realized  by  making  use  of  Synchronous  Data Acquisition  (DAQ)  and </p>
+<p>Synchronous Data Stimulation (STIM) simultaneously. </p>
+<p>State-of-the-art Bypassing also requires the administration of the bypassed functions. This </p>
+<p>administration has to be performed in a MCS like e.g. CANape. </p>
+<p>Also  the  slave  should  perform  plausibility  checks  on  the  data  it  receives  through  data </p>
+<p>stimulation.  The  borders  and  actions  of  these  checks  are  set  by  standard  calibration </p>
+<p>methods. No special XCP commands are needed for this. </p>
+<p><b>3.13.6 </b></p>
+<p><b>Data Acquisition Plug &amp; Play Mechanisms </b></p>
+<p>The XCP Protocol Layer comprises two plug &amp; play mechanisms for data acquisition: </p>
+<p><b>&gt; </b></p>
+<p>General information on the DAQ processor </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>General information on DAQ processing resolution </p>
+<p> </p>
+<p>The general information on the DAQ processor contains: </p>
+<p><b>&gt; </b></p>
+<p>General properties of DAQ lists </p>
+<p><b>&gt; </b></p>
+<p>Total number of available DAQ lists and event channels </p>
+<p>The general information on the DAQ processing resolution contains: </p>
+<p><b>&gt; </b></p>
+<p>Granularity and maximum size of ODT entries for both directions </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>Information on the time stamp mode </p>
+<p><b>3.13.7 </b></p>
+<p><b>Event Channel Plug &amp; Play Mechanism </b></p>
+<p>The  XCP  Protocol  Layer  supports  a  plug  &amp;  play  mechanism  that  allows  the  MCS  to </p>
+<p>automatically detect the available event channels in the slave. The associated service is </p>
+<p>enabled by </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpGetDAQEventInfo</p>
+<p>.</p>
+<p> </p>
+<p>If this option is enabled the MCS can read the configured Event Channels from the XCP </p>
+<p>Slave. </p>
+<p><b>3.13.8 </b></p>
+<p><b>Send Queue </b></p>
+<p>The Send Queue is used to store measurement values until they can be transmitted on the </p>
+<p>bus. The Send Queue size can be configured in the configuration tool. It is defined by the </p>
+<p>parameter </p>
+<p>/MICROSAR/Xcp/XcpConfig/XcpCoreDefinition/XcpSendQueueSize</p>
+<p>. </p>
+<p>Please </p>
+<p>be </p>
+<p>aware that in a Multi Core system multiple Send Queues may be configured. Each Core </p>
+<p>the  Xcp_Event  function  is  called  on  requires  its  own  Send  Queue. The  sizes  may  vary, </p>
+<p>depending on the number of measurement values on each Core. See chapter 3.16 Multi </p>
+<p>Core Support. </p>
+<p><b>3.13.9 </b></p>
+<p><b>Data consistency </b></p>
+<p>The  XCP  supports  a  data  consistency  on  ODT  level.  If  a  consistency  on  DAQ  level  is </p>
+<p>required, interrupts must be disabled prior calling Xcp_Event and enabled again after the </p>
+<p>function  returns.  The  following  example  demonstrates  the  integrity  on  ODT  level  by </p>
+<p>showing the XCP ODT frames as sent on the bus. Two Events (x, y) are configured with </p>
+<p>DAQ list DAQ1 assigned to Event(x) and DAQ list DAQ2 assigned to Event(y). A call of the </p>
+<p>Xcp_Event </p>
+<p>function </p>
+<p>with </p>
+<p>the </p>
+<p>respective </p>
+<p>event </p>
+<p>channel </p>
+<p>number </p>
+<p>will </p>
+<p>then </p>
+<p>trigger </p>
+<p>the </p>
+<p>transmission of the associated DAQ list. </p>
+<p>Example1: a call of Xcp_Event(x) is interrupted by a call of Xcp_Event(y). This is allowed </p>
+<p>as  long  as  the  interrupt  locks  are  provided  by  the  Schedule  Manager  (default  with </p>
+<p>MICROSAR stack). </p>
+<p>Example2: a call of Xcp_Event(x) is interrupted by a call of Xcp_Event(x). As a result a </p>
+<p>DAQ  list  is  interrupted  by  itself.  This  is  not  allowed  and  must  be  prevented  by  data </p>
+<p>consistency on DAQ level. For this use a interrupt lock when calling Xcp_Event() </p>
+<p> </p>
+<p> </p>
+<p>DAQ1 </p>
+<p> </p>
+<p>DAQ2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ODT0 </p>
+<p> </p>
+<p> </p>
+<p>ODT3 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ODT1 </p>
+<p> </p>
+<p> </p>
+<p>ODT4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ODT2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Example1 </p>
+<p>ODT0 </p>
+<p>ODT1 </p>
+<p>ODT3 </p>
+<p>ODT4 </p>
+<p>ODT2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Example2 </p>
+<p>ODT0 </p>
+<p>ODT1 </p>
+<p>ODT0 </p>
+<p>ODT1 </p>
+<p>ODT2 </p>
+<p>ODT2 </p>
+<p>Figure 3-2 Data consistency </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p>Note </p>
+<p>on </p>
+<p>Multi </p>
+<p>Core  systems: </p>
+<p>It </p>
+<p>is </p>
+<p>in </p>
+<p>the </p>
+<p>responsibility </p>
+<p>of  the </p>
+<p>user </p>
+<p>to </p>
+<p>assign </p>
+<p>only </p>
+<p>measurement values relevant for the Core to the corresponding Event Channel called on </p>
+<p>the specific Core. </p>
+<p><b>3.14 </b></p>
+<p><b>The Online Data Calibration Model </b></p>
+<p><b>3.14.1 </b></p>
+<p><b>Page Switching </b></p>
+<p>The  MCS  can  switch  between  a  flash  page  and  a  RAM  page.  The  XCP  command </p>
+<p>SET_CAL_PAGE is used to activate the required page. The page switching is enabled with </p>
+<p>the </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching</p>
+<p> definition. </p>
+<p>The following application callback functions have to be implemented: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.23 XcpAppl_GetCalPage </p>
+<p>•</p>
+<p> </p>
+<p>5.5.24 XcpAppl_SetCalPage </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the use of CANape: </p>
+<p>Open the dialog XCP Device Setup with the menu command Tools|Driver </p>
+<p>Configuration. Go to the tab “FLASH”. Activate page switching. Enter a flash selector </p>
+<p>value e.g. 1 and a Ram selector e.g. 0. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.14.2 </b></p>
+<p><b>Page Switching Plug &amp; Play Mechanism </b></p>
+<p>The MCS can be automatically configured if the page switching plug &amp; play mechanism is </p>
+<p>used. This mechanism comprises </p>
+<p><b>&gt; </b></p>
+<p>General information about the paging processor </p>
+<p>The </p>
+<p>page </p>
+<p>switching </p>
+<p>plug </p>
+<p>&amp; </p>
+<p>play </p>
+<p>mechanism </p>
+<p>is </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpGeneralPagingInfo</p>
+<p>. </p>
+<p><b>3.14.3 </b></p>
+<p><b>Calibration Data Page Copying </b></p>
+<p>Calibration data page copying is performed by the XCP command COPY_CAL_PAGE. To </p>
+<p>enable </p>
+<p>this </p>
+<p>feature </p>
+<p>the </p>
+<p>compiler </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpCopyPage</p>
+<p> has to be enabled. </p>
+<p>For  calibration  data  page  copying  the  following  application  callback  function  has  to  be </p>
+<p>provided by the application: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.25 XcpAppl_CopyCalPage </p>
+<p><b>3.14.4 </b></p>
+<p><b>Freeze Mode Handling </b></p>
+<p>Freeze mode handling is performed by the XCP commands SET_SEGMENT_MODE and </p>
+<p>GET_SEGMENT_MODE. </p>
+<p>To </p>
+<p>enable </p>
+<p>this </p>
+<p>feature </p>
+<p>the </p>
+<p>parameter </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpFreezeMode</p>
+<p> has to be enabled. </p>
+<p>For freeze mode handling the following application callback functions have to be provided </p>
+<p>by the application: </p>
+<p>•</p>
+<p> </p>
+<p>5.5.26 XcpAppl_SetFreezeMode </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p>•</p>
+<p> </p>
+<p>5.5.27 XcpAppl_GetFreezeMode </p>
+<p>•</p>
+<p> </p>
+<p>5.5.22 XcpAppl_CalResumeStore </p>
+<p><b>3.15 </b></p>
+<p><b>Flash Programming  </b></p>
+<p>There are two methods available for the programming of flash memory. </p>
+<p><b>&gt; </b></p>
+<p>Flash programming by the ECU’s application </p>
+<p><b>&gt; </b></p>
+<p>Flash programming with a flash kernel </p>
+<p>Depending on the hardware it might not be possible to reprogram an internal flash sector, </p>
+<p>while a program is running from another sector. In this case the usage of a special flash </p>
+<p>kernel is necessary. </p>
+<p><b>3.15.1 </b></p>
+<p><b>Flash Programming by the ECU’s Application </b></p>
+<p>If </p>
+<p>the </p>
+<p>internal </p>
+<p>flash </p>
+<p>has </p>
+<p>to </p>
+<p>be </p>
+<p>reprogrammed </p>
+<p>and </p>
+<p>the </p>
+<p>microcontroller </p>
+<p>allows </p>
+<p>to </p>
+<p>simultaneously  reprogram  and  execute  code  from  the  flash  the  programming  can  be </p>
+<p>performed with the ECU’s application that contains the XCP. This method is also used for </p>
+<p>the programming of external flash. </p>
+<p>The </p>
+<p>flash </p>
+<p>programming </p>
+<p>is </p>
+<p>done </p>
+<p>with </p>
+<p>the </p>
+<p>following </p>
+<p>XCP </p>
+<p>commands </p>
+<p>PROGRAM_START</p>
+<p>, </p>
+<p>PROGRAM_RESET</p>
+<p>, </p>
+<p>PROGRAM_CLEAR</p>
+<p>, </p>
+<p>PROGRAM</p>
+<p>, </p>
+<p>PROGRAM_NEXT</p>
+<p>, </p>
+<p>PROGRAM_MAX</p>
+<p>, </p>
+<p>PROGRAM_RESET</p>
+<p>, </p>
+<p>PROGRAM_FORMAT</p>
+<p>1</p>
+<p>, </p>
+<p>PROGRAM_VERIFY</p>
+<p>1</p>
+<p>. </p>
+<p>The  flash  prepare,  flash  program  and  the  clear  routines  are  platform  dependent  and </p>
+<p>therefore have to be implemented by the application. </p>
+<p>•</p>
+<p> </p>
+<p>5.5.15 XcpAppl_Reset </p>
+<p>•</p>
+<p> </p>
+<p>5.5.16 XcpAppl_ProgramStart </p>
+<p>•</p>
+<p> </p>
+<p>5.5.17 XcpAppl_FlashClear </p>
+<p>•</p>
+<p> </p>
+<p>5.5.18 XcpAppl_FlashProgram </p>
+<p>The </p>
+<p>flash </p>
+<p>programming </p>
+<p>is </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the usage of CANape: </p>
+<p>Open the dialog XCP Device Setup with the menu command Tools|Driver </p>
+<p>Configuration. Go to the tab “FLASH” and select the entry “Direct” in the flash kernel </p>
+<p>drop down list. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.15.2 </b></p>
+<p><b>Flash Programming Plug &amp; Play Mechanism </b></p>
+<p>The </p>
+<p>MCS </p>
+<p>(like </p>
+<p>e.g. </p>
+<p>CANape) </p>
+<p>can </p>
+<p>get </p>
+<p>information </p>
+<p>about </p>
+<p>the </p>
+<p>Flash </p>
+<p>and </p>
+<p>the </p>
+<p>Flash </p>
+<p>programming process from the ECU. The following information is provided by the ECU: </p>
+<p>                                            </p>
+<p>1</p>
+<p> Command not supported </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>Number of sectors, start address or length of each sector </p>
+<p><b>&gt; </b></p>
+<p>The program sequence number, clear sequence number and programming method </p>
+<p><b>&gt; </b></p>
+<p>Additional information about compression, encryption </p>
+<p>The </p>
+<p>flash </p>
+<p>programming </p>
+<p>plug </p>
+<p>&amp; </p>
+<p>play </p>
+<p>mechanism </p>
+<p>is </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming/XcpSector</p>
+<p>. </p>
+<p><b>3.15.3 </b></p>
+<p><b>Flash Programming with a Flash Kernel </b></p>
+<p>A </p>
+<p>flash </p>
+<p>kernel </p>
+<p>has </p>
+<p>to </p>
+<p>be </p>
+<p>used </p>
+<p>for </p>
+<p>the </p>
+<p>flash </p>
+<p>programming </p>
+<p>if </p>
+<p>it </p>
+<p>is </p>
+<p>not </p>
+<p>possible </p>
+<p>to </p>
+<p>simultaneously </p>
+<p>reprogram </p>
+<p>and </p>
+<p>execute </p>
+<p>code </p>
+<p>from </p>
+<p>the </p>
+<p>flash. </p>
+<p>Even </p>
+<p>though </p>
+<p>the </p>
+<p>reprogrammed sector and the sector the code is executed from are different sectors. </p>
+<p>The application callback function </p>
+<p>•</p>
+<p> </p>
+<p>5.5.13 XcpAppl_DisableNormalOperation </p>
+<p>•</p>
+<p> </p>
+<p>5.5.14 XcpAppl_StartBootLoader </p>
+<p>is  called  prior  to  the  flash  kernel  download  in  the  RAM. Within  this  function  the  normal </p>
+<p>operation of the ECU has to be stopped and the flash kernel download can be prepared. </p>
+<p>Due  to  the flash  kernel  is downloaded  in  the  RAM typically  data  gets  lost  and  no  more </p>
+<p>normal operation of the ECU is possible. </p>
+<p>The </p>
+<p>flash </p>
+<p>programming </p>
+<p>with </p>
+<p>a </p>
+<p>flash </p>
+<p>kernel </p>
+<p>is </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>switch </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpBootloaderDownload</p>
+<p>. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Annotation for the usage of CANape: </p>
+<p>The  flash  kernel </p>
+<p>is </p>
+<p>loaded </p>
+<p>by </p>
+<p>CANape  into </p>
+<p>the  microcontroller’s  RAM </p>
+<p>via  XCP </p>
+<p>whenever  the  flash  memory  has  to  be  reprogrammed. The  flash  kernel  contains  the </p>
+<p>necessary  flash  routines,  its  own  CAN-Driver  and  XCP  Protocol  implementation  to </p>
+<p>communicate via the CAN interface with CANape. </p>
+<p>Every flash kernel must be customized to the microcontroller and the flash type being </p>
+<p>used. CANape already includes some flash kernels for several microcontrollers. There </p>
+<p>is  also  an  application  note  available  by  Vector  Informatik  GmbH  that  describes  the </p>
+<p>development of a proprietary flash kernel. </p>
+<p>Open the dialog XCP Device Setup with the menu command Tools|Driver </p>
+<p>Configuration. Go to the tab “FLASH”, and select in the ‘flash kernel’ drop down list, the </p>
+<p>corresponding <i>fkl </i>file for the microcontroller being used. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.16 </b></p>
+<p><b>Multi Core Support </b></p>
+<p><b>3.16.1 </b></p>
+<p><b>Type Safe Copy </b></p>
+<p>The  XCP  Protocol  Layer  supports  a  feature  called  “Type  Safe  Copy”  which  provides </p>
+<p>atomic access to aligned uint16 and uint32 measurement values. This is important on multi </p>
+<p>core platforms where one core is accessing a measurement value while the XCP is trying </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p>to do the same running from another core. The Type Safe Copy is used for polling while </p>
+<p>DAQ/STIM usually use direct memory access and copy byte wise. </p>
+<p>With this option disabled, all access to measurement values is performed byte wise which </p>
+<p>is not an atomic operation. </p>
+<p>The following points must be taken into consideration when enabling this option: </p>
+<p><b>&gt; </b></p>
+<p>This option allows the XCP to only read/write basic data types used on another core; it </p>
+<p>cannot provide data consistency on ODT level. </p>
+<p><b>&gt; </b></p>
+<p>This option has a slightly higher runtime. </p>
+<p><b>&gt; </b></p>
+<p>Some MCS tools perform an optimization by grouping measurement values. This </p>
+<p>option must be disabled; otherwise they do not represent unique data types anymore. </p>
+<p><b>3.16.2 </b></p>
+<p><b>DAQ/STIM with Multi Core </b></p>
+<p>It  is  possible  to  execute  the  Xcp_Event  function  on  a  different  Core.  This  must  be </p>
+<p>configured  in  the  configuration  tool  accordingly.  For  each  Core  the  XCP  is  used  on  the </p>
+<p>following  Container  must  be  created: </p>
+<p>/MICROSAR/Xcp/XcpConfig/XcpCoreDefinition</p>
+<p>. </p>
+<p>The </p>
+<p>correct </p>
+<p>Core </p>
+<p>Definition </p>
+<p>must </p>
+<p>be </p>
+<p>referenced </p>
+<p>for </p>
+<p>each </p>
+<p>configured </p>
+<p>Event </p>
+<p>Channel: </p>
+<p>/MICROSAR/Xcp/XcpConfig/XcpEventChannel/XcpEventChannelCoreRef</p>
+<p>.  An  Event  Channel </p>
+<p>can only be called on the Core it is configured for; otherwise a DET error is thrown. </p>
+<p>The following picture shows the architecture behind the Multi Core support and the way </p>
+<p>the Xcp_Event function is called on each Core: </p>
+<p> </p>
+<p><b> act Activ ity</b></p>
+<p>OsTask</p>
+<p>Application</p>
+<p>Core</p>
+<p><b>Calculation of Application </b></p>
+<p><b>Data</b></p>
+<p><b>Collecting Data </b></p>
+<p><b>Xcp_Ev ent(5ms_ApplicationCore)</b></p>
+<p>«datastore»</p>
+<p><b>Lock free Core </b></p>
+<p><b>Specific Queue</b></p>
+<p>ActivityFinal</p>
+<p>OsTask BSW</p>
+<p>Core</p>
+<p><b>Xcp_MainFunction (Trigger </b></p>
+<p><b>Sequential Transmission)</b></p>
+<p>OsTask</p>
+<p>Utility Core</p>
+<p><b>Calculation of Utility Data</b></p>
+<p><b>Collecting Data </b></p>
+<p><b>Xcp_Ev ent(5ms_UtilityCore)</b></p>
+<p>«datastore»</p>
+<p><b>Lock free Core </b></p>
+<p><b>Specific Queue</b></p>
+<p>ActivityFinal</p>
+<p>ActivityFinal</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p>Figure 3-3 </p>
+<p>Application of Xcp_Event function on Multi Core systems </p>
+<p><b>3.17 </b></p>
+<p><b>En- / Disabling the XCP module </b></p>
+<p>The macro </p>
+<p>XCP_ACTIVATE</p>
+<p>/</p>
+<p>XCP_DEACTIVATE</p>
+<p> can be used to en- or disable the XCP module </p>
+<p>during  run  time. Thus  the  XCP  functionality  can  be  controlled  by  the  application. These </p>
+<p>macros control the protocol and transport layer together, i.e. enabling or disabling them as </p>
+<p>a whole. It is recommended to perform a Xcp_Disconnect() API call to bring the XCP in a </p>
+<p>save state before it is disabled. </p>
+<p><b>3.18 </b></p>
+<p><b>XCP measurement during the post event time </b></p>
+<p>In use cases where there is no further communication request except XCP measurement </p>
+<p>the session state of the XCP can be determined to prevent an early shutdown of the ECU. </p>
+<p>For this purpose the following API exist: </p>
+<p>•</p>
+<p> </p>
+<p>5.2.13 Xcp_GetSessionStatus </p>
+<p>An example implementation that is called cyclically could look like the following example:</p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>{ </p>
+<p>  uint16 sessionState; </p>
+<p> </p>
+<p>  sessionState = Xcp_GetSessionStatus(); </p>
+<p>  if( 0 != (sessionState &amp; XCP_SESSION_CONNECTED) ) </p>
+<p>  { </p>
+<p>    /* Is the xcp actively used? */ </p>
+<p>    if( 0 != (sessionState &amp; (XCP_SESSION_DAQ | XCP_SESSION_POLLING)) ) </p>
+<p>    { </p>
+<p>      /* Yes, reload timer */ </p>
+<p>      swTimer = XCPAPPL_TIMEOUT_TIMER_RELOAD; </p>
+<p>    } </p>
+<p>  } </p>
+<p> </p>
+<p>  if( swTimer &gt; 0 ) </p>
+<p>  { </p>
+<p>    /* No timeout so far */ </p>
+<p>    swTimer--; </p>
+<p>  } </p>
+<p>  else </p>
+<p>  { </p>
+<p>    /* Timer timeout happened, release xcp communication request */ </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<p>Please note that polling requests may happen erratically. Therefore it is important not to </p>
+<p>choose the timeout value </p>
+<p>XCP_TIMEOUT_TIMER_RELOAD </p>
+<p>too small. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.19 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.19.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError() </p>
+<p>as </p>
+<p>specified </p>
+<p>in </p>
+<p>[2], </p>
+<p>if </p>
+<p>development </p>
+<p>error </p>
+<p>reporting </p>
+<p>is </p>
+<p>enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpDevErrorDetect</p>
+<p>. </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service Det_ReportError(). </p>
+<p>The reported XCP ID is 212. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>Xcp_Init </p>
+<p>0x03 </p>
+<p>Xcp_SendEvent </p>
+<p>0x04 </p>
+<p>Xcp_PutChar </p>
+<p>0x05 </p>
+<p>Xcp_Print </p>
+<p>0x06 </p>
+<p>Xcp_Disconnect </p>
+<p>0x07 </p>
+<p>Xcp_SendCrm </p>
+<p>0x08 </p>
+<p>Xcp_GetXcpDataPointer </p>
+<p>0x0A </p>
+<p>Xcp_GetVersionInfo </p>
+<p>0x0B </p>
+<p>Xcp_TlRxIndication </p>
+<p>0x0C </p>
+<p>Xcp_TlTxConfirmation </p>
+<p>0x0E </p>
+<p>Xcp_GetSessionStatus </p>
+<p>0x0F </p>
+<p>Xcp_SetActiveTl </p>
+<p>0x10 </p>
+<p>Xcp_GetActiveTl </p>
+<p>0x11 </p>
+<p>Xcp_SetStimMode </p>
+<p>0x14 </p>
+<p>Xcp_ModifyProtectionStatus </p>
+<p>0xC8 </p>
+<p>Xcp_MainFunction </p>
+<p>0xC9 </p>
+<p>Xcp_Event </p>
+<p>0xFD </p>
+<p>Xcp_StimEventStatus </p>
+<p>Table 3-7  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x0A </p>
+<p>API service Xcp_Init() called with wrong parameter. </p>
+<p>0x0B </p>
+<p>API service used with an invalid channel identifier or channel was not configured </p>
+<p>for the functionality of the calling API. </p>
+<p>0x0C </p>
+<p>API service used with an invalid event channel identifier or event channel was </p>
+<p>not configured for the functionality of the calling API. </p>
+<p>0x0D </p>
+<p>API service used with invalid pointer parameter (NULL). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x0E </p>
+<p>API service used with an invalid channel identifier or channel was not configured </p>
+<p>for the functionality of the calling API. </p>
+<p>0x10 </p>
+<p>API service used without module initialization. </p>
+<p>0x11 </p>
+<p>The service Xcp_Init() is called while the module is already initialized. </p>
+<p>0x12 </p>
+<p>The service Xcp_Event() is called with a wrong channel id on a wrong core. </p>
+<p>Table 3-8  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p><b>3.19.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>The errors reported to DEM are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>- </p>
+<p>No production errors are reported by the XCP. </p>
+<p>Table 3-9  </p>
+<p>Errors reported to DEM </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR  XCP into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the XCP contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.3: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Xcp.c </p>
+<p>This is the source file of the XCP. It contains the XCP protocol layer.</p>
+<p> </p>
+<p>Xcp.h </p>
+<p>This is the header file. It contains global declarations. </p>
+<p>Xcp_Priv.h </p>
+<p>This is the private header file. It contains declarations only relevant for the XCP </p>
+<p>itself.</p>
+<p> </p>
+<p>Xcp_Types.h </p>
+<p>This is the type definition header file. It contains type definitions used by the XCP. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2 </b></p>
+<p><b>Templates – user modifiable </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>XcpAppl.c </p>
+<p>This is the source file of the application call-back. This file usually must be </p>
+<p>modified by the user to his needs.</p>
+<p> </p>
+<p>XcpAppl.h </p>
+<p>This is the header file of the application call-backs. It contains global declarations. </p>
+<p>Table 4-2  </p>
+<p>Templates </p>
+<p><b>4.1.3 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Xcp_Cfg.h </p>
+<p>XCP Protocol Layer configuration file. </p>
+<p>Xcp_Lcfg.c </p>
+<p>Parameter definition for the XCP Protocol Layer. </p>
+<p>Xcp_Lcfg.h </p>
+<p>External declarations for the parameters. </p>
+<p>Table 4-3  </p>
+<p>Generated files </p>
+<p><b>4.1.4 </b></p>
+<p><b>Generated a2l files </b></p>
+<p>The GenTool also generates multiple a2l files which can be used in the MCS tool for easier </p>
+<p>integration. The following files are generated: </p>
+<p>•</p>
+<p> </p>
+<p>XCP.a2l (general protocol layer settings) </p>
+<p>•</p>
+<p> </p>
+<p>XCP_daq.a2l (DAQ specific settings) </p>
+<p>•</p>
+<p> </p>
+<p>XCP_events.a2l (DAQ event info) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p>•</p>
+<p> </p>
+<p>XCP_Checksum.a2l (Checksum information) </p>
+<p> </p>
+<p> </p>
+<p><b>Example Master.a2l: </b></p>
+<p><b> </b></p>
+<p>... </p>
+<p>/begin IF_DATA XCP </p>
+<p>  /include XCP.a2l </p>
+<p>  <b>/begin DAQ </b></p>
+<p><b>    /include XCP_daq.a2l </b></p>
+<p><b>    /include XCP_events.a2l </b></p>
+<p><b>    /include XCP_checksum.a2l </b></p>
+<p><b>    ... </b></p>
+<p><b>  /end DAQ </b></p>
+<p>  /include CanXCPAsr.a2l </p>
+<p>/end IF_DATA </p>
+<p>... </p>
+<p>/include bsw.a2l </p>
+<p>...</p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The XCP protocol layer makes use of three critical sections in order to protect functions </p>
+<p>that are not re-entrant. The following sections are used: </p>
+<p>•</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_0</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_1</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>XCP_EXCLUSIVE_AREA_2</p>
+<p> </p>
+<p>The individual exclusive areas must not be allowed to interrupt each other. The areas are </p>
+<p>used for the following cases: </p>
+<p><b>4.2.1 </b></p>
+<p><b>XCP_EXCLUSIVE_AREA_0 </b></p>
+<p>This exclusive area is used to protect non-reentrant functions. This critical section covers </p>
+<p>calls to several sub-functions and can have a long run-time. </p>
+<p><b>4.2.2 </b></p>
+<p><b>XCP_EXCLUSIVE_AREA_1 </b></p>
+<p>This exclusive area is used by Xcp_Event during DAQ measurement. It is used to provide </p>
+<p>data integrity on ODT level and its duration is dependent on the MAX_DTO parameter, i.e. </p>
+<p>can be short on CAN and long on Ethernet. </p>
+<p><b>4.2.3 </b></p>
+<p><b>XCP_EXCLUSIVE_AREA_2 </b></p>
+<p>This exclusive area is used by Xcp_Event during STIM measurement. It is used to provide </p>
+<p>data integrity on ODT level and its duration is dependent on the MAX_DTO parameter, i.e. </p>
+<p>can be short on CAN and long on Ethernet. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.3 </b></p>
+<p><b>Memory Mapping </b></p>
+<p>The XCP has requirements regarding memory mapping to avoid misaligned memory </p>
+<p>access. The following section: </p>
+<p>XCP_START_SEC_VAR_NOCACHE_NOINIT_32BIT</p>
+<p> must be mapped to a </p>
+<p>32Bit section in order to guarantee correct alignment. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this section is not mapped accordingly, a trap will happen on architectures that do not </p>
+<p>support misaligned access, e.g. TriCore. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the XCP are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p>Xcp_TimestampType </p>
+<p> </p>
+<p>c-type </p>
+<p>This is a type used for timestamp values. Its size is depending </p>
+<p>on the configuration in the tool and can be uint8, uint16 or </p>
+<p>uint32. </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p><b>Xcp_ChannelStruct </b></p>
+<p><b>Struct Element Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p>Xcp_ChannelStruct </p>
+<p> </p>
+<p>c-type </p>
+<p>This is a complex structure containing all the configuration </p>
+<p>data of the XCP. This structure needs to be stored in NVM for </p>
+<p>resume mode. </p>
+<p>Table 5-2  </p>
+<p>Xcp_ChannelStruct </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by XCP </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>Xcp_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_InitMemory</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This service initializes the XCP Protocol Layer memory. It must be called from the application program </p>
+<p>before any other XCP function is called. This is only required if the Startup Code does not initialize the </p>
+<p>memory with zero. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The global interrupts have to be disabled while this service function is executed. This function should be </p>
+<p>called during initialization of the ECU before the interrupts have been enabled. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task and interrupt level </p>
+<p>Table 5-3  </p>
+<p>Xcp_InitMemory </p>
+<p><b>5.2.2 </b></p>
+<p><b>Xcp_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_Init</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This service initializes the XCP Protocol Layer and its internal variables. It must be called from the </p>
+<p>application program before any other XCP function is called (except of Xcp_InitMemory). </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>4  </p>
+<p>Xcp_Init </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.3 </b></p>
+<p><b>Xcp_Event </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>Xcp_Event</b></p>
+<p> </p>
+<p>( uint16 EventChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>EventChannel </p>
+<p>Number of event channels to process. </p>
+<p>The event channel numbers have to start at 0 and have to be continuous. The </p>
+<p>range is: 0..x </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_EVENT_NOP : Inactive (DAQ not running, Event not configured) </p>
+<p>XCP_EVENT_DAQ : DAQ active */ </p>
+<p>XCP_EVENT_DAQ_OVERRUN : DAQ queue overflow, data lost </p>
+<p>XCP_EVENT_STIM : STIM active </p>
+<p>XCP_EVENT_STIM_OVERRUN : STIM data not available </p>
+<p><b>Functional Description </b></p>
+<p>Calling </p>
+<p>Xcp_Event</p>
+<p> with a particular event channel number triggers the sampling and transmission of all </p>
+<p>DAQ lists that are assigned to this event channel. </p>
+<p>The event channels are defined by the ECU developer in the application program. An MCS (e.g. CANape) </p>
+<p>must know about the meaning of the event channel numbers. These are usually described in the tool </p>
+<p>configuration files or in the interface specific part of the ASAM MC2 (ASAP2) database. </p>
+<p>Example: </p>
+<p>A motor control unit may have a 10ms, a 100ms and a crank synchronous event channel. In this case, the </p>
+<p>three </p>
+<p>Xcp_Event</p>
+<p> calls have to be placed at the appropriate locations in the ECU’s program: </p>
+<p>Xcp_Event (XcpConf_XcpEventChannel_10ms); /* 10ms cycle */ </p>
+<p>xcp_Event (XcpConf_XcpEventChannel_100ms); /* 100ms cycle */ </p>
+<p>xcp_Event (XcpConf_XcpEventChannel_Crank); /* Crank synchronous cycle */</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant (for different Event Channel). </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p><b>&gt; </b></p>
+<p>Data acquisition has to be enabled  </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task and interrupt level </p>
+<p>Table 5-5  </p>
+<p>Xcp_Event </p>
+<p><b>5.2.4 </b></p>
+<p><b>Xcp_StimEventStatus </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>Xcp_StimEventStatus</b></p>
+<p> </p>
+<p>( uint16 EventChannel, uint8 Action )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>EventChannel </p>
+<p>Event channel number. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>37 </p>
+<p>based on template version 6.0.1 </p>
+<p>Action </p>
+<p>STIM_CHECK_ODT_BUFFER</p>
+<p> : check ODT buffer </p>
+<p>STIM_RESET_ODT_BUFFER</p>
+<p> : reset ODT buffer </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_NO_STIM_DATA_AVAILABLE</p>
+<p> : stimulation data not available</p>
+<p> </p>
+<p>XCP_STIM_DATA_AVAILABLE</p>
+<p> : new stimulation data is available</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Check if data stimulation (STIM) event can perform or delete the buffers. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p><b>&gt; </b></p>
+<p>Data acquisition has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpSynchronousDataStimulation</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task and interrupt level </p>
+<p>Table 5-6  </p>
+<p>Xcp_StimEventStatus </p>
+<p><b>5.2.5 </b></p>
+<p><b>Xcp_MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_MainFunction</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>If the XCP command for the calculation of the memory checksum has to be used for large memory areas, it </p>
+<p>might not be appropriate to block the processor for a long period of time. Therefore, the checksum </p>
+<p>calculation is divided into smaller sections that are handled in the </p>
+<p>Xcp_MainFunction</p>
+<p>. </p>
+<p>Additionally, the main function handles persisting requests. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-7  </p>
+<p>Xcp_MainFunction </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>38 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>5.2.6 </b></p>
+<p><b>Xcp_SendEvent </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_SendEvent </b>( Xcp_ChannelType XcpChannel, uint8 EventCode, uint8 </p>
+<p>*EventData, uint8 Length ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>EventCode </p>
+<p>The event code of the message to send. </p>
+<p>EventData </p>
+<p>A pointer to the string of the event to send. </p>
+<p>Length </p>
+<p>The length of the event data. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Transmission of event codes via event packets (EV). </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p><b>&gt; </b></p>
+<p>Event Codes has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpAsynchMessage/XcpEventCodes</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-8  </p>
+<p>Xcp_SendEvent </p>
+<p><b>5.2.7 </b></p>
+<p><b>Xcp_PutChar </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_PutChar</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel, uint8 *Character )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Character </p>
+<p>The char to send. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Put a char into a service request packet (SERV). </p>
+<p>The service request packet is transmitted if either the maximum packet length is reached (the service </p>
+<p>request message packet is full) or the character 0x00 is in the service request packet. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>39 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p><b>&gt; </b></p>
+<p>Service Request Message has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpAsynchMessage/XcpServiceRequestMessage</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-9  </p>
+<p>Xcp_PutChar </p>
+<p><b>5.2.8 </b></p>
+<p><b>Xcp_Print </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_Print</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel, uint8 *Str )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Str </p>
+<p>The 0 terminated string to send. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Transmission of a service request packet (SERV). </p>
+<p>The string </p>
+<p>str</p>
+<p> is sent via service request packets. The string has to be terminated by 0x00. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p><b>&gt; </b></p>
+<p>Service Request Message has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpAsynchMessage/XcpServiceRequestMessage</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-10  </p>
+<p>Xcp_Print </p>
+<p><b>5.2.9 </b></p>
+<p><b>Xcp_Disconnect </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_Disconnect</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>40 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>If the XCP slave is connected to a XCP master a call of this function discontinues the connection (transition </p>
+<p>to disconnected state). If the XCP slave is not connected this function performs no action. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly and XCP is in connected state. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-11  </p>
+<p>Xcp_Disconnect </p>
+<p><b>5.2.10 </b></p>
+<p><b>Xcp_SendCrm </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_SendCrm</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Transmission of a command response packet (RES), or error packet (ERR) if no other packet is pending. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has been initialized correctly, XCP is in connected state and a command </p>
+<p>packet (CMD) has been received. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-12  </p>
+<p>Xcp_SendCrm </p>
+<p><b>5.2.11 </b></p>
+<p><b>Xcp_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_GetVersionInfo</b></p>
+<p> </p>
+<p>( Std_VersionInfoType *versionInfo )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>versionInfo </p>
+<p>Pointer to the location where the Version information shall be stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>41 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Xcp_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID of the component. </p>
+<p>The versions are BCD-coded. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The version info API has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpVersionInfoApi</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-13  </p>
+<p>Xcp_GetVersionInfo </p>
+<p><b>5.2.12 </b></p>
+<p><b>Xcp_ModifyProtectionStatus </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_ModifyProtectionStatus</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel, uint8 AndState, </p>
+<p>uint8 OrState )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>AndState </p>
+<p>The following flags: XCP_RM_CAL_PAG, XCP_RM_DAQ, XCP_RM_STIM </p>
+<p>and XCP_RM_PGM can be used to clear the protection state of the respective </p>
+<p>resource. The modified state is persistent until Xcp_Init. </p>
+<p>OrState </p>
+<p>The following flags: XCP_RM_CAL_PAG, XCP_RM_DAQ, XCP_RM_STIM </p>
+<p>and XCP_RM_PGM can be used to set the protection state of the respective </p>
+<p>resource. The modified state is persistent until Xcp_Init. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This method can be used to enable or disable the protection state of an individual resource during runtime. </p>
+<p>The newly set protection state is persistent until the next call of the Xcp_Init function where all flags are set </p>
+<p>again. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Seed&amp;Key has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpSeedKey</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-14  </p>
+<p>Xcp_ModifyProtectionStatus </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>42 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>5.2.13 </b></p>
+<p><b>Xcp_GetSessionStatus </b></p>
+<p><b>Prototype </b></p>
+<p>uint16</p>
+<p> </p>
+<p><b>Xcp_GetSessionStatus</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>uint16 </p>
+<p>The function returns a bit mask with the following flags: </p>
+<p>XCP_SESSION_CONNECTED: The XCP is in state connected. </p>
+<p>XCP_SESSION_POLLING: A polling measurement is ongoing. </p>
+<p>XCP_SESSION_DAQ: A DAQ measurement is active. </p>
+<p><b>Functional Description </b></p>
+<p>This service can be used to get the session state of the XCP Protocol Layer. The session state is returned </p>
+<p>as a bit mask where the individual bits can be tested. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Session Status API has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpSessionStatusAPI</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-15  </p>
+<p>Xcp_GetSessionStatus </p>
+<p><b>5.2.14 </b></p>
+<p><b>Xcp_GetXcpDataPointer </b></p>
+<p><b>Prototype </b></p>
+<p>uint16</p>
+<p> </p>
+<p><b>Xcp_GetXcpDataPointer</b></p>
+<p> </p>
+<p>( </p>
+<p>Xcp_ChannelStructPtr *</p>
+<p> pXcpData )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>pXcpData </p>
+<p>Pointer to XCP channel information. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This service can be used to get the complete XCP data. This is required for flash programming with a flash </p>
+<p>kernel. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Bootloader Download has to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpBootloaderDownload</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>43 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-16  </p>
+<p>Xcp_GetXcpDataPointer </p>
+<p><b>5.2.15 </b></p>
+<p><b>Xcp_SetStimMode </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_SetStimMode</b></p>
+<p> </p>
+<p>( uint8 mode )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Mode </p>
+<p>The STIM mode to select. This can either be </p>
+<p>XCP_STIM_SINGLE_SHOT_MODE: </p>
+<p>Valid STIM data is written a single time </p>
+<p>(default). </p>
+<p>XCP_STIM_CONTINUOUS_MODE: </p>
+<p>Valid STIM data is written continuously.</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This service is used to change the behavior of the Xcp_Event function when new STIM data is written. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Data acquisition and STIM has to be enabled  </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpSynchronousDataStim</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-17  </p>
+<p>Xcp_SetStimMode </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Services provided by the XCP Protocol Layer and called by the XCP Transport </b></p>
+<p><b>Layer </b></p>
+<p> </p>
+<p><b>5.3.1 </b></p>
+<p><b>Xcp_TlRxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_TlRxIndication</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel, unt8 *CmdPtr )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>CmdPtr </p>
+<p>Pointer to the XCP protocol message, which must be extracted from the XCP </p>
+<p>protocol packet. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>44 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Every time the XCP Transport Layer receives a XCP CTO Packet this function has to be called. </p>
+<p>The parameter is a pointer to the XCP protocol message, which must be extracted from the XCP protocol </p>
+<p>packet. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-18  </p>
+<p>Xcp_TlRxIndication </p>
+<p><b>5.3.2 </b></p>
+<p><b>Xcp_TlTxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_TlTxConfirmation</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The XCP Protocol Layer does not call </p>
+<p>&lt;Bus&gt;Xcp_Send</p>
+<p> again, until </p>
+<p>Xcp_TlTxConfirmation</p>
+<p> has </p>
+<p>confirmed the successful transmission of the previous message. </p>
+<p>Xcp_TlTxConfirmation</p>
+<p> transmits </p>
+<p>pending data acquisition messages by calling </p>
+<p>&lt;Bus&gt;Xcp_Send</p>
+<p> again.  </p>
+<p>Note that if </p>
+<p>Xcp_TlTxConfirmation</p>
+<p> is called from inside </p>
+<p>&lt;Bus&gt;Xcp_Send</p>
+<p> a recursion occurs, which </p>
+<p>assumes enough space on the call stack. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-19  </p>
+<p>Xcp_TlTxConfirmation </p>
+<p><b>5.3.3 </b></p>
+<p><b>Xcp_SetActiveTl </b></p>
+<p><b>Prototype </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>45 </p>
+<p>based on template version 6.0.1 </p>
+<p>void</p>
+<p> </p>
+<p><b>Xcp_SetActiveTl</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel, uint8 MaxCto, uint16 MaxDto, </p>
+<p>uint8 ActiveTl )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>MaxCto </p>
+<p>Max CTO used by the respective XCP Transport Layer </p>
+<p>MaxDto </p>
+<p>Max DTO used by the respective XCP Transport Layer </p>
+<p>ActiveTl </p>
+<p>XCP_TRANSPORT_LAYER_CAN:</p>
+<p> XCP on CAN Transport Layer </p>
+<p>XCP_TRANSPORT_LAYER_FR:</p>
+<p> XCP on Fr Transport Layer </p>
+<p>XCP_TRANSPORT_LAYER_ETH:</p>
+<p> XCP on Ethernet Transport Layer</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This service is used by the XCP Transport Layers to set the Transport Layer to be used by the XCP </p>
+<p>Protocol Layer </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-20  </p>
+<p>Xcp_SetActiveTl </p>
+<p><b>5.3.4 </b></p>
+<p><b>Xcp_GetActiveTl </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>Xcp_GetActiveTl</b></p>
+<p> </p>
+<p>( Xcp_ChannelType XcpChannel )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_TRANSPORT_LAYER_CAN:</p>
+<p> XCP on CAN Transport Layer </p>
+<p>XCP_TRANSPORT_LAYER_FR:</p>
+<p> XCP on Fr Transport Layer </p>
+<p>XCP_TRANSPORT_LAYER_ETH:</p>
+<p> XCP on Ethernet Transport Layer</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This service is used by the XCP Transport Layers to get the currently active Transport Layer used by the </p>
+<p>XCP Protocol Layer </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>46 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-21  </p>
+<p>Xcp_GetActiveTl </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>XCP Transport Layer Services called by the XCP Protocol Layer </b></p>
+<p> </p>
+<p><b>5.4.1 </b></p>
+<p><b>&lt;Bus&gt;Xcp_Send </b></p>
+<p><b>Prototype </b></p>
+<p>void &lt;Bus&gt;Xcp_Send ( Xcp_ChannelType XcpChannel, uint8 len, uint8 *msg )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>len </p>
+<p>Length of message data </p>
+<p>msg </p>
+<p>Pointer to message </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Requests for the transmission of a command transfer object (CTO) or data transfer object (DTO). </p>
+<p>Xcp_TlTxConfirmation</p>
+<p> must be called after the successful transmission of any XCP message. The </p>
+<p>XCP Protocol Layer will not request further transmissions otherwise. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-22  </p>
+<p>&lt;Bus&gt;Xcp_Send </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>47 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.4.2 </b></p>
+<p><b>&lt;Bus&gt;Xcp_SendFlush </b></p>
+<p><b>Prototype </b></p>
+<p>void &lt;Bus&gt;Xcp_SendFlush( Xcp_ChannelType XcpChannel, uint8 FlushType )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>FlushType </p>
+<p>This is one of the following: </p>
+<p>XCP_FLUSH_CTO:</p>
+<p> </p>
+<p>To flush CTO messages. </p>
+<p>XCP_FLUSH_DTO:</p>
+<p> </p>
+<p>To flush DTO message. </p>
+<p>XCP_FLUSH_ALL:</p>
+<p> To flush either message.</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Flush the transmit buffer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-23  </p>
+<p>&lt;Bus&gt;Xcp_SendFlush </p>
+<p><b>5.4.3 </b></p>
+<p><b>&lt;Bus&gt;Xcp_TlService </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 &lt;Bus&gt;Xcp_TlService( Xcp_ChannelType XcpChannel, uint8 *pCmd ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>pCmd </p>
+<p>Pointer to transport layer command string </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK </p>
+<p>: Done </p>
+<p>XCP_CMD_PENDING</p>
+<p> :  Call Xcp_SendCrm() when done </p>
+<p>XCP_CMD_SYNTAX</p>
+<p> : Error </p>
+<p>XCP_CMD_BUSY</p>
+<p> : not executed </p>
+<p>XCP_CMD_UNKNOWN</p>
+<p> :  not implemented optional command </p>
+<p>XCP_CMD_OUT_OF_RANGE </p>
+<p>: command parameters out of range </p>
+<p><b>Functional Description </b></p>
+<p>Transport Layer specific commands are processed within the XCP Transport Layer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>48 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-24  </p>
+<p>&lt;Bus&gt;Xcp_TlService </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Application Services called by the XCP Protocol Layer </b></p>
+<p>The prototypes of the functions that are required by the XCP Protocol Layer can be found </p>
+<p>in the XcpAppl header. </p>
+<p>The  XCP  Protocol  Layer  provides  application  callback  functions  in  order  to  perform </p>
+<p>application and hardware specific tasks. </p>
+<p>Note: All services within this chapter are called from task or interrupt level. All services are </p>
+<p>not reentrant. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>49 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.5.1 </b></p>
+<p><b>XcpAppl_GetTimestamp </b></p>
+<p><b>Prototype </b></p>
+<p>Xcp_TimestampType XcpAppl_GetTimestamp</p>
+<p>( void )</p>
+<p><b> </b></p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>Xcp_TimestampType<b> </b></p>
+<p>The timestamp which is either uint8, uint16 or uint32, depending on </p>
+<p>configuration. </p>
+<p><b>Functional Description </b></p>
+<p>Returns the current timestamp. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>DAQ and timestamp feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpTimestampType</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-25  </p>
+<p>XcpAppl_GetTimestamp </p>
+<p><b>5.5.2 </b></p>
+<p><b>XcpAppl_GetPointer </b></p>
+<p><b>Prototype </b></p>
+<p>Xcp_AddressPtrType <b>XcpAppl_GetPointer</b>( Xcp_ChannelType XcpChannel, uint8 </p>
+<p>AddrExt, const Xcp_AddressPtrType Addr ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>AddrExt </p>
+<p>8 bit address extension </p>
+<p>Addr </p>
+<p>32 bit address </p>
+<p><b>Return code </b></p>
+<p>Xcp_AddressPtrType </p>
+<p>Pointer to the address specified by the parameters </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>50 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This function converts a memory address from XCP format (32-bit address plus 8-bit address extension) to </p>
+<p>a C style pointer. An MCS like CANape usually reads this memory addresses from the ASAP2 database or </p>
+<p>from a linker map file. </p>
+<p>The address extension may be used to distinguish different address spaces or memory types. In most </p>
+<p>cases, the address extension is not used and may be ignored. </p>
+<p>This function is used to convert an address from the MCS tool. </p>
+<p>Example:  </p>
+<p>The following code shows an example of a typical implementation of </p>
+<p>XcpAppl_GetPointer</p>
+<p>: </p>
+<p>Xcp_AddressPtrType XcpAppl_GetPointer( Xcp_ChannelType XcpChannel, uint8 AddrExt, uint32 Addr ) </p>
+<p>{ </p>
+<p>  return (Xcp_AddressPtrType)Addr; </p>
+<p>}</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>DAQ and timestamp feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim</p>
+<p> </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpTimestampType</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-26  </p>
+<p>XcpAppl_GetPointer </p>
+<p><b>5.5.3 </b></p>
+<p><b>XcpAppl_GetIdData </b></p>
+<p><b>Prototype </b></p>
+<p>uint32 <b>XcpAppl_GetIdData</b>( uint8 **Data, uint8 Id ) </p>
+<p><b>Parameter </b></p>
+<p>Data </p>
+<p>Pointer to location where address pointer to Id data is stored. </p>
+<p>Id </p>
+<p>Identification of the requested information/identification </p>
+<p><b>Return code </b></p>
+<p>uint32 </p>
+<p>Length of the MAP file names </p>
+<p><b>Functional Description </b></p>
+<p>Returns a pointer to identification information as requested by the Xcp Master. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Get ID feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpGetIdGeneric</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>51 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-27  </p>
+<p>XcpAppl_GetIdData </p>
+<p><b>5.5.4 </b></p>
+<p><b>XcpAppl_GetSeed </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_GetSeed</b>( const uint8 Resource, uint8 *Seed ) </p>
+<p><b>Parameter </b></p>
+<p>Resource </p>
+<p>Resource for which the seed has to be generated </p>
+<p>XCP_RM_CAL_PAG</p>
+<p> :  </p>
+<p>to unlock the resource calibration/paging </p>
+<p>XCP_RM_DAQ</p>
+<p> :  to unlock the resource data acquisition </p>
+<p>XCP_RM_STIM</p>
+<p> : </p>
+<p>to unlock the resource stimulation </p>
+<p>XCP_RM_PGM</p>
+<p> :  to unlock the resource programming </p>
+<p>Seed </p>
+<p>Pointer to RAM where the seed has to be generated to. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>The length of the generated seed that is returned by seed. </p>
+<p><b>Functional Description </b></p>
+<p>Generate a seed for the appropriate resource. </p>
+<p>The seed has a maximum length of MAX_CTO-2 bytes. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Seed&amp;Key feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpSeedKey</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-28  </p>
+<p>XcpAppl_GetSeed </p>
+<p><b>5.5.5 </b></p>
+<p><b>XcpAppl_Unlock </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_Unlock</b>( const uint8 *Key, const uint8 Length ) </p>
+<p><b>Parameter </b></p>
+<p>Key </p>
+<p>Pointer to key. </p>
+<p>Length </p>
+<p>Length of the key. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>52 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>0</p>
+<p> : if the key is not valid </p>
+<p>XCP_RM_CAL_PAG</p>
+<p> : to unlock the resource calibration/paging </p>
+<p>XCP_RM_DAQ</p>
+<p> : to unlock the resource data acquisition </p>
+<p>XCP_RM_STIM</p>
+<p> : to unlock the resource stimulation </p>
+<p>XCP_RM_PGM</p>
+<p> : to unlock the resource programming </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Check the key and return the resource that has to be unlocked. </p>
+<p>Only one resource may be unlocked at one time.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Seed&amp;Key feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpSeedKey</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-29  </p>
+<p>XcpAppl_Unlock </p>
+<p><b>5.5.6 </b></p>
+<p><b>XcpAppl_CalibrationWrite </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_CalibrationWrite</b>( Xcp_AddressPtrType Dst, uint8 *Src, uint8 Size </p>
+<p>) </p>
+<p><b>Parameter </b></p>
+<p>Dst </p>
+<p>Destination address as integer. </p>
+<p>Src </p>
+<p>Pointer to source of data. </p>
+<p>Size </p>
+<p>Size of data to copy from Src to Dst. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_DENIED </p>
+<p>:  </p>
+<p>if access is denied </p>
+<p>XCP_CMD_PENDING </p>
+<p>:</p>
+<p> </p>
+<p>access is performed asynchronously (e.g. EEPROM) </p>
+<p>XCP_CMD_OK</p>
+<p> : if access is granted </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Check addresses for valid write access and copy data from source to destination. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function can be synchronous and asynchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-30  </p>
+<p>XcpAppl_CalibrationWrite </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>53 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.5.7 </b></p>
+<p><b>XcpAppl_MeasurementRead </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_MeasurementRead</b>( uint8 *Dst, Xcp_AddressPtrType Src, uint8 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Dst </p>
+<p>Pointer to destination address </p>
+<p>Src </p>
+<p>Source address of data as integer </p>
+<p>Size </p>
+<p>Size of data to copy from Src to Dst. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_DENIED </p>
+<p>:  </p>
+<p>if access is denied </p>
+<p>XCP_CMD_PENDING </p>
+<p>:</p>
+<p> </p>
+<p>access is performed asynchronously (e.g. EEPROM) </p>
+<p>XCP_CMD_OK</p>
+<p> : if access is granted </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Check addresses for valid read access and copy data from source to destination. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function can be synchronous and asynchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-31  </p>
+<p>XcpAppl_MeasurementRead </p>
+<p><b>5.5.8 </b></p>
+<p><b>XcpAppl_CheckReadAccess </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_CheckReadAccess</b>( Xcp_ChannelType XcpChannel, Xcp_AddressPtrType </p>
+<p>Address, uint32 Size ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Address </p>
+<p>Destination address to check. </p>
+<p>Size </p>
+<p>Size of data to check. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_DENIED </p>
+<p>:  </p>
+<p>if access is denied </p>
+<p>XCP_CMD_OK</p>
+<p> : if access is granted </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Check addresses for valid read access. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>54 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Read Protection feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpMemoryReadProtection</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-32  </p>
+<p>XcpAppl_CheckReadAccess </p>
+<p><b>5.5.9 </b></p>
+<p><b>XcpAppl_CheckProgramAccess </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_CheckProgramAccess</b>( Xcp_AddressPtrType Address, uint32 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Address </p>
+<p>Destination address to check. </p>
+<p>Size </p>
+<p>Size of data to check. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_DENIED </p>
+<p>:  </p>
+<p>if access is denied </p>
+<p>XCP_CMD_OK</p>
+<p> : if access is granted </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Check addresses for valid write flash access. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-33  </p>
+<p>XcpAppl_CheckProgramAccess </p>
+<p><b>5.5.10 </b></p>
+<p><b>XcpAppl_UserService </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_UserService</b>( uint8 *Cmd ) </p>
+<p><b>Parameter </b></p>
+<p>Cmd </p>
+<p>Pointer to command string </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK</p>
+<p> : if command is accepted. </p>
+<p>XCP_CMD_PENDING </p>
+<p>:  if command is performed asynchronously. </p>
+<p>XCP_CMD_SYNTAX </p>
+<p>:  </p>
+<p>if command is not accepted. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>55 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Application specific user command. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>User command feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpUserDefinedCommand</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-34  </p>
+<p>XcpAppl_UserService </p>
+<p><b>5.5.11 </b></p>
+<p><b>XcpAppl_OpenCmdIf </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_OpenCmdIf</b>( Xcp_ChannelType XcpChannel, uint8 *Cmd, uint8 </p>
+<p>*Response, uint8 *Length ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Cmd </p>
+<p>Pointer to command string </p>
+<p>Response </p>
+<p>Pointer to response string </p>
+<p>Length </p>
+<p>Pointer to response length </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK</p>
+<p> : if command is accepted. </p>
+<p>XCP_CMD_PENDING </p>
+<p>:  if command is performed asynchronously. </p>
+<p>XCP_CMD_UNKNOWN </p>
+<p>:  if command is not accepted. </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Call back that can be used to extend the XCP commands of the XCP protocol layer. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>User command feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpOpenCommandInterface</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-35  </p>
+<p>XcpAppl_OpenCmdIf </p>
+<p><b>5.5.12 </b></p>
+<p><b>XcpAppl_SendStall </b></p>
+<p><b>Prototype </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>56 </p>
+<p>based on template version 6.0.1 </p>
+<p>uint8 <b>XcpAppl_SendStall</b>( Xcp_ChannelType XcpChannel ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>0</p>
+<p> : Reject sending of new message. </p>
+<p>1 </p>
+<p>: continue processing. </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Resolve a transmit stall condition in </p>
+<p>Xcp_Putchar</p>
+<p> or </p>
+<p>Xcp_SendEvent</p>
+<p>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Service request Messages feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpAsynchMessage/XcpServiceRequestMessage</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-36  </p>
+<p>XcpAppl_SendStall </p>
+<p><b>5.5.13 </b></p>
+<p><b>XcpAppl_DisableNormalOperation </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_DisableNormalOperation</b>( Xcp_AddressPtrType Address, uint16 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Address </p>
+<p>Address (where the flash kernel is downloaded to) </p>
+<p>Size </p>
+<p>Size (of the flash kernel) </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK:</p>
+<p> </p>
+<p>download of flash kernel confirmed </p>
+<p>XCP_CMD_DENIED:</p>
+<p> download of flash kernel refused </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Prior to the flash kernel download has the ECU’s normal operation to be stopped in order to avoid </p>
+<p>misbehavior due to data inconsistencies. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Bootloader download feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpBootloaderDownload</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-37  </p>
+<p>XcpAppl_DisableNormalOperation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>57 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.5.14 </b></p>
+<p><b>XcpAppl_StartBootLoader </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_StartBootLoader</b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>This function should not return. </p>
+<p>XCP_CMD_OK</p>
+<p> : </p>
+<p>positive response </p>
+<p>XCP_CMD_BUSY </p>
+<p>: </p>
+<p>negative response</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p><b>Functional Description </b></p>
+<p>Start of the boot loader. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Bootloader download feature need to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpGeneral/XcpBootloaderDownload</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-38  </p>
+<p>XcpAppl_StartBootLoader </p>
+<p><b>5.5.15 </b></p>
+<p><b>XcpAppl_Reset </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>XcpAppl_Reset</b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Perform an ECU reset after reprogramming of the application. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Programming feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>58 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-39  </p>
+<p>XcpAppl_Reset </p>
+<p><b>5.5.16 </b></p>
+<p><b>XcpAppl_ProgramStart </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_ProgramStart</b>( void ) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK</p>
+<p> : Preparation done </p>
+<p>XCP_CMD_PENDING </p>
+<p>: Call Xcp_SendCrm() when done </p>
+<p>XCP_CMD_ERROR</p>
+<p> : Flash programming not possible </p>
+<p><b>Functional Description </b></p>
+<p>Prepare the ECU for flash programming. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Programming feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-40  </p>
+<p>XcpAppl_ProgramStart </p>
+<p><b>5.5.17 </b></p>
+<p><b>XcpAppl_FlashClear </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_FlashClear</b>( uint8 *Address, uint32 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Address </p>
+<p>Address of memory area to clear </p>
+<p>Size </p>
+<p>Size of memory area to clear </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK </p>
+<p>: Flash memory erase done </p>
+<p>XCP_CMD_PENDING</p>
+<p> :   Call Xcp_SendCrm() when done </p>
+<p>XCP_CMD_ERROR</p>
+<p> : Flash memory erase error </p>
+<p><b>Functional Description </b></p>
+<p>Clear the flash memory, before the flash memory will be reprogrammed. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>59 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Programming feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-41  </p>
+<p>XcpAppl_FlashClear </p>
+<p><b>5.5.18 </b></p>
+<p><b>XcpAppl_FlashProgram </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_FlashProgram</b>( const uint8 *Data, uint8 *Address, uint8 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Data </p>
+<p>Pointer to data. </p>
+<p>Address </p>
+<p>Address of memory to store data at. </p>
+<p>Size </p>
+<p>Size of data. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK</p>
+<p> : Flash memory programming finished </p>
+<p>XCP_CMD_PENDING </p>
+<p>: Flash memory programming in progress. </p>
+<p> </p>
+<p>Xcp_SendCrm</p>
+<p> has to be called when done. </p>
+<p><b>Functional Description </b></p>
+<p>Program the cleared flash memory. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Programming feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpProgramming</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-42  </p>
+<p>XcpAppl_FlashProgram </p>
+<p><b>5.5.19 </b></p>
+<p><b>XcpAppl_DaqResume </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_DaqResume</b>( Xcp_ChannelType XcpChannel, Xcp_ChannelStruct *Channel </p>
+<p>) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>60 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Channel </p>
+<p>Pointer to dynamic DAQ list structure </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>Boolean flag whether valid DAQ list was restored. </p>
+<p><b>Functional Description </b></p>
+<p>Resume the automatic data transfer. </p>
+<p>The whole dynamic DAQ list structure that had been stored in non-volatile memory within the service </p>
+<p>XcpAppl_DaqResumeStore(..)</p>
+<p> has to be restored to RAM. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpResumeMode</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-43  </p>
+<p>XcpAppl_DaqResume </p>
+<p><b>5.5.20 </b></p>
+<p><b>XcpAppl_DaqResumeStore </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>XcpAppl_DaqResumeStore</b>( Xcp_ChannelType XcpChannel, const </p>
+<p>Xcp_ChannelStruct *Channel, uint8 MeasurementStart ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>Channel </p>
+<p>Pointer to dynamic DAQ list structure </p>
+<p>MeasurementStart </p>
+<p>If &gt; 0 then set flag to start measurement during next init </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This application callback service has to store the whole dynamic DAQ list structure in non-volatile </p>
+<p>memory for the DAQ resume mode. Any old DAQ list configuration that might have been stored in non-</p>
+<p>volatile memory before this command, must not be applicable anymore. </p>
+<p>After a cold start or reset the dynamic DAQ list structure has to be restored by the application callback </p>
+<p>service </p>
+<p>XcpAppl_DaqResume(..)</p>
+<p>when the flag MeasurementStart is &gt; 0. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>61 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpResumeMode</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-44  </p>
+<p>XcpAppl_DaqResumeStore </p>
+<p><b>5.5.21 </b></p>
+<p><b>XcpAppl_DaqResumeClear </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>XcpAppl_DaqResumeClear</b>( Xcp_ChannelType XcpChannel ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The whole dynamic DAQ list structure that had been stored in non-volatile memory within the service </p>
+<p>XcpAppl_DaqResumeStore(..)</p>
+<p> has to be cleared. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpDaqAndStim/XcpResumeMode</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-45  </p>
+<p>XcpAppl_DaqResumeClear </p>
+<p><b>5.5.22 </b></p>
+<p><b>XcpAppl_CalResumeStore </b></p>
+<p><b>Prototype </b></p>
+<p>boolean <b>XcpAppl_CalResumeStore</b>( Xcp_ChannelType XcpChannel ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p><b>Return code </b></p>
+<p>boolean </p>
+<p>If true the calibration page was stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>62 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This application callback service has to store the current calibration data in non-volatile memory for the </p>
+<p>resume mode. </p>
+<p>After a cold start or reset the calibration data has to be restored by the application. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpFreezeMode</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-46  </p>
+<p>XcpAppl_CalResumeStore </p>
+<p><b>5.5.23 </b></p>
+<p><b>XcpAppl_GetCalPage </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_GetCalPage</b>( uint8 Segment, uint8 Mode ) </p>
+<p><b>Parameter </b></p>
+<p>Segment </p>
+<p>Logical data segment number </p>
+<p>Mode </p>
+<p>Access mode </p>
+<p>The access mode can be one of the following values: </p>
+<p>1 : ECU access </p>
+<p>2 : XCP access </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>Logical data page number </p>
+<p><b>Functional Description </b></p>
+<p>This function returns the logical number of the calibration data page that is currently activated for the </p>
+<p>specified access mode and data segment. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-47  </p>
+<p>XcpAppl_GetCalPage </p>
+<p><b>5.5.24 </b></p>
+<p><b>XcpAppl_SetCalPage </b></p>
+<p><b>Prototype </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>63 </p>
+<p>based on template version 6.0.1 </p>
+<p>uint8 <b>XcpAppl_SetCalPage</b>( uint8 Segment, uint8 Page, uint8 Mode ) </p>
+<p><b>Parameter </b></p>
+<p>Segment </p>
+<p>Logical data segment number </p>
+<p>Page </p>
+<p>Logical data page number </p>
+<p>Mode </p>
+<p>Access mode </p>
+<p>The access mode can be one of the following values: </p>
+<p>1 : ECU access the given page will be used by the slave device application </p>
+<p>2 : XCP access the slave device XCP driver will access the given page </p>
+<p>Both flags may be set simultaneously or separately. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK : </p>
+<p>Operation completed successfully</p>
+<p> </p>
+<p>XCP_CMD_PENDING : </p>
+<p>Call Xcp_SendCrm() when done </p>
+<p>XCP_CRC_OUT_OF_RANGE : </p>
+<p>segment out of range (only one segment </p>
+<p>supported) </p>
+<p>XCP_CRC_PAGE_NOT_VALID : </p>
+<p>Selected page not available </p>
+<p>XCP_CRC_PAGE_MODE_NOT_VALID : </p>
+<p>Selected page mode not available </p>
+<p><b>Functional Description </b></p>
+<p>Switch pages, e.g. from reference page to working page. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-48  </p>
+<p>XcpAppl_SetCalPage </p>
+<p><b>5.5.25 </b></p>
+<p><b>XcpAppl_CopyCalPage </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_CopyCalPage</b>( uint8 SrcSeg, uint8 SrcPage, uint8 DestSeg, uint8 </p>
+<p>DestPage ) </p>
+<p><b>Parameter </b></p>
+<p>SrcSeg </p>
+<p>Source segment. </p>
+<p>SrcPage </p>
+<p>Source page. </p>
+<p>DestSeg </p>
+<p>Destination segment. </p>
+<p>DestPage </p>
+<p>Destination page. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>64 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK</p>
+<p> : Operation completed successfully </p>
+<p>XCP_CMD_PENDING</p>
+<p> : Call XcpSendCrm() when done </p>
+<p>XCP_CRC_PAGE_NOT_VALID</p>
+<p> : Page not available </p>
+<p>XCP_CRC_SEGMENT_NOT_VALID</p>
+<p> : Segment not available </p>
+<p>XCP_CRC_WRITE_PROTECTED </p>
+<p>: Destination page is write protected. </p>
+<p><b>Functional Description </b></p>
+<p>Copying of calibration data pages. </p>
+<p>The pages are copied from source to destination. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p><b>&gt; </b></p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpCopyPage</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-49  </p>
+<p>XcpAppl_CopyCalPage </p>
+<p><b>5.5.26 </b></p>
+<p><b>XcpAppl_SetFreezeMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>XcpAppl_SetFreezeMode</b>( uint8 Segment, uint8 Mode ) </p>
+<p><b>Parameter </b></p>
+<p>Segment </p>
+<p>Segment to set freeze mode </p>
+<p>Mode </p>
+<p>New freeze mode </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Setting the freeze mode of a certain segment. Application must store the current freeze mode of each </p>
+<p>segment. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p><b>&gt; </b></p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpFreezeMode </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-50  </p>
+<p>XcpAppl_SetFreezeMode </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>65 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.5.27 </b></p>
+<p><b>XcpAppl_GetFreezeMode </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_GetFreezeMode</b>( uint8 Segment ) </p>
+<p><b>Parameter </b></p>
+<p>Segment </p>
+<p>Segment to read freeze mode </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>Return the current freeze mode, set by XcpAppl_SetFreezeMode().</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Reading the freeze mode of a certain segment. Application must store the current freeze mode of each </p>
+<p>segment and report it by the return value of this function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p><b>&gt; </b></p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpPageSwitching/XcpFreezeMode</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-51  </p>
+<p>XcpAppl_GetFreezeMode </p>
+<p><b>5.5.28 </b></p>
+<p><b>XcpAppl_CalculateChecksum </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_CalculateChecksum</b>( uint8 *MemArea, uint8 *Result, uint32 Length ) </p>
+<p><b>Parameter </b></p>
+<p>MemArea </p>
+<p>Address pointer to memory area </p>
+<p>Result </p>
+<p>Pointer to response string </p>
+<p>Length </p>
+<p>Length of mem area, used for checksum calculation </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>XCP_CMD_OK : </p>
+<p>CRC calculation performed successfully</p>
+<p> </p>
+<p>XCP_CMD_PENDING : </p>
+<p>Pending response, triggered by call of </p>
+<p>Xcp_SendCrm</p>
+<p> </p>
+<p>XCP_CMD_DENIED : </p>
+<p>CRC calculation not possible </p>
+<p><b>Functional Description </b></p>
+<p>Normally the XCP uses internal checksum calculation functions. If the internal checksum calculation </p>
+<p>does not fit the user requirements this call-back can be used to calculate the checksum by the </p>
+<p>application. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>66 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous if it returns </p>
+<p>XCP_CMD_PENDING</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p><b>&gt; </b></p>
+<p>Resume Mode feature needs to be enabled: </p>
+<p><b>&gt; </b></p>
+<p>/MICROSAR/Xcp/XcpCmdConfig/XcpStandard/XcpCRC/XcpCustomCRC</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task level </p>
+<p>Table 5-52  </p>
+<p>XcpAppl_CalculateChecksum </p>
+<p><b>5.5.29 </b></p>
+<p><b>XcpAppl_ConStateNotification </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_ConStateNotification</b>( Xcp_ChannelType XcpChannel, uint8 </p>
+<p>ConnectionState ) </p>
+<p><b>Parameter </b></p>
+<p>XcpChannel </p>
+<p>The channel number in multi client mode. </p>
+<p>ConnectionState </p>
+<p>The new connection state (</p>
+<p>XCP_CON_STATE_RESUME</p>
+<p>, </p>
+<p>XCP_CON_STATE_DISCONNECTED</p>
+<p>, </p>
+<p>XCP_CON_STATE_CONNECTED</p>
+<p>).</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Notifies the application that the connection state has changed and which the new state is. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task and interrupt level </p>
+<p>Table 5-53  </p>
+<p>XcpAppl_ConStateNotification </p>
+<p><b>5.5.30 </b></p>
+<p><b>XcpAppl_MemCpy </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 <b>XcpAppl_MemCpy</b>( uint8 * Dst, const uint8 * Src, uint16 Size ) </p>
+<p><b>Parameter </b></p>
+<p>Dst </p>
+<p>The destination where the data is copied to. </p>
+<p>Src </p>
+<p>The source where the data is copied from.</p>
+<p> </p>
+<p>Size </p>
+<p>The number of byte to be copied.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>67 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Copies data from source to destination. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>The XCP Protocol Layer has to be initialized correctly. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task and interrupt level </p>
+<p>Table 5-54  </p>
+<p>XcpAppl_MemCpy </p>
+<p><b>5.6 </b></p>
+<p><b>Services used by XCP </b></p>
+<p>In the following table services provided by other components, which are used by the XCP </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>OS </p>
+<p>GetCoreID </p>
+<p>Table 5-55  </p>
+<p>Services used by the XCP </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>68 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The XCP supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the XCP parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the Xcp_bswmd.arxml file. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>69 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p><b>A2L </b></p>
+<p>File Extension for an <b>A</b>SAM <b>2</b>MC <b>L</b>anguage File </p>
+<p><b>AML </b></p>
+<p><b>A</b>SAM 2 <b>M</b>eta <b>L</b>anguage </p>
+<p><b>API </b></p>
+<p><b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface </p>
+<p><b>ASAM </b></p>
+<p><b>A</b>ssociation for <b>S</b>tandardization of <b>A</b>utomation and <b>M</b>easuring Systems </p>
+<p><b>BYP </b></p>
+<p><b>BYP</b>assing </p>
+<p><b>CAN </b></p>
+<p><b>C</b>ontroller <b>A</b>rea <b>N</b>etwork </p>
+<p><b>CAL </b></p>
+<p><b>CAL</b>ibration </p>
+<p><b>CANape </b></p>
+<p>Calibration  and  Measurement  Data  Acquisition  for  Electronic  Control </p>
+<p>Systems </p>
+<p><b>CMD </b></p>
+<p><b>C</b>o<b>m</b>man<b>d </b></p>
+<p><b>CTO </b></p>
+<p><b>C</b>ommand <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>DAQ </b></p>
+<p>Synchronous <b>D</b>ata <b>A</b>c<b>q</b>uistion </p>
+<p><b>DLC </b></p>
+<p><b>D</b>ata <b>L</b>ength <b>C</b>ode ( Number of data bytes of a CAN message ) </p>
+<p><b>DLL </b></p>
+<p><b>D</b>ata <b>l</b>ink <b>l</b>ayer </p>
+<p><b>DTO </b></p>
+<p><b>D</b>ata <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>ECU </b></p>
+<p><b>E</b>lectronic <b>C</b>ontrol <b>U</b>nit </p>
+<p><b>ERR </b></p>
+<p><b>Err</b>or Packet </p>
+<p><b>EV </b></p>
+<p><b>Ev</b>ent packet </p>
+<p><b>ID </b></p>
+<p><b>Id</b>entifier (of a CAN message) </p>
+<p><b>Identifier </b></p>
+<p>Identifies a CAN message </p>
+<p><b>ISR </b></p>
+<p><b>I</b>nterrupt <b>S</b>ervice <b>R</b>outine </p>
+<p><b>MCS </b></p>
+<p><b>M</b>aster <b>C</b>alibration <b>S</b>ystem </p>
+<p><b>Message </b></p>
+<p>One or more signals are assigned to each message. </p>
+<p><b>ODT </b></p>
+<p><b>O</b>bject <b>D</b>escriptor <b>T</b>able </p>
+<p><b>OEM </b></p>
+<p><b>O</b>riginal <b>e</b>quipment <b>m</b>anufacturer (vehicle manufacturer) </p>
+<p><b>PAG </b></p>
+<p><b>PAG</b>ing </p>
+<p><b>PID </b></p>
+<p><b>P</b>acket <b>Id</b>entifier </p>
+<p><b>PGM </b></p>
+<p><b>P</b>ro<b>g</b>ra<b>m</b>ming </p>
+<p><b>RAM </b></p>
+<p><b>R</b>andom <b>A</b>ccess <b>M</b>emory </p>
+<p><b>RES </b></p>
+<p>Command <b>Res</b>ponse Packet </p>
+<p><b>ROM </b></p>
+<p><b>R</b>ead <b>O</b>nly <b>M</b>emory </p>
+<p><b>SERV </b></p>
+<p><b>Ser</b>vice Request Packet </p>
+<p><b>STIM </b></p>
+<p><b>Stim</b>ulation </p>
+<p><b>TCP/IP </b></p>
+<p><b>T</b>ransfer <b>C</b>ontrol <b>P</b>rotocol / <b>I</b>nternet <b>P</b>rotocol </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>70 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>UDP/IP </b></p>
+<p><b>U</b>nified <b>D</b>ata <b>P</b>rotocol / <b>I</b>nternet <b>P</b>rotocol </p>
+<p><b>USB </b></p>
+<p><b>U</b>niversal <b>S</b>erial <b>B</b>us </p>
+<p><b>XCP </b></p>
+<p>Universal Measurement and <b>C</b>alibration <b>P</b>rotocol </p>
+<p><b>VI </b></p>
+<p><b>V</b>ector <b>I</b>nformatik GmbH </p>
+<p>Table 7-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical ReferenceTechnical Reference MICROSAR XCPMICROSAR XCP </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.0.02.0.0 </p>
+<p>71 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

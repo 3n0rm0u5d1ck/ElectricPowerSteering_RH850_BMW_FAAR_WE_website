@@ -1,0 +1,2643 @@
+---
+layout: default
+title: TechnicalReference_Asr_FrTp
+nav_order: 2
+parent: FlexRay ISO Transport Layer
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR FrTp </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 2.00.04 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Knut Winkelbach, Oliver Reineke </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Knut Winkelbach </p>
+<p>2008-09-05 </p>
+<p>0.1 </p>
+<p>First version for Pre-Release. </p>
+<p>Klaus Bergdolt </p>
+<p>2008-09-16 </p>
+<p>0.2 </p>
+<p>Manual configuration when using ECUC files. </p>
+<p>Knut Winkelbach </p>
+<p>2009-01-26 </p>
+<p>1.0 </p>
+<p>Adapted to new features, explained limitations in </p>
+<p>more detail. </p>
+<p>Knut Winkelbach </p>
+<p>2009-03-28 </p>
+<p>1.1 </p>
+<p>Clarified interaction with FrIf. </p>
+<p>Removed feature overview. </p>
+<p>Knut Winkelbach </p>
+<p>2009-06-29 </p>
+<p>1.2 </p>
+<p>Added description of new features for code size </p>
+<p>optimization. </p>
+<p>Knut Winkelbach </p>
+<p>2009-07-07 </p>
+<p>1.3 </p>
+<p>Rework after review. </p>
+<p>Knut Winkelbach </p>
+<p>2009-11-20 </p>
+<p>1.4 </p>
+<p>Described new code optimizations in conjunction </p>
+<p>with their use cases. </p>
+<p>Adapted erroneous prototype of FrTp_Transmit() </p>
+<p>Extended description of GENy configurable options. </p>
+<p>Knut Winkelbach </p>
+<p>2009-12-01 </p>
+<p>1.5 </p>
+<p>Rework after review. </p>
+<p>Knut Winkelbach </p>
+<p>2010-04-22 </p>
+<p>1.6 </p>
+<p>Straightened description of &quot;Multi Purpose Tp&quot; </p>
+<p>Added error detection hints and support for &quot;Multiple </p>
+<p>Identity&quot; of Ecus.. </p>
+<p>Added description of feature </p>
+<p>&quot;FrTp_ChangeParameterRequest&quot;_(extended </p>
+<p>parameter change) and </p>
+<p>&quot;FrTp_ReadParameterRequest&quot;. </p>
+<p>Knut Winkelbach </p>
+<p>2010-05-07 </p>
+<p>1.7 </p>
+<p>Rework after review. </p>
+<p>Knut Winkelbach </p>
+<p>2010-05-21 </p>
+<p>1.8 </p>
+<p>Corrected prototype of </p>
+<p>FrTp_ReadParameterRequest. </p>
+<p>Knut Winkelbach </p>
+<p>2010-08-20 </p>
+<p>1.9 </p>
+<p>Added description of optimizations for GW-</p>
+<p>operation. </p>
+<p>Knut Winkelbach </p>
+<p>2010-08-26 </p>
+<p>1.10 </p>
+<p>Rework after review. </p>
+<p>Knut Winkelbach </p>
+<p>2011-02-07 </p>
+<p>1.11 </p>
+<p>Clarified FrIf_Transmit(), FrTp_TriggerTransmit() and </p>
+<p>description of E_PENDING </p>
+<p>Optimizations for faster Rx- and Tx-Buffer-Retrieval </p>
+<p>now controlled by 'FrTp Disable Fast Buf Retrieval' </p>
+<p>instead of 'Have Fast Segm Stf Seg Rx:' and 'Have </p>
+<p>Fast Unsegm Stf Unseg Rx'. </p>
+<p>Knut Winkelbach </p>
+<p>2011-02-21 </p>
+<p>1.12 </p>
+<p>Corrected description of 'FrTp Disable Fast Buf </p>
+<p>Retrieval'. </p>
+<p>Knut Winkelbach </p>
+<p>2011-05-23 </p>
+<p>1.13 </p>
+<p>Corrected revision history (aligned version with ALM </p>
+<p>tool). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p>Knut Winkelbach </p>
+<p>2011-07-27 </p>
+<p>1.14 </p>
+<p>Removed description of FrIf_Transmit return code </p>
+<p>E_PENDING. </p>
+<p>Removed feature providing AUTOSAR 4 prototypes </p>
+<p>&amp; corrected all features depending on the feature </p>
+<p>removed. </p>
+<p>Overworked chapter Multi Identity (new feature Multi </p>
+<p>Config added). </p>
+<p>Knut Winkelbach </p>
+<p>2012-01-11 </p>
+<p>1.15 </p>
+<p>Added description of  FrTp_CancelReceive, updated </p>
+<p>description of FrTp_CancelTransmit, </p>
+<p>FrTp_ChangeParameter, removed CancelReason </p>
+<p>Removed section “Configuration with *.GNY project </p>
+<p>files” because configuration with FIBEX files is no </p>
+<p>longer supported by GENy. Overworked section </p>
+<p>“Configuration” and “Important Hints” as a </p>
+<p>consequence of this. </p>
+<p>Knut Winkelbach </p>
+<p>2012-07-10 </p>
+<p>1.16 </p>
+<p>Corrected “Contents”. </p>
+<p>Knut Winkelbach </p>
+<p>2013-02-21 </p>
+<p>1.17 </p>
+<p>Update to single source concept to be able to </p>
+<p>generate separate AUTOSAR 3 / 4 documents. </p>
+<p>Knut Winkelbach </p>
+<p>2013-05-17 </p>
+<p>1.18 </p>
+<p>No support of Acknowledge or Acknowledge and </p>
+<p>Retry. </p>
+<p>Knut Winkelbach </p>
+<p>2014-01-20 </p>
+<p>1.19 </p>
+<p>1. No ChangeParameter Confirmation Callback </p>
+<p>2. AUTOSAR-compliant prototype of </p>
+<p>FrTp_ChangeParameter </p>
+<p>3. FrTp_Shutdown cancelling all transfers optionally </p>
+<p>Knut Winkelbach </p>
+<p>2014-05-21 </p>
+<p>1.20 </p>
+<p>AUTOSAR 4.1.2 compliant PduR-API (Replacement </p>
+<p>of NotifResultType by Std_ReturnType) </p>
+<p>Check separation cycles in </p>
+<p>FrTp_ChangeParameter() vs. FrTpTimeoutCr. </p>
+<p>Knut Winkelbach </p>
+<p>2014-11-06 </p>
+<p>2.00.00 </p>
+<p>Separate development of AUTOSAR4 version. </p>
+<p>Support of postbuild selectable configurations. </p>
+<p>Support of runtime measurement. </p>
+<p>Knut Winkelbach </p>
+<p>2015-08-14 </p>
+<p>2.00.01 </p>
+<p>Added link to Technical Reference “Postbuild </p>
+<p>Selectable”, introduced new critical section. </p>
+<p>Knut Winkelbach </p>
+<p>2015-12-17 </p>
+<p>2.00.02 </p>
+<p>Updated Deviations Chapter. </p>
+<p>Knut Winkelbach </p>
+<p>2016-08-04 </p>
+<p>2.00.03 </p>
+<p>Re-creation based on newest Template. </p>
+<p>Knut Winkelbach </p>
+<p>2016-11-30 </p>
+<p>2.00.04 </p>
+<p>Added hint regarding unsupported config. variant “no </p>
+<p>Tx-Pdu-Pools at all”. </p>
+<p><b> </b></p>
+<p><b>Referenced Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>ISO_IS_10681-2_(E).doc </p>
+<p>2009-12-10 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_FlexRayISOTransportLayer.pdf </p>
+<p>V4.0.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>V3.2.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_PDURouter.pdf </p>
+<p>V3.2.0 </p>
+<p>[5] </p>
+<p> Vector </p>
+<p>TechnicalReference_Asr_EcuM.pdf </p>
+<p>See delivery </p>
+<p>[6] </p>
+<p> Vector </p>
+<p>TechnicalReference_Asr_Dbg.pdf </p>
+<p>See delivery </p>
+<p>[7] </p>
+<p> Vector </p>
+<p>TechnicalReference_PostBuildLoadable.pdf </p>
+<p>See delivery </p>
+<p>[8] </p>
+<p> Vector </p>
+<p>TechnicalReference_IdentityManager.pdf </p>
+<p>See delivery </p>
+<p>[9] </p>
+<p> Vector </p>
+<p>TechnicalReference_Asr4Rtm.pdf </p>
+<p>See delivery </p>
+<p>[10]  Vector </p>
+<p>TechnicalReference_PostBuildSelectable.pdf </p>
+<p>See delivery </p>
+<p>[11]  AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>V1.6.0 </p>
+<p>[12]  AUTOSAR </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>V3.2.0 </p>
+<p>[13]  Vector </p>
+<p>AN-ISC-8-1140_FrIf_JLE_Configuration.pdf </p>
+<p>See delivery </p>
+<p>Scope of the Document: </p>
+<p>This technical reference describes the general use of the FrTp basis software. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 8</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 12</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 12</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 13</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 13</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 15</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 15</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 15</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 15</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 15</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping ..................................................... 17</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Compatibility Checks ....................................................................................... 18</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Steps to Start Up.............................................................................................. 18</p>
+<p> </p>
+<p>4.5.1</p>
+<p> </p>
+<p>Checklist .......................................................................................... 18</p>
+<p> </p>
+<p>4.5.2</p>
+<p> </p>
+<p>Transmission .................................................................................... 19</p>
+<p> </p>
+<p>4.5.3</p>
+<p> </p>
+<p>Reception ......................................................................................... 20</p>
+<p> </p>
+<p>4.5.4</p>
+<p> </p>
+<p>Buffer Handling ................................................................................ 20</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>Troubleshooting ............................................................................................... 21</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>Postbuild Variants ............................................................................................ 21</p>
+<p> </p>
+<p>4.7.1</p>
+<p> </p>
+<p>Post-build Selectable ....................................................................... 21</p>
+<p> </p>
+<p>4.7.2</p>
+<p> </p>
+<p>Post-build loadable .......................................................................... 21</p>
+<p> </p>
+<p>4.7.3</p>
+<p> </p>
+<p>Post-build loadable selectable .......................................................... 22</p>
+<p> </p>
+<p>4.7.4</p>
+<p> </p>
+<p>Post-build deleteable ........................................................................ 22</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>Recommended compiler switches .................................................................... 22</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 23</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 23</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by FrTp ............................................................................... 23</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>FrTp_Init .......................................................................................... 23</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>FrTp_InitMemory .............................................................................. 23</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>FrTp_Shutdown ............................................................................... 24</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>FrTp_Transmit ................................................................................. 25</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2.5</p>
+<p> </p>
+<p>FrTp_CancelTransmit....................................................................... 26</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>FrTp_CancelReceive ....................................................................... 27</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>FrTp_ChangeParameter .................................................................. 28</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>FrTp_MainFunction .......................................................................... 29</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>FrTp_GetVersionInfo ........................................................................ 30</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by FrTp ..................................................................................... 31</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Services with AUTOSAR compliant prototypes ................................ 31</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Services that are MICROSAR extensions ........................................ 31</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 31</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>FrTp_TxConfirmation ....................................................................... 32</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>FrTp_RxIndication ............................................................................ 32</p>
+<p> </p>
+<p>5.4.3</p>
+<p> </p>
+<p>FrTp_TriggerTransmit ...................................................................... 33</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 35</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 35</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 35</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 36</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ....................................................... 10</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the FrTp ............................................... 11</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 8</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 12</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 13</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 13</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 14</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 14</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 15</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 15</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Compiler abstraction and memory mapping .............................................. 18</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>FrTp_Init ................................................................................................... 23</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>FrTp_InitMemory ...................................................................................... 24</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>FrTp_Shutdown ........................................................................................ 25</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>FrTp_Transmit .......................................................................................... 26</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>FrTp_CancelTransmit ............................................................................... 27</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>FrTp_CancelReceive ................................................................................ 28</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>FrTp_ChangeParameter ........................................................................... 29</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>FrTp_MainFunction................................................................................... 29</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>FrTp_GetVersionInfo ................................................................................ 31</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Services used by the FrTp ........................................................................ 31</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>FrTp_TxConfirmation ................................................................................ 32</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>FrTp_RxIndication .................................................................................... 33</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>FrTp_TriggerTransmit ............................................................................... 34</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 35</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 35</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>FRTP_SW_MAJOR_</p>
+<p>VERSION: 2 </p>
+<p>FRTP_SW_MINOR_ </p>
+<p>VERSION: 4 </p>
+<p>SafeBSW </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module FrTp as specified in [2] and [2].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.0.3 (with deviations), 4.2.1 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile, link-time, post-build </p>
+<p><b>Vendor ID: </b></p>
+<p>FrTp_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>FrTp_MODULE_ID   </p>
+<p>36 decimal </p>
+<p>(according to ref. [11]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The FrTp component implements a transport protocol according to ISO10681-2 to be used </p>
+<p>in AUTOSAR communication stacks. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the FrTp is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p>The next figure shows the interfaces to adjacent modules of the FrTp. These interfaces are </p>
+<p>described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the FrTp </p>
+<p><b> class Module Structure</b></p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_General</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrTp_CancelReceive()</p>
+<p>+ </p>
+<p>FrTp_CancelTransmit()</p>
+<p>+ </p>
+<p>FrTp_ChangeParameter()</p>
+<p>+ </p>
+<p>FrTp_GetVersionInfo()</p>
+<p>+ </p>
+<p>FrT p_Init()</p>
+<p>+ </p>
+<p>FrTp_InitMemory()</p>
+<p>+ </p>
+<p>FrTp_MainFunction()</p>
+<p>+ </p>
+<p>FrTp_RxIndication()</p>
+<p>+ </p>
+<p>FrTp_Shutdown()</p>
+<p>+ </p>
+<p>FrTp_Transmit()</p>
+<p>+ </p>
+<p>FrTp_TriggerTransmit()</p>
+<p>+ </p>
+<p>FrTp_TxConfirmation()</p>
+<p>Module</p>
+<p>PduR</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_Util</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_Util_AssemblePdu()</p>
+<p>+ </p>
+<p>FrTp_Util_Make16Bit()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadBC()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadBfS()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadFPL()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadML()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadSA()</p>
+<p>+ </p>
+<p>FrTp_Util_ReadTA()</p>
+<p>+ </p>
+<p>FrTp_Util_WriteFPL()</p>
+<p>+ </p>
+<p>FrTp_Util_WriteML()</p>
+<p>Module</p>
+<p>EcuM</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_FrIf</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_FrIf_DecreaseNumFreePdusOverlapped()</p>
+<p>+ </p>
+<p>FrTp_FrIf_FindFreeTxPdu()</p>
+<p>+ </p>
+<p>FrTp_FrIf_IncreaseNumTxConfOverlapped()</p>
+<p>+ </p>
+<p>FrT p_FrIf_Init()</p>
+<p>+ </p>
+<p>FrTp_FrIf_ProcessTxConfirmations()</p>
+<p>+ </p>
+<p>FrTp_FrIf_ResetTxPduPending()</p>
+<p>+ </p>
+<p>FrTp_FrIf_RxIndication()</p>
+<p>+ </p>
+<p>FrTp_FrIf_RxIndicationRxSm()</p>
+<p>+ </p>
+<p>FrTp_FrIf_RxIndicationTxSm()</p>
+<p>+ </p>
+<p>FrTp_FrIf_TransmitPduForConn()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_Rsrc</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_Rsrc_AllocateRxSm()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_AllocateTxSm()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_FindRxSm()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_FindTxSm()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_InitAllConns()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_InitAllSms()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_ReleaseRxSm()</p>
+<p>+ </p>
+<p>FrTp_Rsrc_ReleaseTxSm()</p>
+<p>FrTp area</p>
+<p>FrTp</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_RxSm</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_RxSm_ActionOf()</p>
+<p>+ </p>
+<p>FrTp_RxSm_CalcBfsValue()</p>
+<p>+ </p>
+<p>FrTp_RxSm_CopyRxData()</p>
+<p>+ </p>
+<p>FrTp_RxSm_EvalBufReqRetVal()</p>
+<p>+ </p>
+<p>FrTp_RxSm_FrIfRxIndication()</p>
+<p>+ </p>
+<p>FrTp_RxSm_FrIfTransmit()</p>
+<p>+ </p>
+<p>FrTp_RxSm_FrIfTxConfirmation()</p>
+<p>+ </p>
+<p>FrTp_RxSm_OperateAllSms()</p>
+<p>+ </p>
+<p>FrTp_RxSm_PrepareAllSms()</p>
+<p>+ </p>
+<p>FrTp_RxSm_ReceivedLF()</p>
+<p>+ </p>
+<p>FrTp_RxSm_ReceivedSegmPdu()</p>
+<p>+ </p>
+<p>FrTp_RxSm_ReceivedSTF()</p>
+<p>+ </p>
+<p>FrTp_RxSm_RequestAvailRxBufAndTryToCopy()</p>
+<p>+ </p>
+<p>FrTp_RxSm_TimeoutOf()</p>
+<p>+ </p>
+<p>FrTp_RxSm_TolerateRxIndEarlierThanTxConf()</p>
+<p>+ </p>
+<p>FrTp_RxSm_TriggerTransmit()</p>
+<p>+ </p>
+<p>FrTp_RxSm_WaitForBufferSegmRxn()</p>
+<p>+ </p>
+<p>FrTp_RxSm_WaitForBufferUnsegmRxn()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_TxSm</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_TxSm_ActionOf()</p>
+<p>+ </p>
+<p>FrTp_TxSm_CFTxConfirmation()</p>
+<p>+ </p>
+<p>FrTp_TxSm_CopyPayloadOnePdu()</p>
+<p>+ </p>
+<p>FrTp_TxSm_CopyTxData()</p>
+<p>+ </p>
+<p>FrTp_TxSm_EvalBufReqRetVal()</p>
+<p>+ </p>
+<p>FrTp_TxSm_EvalFrIfTransmitRetVal()</p>
+<p>+ </p>
+<p>FrTp_TxSm_FrIfRxIndication()</p>
+<p>+ </p>
+<p>FrTp_TxSm_FrIfTxConfirmation()</p>
+<p>+ </p>
+<p>FrTp_TxSm_OperateAllSms()</p>
+<p>+ </p>
+<p>FrTp_TxSm_PrepareAllSms()</p>
+<p>+ </p>
+<p>FrTp_TxSm_PrepareNxtCFaccordingBC()</p>
+<p>+ </p>
+<p>FrTp_TxSm_RequestAvailableTxData()</p>
+<p>+ </p>
+<p>FrTp_TxSm_TimeoutOf()</p>
+<p>+ </p>
+<p>FrTp_TxSm_TriggerTransmit()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_Common</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_CalcPduPayloadLen()  :void</p>
+<p>+ </p>
+<p>FrTp_ConnGetRxPoolOffset()  :void</p>
+<p>+ </p>
+<p>FrTp_ConnGetTxPoolOffset()  :void</p>
+<p>+ </p>
+<p>FrTp_GetConnCtrlItem()  :void</p>
+<p>+ </p>
+<p>FrTp_GetFmtOffsetFromPci()  :void</p>
+<p>+ </p>
+<p>FrTp_Max()  :void</p>
+<p>+ </p>
+<p>FrTp_Min()  :void</p>
+<p>+ </p>
+<p>FrTp_RxGetPduPayloadLen()  :void</p>
+<p>+ </p>
+<p>FrTp_RxSm_CalcRemainingBytes()  :void</p>
+<p>+ </p>
+<p>FrTp_RxSm_Item()  :void</p>
+<p>+ </p>
+<p>FrTp_SeqNumSubtract()  :void</p>
+<p>+ </p>
+<p>FrTp_TxGetPduPayloadLen()  :void</p>
+<p>+ </p>
+<p>FrTp_TxSm_CalcRemainingBytes()  :void</p>
+<p>+ </p>
+<p>FrTp_TxSm_Item()  :void</p>
+<p>Module</p>
+<p>Det</p>
+<p>Module</p>
+<p>FrIf</p>
+<p>«EmbeddedInterface»</p>
+<p><b>FrTp_XCfg</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrTp_CCfg_ConnCfg()</p>
+<p>+ </p>
+<p>FrTp_CCfg_FrIfRxPdus()</p>
+<p>+ </p>
+<p>FrTp_CCfg_FrIfTxPdus()</p>
+<p>+ </p>
+<p>FrTp_CCfg_MaxFrIfRxPduId()</p>
+<p>+ </p>
+<p>FrTp_CCfg_MaxFrIfTxPduId()</p>
+<p>+ </p>
+<p>FrTp_CCfg_MaxRxSduId()</p>
+<p>+ </p>
+<p>FrTp_CCfg_MaxTxSduId()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumConn()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumDecoupPdus()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumFrIfRxPdus()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumFrIfTxPdus()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumRxChan()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumTxChan()</p>
+<p>+ </p>
+<p>FrTp_CCfg_NumTxPools()</p>
+<p>+ </p>
+<p>FrTp_CCfg_RxPduPools()</p>
+<p>+ </p>
+<p>FrTp_CCfg_RxPduSnv2RxPduIdx()</p>
+<p>+ </p>
+<p>FrTp_CCfg_RxSduSnv2ConnIdx()</p>
+<p>+ </p>
+<p>FrTp_CCfg_TxPduPools()</p>
+<p>+ </p>
+<p>FrTp_CCfg_TxPduSnv2TxPduIdx()</p>
+<p>+ </p>
+<p>FrTp_CCfg_TxSduSnv2ConnIdx()</p>
+<p>+ </p>
+<p>FrTp_LCfg_CfgPtr()</p>
+<p>+ </p>
+<p>FrTp_LCfg_InitState()</p>
+<p>+ </p>
+<p>FrTp_LCfg_RxCurrRoundRobChan()</p>
+<p>+ </p>
+<p>FrTp_LCfg_RxSm_MaxIterations()</p>
+<p>+ </p>
+<p>FrTp_LCfg_TxCurrRoundRobChan()</p>
+<p>+ </p>
+<p>FrTp_LCfg_TxSm_MaxIterations()</p>
+<p>+ </p>
+<p>FrTp_VCfg_ConnState()</p>
+<p>+ </p>
+<p>FrTp_VCfg_DecoupPduAdminData()</p>
+<p>+ </p>
+<p>FrTp_VCfg_FrIfTxBuf()</p>
+<p>+ </p>
+<p>FrTp_VCfg_PoolData()</p>
+<p>+ </p>
+<p>FrTp_VCfg_RxBuf()</p>
+<p>+ </p>
+<p>FrTp_VCfg_RxFrIfPending()</p>
+<p>+ </p>
+<p>FrTp_VCfg_RxState()</p>
+<p>+ </p>
+<p>FrTp_VCfg_TxBuf()</p>
+<p>+ </p>
+<p>FrTp_VCfg_TxFrIfPending()</p>
+<p>+ </p>
+<p>FrTp_VCfg_TxState()</p>
+<p>Module</p>
+<p>SDU User</p>
+<p>Module</p>
+<p>SchM</p>
+<p>Module</p>
+<p>FBL</p>
+<p>SDU Flow</p>
+<p>PDU Flow</p>
+<p>Protocol Implementation</p>
+<p>Resource Management</p>
+<p>GenData Access</p>
+<p><b>Legend</b></p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>FrTp. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [2],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further FrTp functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [2] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>AUTOSAR Debugging: Internal variables can be accessed through the Vector  </p>
+<p>MICROSAR DBG module </p>
+<p>Postbuild Loadable: Configuration parameters can be changed and new connections can be </p>
+<p>added at post-build time. </p>
+<p>Postbuild Selectable: Support of multiple ECU variants; the currently active variant is selected </p>
+<p>during initialization. </p>
+<p>AUTOSAR Runtime Measurement: Runtime of functions FrTp_TxConfirmation, </p>
+<p>FrTp_RxIndication, FrTp_TriggerTransmit, FrTp_MainFunction can be measured </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations</b></p>
+<p><b> </b></p>
+<p>The following features are not supported or deviate from document [2]: </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>Version </b></p>
+<p>Functional </p>
+<p>“Acknowledgement and Retry” is not supported. </p>
+<p>4.0.3 </p>
+<p>Functional </p>
+<p>“FrIf Retry” i.e. retry of calls to FrIf_Transmit() after FrIf errors is not </p>
+<p>supported. </p>
+<p>4.0.3 </p>
+<p>Functional </p>
+<p>The FrTp does not implement the buffer handling of AUTOSAR SWS </p>
+<p>FrTp 4.0.3 (Version 4.0.3 specifies using parameters FrTpTimeBuffer </p>
+<p>and  FrTpMaxFcWait  as  a  timing  basis  for  data  exchange  with  the </p>
+<p>PduR.  Instead  the  FrTp  tries  to  copy  Rx-  or  Tx-data  for  a  duration </p>
+<p>defined by parameters FrTpTimeBr and FrTpTimeCs as specified by </p>
+<p>version 4.2.1). </p>
+<p>4.0.3 &lt; </p>
+<p>4.2.1 </p>
+<p>Config </p>
+<p>Parameter FrTpMaxFCWait of container FrTpConnectionControl: </p>
+<p>The full range of values: [0..255] of that parameter is not  supported  </p>
+<p>(Instead the FrTp supports a range of [0..254]). </p>
+<p>4.0.3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>Version </b></p>
+<p>Config </p>
+<p>Parameter FrTpTimeBuffer of container FrTpConnectionControl: </p>
+<p>This parameter is ignored (Instead the FrTp supports the asking for </p>
+<p>Tx-data </p>
+<p>or </p>
+<p>Rx-buffer </p>
+<p>at </p>
+<p>each </p>
+<p>call </p>
+<p>to </p>
+<p>FrTp_MainFunction() </p>
+<p>as </p>
+<p>described in AUTOSAR SWS FrTp 4.2.1). </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>Parameter FrTpMaxFrIf of container FrTpConnectionControl: </p>
+<p>This </p>
+<p>parameter </p>
+<p>is </p>
+<p>ignored </p>
+<p>because </p>
+<p>the </p>
+<p>related </p>
+<p>feature </p>
+<p>is </p>
+<p>not </p>
+<p>implemented.  In  addition  the  full  range  of  values:  [0..255]    of  that </p>
+<p>parameter  is  not  supported  (Instead  the  FrTp  supports  a  range  of </p>
+<p>[1..255]). </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>FrTpTxPdu </p>
+<p>The </p>
+<p>maximum </p>
+<p>number </p>
+<p>of </p>
+<p>containers </p>
+<p>of </p>
+<p>type </p>
+<p>FrTpTxPdu </p>
+<p>is </p>
+<p>not </p>
+<p>supported (Instead the FrTp supports 254 Tx-Pdus). </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>FrTpTxPduPool </p>
+<p>The  maximum  number  of  containers  of  type  FrTpTxPduPool  is  not </p>
+<p>supported (Instead the FrTp supports 254 Tx-Pdu-Pools). </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>FrTpRuntime </p>
+<p>The maximum number of runtime ressources of type FrTpChannel is </p>
+<p>not supported (Instead the FrTp supports 254 FrTpChannels). </p>
+<p>4.0.3 </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>n/a </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.2.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [3],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>FrTp_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported FrTp ID is 36. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>FrTp_Init_ServiceId </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x01 </p>
+<p>FrTp_Shutdown_ServiceId </p>
+<p>0x02 </p>
+<p>FrTp_Transmit_ServiceId </p>
+<p>0x03 </p>
+<p>FrTp_CancelTransmit_ServiceId (#if (FRTP_HAVE_TC == STD_ON)) </p>
+<p>0x04 </p>
+<p>FrTp_ChangeParameter_ServiceId </p>
+<p>0x08 </p>
+<p>FrTp_CancelReceive_ServiceId </p>
+<p>0x10 </p>
+<p>FrTp_MainFunction_ServiceId </p>
+<p>0x27 </p>
+<p>FrTp_GetVersionInfo_ServiceId </p>
+<p>0x40 </p>
+<p>FrTp_TxConfirmation_ServiceId </p>
+<p>0x41 </p>
+<p>FrTp_TriggerTransmit_ServiceId </p>
+<p>0x42 </p>
+<p>FrTp_RxIndication_ServiceId </p>
+<p>0x81 </p>
+<p>FrTp_ReadParameter_ServiceId </p>
+<p>Table 3-4  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>FRTP_E_NOT_INIT </p>
+<p>0x02 </p>
+<p>FRTP_E_NULL_PTR </p>
+<p>0x03 </p>
+<p>FRTP_E_INVALID_PDU_SDU_ID </p>
+<p>0x04 </p>
+<p>FRTP_E_INVALID_PARAMETER (FRTP_WRONG_PARAM_VAL) </p>
+<p>0x05 </p>
+<p>FRTP_E_SEG_ERROR </p>
+<p>0x06 </p>
+<p>FRTP_E_UMSG_LENGTH_ERROR </p>
+<p>0x07 </p>
+<p>FRTP_E_NO_CHANNEL </p>
+<p>0xff </p>
+<p>FRTP_E_NO_ERROR </p>
+<p>Table 3-5  </p>
+<p>Errors reported to DET </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR  FrTp into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the FrTp contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>FrTp.c, FrTp_Rscr.c, </p>
+<p>FrTp_FrIf.c, FrTp_RxSm.c, </p>
+<p>FrTp_TxSm.c, FrTp_Util.c </p>
+<p>These are the source files of the FrTp</p>
+<p> </p>
+<p>FrTp_Types.h </p>
+<p>This header file defines the data types used by the FrTp </p>
+<p>FrTp_Common.h </p>
+<p>This is an internal header file of the FrTp</p>
+<p> </p>
+<p>FrTp_Lcfg.h </p>
+<p>This header file declares the Link-Time configuration in case the </p>
+<p>variant Link-Time-configuration is selected </p>
+<p>FrTp_PBcfg.h </p>
+<p>This header file declares the PB configuration in case the variant PB </p>
+<p>is selected </p>
+<p>FrTp_Cbk.h </p>
+<p>This header declares callback functions. </p>
+<p>FrTp.h </p>
+<p>This header declares the FrTp function prototypes </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>FrTp_PBcfg.c </p>
+<p>This file contains generated data defining the PB configuration in case the </p>
+<p>variant PB is selected </p>
+<p>FrTp_Lcfg.c </p>
+<p>This file contains generated data defining the Link-Time configuration in case the </p>
+<p>variant Link-Time-configuration is selected </p>
+<p>FrTp_cfg.h </p>
+<p>This file is a generated header file defining the FrTp-specific settings of the FrTp </p>
+<p>FrTp_GlobCfg</p>
+<p>.h </p>
+<p>This file is a generated header file declaring the global configuration struct of the </p>
+<p>FrTp. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p><b>&gt; </b></p>
+<p>The FrTp uses the critical section FRTP_EXCLUSIVE_AREA_0. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>The purpose of this critical section is to protect the rx- and tx-statemachines from </p>
+<p>inconsistencies during runtime. </p>
+<p><b>&gt; </b></p>
+<p>The critical section FRTP_EXCLUSIVE_AREA_0 is used by all API functions of the </p>
+<p>FrTp. In detail these are: </p>
+<p><b>&gt; </b></p>
+<p>FrTp_MainFunction(): It is called synchronous to the FlexRay-bus, once each </p>
+<p>FlexRay-cycle. The locking time is long. </p>
+<p>In detail its runtime expands with the number of active TP message transfers and as </p>
+<p>the runtime of the functions PduR_FrTpCopyTxData() and PduR_FrTpCopyRxData() </p>
+<p>expands. Seldom, also calls to PduR_FrTpTxConfirmation() and </p>
+<p>PduR_FrTpRxIndication() are done. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_RxIndication(): The locking time is short. </p>
+<p>This function incorporates callouts to the PduR. Its runtime expands, as the runtime </p>
+<p>of the functions PduR_FrTpStartOfReception() and PduR_FrTpCopyRxData() </p>
+<p>expands. Seldom, also a call to PduR_FrTpRxIndication() is done. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_TxConfirmation():The locking time is short. </p>
+<p>This function incorporates callouts to the PduR. Its runtime expands, as the runtime </p>
+<p>of the functions PduR_CopyTxData() expands. Seldom, also a call to </p>
+<p>PduR_FrTpTxConfirmation() is done. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_TriggerTransmit():The locking time is short. </p>
+<p>This function incorporates callouts to the PduR. Its runtime expands, as the runtime </p>
+<p>of the functions PduR_CopyTxData() expands. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Transmit():The locking time is short. </p>
+<p>This function solely allocates a tx-statemachine. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Implementation of the critical section </p>
+<p><b> </b></p>
+<p>By default the demo application that is delivered with your software locks all interrupts </p>
+<p>of the processor in case the &quot;Enter&quot; macro / function is called and releases all </p>
+<p>interrupts of the processor in case the &quot;Exit&quot; macro is called: </p>
+<p>It is recommended to define the exclusive area in a way that it locks the communication </p>
+<p>interrupts of the bus systems affected. These depend on the use case the FrTp is used </p>
+<p>in: </p>
+<p>For use case “Standard Ecu” the critical sections should lock FlexRay-Timer interrupt </p>
+<p>because this interrupt drives the FlexRay-interfaces JobListExecution (JLE) which </p>
+<p>issues the FrTp-related communication events FrTp_RxIndication, </p>
+<p>FrTp_TxConfirmation and FrTp_TriggerTransmit. </p>
+<p>For use case “Gateway Ecu” the critical section should lock the interrupts of all bus-</p>
+<p>systems that affect the FrTp, e.g: </p>
+<p>In case there are CanTp-FrTp-Routings configured then the interrupts that lead to </p>
+<p>calls of CanTp_RxIndication, CanTp_TxConfirmation should also be locked (in </p>
+<p>addition to FlexRay-timer-interrupts). </p>
+<p>In case there are LinTp-FrTp-Routings configured then the interrupts that lead to </p>
+<p>calls of LinTp_RxIndication, LinTp_TxConfirmation should also be locked (in </p>
+<p>addition to FlexRay-timer-interrupts). </p>
+<p>This assures that no rx- or tx-events from busses that affect FrTp-communication </p>
+<p>bring the FrTp statemachine into an inconsistent state. </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Compiler Abstraction and Memory Mapping  </b></p>
+<p>The  objects  (e.g.  variables,  functions,  constants)  are  declared  by  compiler  independent </p>
+<p>definitions  –  the  compiler  abstraction  definitions.  Each  compiler  abstraction  definition  is </p>
+<p>assigned to a memory section. </p>
+<p>The  following  table  contains  the  memory  section  names  and  the  compiler  abstraction </p>
+<p>definitions of the FrTp, and illustrates their assignment among each other. </p>
+<p><b>Compiler Abstraction </b></p>
+<p><b>Definitions </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Memory Mapping </b></p>
+<p><b>Sections </b></p>
+<p>FRTP_CODE </p>
+<p>FRTP_CONST </p>
+<p>FRTP_APPL_DATA </p>
+<p>FRTP_VAR_NOINIT </p>
+<p>FRTP_VAR_ZERO_INIT </p>
+<p>FRTP_VAR_PBCFG </p>
+<p>FRTP_PBCFG </p>
+<p>FRTP_PBCFG_ROOT </p>
+<p>FRTP_START_SEC_CONST_32BIT</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_CONST_16BIT</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_CONST_8BIT</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_PBCFG_ROOT</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p>FRTP_START_SEC_CONST_UNSPECIFIED</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_PBCFG</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_VAR_ZERO_INIT_UNSPECIFIED</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_VAR_NOINIT_UNSPECIFIED</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_VAR_NOINIT_32BIT</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_VAR_NOINIT_16BIT</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_VAR_NOINIT_8BIT</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRTP_START_SEC_CODE </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 4-3  </p>
+<p>Compiler abstraction and memory mapping </p>
+<p>Please see the document [2] for details about how these definitions are being used. </p>
+<p><b>4.4 </b></p>
+<p><b>Compatibility Checks </b></p>
+<p>The  FrTp  component  conducts  a  compatibility  check  during  initialization  in  case  the </p>
+<p>configuration variant is “postbuild”. A failure of this check is caused by generated data that </p>
+<p>does not fit to the FrTp implementation. In this case the function EcuM_BswErrorHook is </p>
+<p>called with error code “ECUM_BSWERROR_MAGICNUMBER”. </p>
+<p><b>4.5 </b></p>
+<p><b>Steps to Start Up </b></p>
+<p>In case of problems during starting up the FrTp, please read the following two chapters </p>
+<p>and check the facts described there. </p>
+<p><b>4.5.1 </b></p>
+<p><b>Checklist </b></p>
+<p>These steps are the &quot;must haves&quot; that have to be fulfilled in order to get the FrTp &quot;up and </p>
+<p>running&quot;: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>“Must Haves” to get the FrTp “up and running” </p>
+<p><b> </b></p>
+<p><b>&gt; </b></p>
+<p>In case no reception or transmission can be done using the FrTp the DET </p>
+<p>should be set active for the FrTp in the configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>The functions FrTp_InitMemory() and FrTp_Init() have to be called before </p>
+<p>operation of the FrTp. </p>
+<p><b>&gt; </b></p>
+<p>The FrTp_MainFunction() has to be called: </p>
+<p><b>&gt; </b></p>
+<p>once per FlexRay cycle and also  </p>
+<p><b>&gt; </b></p>
+<p>synchronous to the FlexRay time. </p>
+<p><b>&gt; </b></p>
+<p>before or after the time of transmission or reception of the FrIf-Pdus used </p>
+<p>by the FrTp </p>
+<p><b>&gt; </b></p>
+<p>It is <b>not </b>possible to mix transmission types (immediate/decoupled) of FrIf-</p>
+<p>Tx-Pdus  that are contained within one Tx-Pdu-Pool. </p>
+<p><b>&gt; </b></p>
+<p>It is <b>mandatory </b>to configure <b>at least one </b>Tx-Pdu-Pool, even though there </p>
+<p>might be (currently unsupported) use cases where the DCM uses the </p>
+<p>FrIf_Transmit() API directly (e.g. the so called “periodic transmission” used </p>
+<p>by some OEMs). </p>
+<p><b>4.5.2 </b></p>
+<p><b>Transmission </b></p>
+<p>In  case  of  problems  transmitting  a  FrTp  message  please  check  that  these  facts  are </p>
+<p>fulfilled: </p>
+<p>1. </p>
+<p>FrTp_Transmit() should return E_OK (‘0’). </p>
+<p>2. </p>
+<p>During the next scheduling of the FrTp_MainFunction() the FrTp should request the </p>
+<p>upper layer (typically the “PduR”) to copy the Tx-data into the TP buffer by a call to </p>
+<p>PduR_FrTpCopyTxData(). </p>
+<p>3. </p>
+<p>After the successful provision of Tx-data in that function the transmission should begin. </p>
+<p>You can verify the start of the transmission of TP-Tx-frames by assuring that the </p>
+<p>function FrIf_Transmit() is called by the FrTp and the functions return value is E_OK.. </p>
+<p>4. </p>
+<p>After that (i.e. after the successfull call to FrTp_TriggerTransmit for decoupled Pdus) </p>
+<p>the function FrTp_TxConfirmation() is called by the FrIf-component that is used. There </p>
+<p>is only one location in FrTp.c where FrIf_Transmit() is called. </p>
+<p>5. </p>
+<p>Each call to FrIf_Transmit() of the FrTp should be acknowledged by a call to </p>
+<p>FrTp_TxConfirmation() done by the FrIf component. </p>
+<p>6. </p>
+<p>In any case the callback &lt;Owner&gt;_FrTpTxConfirmation() should be called after the </p>
+<p>transmission request via FrTp_Transmit() was accepted by the FrTp by returning </p>
+<p>E_OK. The notification-code given to &lt;Owner&gt;_FrTpTxConfirmation() will provide </p>
+<p>additional information about success or failure of the transmission. </p>
+<p>Please refer to document [2] on how to interpret parameters and notification-codes of the </p>
+<p>functions mentioned. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.5.3 </b></p>
+<p><b>Reception </b></p>
+<p>In case of problems receiving a FrTp message, please check that these facts are fulfilled: </p>
+<p> </p>
+<p>1. </p>
+<p>After the first FrTp -frame has been “detected” on the bus by an appropriate analyser-</p>
+<p>tool, the function FrTp_RxIndication() should be called by the FrIf-component that is </p>
+<p>used. </p>
+<p>2. </p>
+<p>During the next scheduling of the FrTp_MainFunction() the FrTp should indicate to the </p>
+<p>upper layer that new Rx-data is available by calling PduR_FrTpStartOfReception(). </p>
+<p>Afterwards FrTp calls PduR_FrTpCopyRxData() in order to store the Rx-data. </p>
+<p>3. </p>
+<p>After the successful provision of Rx-buffer-space the reception should begin, e.g. by </p>
+<p>the transmission of a flow control frame using FrIf_Transmit() in case of an 1:1 </p>
+<p>connection. You can verify the transmission of flow control frames by assuring that the </p>
+<p>function FrIf_Transmit() is called by the FrTp and the function FrTp_TxConfirmation() </p>
+<p>is called by the FrIf-component that is used. There is only one location in FrTp.c where </p>
+<p>FrIf_Transmit() is called. </p>
+<p>4. </p>
+<p>Each call to FrIf_Transmit() of the FrTp should be acknowledged by a call to </p>
+<p>FrTp_TxConfirmation() done by the FrIf component. </p>
+<p>5. </p>
+<p>In any case the callback &lt;Owner&gt;_FrTp_RxIndication() should be called after the </p>
+<p>successful reception of at least one Iso10681-frame. The notification-code given to </p>
+<p>&lt;Owner&gt;_FrTp_RxIndication() will provide additional information about success or </p>
+<p>failure of the reception. </p>
+<p>Please refer to document [2] on how to interpret parameters and notification-codes of the </p>
+<p>functions mentioned. </p>
+<p> </p>
+<p><b>4.5.4 </b></p>
+<p><b>Buffer Handling </b></p>
+<p>During one call of the FrTp_MainFunction() the retrieval of Tx-data or Rx-buffer-space is </p>
+<p>done. For Rx-buffer-retrieval no limitations apply, because the ISO 10681-2 protocol allows </p>
+<p>the  FrTp  to  communicate  to  the  sender  the  exact  buffer  size  available  at  the  receiving </p>
+<p>application. However for Tx-buffer-retrieval the following restriction applies: </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Rx-Buffer and Tx-data handling for functional communication </p>
+<p> </p>
+<p>Please note, that the FrTp does not support multiple calls to PduR_FrTpCopyTxData / </p>
+<p>PduR_FrTpCopyRxData in case the application does not supply the Tx-data / Rx-</p>
+<p>buffer-space of <b>functional </b>connections <b>in one piece</b>. I.e. in case of a 246 byte </p>
+<p>unsegmented functional STF the application has to process the complete payload </p>
+<p>within exactly one call to PduR_FrTpCopyTxData / PduR_FrTpCopyRxData. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.6 </b></p>
+<p><b>Troubleshooting </b></p>
+<p><b>Symptom </b></p>
+<p><b>Solution </b></p>
+<p>An FrTp transmission / reception stops that </p>
+<p>comes from or goes to a Gateway-ECU before </p>
+<p>the data is transferred completely. </p>
+<p>Check the exchanging of Rx- or Tx-buffer-on </p>
+<p>the Gateway-ECU. Often the PduR or the </p>
+<p>transport-layer on the other bus-system has </p>
+<p>configurative problems (e.g. timing) that lead to </p>
+<p>the stopping of the Rx or Tx processes on the </p>
+<p>particular other bus-system. </p>
+<p>The FrTp on a gateway Ecu stops transmitting </p>
+<p>Check the Std_ReturnType code of the </p>
+<p>callback PduR_FrTpTxConfirmation() or </p>
+<p>(better:) the FrTp-internal result of type </p>
+<p>FrTp_NotifResultType that is used in FrTp-</p>
+<p>function FrTpIso_TxInit(). </p>
+<p>The FrTp on a gateway Ecu stops receiving (i.e. </p>
+<p>another &lt;Bus&gt;Tp stops sending (e.g. CanTp) </p>
+<p>Check the Std_ReturnType code of the </p>
+<p>callback PduR_FrTpRxIndication() or (better:) </p>
+<p>the FrTp-internal result of type </p>
+<p>FrTp_NotifResultType that is used in FrTp-</p>
+<p>function FrTpIso_RxInit(). </p>
+<p>FrTp_GlobCfg.h </p>
+<p>This file is a generated header file declaring the </p>
+<p>global configuration struct of the FrTp. </p>
+<p> </p>
+<p><b>4.7 </b></p>
+<p><b>Postbuild Variants </b></p>
+<p><b>4.7.1 </b></p>
+<p><b>Post-build Selectable </b></p>
+<p>The MICROSAR Identity Manager (refer to [2]) is an implementation of the AUTOSAR 4 </p>
+<p>post-build  selectable  concept.  It  allows  the  ECU  manufacturer  to  include  several  FrTp </p>
+<p>configurations  within  one  ECU.  With  post-build  selectable  and  the  Identity  Manager  the </p>
+<p>ECU  variants  are  downloaded  within  the ECUs non-volatile  memory  (e.g.  flash) at  ECU </p>
+<p>build time. Post-build selectable does not allow modification of FrTp  aspects after ECU </p>
+<p>build time. At the same time, this limitation allows some of the optimization strategies still </p>
+<p>to  be  effective  -  FrTp  static  code  part  will  be  optimized  for  the  variant  with  maximum </p>
+<p>configuration </p>
+<p>size. </p>
+<p>The </p>
+<p>variant </p>
+<p>selection </p>
+<p>is </p>
+<p>performed </p>
+<p>at </p>
+<p>runtime </p>
+<p>by </p>
+<p>passing </p>
+<p>the </p>
+<p>corresponding configuration root during the module initialization (refer to chapter 5.2.1). </p>
+<p><b>4.7.2 </b></p>
+<p><b>Post-build loadable </b></p>
+<p>All FrTp configuration parameters, that are classified to be post-build selectable, also do </p>
+<p>support  post-build  loadable  variant.  The  differences  to  the  post-build-selectable  case </p>
+<p>relisted upon their qualification: </p>
+<p><b>&gt; </b></p>
+<p>advantages: </p>
+<p><b>&gt; </b></p>
+<p>The module’s configuration can be updated after the module’s compile time without </p>
+<p>reprogramming the whole ECU software. </p>
+<p><b>&gt; </b></p>
+<p>disadvantages: </p>
+<p><b>&gt; </b></p>
+<p>Since all of the affected configuration-parameters may change after modules compile </p>
+<p>time, the optimization level of the source code is very low. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>Since no maximum configuration size can be pre-calculated, some scalable RAM </p>
+<p>blocks are referred not by a direct linker symbol, but through a pointer. </p>
+<p><b>&gt; </b></p>
+<p>Only one configuration variant is supported at a time (no variant selection at runtime </p>
+<p>possible). This disadvantage is avoided if the post -build loadable selectable variant is </p>
+<p>chosen instead (refer to chapter 4.7.3). </p>
+<p><b>&gt; </b></p>
+<p>Greater risks of passing an invalid pointer during module initialization time. For details </p>
+<p>about the post-build loadable feature, please refer to [2]. </p>
+<p><b>4.7.3 </b></p>
+<p><b>Post-build loadable selectable </b></p>
+<p>This variant actually combines both post-build selectable and loadable variants, allowing a </p>
+<p>variant selection at runtime and at the same time post-build calibration of parameters. For </p>
+<p>details on the two mentioned variants, please refer correspondingly to chapters 4.7.1 and </p>
+<p>4.7.2. </p>
+<p><b>4.7.4 </b></p>
+<p><b>Post-build deleteable </b></p>
+<p>This variant is actually a specific sub-variant of the post-build loadable variants. It allows </p>
+<p>deleting of containers that were created at link time, by guaranteeing at the same time the </p>
+<p>preservation of other post-build capable parameters’ values. For details about this feature, </p>
+<p>refer to document [2]. </p>
+<p><b>4.8 </b></p>
+<p><b>Recommended compiler switches </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Here you can obtain supplemental information. </p>
+<p><b> </b></p>
+<p>In case you want to use the configuration variant post build together with a Greenhills® </p>
+<p>compiler on platform NEC® V850™ and compatible then you should take attention on </p>
+<p>the following compiler switch combination: </p>
+<p>In case you want to use </p>
+<p>option -pack=1</p>
+<p> to reduce code size you should always use </p>
+<p>-misalign_pack </p>
+<p>at the same time in order to prevent a strong increase of the size </p>
+<p>of the static code of the FrTp. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>There  are  no  FrTp-specific  type-definitions  that  go  beyond  the  types  offered  by  the </p>
+<p>AUTOSAR header files  Std_Types.h and  ComStack_Types.h that  would  affect  the  user-</p>
+<p>application. Thus there are no further types described in this chapter. </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by FrTp </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>FrTp_Init </b></p>
+<p><b>Prototype </b></p>
+<p>retCode</p>
+<p> </p>
+<p><b>FrTp_Init</b></p>
+<p> </p>
+<p>(FrTp_ConfigType *CfgPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>CfgPtr </p>
+<p>Pointer to the configuration structure of the FrTp. </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes all administration-data of the FrTp and prepares the FrTp component for operation. </p>
+<p>It has to be called prior to any other function-call to a FrTp -API. Otherwise the respective other API-call will </p>
+<p>report an error to the DET. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). This is because this function reuses internal functions of the FrTp </p>
+<p>that are also used during runtime and that require interrupt-locking. </p>
+<p><b>&gt; </b></p>
+<p>In case of post build configuration this method checks the validity of the given configuration </p>
+<p>versus the version of the embedded code of the FrTp component. In case the given </p>
+<p>configuration is invalid or not suitable for the embedded code then the callout function </p>
+<p>EcuM_BswErrorHook() is called. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context.. </p>
+<p>Table 5-1  </p>
+<p>FrTp_Init </p>
+<p><b>5.2.2 </b></p>
+<p><b>FrTp_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>FrTp_InitMemory</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes all administration-data of the FrTp that has to be set to zero before FrTp_Init() is </p>
+<p>called. FrTp_InitMemory() has to be called in case the startup code does not set the RAM used by FrTp to </p>
+<p>zero. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: n/a (not an AUTOSAR compliant method) </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This function has to be called during the initialization of the FlexRay-Stack, i.e. during ECU-</p>
+<p>startup in case the startup code does not initialize the RAM. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-2  </p>
+<p>FrTp_InitMemory </p>
+<p><b>5.2.3 </b></p>
+<p><b>FrTp_Shutdown </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>FrTp_Shutdown</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method shuts down the FrTp and prevents the initiation of transmissions in future. After the call the </p>
+<p>FrTp is in a non-initialized state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This function solely changes a FrTp -internal status-variable. It does not cancel or stop any </p>
+<p>ongoing transmissions. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-3  </p>
+<p>FrTp_Shutdown </p>
+<p><b>5.2.4 </b></p>
+<p><b>FrTp_Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>FrTp_Transmit</b></p>
+<p> </p>
+<p>( PduIdType FrTpTxSduId, const PduInfoType* </p>
+<p>FrTpTxSduInfoPtr )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrTpTxSduId </p>
+<p>This parameter identifies the FrTpTxSdu to be used for transmission. </p>
+<p>FrTpTxSduInfoPtr </p>
+<p>This is a pointer to a struct of type PduInfoType whereas the structs parameter </p>
+<p>PduLength states the length of the data to be transmitted. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: This value is returned in case the transmission request is going to be </p>
+<p>executed by the FrTp component. </p>
+<p>E_NOT_OK: This value is returned in case the transmission request is not </p>
+<p>going to be executed by the FrTp component. </p>
+<p>This can happen under these conditions: </p>
+<p>1. </p>
+<p>The length-value given in the struct-parameter is invalid, i.e. either </p>
+<p>larger than 64 kBytes or, in case of a 1:n connection, it might be larger </p>
+<p>than the payload of the smallest FrIf-Pdu that is assigned to the </p>
+<p>affected connection. </p>
+<p>2. </p>
+<p>A connection identifier is provided that is invalid. Then the value </p>
+<p>usually is larger or equal than the overall number of connections </p>
+<p>configured in the current FrTp instance. </p>
+<p>3. </p>
+<p>In case 1. or 2. are not applicable then typically all channels of the </p>
+<p>FrTp are busy at the moment of the call. </p>
+<p><b>Functional Description </b></p>
+<p>This method initiates a transmission in case the given parameters are valid (see section “Return code” </p>
+<p>above). In this case a free channel of the FrTp is reserved to conduct the transmission requested. Within </p>
+<p>the next call to the FrTp_MainFunction() the steps required for the transmission will be taken, i.e. a buffer </p>
+<p>with Tx-Data is written by the application via PduR_ FrTpCopyTxData() and after successful transmission </p>
+<p>of the provided data a PduR_FrTpTxConfirmation()-callback is called. These steps are conducted in the </p>
+<p>same way as described in document [2]. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>It is not required that the physical layer is in sync with the networks since this function does not </p>
+<p>check the status of the physical FlexRay bus. </p>
+<p><b>&gt; </b></p>
+<p>The PduR / caller should be prepared to receive a call to the callback-function </p>
+<p>PduR_FrTpCopyTxData() afterwards, in order to provide the Tx-data to be transmitted. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-4  </p>
+<p>FrTp_Transmit </p>
+<p><b>5.2.5 </b></p>
+<p><b>FrTp_CancelTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>FrTp_CancelTransmit</b></p>
+<p> </p>
+<p>(PduIdType FrTpTxPduId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrTpTxPduId </p>
+<p>This parameter identifies the connection a cancellation request shall be </p>
+<p>applied to. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: This value is returned in case the request for transmission-cancellation </p>
+<p>is going to be executed by the component. </p>
+<p>E_NOT_OK: This value is returned in case the request for transmission-</p>
+<p>cancellation is invalid. This can happen in case the affected connection is not </p>
+<p>active at all. </p>
+<p><b>Functional Description </b></p>
+<p>This method requests the cancellation of an active transmission. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>It is not required that the physical layer is in sync with the networks since this function does not </p>
+<p>check the status of the physical FlexRay bus. </p>
+<p><b>&gt; </b></p>
+<p>After successful cancellation of the transmission no additional calls to </p>
+<p>PduR_FrTp_TxConfirmation()  are done by the FrTp in order to finish the transmission. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p><b>&gt; </b></p>
+<p>This API is optional. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-5  </p>
+<p>FrTp_CancelTransmit </p>
+<p><b>5.2.6 </b></p>
+<p><b>FrTp_CancelReceive </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>FrTp_CancelReceive</b></p>
+<p> </p>
+<p>(</p>
+<p>PduIdType FrTpRxPduId</p>
+<p>)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrTpRxPduId </p>
+<p>This parameter identifies the connection a cancellation request shall be </p>
+<p>applied to. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: This value is returned in case the request for reception-cancellation is </p>
+<p>going to be executed by the component. </p>
+<p>E_NOT_OK: This value is returned in case the request for reception-</p>
+<p>cancellation is invalid e.g. because the affected connection is not active at all. </p>
+<p><b>Functional Description </b></p>
+<p>This method requests the cancellation of an active reception. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>It is not required that the physical layer is in sync with the networks since this function does not </p>
+<p>check the status of the physical FlexRay bus. </p>
+<p><b>&gt; </b></p>
+<p>After successful cancellation of the reception no additional calls to PduR_FrTp_RxIndication() </p>
+<p>or &lt;Owner&gt;_FrTp_RxIndication() are done by the FrTp in order to finish the reception. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p><b>&gt; </b></p>
+<p>This API is optional. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-6  </p>
+<p>FrTp_CancelReceive </p>
+<p><b>5.2.7 </b></p>
+<p><b>FrTp_ChangeParameter </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>FrTp_ChangeParameter</b>(PduIdType FrTpSduId, TPParameterType </p>
+<p>FrTpParameterType, unit16 FrTpParameterValue ) </p>
+<p><b>Parameter </b></p>
+<p>FrTpSduId </p>
+<p>This parameter identifies the connection a request to change parameters shall </p>
+<p>be applied to </p>
+<p>FrTpParameterType </p>
+<p>This parameter contains the information about which parameter of the given </p>
+<p>connection shall be changed. </p>
+<p>FrTpParameterValue </p>
+<p>This parameter contains the new value to be set as new parameter-value. </p>
+<p><b>Return code </b></p>
+<p>retCode </p>
+<p>E_OK: Request was accepted  </p>
+<p>E_NOT_OK: Request was not accepted </p>
+<p><b>Functional Description </b></p>
+<p>This method changes the parameter of a FrTp connection identified by the type-parameter using the given </p>
+<p>value-parameter as value. </p>
+<p>In case the SCexp part of the given BC-parameter leads to a larger inter-pdu-gap than configured in the </p>
+<p>FrTpTimeoutCr-parameter of the affected connection the parameter will not be changed and E_NOT_OK </p>
+<p>will be returned. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Other particularities, limitations, post-conditions, pre-conditions </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-7  </p>
+<p>FrTp_ChangeParameter </p>
+<p><b>5.2.8 </b></p>
+<p><b>FrTp_MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrTp_MainFunction</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method conducts these actions: </p>
+<p>- </p>
+<p>It supervises the timers of each TP-channel. </p>
+<p>- </p>
+<p>It evaluates the actions that have happened since the last call to FrTp_MainFunction(), i.e. callbacks to </p>
+<p>the methods FrTp_RxIndication(), FrTp_TxConfirmation(). </p>
+<p>- </p>
+<p>It conducts all calls to FrIf_Transmit() required by a FrTp communication. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p><b>&gt; </b></p>
+<p>This function has to be called synchronous to the FlexRay bus-time. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() might not be called in postbuild loadable / selectable use-cases. Therefore no DET </p>
+<p>errror FRTP_E_NOT_INIT is issued by the FrTp_MainFunction(). </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p><b>&gt; </b></p>
+<p>This function has to be called at a different time than the execution-time of the FrIf-job-</p>
+<p>execution (Both Rx and Tx !!!). Both points in time are possible: Prior or after the point of time </p>
+<p>of the FrIf-job-execution. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-8  </p>
+<p>FrTp_MainFunction </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Rules to call FrTp_MainFunction() </p>
+<p> </p>
+<p>The FrTp_MainFunction() has to be called: </p>
+<p><b>&gt; </b></p>
+<p>once per FlexRay cycle and also  </p>
+<p><b>&gt; </b></p>
+<p>synchronous to the FlexRay time. </p>
+<p><b>&gt; </b></p>
+<p>This function should be called at a different time than the execution-time of </p>
+<p>the FrIf-job-execution that operates the FrIf-Rx- and FrIf-Tx-Pdus, used by </p>
+<p>the FrTp. Otherwise this will result in poor performance of the FrTp. </p>
+<p><b>&gt; </b></p>
+<p>Refer to document [13] for more details about FrIf-JLE. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Call schedule of FrTp_MainFunction() </p>
+<p> </p>
+<p>In case of 5 ms FlexRay cycle length and all FrIf-Tx-Pdus assigned to the FrTp being in </p>
+<p>the dynamic segment then the FrTp_MainFunction() should be executed in the static </p>
+<p>segment.  </p>
+<p>The offset within the cycle should be: </p>
+<p><b>&gt; </b></p>
+<p>earlier than the Tx-Job of the FrIf responsible for FrTp FrIf-Tx-Pdus </p>
+<p><b>&gt; </b></p>
+<p>later than the Rx-Job of the FrIf responsible for FrTp FrIf-Rx-Pdus </p>
+<p>Other offsets are possible but will result in poor performance of the FrTp. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.2.9 </b></p>
+<p><b>FrTp_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Frtp_GetVersionInfo</b></p>
+<p> </p>
+<p>(Std_VersionInfoType *pVersionInfo)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>pVersionInfo </p>
+<p>The version-info-struct the parameter “pVersionInfo” points to is filled with the </p>
+<p>version-information by this method. </p>
+<p><b>Return code </b></p>
+<p>retCode </p>
+<p>description </p>
+<p><b>Functional Description </b></p>
+<p>FrTp_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID of the component. </p>
+<p>The versions are BCD-coded. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>It is not required that the physical layer is in sync with the networks since this function does not </p>
+<p>check the status of the physical FlexRay bus. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-9  </p>
+<p>FrTp_GetVersionInfo </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by FrTp </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Services with AUTOSAR compliant prototypes    </b></p>
+<p>In the following table services provided by other components, which are used by the FrTp </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>Det </p>
+<p>Det_ReportError </p>
+<p>PduR </p>
+<p>PduR_FrTpStartOfReception </p>
+<p>PduR </p>
+<p>PduR_FrTpCopyRxData </p>
+<p>PduR </p>
+<p>PduR_FrTpCopyTxData </p>
+<p>PduR </p>
+<p>PduR_FrTpRxIndication </p>
+<p>PduR </p>
+<p>PduR_FrTpTxConfirmation </p>
+<p>SchM </p>
+<p>SCHM_ENTER_EXCLUSIVE </p>
+<p>SchM </p>
+<p>SCHM_EXIT_EXCLUSIVE </p>
+<p>Table 5-10  </p>
+<p>Services used by the FrTp </p>
+<p><b>5.3.2 </b></p>
+<p><b>Services that are MICROSAR extensions </b></p>
+<p>n </p>
+<p>case </p>
+<p>of </p>
+<p>incompatibilities </p>
+<p>of </p>
+<p>configuration </p>
+<p>and </p>
+<p>embedded </p>
+<p>code </p>
+<p>then </p>
+<p>the </p>
+<p>function </p>
+<p>EcuM_BswErrorHook()is called in the context of FrTp_Init(): </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>EcuM </p>
+<p>EcuM_BswErrorHook </p>
+<p><b>5.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This chapter describes the callback functions that are implemented by the  FrTp and can </p>
+<p>be invoked by other modules. The prototypes of the callback functions are provided in the </p>
+<p>header file </p>
+<p>FrTp_Cbk.h</p>
+<p> by the FrTp. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.4.1 </b></p>
+<p><b>FrTp_TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p> </p>
+<p><b>FrTp_TxConfirmation</b></p>
+<p> </p>
+<p>(PduIdType FrIfTxPduId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIfTxPduId </p>
+<p>This parameter identifies the FrIf-Tx-Pdu assigned to the FrTp that has been </p>
+<p>transmitted successfully on the FlexRay-bus by the FrIf. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method has to be called after the transmission of all FrIf-Tx-Pdus assigned to the FrTp. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>After the call to this method the FrTp regards all other Tx-Pdus of the affected channel as </p>
+<p>transmitted. Of course only these Tx-Pdus are affected that have been requested by the FrTp </p>
+<p>to be transmitted by the FrIf in the current FlexRay-cycle or this. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-11  </p>
+<p>FrTp_TxConfirmation </p>
+<p><b>5.4.2 </b></p>
+<p><b>FrTp_RxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>FrTp_RxIndication</b></p>
+<p> </p>
+<p>(</p>
+<p>PduIdType FrRxPduId, const PduInfoType* FrIf_PduInfoPtr</p>
+<p>)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrRxPduId </p>
+<p>This parameter indicates to the FrTp which Rx-Pdu has been received </p>
+<p>successfully by the underlying FlexRay-Interface component. </p>
+<p>FrIf_PduInfoPtr </p>
+<p>This parameter points to a C-struct of type PduInfoType. The C-struct contains </p>
+<p>a pointer to the Rx-Pdu received and a value of type PduLengthType that </p>
+<p>indicates the length of the Pdus payload. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>n/a </p>
+<p><b>Functional Description </b></p>
+<p>This method is a callback that is called by the FrIf in case an Rx-Pdu assigned to the FrTp has been </p>
+<p>received successfully by the FrIf. The method copies the data pointed to by the member DataPtr of the </p>
+<p>PduInfoStruct to a FrTp-internal buffer or directly to the Rx-buffer of the application. For this the member </p>
+<p>PduLength of the PduInfoStruct is used. This is done depending on the frame-type received. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-12  </p>
+<p>FrTp_RxIndication </p>
+<p><b>5.4.3 </b></p>
+<p><b>FrTp_TriggerTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>FrTp_TriggerTransmit</b></p>
+<p> </p>
+<p>(PduIdType FrIfTxPduId, PduInfoType* </p>
+<p>FrTpTxPduInfoPtr )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIfTxPduId  </p>
+<p>This parameter contains the Id of the Tx-Pdu (FrIf-L-PduId of the FrIf) whose </p>
+<p>transmission was requested and whose payload-data shall be provided by the </p>
+<p>FrTp to the FrIf. </p>
+<p>FrTpTxPduInfoPtr  </p>
+<p>Pointer to PduInfoType-structure containing a pointer to memory of the FrIf (or </p>
+<p>of the Fr-driver) the FrTp shall copy the payload and containing the </p>
+<p>information about the length of the FrTp-frame. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: The request has been accepted </p>
+<p>E_NOT_OK: The request has not been accepted, e. g. parameter check has </p>
+<p>failed or cancellation is requested. </p>
+<p><b>Functional Description </b></p>
+<p>This method is called by the FrIf-Job-Execution in order to retrieve the payload-data of a FrIf-Tx-Pdu </p>
+<p>assigned to and previously transmitted by the FrTp via FrIf_Transmit(). This function copies the complete </p>
+<p>FlexRay TP-frame to a memory-area pointed to by the FrIf. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_Init() has to be called prior to any calls to this method, i.e. the FrTp has to be initialized. </p>
+<p>Otherwise an error will be indicated to the DET. </p>
+<p><b>&gt; </b></p>
+<p>The transmission of the Tx-Pdu indicated by parameter FrIfTxPduId must have been </p>
+<p>requested by the FrTp in a preceding call to the FrIf-method FrIf_Transmit() whereas the latter </p>
+<p>call has to return E_OK in this case. </p>
+<p><b>&gt; </b></p>
+<p>FrTp_TxConfirmation() has to be called by the FrIf in order to finalize the transmission of the </p>
+<p>affected FrIf-Tx-Pdu assigned to the FrTp. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this method temporarily locks interrupts using the API-calls of the AUTOSAR </p>
+<p>BSW Scheduler (SchM). </p>
+<p><b>&gt; </b></p>
+<p>This method is optional. It can be disabled by GUI switch ‘Disable Decoupled Transmit’ in case </p>
+<p>you plan to solely use FrIf-Pdus with transmission type ‘immediate’ in future. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called from interrupt context. </p>
+<p>Table 5-13  </p>
+<p>FrTp_TriggerTransmit </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>6.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>EAD </p>
+<p>Embedded Architecture Designer; generation tool for MICROSAR </p>
+<p>components </p>
+<p>GENy </p>
+<p>Generation tool for CANbedded and MICROSAR components </p>
+<p>Table 6-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 6-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FrTp </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.00.04 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

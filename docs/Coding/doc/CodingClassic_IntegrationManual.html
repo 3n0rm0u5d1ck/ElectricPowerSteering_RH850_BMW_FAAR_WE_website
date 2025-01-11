@@ -1,0 +1,876 @@
+---
+layout: default
+title: CodingClassic_IntegrationManual
+nav_order: 2
+parent: Coding
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Coding Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.2.1</p>
+<p>2017-12-14</p>
+<p>Version Update</p>
+<p>5.2.0</p>
+<p>2017-11-09</p>
+<p>Version Update</p>
+<p>5.1.0</p>
+<p>2017-10-12</p>
+<p>Version Update</p>
+<p>5.0.1</p>
+<p>2017-09-14</p>
+<p>Version Update</p>
+<p>5.0.0</p>
+<p>2017-06-08</p>
+<p>Initial version for SP2021</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 1 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>4</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>4</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>4</p>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p><b>6</b></p>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>4.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>4.1.1</p>
+<p>NvM</p>
+<p>7</p>
+<p>4.1.2</p>
+<p>Dem</p>
+<p>7</p>
+<p>4.1.3</p>
+<p>Dcm</p>
+<p>7</p>
+<p>4.1.4</p>
+<p>Com</p>
+<p>7</p>
+<p>4.1.5</p>
+<p>Det</p>
+<p>7</p>
+<p>4.1.6</p>
+<p>RTE</p>
+<p>7</p>
+<p>4.1.7</p>
+<p>BswM</p>
+<p>7</p>
+<p>4.2</p>
+<p>Dependencies to other modules</p>
+<p>8</p>
+<p>4.2.1</p>
+<p>Dlog</p>
+<p>8</p>
+<p>4.2.2</p>
+<p>Vin</p>
+<p>8</p>
+<p>4.2.3</p>
+<p>Other SWC</p>
+<p>8</p>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>9</b></p>
+<p>5.1</p>
+<p>Configuration of other Modules</p>
+<p>9</p>
+<p>5.1.1</p>
+<p>NvM</p>
+<p>9</p>
+<p>5.1.2</p>
+<p>Dem</p>
+<p>9</p>
+<p>5.1.3</p>
+<p>Dcm</p>
+<p>10</p>
+<p>5.1.3.1</p>
+<p>DiagnosticSession</p>
+<p>10</p>
+<p>5.1.3.2</p>
+<p>DiagnosticSessionControl</p>
+<p>10</p>
+<p>5.1.3.3</p>
+<p>RoutineControl</p>
+<p>11</p>
+<p>5.1.3.4</p>
+<p>ReadDataByIdentifier</p>
+<p>12</p>
+<p>5.1.3.5</p>
+<p>DiagnosticSessionControl</p>
+<p>14</p>
+<p>5.1.3.6</p>
+<p>Service Request Manufacturer Notification</p>
+<p>15</p>
+<p>5.1.4</p>
+<p>Com</p>
+<p>15</p>
+<p>5.1.5</p>
+<p>Det</p>
+<p>15</p>
+<p>5.1.6</p>
+<p>BswM</p>
+<p>15</p>
+<p>5.2</p>
+<p>Configuration of generic part</p>
+<p>16</p>
+<p>5.2.1</p>
+<p>CodingCrypto</p>
+<p>16</p>
+<p>5.2.1.1</p>
+<p>CryptoLib</p>
+<p>16</p>
+<p>5.2.1.2</p>
+<p>Csm</p>
+<p>16</p>
+<p>5.2.2</p>
+<p>CodingGeneral</p>
+<p>16</p>
+<p>5.2.2.1</p>
+<p>CodingDevErrorDetect</p>
+<p>16</p>
+<p>5.2.2.2</p>
+<p>CodingSignatureSize</p>
+<p>17</p>
+<p>5.2.2.3</p>
+<p>CodingCryptoEnable</p>
+<p>17</p>
+<p>5.2.2.4</p>
+<p>CodingProdErrorCEUDDetection</p>
+<p>17</p>
+<p>5.2.2.5</p>
+<p>CodingConditionCheck</p>
+<p>17</p>
+<p>5.2.2.6</p>
+<p>CodingReceiveBufferSize</p>
+<p>17</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 2 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5.2.2.7</p>
+<p>CodingSendBufferSize</p>
+<p>18</p>
+<p>5.2.3</p>
+<p>CodingArea</p>
+<p>18</p>
+<p>5.2.3.1</p>
+<p>CodingAreaDefVal</p>
+<p>18</p>
+<p>5.3</p>
+<p>Configuration of adapter part</p>
+<p>20</p>
+<p>5.3.1</p>
+<p>CodingClassicGeneral</p>
+<p>20</p>
+<p>5.3.1.1</p>
+<p>CodingCycleTime</p>
+<p>20</p>
+<p>5.3.1.2</p>
+<p>Other Application SWC</p>
+<p>20</p>
+<p>5.3.2</p>
+<p>Event Mapping</p>
+<p>21</p>
+<p>5.3.3</p>
+<p>Data Mapping</p>
+<p>21</p>
+<p>5.3.4</p>
+<p>Exclusive Areas</p>
+<p>21</p>
+<p>5.4</p>
+<p>Software Integration</p>
+<p>22</p>
+<p>5.4.1</p>
+<p>Startup/Initialization</p>
+<p>22</p>
+<p>5.4.2</p>
+<p>Normal Operation</p>
+<p>22</p>
+<p>5.4.3</p>
+<p>Shutdown/Deactivation</p>
+<p>22</p>
+<p>5.4.4</p>
+<p>SWCD</p>
+<p>22</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 3 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>The Coding system consists of a Coding module that is part of the ECU application and the Coder.</p>
+<p>Almost in the same manner as the Bootloader programs the ROM of an ECU, the Coding module codes</p>
+<p>the NV memory of an ECU with vehicle specific data derived from the vehicle description document e.g.</p>
+<p>type key, extra equipment, country specifics, year of model/construction stage, additional comments or</p>
+<p>service upgrade options.</p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4/aBAC Modules please refer to [1].</p>
+<p>This document only describes topics related to the Coding BAC4/aBAC Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW system</p>
+<p>function Coding.</p>
+<p><b>Functional overview</b></p>
+<p>The Coding module implements the coding process that is part of the vehicle programming process. It</p>
+<p>provides functions to the application to read coded data stored in the NV memory. If the NV memory</p>
+<p>contains no valid data default values are provided. The coded data in NV memory can only be changed via</p>
+<p>a diagnostic coding session.</p>
+<p>The Coding module provides the following functionalities:</p>
+<p>Manages coding data stored in NV memory</p>
+<p>Provides read/write access via a special UDS diagnostics Session to the Coder</p>
+<p>Provides read only access via API to the ECU application</p>
+<p>Informs the ECU application about its current status</p>
+<p>Performs signature checks over the Coding data</p>
+<p>Restores safe default values in case of errors</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 4 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>[1]</p>
+<p>BAC4 General Concept for the Module Integration</p>
+<p>BAC4_General_Concepts_for_the_Module_Integration.pdf</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 5 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p>The Coding module supports only one asymmetric key to calculate the signature for all Coding areas.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 6 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p>The current version of the Module Coding depends on the following BSW modules:</p>
+<p><b>NvM</b></p>
+<p>The Coding module uses the NVM to read Coding data from NV memory and to write it back.</p>
+<p><b>Dem</b></p>
+<p>The Coding module uses the DEM API to report critical events and write error memory entries.</p>
+<p><b>Dcm</b></p>
+<p>The Coding module uses the DCM to communicate with the Coder by sending and receiving diagnostic</p>
+<p>UDS messages via CAN, FlexRay, etc.</p>
+<p><b>Com</b></p>
+<p>The Coding module use signals from COM to get the Vehicle Speed.</p>
+<p><b>Det</b></p>
+<p>The Coding module optionally reports development errors to the Det.</p>
+<p><b>RTE</b></p>
+<p>As a software component, the Coding module uses Rte client/server and sender/receiver communication</p>
+<p>to communicate with other SWCs and BSW modules.</p>
+<p><b>BswM</b></p>
+<p>The Coding receives and requests mode switches from the BswM to switch the current Coding</p>
+<p>operational mode. It further receives a mode switch from the BswM when the active diagnostic session</p>
+<p>has changed and when the bus communication status has changed.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 7 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Dependencies to other modules</b></p>
+<p><b>Dlog</b></p>
+<p>The Dlog module is used to obtain the information during startup if the control unit has been coded after</p>
+<p>flash programming.</p>
+<p><b>Vin</b></p>
+<p>The Vin module is used to obtain the current bus VIN.</p>
+<p><b>Other SWC</b></p>
+<p>The Coding optionally calls another Application Software Component to perform a plausibility check of</p>
+<p>the net coding data received during the coding data transaction if implausible net coding data can lead to</p>
+<p>safety-critical states of the control unit.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 8 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before this module can be generated, compiled and linked.</p>
+<p><b>NvM</b></p>
+<p>The NVRAM Manager shall be configured to hold one NVRAM block. The following parameters have to</p>
+<p>be configured:</p>
+<p>a container &quot;`NvMBlockDescriptor&quot;' with</p>
+<p>NvmNvBlockLength: &quot;`see CODING_DATA_SIZE in generated Coding_Cfg.h&quot;'</p>
+<p>NvmBlockCRCType: e.g. NVM_CRC16</p>
+<p>NvMBlockUseCrc: true</p>
+<p>NvMCalcRamBlockCrc: false</p>
+<p>NvmBlockManagementType: NVM_BLOCK_NATIVE</p>
+<p>NvmRamBlockDataAddress: &amp;Coding_CodingData</p>
+<p>NvmRomBlockDataAddress: &amp;Coding_CodingDataDefault</p>
+<p>NvmSelectBlockForReadAll: true</p>
+<p>NvmSelectBlockForWriteAll: false</p>
+<p>This NVRAM block needs</p>
+<p>Port and Port Interface for service ports</p>
+<p>Port and Port Interface for single block job end notifications</p>
+<p>This NVRAM block will be used to store Coding data and will be written on Coding process.</p>
+<p><b>Dem</b></p>
+<p>The Coding module reports different errors to the DEM. The DEM shall be configured to provide the</p>
+<p>following Errors (aging/healing is disabled for all DTCs):</p>
+<p>CODING_EVENT_NOT_CODED</p>
+<p>Description: No valid Coding data is available and default values are used.</p>
+<p>Annotation: A Clear Event Allowed port shall be configured via Rte</p>
+<p>DTC Class</p>
+<p><i>∗</i> DemUdsDtc: 0x20000 + 0x100 * ECU_Address + 0x08</p>
+<p><i>∗</i> DemDTCSeverity: DEM_DTC_SEV_NO_SEVERITY</p>
+<p>Event</p>
+<p><i>∗</i> DemEventKind: DEM_EVENT_KIND_SWC</p>
+<p><i>∗</i> DemEventDestination: DEM_DTC_ORIGIN_PRIMARY_MEMORY</p>
+<p>CODING_EVENT_WRONG_VEHICLE</p>
+<p>Description: CPS and VIN do not match.</p>
+<p>DTC Class</p>
+<p><i>∗</i> DemUdsDtc: 0x20000 + 0x100 * ECU_Address + 0x09</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 9 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>∗</i> DemDTCSeverity: DEM_DTC_SEV_NO_SEVERITY</p>
+<p>Event</p>
+<p><i>∗</i> DemEventKind: DEM_EVENT_KIND_SWC</p>
+<p><i>∗</i> DemEventDestination: DEM_DTC_ORIGIN_PRIMARY_MEMORY</p>
+<p>CODING_EVENT_UNQUALIFIED_DATA</p>
+<p>Description: CPS-VIN comparison has not been done.</p>
+<p>Annotation: Error entry depends on configuration parameter &quot;`CodingProdErrorCEUDDetection&quot;'</p>
+<p>DTC Class</p>
+<p><i>∗</i> DemUdsDtc: 0x20000 + 0x100 * ECU_Address + 0x0A</p>
+<p><i>∗</i> DemDTCSeverity: DEM_DTC_SEV_NO_SEVERITY</p>
+<p>Event</p>
+<p><i>∗</i> DemEventKind: DEM_EVENT_KIND_SWC</p>
+<p><i>∗</i> DemEventDestination: DEM_DTC_ORIGIN_PRIMARY_MEMORY</p>
+<p><b>Dcm</b></p>
+<p><b>DiagnosticSession</b></p>
+<p>The writing of net coding data into a control unit must only be possible, if the control unit is in the</p>
+<p>CodingSession.</p>
+<p>The following parameters have to be configured:</p>
+<p>a container &quot;`DcmDspSessionRow&quot;' with</p>
+<p>DcmDspSessionForBoot: DCM_NO_BOOT</p>
+<p>DcmDspSessionLevel: 65 (0x41)</p>
+<p>DcmDspSessionP2ServerMax:<b> [IM_CodingClassic_001]<i></b> dc</i>(DK_T3_266)</p>
+<p>DcmDspSessionP2StarServerMax: 5.0</p>
+<p><b>DiagnosticSessionControl</b></p>
+<p><b>[IM_CodingClassic_002]<i></b> d</i>The Diagnostic Session Control service is used for changing codable control</p>
+<p>units into the Extended Diagnostic Session, the Coding Session and the Default Session.<i> c</i>(COD_268)</p>
+<p><b>[IM_CodingClassic_003]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_269, COD_272,</p>
+<p>COD_276, COD_280)</p>
+<p>a container &quot;`DcmDsdService&quot;' with</p>
+<p>DcmDsdSidTabServiceId: 0x10</p>
+<p><i>∗</i> a container &quot;`DcmDsdSubService&quot;' with</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceId: 0x01</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: DEFAULT_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: EXTENDED_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: CODING_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceId: 0x03</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: DEFAULT_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: EXTENDED_SESSION</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 10 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceId: 0x41</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: EXTENDED_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: CODING_SESSION</p>
+<p><b>RoutineControl</b></p>
+<p><b>[IM_CodingClassic_004]<i></b> d</i>The Routine Control service is used for reading, writing and verifying net</p>
+<p>coding data.<i> c</i>(COD_289)</p>
+<p><b>Reading of net coding data from control unit (0x31 0x01 0x37 0xFC)</b></p>
+<p><b>[IM_CodingClassic_005]<i></b> d</i>This request has a variable response length. The following parameters have</p>
+<p>to be configured:<i> c</i>(COD_292, COD_294)</p>
+<p>a container &quot;`DcmDspRoutine&quot;' with</p>
+<p>DcmDspRoutineIdentifier: 0x37FC</p>
+<p>DcmDspRoutineUsePort: TRUE</p>
+<p>a container &quot;`DcmDspRoutineInfo&quot;' and &quot;`DcmDspStartRoutineIn&quot;' with</p>
+<p>a &quot;`StartRoutineInSignal&quot;' with</p>
+<p><i>∗</i> DcmDspRoutineSignalLength: 48 bits</p>
+<p><i>∗</i> DcmDspRoutineSignalPos: 0</p>
+<p><i>∗</i> DcmDspRoutineSignalType: UINT8</p>
+<p>a &quot;`StartRoutineOutSignal&quot;' with</p>
+<p><i>∗</i> DcmDspRoutineSignalLength: max. diagnostic buffer size (e.g. 8192 bits)</p>
+<p><i>∗</i> DcmDspRoutineSignalPos: 0</p>
+<p><i>∗</i> DcmDspRoutineSignalType: VARIABLE_LENGTH</p>
+<p><b>Writing of net coding data from control unit (0x31 0x01 0x37 0xFD)</b></p>
+<p><b>[IM_CodingClassic_006]<i></b> d</i>This request has a variable request length. The following parameters have</p>
+<p>to be configured:<i> c</i>(COD_297, COD_299)</p>
+<p>a container &quot;`DcmDspRoutine&quot;' with</p>
+<p>DcmDspRoutineIdentifier: 0x37FD</p>
+<p>DcmDspRoutineUsePort: TRUE</p>
+<p>a container &quot;`DcmDspRoutineInfo&quot;' and &quot;`DcmDspStartRoutineIn&quot;' with</p>
+<p>a &quot;`StartRoutineInSignal&quot;' with</p>
+<p><i>∗</i> DcmDspRoutineSignalLength: max. diagnostic buffer size (e.g. 8192 bits)</p>
+<p><i>∗</i> DcmDspRoutineSignalPos: 0</p>
+<p><i>∗</i> DcmDspRoutineSignalType: VARIABLE_LENGTH</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 11 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Verification of net coding data from control unit (0x31 0x01 0x37 0xFE)</b></p>
+<p><b>[IM_CodingClassic_007]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_302, COD_304)</p>
+<p>a container &quot;`DcmDspRoutine&quot;' with</p>
+<p>DcmDspRoutineIdentifier: 0x37FE</p>
+<p>DcmDspRoutineUsePort: TRUE</p>
+<p>a container &quot;`DcmDspRoutineInfo&quot;' and &quot;`DcmDspStartRoutineIn&quot;' with</p>
+<p>a &quot;`StartRoutineInSignal&quot;' with</p>
+<p><i>∗</i> DcmDspRoutineSignalLength: 144 bits</p>
+<p><i>∗</i> DcmDspRoutineSignalPos: 0</p>
+<p><i>∗</i> DcmDspRoutineSignalType: UINT8</p>
+<p>a &quot;`StartRoutineOutSignal&quot;' with</p>
+<p><i>∗</i> DcmDspRoutineSignalLength: 8 bits</p>
+<p><i>∗</i> DcmDspRoutineSignalPos: 0</p>
+<p><i>∗</i> DcmDspRoutineSignalType: UINT8</p>
+<p><b>ReadDataByIdentifier</b></p>
+<p><b>[IM_CodingClassic_008]<i></b> d</i>The Read Data By Identifier service is used in conjunction with coding for</p>
+<p>the following request to the control unit:</p>
+<p>Determining the value of the coding proof stamp (CPS)</p>
+<p>Determining the current session status (reading ActiveSessionState)</p>
+<p>Determining the current session</p>
+<p>Determining the protocol data (transport buffer sizes, coding area count and lengths)</p>
+<p><i>c</i>(COD_289)</p>
+<p><b>Read coding proof stamp (CPS) (0x22 0x37 0xFE)</b></p>
+<p>Reading out the coding proof stamp (CPS) from the control unit.</p>
+<p><b>[IM_CodingClassic_009]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_314, COD_316)</p>
+<p>a container &quot;`DcmDspDataInfo&quot;' with</p>
+<p>DcmDspDataFixedLength: TRUE</p>
+<p>a container &quot;`DcmDspData&quot;' with</p>
+<p>DcmDspDataConditionCheckReadFncUsed: TRUE</p>
+<p>DcmDspDataInfoRef: reference to the &quot;`DcmDspDataInfo&quot;' container configured before.</p>
+<p>DcmDspDataSize: 144 bits</p>
+<p>DcmDspDataType: UINT8_N</p>
+<p>DcmDspDataUsePort: USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>a container &quot;`DcmDspDidInfo&quot;' with</p>
+<p>only read-access</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 12 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>DcmDspDidReadSessionRef: CODING_SESSION, EXTENDED_SESSION, DEFAULT_SESSION</p>
+<p>a container &quot;`DcmDspDid&quot;' with</p>
+<p>DcmDspDidIdentifier: 0x37FE</p>
+<p>one DID Signal &quot;`DcmDspDidSignal&quot;' with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;`DcmDspData&quot;' container configured before.</p>
+<p><b>Read status of the active Session (0x22 0xF1 0x00)</b></p>
+<p>Reading out the status of the ActiveSessionState from the control unit.</p>
+<p><b>[IM_CodingClassic_010]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_319, COD_321)</p>
+<p>a container &quot;`DcmDspDataInfo&quot;' with</p>
+<p>DcmDspDataFixedLength: TRUE</p>
+<p>a container &quot;`DcmDspData&quot;' with</p>
+<p>DcmDspDataConditionCheckReadFncUsed: TRUE</p>
+<p>DcmDspDataInfoRef: reference to the &quot;`DcmDspDataInfo&quot;' container configured before.</p>
+<p>DcmDspDataSize: 32 bits</p>
+<p>DcmDspDataType: UINT8_N</p>
+<p>DcmDspDataUsePort: USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>a container &quot;`DcmDspDidInfo&quot;' with</p>
+<p>only read-access</p>
+<p>DcmDspDidReadSessionRef: CODING_SESSION, EXTENDED_SESSION, DEFAULT_SESSION</p>
+<p>a container &quot;`DcmDspDid&quot;' with</p>
+<p>DcmDspDidIdentifier: 0xF100</p>
+<p>one DID Signal &quot;`DcmDspDidSignal&quot;' with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;`DcmDspData&quot;' container configured before.</p>
+<p><b>Read active session (0x22 0xF1 0x86)</b></p>
+<p>Reading out of the ActiveSession from the control unit.</p>
+<p><b>[IM_CodingClassic_011]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_324, COD_326)</p>
+<p>a container &quot;`DcmDspDataInfo&quot;' with</p>
+<p>DcmDspDataFixedLength: TRUE</p>
+<p>a container &quot;`DcmDspData&quot;' with</p>
+<p>DcmDspDataConditionCheckReadFncUsed: TRUE</p>
+<p>DcmDspDataInfoRef: reference to the &quot;`DcmDspDataInfo&quot;' container configured before.</p>
+<p>DcmDspDataSize: 8 bits</p>
+<p>DcmDspDataType: UINT8_N</p>
+<p>DcmDspDataUsePort: USE_DATA_SYNCH_FNC</p>
+<p>a container &quot;`DcmDspDidInfo&quot;' with</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 13 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>only read-access</p>
+<p>DcmDspDidReadSessionRef: CODING_SESSION, EXTENDED_SESSION, DEFAULT_SESSION</p>
+<p>a container &quot;`DcmDspDid&quot;' with</p>
+<p>DcmDspDidIdentifier: 0xF186</p>
+<p>one DID Signal &quot;`DcmDspDidSignal&quot;' with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;`DcmDspData&quot;' container configured before.</p>
+<p><b>Read protocol data (0x22 0x37 0xFF)</b></p>
+<p>Reading of the protocol data from the control unit.</p>
+<p><b>[IM_CodingClassic_012]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_329, COD_331)</p>
+<p>a container &quot;`DcmDspDataInfo&quot;' with</p>
+<p>DcmDspDataFixedLength: TRUE</p>
+<p>a container &quot;`DcmDspData&quot;' with</p>
+<p>DcmDspDataConditionCheckReadFncUsed: TRUE</p>
+<p>DcmDspDataInfoRef: reference to the &quot;`DcmDspDataInfo&quot;' container configured before.</p>
+<p>DcmDspDataSize: 72 bits</p>
+<p>DcmDspDataType: UINT8_N</p>
+<p>DcmDspDataUsePort: USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>a container &quot;`DcmDspDidInfo&quot;' with</p>
+<p>only read-access</p>
+<p>DcmDspDidReadSessionRef: CODING_SESSION, EXTENDED_SESSION, DEFAULT_SESSION</p>
+<p>a container &quot;`DcmDspDid&quot;' with</p>
+<p>DcmDspDidIdentifier: 0x37FF</p>
+<p>one DID Signal &quot;`DcmDspDidSignal&quot;' with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;`DcmDspData&quot;' container configured before.</p>
+<p><b>DiagnosticSessionControl</b></p>
+<p><b>[IM_CodingClassic_013]<i></b> d</i>The ECUReset service is used in order to prompt a control unit to exit the</p>
+<p>CodingSession following successfully completed coding.<i> c</i>(COD_338)</p>
+<p><b>[IM_CodingClassic_014]<i></b> d</i>The following parameters have to be configured:<i> c</i>(COD_341, COD_343)</p>
+<p>a container &quot;`DcmDsdService&quot;' with</p>
+<p>DcmDsdSidTabServiceId: 0x11</p>
+<p><i>∗</i> a container &quot;`DcmDsdSubService&quot;' with</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceId: 0x01</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: DEFAULT_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: EXTENDED_SESSION</p>
+<p><i>·</i></p>
+<p>DcmDsdSubServiceSessionLevelRef: CODING_SESSION</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 14 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Service Request Manufacturer Notification</b></p>
+<p>A Coding Service Request Manufacturer Notification shall be configured in the container</p>
+<p>&quot;DcmDslServiceRequestManufacturerNotification&quot;. The Mapping to the Coding module is done by</p>
+<p>connecting the corresponding ports.</p>
+<p><b>Com</b></p>
+<p>The communication stack has to be configured for the reception and sending of bus messages. The</p>
+<p>following PDUs/Signals are expected to be present in the Com stack after import of the BMW BNE export</p>
+<p>(CodingSample):</p>
+<p>Speed Signal (Rx) - CAN</p>
+<p>Shortname: V_VEH</p>
+<p>Length: 5 Bytes</p>
+<p>Signal: V_VEH_COG</p>
+<p>Signal Size: 16 Bits</p>
+<p>Startbit Position: 16</p>
+<p>Speed Signal (Rx) - Ethernet</p>
+<p>Service Interface ID: 0x7533</p>
+<p>Service: SpeedAcceleration</p>
+<p>Ereignis/Field: VehicleSpeedAndDrivingCondition</p>
+<p>Parameter/Strukturelement: speedVehicleCentreOfGravity</p>
+<p>Important Note: For integration of the CodingSample module in an ECU, which is connected to Ethernet</p>
+<p>as &quot;`System Bus&quot;' there is an adaption to make (S/R-interface and code). A new implementation data type</p>
+<p>has to be created e.g. &quot;`CodingSample_VehicleSpeedAndDrivingRecordType&quot;' and the existing</p>
+<p>S/R-interface &quot;`Coding_VehicleSpeedInterface&quot;' must refer this new data implementation type.</p>
+<p>Furthermore the provided function &quot;`CodingSample_VehicleSpeedReceiveHandler()&quot;' must be modified</p>
+<p>to access the desired parameter of the new structure.</p>
+<p><b>Det</b></p>
+<p>The DET shall be configured to provide development Errors. These errors are application programmer</p>
+<p>specific.</p>
+<p><b>BswM</b></p>
+<p>The BswM has to provide:</p>
+<p>BswMModeRequestPort &quot;`LifeCycle&quot;' to receive mode switch notifications of the</p>
+<p>ModeDeclarationGroup &quot;`Coding_LifeCycle&quot;' from Coding</p>
+<p>BswMRteModeRequestPort &quot;`LifeCycleRequest&quot;' to request modes of the ModeDeclarationGroup</p>
+<p>&quot;`Coding_LifeCycle&quot;'</p>
+<p>BswMRules to request the Coding life cycle mode</p>
+<p>BswMRules to switch the Coding BusCom-Mode</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 15 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>BswMRules to switch the Coding Session-Mode</p>
+<p><b>Configuration of generic part</b></p>
+<p><b>CodingCrypto</b></p>
+<p>This container contains the configuration (parameters) of the crypto part of the Coding module.</p>
+<p><b>CryptoLib</b></p>
+<p>Choose this container to use the BMW crypto library for crypto operations.</p>
+<p><b>Csm</b></p>
+<p>Choose this container to use the AUTOSAR Csm for crypto operations.</p>
+<p><b>CodingHashSize</b></p>
+<p>This parameter defines the size of the hash depending on the Hash Method.</p>
+<p>The Coding module supports the following hash algorithm</p>
+<p>SHA-256 - length 32 bytes</p>
+<p>SHA-384 - length 43 bytes</p>
+<p>SHA-512 - length 64 bytes</p>
+<p><b>CodingGeneral</b></p>
+<p>This container contains the configuration parameters of the generic part of the Coding module.</p>
+<p><b>CodingDevErrorDetect</b></p>
+<p>This parameter activates/deactivates the Development Error Detection and Notification.</p>
+<p>If set to true: Development Error Detection and Notification is activated.</p>
+<p>If set to false: Development Error Detection and Notification is deactivated.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 16 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>CodingSignatureSize</b></p>
+<p><b>[IM_Coding_001]<i></b> d</i>This parameter defines the size of the net Coding Data Signature depending on the</p>
+<p>Signature Method.<i> c</i>(COD_147, COD_148)</p>
+<p>The Coding module supports the following asymmetric keys</p>
+<p>RSA key length 2048 bit</p>
+<p>RSA key length 3072 bit</p>
+<p>RSA key length 4096 bit</p>
+<p>ECC key length 256 bit</p>
+<p>ECC key length 384 bit</p>
+<p>ECC key length 521 bit</p>
+<p><b>CodingCryptoEnable</b></p>
+<p>This parameter activates/deactivates the Service to check net Coding Data Signature.</p>
+<p>If set to true: Service to check net Coding Data Signature is activated.</p>
+<p>If set to false: Service to check net Coding Data Signature is deactivated.</p>
+<p><b>CodingProdErrorCEUDDetection</b></p>
+<p><b>[IM_Coding_002]<i></b> d</i>This parameter activates/deactivates the Production Error &quot;`Coding Event</p>
+<p>Unqualified Data&quot;' (CEUD) Detection and Reporting.<i> c</i>(COD_114, COD_138)</p>
+<p>If set to true: Production Error CEUD Detection and Report is activated.</p>
+<p>If set to false: Production Error CEUD Detection and Report is deactivated.</p>
+<p><b>CodingConditionCheck</b></p>
+<p><b>[IM_Coding_003]<i></b> d</i>This parameter activates/deactivates the Coding Ability due to Operating Conditions</p>
+<p>Detection e.g. car is being driven or engine is running.<i> c</i>(COD_060)</p>
+<p>If set to true: Operating Conditions Detection is activated.</p>
+<p>If set to false: Operating Conditions Detection is deactivated.</p>
+<p><b>CodingReceiveBufferSize</b></p>
+<p><b>[IM_Coding_004]<i></b> d</i>This parameter defines the size of the Coding Receive Buffer (Rx) of Control Unit in</p>
+<p>Bytes.<i> c</i>(COD_171)</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 17 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>CodingSendBufferSize</b></p>
+<p><b>[IM_Coding_005]<i></b> d</i>This parameter defines the size of the Coding Send Buffer (Tx) of Control Unit in</p>
+<p>Bytes.<i> c</i>(COD_171)</p>
+<p><b>CodingArea</b></p>
+<p><b>[IM_Coding_006]<i></b> d</i>This container contains the default value for unused bits and all user configurable</p>
+<p>functions of this Coding area.<i> c</i>(COD_097)</p>
+<p><b>CodingAreaDefVal</b></p>
+<p>This parameter defines the Default Value for Unused Bits in the Coding Area.</p>
+<p>The Coding module supports the following default values</p>
+<p>AllBitsZero (0x00)</p>
+<p>AllBitsOne (0xFF)</p>
+<p><b>CodingFunction</b></p>
+<p>This container contains one or more Coding Functions.</p>
+<p><b>CodingFunctionStartByte</b></p>
+<p>This parameter contains the Startbyte of the Coding Function Value within the User Configurable Data.</p>
+<p><b>CodingFunctionEndByte</b></p>
+<p>This parameter contains the Endbyte of the Coding Function Value within the User Configurable Data.</p>
+<p><b>CodingFunctionMask</b></p>
+<p>This parameter contains the Mask of the Coding Function Value within the User Configurable Data.</p>
+<p><b>CodingFunctionApplType</b></p>
+<p>This parameter defines the Function Type of the Coding Function Value towards the Application.</p>
+<p>The Coding module supports the following types</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 18 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>boolean</p>
+<p>bytearray</p>
+<p>uint8</p>
+<p>uint16</p>
+<p>uint32</p>
+<p>uint64</p>
+<p>sint8</p>
+<p>sint16</p>
+<p>sint32</p>
+<p>sint64</p>
+<p>float32</p>
+<p>float64</p>
+<p><b>CodingFunctionDataCheck</b></p>
+<p><b>[IM_Coding_007]<i></b> d</i>This parameter activates/deactivates the Coding Function Value Check. Control</p>
+<p>Units must perform a Plausibility Check of the Net Coding Data received during the Coding Data</p>
+<p>Transaction if implausible Net Coding Data can lead to safety-critical states of the Control Unit.</p>
+<p><i>c</i>(COD_227)</p>
+<p>If set to true: Coding Function Value Check is activated.</p>
+<p>If set to false: Coding Function Value Check is deactivated.</p>
+<p><b>CodingFunctionTransformationRule</b></p>
+<p>This parameter defines the Transformation Rule for the Coding Function Value from Non Volatile Memory</p>
+<p>to the User Interface (Application). This Rule shall be configured as a Simple C Operation e.g. &quot;`+10&quot;' or</p>
+<p>&quot;`*2&quot;'.</p>
+<p><b>CodingFunctionLowerLimit</b></p>
+<p>This parameter defines the Lower Limit for the Coding Function Value passed to the User Interface</p>
+<p>(Application).</p>
+<p><b>CodingFunctionUpperLimit</b></p>
+<p>This parameter defines the Upper Limit for the Coding Function Value passed to the User Interface</p>
+<p>(Application).</p>
+<p><b>CodingFunctionNvramType</b></p>
+<p>This container defines the Function Type of the Coding Function Value in Non Volatile Memory.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 19 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>The Coding module supports the following types</p>
+<p>boolean</p>
+<p>bytearray</p>
+<p>uint8</p>
+<p>uint16</p>
+<p>uint32</p>
+<p>uint64</p>
+<p>sint8</p>
+<p>sint16</p>
+<p>sint32</p>
+<p>sint64</p>
+<p>float32</p>
+<p>float64</p>
+<p>Choose the desired container to defines the Function Type of the Coding Function Value in Non Volatile</p>
+<p>Memory</p>
+<p>CodingFunctionDefaultValue</p>
+<p>This parameter contains the Default Value of the Coding Function within the User Configurable Data.</p>
+<p><b>Configuration of adapter part</b></p>
+<p><b>CodingClassicGeneral</b></p>
+<p>This container contains the configuration parameters of the classic adapter of the Coding module.</p>
+<p><b>CodingCycleTime</b></p>
+<p>This parameter defines the Call Cycle of the Coding Timer Function in Seconds.</p>
+<p><b>Other Application SWC</b></p>
+<p>Application Connectors</p>
+<p>CheckCodingFunction_&lt;x&gt;: Shall be connected with its corresponding CodingSample ports.</p>
+<p>ConditionMode: Shall be connected with its corresponding CodingSample port.</p>
+<p>Data: Shall be connected with its corresponding CodingSample and CodingTestClient port.</p>
+<p>DataMode: Shall be connected with its corresponding CodingSample and CodingTestClient port.</p>
+<p>LifeCycle: Shall be connected with its corresponding BswM and CodingTestClient port.</p>
+<p>ProgId: Shall be connected with its corresponding Dlog port.</p>
+<p>SVK: Shall be connected with its corresponding Dlog port.</p>
+<p>Vin: Shall be connected with its corresponding Vin port.</p>
+<p>Service Connectors</p>
+<p>BusCom: Shall be connected with its corresponding BswM port.</p>
+<p>CBClrEvt_EventNotCoded: Shall be connected with its corresponding Dem port.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 20 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>CheckNCD: Shall be connected with its corresponding Dcm port.</p>
+<p>DETService: Shall be connected with its corresponding Det port.</p>
+<p>EventNotCoded: Shall be connected with its corresponding Dem port.</p>
+<p>EventUnqualifiedData: Shall be connected with its corresponding Dem port.</p>
+<p>EventWrongVehicle: Shall be connected with its corresponding Dem port.</p>
+<p>LifeCycleRequest: Shall be connected with its corresponding BswM and CodingTestClient port.</p>
+<p>Notification: Shall be connected with its corresponding Dcm port.</p>
+<p>NvMNotifyJobFinished: Shall be connected with its corresponding NvM port.</p>
+<p>NvMService: Shall be connected with its corresponding NvM port.</p>
+<p>ReadCPS: Shall be connected with its corresponding Dcm port.</p>
+<p>ReadNCD: Shall be connected with its corresponding Dcm port.</p>
+<p>ReadProtocolData: Shall be connected with its corresponding Dcm port.</p>
+<p>SessionChangeIndication: Shall be connected with its corresponding BswM port.</p>
+<p>WriteNCD: Shall be connected with its corresponding Dcm port.</p>
+<p><b>Event Mapping</b></p>
+<p>Coding_DemClearEventAllowedNotCoded: Operation Invoked Event</p>
+<p>Coding_TimerMain: Timing Event</p>
+<p>DCMConfirmation: Operation Invoked Event</p>
+<p>DCMIndication: Operation Invoked Event</p>
+<p>GetCafIds: Operation Invoked Event</p>
+<p>LifeCycleHandler: Data Receive Event</p>
+<p>R_CheckNCD: Operation Invoked Event</p>
+<p>R_ConditionCheckReadCPS: Operation Invoked Event</p>
+<p>R_ConditionCheckReadProtocolData: Operation Invoked Event</p>
+<p>R_GetCodingFunction_&lt;x&gt;: Operation Invoked Event</p>
+<p>R_ReadCPS: Operation Invoked Event</p>
+<p>R_ReadNCD: Operation Invoked Event</p>
+<p>R_ReadProtocolData: Operation Invoked Event</p>
+<p>R_WriteNCD: Operation Invoked Event</p>
+<p>SessionChange: Mode Switch Event</p>
+<p>VinReceiveHandler: Data Receive Event</p>
+<p>WriteDataBlockNotification: Operation Invoked Event</p>
+<p><b>Data Mapping</b></p>
+<p>No Data Mapping necessary for the Coding module.</p>
+<p><b>Exclusive Areas</b></p>
+<p>The exlusive areas CodingData and CodingState shall be configured.</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 21 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Software Integration</b></p>
+<p><b>Startup/Initialization</b></p>
+<p>Before the Coding operation mode CODING_INITIALIZED is requested, the following preconditions shall</p>
+<p>be satisfied:</p>
+<p>The Coding module is in STOPPED-Mode</p>
+<p>The NVRAM Manager is initialized</p>
+<p>The NVRAM Manager has finished the job Nvm_ReadAll(). This implies that the NV block containing</p>
+<p>the Coding data has also been loaded. If the block is corrupted, the NVRAM Manager automatically</p>
+<p>loads the default ROM block containing the default values.</p>
+<p>The Dlog is in RUNNING-Mode</p>
+<p>The integrator has to assure, that the Coding operation mode CODING_INITIALIZED is requested, after</p>
+<p>NvM_ReadAll() is finished and Dlog module switched to RUNNING-Mode.</p>
+<p><b>Normal Operation</b></p>
+<p>Before the Coding operation mode CODING_RUNNING is requested, the following preconditions shall be</p>
+<p>satisfied:</p>
+<p>The Coding module is in INITIALIZED-Mode</p>
+<p>The Coding_TimerMain() will be scheduled cyclically via RTE (a good value for this is a 100ms cycle ).</p>
+<p>After the Coding BusCom-Mode is set to CODING_BUSCOMON the Coding_TimerMain() may request</p>
+<p>the Vin module to get the onboard electrical system VIN to validate net Coding data if no VIN has been</p>
+<p>received until now. This qualification process is repeated 3 times at 1000 ms intervals, if a VIN has still not</p>
+<p>been received from the onboard electrical system. After this, qualification of the net coding data is not</p>
+<p>performed in this wake cycle, even if an onboard electrical system VIN is received at a later point.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>Before the Coding operation mode CODING_STOPPED is requested, the following preconditions shall</p>
+<p>be satisfied:</p>
+<p>The Coding module is either in INITIALIZED- or RUNNING-Mode</p>
+<p>Shutdown/Deactivation is requested</p>
+<p>The integrator has to assure, that the Coding operation mode CODING_STOPPED is requested, after a</p>
+<p>shutdown/deactivation request was received.</p>
+<p><b>SWCD</b></p>
+<p>The Coding module provides the following Mode:</p>
+<p>ModeDeclarationGroup Coding_ConditionMode</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 22 of 23</p>
+<h1 style="page-break-before:always; "></h1>
+<p>{</p>
+<p>{</p>
+<p>CODING_ALLOWED</p>
+<p>CODING_NOT_ALLLOWED</p>
+<p>}</p>
+<p>initialMode = CODING_ALLOWED</p>
+<p>}</p>
+<p>This mode is used to enable or disable the start of a Coding process. An implementation how to change</p>
+<p>this Mode is done in CodingSample_VehicleSpeedReceiveHandler(). The user can add additional rules.</p>
+<p>The Coding module provides the following Mode:</p>
+<p>ModeDeclarationGroup Coding_BusComMode</p>
+<p>{</p>
+<p>{</p>
+<p>CODING_BUSCOMOFF,</p>
+<p>CODING_BUSCOMON</p>
+<p>}</p>
+<p>initialMode = CODING_BUSCOMOFF</p>
+<p>}</p>
+<p>The integrator has to assure, that this Mode is set to CODING_BUSCOMON, after the bus</p>
+<p>communication has started. The Coding module requests the VIN from the Vin module after this Mode is</p>
+<p>set to CODING_BUSCOMON.</p>
+<p>No special callback functions have to be introduced by the application programmer for using the Coding</p>
+<p>module. The following application callback functions are already implemented in CodingSample.c and can</p>
+<p>be adapted by the application programmer:</p>
+<p>CodingSample_VehicleSpeedReceiveHandler()</p>
+<p>CodingSample_CheckCodingFunction_&lt;x&gt;()</p>
+<p>CodingClassic_IntegrationManual, Version 5.2.1, Software Platforms</p>
+<p>Page 23 of 23</p>
+</body>
+</html>
+{% endraw %}

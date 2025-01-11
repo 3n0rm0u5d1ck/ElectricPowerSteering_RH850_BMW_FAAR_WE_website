@@ -1,0 +1,1740 @@
+---
+layout: default
+title: TechnicalReference_IoHwAb
+nav_order: 2
+parent: I/O Hardware Abstraction
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR IOHWAB </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p>Version 3.00.02 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Christian Leder </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>2 / 33 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Christian Marchl </p>
+<p>2007-02-09 </p>
+<p>1.00.00 </p>
+<p>Initial version </p>
+<p>Christian Marchl </p>
+<p>2007-08-09 </p>
+<p>1.01.00 </p>
+<p>Typos corrected; Added description for </p>
+<p>component name field </p>
+<p>Christian Marchl </p>
+<p>2007-12-13 </p>
+<p>1.01.01 </p>
+<p>Version adapted according to new </p>
+<p>version scheme </p>
+<p>Christoph Ederer </p>
+<p>2008-05-21 </p>
+<p>2.00.00 </p>
+<p>Transfer of the document to new </p>
+<p>Technical Reference template; Adapted </p>
+<p>descriptions and screenshots to new </p>
+<p>software version </p>
+<p>Christoph Ederer </p>
+<p>2008-07-11 </p>
+<p>2.00.01 </p>
+<p>Update of document due to changes in </p>
+<p>DCM interface and RTE usage </p>
+<p>Christoph Ederer </p>
+<p>2009-01-14 </p>
+<p>2.01.00 </p>
+<p>Update of the naming of graphical </p>
+<p>elements in the configuration, </p>
+<p>Screenshots reworked, DCM </p>
+<p>subfunctions reworked, Added </p>
+<p>description of default value in </p>
+<p>configuration </p>
+<p>Christoph Ederer </p>
+<p>2009-03-23 </p>
+<p>2.01.01 </p>
+<p>Updated development error detection </p>
+<p>in GUI description, toolchain naming </p>
+<p>updated,  hints added to chapter 4.1.2 </p>
+<p>Christoph Ederer </p>
+<p>2009-07-21 </p>
+<p>2.02.00 </p>
+<p>Updated description of the generation </p>
+<p>process (user blocks, autom. SWC </p>
+<p>generation), updated AUTOSAR figure, </p>
+<p>added information on user defined </p>
+<p>signals </p>
+<p>Christoph Ederer </p>
+<p>2009-09-25 </p>
+<p>2.02.01 </p>
+<p>Reworked description of DCM interface </p>
+<p>Christoph Ederer </p>
+<p>2010-11-26 </p>
+<p>2.02.02 </p>
+<p><b>&gt; </b></p>
+<p>Added chapter 4.3 Critical Sections </p>
+<p><b>&gt; </b></p>
+<p>GUI description updated </p>
+<p><b>&gt; </b></p>
+<p>Added information about necessary </p>
+<p>make process modifications to 4.1.2 </p>
+<p>Christoph Ederer </p>
+<p>2011-03-02 </p>
+<p>2.02.03 </p>
+<p>Reworked the service descriptions in </p>
+<p>chapters 5.4.3, 5.4.7 and 5.4.10: </p>
+<p>parameter ‘signal’ is [inout], now </p>
+<p>Christoph Ederer </p>
+<p>2013-04-10 </p>
+<p>3.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Component rework and update to </p>
+<p>AUTOSAR 4 </p>
+<p><b>&gt; </b></p>
+<p>Update to new Configuration Tooling </p>
+<p>‘DaVinci Configurator 5’ </p>
+<p>Christian Leder </p>
+<p>2014-03-14 </p>
+<p>3.00.01 </p>
+<p>Generated file adapted from IoHwAb.c </p>
+<p>to IoHwAb_30.c </p>
+<p>Christian Leder </p>
+<p>2014-06-18 </p>
+<p>3.00.02 </p>
+<p>ReturnType changed in CS port </p>
+<p>operation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>3 / 33 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_IOHardwareAbstraction.pdf </p>
+<p>(available at: </p>
+<p>http://www.autosar.org/download/R4.0/AUTOSAR_SWS_IOHa</p>
+<p>rdwareAbstraction.pdf) </p>
+<p>V3.2.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>(available at: </p>
+<p>http://www.autosar.org/download/R4.0/AUTOSAR_SWS_Deve</p>
+<p>lopmentErrorTracer.pdf) </p>
+<p>V3.2.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>(available at: </p>
+<p>http://www.autosar.org/download/R4.0/AUTOSAR_TR_BSWM</p>
+<p>oduleList.pdf) </p>
+<p>V1.6.0 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_EXP_VFB.pdf </p>
+<p>(available at: </p>
+<p>http://www.autosar.org/download/R4.0/AUTOSAR_EXP_VFB.</p>
+<p>pdf) </p>
+<p>V2.2.0 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>4 / 33 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 7</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 11</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 11</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 11</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 12</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 12</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 12</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 12</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 13</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 13</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 13</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 13</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 14</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Generated Template Files ................................................................................ 15</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>User Blocks ...................................................................................... 15</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>Unrecognized/Deleted Signals ......................................................... 16</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 17</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 17</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by IOHWAB ........................................................................ 17</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>IoHwAb_Init ..................................................................................... 17</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>IoHwAb_GetVersionInfo ................................................................... 18</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Generated API Function Templates .................................................................. 18</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Client/Server Operation: </p>
+<p>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt; ................... 19</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Sender/Receiver Port Runnable: </p>
+<p>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt; ........................... 20</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>Runnable Entity: IoHwAb_&lt; RunnableName&gt; .................................. 21</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>Schedulable Entity: IoHwAb_&lt;SchedulableName&gt; .......................... 22</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Services used by IOHWAB .............................................................................. 23</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 23</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 24</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Notifications ..................................................................................... 24</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>5 / 33 </p>
+<p>5.7</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 24</p>
+<p> </p>
+<p>5.7.1</p>
+<p> </p>
+<p>Client Server Interface ..................................................................... 24</p>
+<p> </p>
+<p>5.7.1.1</p>
+<p> </p>
+<p>Provide Ports on IOHWAB Side ..................................... 24</p>
+<p> </p>
+<p>5.7.1.1.1</p>
+<p> </p>
+<p>Provide Ports ............................................. 24</p>
+<p> </p>
+<p>5.7.1.2</p>
+<p> </p>
+<p>Require Ports on IOHWAB Side ..................................... 24</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 25</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 25</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration Workflow .................................................................................... 25</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 32</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 32</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 32</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 33</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>6 / 33 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ......................................................... 9</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the IOHWAB ........................................ 10</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>User Block Implementation Area ............................................................... 15</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Configuration Workflow ............................................................................. 26</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>SWC import select file .............................................................................. 27</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Imported Software Component ................................................................. 28</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>I/O Hardware and Application Software Component ................................. 29</p>
+<p> </p>
+<p>Figure 6-5 </p>
+<p>30</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 7</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 11</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 11</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 12</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 12</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 13</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 13</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Files generated by the RTE Generator ..................................................... 14</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>IoHwAb_Init .............................................................................................. 18</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>IoHwAb_GetVersionInfo ........................................................................... 18</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt; ............................ 19</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt; ................................... 20</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>IoHwAb_&lt;PortPrototypeName&gt;_&lt;Read/Write&gt; ........................................ 22</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>[Service name] .......................................................................................... 23</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Services used by the IOHWAB ................................................................. 23</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Provide Ports ............................................................................................ 24</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 32</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 32</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>7 / 33 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>3.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Update to AUTOSAR 4 </p>
+<p><b>&gt; </b></p>
+<p>Full support of Client/Server port functionality </p>
+<p><b>&gt; </b></p>
+<p>Full support of Sender/Receiver port functionality </p>
+<p><b>&gt; </b></p>
+<p>Full BSW Schedulable Entity support </p>
+<p><b>&gt; </b></p>
+<p>Full Runnable Entity Support </p>
+<p><b>&gt; </b></p>
+<p>Update of configuration tooling to DaVinci Configurator 5.x </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>8 / 33 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module IOHWAB as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>IOHWAB_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>IOHWAB_MODULE_ID   </p>
+<p>254 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the precise AUTOSAR Release 3.x please see the release specific documentation.  </p>
+<p> </p>
+<p> </p>
+<p>The  aim  of  the  IOHWAB  is  to  provide  ECU  hardware-independent  data  transition  from </p>
+<p>driver modules up to the Software Components. To fulfill this task the IOHWAB generates </p>
+<p>a Software Component description from the user configuration. This Software Component </p>
+<p>description can be imported by the ‘Vector DaVinci Developer’ and/or the RTE module. </p>
+<p>After import, the IOHWAB is displayed like a normal Software Component (SW-C) with a </p>
+<p>set of  </p>
+<p><b>&gt; </b></p>
+<p>Client/Server Ports, </p>
+<p><b>&gt; </b></p>
+<p>Sender/Receiver Ports, </p>
+<p><b>&gt; </b></p>
+<p>Runnable Entities </p>
+<p>within  the  ‘DaVinci  Developer’  modeling  tool.  Other SW-Cs can  access  I/O  modules  via </p>
+<p>these ports through the RTE and the I/O Hardware Abstraction. </p>
+<p>This  release  of  the  IOHWAB  is  a  completely  generic  approach  and  does  not  generate </p>
+<p>ready-to-use </p>
+<p>code </p>
+<p>files. </p>
+<p>Instead, </p>
+<p>it </p>
+<p>generates </p>
+<p>function </p>
+<p>stubs </p>
+<p>(containing </p>
+<p>user </p>
+<p>code </p>
+<p>sections, </p>
+<p>called </p>
+<p>‘User </p>
+<p>Blocks’ </p>
+<p>– </p>
+<p>see </p>
+<p>7.1, </p>
+<p>0) </p>
+<p>that </p>
+<p>are </p>
+<p>accessible </p>
+<p>via </p>
+<p>the </p>
+<p>supported </p>
+<p>AUTOSAR interfaces: Sender/Receiver Ports, Client/Server Ports, Runnable entities. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>9 / 33 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the IOHWAB is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>10 / 33 </p>
+<p>The </p>
+<p>next </p>
+<p>figure </p>
+<p>shows </p>
+<p>the </p>
+<p>interfaces  to </p>
+<p>adjacent </p>
+<p>modules </p>
+<p>of </p>
+<p>the </p>
+<p>IOHWAB. </p>
+<p>These </p>
+<p>interfaces are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the IOHWAB </p>
+<p>Applications do not access the services of the BSW modules directly. They use the service </p>
+<p>ports  provided  by  the  BSW  modules  via  the  RTE.  The  service  ports  provided  by  the </p>
+<p>IOHWAB are listed in chapter 5.7 and are defined in [1]. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>11 / 33 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>IOHWAB. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Abstraction of MCAL signals </p>
+<p>Creation of a Software Component Description file that can be imported by DaVinci Developer </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Automatic abstraction of I/O modules (Implementation of the ‘firmware’ has to be done by the </p>
+<p>user) </p>
+<p>I/O control via DCM </p>
+<p>Support of BswInterruptEntities </p>
+<p>Automatic signal aging and debouncing </p>
+<p>Production Error Detection </p>
+<p>AUTOSAR Debugging </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Initialization is not necessarily needed for the IOHWAB. Therefore, the provided service for </p>
+<p>initialization can be removed by a pre-compile option during the configuration phase. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Basic Knowledge </b></p>
+<p>It is not intended to initialize drivers in the IOHWAB initialization function. Driver </p>
+<p>initialization has to be done by the ECUM. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The IOHWAB itself neither has certain module states nor does any handling of states of </p>
+<p>lower-level drivers. Caring about time flows and states is the user’s responsibility. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>12 / 33 </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>The  I/O  Hardware  Abstraction  module  does  not  provide  (a)  fix  main  function(s),  but </p>
+<p>implements a generic approach, i.e. main functions can be created in the configuration and </p>
+<p>are generated into the configuration source files. </p>
+<p>The I/O Hardware Abstraction refers to main functions as ‘BSW Schedulable Entities’, see </p>
+<p>5.3.4.  After  creating  a  BSW  Schedulable  Entity  in  the  configuration,  the  configured </p>
+<p>information  is  passed  to  the  RTE/SCHM  via  ‘Internal  Behavior’. After  the  generation  is </p>
+<p>finished, the Schedulable Entity functionality can be implemented in the function template </p>
+<p>in the file ‘IoHwAb_30.c’. At runtime, it will be called cyclically by the SCHM as configured. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p> as specified in [2], if ‘Development Mode’ and ‘Development Error </p>
+<p>Reporting’ are enabled in the configuration tool. </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported IOHWAB ID is 254. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x01 </p>
+<p>IoHwAb_Init() </p>
+<p>0x10 </p>
+<p>IoHwAb_GetVersionInfo() </p>
+<p>Table 3-3  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>IOHWAB_E_INV_POINTER </p>
+<p>API service called with “NULL pointer” as parameter </p>
+<p>Table 3-4  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p><b>3.5.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>As  production  error  reporting  is  typically  done  on  driver  level,  the  IOHWAB  does  not </p>
+<p>provide any reporting mechanism. Nonetheless, production error reporting can be added </p>
+<p>manually to ‘IoHwAb_30.c’, if necessary. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>13 / 33 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR  IOHWAB </p>
+<p>into an application environment of an ECU. </p>
+<p> </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the IOHWAB contains the files which are described in the chapters 4.1.1 </p>
+<p>and 4.1.2: </p>
+<p> </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>IoHwAb.h </p>
+<p>Declares the interface of the MICROSAR component IOHWAB</p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>IoHwAb_30.c </p>
+<p>Code template that contains the interfaces of the IOHWAB as well as </p>
+<p>the generated API function templates. </p>
+<p>IoHwAb_Cfg.h </p>
+<p>Contains the static configuration of the IOHWAB </p>
+<p>IoHwAb_Cbk.h </p>
+<p>Code template for prototypes of callback functions </p>
+<p>IoHwAb_Types.h </p>
+<p>Contains all the data types that are used in the IOHWAB (File is only </p>
+<p>used, if RTE usage is deactivated) </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>14 / 33 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>The files ‘IoHwAb_30.c’ and ‘IoHwAb_Cbk.h’ are code templates, i.e. after generation </p>
+<p>they are not complete and require user modifications. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>Generated code templates are not part of the AUTOSAR make files provided by the </p>
+<p>module, because the file may be copied to different locations in an integration package </p>
+<p>(e.g. a common folder for all editable code templates). </p>
+<p>Please add all generated code templates to your make process, manually. If the Vector </p>
+<p>make environment is used, add the file to the variable ‘APP_SOURCE_LST’ in the file </p>
+<p>‘Makefile.project.part.defines’. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>For successfully integrating the IOHWAB in a MICROSAR environment, there are further </p>
+<p>files needed. These Files can be generated by the RTE generator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Rte_IoHwAb.h </p>
+<p>Contains the prototypes of all the IOHWAB operation services </p>
+<p>Rte_Type.h </p>
+<p>Contains all the data types that are used in the IOHWAB </p>
+<p>Table 4-3  </p>
+<p>Files generated by the RTE Generator </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The IOHWAB implements the following critical section: </p>
+<p><b>&gt; </b></p>
+<p>IOHWAB_EXCLUSIVE_AREA_0: This critical section can be used to protect code </p>
+<p>passages that may contain coherent operations. The critical section shall prevent task </p>
+<p>switches. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>This critical section can be used in the user code. To create a protected code passage, </p>
+<p>call the macro IoHwAb_GlobalSuspend() before the protected part and </p>
+<p>IoHwAb_GlobalRestore() after it. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Be sure to use critical sections scarcely and keep them as short as possible, because </p>
+<p>they may affect the system performance. Furthermore, pay attention that you do not </p>
+<p>nest critical sections and always close opened sections. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>15 / 33 </p>
+<p><b>4.3 </b></p>
+<p><b>Generated Template Files </b></p>
+<p>A generated template file in this document is a file which: </p>
+<p><b>&gt; </b></p>
+<p>is generated by the generation tool at every generation process  </p>
+<p><b>&gt; </b></p>
+<p>the user can modify for his needs </p>
+<p><b>&gt; </b></p>
+<p>preserves that the user implementation will not be overwritten during the next </p>
+<p>generation process </p>
+<p> </p>
+<p><b>4.3.1 </b></p>
+<p><b>User Blocks </b></p>
+<p>In order not to overwrite the user code, the template file contains special comments, where </p>
+<p>code can be inserted. The comments have the following format: </p>
+<p>/********************************************************************************** </p>
+<p> * DO NOT CHANGE THIS COMMENT! &lt;USERBLOCK NAME&gt; DO NOT CHANGE THIS COMMENT                                </p>
+<p>***********************************************************************************/ </p>
+<p> </p>
+<p>/********************************************************************************** </p>
+<p> * DO NOT CHANGE THIS COMMENT! &lt;/USERBLOCK&gt; DO NOT CHANGE THIS COMMENT     </p>
+<p>***********************************************************************************/ </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Do not edit manually </b></p>
+<p>Do not modify or delete the comment lines! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The following example explains where the code can be implemented: </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>User Block Implementation Area </p>
+<p>Every code outside this area will be overwritten during the next generation process. </p>
+<p> </p>
+<p>The I/O Hardware Abstraction provides the following generated template files: </p>
+<p><b>&gt; </b></p>
+<p>IoHwAb_30.c </p>
+<p><b>&gt; </b></p>
+<p>IoHwAb_Cbk.h </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>16 / 33 </p>
+<p><b>4.3.2 </b></p>
+<p><b>Unrecognized/Deleted Signals </b></p>
+<p>If  a  Port  Prototype,  Runnable  Entity  or  BSW  Schedulable  Entity  is  removed  from  or </p>
+<p>renamed in the configuration, possibly already implemented code would be lost, because </p>
+<p>the </p>
+<p>generated </p>
+<p>service </p>
+<p>would </p>
+<p>be </p>
+<p>deleted  from </p>
+<p>the </p>
+<p>generated  file. </p>
+<p>In </p>
+<p>this </p>
+<p>case, </p>
+<p>the </p>
+<p>‘IoHwAb_30.c’ template file contains a section at the end, which receives the code from all </p>
+<p>services whose associated signals have been deleted: </p>
+<p>/* Section for deleted/unrecognized user blocks: */ </p>
+<p><b>#if</b> 0 </p>
+<p><b>#endif</b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>This section only contains code from signals that have been deleted during the last </p>
+<p>generation process. During the next generation, the section will be cleared. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>17 / 33 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>The  API </p>
+<p>of </p>
+<p>the </p>
+<p>I/O </p>
+<p>Hardware  Abstraction </p>
+<p>is </p>
+<p>mainly </p>
+<p>generic, </p>
+<p>only </p>
+<p>IoHwAb_Init </p>
+<p>and </p>
+<p>IoHwAb_GetVersionInfo are permanent. The fixed API is described in the chapter 5.2, the </p>
+<p>generic, configuration-specific API is described in 5.3. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The I/O Hardware Abstraction module does not provide any default types, but implements </p>
+<p>a generic approach, i.e. types can be created in the configuration and are generated into </p>
+<p>the configuration source files (either by the I/O Hardware Abstraction itself or by the RTE). </p>
+<p> </p>
+<p>The current implementation supports the creation of the following types: </p>
+<p><b>&gt; </b></p>
+<p>Typedefs to primitive types (provided by AUTOSAR Standard/Platform Types) </p>
+<p><b>&gt; </b></p>
+<p>Arrays  (consisting of primitive types or types that are derived from these) </p>
+<p><b>&gt; </b></p>
+<p>Structs ((consisting of primitive types or types that are derived from these) </p>
+<p> </p>
+<p>Types can be created/configured via the following configuration containers: </p>
+<p><b>&gt; </b></p>
+<p>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbTypeReference </p>
+<p><b>&gt; </b></p>
+<p>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbArray </p>
+<p><b>&gt; </b></p>
+<p>…/IoHwAbDatatypes/IoHwAbImplementationTypes/IoHwAbRecord </p>
+<p>The destination file of the typedefs after the generation process depends on the following </p>
+<p>configuration switch: ‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbUseRte’. </p>
+<p>If the RTE is used, the file ‘Rte_Type.h’ will contain the typedefs. Otherwise, the typedefs </p>
+<p>are generated into the file ‘IoHwAb_Types.h’. </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by IOHWAB </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>IoHwAb_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>IoHwAb_Init</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This function stub can be used to implement any initialization activities and shall be called by the ECUM. It </p>
+<p>is not intended to initialize drivers in the IOHWAB initialization function. Driver initialization has to be done </p>
+<p>by the ECUM. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>18 / 33 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This service can be disabled using the configuration parameter </p>
+<p>‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbUseInitFunction’ </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context (EcuM) </p>
+<p>Table 5-1  </p>
+<p>IoHwAb_Init </p>
+<p><b>5.2.2 </b></p>
+<p><b>IoHwAb_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void  <b>IoHwAb_GetVersionInfo </b>( Std_VersionInfoType *versioninfo )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>versioninfo </p>
+<p>Pointer to where the version information shall be stored </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service returns the version information of this module. The provided information is: </p>
+<p><b>&gt; </b></p>
+<p>Module ID </p>
+<p><b>&gt; </b></p>
+<p>Vendor ID </p>
+<p><b>&gt; </b></p>
+<p>Version Information </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This service can be disabled using the configuration parameter </p>
+<p>‘/MICROSAR/IoHwAb/IoHwAbGeneral/IoHwAbVersionInfoApi’ </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context </p>
+<p>Table 5-2  </p>
+<p>IoHwAb_GetVersionInfo </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Generated API Function Templates </b></p>
+<p>The  following  service  descriptions  do  not  refer  to  certain API  functions,  but  to  function </p>
+<p>stubs that will be generated by the IOHWAB. The service name, as well as the parameter </p>
+<p>format is influenced by the configuration settings. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>19 / 33 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The following functions can be invoked concurrently by the RTE. As software on the </p>
+<p>lower layer may not support concurrency, the application should avoid parallel calls of </p>
+<p>signal services. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Client/Server Operation: </b></p>
+<p><b>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType  <b>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt; </b>( &lt;ConfiguredType&gt; </p>
+<p>&lt;*&gt;&lt;OperationArgumentName&gt; )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>&lt;OperationArgumentNa</p>
+<p>me&gt; </p>
+<p>Configured  operation parameter </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>ReturnType can be configured / defined in the configuration phase. </p>
+<p><b>Functional Description </b></p>
+<p>This service is the implementation of an operation contained in a configured Client/Server Port Prototype. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context (RTE) </p>
+<p>Table 5-3  </p>
+<p>IoHwAb_&lt;CSPortPrototypeName&gt;_&lt;OperationName&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>20 / 33 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>A Client/Server Operation can be created by the following steps: </p>
+<p><b>&gt; </b></p>
+<p>Create a Client/Server Interface by adding an instance of the configuration container </p>
+<p>‘/MICROSAR/IoHwAb/IoHwAbCSPortInterface’ </p>
+<p><b>&gt; </b></p>
+<p>Create the corresponding operations by adding instances of the configuration </p>
+<p>container ‘/MICROSAR/IoHwAb/IoHwAbCSPortInterface/IoHwAbOperation’ and add </p>
+<p>operation arguments (‘…/IoHwAbOperation/IoHwAbOperationArgument’) </p>
+<p><b>&gt; </b></p>
+<p>Create a Client/Server PortPrototype by adding an instance of the configuration </p>
+<p>container ‘/MICROSAR/IoHwAb/IoHwAbCSPortPrototype’ and set the contained </p>
+<p>parameter ‘IoHwAbCSPortInterfaceRef’ to the Port Interface created before </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>This function is a template that contains no implementation code. Add the </p>
+<p>implementation in the file ‘IoHwAb_30.c’. More Information about where to implement </p>
+<p>your code can be found in 4.3.1. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3.2 </b></p>
+<p><b>Sender/Receiver Port Runnable: </b></p>
+<p><b>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>void  <b>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt; </b>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service is the implementation of a port element contained in a configured Sender/Receiver Port </p>
+<p>Prototype. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context (RTE) </p>
+<p>Table 5-4  </p>
+<p>IoHwAb_&lt;SRPortPrototypeName&gt;_&lt;Read/Write&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>21 / 33 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>A Sender/Receiver port element can be created by the following steps: </p>
+<p><b>&gt; </b></p>
+<p>Create a Sender/Receiver Interface by adding an instance of the configuration </p>
+<p>container ‘/MICROSAR/IoHwAb/IoHwAbSRPortInterface’ </p>
+<p><b>&gt; </b></p>
+<p>Create the corresponding port elements by adding instances of the configuration </p>
+<p>container ‘/MICROSAR/IoHwAb/IoHwAbSRPortInterface/IoHwAbPortElement’ </p>
+<p><b>&gt; </b></p>
+<p>Create a Sender/Receiver PortPrototype by adding an instance of the configuration </p>
+<p>container ‘/MICROSAR/IoHwAb/IoHwAbSRPortPrototype’ and set the contained </p>
+<p>parameter ‘IoHwAbSRPortInterfaceRef’ to the Port Interface created before </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>This function is a template that contains no implementation code. Add the </p>
+<p>implementation in the file ‘IoHwAb_30.c’. More Information about where to implement </p>
+<p>your code can be found in 4.3.1. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3.3 </b></p>
+<p><b>Runnable Entity: IoHwAb_&lt; RunnableName&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>void  <b>IoHwAb_&lt;RunnableName&gt; </b>( )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service is the implementation of a Runnable Entity. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>22 / 33 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context (RTE) </p>
+<p>Table 5-5  </p>
+<p>IoHwAb_&lt;PortPrototypeName&gt;_&lt;Read/Write&gt; </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>A Runnable Entity can be created by the following steps: </p>
+<p><b>&gt; </b></p>
+<p>Create a Runnable Entity by adding an instance of the configuration container </p>
+<p>‘/MICROSAR/IoHwAb/IoHwAbRunnable’ and configure the contained parameters. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>This function is a template that contains no implementation code. Add the </p>
+<p>implementation in the file ‘IoHwAb_30.c’. More Information about where to implement </p>
+<p>your code can be found in 4.3.1. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3.4 </b></p>
+<p><b>Schedulable Entity: IoHwAb_&lt;SchedulableName&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>IoHwAb_&lt;SchedulableName&gt; </b>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This function is the implementation of a BSW Schedulable Entity. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>23 / 33 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context (RTE) </p>
+<p>Table 5-6  </p>
+<p>[Service name] </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>A BSW Schedulable Entity can be created by the following steps: </p>
+<p>Create a Schedulable Entity by adding an instance of the configuration container </p>
+<p>‘/MICROSAR/IoHwAb/IoHwAbSchedulable’ and configure the contained parameters. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>This function is a template that contains no implementation code. Add the </p>
+<p>implementation in the file ‘IoHwAb_30.c’. More Information about where to implement </p>
+<p>your code can be found in 4.3.1. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.4 </b></p>
+<p><b>Services used by IOHWAB </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>IOHWAB </p>
+<p>are </p>
+<p>listed. </p>
+<p>For </p>
+<p>details </p>
+<p>about </p>
+<p>prototype </p>
+<p>and </p>
+<p>functionality </p>
+<p>refer </p>
+<p>to </p>
+<p>the </p>
+<p>documentation of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError (optional) </p>
+<p>DIO </p>
+<p>All (optional) </p>
+<p>GPT </p>
+<p>All (optional) </p>
+<p>ICU </p>
+<p>All (optional) </p>
+<p>PORT </p>
+<p>All (optional) </p>
+<p>PWM </p>
+<p>All (optional) </p>
+<p>SPI </p>
+<p>All (optional) </p>
+<p>Table 5-7  </p>
+<p>Services used by the IOHWAB </p>
+<p><b>5.5 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This release of the IOHWAB does not implement any callback functions. If necessary, the </p>
+<p>user may implement prototypes of callback functions in the file IoHwAb_Cbk.h. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It is not possible to pass an approaching callback function through the RTE to the </p>
+<p>software component. Actions for handling callbacks have to be implemented inside the </p>
+<p>IOHWAB. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>24 / 33 </p>
+<p><b>5.6 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.6.1 </b></p>
+<p><b>Notifications </b></p>
+<p>The I/O Hardware Abstraction does not provide Notifications. </p>
+<p><b>5.7 </b></p>
+<p><b>Service Ports </b></p>
+<p><b>5.7.1 </b></p>
+<p><b>Client Server Interface </b></p>
+<p>A client server interface is related to a Provide Port at the server side and a Require Port </p>
+<p>at client side.  </p>
+<p><b>5.7.1.1 </b></p>
+<p><b>Provide Ports on IOHWAB Side </b></p>
+<p>All the Provide Ports of the IOHWAB the API functions described in 5.2 are available as </p>
+<p>Runnable Entities. The Runnable Entities are invoked via Operations. The mapping from a </p>
+<p>SWC client call to an Operation is performed by the RTE. In this mapping the RTE adds </p>
+<p>Port Defined Argument Values to the client call of the SWC, if configured. </p>
+<p>The  following  sub-chapters  present  the  Provide  Ports  defined  for  the  IOHWAB  and  the </p>
+<p>Operations defined for the Provide Ports, the API functions related to the Operations and </p>
+<p>the Port Defined Argument Values to be added by the RTE. </p>
+<p> </p>
+<p><b>5.7.1.1.1 </b></p>
+<p><b>Provide Ports </b></p>
+<p><b>Operation </b></p>
+<p><b>API Function </b></p>
+<p><b>Port Defined Argument Values </b></p>
+<p>&lt;IoHwAbOperation&gt; </p>
+<p>IoHwAb_&lt;IoHwAbCSPortPrototy</p>
+<p>pe&gt;_&lt;IoHwAbOperation&gt; </p>
+<p>&lt;*&gt;&lt;IoHwAbOperationArgume</p>
+<p>nt&gt; </p>
+<p>Table 5-8  </p>
+<p>Provide Ports </p>
+<p><b>5.7.1.2 </b></p>
+<p><b>Require Ports on IOHWAB Side </b></p>
+<p>The I/O Hardware Abstraction does not provide any Require Ports. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>25 / 33 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the IOHWAB the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b></p>
+<p>Configuration in DaVinci Configurator </p>
+<p><b>&gt; </b></p>
+<p>Configuration in DaVinci Developer </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The IOHWAB supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The </p>
+<p>configuration </p>
+<p>classes </p>
+<p>of </p>
+<p>the </p>
+<p>IOHWAB </p>
+<p>parameters </p>
+<p>depend </p>
+<p>on </p>
+<p>the </p>
+<p>supported </p>
+<p>configuration variants. For their definitions please see the IoHwAb_bswmd.arxml file. </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration Workflow </b></p>
+<p>This  chapter  describes  the  workflow  that  is  necessary  to  integrate  the  I/O  Hardware </p>
+<p>Abstraction into a MICROSAR system. </p>
+<p>The I/O Hardware Abstraction is not a classic BSW module, as it has not only interfaces </p>
+<p>with  other  BSW  modules,  but  an  interface  with  one  or  more  Application  Components </p>
+<p>above the RTE. For this reason, the IOHWAB has to define a way to communicate with </p>
+<p>Application Components through the RTE. </p>
+<p>The  basic  concepts  for  such  interaction  are  described  in  [4].  This  chapter  gives  only  a </p>
+<p>description of the technical realization in the MICROSAR tool chain. </p>
+<p>The following diagram gives an overview of the interaction between the involved tools and </p>
+<p>the user. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>26 / 33 </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Configuration Workflow </p>
+<p>For  a  successful  integration  of  the  I/O  Hardware Abstraction  into  a  MICROSAR  system </p>
+<p>please execute the following steps: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Configure the ‘IoHwAb’ module in the DaVinci Configurator and save the </p>
+<p>Configuration. The Software Component description of the I/O Hardware Abstraction is </p>
+<p>generated automatically upon saving and can be found in the SIP folder (‘&lt;SIP </p>
+<p>Folder&gt;\internal\&lt;Application Folder&gt;\Config\ServiceComponents’). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>27 / 33 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Open the DaVinci Developer project or create a new one and import the I/O Hardware </p>
+<p>Abstraction’s SWC file as follows: </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>SWC import select file </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Select the SWC file and start the import. After the import is finished, the module with </p>
+<p>all configured ports, interfaces and data types should be present in your project: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>28 / 33 </p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Imported Software Component </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Create a new application software component and create the counterparts of the ports </p>
+<p>that are provided/required by the I/O Hardware Abstraction component type. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Do not connect the SWC ports in the DaVinci Developer, because no more </p>
+<p>configuration of the RTE inside DaVinci Configurator would be possible, then. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>29 / 33 </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>I/O Hardware and Application Software Component </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Save and close the DaVinci Developer project. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Switch back to the DaVinci Configurator and configure the RTE module by using the </p>
+<p>‘Runtime System’ domain editor. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>First, create the Software Components of I/O Hardware Abstraction and Application </p>
+<p>inside the RTE by using the ‘ECU Software Components Editor’ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>30 / 33 </p>
+<p> </p>
+<p>Figure 6-5 </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Go to ‘Application Components’ container and add two Software Components, the </p>
+<p>‘IoHwAb’ and the Software Component(s) created in the DaVinci Developer. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The I/O Hardware Abstraction SWC description exists twice in this selection. Please </p>
+<p>use the SWC description with the path </p>
+<p>‘/MICROSAR_SWCS_DEV/IoHwAb_swc/ComponentTypes/IoHwAb’. This is the SWC </p>
+<p>description created by the DaVinci Developer. Otherwise, all modifications to the </p>
+<p>Software Component that have been done in the DaVinci Developer would not be </p>
+<p>adapted. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The next step is connecting the ports of the components with the ‘Add Component </p>
+<p>Connection’ editor. Start the editor and select I/O Hardware Abstraction and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>31 / 33 </p>
+<p>Application Software Component and map the ports as needed. If the ports of the both </p>
+<p>components can be connected 1:1, the ‘Automatic Mapping’ can be used. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Last, the Runnable Entities of both components have to mapped to OS Tasks. This </p>
+<p>can be done by using the ‘Add Task Mapping’ editor. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Validate and generate the configuration. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If you have to change the configuration of the I/O Hardware Abstraction after the SWC </p>
+<p>has been imported into the DaVinci Developer workspace, the SWC has to be imported </p>
+<p>again, every time it is changed, because the DaVinci Developer will not adapt the </p>
+<p>changes automatically. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If you have to change the DaVinci Developer project after the Software Components </p>
+<p>have been created in the RTE configuration, the DaVinci Configurator project has to be </p>
+<p>closed and re-opened and the Application Components in the ‘ECU Software </p>
+<p>Components’ editor have to be removed and re-added, because the DaVinci </p>
+<p>Configurator will not adapt the changes automatically. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>32 / 33 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci Configurator </p>
+<p>Configuration tool for MICROSAR components </p>
+<p>User Block </p>
+<p>Especially marked, user editable code section within a generated C-</p>
+<p>Source file – these code sections are not overwritten when the module </p>
+<p>configuration is being re-generated </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR IOHWAB </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 3.00.02 </p>
+<p>based on template version 5.6.0 </p>
+<p>33 / 33 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

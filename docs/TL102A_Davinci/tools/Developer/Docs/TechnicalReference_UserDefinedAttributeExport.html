@@ -1,0 +1,556 @@
+---
+layout: default
+title: TechnicalReference_UserDefinedAttributeExport
+nav_order: 12
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>User-defined attribute XML-export </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.3 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Michael Hoffmann, Andreas Claus </p>
+<p><b>Version: </b></p>
+<p>1.3 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>History </b></p>
+<p> </p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Hn </p>
+<p>2007-02-02 </p>
+<p>1.0 </p>
+<p>Document released </p>
+<p>Cs </p>
+<p>2007-11-28 </p>
+<p>1.1 </p>
+<p>New document template; minor corrections </p>
+<p>Hn </p>
+<p>2008-02-08 </p>
+<p>1.2 </p>
+<p>Document updated </p>
+<p>Cs </p>
+<p>2012-04-11 </p>
+<p>1.3 </p>
+<p>DCF workspaces added; minor corrections </p>
+<p><b> </b></p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p><b>Overview ................................................................................................................... 3</b></p>
+<p>1.1</p>
+<p>Terms and Acronyms .................................................................................. 3</p>
+<p><b>2</b></p>
+<p><b>User-defined attributes in DaVinci .......................................................................... 4</b></p>
+<p>2.1</p>
+<p>Creating user-defined attribute definition .................................................... 4</p>
+<p>2.2</p>
+<p>User-defined attribute usage ....................................................................... 5</p>
+<p>2.3</p>
+<p>Creating the XML-export ............................................................................. 6</p>
+<p><b>3</b></p>
+<p><b>Design object reference ........................................................................................... 7</b></p>
+<p><b>4</b></p>
+<p><b>Attribute definition resolution ................................................................................. 8</b></p>
+<p>4.1</p>
+<p>Reference of global attribute definition values ............................................. 8</p>
+<p>4.2</p>
+<p>Reference of local attribute value ................................................................ 9</p>
+<p><b>5</b></p>
+<p><b>DCF Workspaces .................................................................................................... 10</b></p>
+<p>5.1</p>
+<p>Global attribute definition file ..................................................................... 10</p>
+<p>5.2</p>
+<p>Loading attribute definitions ...................................................................... 10</p>
+<p><b>6</b></p>
+<p><b>Contact .................................................................................................................... 11</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b> Overview </b></p>
+<p>With </p>
+<p>the </p>
+<p>DaVinci </p>
+<p>Developer </p>
+<p>2.1 </p>
+<p>and </p>
+<p>later </p>
+<p>user-defined </p>
+<p>attribute </p>
+<p>definitions </p>
+<p>can </p>
+<p>be </p>
+<p>exported. This document describes the usage of the exported XML file format. </p>
+<p><b>1.1 </b></p>
+<p><b>Terms and Acronyms </b></p>
+<p><b>Term </b></p>
+<p><b>Definition </b></p>
+<p>DaVinci DEV </p>
+<p>DaVinci Developer </p>
+<p>AR </p>
+<p>AUTOSAR – Automotive Open System Architecture </p>
+<p>GUI </p>
+<p>Graphical user interface </p>
+<p>DCF </p>
+<p>DaVinci configuration file workspace </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>User-defined attributes in DaVinci </b></p>
+<p>DaVinci DEV are allows the definition of user-defined attributes for certain design elements </p>
+<p>visible within the GUI. </p>
+<p>The  set  of  design  elements  which  are  providing  the  definition  of  user-defined  attributes </p>
+<p>depends on the tool version. </p>
+<p><b>2.1 </b></p>
+<p><b>Creating user-defined attribute definition </b></p>
+<p>To create a user-defined attribute definition open the workspace global attribute definition </p>
+<p>table available on the main menu ‘View </p>
+<p></p>
+<p> Attribute Definition…’. </p>
+<p>Each  user-defined  attribute  is  related  to  a  DaVinci  object  type  and  must  have  a  name </p>
+<p>which is unique in the scope of the attribute definition table. </p>
+<p>The  definition  of  minimum,  maximum,  and  default  value  depends  on  the  selected  value </p>
+<p>type </p>
+<p> </p>
+<p>Figure 1: Definition of user-defined attribute </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>User-defined attribute usage </b></p>
+<p>Attribute  definitions  can  be  used  at  certain  design  objects  of  the  workspace.  For  each </p>
+<p>attribute which is defined within the global attribute table and associated with the object </p>
+<p>type of the design object, a local value definition can be specified.  </p>
+<p>These values are specific for each design object and are available in the properties dialog </p>
+<p>of the design object. </p>
+<p>A  design  object  can  only  use  those  user-defined  attributes  which  are  defined  within  the </p>
+<p>global attribute definition table. </p>
+<p> </p>
+<p>Figure 2: Definition of a local value of a user-defined attribute </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>2.3 </b></p>
+<p><b>Creating the XML-export </b></p>
+<p>The  export  of  user-defined  attributes  is  always  related  to  a  preceded  export  of  design </p>
+<p>elements. The export can be used with all supported AR versions. </p>
+<p>To create the XML export, select the appropriate design element within DaVinci DEV and </p>
+<p>choose the ‘XML Export…’ command from the context menu. </p>
+<p>The  export  dialog  provides  an  option  ‘Export  user-defined  attributes’.  If  this  option  is </p>
+<p>selected  an  additional  XML  output  file  will  be  created.  The  name  of  the  XML  file  is </p>
+<p>automatically  created  by  using  the  name  of  the  AR-XML  output  file  plus  the  extension </p>
+<p>‘_gen_attr’ (e.g. ‘System_gen_attr.xml’). </p>
+<p> </p>
+<p> </p>
+<p>Figure 3: User-defined attribute export option for XML-exports </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Design object reference </b></p>
+<p>The design object reference clarifies in which way a certain design object is related to the </p>
+<p>user-defined attribute definition within the attribute export file. </p>
+<p>An AR design object is referenced by an AR reference which contains the package path to </p>
+<p>the </p>
+<p>SHORT_NAME</p>
+<p> attribute of the referenced AR object.  </p>
+<p>This reference is stored within the </p>
+<p><b>Reference</b></p>
+<p> attribute of the </p>
+<p><b>ARObjectReference</b></p>
+<p> tag </p>
+<p>within the user-defined attribute export XML file. </p>
+<p>Beside the AR reference the </p>
+<p>ARObjectReference</p>
+<p> tag also includes the XML tag of the </p>
+<p>referenced AR element within its </p>
+<p><b>Type</b></p>
+<p> attribute. </p>
+<p>E.g.  for  a  software  component  type  ‘AP_MySWC’  following  reference  information  is </p>
+<p>exported: </p>
+<p>User-defined attribute export file: </p>
+<p> </p>
+<p> </p>
+<p>&lt;ObjectAttributeReference ObjectType=&quot;ComponentType&quot;&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;ARObjectReference  </p>
+<p>Type=&quot;APPLICATION-SOFTWARE-COMPONENT-TYPE&quot; </p>
+<p>Reference=&quot;<b>/ComponentType/AP_MySWC</b>&quot;&gt; </p>
+<p>&lt;/ARObjectReference&gt; </p>
+<p><b>…. </b></p>
+<p> </p>
+<p>&lt;/ObjectAttributeReference&gt; </p>
+<p> </p>
+<p>AR-export file: </p>
+<p> </p>
+<p>&lt;AUTOSAR&gt; </p>
+<p> </p>
+<p>&lt;TOP-LEVEL-PACKAGES&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;AR-PACKAGE&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;SHORT-NAME&gt;<b>ComponentType</b>&lt;/SHORT-NAME&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;ELEMENTS&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;APPLICATION-SOFTWARE-COMPONENT-TYPE&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;SHORT-NAME&gt;<b>AP_MySWC</b>&lt;/SHORT-NAME&gt; </p>
+<p><b>…. </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;/APPLICATION-SOFTWARE-COMPONENT-TYPE&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;/ELEMENTS&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;/AR-PACKAGE&gt; </p>
+<p> </p>
+<p>&lt;/TOP-LEVEL-PACKAGES&gt; </p>
+<p>&lt;/AUTOSAR&gt;</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>Attribute definition resolution </b></p>
+<p>The  attribute  definition  resolution  shows  how  a  global  user-defined  attribute  definition  is </p>
+<p>referenced by a certain design object.  </p>
+<p><b>4.1 </b></p>
+<p><b>Reference of global attribute definition values </b></p>
+<p>If a design object doesn’t define a local value that is different from the global default value </p>
+<p>definition  the  user-defined  attribute  export  will  only  export  the  reference  to  the  relevant </p>
+<p>attribute definition table. This reference (</p>
+<p><b>AttributeDefinitionTableRef</b></p>
+<p>) contains a </p>
+<p><b>Version</b></p>
+<p> and an </p>
+<p><b>ID</b></p>
+<p> attribute which uniquely identifies the relevant attribute definition table </p>
+<p>of the item (see ‘</p>
+<p><b>AttributeDefinitionTableRef’</b></p>
+<p> of the example below). </p>
+<p>By using the </p>
+<p><b>ObjectType</b></p>
+<p> attribute information of the </p>
+<p><b>ObjectAttributeReference</b></p>
+<p> tag </p>
+<p>the </p>
+<p>set </p>
+<p>of </p>
+<p>relevant </p>
+<p>attribute </p>
+<p>definitions </p>
+<p>for </p>
+<p>this </p>
+<p>item </p>
+<p>type </p>
+<p>can </p>
+<p>be </p>
+<p>identified </p>
+<p>(e.g. </p>
+<p>‘</p>
+<p><b>ComponentType</b></p>
+<p>’). </p>
+<p>User-defined attribute export file: </p>
+<p> </p>
+<p>&lt;AttributeDefinition&gt; </p>
+<p> </p>
+<p>&lt;AttributeDefinitionTable <b>Version=&quot;1.0&quot; ID=&quot;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&quot;</b>&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;Attribute Name=&quot;MySWCEnum&quot; ObjectType=&quot;ComponentType&quot;&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;ENUM Default=&quot;Enum2&quot;&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;EnumValue Value=&quot;Enum1&quot;&gt;&lt;/EnumValue&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;EnumValue Value=&quot;Enum2&quot;&gt;&lt;/EnumValue&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;EnumValue Value=&quot;Enum3&quot;&gt;&lt;/EnumValue&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>&lt;/ENUM&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;/Attribute&gt; </p>
+<p> </p>
+<p>&lt;/AttributeDefinitionTable&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;ObjectAttributeReference ObjectType=&quot;ComponentType&quot;&gt; </p>
+<p> </p>
+<p>&lt;ARObjectReference  </p>
+<p> </p>
+<p> </p>
+<p>Type=&quot;APPLICATION-SOFTWARE-COMPONENT-TYPE&quot; </p>
+<p> </p>
+<p> </p>
+<p>Reference=&quot;/ComponentType/AP_MySWC&quot;&gt; </p>
+<p>&lt;/ARObjectReference&gt; </p>
+<p> </p>
+<p>&lt;AttributeDefinitionTableRef   </p>
+<p> </p>
+<p> </p>
+<p><b>Version=&quot;1.0&quot;  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ID=&quot;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&quot;</b>&gt; </p>
+<p>&lt;/AttributeDefinitionTableRef&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;/ObjectAttributeReference&gt; </p>
+<p>&lt;/AttributeDefinition&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Reference of local attribute value </b></p>
+<p>Each design object may define a local value for the user-defined attributes. These value </p>
+<p>definitions </p>
+<p>are </p>
+<p>exported </p>
+<p>with </p>
+<p>the </p>
+<p><b>AttributeValue</b></p>
+<p> </p>
+<p>tag </p>
+<p>within </p>
+<p>each </p>
+<p><b>ObjectAttributeReference</b></p>
+<p>  tag.  This  tag  contains  a </p>
+<p><b>Name</b></p>
+<p>  attribute  which  uniquely </p>
+<p>identifies </p>
+<p>a </p>
+<p>single </p>
+<p>attribute </p>
+<p>within </p>
+<p>the </p>
+<p>attribute </p>
+<p>definition </p>
+<p>table </p>
+<p>(e.g. </p>
+<p>the </p>
+<p>attribute </p>
+<p>‘<b>MySWCEnum’</b></p>
+<p>). The </p>
+<p><b>Value</b></p>
+<p> attribute holds the local value of the design object. </p>
+<p>User-defined attribute export file: </p>
+<p> </p>
+<p> </p>
+<p>&lt;ObjectAttributeReference ObjectType=&quot;ComponentType&quot;&gt; </p>
+<p> </p>
+<p> </p>
+<p>&lt;ARObjectReference  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Type=&quot;APPLICATION-SOFTWARE-COMPONENT-TYPE&quot; </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Reference=&quot;/ComponentType/AP_MySWC&quot;&gt; </p>
+<p>&lt;/ARObjectReference&gt; </p>
+<p> </p>
+<p>&lt;AttributeDefinitionTableRef  </p>
+<p> </p>
+<p> </p>
+<p>Version=&quot;1.0&quot;  </p>
+<p> </p>
+<p> </p>
+<p>ID=&quot;{932D3FD0-2F6C-49BF-80CB-D1C3756D3868}&quot;&gt; </p>
+<p>&lt;/AttributeDefinitionTableRef&gt; </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>&lt;AttributeValue  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Name=&quot;MySWCEnum&quot;  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Value=&quot;Enum3&quot;&gt; </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>&lt;/AttributeValue&gt; </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>&lt;/ObjectAttributeReference&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>DCF Workspaces </b></p>
+<p>As DCF workspaces mainly consists of exported AR-XML files the user-defined attributes </p>
+<p>are also used in DCF workspaces. Thus all user-defined attributes can be loaded with the </p>
+<p>attribute  definitions  and  their  corresponding  AR  design  objects  during  opening  a  DCF </p>
+<p>workspace. </p>
+<p><b>5.1 </b></p>
+<p><b>Global attribute definition file </b></p>
+<p>Nevertheless, if attribute definitions are defined without usage by a design objects, these </p>
+<p>definitions  will  be  lost  on  opening  the  DCF  workspace.  To  overcome  this  limitation  all </p>
+<p>attribute definitions are stored in a global XML file named like the DCF workspace name </p>
+<p>with the extension _attr_def.xml </p>
+<p>The  format  is  the  same  as  for  user-defined  attributes  but  the  file  contains  the  attribute </p>
+<p>definitions only. </p>
+<p><b>5.2 </b></p>
+<p><b>Loading attribute definitions </b></p>
+<p>On opening a DCF workspace the global attribute definition file is always loaded first. Thus </p>
+<p>all definitions exist and can be referenced by the further AR-XML import. A warning during </p>
+<p>AR-XML import is thrown if the attribute definition within a single _gen_attr.xml differs from </p>
+<p>the globally defined one. In this case the definition from the _gen_attr.xml is ignored and </p>
+<p>only the value of the attribute itself is imported to the design object.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User-defined attribute XML-export Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.3 </p>
+<p> </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

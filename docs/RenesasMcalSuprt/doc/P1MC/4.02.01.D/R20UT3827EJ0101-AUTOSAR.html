@@ -1,0 +1,4227 @@
+---
+layout: default
+title: R20UT3827EJ0101-AUTOSAR
+nav_order: 16
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR Modules Overview</p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.0.3</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/X1x</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Renesas Electronics</p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.1.01 May 2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2 </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>3 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses and </p>
+<p>damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical information </p>
+<p>described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas Electronics </p>
+<p>disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, modification, copy or </p>
+<p>otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and undersea </p>
+<p>repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics disclaims any </p>
+<p>and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics product for which the </p>
+<p>product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the ranges </p>
+<p>specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation characteristics, </p>
+<p>installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of the use of Renesas </p>
+<p>Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your products/system. </p>
+<p>Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the final products or </p>
+<p>systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each Renesas </p>
+<p>Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, including </p>
+<p>without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all these applicable </p>
+<p>laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your noncompliance with </p>
+<p>applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or sale </p>
+<p>is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or technologies for (1) </p>
+<p>any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, such as nuclear weapons, </p>
+<p>chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering such weapons, (2) any purpose </p>
+<p>relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of disturbing international peace and </p>
+<p>security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or technologies to any third party whether directly </p>
+<p>or indirectly with knowledge or reason to know that the third party or any other party will engage in the activities described above. When </p>
+<p>exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall comply with any applicable export control laws and </p>
+<p>regulations promulgated and administered by the governments of the countries asserting jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from your </p>
+<p>resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p>.</p>
+<p><b>                                                                                                                                                                                                              </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>         5 </b></p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>ADC</p>
+<p> </p>
+<p>Analog to Digital Converter</p>
+<p> </p>
+<p>API</p>
+<p> </p>
+<p>Application Programming Interface</p>
+<p> </p>
+<p>ATOM </p>
+<p>ARU-connected Timer Output Module </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>CC </p>
+<p>Communication Controller </p>
+<p>CMU </p>
+<p>Clock Management Unit </p>
+<p>CORTST </p>
+<p>Core Test </p>
+<p>DEM</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>DET/Det</p>
+<p> </p>
+<p>Development Error Tracer</p>
+<p> </p>
+<p>DIO</p>
+<p> </p>
+<p>Digital Input Output</p>
+<p> </p>
+<p>ETH </p>
+<p>Ethernet </p>
+<p>FLS</p>
+<p> </p>
+<p>FLaSh Driver</p>
+<p> </p>
+<p>FLSTST </p>
+<p>FLaSh Test </p>
+<p>FR </p>
+<p>FlexRay </p>
+<p>FSL</p>
+<p> </p>
+<p>Flash Self programming Library</p>
+<p> </p>
+<p>GPT</p>
+<p> </p>
+<p>General Purpose Timer</p>
+<p> </p>
+<p>GTM </p>
+<p>Generic Timer Module </p>
+<p>ICU</p>
+<p> </p>
+<p>Input Capture Unit</p>
+<p> </p>
+<p>LIN</p>
+<p> </p>
+<p>Local Interconnect Network</p>
+<p> </p>
+<p>Lpdu</p>
+<p> </p>
+<p>Data Link Protocol Datagram Unit</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>MicroController Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>MicroController Unit</p>
+<p> </p>
+<p>Nm</p>
+<p> </p>
+<p>Network Management</p>
+<p> </p>
+<p>POC</p>
+<p> </p>
+<p>Protocol Operation Control</p>
+<p> </p>
+<p>PWM</p>
+<p> </p>
+<p>Pulse Width Modulation</p>
+<p> </p>
+<p>RAMTST </p>
+<p>Ram Test </p>
+<p>Rx</p>
+<p> </p>
+<p>Receiver</p>
+<p> </p>
+<p>SPI</p>
+<p> </p>
+<p>Serial Peripheral Interface</p>
+<p> </p>
+<p>TIM </p>
+<p>Timer Input Module </p>
+<p>WDG</p>
+<p> </p>
+<p>WatchDog driver</p>
+<p> </p>
+<p>μC </p>
+<p>Micro controller </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Term</b></p>
+<p> </p>
+<p><b>Represented by</b></p>
+<p> </p>
+<p>Sl. No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<p>&lt;Autosar Version&gt;</p>
+<p> </p>
+<p>4.0.3 when tested for R4.0.3</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>           <b>7 </b></p>
+<p><b>Table of Contents  </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>INTRODUCTION ............................................................................................. 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ........................................................................................................ 12</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>REFERENCE DOCUMENTS .......................................................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>AUTOSAR MODULES .................................................................................... 15</b></p>
+<p> </p>
+<p><b>3.1</b></p>
+<p> </p>
+<p><b>MCAL Module .................................................................................................................. 15</b></p>
+<p> </p>
+<p>3.1.1.</p>
+<p> </p>
+<p>ADC Driver Component .................................................................................... 15</p>
+<p> </p>
+<p>3.1.1.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................15</p>
+<p> </p>
+<p>3.1.1.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................16</p>
+<p> </p>
+<p>3.1.1.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................16</p>
+<p> </p>
+<p>3.1.1.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................16</p>
+<p> </p>
+<p>3.1.1.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................17</p>
+<p> </p>
+<p>3.1.2.</p>
+<p> </p>
+<p>PWM Driver Component ................................................................................... 17</p>
+<p> </p>
+<p>3.1.2.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................17</p>
+<p> </p>
+<p>3.1.2.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................18</p>
+<p> </p>
+<p>3.1.2.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................18</p>
+<p> </p>
+<p>3.1.2.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................18</p>
+<p> </p>
+<p>3.1.2.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................19</p>
+<p> </p>
+<p>3.1.3.</p>
+<p> </p>
+<p>PORT Driver Component .................................................................................. 19</p>
+<p> </p>
+<p>3.1.3.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................19</p>
+<p> </p>
+<p>3.1.3.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................20</p>
+<p> </p>
+<p>3.1.3.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................20</p>
+<p> </p>
+<p>3.1.3.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................20</p>
+<p> </p>
+<p>3.1.3.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................20</p>
+<p> </p>
+<p>3.1.4.</p>
+<p> </p>
+<p>DIO Driver Component ..................................................................................... 21</p>
+<p> </p>
+<p>3.1.4.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................21</p>
+<p> </p>
+<p>3.1.4.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................21</p>
+<p> </p>
+<p>3.1.4.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................21</p>
+<p> </p>
+<p>3.1.4.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................21</p>
+<p> </p>
+<p>3.1.4.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................21</p>
+<p> </p>
+<p>3.1.5.</p>
+<p> </p>
+<p>FLS Software Component ................................................................................ 22</p>
+<p> </p>
+<p>3.1.5.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................22</p>
+<p> </p>
+<p>3.1.5.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................22</p>
+<p> </p>
+<p>3.1.5.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................22</p>
+<p> </p>
+<p>3.1.5.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................23</p>
+<p> </p>
+<p>3.1.5.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................23</p>
+<p> </p>
+<p>3.1.6.</p>
+<p> </p>
+<p>SPI Driver Component ...................................................................................... 23</p>
+<p> </p>
+<p>3.1.6.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................23</p>
+<p> </p>
+<p>3.1.6.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................24</p>
+<p> </p>
+<p>3.1.6.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................24</p>
+<p> </p>
+<p>3.1.6.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................24</p>
+<p> </p>
+<p>3.1.6.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................25</p>
+<p> </p>
+<p>3.1.7.</p>
+<p> </p>
+<p>ICU Driver Component...................................................................................... 25</p>
+<p> </p>
+<p>3.1.7.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................25</p>
+<p> </p>
+<p>3.1.7.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................26</p>
+<p> </p>
+<p>3.1.7.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................27</p>
+<p> </p>
+<p>3.1.7.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................27</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>8 </b></p>
+<p>3.1.7.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................28</p>
+<p> </p>
+<p>3.1.8.</p>
+<p> </p>
+<p>MCU Driver Component.................................................................................... 28</p>
+<p> </p>
+<p>3.1.8.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................28</p>
+<p> </p>
+<p>3.1.8.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................28</p>
+<p> </p>
+<p>3.1.8.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................29</p>
+<p> </p>
+<p>3.1.8.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................29</p>
+<p> </p>
+<p>3.1.8.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................29</p>
+<p> </p>
+<p>3.1.9.</p>
+<p> </p>
+<p>GPT Driver Component .................................................................................... 30</p>
+<p> </p>
+<p>3.1.9.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................30</p>
+<p> </p>
+<p>3.1.9.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................30</p>
+<p> </p>
+<p>3.1.9.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................31</p>
+<p> </p>
+<p>3.1.9.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................31</p>
+<p> </p>
+<p>3.1.9.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................32</p>
+<p> </p>
+<p>3.1.10.</p>
+<p> </p>
+<p>WDG Driver Component ................................................................................... 32</p>
+<p> </p>
+<p>3.1.10.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................32</p>
+<p> </p>
+<p>3.1.10.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................32</p>
+<p> </p>
+<p>3.1.10.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................33</p>
+<p> </p>
+<p>3.1.10.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................33</p>
+<p> </p>
+<p>3.1.10.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................33</p>
+<p> </p>
+<p>3.1.11.</p>
+<p> </p>
+<p>LIN Driver Component ...................................................................................... 34</p>
+<p> </p>
+<p>3.1.11.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................34</p>
+<p> </p>
+<p>3.1.11.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................34</p>
+<p> </p>
+<p>3.1.11.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................34</p>
+<p> </p>
+<p>3.1.11.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................34</p>
+<p> </p>
+<p>3.1.11.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................35</p>
+<p> </p>
+<p>3.1.12.</p>
+<p> </p>
+<p>FR Driver Component ....................................................................................... 36</p>
+<p> </p>
+<p>3.1.12.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................36</p>
+<p> </p>
+<p>3.1.12.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................36</p>
+<p> </p>
+<p>3.1.12.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................36</p>
+<p> </p>
+<p>3.1.12.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................37</p>
+<p> </p>
+<p>3.1.12.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................37</p>
+<p> </p>
+<p>3.1.13.</p>
+<p> </p>
+<p>RAMTST Driver Component ............................................................................. 37</p>
+<p> </p>
+<p>3.1.13.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................37</p>
+<p> </p>
+<p>3.1.13.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................38</p>
+<p> </p>
+<p>3.1.13.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................38</p>
+<p> </p>
+<p>3.1.13.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................38</p>
+<p> </p>
+<p>3.1.13.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................38</p>
+<p> </p>
+<p>3.1.14.</p>
+<p> </p>
+<p>CORTST Driver Component ............................................................................. 39</p>
+<p> </p>
+<p>3.1.14.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................39</p>
+<p> </p>
+<p>3.1.14.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................39</p>
+<p> </p>
+<p>3.1.14.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................40</p>
+<p> </p>
+<p>3.1.14.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................40</p>
+<p> </p>
+<p>3.1.14.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................40</p>
+<p> </p>
+<p>3.1.15.</p>
+<p> </p>
+<p>FLSTST Driver Component .............................................................................. 40</p>
+<p> </p>
+<p>3.1.15.1.</p>
+<p> </p>
+<p>Module Overview .............................................................................40</p>
+<p> </p>
+<p>3.1.15.2.</p>
+<p> </p>
+<p>Module Dependency........................................................................41</p>
+<p> </p>
+<p>3.1.15.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ............................................41</p>
+<p> </p>
+<p>3.1.15.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................41</p>
+<p> </p>
+<p>3.1.15.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................41</p>
+<p> </p>
+<p>3.1.16.</p>
+<p> </p>
+<p>ETH Driver Component..................................................................................... 42</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>                                                                                                                                                                               <b>9 </b></p>
+<p>3.1.16.1.</p>
+<p> </p>
+<p>Module Overview ............................................................................42</p>
+<p> </p>
+<p>3.1.16.2.</p>
+<p> </p>
+<p>Module Dependency .......................................................................42</p>
+<p> </p>
+<p>3.1.16.3.</p>
+<p> </p>
+<p>Configuration Parameter Dependency ...........................................43</p>
+<p> </p>
+<p>3.1.16.4.</p>
+<p> </p>
+<p>Source Code Dependency ..............................................................43</p>
+<p> </p>
+<p>3.1.16.5.</p>
+<p> </p>
+<p>Stubs ...............................................................................................43</p>
+<p> </p>
+<p><b>3.2</b></p>
+<p> </p>
+<p><b>RH850 Macros Definition: .............................................................................................. 43</b></p>
+<p> </p>
+<p><b>3.3</b></p>
+<p> </p>
+<p><b>ICxxx Registers Setting for TBxxx-Bit .......................................................................... 45</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>10 </b></p>
+<p><b> </b></p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>: System Overview of the AUTOSAR Architecture Layer ................................................. 11</p>
+<p> </p>
+<p><b>  </b></p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 3-1</p>
+<p> </p>
+<p>:  ADC Driver Component Common Stubs ....................................................................... 17</p>
+<p> </p>
+<p>Table 3-2</p>
+<p> </p>
+<p>:  PWM Driver Component Common Stubs ...................................................................... 19</p>
+<p> </p>
+<p>Table 3-3</p>
+<p> </p>
+<p>:  PORT Driver Component Common Stubs ...................................................................... 20</p>
+<p> </p>
+<p>Table 3-4</p>
+<p> </p>
+<p>:  DIO Driver Component Common Stubs ......................................................................... 22</p>
+<p> </p>
+<p>Table 3-5</p>
+<p> </p>
+<p>:  FLS Software Component Common Stubs .................................................................... 23</p>
+<p> </p>
+<p>Table 3-6</p>
+<p> </p>
+<p>:  SPI Driver Component Common Stubs ......................................................................... 25</p>
+<p> </p>
+<p>Table 3-7</p>
+<p> </p>
+<p>:  ICU Driver Component Common Stubs ......................................................................... 28</p>
+<p> </p>
+<p>Table 3-8</p>
+<p> </p>
+<p>:  MCU Driver Component Common Stubs ....................................................................... 29</p>
+<p> </p>
+<p>Table 3-9</p>
+<p> </p>
+<p>:  GPT Driver Component Common Stubs ........................................................................ 32</p>
+<p> </p>
+<p>Table 3-10</p>
+<p> </p>
+<p>:  WDG Driver Component Common Stubs ....................................................................... 33</p>
+<p> </p>
+<p>Table 3-11</p>
+<p> </p>
+<p>:  LIN Driver Component Common Stubs .......................................................................... 35</p>
+<p> </p>
+<p>Table 3-12</p>
+<p> </p>
+<p>:  LIN Driver Component Specific Stubs ............................................................................ 35</p>
+<p> </p>
+<p>Table 3-13</p>
+<p> </p>
+<p>:  FR Driver Component Common Stubs ........................................................................... 37</p>
+<p> </p>
+<p>Table 3-14</p>
+<p> </p>
+<p>:  RAMTST Driver Component Common Stubs ................................................................. 38</p>
+<p> </p>
+<p>Table 3-15</p>
+<p> </p>
+<p>:  CORTST Driver Component Common Stubs ................................................................. 40</p>
+<p> </p>
+<p>Table 3-16</p>
+<p> </p>
+<p>:  FLSTST Driver Component Common Stubs .................................................................. 42</p>
+<p> </p>
+<p>Table 3-17</p>
+<p> </p>
+<p>:  ETH Driver Component Common Stubs ........................................................................ 43</p>
+<p> </p>
+<p>Table 3-18</p>
+<p> </p>
+<p>:   Macro to perform write operation, on write enabled Register ........................................ 44</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>INTRODUCTION </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p> <b>11 </b></p>
+<p><b>API 1 </b></p>
+<p><b>RTE </b></p>
+<p><b>relevant </b></p>
+<p><i><b> </b></i></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Software </b></p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standard </b></p>
+<p><b>Software </b></p>
+<p><i><b> </b></i></p>
+<p><b>API 2 </b></p>
+<p><b>VFB &amp; RTE </b></p>
+<p><b>relevant </b></p>
+<p><i><b> </b></i></p>
+<p><b>API 0 </b></p>
+<p><i><b> </b></i></p>
+<p><b>API 3 Private </b></p>
+<p><b>Interfaces inside </b></p>
+<p><b>Basic Software </b></p>
+<p><b>possible </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p> </p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>ECU </b></p>
+<p><b>Abstraction </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Microcontroller </b></p>
+<p><b>Abstraction </b></p>
+<p><i><b> </b></i></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Complex </b></p>
+<p><b>Device </b></p>
+<p><b>Drivers </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standardized </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Services </b></p>
+<p><i><b> </b></i></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Application </b></p>
+<p><b>Software </b></p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Actuator </b></p>
+<p><b>Software </b></p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Sensor </b></p>
+<p><b>Software </b></p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Application </b></p>
+<p><b>Software </b></p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p>AUTOSAR Runtime Environment (RTE) </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Operating </b></p>
+<p><b>System </b></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p>ECU-Hardware </p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Communication </b></p>
+<p><b>Standardized </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>AUTOSAR </b></p>
+<p><b>Interface </b></p>
+<p><i><b> </b></i></p>
+<p><b>Chapter 1 </b></p>
+<p><b>INTRODUCTION </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This document shall be used as reference by the users for module overview, </p>
+<p>module dependencies, source code dependencies and configuration </p>
+<p>parameter dependencies. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>      </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-1  : System Overview of the AUTOSAR Architecture Layer </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>AUTOSAR </p>
+<p>Software </p>
+<p><i> </i></p>
+<p>Basic Software </p>
+<p><i> </i></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1 </b></p>
+<p><b>INTRODUCTION</b></p>
+<p> </p>
+<p><b>12 </b></p>
+<p><b> </b></p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section1 </p>
+<p>(Introduction)</p>
+<p> </p>
+<p>Explains the purpose of this document.</p>
+<p> </p>
+<p>Section2 </p>
+<p>(Reference Documents)</p>
+<p> </p>
+<p>Lists the documents referred for developing this </p>
+<p>document.</p>
+<p> </p>
+<p>Section3 </p>
+<p>(MCAL Modules)</p>
+<p> </p>
+<p>Provides the list of modules developed in the MCAL </p>
+<p>layer. Brief information about the Module overview, </p>
+<p>Modules dependency, Configuration parameter </p>
+<p>dependency, source code dependency and stubs .</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> REFERENCE DOCUMENTS </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> <b>13 </b></p>
+<p><b>Chapter 2 </b></p>
+<p><b>REFERENCE DOCUMENTS </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title For Autosar Version R4.0.3</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Specification of ADC Driver (AUTOSAR_SWS_ADCDriver.pdf)</p>
+<p> </p>
+<p>4.2.0</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Specification of PWM Driver (AUTOSAR_SWS_PWMDriver.pdf)</p>
+<p> </p>
+<p>2.5.0</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>Specification of PORT Driver (AUTOSAR_SWS_PortDriver.pdf)</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>Specification of DIO Driver (AUTOSAR_SWS_DIODriver.pdf)</p>
+<p> </p>
+<p>2.5.0</p>
+<p> </p>
+<p>5.</p>
+<p> </p>
+<p>Specification of Module Flash Driver (AUTOSAR_SWS_FlashDriver.pdf)</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>6.</p>
+<p> </p>
+<p>Specification of SPI Handler/Driver </p>
+<p>(AUTOSAR_SWS_SPI_HandlerDriver.pdf)</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>7.</p>
+<p> </p>
+<p>Specification of ICU Driver (AUTOSAR_SWS_ICUDriver.pdf)</p>
+<p> </p>
+<p>4.2.0</p>
+<p> </p>
+<p>8.</p>
+<p> </p>
+<p>Specification of MCU Driver (AUTOSAR_SWS_MCUDriver.pdf)</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>9.</p>
+<p> </p>
+<p>Specification of GPT Driver (AUTOSAR_SWS_GPTDriver.pdf)</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p> 10.</p>
+<p> </p>
+<p>Specification of Watchdog Driver (AUTOSAR_SWS_WatchdogDriver.pdf)</p>
+<p> </p>
+<p>2.5.0</p>
+<p> </p>
+<p>11.</p>
+<p> </p>
+<p>Specification of LIN Driver (AUTOSAR_SWS_LINDriver.pdf)</p>
+<p> </p>
+<p>1.5.0 </p>
+<p>12. </p>
+<p>Specification of FR Driver (AUTOSAR_SWS_FlexRayDriver.pdf) </p>
+<p>2.5.0 </p>
+<p>13. </p>
+<p>  Specification of RAMTST Driver (AUTOSAR_SWS_RAMTest Driver.pdf)</p>
+<p> </p>
+<p> 1.5.0 </p>
+<p>14. </p>
+<p>Specification of CORTST Driver (AUTOSAR_SWS_CoreTest.pdf)</p>
+<p> </p>
+<p>1.2.0</p>
+<p> </p>
+<p>15. </p>
+<p>Specification of FLSTST Driver (AUTOSAR_SWS_FlashTest.pdf) </p>
+<p>1.2.0 </p>
+<p>16. </p>
+<p>Specification of ETH Driver (AUTOSAR_SWS_EthernetDriver.pdf) </p>
+<p>1.2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2 </b></p>
+<p><b>REFERENCE DOCUMENTS</b></p>
+<p> </p>
+<p><b>14 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   AUTOSAR MODULES                                                                                                        Chapter 3</b></p>
+<p> </p>
+<p> <b>15 </b></p>
+<p><b>Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.1 </b></p>
+<p><b>MCAL Module </b></p>
+<p> </p>
+<p> </p>
+<p>The MicroController Abstraction layer is the lowest software layer of the Basic </p>
+<p>Software. It contains internal drivers, which are software modules with direct </p>
+<p>access to the μC internal peripherals and memory mapped μC external </p>
+<p>devices. Make higher software layers independent of μC. </p>
+<p> </p>
+<p>The modules developed for MCAL layer are as follows:  </p>
+<p> </p>
+<p>ADC </p>
+<p>PWM  </p>
+<p>PORT  </p>
+<p>DIO  </p>
+<p>FLS  </p>
+<p>SPI  </p>
+<p>ICU  </p>
+<p>MCU  </p>
+<p>GPT </p>
+<p>WDG  </p>
+<p>LIN  </p>
+<p>FR </p>
+<p>RAMTST  </p>
+<p>CORTST </p>
+<p>FLSTST </p>
+<p>ETH </p>
+<p> </p>
+<p><b>3.1.1. </b></p>
+<p><b>ADC Driver Component </b></p>
+<p> </p>
+<p><b>3.1.1.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The ADC driver shall initialize and control the internal Analog Digital Converter </p>
+<p>unit of the microcontroller. The driver is equipped with a set of basic </p>
+<p>functionalities with single value result access mode and streaming access </p>
+<p>mode. </p>
+<p> </p>
+<p>A One Shot conversion shall be started by a software trigger or a hardware </p>
+<p>event whereas a Continuous conversion shall be started by a software trigger </p>
+<p>only. The ADC conversion results shall be returned by an ADC read service. </p>
+<p>This service shall return the last converted result from an external result buffer. </p>
+<p> </p>
+<p>The ADC Driver software component shall provide the following main features: </p>
+<p> </p>
+<p>• </p>
+<p>Single value results access mode supports One-Shot conversion and </p>
+<p>Continuous conversion </p>
+<p> </p>
+<p>• </p>
+<p>Streaming access mode supports linear buffer conversion and circular </p>
+<p>buffer conversion </p>
+<p> </p>
+<p>• </p>
+<p>Various API services for functionalities like initialization, de-</p>
+<p>initialization, starting and stopping of ADC channels </p>
+<p> </p>
+<p>• </p>
+<p>Notifications services for ADC channels </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>16 </b></p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Hardware Trigger services for ADC channels</p>
+<p> </p>
+<p>• </p>
+<p>Channel group priority mechanism </p>
+<p> </p>
+<p><b>3.1.1.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of ADC Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p> </p>
+<p><b>PORT driver </b></p>
+<p> </p>
+<p>Port pins used by the ADC Driver shall be configured using the PORT module. </p>
+<p>Both analog input pins and external trigger pins have to be considered. </p>
+<p> </p>
+<p><b>IO Hardware Abstraction Layer </b></p>
+<p> </p>
+<p>The ADC driver depends on the IO Hardware Abstraction Layer, which invokes </p>
+<p>the APIs and receives the callback notifications. If IO Hardware Abstraction </p>
+<p>Layer Module is not available, then the required functionality shall be stubbed. </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The ADC driver uses interrupts and therefore there is a dependency on the OS </p>
+<p>which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p><b>3.1.1.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.1.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the ADC Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h,  </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Adc.h </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>17 </b></p>
+<p> </p>
+<p><b>3.1.1.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;\” </p>
+<p> </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for ADC Driver </p>
+<p>component </p>
+<p> </p>
+<p><b>Table 3-1 </b></p>
+<p><b>:  ADC Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.2. </b></p>
+<p><b>PWM Driver Component </b></p>
+<p> </p>
+<p><b>3.1.2.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The PWM Driver Component provides services for PWM Driver Component </p>
+<p>initialization, de-initialization, setting the period and duty cycle for a PWM </p>
+<p>channel, reading the internal state of PWM output signal and setting the PWM </p>
+<p>output to idle state and disabling or enabling the PWM signal edge </p>
+<p>notification. The PWM Driver Component is part of the Microcontroller </p>
+<p>Abstraction Layer (MCAL), the lowest layer of Basic Software in the AUTOSAR </p>
+<p>environment. </p>
+<p> </p>
+<p>The PWM Driver Component is divided into PWM High Level Driver and PWM </p>
+<p>Low Level Driver to minimize the effort and to optimize the reuse of developed </p>
+<p>software on different platforms. </p>
+<p> </p>
+<p>The PWM High Level Driver exports the APIs to the upper modules. All the </p>
+<p>references to specific microcontroller features and registers are provided in </p>
+<p>PWM Low Level Driver. </p>
+<p> </p>
+<p> </p>
+<p>ATOM submodule of Generic Timer Module is used to generate variable </p>
+<p>PWM output. </p>
+<p> </p>
+<p>The channel level notifications are provided for the rising edge, falling edge </p>
+<p>and both edges. Any of these notifications will be active only when these are </p>
+<p>configured for the corresponding channel and enabled by using PWM Driver </p>
+<p>Component APIs. </p>
+<p> </p>
+<p>The PWM Driver component should provide following services based on the </p>
+<p>functions performed by the PWM Driver: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization </p>
+<p> </p>
+<p>• </p>
+<p>De-Initialization </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>18 </b></p>
+<p>• </p>
+<p>Set the channel output to Idle </p>
+<p> </p>
+<p>• </p>
+<p>Get the channel output state </p>
+<p> </p>
+<p>• </p>
+<p>Set Duty Cycle </p>
+<p> </p>
+<p>• </p>
+<p>Set Duty Cycle and Period </p>
+<p> </p>
+<p>• </p>
+<p>Notification services (at the beginning, at the end and on both edged of </p>
+<p>a period) </p>
+<p> </p>
+<p>• </p>
+<p>Get Version information</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.2.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of PWM Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p> </p>
+<p><b>MCU Driver </b></p>
+<p> </p>
+<p>The Microcontroller Unit Driver (MCU Driver) is primarily responsible for </p>
+<p>initializing the GTM CMU clock sources. </p>
+<p> </p>
+<p><b>PORT driver </b></p>
+<p> </p>
+<p>Port pins used by the PWM Driver shall be configured using the PORT module. </p>
+<p><b> </b></p>
+<p><b>IO Hardware Abstraction Layer </b></p>
+<p> </p>
+<p>The PWM driver depends on the IO Hardware Abstraction Layer, which </p>
+<p>invokes the APIs and receives the callback notifications. If IO Hardware </p>
+<p>Abstraction Layer Module is not available, then the required functionality shall </p>
+<p>be stubbed. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The PWM driver uses interrupts and therefore there is a dependency on the </p>
+<p>OS which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.2.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The PWM Driver Depends on MCU for the clock source configuration. Hence </p>
+<p>the parameter </p>
+<p>‘PwmGTMClockRef’ in the ‘PwmGeneral’ container refers to the path </p>
+<p>“/Renesas/EcucDefs_Mcu/Mcu0/McuModuleConfiguration0/McuGTMClockSett</p>
+<p>ingsConfig0” </p>
+<p> </p>
+<p><b>3.1.2.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the PWM Driver </p>
+<p>module: </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>19 </b></p>
+<p> </p>
+<p>Det.h,  </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Pwm.h </p>
+<p>Rte.h  </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.2.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;\” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for PWM Driver </p>
+<p>component </p>
+<p> </p>
+<p><b>Table 3-2 </b></p>
+<p><b>:  PWM Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.3. </b></p>
+<p><b>PORT Driver Component </b></p>
+<p> </p>
+<p><b>3.1.3.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The PORT Driver Component access the hardware features directly. The </p>
+<p>upper layers call the functionalities provided by these components. </p>
+<p> </p>
+<p>The PORT Driver Component provides services for: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization of every port pins to configured functionality. </p>
+<p> </p>
+<p>• </p>
+<p>Changing the port pin direction during run time. </p>
+<p> </p>
+<p>• </p>
+<p>Refreshing the port pin directions. </p>
+<p> </p>
+<p>• </p>
+<p>Setting the port pin mode during runtime. </p>
+<p> </p>
+<p>• </p>
+<p>Reading module version </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>20 </b></p>
+<p><b>3.1.3.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of PORT Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>3.1.3.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None. </p>
+<p> </p>
+<p><b>3.1.3.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the PORT Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Port.h </p>
+<p>Rte.h and </p>
+<p> </p>
+<p><b>3.1.3.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for PORT Driver </p>
+<p>component </p>
+<p> </p>
+<p><b>Table 3-3 </b></p>
+<p><b>:  PORT Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>21 </b></p>
+<p><b>3.1.4. </b></p>
+<p><b>DIO Driver Component </b></p>
+<p> </p>
+<p><b>3.1.4.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The DIO Driver Component access the hardware features directly. The upper </p>
+<p>layers call the functionalities provided by these components. </p>
+<p> </p>
+<p>The DIO Driver Component provides services for: </p>
+<p> </p>
+<p>• </p>
+<p>Reading from / writing to DIO Channel </p>
+<p> </p>
+<p>• </p>
+<p>Reading from / writing to DIO Ports </p>
+<p> </p>
+<p>• </p>
+<p>Reading from / writing to DIO Channel Groups </p>
+<p> </p>
+<p>• </p>
+<p>Reading module version. </p>
+<p> </p>
+<p><b>3.1.4.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of DIO Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p> </p>
+<p><b>PORT driver </b></p>
+<p> </p>
+<p>Port pins used by the DIO Driver shall be configured using the PORT module. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.4.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.4.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the DIO Driver module: </p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h and </p>
+<p>Std_Types.h </p>
+<p> </p>
+<p><b>3.1.4.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>The DIO driver uses Stubs which is categorized as common stubs and </p>
+<p>available in the path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below provides the common stubs to be used for DIO Driver </p>
+<p>component: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>22 </b></p>
+<p><b>Table 3-4 </b></p>
+<p><b>:  DIO Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.5. </b></p>
+<p><b>FLS Software Component </b></p>
+<p> </p>
+<p><b>3.1.5.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The FLS software component provides services for reading, writing, comparing </p>
+<p>and erasing flash memory. </p>
+<p> </p>
+<p>The FLS Component conforms to the AUTOSAR standard and is implemented </p>
+<p>mapping to the AUTOSAR FLS Software Specification. </p>
+<p> </p>
+<p>The FLS Driver Software Component provides services for: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization </p>
+<p> </p>
+<p>• </p>
+<p>Erasing the flash memory </p>
+<p> </p>
+<p>• </p>
+<p>Reading from the flash memory </p>
+<p> </p>
+<p>• </p>
+<p>Writing to the flash memory </p>
+<p> </p>
+<p>• </p>
+<p>Validating contents of flash memory </p>
+<p> </p>
+<p>• </p>
+<p>Cancellation of Request </p>
+<p> </p>
+<p>• </p>
+<p>Job result and status information </p>
+<p> </p>
+<p>• </p>
+<p>Background job processing </p>
+<p> </p>
+<p>• </p>
+<p>Module version information </p>
+<p> </p>
+<p>• </p>
+<p>Job Processing </p>
+<p> </p>
+<p><b>3.1.5.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of FLS software component on other modules and the </p>
+<p>required implementation is briefed as follows: </p>
+<p> </p>
+<p> </p>
+<p><b>DET </b></p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>3.1.5.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The FLS Driver Depends on the MCU Driver for clock value. Hence the </p>
+<p>parameter ‘FlsCpuFrequency’ in the ‘FlsDataFlash’ container refers to the </p>
+<p>path </p>
+<p>/AUTOSAR/EcucDefs_Mcu/Mcu0/McuModuleConfiguration0/McuClockSett</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>23 </b></p>
+<p>ingConfig0/McuPLLClkSetting0 </p>
+<p> </p>
+<p><b>3.1.5.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the FLS Software </p>
+<p>Component module: </p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Fls.h, </p>
+<p>Rte.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.5.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for FLS Software </p>
+<p>component. </p>
+<p> </p>
+<p><b>Table 3-5 </b></p>
+<p><b>:  FLS Software Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.6. </b></p>
+<p><b>SPI Driver Component </b></p>
+<p> </p>
+<p><b>3.1.6.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The SPI driver is split as High Level Driver and Low Level Driver. The High </p>
+<p>Level Driver exports the AUTOSAR API towards upper modules and it will be </p>
+<p>designed to allow the compilation for different platforms without or only slight </p>
+<p>modifications, i.e. that no reference to specific microcontroller features or </p>
+<p>registers will appear in the High Level Driver. All these references are moved </p>
+<p>inside a µC specific Low Level Driver. The Low Level Driver interface extends </p>
+<p>the High Level Driver types and methods in order to adapt it to the specific </p>
+<p>target microcontroller. </p>
+<p> </p>
+<p>The SPI Driver Component provides services for: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization and De-initialization </p>
+<p> </p>
+<p>• </p>
+<p>Buffer Management </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>24 </b></p>
+<p> </p>
+<p>• </p>
+<p>Communication </p>
+<p> </p>
+<p>• </p>
+<p>Status information </p>
+<p> </p>
+<p>• </p>
+<p>Module version information </p>
+<p> </p>
+<p>• </p>
+<p>Memory mapping </p>
+<p> </p>
+<p>• </p>
+<p>Compiler abstraction </p>
+<p> </p>
+<p><b>3.1.6.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of SPI Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode, the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>PORT </b></p>
+<p> </p>
+<p>The CSIG HW Units uses port lines as external chip selects. In this case, the </p>
+<p>chip select is realized using microcontroller pins and hence the SPI module </p>
+<p>has a relationship with PORT module for initializing appropriate mode and </p>
+<p>direction of the port lines. </p>
+<p> </p>
+<p>The basic SPI functionality for both CSIG and CSIH has to be configured as an </p>
+<p>alternate functionality by the PORT module. </p>
+<p> </p>
+<p> </p>
+<p><b>IO Hardware Abstraction Layer </b></p>
+<p> </p>
+<p>The IO Hardware Abstraction Layer invokes APIs of the SPI module and </p>
+<p>receives the callback notifications. </p>
+<p> </p>
+<p><b>Memory Hardware Abstraction Layer </b></p>
+<p> </p>
+<p>The Memory Hardware Abstraction Layer invokes APIs of the SPI module in </p>
+<p>case driver for any external memory devices (for example, external EEPROM) </p>
+<p>are implemented through the SPI module. </p>
+<p> </p>
+<p><b>Onboard Device Abstraction Layer </b></p>
+<p>The Onboard Device Abstraction Layer invokes APIs of the SPI module in </p>
+<p>case driver for any external devices (for example, external watchdog) are </p>
+<p>implemented through the SPI module. </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The functions related to critical section protection area of the SPI module are </p>
+<p>invoked by the Run time Environment (RTE) module. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The SPI module uses the DEM module for getting the reference for all </p>
+<p>production errors. </p>
+<p> </p>
+<p><b>3.1.6.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The SPI Driver Depends on the MCU Driver for clock value. Hence the </p>
+<p>parameter ‘SpiClockFrequencyRef’ in the ‘SpiExternalDevice’ container </p>
+<p>refers to the path </p>
+<p>/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration0/McuClockSettingC</p>
+<p>onfig0/McuClockReferencePoint0/McuClockReferencePointFrequency </p>
+<p> </p>
+<p><b>3.1.6.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the SPI Driver module: </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>25 </b></p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Spi.h </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p><b>3.1.6.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for SPI Driver </p>
+<p>component </p>
+<p><b> </b></p>
+<p><b>Table 3-6 </b></p>
+<p><b>:  SPI Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.7. </b></p>
+<p><b>ICU Driver Component </b></p>
+<p> </p>
+<p><b>3.1.7.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The ICU Driver Component provides following services: </p>
+<p> </p>
+<p>• </p>
+<p>Signal Edge detection and notification </p>
+<p> </p>
+<p>• </p>
+<p>Services for Driver initialization and de-initialization </p>
+<p> </p>
+<p>• </p>
+<p>Signal time measurement like Active Time, Period Time and Duty cycle </p>
+<p> </p>
+<p>• </p>
+<p>Signal Edge time stamping and Edge counting </p>
+<p> </p>
+<p>• </p>
+<p>Support Post-build configurations </p>
+<p> </p>
+<p>The ICU Driver Component is part of the Microcontroller Abstraction Layer </p>
+<p>(MCAL), the lowest layer of Basic Software in the AUTOSAR environment. </p>
+<p>Different applications require different number of ICU channels in different </p>
+<p>modes. Therefore, the timer operation modes and external interrupts have </p>
+<p>to be selected depending on ICU measurement mode. For P1x-C </p>
+<p>microcontroller generation, following concepts are considered: </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>26 </b></p>
+<p> </p>
+<p>• </p>
+<p>Using TIM0/TIM1 channels for Edge Counting Measurement mode  </p>
+<p> </p>
+<p>• </p>
+<p>Using TIM0/TIM1 channels for Time Stamping Measurement mode  </p>
+<p> </p>
+<p>• </p>
+<p>Using TIM0/TIM1 channels for Signal Measurement mode  </p>
+<p> </p>
+<p>• </p>
+<p>Using TIM0/TIM1 and External Interrupts channels for Edge Detection </p>
+<p>mode  </p>
+<p> </p>
+<p> </p>
+<p>The ICU channel can be configured to either a timer channel or an external </p>
+<p>interrupt based on the required measurement mode. The configuration for </p>
+<p>Edge Detection measurement mode will be made only for an external interrupt </p>
+<p>channel and TIM0/TIM1 channels. The remaining three measurement modes </p>
+<p>viz. Edge Counting, Time Stamping and Signal Measurement should be </p>
+<p>configured only for the TIM0/TIM1 channels. The configuration of Timer in </p>
+<p>different operating modes will be taken care by the software itself. </p>
+<p> </p>
+<p>The ICU Driver component can be divided into following sections based on the </p>
+<p>functions performed by the ICU Driver: </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>Initialization  </p>
+<p> </p>
+<p>• </p>
+<p>De-Initialization  </p>
+<p> </p>
+<p>• </p>
+<p>Wakeup Services  </p>
+<p> </p>
+<p>• </p>
+<p>Notification Services  </p>
+<p> </p>
+<p>• </p>
+<p>Signal Measurement Services  </p>
+<p> </p>
+<p>• </p>
+<p>Signal Activation and State Information Services  </p>
+<p> </p>
+<p>• </p>
+<p>Version Information  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.7.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p><b> </b></p>
+<p>The dependency of ICU Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>MCU Driver </b></p>
+<p> </p>
+<p> </p>
+<p>The Microcontroller Unit Driver (MCU Driver) is primarily responsible for </p>
+<p>initializing the GTM CMU clock sources. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The ICU driver uses interrupts and therefore there is a dependency on the OS </p>
+<p>which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p><b>PORT Module </b></p>
+<p> </p>
+<p>The configuration of port pins used for the ICU as inputs is done by the PORT </p>
+<p>driver. Hence the PORT driver has to be initialized prior to the use of ICU </p>
+<p>functions. If the PORT Driver is not available, then the configuration of port </p>
+<p>pins used for the ICU shall be stubbed. </p>
+<p> </p>
+<p>In order to use the external interrupt functionality, port filter of respective </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>27 </b></p>
+<p>external interrupt needs to be enabled in PORT component. ICU can override </p>
+<p>edge detection settings and PORT can do as well. The registers FCLAxCTLx </p>
+<p>are used by ICU and PORT at the same time and the order of calling APIs is </p>
+<p>important. </p>
+<p> </p>
+<p><b>EcuM Module </b></p>
+<p> </p>
+<p>The ICU driver shall do the reporting of wakeup interrupts to the EcuM. If the </p>
+<p>EcuM is not available, and then the required functionality shall be stubbed. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>DET Module </b></p>
+<p> </p>
+<p>If the Development Error Tracer is not available, stubs need to be used to the </p>
+<p>interfaces for those modules. </p>
+<p> </p>
+<p><b>IO Hardware Abstraction Layer Module </b></p>
+<p> </p>
+<p>The ICU driver depends on the I/O Hardware Abstraction Layer which invokes </p>
+<p>the APIs and receives the call-back notifications. If I/O Hardware Abstraction </p>
+<p>Layer Module is not available, then the required functionality shall be stubbed. </p>
+<p> </p>
+<p><b>RTE Module </b></p>
+<p> </p>
+<p>The ICU driver shall perform data protection using SchM APIs. If the SchM is </p>
+<p>not available, then the required functionality shall be stubbed. </p>
+<p> </p>
+<p><b>3.1.7.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The ICU Driver Depends on EcuM. Hence the parameter </p>
+<p>‘IcuChannelWakeupInfo’ in the ‘IcuWakeup’ container of each channel refers </p>
+<p>to the path </p>
+<p>“/Renesas/EcucDefs_Icu/EcuM0/EcuMConfiguration0/EcuMCommonConfig</p>
+<p>uration0/EcuMWakeupSource_1”. </p>
+<p> </p>
+<p>The ICU Driver Depends on MCU for the clock source configuration. Hence the </p>
+<p>parameter </p>
+<p>‘IcuGTMClockRef’ in the ‘IcuGeneral’ container refers to the path </p>
+<p>“/Renesas/EcucDefs_Msn/Mcu0/McuModuleConfiguration0/McuGTMClockSetti</p>
+<p>ngsConfig0” </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.7.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the ICU Driver module: </p>
+<p>Det.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Icu.h, </p>
+<p>Rte.h, </p>
+<p>EcuM.h </p>
+<p>EcuM_Cfg.h </p>
+<p>EcuM_Cbk.h  </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>28 </b></p>
+<p><b>3.1.7.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for ICU Driver </p>
+<p>component. </p>
+<p> </p>
+<p><b>Table 3-7 </b></p>
+<p><b>:  ICU Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>EcuM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\EcuM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.8. </b></p>
+<p><b>MCU Driver Component </b></p>
+<p> </p>
+<p><b>3.1.8.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The MCU Driver accesses the hardware features directly. The upper layers call </p>
+<p>the functionalities provided by the Driver. MCU component has functionalities </p>
+<p>related PLL Initialization, Clock Initialization &amp; Distribution, RAM sections, Pre-</p>
+<p>Scaler Initializations, MCU Reduced Power Modes Activation and MCU Reset </p>
+<p>Activation &amp; Reason. </p>
+<p> </p>
+<p>The MCU Driver component is divided into the following sub modules based </p>
+<p>on the functionality required: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization </p>
+<p> </p>
+<p>• </p>
+<p>Clock Initialization </p>
+<p> </p>
+<p>• </p>
+<p>PLL Clock Distribution </p>
+<p> </p>
+<p>• </p>
+<p>MCU Reduced Power Modes Activation </p>
+<p> </p>
+<p>• </p>
+<p>RAM sections Initialization </p>
+<p> </p>
+<p>• </p>
+<p>MCU Reset Activation &amp; Reason </p>
+<p> </p>
+<p>• </p>
+<p>Module Version Info </p>
+<p> </p>
+<p><b>3.1.8.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>Production errors will be reported to the Diagnostic Event Manager (DEM). </p>
+<p> </p>
+<p><b>EcuM </b></p>
+<p> </p>
+<p>The reference for the type of reset will be provided by the Mcu driver to the </p>
+<p>ECU State manager module. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>29 </b></p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The MCU driver uses interrupts and therefore there is a dependency on the </p>
+<p>OS which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p><b>RTE Module </b></p>
+<p> </p>
+<p>The MCU driver shall perform data protection using SchM APIs. If the SchM </p>
+<p>is not available, then the required functionality shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.8.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.8.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the MCU Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h, </p>
+<p>SchM_Mcu.h  </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p><b>3.1.8.5. </b></p>
+<p><b>Stubs </b></p>
+<p><b> </b></p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for MCU Driver </p>
+<p>component. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table 3-8 :  MCU Driver Component Common Stubs </b></p>
+<p><b> </b></p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>30 </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.1.9. </b></p>
+<p><b>GPT Driver Component </b></p>
+<p> </p>
+<p><b>3.1.9.1. </b></p>
+<p><b>Module Overview </b></p>
+<p> </p>
+<p>The GPT Driver Component provides services for GPT Driver Component </p>
+<p>Initialization, De-initialization, Setting starting and stopping a timer, getting </p>
+<p>elapsed and remaining time, setting GPT mode (one shot, continuous) and </p>
+<p>Disabling or Enabling the GPT notification. The GPT Driver Component is part </p>
+<p>of the Microcontroller Abstraction Layer (MCAL), the lowest layer of Basic </p>
+<p>Software in the AUTOSAR environment. </p>
+<p> </p>
+<p>The GPT Driver Component is divided into GPT High Level Driver and GPT </p>
+<p>Low Level Driver to minimize the effort and to optimize the reuse of developed </p>
+<p>software on different platforms. </p>
+<p> </p>
+<p>The GPT High Level Driver exports the APIs to the upper modules. All the </p>
+<p>references to specific microcontroller features and registers are provided in </p>
+<p>GPT Low Level Driver. </p>
+<p> </p>
+<p>The GPT channel can be configured to either as continuous mode or one-shot </p>
+<p>mode. In continuous mode, the timers keep operating even after the target </p>
+<p>value is reached and it has multiple notifications (if enabled). </p>
+<p> </p>
+<p>The ATOM sub modules in GTM consist of ATOM0, ATOM1 and ATOM2 are </p>
+<p>used in GPT Driver Component to generate timeout periods. </p>
+<p> </p>
+<p>The GPT Driver component should provide following services based on the </p>
+<p>functions performed by the GPT Driver: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization: Provides the service to initialize the timer control registers </p>
+<p>     and interrupt registers  </p>
+<p>• </p>
+<p>De-Initialization: Provides the service to reinitialize the timer registers  </p>
+<p>      and to stop the channels that are running </p>
+<p> </p>
+<p>• </p>
+<p>Reading of timer values: Provides services for reading the elapsed time  </p>
+<p>                                                    after the timer is started or Service for reading the remaining time                 </p>
+<p>                                                       before the next timeout </p>
+<p> </p>
+<p>• </p>
+<p>Start/Stop timer: Provides the service to start/stop the requested  </p>
+<p>     timer channel </p>
+<p> </p>
+<p>• </p>
+<p>Set mode for GPT(continuous, one shot): Provides services for the   </p>
+<p>     user to select the mode </p>
+<p> </p>
+<p>• </p>
+<p>Notification services: Provides services for the user to enable or         </p>
+<p>     disable the notification for every timeout </p>
+<p> </p>
+<p>• </p>
+<p>Wakeup Services: Provides services for the user to enable or    </p>
+<p>     disable the wakeup notification. </p>
+<p> </p>
+<p>• </p>
+<p>Get version information: Provides the service for the user to read   </p>
+<p>     module version </p>
+<p> </p>
+<p><b>3.1.9.2. </b></p>
+<p><b>Module Dependency </b></p>
+<p> </p>
+<p>The dependency of GPT Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer will be called whenever </p>
+<p>this module encounters a development error. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>31 </b></p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever this module </p>
+<p>encounters a production relevant error. </p>
+<p> </p>
+<p> </p>
+<p><b>MCU Driver </b></p>
+<p> </p>
+<p> </p>
+<p>The Microcontroller Unit Driver (MCU Driver) is primarily responsible for </p>
+<p>initializing the GTM CMU clock sources. </p>
+<p> </p>
+<p><b>EcuM </b></p>
+<p> </p>
+<p>The GPT driver shall do the reporting of wakeup interrupts to the EcuM. If the </p>
+<p>EcuM is not available, then the required functionality shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The GPT driver uses interrupts and therefore there is a dependency on the OS </p>
+<p>which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.9.3. </b></p>
+<p><b>Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The GPT Driver Depends on EcuM. Hence the parameter </p>
+<p>‘GptWakeupSourceRef’ in the ‘GptWakeupConfiguration’ container of each channel </p>
+<p>refers to the path </p>
+<p>“/Renesas/EcucDefs_Gpt/EcuM0/EcuMConfiguration0/EcuMCommonConfiguration</p>
+<p>0/EcuMWakeupSource_1”. </p>
+<p> </p>
+<p>The GPT Driver Depends on the MCU Driver for clock source configuration. Hence </p>
+<p>the parameter GptGTMClockRef in the container GptDriverConfiguration refers to </p>
+<p>the path </p>
+<p>“/Renesas/EcucDefs_Msn/Mcu0/McuModuleConfiguration0/McuGTMClockSettings</p>
+<p>Config0”. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.9.4. </b></p>
+<p><b>Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the GPT Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>SchM_Gpt.h, </p>
+<p>Rte.h, </p>
+<p>Os.h  </p>
+<p>EcuM.h </p>
+<p>EcuM_Cbk.h </p>
+<p>rh850_Types.h </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>32 </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.1.9.5. </b></p>
+<p><b>Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for GPT Driver </p>
+<p>component. </p>
+<p> </p>
+<p><b>Table 3-9 </b></p>
+<p><b>:  GPT Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>EcuM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\EcuM</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.10. WDG Driver Component </b></p>
+<p> </p>
+<p><b>3.1.10.1. Module Overview </b></p>
+<p> </p>
+<p>Watchdog Driver module provides the services for initializing, changing the </p>
+<p>operation mode and triggering the watchdog.</p>
+<p>  </p>
+<p>The Watchdog Driver accesses the microcontroller hardware directly and </p>
+<p>Interface communicates with the application. </p>
+<p> </p>
+<p>The Watchdog Driver component is composed of following modules: </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver Initialization module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver SetMode module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver Trigger module </p>
+<p> </p>
+<p>• </p>
+<p>Watchdog Driver Version info module </p>
+<p> </p>
+<p><b>3.1.10.2. Module Dependency </b></p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>Production errors will be reported to the Diagnostic Event Manager (DEM). </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>MCU Driver </b></p>
+<p> </p>
+<p>The count which indicates the number of times the watchdog should be </p>
+<p>triggered for a trigger condition’s timeout value depends on WDTATCLKI, </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>33 </b></p>
+<p>hence MCU reference path will be provided in the parameter definition file. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The WDG driver uses interrupts and therefore there is a dependency on the </p>
+<p>OS which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.10.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The Watchdog Driver Depends on the MCU Driver for clock value. Hence </p>
+<p>the parameter ‘WdgClockRef’ in the ‘WdgGeneral’ container refers to the </p>
+<p>path  </p>
+<p> </p>
+<p>“/Renesas/EcucDefs_Msn/Mcu0/McuModuleConfiguration0/McuGTMClock</p>
+<p>SettingsConfig0” </p>
+<p> </p>
+<p><b>3.1.10.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the WDG Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h,  </p>
+<p>Dem.h </p>
+<p>WdgIf_Types.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Rte.h </p>
+<p>Std_Types.h  </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.10.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for WDG Driver </p>
+<p>component. </p>
+<p> </p>
+<p><b>Table 3-10 </b></p>
+<p><b>:  WDG Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>WdgIf</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\WdgIf</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>34 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.11. LIN Driver Component </b></p>
+<p> </p>
+<p><b>3.1.11.1. Module Overview </b></p>
+<p> </p>
+<p>The LIN driver is part of the microcontroller abstraction layer (MCAL), </p>
+<p>performs the hardware access and offers hardware independent API to the </p>
+<p>upper layer. Several LIN Controllers is controlled by the LIN Driver as long as </p>
+<p>they belong to the same LIN Hardware Unit. </p>
+<p> </p>
+<p>The LIN Driver software component shall provide the following main features: </p>
+<p> </p>
+<p>The LIN Driver Component fulfills requirements of upper layer </p>
+<p>communication components with respect to Initialization, Transmit and </p>
+<p>Receive confirmation and Wakeup notification to ECU State Manager. </p>
+<p> </p>
+<p><b>3.1.11.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of LIN Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever LIN module </p>
+<p>encounters a production relevant error.  </p>
+<p> </p>
+<p><b>MCU Driver </b></p>
+<p> </p>
+<p>LIN driver depend on MCU Driver for the setting of channel clock. </p>
+<p> </p>
+<p><b>ECU State Manager </b></p>
+<p> </p>
+<p>If controller wake-up event is detected LIN Driver Component provides the </p>
+<p>call out notification functionality to the EcuM. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The LIN driver uses interrupts and hence there is a dependency on the OS, </p>
+<p>which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p><b>3.1.11.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>The LIN Driver Depends on the MCU Driver for clock value. Hence the </p>
+<p>parameter ‘LinClockRef’ in the ‘LinChannel’ container refers to the path  </p>
+<p>“/Renesas/EcucDefs_Mcu/Mcu/McuModuleConfiguration0/McuClockSettin</p>
+<p>gConfig0/McuClockReferencePoint0” </p>
+<p> </p>
+<p><b>3.1.11.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the LIN Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h, </p>
+<p>EcuM.h, </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>35 </b></p>
+<p>EcuM_Cfg.h, </p>
+<p>EcuM_Cbk.h, </p>
+<p>Dem.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>SchM_Lin.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p><b>3.1.11.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common and port specific stubs to be used </p>
+<p>for LIN Driver component </p>
+<p> </p>
+<p><b>Table 3-11 </b></p>
+<p><b>:  LIN Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>EcuM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\EcuM</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Table 3-12 </b></p>
+<p><b>:  LIN Driver Component Specific Stubs      </b></p>
+<p><b> </b></p>
+<p><b>Lin Specific Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Mcu</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Mcu</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>EcuM</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\EcuM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>36 </b></p>
+<p><b>3.1.12. FR Driver Component </b></p>
+<p> </p>
+<p><b>3.1.12.1. Module Overview </b></p>
+<p> </p>
+<p>The FR driver provides services for FlexRay communication. </p>
+<p> </p>
+<p>The FR driver component provides the following functionalities: </p>
+<p> </p>
+<p>• </p>
+<p>To initialize the FlexRay communication controllers </p>
+<p> </p>
+<p>• </p>
+<p>To start, halt or abort the communication </p>
+<p> </p>
+<p>• </p>
+<p>To configure the channel for sending the wakeup pattern and to transmit </p>
+<p>the wakeup pattern on the configured FlexRay channel </p>
+<p> </p>
+<p>• </p>
+<p>To get the current POC status of CC </p>
+<p> </p>
+<p>• </p>
+<p>To get the synchronization state of CC and to adjust the global time of </p>
+<p>a FlexRay CC to an external clock </p>
+<p>source</p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>To transmit the frames on the FlexRay channels </p>
+<p> </p>
+<p>• </p>
+<p>To receive the frames transmitted on the FlexRay channels </p>
+<p> </p>
+<p>• </p>
+<p>To get the current cycle and macrotick offset value of CC </p>
+<p> </p>
+<p>• </p>
+<p>To set the value for absolute timer interrupt  and to stop the absolute timer </p>
+<p> </p>
+<p>• </p>
+<p>To enable/disable the absolute timer interrupt.  To  reset  the  interrupt </p>
+<p>condition  of    absolute  timer  interrupt  and  to  get  the  status  of  absolute </p>
+<p>timer interrupt </p>
+<p> </p>
+<p>• </p>
+<p>To  get  the  Channel status, Clock  Correction, Number of  startup frames, </p>
+<p>Clock Correction, Sync frame list and wakeup Rx status of CC </p>
+<p> </p>
+<p>• </p>
+<p>To get the Nm Vector Information received on CC </p>
+<p> </p>
+<p>• </p>
+<p>To send CC to ALLSLOTS and ALLOW_COLDSTART modes </p>
+<p>   </p>
+<p>• </p>
+<p>To reconfigure or disable an Lpdu in run time. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.12.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of FR Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever FR module </p>
+<p>encounters a production relevant error.  </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The FR driver uses interrupts and hence there is a dependency on the OS, </p>
+<p>which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p><b>3.1.12.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>37 </b></p>
+<p><b>3.1.12.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the FR Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>SchM_Fr_59_Renesas.h  </p>
+<p> </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p><b>3.1.12.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for FR Driver </p>
+<p>component </p>
+<p> </p>
+<p><b>Table 3-13 </b></p>
+<p><b>:  FR Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.13. RAMTST Driver Component </b></p>
+<p> </p>
+<p><b>3.1.13.1. Module Overview </b></p>
+<p> </p>
+<p>The RAMTST driver is part of the microcontroller abstraction layer (MCAL), </p>
+<p>performs the hardware access and offers hardware independent API to the </p>
+<p>upper layer. RAMTST driver provides the feature to test the physical health </p>
+<p>of RAM cells with different algorithms. If any fault is detected, notifications </p>
+<p>are provided to upper layers to take necessary actions as well as Error </p>
+<p>Corrections which are possible are done. It is not intended to test the contents </p>
+<p>of the RAM. RAM used for registers is also tested. </p>
+<p> </p>
+<p>A RAM Test may be called synchronously by the test environment (called </p>
+<p>“foreground test”) or may be called in a cyclic manner by an OS task or other </p>
+<p>cyclic calling method (called “background test”). The test environment may </p>
+<p>select test parameters, start and stop the test, and get status reports. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>38 </b></p>
+<p> </p>
+<p><b>3.1.13.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of RAMTST Driver on other modules and the </p>
+<p>required implementation is briefed as follows: </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever RAMTST module </p>
+<p>encounters a production relevant error.  </p>
+<p> </p>
+<p><b>RTE Module </b></p>
+<p> </p>
+<p>The RAMTST driver shall perform data protection using SchM APIs. </p>
+<p> </p>
+<p><b>3.1.13.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None. </p>
+<p> </p>
+<p><b>3.1.13.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the RAMTST </p>
+<p>Driver module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h  </p>
+<p>Dem_Cfg.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h and </p>
+<p>SchM_RamTst.h  </p>
+<p> </p>
+<p><b>3.1.13.5. Stubs </b></p>
+<p> </p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for RAMTST </p>
+<p>Driver component </p>
+<p> </p>
+<p> </p>
+<p><b>Table 3-14 </b></p>
+<p><b>:  RAMTST Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>39 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.14. CORTST Driver Component </b></p>
+<p> </p>
+<p><b>3.1.14.1. Module Overview </b></p>
+<p> </p>
+<p>The </p>
+<p>CORTST  module </p>
+<p>provides </p>
+<p>services </p>
+<p>for </p>
+<p>configuring, </p>
+<p>starting, </p>
+<p>polling, </p>
+<p>terminating  and  notifying  the  application  about  Core  Test  results.  It  also </p>
+<p>provides services for returning test results in a predefined way. Furthermore it </p>
+<p>provides  several  tests  to  verify  dedicated  core  functionality  like  e.g.  general </p>
+<p>purpose registers or Arithmetical and Logical Unit (ALU).</p>
+<p> </p>
+<p>It is up to the user of Core Test Driver API to choose suitable test combination </p>
+<p>and a scheduled execution order to fulfill the safety requirements of the </p>
+<p>system. The behavior of those services is asynchronous or synchronous. </p>
+<p>The functional parameters of CORTST software components are statically </p>
+<p>configurable to fit as far as possible to the real needs of each ECU. </p>
+<p>The CORTST Driver Component is divided into the following sub </p>
+<p>modules based on the functionality required: </p>
+<p>• Initialization and De-Initialization </p>
+<p>• Abort the core test operation </p>
+<p>• Getting the execution status of the CORTST driver </p>
+<p>• Getting Fore ground and Back ground Test result and Test Signature </p>
+<p>value </p>
+<p>• Foreground Test and Background tests </p>
+<p>• Module version information </p>
+<p> </p>
+<p><b>3.1.14.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of CORTST Driver on other modules and the </p>
+<p>required implementation is briefed as follows: </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever CORTST </p>
+<p>module encounters a production relevant error.  </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>OS </b></p>
+<p> </p>
+<p>The CORTST driver uses interrupts and hence there is a dependency on the </p>
+<p>OS, which configures the interrupt sources. If OS is not available, then the </p>
+<p>configuration of interrupt sources shall be stubbed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>40 </b></p>
+<p><b>3.1.14.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.14.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the CORTST </p>
+<p>Driver module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h  </p>
+<p>Os.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>SchM_CorTst.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p><b>3.1.14.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for CORTST </p>
+<p>Driver component </p>
+<p> </p>
+<p> </p>
+<p><b>Table 3-15 </b></p>
+<p><b>:  CORTST Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p>Os</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.15. FLSTST Driver Component </b></p>
+<p> </p>
+<p><b>3.1.15.1. Module Overview </b></p>
+<p> </p>
+<p>The FLSTST Driver Component provides the following services: </p>
+<p> </p>
+<p>• FLSTST Driver Component initialization </p>
+<p> </p>
+<p>• De-initialization </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>41 </b></p>
+<p> </p>
+<p>• Reading the internal state of FLSTST Output signal </p>
+<p> </p>
+<p>• Setting the FLSTST Output to Idle state </p>
+<p> </p>
+<p>• Disabling/Enabling the FLSTST signal edge notification </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.15.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of FLSTST Driver on other modules and the </p>
+<p>required implementation is briefed as follows: </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p><b>DEM </b></p>
+<p> </p>
+<p>The Diagnostic Event manager (DEM) will be called whenever FLSTST module </p>
+<p>encounters a production relevant error.  </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>3.1.15.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.15.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the FLSTST </p>
+<p>Driver module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>Dem.h </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>SchM_FlsTst.h </p>
+<p>rh850_Types.h </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.15.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The tables below will provide the common stubs to be used for FLSTST </p>
+<p>Driver component </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>42 </b></p>
+<p><b>Table 3-16 </b></p>
+<p><b>:  FLSTST Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det</p>
+<p> </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM</p>
+<p> </p>
+<p>Dem</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Dem</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.16. ETH Driver Component </b></p>
+<p> </p>
+<p><b>3.1.16.1. Module Overview </b></p>
+<p> </p>
+<p>The ETH Driver component can be divided into following sub components </p>
+<p>based on the functions performed by the ETH Driver: </p>
+<p>•</p>
+<p> </p>
+<p>Driver Initialization </p>
+<p>•</p>
+<p> </p>
+<p>Controller Initialization </p>
+<p>•</p>
+<p> </p>
+<p>Setting and getting the Controller Mode </p>
+<p>•</p>
+<p> </p>
+<p>Getting the MAC Address of the Ethernet Controller </p>
+<p>•</p>
+<p> </p>
+<p>Writing MII Interface register </p>
+<p>•</p>
+<p> </p>
+<p>Reading MII Interface register </p>
+<p>•</p>
+<p> </p>
+<p>Getting the Counter State </p>
+<p>•</p>
+<p> </p>
+<p>Provide Transmit Buffer Access </p>
+<p>•</p>
+<p> </p>
+<p>Transmit Functionality </p>
+<p>•</p>
+<p> </p>
+<p>Receive Functionality </p>
+<p>•</p>
+<p> </p>
+<p>Transmit confirmation </p>
+<p>•</p>
+<p> </p>
+<p>Frame reception interrupt handling </p>
+<p>•</p>
+<p> </p>
+<p>Frame Transmission Interrupt handling </p>
+<p>•</p>
+<p> </p>
+<p>Module version information </p>
+<p>•</p>
+<p> </p>
+<p>Address Filtering  </p>
+<p>•</p>
+<p> </p>
+<p>Magic Packet detection </p>
+<p> </p>
+<p><b>3.1.16.2. Module Dependency </b></p>
+<p> </p>
+<p>The dependency of ETH Driver on other modules and the required </p>
+<p>implementation is briefed as follows: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>DET </b></p>
+<p> </p>
+<p>In development mode the Development Error Tracer (DET) will be called </p>
+<p>whenever this module encounters a development error. </p>
+<p> </p>
+<p> </p>
+<p><b>RTE </b></p>
+<p> </p>
+<p>The Run time Environment (RTE) module will be called whenever a critical </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>43 </b></p>
+<p>section protection function is called. </p>
+<p> </p>
+<p><b>3.1.16.3. Configuration Parameter Dependency </b></p>
+<p> </p>
+<p>None </p>
+<p> </p>
+<p><b>3.1.16.4. Source Code Dependency </b></p>
+<p> </p>
+<p>The following are the common dependent used files by the ETH Driver </p>
+<p>module: </p>
+<p> </p>
+<p>Det.h, </p>
+<p>MemMap.h, </p>
+<p>Platform_Types.h, </p>
+<p>Std_Types.h, </p>
+<p>Rte.h  </p>
+<p> </p>
+<p>SchM_Eth.h </p>
+<p>Os.h </p>
+<p>rh850_Types.h </p>
+<p>  </p>
+<p><b>3.1.16.5. Stubs </b></p>
+<p> </p>
+<p>Stubs are categorized as common stub. </p>
+<p> </p>
+<p>The common stubs are common for all the X1X family and are available in the </p>
+<p>path </p>
+<p> </p>
+<p>“X1X\common_platform\generic\stubs\&lt;Autosar Version&gt;” </p>
+<p> </p>
+<p>The table below will provide the common stubs to be used for ETH Driver </p>
+<p>component. </p>
+<p><b> </b></p>
+<p><b>Table 3-17 </b></p>
+<p><b>:  ETH Driver Component Common Stubs </b></p>
+<p> </p>
+<p><b>Common Stubs</b></p>
+<p> </p>
+<p><b>Path</b></p>
+<p> </p>
+<p>Det</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Det </p>
+<p>SchM</p>
+<p> </p>
+<p>\X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\SchM </p>
+<p>Os</p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\&lt;Autosar </p>
+<p>Version&gt;\Os </p>
+<p> </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>RH850 Macros Definition: </b></p>
+<p>The driver supports both Supervisor mode and User mode. </p>
+<p> To provide the provision to the user, to adapt the Driver to operate either in </p>
+<p>Supervisor/User Mode the IMRx/ICxxx register is moved to OS Module. </p>
+<p> </p>
+<p>The macros provided in Table 3-17, available in rh850_types.h, should be </p>
+<p>used as mentioned below to switch modes. </p>
+<p></p>
+<p> </p>
+<p>To operate the driver in User Mode: User must modify these macros. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>44 </b></p>
+<p></p>
+<p> </p>
+<p>To operate the driver in Supervisor Mode: No modification is required. </p>
+<p><b>Table 3-18 </b></p>
+<p><b>:   Macro to perform write operation, on write enabled </b></p>
+<p><b>Register </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Macro Name </b></p>
+<p><b>Description </b></p>
+<p><b>Input </b></p>
+<p><b>Parameter </b></p>
+<p>RH850_SV_MODE_ICR_O</p>
+<p>R </p>
+<p>This Macro performs supervisor </p>
+<p>mode (SV) write enabled Register </p>
+<p>ICxxx register writing which </p>
+<p>involves an OR operation.</p>
+<p> </p>
+<p>SIZE : </p>
+<p>Register </p>
+<p>Access Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : Value </p>
+<p>to be written to </p>
+<p>the register</p>
+<p> </p>
+<p>RH850_SV_MODE_ICR_A</p>
+<p>ND </p>
+<p>This Macro performs supervisor </p>
+<p>mode(SV) write enabled </p>
+<p>Register ICxxx register writing </p>
+<p>which involves an AND </p>
+<p>operation.</p>
+<p> </p>
+<p>SIZE : </p>
+<p>Register </p>
+<p>Access Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : Value </p>
+<p>to be written </p>
+<p>to the </p>
+<p>register</p>
+<p> </p>
+<p>RH850_SV_MODE_ICR_W</p>
+<p>RITE_ONLY </p>
+<p>This Macro performs </p>
+<p>supervisor mode(SV) write </p>
+<p>enabled Register ICxxx </p>
+<p>register direct writing </p>
+<p>operation. </p>
+<p>SIZE</p>
+<p> : </p>
+<p>Register </p>
+<p>Access Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : Value </p>
+<p>to be written </p>
+<p>to the </p>
+<p>register</p>
+<p> </p>
+<p>RH850_SV_MODE_IMR_O</p>
+<p>R </p>
+<p>This Macro performs </p>
+<p>supervisor mode(SV) write </p>
+<p>enabled Register IMR register </p>
+<p>writing which involves an OR </p>
+<p>operation </p>
+<p>SIZE : </p>
+<p>Register </p>
+<p>Access </p>
+<p>Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : </p>
+<p>Value to be </p>
+<p>written to </p>
+<p>the register </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>  AUTOSAR MODULES </b></p>
+<p><b> Chapter 3</b></p>
+<p> </p>
+<p><b>45 </b></p>
+<p>RH850_SV_MODE_IMR_A</p>
+<p>ND </p>
+<p>This Macro performs </p>
+<p>supervisor mode(SV) write </p>
+<p>enabled Register IMR register </p>
+<p>writing which involves an AND </p>
+<p>operation </p>
+<p>SIZE : </p>
+<p>Register </p>
+<p>Access </p>
+<p>Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : </p>
+<p>Value to be </p>
+<p>written to </p>
+<p>the register </p>
+<p>RH850_SV_MODE_IMR_W</p>
+<p>RITE_ONLY </p>
+<p>This Macro performs </p>
+<p>supervisor mode (SV) write </p>
+<p>enabled Register IMR register </p>
+<p>direct writing operation. </p>
+<p>SIZE : </p>
+<p>Register </p>
+<p>Access </p>
+<p>Size  </p>
+<p>ADDR : </p>
+<p>Register </p>
+<p>address </p>
+<p>VAL  : </p>
+<p>Value to be </p>
+<p>written to </p>
+<p>the register </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>ICxxx Registers Setting for TBxxx-Bit </b></p>
+<p></p>
+<p> </p>
+<p>The ICxxx register’s TBxxx-Bit is used to select the way to determine the </p>
+<p>interrupt vector. </p>
+<p>0: Direct jumping to an address determined from the level of priority </p>
+<p>1: Reference to a table. </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>MCAL Driver does not set TBxxx bit. Hence user has to take care of </p>
+<p>setting TBxxx-Bit before initializing MCAL driver. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 3 </b></p>
+<p><b>AUTOSAR MODULES </b></p>
+<p> </p>
+<p><b>46 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>47 </b></p>
+<p><b>Revision History</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>31-Jan-2013</p>
+<p> </p>
+<p>2 </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Removed CAN and FEE driver components. </p>
+<p>2. </p>
+<p>Updated GPT, ICU and PWM for GTM.  </p>
+<p>3. </p>
+<p>Updated Chapter 2 “REFERENCE DOCUMENTS”.  </p>
+<p>4. </p>
+<p>Added FR, RAMTST, CORTST, FLSTST and ETH Driver              </p>
+<p>components in Chapter 3 “AUTOSAR MODULES” </p>
+<p>5. </p>
+<p>Removed all the information related to Autosar version 3.2.2  </p>
+<p>1.0.1 </p>
+<p>26-Apr-2016 </p>
+<p>3 </p>
+<p>The following changes are made: </p>
+<p>1. </p>
+<p>Updated section Configuration Parameter Dependency for </p>
+<p>GPT, ICU and PWM. </p>
+<p>2. </p>
+<p>Added Dem for ADC, PWM, PORT, DIO, SPI, GPT. </p>
+<p>3. </p>
+<p>Removed details regarding Dem from the section 3.1.16, </p>
+<p>ETH. </p>
+<p>4. </p>
+<p>Updated R number </p>
+<p>1.0.2 </p>
+<p>29-Nov-2016 </p>
+<p>4 </p>
+<p>The following changes are made: </p>
+<p>1. </p>
+<p>Updated R number of the document </p>
+<p>2. </p>
+<p>Notice and copyright information are updated. </p>
+<p>1.0.3 </p>
+<p>05-May-2017 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR Modules Overview User’s Manual </b></p>
+<p><b>Version 1.0.3 </b></p>
+<p> </p>
+<p>Publication Date: Rev.1.01, May 05, 2017 </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 4.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR Modules Overview </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3827EJ0101 </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,156 @@
+---
+layout: default
+title: BUtilClassic_ReleaseNotes
+nav_order: 3
+parent: BUtil
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes BUtilClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.1.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.1.1</p>
+<p>2017-12-14</p>
+<p>BAC-6676</p>
+<p>5.1.0</p>
+<p>2017-09-14</p>
+<p>BAC-6290, BAC-6288</p>
+<p>5.0.1</p>
+<p>2017-08-10</p>
+<p>BAC-6174</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_BUtilClassic, Version 5.1.1, Software Platforms</p>
+<p>Page 1 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.1.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6676</p>
+<p>CR Headline:</p>
+<p>BUtil: Version cross check between generic and adapter part</p>
+<p>missing</p>
+<p>Description of Issues:</p>
+<p>Version check and version cross check between generic and</p>
+<p>adapter part is missing.</p>
+<p>Description of Changes:</p>
+<p>add missing version checks</p>
+<p>Changed Files:</p>
+<p>include/BUtil_UDSAdapterHelper.h</p>
+<p>include/BUtilClassic_Version.h</p>
+<p>src/BUtil_UDSAdapterHelper.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6290</p>
+<p>CR Headline:</p>
+<p>fix compiler warnings</p>
+<p>Description of Issues:</p>
+<p>fix compiler warnings</p>
+<p>Description of Changes:</p>
+<p>fix compiler warnings</p>
+<p>Changed Files:</p>
+<p>src/BUtil_UDSAdapterHelper.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6288</p>
+<p>CR Headline:</p>
+<p>add UDS prefix to generated ReadData and WriteData functions</p>
+<p>Description of Issues:</p>
+<p>add UDS prefix to generated ReadData and WriteData functions</p>
+<p>Description of Changes:</p>
+<p>add UDS prefix to generated ReadData and WriteData functions</p>
+<p>Changed Files:</p>
+<p>generate/pageinclude/BUtil_UDSAdapterHelper.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6174</p>
+<p>CR Headline:</p>
+<p>#include &quot;Dcm_Types.h&quot; conflicts with Rte*.h</p>
+<p>Description of Issues:</p>
+<p>#include &quot;Dcm_Types.h&quot; conflicts with Rte*.h</p>
+<p>Description of Changes:</p>
+<p>include Dcm_Typs.h only in case no Rte header is included</p>
+<p>Changed Files:</p>
+<p>include/BUtil_UDSAdapterHelper.h</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_BUtilClassic, Version 5.1.1, Software Platforms</p>
+<p>Page 2 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_BUtilClassic, Version 5.1.1, Software Platforms</p>
+<p>Page 3 of 3</p>
+</body>
+</html>
+{% endraw %}

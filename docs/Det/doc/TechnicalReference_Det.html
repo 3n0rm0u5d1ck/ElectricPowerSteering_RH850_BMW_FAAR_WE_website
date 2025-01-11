@@ -1,0 +1,1796 @@
+---
+layout: default
+title: TechnicalReference_Det
+nav_order: 2
+parent: Default Error Tracer
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR DET </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 10.0.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Hartmut Hörner </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Hartmut Hörner </p>
+<p>2007-11-29 </p>
+<p>1.0 </p>
+<p>Initial version </p>
+<p>Hartmut Hörner </p>
+<p>2008-01-03 </p>
+<p>1.1 </p>
+<p>Update to AUTOSAR 3 </p>
+<p>Hartmut Hörner </p>
+<p>2008-04-14 </p>
+<p>1.2 </p>
+<p>Naming changed to AUTOSAR short </p>
+<p>name, screen shots updated. </p>
+<p>(ESCAN00025687) </p>
+<p>Hartmut Hörner </p>
+<p>2008-09-16 </p>
+<p>1.3 </p>
+<p>Added DET extension mechanism based </p>
+<p>on callout. </p>
+<p>Added chapter 4.4. </p>
+<p>Hartmut Hörner </p>
+<p>2010-01-13 </p>
+<p>2.0 </p>
+<p>Update to AUTOSAR 4 </p>
+<p>Hartmut Hörner </p>
+<p>2012-04-20 </p>
+<p>2.1 </p>
+<p>Added usage hints related to silent BSW </p>
+<p>concept in 4.7.  </p>
+<p>(ESCAN00058419) </p>
+<p>Hartmut Hörner </p>
+<p>2013-04-09 </p>
+<p>2.2 </p>
+<p>Added Configurator 5 and service port </p>
+<p>interface </p>
+<p>(ESCAN00066511) </p>
+<p>Hartmut Hörner </p>
+<p>2013-09-13 </p>
+<p>2.3 </p>
+<p>Added DLT forwarding support for </p>
+<p>Configurator 5 </p>
+<p>(ESCAN00068394, ESCAN00069807) </p>
+<p>Hartmut Hörner </p>
+<p>2014-12-10 </p>
+<p>2.3.1 </p>
+<p>Added description of  </p>
+<p>BCD-coded return value of </p>
+<p>Det_GetVersionInfo() </p>
+<p>(ESCAN00079310) </p>
+<p>Hartmut Hörner </p>
+<p>2015-06-12 </p>
+<p>2.4.0 </p>
+<p>File name changed </p>
+<p>(ESCAN00081049) </p>
+<p>Added chapter 4.2. </p>
+<p>Hartmut Hörner </p>
+<p>2016-12-24 </p>
+<p>10.0.0 </p>
+<p>Update to AUTOSAR 4.3 (FEAT-1939) </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>V1.0.0 </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p>Scope of the Document <b> </b></p>
+<p>This technical reference describes the general use of the MICROSAR Default Error Tracer </p>
+<p>(DET). </p>
+<p>Note  that  this  release  of  the  DET  supports  only AUTOSAR 4  and  the  configuration  tool </p>
+<p>Configurator  5.  If  you  need  a  DET  module  for  previous AUTOSAR  versions  or  tools  an </p>
+<p>older version is required. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 7</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 10</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 10</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 10</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Limitations ........................................................................................ 11</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 11</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 11</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 11</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 11</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 11</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 12</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Handling of development errors - Debugging with the DET .............................. 12</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Extended Debug Features ............................................................... 12</p>
+<p> </p>
+<p>3.6.1.1</p>
+<p> </p>
+<p>Filters ............................................................................. 13</p>
+<p> </p>
+<p>3.6.1.2</p>
+<p> </p>
+<p>Logging .......................................................................... 14</p>
+<p> </p>
+<p>3.6.1.3</p>
+<p> </p>
+<p>Break handler ................................................................ 15</p>
+<p> </p>
+<p>3.6.1.4</p>
+<p> </p>
+<p>Filtering of DLT forwarding ............................................. 16</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Handling of runtime errors and transient faults ................................................. 16</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Extension of the DET ....................................................................................... 17</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>Usage of ErrorId .............................................................................................. 17</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 18</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 18</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 18</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 18</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 18</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Include Structure .............................................................................................. 18</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Handling of Recursions .................................................................................... 19</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Multi-core system ............................................................................................. 19</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>Partitioning and memory protection .................................................................. 19</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>Usage Hints for Operation in Safety Related ECUs .......................................... 20</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 21</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 21</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by DET ................................................................................ 21</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Det_Init ............................................................................................ 21</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Det_InitMemory ................................................................................ 22</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Det_Start .......................................................................................... 22</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Det_GetVersionInfo .......................................................................... 23</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Det_ReportError ............................................................................... 23</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Det_ReportRuntimeError ................................................................. 24</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>Det_ReportTransientFault ................................................................ 25</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by DET ..................................................................................... 26</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 26</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 26</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 26</p>
+<p> </p>
+<p>5.5.1.1</p>
+<p> </p>
+<p>&lt;DetErrorHook&gt; ............................................................. 26</p>
+<p> </p>
+<p>5.5.1.2</p>
+<p> </p>
+<p>&lt;DetReportRuntimeErrorCallout&gt; .................................. 27</p>
+<p> </p>
+<p>5.5.1.3</p>
+<p> </p>
+<p>&lt;DetReportTransientFaultCallout&gt; ................................. 27</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 28</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Client Server Interface ..................................................................... 28</p>
+<p> </p>
+<p>5.6.1.1</p>
+<p> </p>
+<p>Provide Ports on DET Side ............................................ 28</p>
+<p> </p>
+<p>5.6.1.1.1</p>
+<p> </p>
+<p>DETService................................................ 28</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 30</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 30</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 31</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 31</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 31</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 32</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.3 Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the DET ................................................. 9</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 7</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 10</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 10</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 10</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 11</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 12</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 18</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 18</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 21</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Det_Init ..................................................................................................... 22</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Det_InitMemory ........................................................................................ 22</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Det_Start .................................................................................................. 23</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Det_GetVersionInfo .................................................................................. 23</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Det_ReportError ....................................................................................... 24</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Det_ReportRuntimeError .......................................................................... 25</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Det_ReportTransientFault ......................................................................... 25</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Services used by the DET ........................................................................ 26</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>&lt;DetErrorHook&gt; ....................................................................................... 27</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>&lt;DetReportRuntimeErrorCallout&gt; ............................................................. 27</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>&lt;DetReportTransientFaultCallout&gt;............................................................ 28</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>DETService .............................................................................................. 28</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 31</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 31</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>0.01.00 </p>
+<p>Creation </p>
+<p>2.00.00 </p>
+<p>Update for AUTOSAR Release 2.0 </p>
+<p>3.00.00 </p>
+<p>Update for AUTOSAR Release 2.1 </p>
+<p>3.01.00 </p>
+<p>GetVersionInfo API added  </p>
+<p>3.02.00 </p>
+<p>Extended debug features added  </p>
+<p>4.00.00 </p>
+<p>Update for AUTOSAR Release 3 </p>
+<p>compiler abstraction and memmap added </p>
+<p>4.01.00 </p>
+<p>DET entry callout </p>
+<p>5.00.00 </p>
+<p>Update for AUTOSAR Release 4 </p>
+<p>6.00.00 </p>
+<p>Support of Configurator 5 (MSR3) </p>
+<p>7.00.00 </p>
+<p>Support of Configurator 5 (MSR4) </p>
+<p>8.00.00 </p>
+<p>DLT and service port interface </p>
+<p>9.00.00 </p>
+<p>safeBSW </p>
+<p>10.00.00 </p>
+<p>safeBSW ASIL release </p>
+<p>20.00.00 </p>
+<p>Update for AUTOSAR Release 4.3 </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module DET as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.3 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>DET_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>DET_MODULE_ID   </p>
+<p>15 decimal </p>
+<p>(according to ref. [2]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The DET is the central error handler in the AUTOSAR architecture. All other basic software </p>
+<p>modules can report development errors, runtime errors and transient faults to the DET. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the DET is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.3 Architecture Overview  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>The next figure shows the interfaces to adjacent modules of the DET. These interfaces are </p>
+<p>described in chapter 5.  </p>
+<p>COM</p>
+<p>IPDU</p>
+<p>DET</p>
+<p>&lt;any BSW module&gt;</p>
+<p>Report </p>
+<p>error</p>
+<p>EcuM</p>
+<p>Init / </p>
+<p>Start</p>
+<p>Application</p>
+<p>Dlt</p>
+<p>Callout</p>
+<p>Forward </p>
+<p>error</p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the DET </p>
+<p>Applications do not access the services of the BSW modules directly. They use the service </p>
+<p>ports provided by the BSW modules via the RTE. The service ports provided by the DET </p>
+<p>are listed in chapter 5.5.1.2 and are defined in [1]. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>DET. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further DET functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Initialization and start services </p>
+<p>Error reporting services </p>
+<p>Service port interface </p>
+<p>Forwarding of DET errors to the DLT module </p>
+<p>Configurable lists of error hooks and callouts </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>none </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>Extended Debug Features: </p>
+<p>Since AUTOSAR specifies only the interface and not the functionality of the DET all provided </p>
+<p>debugging features are AUTOSAR extensions. </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.1.3 </b></p>
+<p><b>Limitations </b></p>
+<p>There are no known limitations. </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>The DET is initialized and operational after the API </p>
+<p>Det_Init</p>
+<p> has been called. In [1] an </p>
+<p>additional </p>
+<p>Det_Start</p>
+<p> service is specified to handle cases where it is necessary to split </p>
+<p>the  initialization  in  two  phases.  Since  this  is  not  applicable  the </p>
+<p>Det_Start</p>
+<p>  function  is </p>
+<p>empty. </p>
+<p>The  API </p>
+<p>Det_InitMemory</p>
+<p>  may  have  to  be  used  in  addition,  please  refer  to  the  API </p>
+<p>description 5.2.2 for details. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The DET has no internal state machine, it is operational after initialization. </p>
+<p>The  module  uses  its  initialization  state  to  perform  a  check  if  the  module  has  been </p>
+<p>initialized. </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>The DET has no main function since it does not perform cyclic tasks. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>Development  errors  detected  in  DET  API  functions  are  reported  to  the  DET  using  the </p>
+<p>service </p>
+<p>Det_ReportError</p>
+<p> as specified in [1]. </p>
+<p>The reported DET ID is 15. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>Det_Init </p>
+<p>0x01 </p>
+<p>Det_ReportError </p>
+<p>0x02 </p>
+<p>Det_Start </p>
+<p>0x03 </p>
+<p>Det_GetVersionInfo </p>
+<p>0x04 </p>
+<p>Det_ReportRuntimeError </p>
+<p>0x05 </p>
+<p>Det_ReportTransientFault </p>
+<p>Table 3-4  </p>
+<p>Service IDs </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>DET_E_PARAM_POINTER </p>
+<p>Det_GetVersionInfo called with NULL parameter pointer </p>
+<p>Table 3-5  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p><b>3.5.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>The DET does not report production errors. </p>
+<p><b>3.6 </b></p>
+<p><b>Handling of development errors - Debugging with the DET </b></p>
+<p>The DET is called for each development error which is reported by other BSW modules. </p>
+<p>Since  it  is  potentially  not  safe  to  continue  the  program  when  such  an  error  occurs,  the </p>
+<p>default handling of development errors is an endless loop. </p>
+<p>A  breakpoint  should  always  be  set  in  this  loop  which  can  found  in  the  local  function </p>
+<p>Det_EndlessLoop</p>
+<p>. </p>
+<p>When </p>
+<p>the </p>
+<p>breakpoint </p>
+<p>is </p>
+<p>hit, </p>
+<p>the </p>
+<p>parameters </p>
+<p>of </p>
+<p>the </p>
+<p>function </p>
+<p>Det_ReportError</p>
+<p> </p>
+<p>5.2.5 </p>
+<p>can </p>
+<p>be </p>
+<p>inspected </p>
+<p>in </p>
+<p>the </p>
+<p>debugger. </p>
+<p>By </p>
+<p>means </p>
+<p>of </p>
+<p>these </p>
+<p>parameters it is possible to find out which error occurred; it is however sometimes more </p>
+<p>convenient to use a stack trace if the debugger provides this. </p>
+<p> </p>
+<p> </p>
+<p><b>A breakpoint should always be set in the endless loop </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>In  a  simulated  target  based  on  CANoe  an  error  message  is  logged  in  the  CANoe  write </p>
+<p>window.  </p>
+<p><b>3.6.1 </b></p>
+<p><b>Extended Debug Features </b></p>
+<p>Sometimes  setting  a  breakpoint  in  the  endless  loop  is  not  sufficient  for  debugging, </p>
+<p>therefore some extended debug features are  provided. These features are thought as a </p>
+<p>debugging aid, thus they are accessible via the debugger and do not have special APIs. </p>
+<p>To use these features the attribute “Enable Extended Debug Support” must be enabled. </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6.1.1 </b></p>
+<p><b>Filters </b></p>
+<p>Sometimes  it  happens  that  a  BSW  module  reports  DET  errors  which  are  known  to  be </p>
+<p>uncritical. </p>
+<p>Such </p>
+<p>errors </p>
+<p>can </p>
+<p>be </p>
+<p>ignored </p>
+<p>by </p>
+<p>discarding </p>
+<p>the </p>
+<p>related </p>
+<p>calls </p>
+<p>to </p>
+<p>Det_ReportError</p>
+<p>. </p>
+<p>To  implement  this  functionality  the  DET  provides  a  set  of  filters  where  the  errors  to  be </p>
+<p>discarded can be configured. It is possible to use the patterns 0xff or 0xffff as wild cards </p>
+<p>(don’t care patterns). </p>
+<p> </p>
+<p><b>Configuration of filters</b> </p>
+<p> </p>
+<p>configure the required number of filters in configuration tool with the attribute </p>
+<p>“Number of Global Filters”  </p>
+<p> </p>
+<p>enable filtering globally in the debugger by setting </p>
+<p>detStatus.globalFilterActive to 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>configure the required filters in the debugger by setting detGlobalFilter </p>
+<p>elements </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Filter examples</b> </p>
+<p>a) ignore error 3 of API7 of module 20 in instance 0 </p>
+<p>  moduleId=20 </p>
+<p>  instanceId=0 </p>
+<p>  apiId=7 </p>
+<p>errorId=3 </p>
+<p>b) ignore all errors of module 20 in instance 0 </p>
+<p>  moduleId=20 </p>
+<p>  instanceId=0 </p>
+<p>  apiId=0xff </p>
+<p>  errorId=0xff</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6.1.2 </b></p>
+<p><b>Logging </b></p>
+<p>The DET provides a log buffer for incoming error messages. Error messages which have </p>
+<p>been filtered are not logged. </p>
+<p>The contents of the log buffer can be viewed with the debugger. </p>
+<p> </p>
+<p> </p>
+<p><b>Configuration of logging</b> </p>
+<p> </p>
+<p>configure the required size of the log buffer in the configuration tool with the </p>
+<p>attribute “Size of Log Buffer”  </p>
+<p> </p>
+<p>enable logging globally in the debugger by setting detStatus.logActive to 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Logging example</b> </p>
+<p>The variable detStatus.logIndex shows the index in the log buffer with the last logged </p>
+<p>development error. Use the elements of detLogBuffer to view the logged errors. </p>
+<p> </p>
+<p>By default all elements of the variable (s. above) detLogBuffer are initialized with zero. </p>
+<p> </p>
+<p>By  setting  detStatus.breakOnLogOverrun  in  the  debugger  it  is  possible  to  enter  the </p>
+<p>endless loop if the log buffer is full. </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6.1.3 </b></p>
+<p><b>Break handler </b></p>
+<p>For some errors it is possible to continue operation. Therefore it is possible to unlock the </p>
+<p>endless loop with the debugger to continue the program. Since the same error could occur </p>
+<p>multiple times and to avoid ending up in the endless loop again it is possible to configure a </p>
+<p>special filter set for the break handler. Such errors are logged (if logging is active) but do </p>
+<p>not lead to a break. </p>
+<p> </p>
+<p> </p>
+<p><b>Configuration of break handler filters</b> </p>
+<p> </p>
+<p>configure the required number of break handler filters in configuration tool </p>
+<p>with the attribute “Number of Break Handler Filters”  </p>
+<p> </p>
+<p>enable break handler filtering globally in the debugger by setting </p>
+<p>detStatus.breakFilterActive to 1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>configure the required break handler filters in the debugger by setting </p>
+<p>detBreakFilter elements </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>For some filter examples please refer to 3.6.1.1. </p>
+<p>In  the  following  example  it  is  described  how  the  endless  loop  can  be  unlocked  in  the </p>
+<p>debugger. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p> </p>
+<p><b>How to unlock the endless loop </b></p>
+<p>Set detStatus.unlockBreak to 1 to leave endless loop: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.6.1.4 </b></p>
+<p><b>Filtering of DLT forwarding </b></p>
+<p>It is sometimes necessary to suppress the forwarding of specific errors to the DLT module </p>
+<p>to avoid overload. To implement this functionality the DET provides DLT filters where the </p>
+<p>errors which shall not be forwarded can be configured. It is possible to use the patterns </p>
+<p>0xff or 0xffff as wild cards (don’t care patterns). These filters work in the same way as the </p>
+<p>global filters described in 3.6.1.1, please refer to the description there. This functionality is </p>
+<p>supported for all error reporting APIs. </p>
+<p><b>3.7 </b></p>
+<p><b>Handling of runtime errors and transient faults </b></p>
+<p>If </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>via </p>
+<p>the </p>
+<p>API </p>
+<p>services </p>
+<p>Det_ReportRuntimeError</p>
+<p> </p>
+<p>and </p>
+<p>Det_ReportTransientFault</p>
+<p> execution continues (i.e. no endless loop is entered). </p>
+<p>The following extended debug features are available: </p>
+<p>  Logging (3.6.1.2) </p>
+<p>  Filtering of DLT forwarding (3.6.1.4) </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.8 </b></p>
+<p><b>Extension of the DET </b></p>
+<p>Sometimes the built-in debug features of the DET may not be sufficient or some special </p>
+<p>handling of errors is required. Examples for such use cases include: </p>
+<p> Logging of DET errors via debug interface </p>
+<p> Transmission of DET errors on a serial bus system </p>
+<p> Error  handling  which  requires  direct  access  to  the  hardware  (e.g.  disabling  of </p>
+<p>specific interrupts) </p>
+<p> Complex application specific error handling </p>
+<p>To support such extensions the DET provides callout functions which are called first when </p>
+<p>the DET is entered. The callouts have to be provided by the application. They receive all </p>
+<p>parameters </p>
+<p>of </p>
+<p>the </p>
+<p>DET’s </p>
+<p>error </p>
+<p>reporting </p>
+<p>functions. </p>
+<p>For </p>
+<p>details </p>
+<p>please </p>
+<p>refer </p>
+<p>to  API </p>
+<p>description (5.5.1). </p>
+<p><b>3.9 </b></p>
+<p><b>Usage of ErrorId </b></p>
+<p>All three error reporting functions have an ErrorId parameter which is forwarded to the DLT </p>
+<p>module and used by some extended debug features, e.g. filtering and logging. Note, that </p>
+<p>the DLT module and the extended debug features do not distinguish the actual error kind </p>
+<p>(i.e. development error, runtime error or transient fault). It is therefore recommended to use </p>
+<p>a </p>
+<p>different </p>
+<p>number </p>
+<p>range </p>
+<p>of </p>
+<p>ErrorIds </p>
+<p>for </p>
+<p>each </p>
+<p>error </p>
+<p>kind. </p>
+<p>In </p>
+<p>the </p>
+<p>AUTOSAR </p>
+<p>4.3 </p>
+<p>specifications this is already considered for modules reporting runtime errors. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR DET into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the DET contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Det.c </p>
+<p>This is the source file of the DET</p>
+<p> </p>
+<p>Det.h </p>
+<p>This is the header file of the DET </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool [config tool]. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Det_cfg.h </p>
+<p>This is configuration header file containing pre-compile parameters. </p>
+<p>Det_cfg.c </p>
+<p>This is configuration source file containing pre-compile parameters. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The DET has code sections which need protection against preemption. Therefore the DET </p>
+<p>uses  one  exclusive  area  which  typically  requires  an  interrupt  lock  up  to  the  highest </p>
+<p>interrupt level where DET error reports can be produced: </p>
+<p>DET_EXCLUSIVE_AREA_0 </p>
+<p>This  exclusive  area  is  short  and  only  relevant  if  the  logging  feature  or  the  recursion </p>
+<p>detection mechanism is activated. </p>
+<p><b>4.3 </b></p>
+<p><b>Include Structure </b></p>
+<p>The DET includes the headers mentioned in the previous chapters 4.1.1 and 4.1.2. </p>
+<p>In addition the file Std_Types.h is included. </p>
+<p>To support the AUTOSAR memory mapping concept the header MemMap.h is included. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.4 </b></p>
+<p><b>Handling of Recursions </b></p>
+<p>If DET errors occur within the call context of the DET recursions could be caused. This can </p>
+<p>happen in a callout function or a subroutine of it if BSW API functions are used there. </p>
+<p>These cases are handled by an internal recursion detection mechanism in the DET so the </p>
+<p>application  needs  not  to  take  care  of  them.  If  the  configurable  number  of  recursions  is </p>
+<p>exceeded  the  DET  enters  an  endless  loop. The  recursion  detection  mechanism  can  be </p>
+<p>deactivated by setting this number to zero.  </p>
+<p>Assure  that  enter  and  exit  functions  of  the  DET’s  exclusive  area  do  not  produce  DET </p>
+<p>errors. </p>
+<p><b>4.5 </b></p>
+<p><b>Multi-core system </b></p>
+<p>Usage in a multi-core system is possible under one of the following conditions: </p>
+<p>  The DET’s exclusive area is mapped to a spinlock </p>
+<p>  The logging feature (3.6.1.2) and the recursion detection mechanism (4.4) is not </p>
+<p>used  </p>
+<p><b>4.6 </b></p>
+<p><b>Partitioning and memory protection </b></p>
+<p>It  is assumed that  the  BSW is  trusted. There  may  however be  exceptional  cases  which </p>
+<p>require  operation  of  parts  of  the  BSW  in  a  separate  partition,  e.g.  due  to  different ASIL </p>
+<p>level. In such a case the DET is still usable if one of the following concepts is used: </p>
+<p>  Memory  protection  configuration  allows  write  access  to  the  DET  data  by  all </p>
+<p>partitions </p>
+<p>containing </p>
+<p>DET </p>
+<p>reporting </p>
+<p>software. </p>
+<p>Note, </p>
+<p>that </p>
+<p>this </p>
+<p>could </p>
+<p>lead </p>
+<p>to </p>
+<p>corruption of the DET’s internal data if it is overwritten by a QM application. As a </p>
+<p>result the debug features of the DET may not work as expected. </p>
+<p>  The logging feature (3.6.1.2) and the recursion detection mechanism (4.4) is not </p>
+<p>used </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.7 </b></p>
+<p><b>Usage Hints for Operation in Safety Related ECUs </b></p>
+<p>The  silent  BSW  concept  assures  that  a  BSW  module  does  not  corrupt  memory  of  the </p>
+<p>application  and  other  BSW  modules.  In  this  context  the  following  aspects  have  to  be </p>
+<p>considered for the DET: </p>
+<p> In the callout functions (5.5.1) the DET passes four parameters to the application </p>
+<p>which  could  be  used  as  indices  by  the  application.  Please  note,  that  the  DET </p>
+<p>does  not  perform  plausibility  checks  of  the  value  ranges  of  those  parameters </p>
+<p>because the errors reported to the DET are not known by the DET in advance. </p>
+<p>The  producer  and  consumer  (could  both  be  application  code)  has  to  perform </p>
+<p>plausibility checks of the index parameters if necessary. </p>
+<p> If  the  extended  debug  feature  “logging”  is  used  depending  on  the  scheduling </p>
+<p>concept of the ECU DET errors could be logged from different contexts and it has </p>
+<p>therefore  to  be  secured  that  the  critical  section  DET_EXCLUSIVE_AREA_0 </p>
+<p>reaches  up  the  highest  processing  level  of  the  application  which  can  produce </p>
+<p>DET errors. </p>
+<p> The  debug  features  of  the  DET  are  intended  for  the  development  phase  of  an </p>
+<p>ECU. If the DET is used in production code the extended debug features should </p>
+<p>be switched off because they are only relevant if a debugger is attached. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the DET are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Usage </b></p>
+<p>DetInfoType </p>
+<p>struct </p>
+<p>structure used to </p>
+<p>configure filters and store </p>
+<p>log data, using 0xFF for a </p>
+<p>filter item means don't </p>
+<p>care  </p>
+<p>Refer to chapter 3.6.1 for details. </p>
+<p> </p>
+<p>DetStatusType </p>
+<p>struct </p>
+<p>structure to control the </p>
+<p>operation of DET debug </p>
+<p>extension </p>
+<p>Refer to chapter 3.6.1 for details. </p>
+<p> </p>
+<p>Det_ConfigType </p>
+<p>uint8 </p>
+<p>Parameter type of the init </p>
+<p>function – currently not </p>
+<p>used </p>
+<p>The dummy symbol </p>
+<p>Det_ConfigPtr</p>
+<p> is provided by </p>
+<p>the generator. </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by DET </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>Det_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Det_Init  </b>( const Det_ConfigType* ConfigPtr )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ConfigPtr </p>
+<p>Pointer to configuration structure is currently not used by the DET. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the DET. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Should be called from a safe context on task level </p>
+<p>Table 5-2  </p>
+<p>Det_Init </p>
+<p><b>5.2.2 </b></p>
+<p><b>Det_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Det_InitMemory  </b>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the state variable for the un-init check of the DET. If this function is used it must be called before </p>
+<p>Det_Init. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>Should only be called once by the EcuM when the system is started </p>
+<p><b>&gt; </b></p>
+<p>Only needed if the startup code does not support initialized RAM </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Should be called from a safe context on task level </p>
+<p>Table 5-3  </p>
+<p>Det_InitMemory </p>
+<p><b>5.2.3 </b></p>
+<p><b>Det_Start </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Det_Start  </b>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Starts the DET. This service currently has no functionality, i.e. the API function is empty. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant.  </p>
+<p><b>&gt; </b></p>
+<p>Call could be omitted </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-4  </p>
+<p>Det_Start </p>
+<p><b>5.2.4 </b></p>
+<p><b>Det_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Det_GetVersionInfo  </b>( Std_VersionInfoType *versioninfo )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>versioninfo </p>
+<p>Version information of the DET </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This API returns version information, vendor ID and AUTOSAR module ID of the component. </p>
+<p>The versions are decimal coded. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant.  </p>
+<p><b>&gt; </b></p>
+<p>This API is only available if enabled in configuration  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-5  </p>
+<p>Det_GetVersionInfo </p>
+<p><b>5.2.5 </b></p>
+<p><b>Det_ReportError </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Det_ReportError  </b>( uint16 ModuleId, uint8 InstanceId,  </p>
+<p>                        uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p>ErrorId </p>
+<p>ID of detected development error </p>
+<p>(defined in SWS of calling module) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Always E_OK </p>
+<p><b>Functional Description </b></p>
+<p>Used to report development errors from other BSW modules to the DET. If extended debug features are </p>
+<p>disabled the DET enters an endless loop in case of an embedded target or issues an error message in the </p>
+<p>CANoe write window in case of a simulated target. </p>
+<p>For details please refer to chapter 3.6. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>If this function is called the DET may enter an endless loop, therefore it is strongly </p>
+<p>recommended to put a breakpoint in the local function </p>
+<p>Det_EndlessLoop</p>
+<p>. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-6  </p>
+<p>Det_ReportError </p>
+<p> </p>
+<p><b>5.2.6 </b></p>
+<p><b>Det_ReportRuntimeError </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Det_ReportRuntimeError  </b>( uint16 ModuleId, uint8 InstanceId,  </p>
+<p>                        uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<p>ErrorId </p>
+<p>ID of detected runtime error </p>
+<p>(defined in SWS of calling module) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Always E_OK </p>
+<p><b>Functional Description </b></p>
+<p>Used to report runtime errors from other BSW modules to the DET. This function returns and issues an </p>
+<p>error message in the CANoe write window in case of a simulated target. </p>
+<p>For details please refer to chapter 3.6.1.4. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-7  </p>
+<p>Det_ReportRuntimeError </p>
+<p> </p>
+<p><b>5.2.7 </b></p>
+<p><b>Det_ReportTransientFault </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Det_ReportTransientFault  </b>( uint16 ModuleId, uint8 InstanceId,  </p>
+<p>                        uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<p>ErrorId </p>
+<p>ID of detected transient fault </p>
+<p>(defined in SWS of calling module) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK or E_NOT_OK depending on return value of last called callout </p>
+<p><b>Functional Description </b></p>
+<p>Used to report transient faults from other BSW modules to the DET. This function returns and issues an </p>
+<p>error message in the CANoe write window in case of a simulated target. </p>
+<p>For details please refer to chapter 3.6.1.4. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-8  </p>
+<p>Det_ReportTransientFault </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by DET </b></p>
+<p>In the following table services provided by other components, which are used by the DET </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DLT </p>
+<p>Dlt_DetForwardErrorTrace </p>
+<p>Table 5-9  </p>
+<p>Services used by the DET </p>
+<p><b>5.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p>The DET does not provide callback functions. </p>
+<p><b>5.5 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>Callout Functions </b></p>
+<p>At  its  configurable  interfaces  the  DET  defines  callout  functions.  The  declarations  of  the </p>
+<p>callout functions are provided by the BSW module, i.e. the DET. It is the integrator's task to </p>
+<p>provide  the  corresponding  function  definitions.  The  definitions  of  the  callouts  can  be </p>
+<p>adjusted to the system's needs. The DET callout function declarations are described in the </p>
+<p>following tables: </p>
+<p><b>5.5.1.1 </b></p>
+<p><b>&lt;DetErrorHook&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType &lt;<b>DetErrorHook&gt;  </b>( uint16 ModuleId, uint8 InstanceId,  </p>
+<p>               uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<p>ErrorId </p>
+<p>ID of detected development error </p>
+<p>(defined in SWS of calling module) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK or E_NOT_OK </p>
+<p>If the last error hook which is called returns E_NOT_OK the extended debug </p>
+<p>features filtering and logging are skipped and Det_ReportError returns </p>
+<p>immediately. </p>
+<p><b>Functional Description </b></p>
+<p>This hook routine can be used to forward development error information received by Det_ReportError to </p>
+<p>the application for further processing. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Called in the context of the corresponding error reporting API which can be task or interrupt. </p>
+<p>Table 5-10  </p>
+<p>&lt;DetErrorHook&gt; </p>
+<p><b>5.5.1.2 </b></p>
+<p><b>&lt;DetReportRuntimeErrorCallout&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType &lt;<b>DetReportRuntimeErrorCallout&gt;  </b>( uint16 ModuleId,  </p>
+<p>               uint8 InstanceId, uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<p>ErrorId </p>
+<p>ID of detected runtime error </p>
+<p>(defined in SWS of calling module) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK or E_NOT_OK </p>
+<p>If the last error hook which is called returns E_NOT_OK the extended debug </p>
+<p>feature logging is skipped. </p>
+<p><b>Functional Description </b></p>
+<p>This hook routine can be used to forward runtime error information received by Det_ReportRuntimeError to </p>
+<p>the application for further processing. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Called in the context of the corresponding error reporting API which can be task or interrupt. </p>
+<p>Table 5-11  </p>
+<p>&lt;DetReportRuntimeErrorCallout&gt; </p>
+<p><b>5.5.1.3 </b></p>
+<p><b>&lt;DetReportTransientFaultCallout&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType &lt;<b>DetReportTransientFaultCallout&gt;  </b>( uint16 ModuleId,  </p>
+<p>               uint8 InstanceId, uint8 ApiId, uint8 ErrorId )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>ModuleId </p>
+<p>Module ID of calling module </p>
+<p>InstanceId </p>
+<p>The identifier of the index based instance of a module, starting from 0, If the </p>
+<p>module is a single instance module it shall pass 0 as the InstanceId. </p>
+<p>ApiId </p>
+<p>ID of API service in which error is detected </p>
+<p>(defined in SWS of calling module) </p>
+<p>ErrorId </p>
+<p>ID of detected transient fault </p>
+<p>(defined in SWS of calling module) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK or E_NOT_OK </p>
+<p>The return value of the last error hook which is called will be returned by </p>
+<p>Det_ReportTransientFault. </p>
+<p><b>Functional Description </b></p>
+<p>This hook routine can be used to forward transient fault information received by Det_ReportTransientFault </p>
+<p>to the application for further processing. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>none </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Called in the context of the corresponding error reporting API which can be task or interrupt. </p>
+<p>Table 5-12  </p>
+<p>&lt;DetReportTransientFaultCallout&gt; </p>
+<p><b>5.6 </b></p>
+<p><b>Service Ports </b></p>
+<p><b>5.6.1 </b></p>
+<p><b>Client Server Interface </b></p>
+<p>A client server interface is related to a Provide Port at the server side and a Require Port </p>
+<p>at client side.  </p>
+<p><b>5.6.1.1 </b></p>
+<p><b>Provide Ports on DET Side </b></p>
+<p>At  the  Provide  Ports  of  the  DET  the  API  functions  described  in  5.2  are  available  as </p>
+<p>Runnable Entities. The Runnable Entities are invoked via Operations. The mapping from a </p>
+<p>SWC client call to an Operation is performed by the RTE. In this mapping the RTE adds </p>
+<p>Port Defined Argument Values to the client call of the SWC, if configured. </p>
+<p>The  following  sub-chapters  present  the  Provide  Ports  defined  for  the </p>
+<p>DET  and  the </p>
+<p>Operations defined for the Provide Ports, the API functions related to the Operations and </p>
+<p>the Port Defined Argument Values to be added by the RTE. </p>
+<p><b>5.6.1.1.1 </b></p>
+<p><b>DETService </b></p>
+<p> </p>
+<p><b>Operation </b></p>
+<p><b>API Function </b></p>
+<p><b>Port Defined Argument Values </b></p>
+<p>ReportError  </p>
+<p>(  IN uint8 ApiId,   </p>
+<p>   IN uint8 ErrorId  ) </p>
+<p>Det_ReportError </p>
+<p>uint16 ModuleId </p>
+<p>uint8 InstanceId </p>
+<p>ReportRuntimeError  </p>
+<p>(  IN uint8 ApiId,   </p>
+<p>   IN uint8 ErrorId  ) </p>
+<p>Det_ReportRuntimeError </p>
+<p>uint16 ModuleId </p>
+<p>uint8 InstanceId </p>
+<p>Table 5-13  </p>
+<p>DETService </p>
+<p>A  separate  DETService  Port  is needed for each  instance  of  an AUTOSAR SW-C  which </p>
+<p>wants to report errors to the DET module which corresponds to the service port of the SW-</p>
+<p>C. Each DETService Port needs a ModuleId and an InstanceId as port defined argument </p>
+<p>values.  These  values  are  set  automatically  and  symbolic  name  value  defines  for  the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p>ModuleIds and InstanceIds are generated. The required service ports and their ModuleIds </p>
+<p>and InstanceIds are configured in Configurator 5. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Migration hints </b></p>
+<p>Note that the DETService Port was specified differently in previous AUTOSAR </p>
+<p>releases. The InstanceId was part of the operation. </p>
+<p>In order to update to the new specification it is recommended to </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>replace the old service port configuration by new instance specific service ports in </p>
+<p>the configuration tool and to </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>adapt the SWC source code by removing the InstanceId parameter from the </p>
+<p>service port calls. </p>
+<p>If it is not possible to change the SWC source code some compatibility support is </p>
+<p>provided in the configuration tool which allows configuring a service port for ModuleIds </p>
+<p>only, i.e. without configuring InstanceIds. In that case a second port called </p>
+<p>DETServiceLegacy is generated which provides the old operation including an </p>
+<p>InstanceId. If you want to use DETServiceLegacy it has to be configured instead of </p>
+<p>DETService in the SWC configuration.<b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the DET the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in Configurator 5, for a detailed description refer to the online help </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The DET supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the DET parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the Det_bswmd.arxml file. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>Stack trace </p>
+<p>A stack trace (also called stack backtrace or stack traceback) is a report </p>
+<p>of the active stack frames instantiated by the execution of a program. </p>
+<p>Although stack traces may be generated anywhere within a program, they </p>
+<p>are mostly used to aid debugging by showing where exactly an error </p>
+<p>occurs. The last few stack frames often indicate the origin of the bug. </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>BSW </p>
+<p>Basis SoftWare </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Default Error Tracer </p>
+<p>DLT </p>
+<p>Diagnostic Log and Trace </p>
+<p>pPort </p>
+<p>Provide Port </p>
+<p>rPort </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>RunTime Environment </p>
+<p>SWC </p>
+<p>SoftWare Component </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR DET </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 10.0.0 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

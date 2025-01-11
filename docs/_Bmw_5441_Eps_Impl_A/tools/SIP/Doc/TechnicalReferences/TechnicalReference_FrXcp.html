@@ -1,0 +1,2365 @@
+---
+layout: default
+title: TechnicalReference_FrXcp
+nav_order: 99
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>XCP on FlexRay </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.13.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>2007-06-11 </p>
+<p>1.00.00 </p>
+<p>Creation of document </p>
+<p>2007-07-09 </p>
+<p>1.01.00 </p>
+<p>Support of AUTOSAR Memory Mapping </p>
+<p>2007-07-30 </p>
+<p>1.02.00 </p>
+<p>New GENy GUI features </p>
+<p>2007-09-10 </p>
+<p>1.03.00 </p>
+<p>Update for Vector-Release </p>
+<p>2008-02-25 </p>
+<p>1.04.00 </p>
+<p>New Feature “Use Tx Confirmation” </p>
+<p>2009-02-09 </p>
+<p>1.05.00 </p>
+<p>Support of Ecuc Import/Export </p>
+<p>2009-09-09 </p>
+<p>1.06.00 </p>
+<p>Support a2l export </p>
+<p>2010-08-25 </p>
+<p>1.07.00 </p>
+<p>ESCAN00044862: Multiple Transport Layer support </p>
+<p>2010-12-10 </p>
+<p>1.08.00 </p>
+<p>ESCAN00046308: AR3-297 AR3-894: Support PduInfoType </p>
+<p>instead of the DataPtr </p>
+<p>2011-08-11 </p>
+<p>1.09.00 </p>
+<p>Support of Post Build configuration variant </p>
+<p>2012-11-09 </p>
+<p>1.10.00 </p>
+<p>Added Option for AMD Runtime Measurement </p>
+<p>ESCAN00058756 Describe use case for PDU length </p>
+<p>ESCAN00065888 Cluster Name should be Cluster ID </p>
+<p>ESCAN00066648 Describe usage of new Exclusive Areas </p>
+<p>2013-09-10 </p>
+<p>1.11.00 </p>
+<p>ESCAN00070207 Optimization - 32bit copy </p>
+<p>ESCAN00070081 Describe resume mode </p>
+<p>ESCAN00069779 Missing description of &quot;Set PduMode Support&quot; </p>
+<p>Feature in GENy </p>
+<p>ESCAN00067440 Max CTO must not be greater than Max DTO </p>
+<p>2014-08-15 </p>
+<p>1.11.01 </p>
+<p>ESCAN00077234 AR3-2679: Description BCD-coded return-</p>
+<p>value of FrXcp_GetVersionInfo() in TechRef </p>
+<p>2015-05-05 </p>
+<p>1.12.00 </p>
+<p>Removed chapter GENy </p>
+<p>ESCAN00083373 Tx Confirmation Timeout Timer </p>
+<p>ESCAN00083375 Missing entries in root config structure </p>
+<p>2016-10-13 </p>
+<p>1.13.00 </p>
+<p>ESCAN00092303 FrXcp_Control API replaced by global Variable </p>
+<p>Table 1-1 </p>
+<p>  History of the Document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>Index and Document Name </b></p>
+<p>[1] XCP -Part 2- Protocol Layer Specification -1.1.pdf </p>
+<p>[2] XCP -Part 3- Transport Layer Specification XCP on FlexRay -1.1.pdf </p>
+<p>[3] API specification of Development Error Tracer, Version 1.0.0 of 2005-07-08 </p>
+<p>[4] Specification of Platform Types Version 1.1.0 of 2005-04-29 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>[5] Specification of Standard Types Version 1.0.3 of 2005-12-13 </p>
+<p>[6] TechnicalReference_Asr_Xcp.pdf </p>
+<p>Table 1-2 </p>
+<p>  Reference Documents </p>
+<p><b>1.3 </b></p>
+<p><b>Scope of this document </b></p>
+<p>This  document  describes  the  features,  API,  configuration  and  integration  of  the  XCP </p>
+<p>Transport Layer for FlexRay. The XCP Protocol Layer, which is already described within a </p>
+<p>separate document [6], is not covered by this document. </p>
+<p>Please </p>
+<p>also </p>
+<p>refer </p>
+<p>to </p>
+<p>“The </p>
+<p>Universal </p>
+<p>Measurement </p>
+<p>and </p>
+<p>Calibration </p>
+<p>Protocol </p>
+<p>Family” </p>
+<p>specification by ASAM e.V. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................. 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ....................................................................................... 2</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Scope of this document...................................................................................... 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Overview ....................................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Abbreviations and Items ..................................................................................... 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Naming Conventions .......................................................................................... 9</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 9</p>
+<p> </p>
+<p>2.3.1</p>
+<p> </p>
+<p>XCP Architecture ................................................................................ 9</p>
+<p> </p>
+<p>2.3.2</p>
+<p> </p>
+<p>Detailed Architecture of XCP ............................................................ 11</p>
+<p> </p>
+<p>2.3.3</p>
+<p> </p>
+<p>Include structure .............................................................................. 11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Overview of the Functional Scope .................................................................... 12</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration into the Application ................................................................................. 13</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>XCP Transport Layer Files ............................................................................... 13</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Auxiliary Files ................................................................................................... 14</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Version Changes.............................................................................................. 14</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 14</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 14</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 14</p>
+<p> </p>
+<p>4.6.1</p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_0 ....................................................... 15</p>
+<p> </p>
+<p>4.6.2</p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_1 ....................................................... 15</p>
+<p> </p>
+<p>4.6.3</p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_2 ....................................................... 15</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>PDU Mode ....................................................................................................... 15</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>PDUs ............................................................................................................... 15</p>
+<p> </p>
+<p>4.9</p>
+<p> </p>
+<p>Initialized Memory ............................................................................................ 16</p>
+<p> </p>
+<p>4.10</p>
+<p> </p>
+<p>Memory Mapping ............................................................................................. 16</p>
+<p> </p>
+<p>4.11</p>
+<p> </p>
+<p>Activation Macros ............................................................................................. 16</p>
+<p> </p>
+<p>4.12</p>
+<p> </p>
+<p>Integration Notes.............................................................................................. 16</p>
+<p> </p>
+<p>4.12.1</p>
+<p> </p>
+<p>Alignment ......................................................................................... 16</p>
+<p> </p>
+<p>4.12.2</p>
+<p> </p>
+<p>CANape Buffer ID ............................................................................ 17</p>
+<p> </p>
+<p>4.12.3</p>
+<p> </p>
+<p>Resume Mode .................................................................................. 17</p>
+<p> </p>
+<p>4.12.3.1</p>
+<p> </p>
+<p>Store FrXcp data to NVM ............................................... 17</p>
+<p> </p>
+<p>4.12.3.2</p>
+<p> </p>
+<p>Restore FrXcp data from NVM ....................................... 18</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 19</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>5.1</p>
+<p> </p>
+<p>A2L File ............................................................................................................ 19</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Manual Configuration ....................................................................................... 19</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Pre-Compile Configuration ............................................................... 19</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Link Time &amp; Post Build Configuration ............................................... 20</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Description of the API ................................................................................................ 23</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Data Types ....................................................................................................... 23</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Global Variables ............................................................................................... 23</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Global Constants ............................................................................................. 23</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Component Versions ........................................................................ 23</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Vendor ID ......................................................................................... 23</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>Module ID ........................................................................................ 24</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Services provided by XCP on FlexRay ............................................................. 24</p>
+<p> </p>
+<p>6.4.1</p>
+<p> </p>
+<p>Administrative Functions .................................................................. 24</p>
+<p> </p>
+<p>6.4.1.1</p>
+<p> </p>
+<p>FrXcp_Init: Initialization of XCP on FlexRay ................... 24</p>
+<p> </p>
+<p>6.4.1.2</p>
+<p> </p>
+<p>FrXcp_MainFunctionRx: Main Function of XCP </p>
+<p>Transport Layer.............................................................. 24</p>
+<p> </p>
+<p>6.4.1.3</p>
+<p> </p>
+<p>FrXcp_MainFunctionTx: Main Function of XCP </p>
+<p>Transport Layer.............................................................. 25</p>
+<p> </p>
+<p>6.4.2</p>
+<p> </p>
+<p>Service Callback Functions .............................................................. 26</p>
+<p> </p>
+<p>6.4.2.1</p>
+<p> </p>
+<p>FrXcp_TriggerTransmit: Call back for transmission of </p>
+<p>L-PDU ............................................................................ 26</p>
+<p> </p>
+<p>6.4.2.2</p>
+<p> </p>
+<p>FrXcp_TxConfirmation: Call back for transmission </p>
+<p>confirmation of L-PDU .................................................... 26</p>
+<p> </p>
+<p>6.4.2.3</p>
+<p> </p>
+<p>FrXcp_RxIndication: Call back for reception of L-PDU ... 27</p>
+<p> </p>
+<p>6.4.3</p>
+<p> </p>
+<p>Service Functions ............................................................................ 28</p>
+<p> </p>
+<p>6.4.3.1</p>
+<p> </p>
+<p>FrXcp_TLService: Handles Transport Layer </p>
+<p>Command ...................................................................... 28</p>
+<p> </p>
+<p>6.4.3.2</p>
+<p> </p>
+<p>FrXcp_Send: Transmission of CTO or DTO ................... 29</p>
+<p> </p>
+<p>6.4.3.3</p>
+<p> </p>
+<p>FrXcp_SendFlush: Finish pending frames ..................... 29</p>
+<p> </p>
+<p>6.4.3.4</p>
+<p> </p>
+<p>FrXcp_SetPduMode: Enable/Disable transmission ........ 30</p>
+<p> </p>
+<p>6.4.3.5</p>
+<p> </p>
+<p>FrXcp_GetVersionInfo: Get Version Information ............. 30</p>
+<p> </p>
+<p>6.4.4</p>
+<p> </p>
+<p>Macros ............................................................................................. 31</p>
+<p> </p>
+<p>6.4.4.1</p>
+<p> </p>
+<p>XCP_ACTIVATE: Enable the Protocol and Transport </p>
+<p>Layer ............................................................................. 31</p>
+<p> </p>
+<p>6.4.4.2</p>
+<p> </p>
+<p>XCP_DEACTIVATE: Disable the Protocol and </p>
+<p>Transport Layer.............................................................. 32</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Services used by XCP on FlexRay................................................................... 32</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>Development Error Tracer ................................................................................ 33</p>
+<p> </p>
+<p>6.7</p>
+<p> </p>
+<p>Diagnostic Event Manager ............................................................................... 33</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Extensions .................................................................................................................. 34</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Known Issues/ Limitations ......................................................................................... 35</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Reconfig LPDU ................................................................................................ 35</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Icons ............................................................................................................................ 36</b></p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 37</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>XCP Architecture ...................................................................................... 10</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Detailed Architecture of XCP .................................................................... 11</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>API of XCP on FlexRay Transport Layer ................................................... 12</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>CANape – PDU relation ............................................................................ 17</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables  </b></p>
+<p>Table 1-1</p>
+<p> </p>
+<p> History of the Document ............................................................................ 2</p>
+<p> </p>
+<p>Table 1-2</p>
+<p> </p>
+<p> Reference Documents ............................................................................... 3</p>
+<p> </p>
+<p>Table 2-1</p>
+<p> </p>
+<p> Abbreviations and Items ............................................................................ 9</p>
+<p> </p>
+<p>Table 2-2</p>
+<p> </p>
+<p> Naming Conventions ................................................................................. 9</p>
+<p> </p>
+<p>Table 4-1</p>
+<p> </p>
+<p> File List of XCP on FlexRay (object code) ................................................ 13</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p> File List of XCP on FlexRay (source code)............................................... 13</p>
+<p> </p>
+<p>Table 4-3</p>
+<p> </p>
+<p> Auxiliary File List for XCP on FlexRay ...................................................... 14</p>
+<p> </p>
+<p>Table 5-1</p>
+<p> </p>
+<p> Pre-Compile Configuration ....................................................................... 20</p>
+<p> </p>
+<p>Table 5-2</p>
+<p> </p>
+<p> Post Build Configuration .......................................................................... 22</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p> Data Types .............................................................................................. 23</p>
+<p> </p>
+<p>Table 6-2</p>
+<p> </p>
+<p> Version Data ............................................................................................ 23</p>
+<p> </p>
+<p>Table 6-3</p>
+<p> </p>
+<p> Vendor ID ................................................................................................ 24</p>
+<p> </p>
+<p>Table 6-4</p>
+<p> </p>
+<p> Module ID ................................................................................................ 24</p>
+<p> </p>
+<p>Table 6-5</p>
+<p> </p>
+<p> Services used by XCP on FlexRay .......................................................... 33</p>
+<p> </p>
+<p>Table 6-6</p>
+<p> </p>
+<p> Development Error Detection Codes of XCP on FlexRay ......................... 33</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>2 </b></p>
+<p><b>Overview </b></p>
+<p>XCP on FlexRay is a hardware independent, yet bus specific protocol that can be ported to </p>
+<p>almost </p>
+<p>any </p>
+<p>FlexRay </p>
+<p>controller. </p>
+<p>Due </p>
+<p>to </p>
+<p>there </p>
+<p>are </p>
+<p>numerous </p>
+<p>combinations </p>
+<p>of </p>
+<p>micro </p>
+<p>controllers, compilers, FlexRay stacks and memory models it cannot be guaranteed that it </p>
+<p>will run properly on all of the above mentioned combinations. </p>
+<p>Please  note  that  in  this  document  the  term Application  is  not  used  strictly  for  the  user </p>
+<p>software but also for any higher software layer, like e.g. a Communication Control Layer. </p>
+<p>Therefore, Application refers to any of the software components using XCP on FlexRay. </p>
+<p>The API of the functions is described in a separate chapter at the end of this document. </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Abbreviations and Items </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Complete expression </b></p>
+<p><b>A2L </b></p>
+<p>File Extension for an <b>A</b>SAM <b>2</b>MC <b>L</b>anguage File </p>
+<p><b>AML </b></p>
+<p><b>A</b>SAM 2 <b>M</b>eta <b>L</b>anguage </p>
+<p><b>API </b></p>
+<p><b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface </p>
+<p><b>ASAM </b></p>
+<p><b>A</b>ssociation for <b>S</b>tandardization of <b>A</b>utomation and <b>M</b>easuring Systems </p>
+<p><b>CAN </b></p>
+<p><b>C</b>ontroller <b>A</b>rea <b>N</b>etwork </p>
+<p><b>CANape </b></p>
+<p>Calibration and Measurement Data Acquisition for Electronic Control Systems </p>
+<p><b>CC </b></p>
+<p><b>C</b>ommunication <b>C</b>ontroller </p>
+<p><b>CMD </b></p>
+<p><b>C</b>o<b>m</b>man<b>d </b></p>
+<p><b>CTO </b></p>
+<p><b>C</b>ommand <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>DAQ </b></p>
+<p>Synchronous <b>D</b>ata <b>A</b>c<b>q</b>uistion </p>
+<p><b>DLC </b></p>
+<p><b>D</b>ata <b>L</b>ength <b>C</b>ode ( Number of data bytes of a CAN message ) </p>
+<p><b>DLL </b></p>
+<p><b>D</b>ata <b>l</b>ink <b>l</b>ayer </p>
+<p><b>DTO </b></p>
+<p><b>D</b>ata <b>T</b>ransfer <b>O</b>bject </p>
+<p><b>ECU </b></p>
+<p><b>E</b>lectronic <b>C</b>ontrol <b>U</b>nit </p>
+<p><b>ID </b></p>
+<p><b>Id</b>entifier (of a CAN message) </p>
+<p><b>Identifier </b></p>
+<p>Identifies a CAN message </p>
+<p><b>ISR </b></p>
+<p><b>I</b>nterrupt <b>S</b>ervice <b>R</b>outine </p>
+<p><b>MCS </b></p>
+<p><b>M</b>aster <b>C</b>alibration <b>S</b>ystem </p>
+<p><b>Message </b></p>
+<p>One or more signals are assigned to each message. </p>
+<p><b>MRB </b></p>
+<p><b>M</b>ulti <b>r</b>eceive <b>b</b>uffer </p>
+<p><b>MRC </b></p>
+<p><b>M</b>ulti <b>r</b>eceive <b>c</b>hannel </p>
+<p><b>OEM </b></p>
+<p><b>O</b>riginal <b>e</b>quipment <b>m</b>anufacturer (vehicle manufacturer) </p>
+<p><b>RES </b></p>
+<p>Command <b>Res</b>ponse Packet </p>
+<p><b>SRB </b></p>
+<p><b>S</b>ingle <b>r</b>eceive <b>b</b>uffer </p>
+<p><b>SERV </b></p>
+<p><b>Ser</b>vice Request Packet </p>
+<p><b>STIM </b></p>
+<p><b>Stim</b>ulation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>XCP </b></p>
+<p>Universal Measurement and <b>C</b>alibration <b>P</b>rotocol </p>
+<p><b>VI </b></p>
+<p><b>V</b>ector <b>I</b>nformatik GmbH </p>
+<p>Table 2-1 </p>
+<p>  Abbreviations and Items </p>
+<p><b>2.2 </b></p>
+<p><b>Naming Conventions </b></p>
+<p><b>Naming conventions </b></p>
+<p><b>_Asr </b></p>
+<p>AUTOSAR conformant Implementation </p>
+<p><b>_Vector </b></p>
+<p>Vector specific implementation </p>
+<p><b>Fr_ </b></p>
+<p>Services of FlexRay Driver </p>
+<p><b>FrIf_ </b></p>
+<p>Services of FlexRay Interface </p>
+<p><b>FrNm_ </b></p>
+<p>Services of FlexRay Network Management </p>
+<p><b>FrNodeM_ </b></p>
+<p>Services of FlexRay Node Manager </p>
+<p><b>FrTP_ </b></p>
+<p>Services of FlexRay Transport Layer </p>
+<p><b>FrTrcv_ </b></p>
+<p>Services of FlexRay Transceiver Driver </p>
+<p><b>Nm_ </b></p>
+<p>Services of Generic NM. </p>
+<p><b>ApplXcp_ </b></p>
+<p>Services of XCP Hardware Abstraction Layer on FlexRay </p>
+<p><b>Xcp_ </b></p>
+<p>Services of XCP Protocol Layer on FlexRay </p>
+<p><b>FrXcp_ </b></p>
+<p>Services of XCP Transport Layer on FlexRay </p>
+<p>Table 2-2 </p>
+<p>  Naming Conventions </p>
+<p>The  names  of  the  service  functions  start  with  a  prefix  that  denominates  the  software </p>
+<p>component  where  the  service  is  located.  E.g.  a  service  that  starts  with  ‘</p>
+<p>XcpPl_</p>
+<p>’  is </p>
+<p>implemented within the XCP Protocol Layer. </p>
+<p>In  case  of  callback  functions  a  term  that  denominates  the  component  that  calls  the </p>
+<p>callback </p>
+<p>function </p>
+<p>is </p>
+<p>appended. </p>
+<p>E.g. </p>
+<p>‘</p>
+<p>ComM_Nm_</p>
+<p>’ </p>
+<p>denominates </p>
+<p>a </p>
+<p>service, </p>
+<p>which </p>
+<p>is </p>
+<p>implemented within the COM Manager and called by Generic NM. </p>
+<p><b>2.3 </b></p>
+<p><b>Architecture Overview </b></p>
+<p><b>2.3.1 </b></p>
+<p><b>XCP Architecture </b></p>
+<p>Up to now XCP consists of three modules: </p>
+<p></p>
+<p> </p>
+<p>Hardware Abstraction Layer</p>
+<p>1</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>XCP Protocol Layer</p>
+<p>1</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>XCP Transport Layer </p>
+<p>The </p>
+<p>XCP </p>
+<p>Protocol </p>
+<p>Layer </p>
+<p>provides </p>
+<p>generic </p>
+<p>XCP </p>
+<p>functionality </p>
+<p>independent </p>
+<p>from </p>
+<p>the </p>
+<p>underlying bus interface while the XCP Transport Layer provides the bus dependent part, </p>
+<p>e.g.  XCP  on  FlexRay.  It  can  easily  be  substituted  by  a  XCP  on  CAN  or  XCP  on  LIN </p>
+<p>Transport Layer. Interaction with the application is done exclusively by the XCP Protocol </p>
+<p>Layer. </p>
+<p>                                            </p>
+<p>1</p>
+<p> Not covered by this document. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>The  following  figure  shows  the  software  architecture  of  XCP  that  comprises  the  XCP </p>
+<p>Protocol Layer (XcpProf), the XCP Transport Layer (FrXcp), and a hardware abstraction </p>
+<p>Layer (xcp_appl). </p>
+<p> </p>
+<p>Figure 2-1 XCP Architecture </p>
+<p> </p>
+<p><b>id Component Model Ov erv iew</b></p>
+<p><b>XcpProf::Xcp</b></p>
+<p><b>xcp_appl::xcp_appl</b></p>
+<p><b>xcp_appl::Application</b></p>
+<p><b>FrXcp::FrXcp</b></p>
+<p><b>FrIf::FrIf</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>2.3.2 </b></p>
+<p><b>Detailed Architecture of XCP </b></p>
+<p>The XCP Transport Layer uses the FlexRay Interface as underlying layer for transmission </p>
+<p>and reception of XCP frames. </p>
+<p> </p>
+<p>Figure 2-2 Detailed Architecture of XCP </p>
+<p> </p>
+<p><b>2.3.3 </b></p>
+<p><b>Include structure </b></p>
+<p>The XCP Transport Layer uses the Standard AUTOSAR include structure. Therefore the </p>
+<p>header Std_Types.h is required. See 4.2 for further details. </p>
+<p> </p>
+<p><b>id Component Model Xcp Global</b></p>
+<p><b>FrXcp::FrXcp</b></p>
+<p><b>FrIf::FrIf</b></p>
+<p><i><b>FrIf</b></i></p>
+<p><i><b>FrXcp_Cbk</b></i></p>
+<p>«artifact»</p>
+<p>FrIf.h</p>
+<p>«artifact»</p>
+<p>FrIf.c</p>
+<p>«artifact»</p>
+<p>FrXcp_Cbk.h</p>
+<p>«artifact»</p>
+<p>XcpProf.h</p>
+<p>«artifact»</p>
+<p>FrXcp.h</p>
+<p><i><b>FrXcp</b></i></p>
+<p><i><b>XcpProf</b></i></p>
+<p><b>XcpProf::Xcp</b></p>
+<p><b>xcp_appl::xcp_appl</b></p>
+<p><b>xcp_appl::Application</b></p>
+<p>«manifest»</p>
+<p>«manifest»</p>
+<p>manifests</p>
+<p>manifests</p>
+<p>manifests</p>
+<p>«use»</p>
+<p>«realize»</p>
+<p>«use»</p>
+<p>«realize»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«realize»</p>
+<p>«use»</p>
+<p>«realize»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Overview of the Functional Scope </b></p>
+<p>The XCP Transport Layer manages transmission and reception of XCP frames. It is also </p>
+<p>responsible for abstraction of possible bus dependencies. For this purpose and to make </p>
+<p>maximum use of FlexRay the Transport Layer supports features like frame concatenation, </p>
+<p>alignment  of  XCP  frames  to  architectural  needs  and  reconfiguration  of  used  PDUs  as </p>
+<p>described in [2]. </p>
+<p>The </p>
+<p>following </p>
+<p>API </p>
+<p>is </p>
+<p>provided </p>
+<p>by </p>
+<p>the </p>
+<p>XCP </p>
+<p>Transport </p>
+<p>Layer: </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>API of XCP on FlexRay Transport Layer </p>
+<p>Out of these public visible functions, only the FrXcp_MainFunctionRx and </p>
+<p>FrXcp_MainFunctionTx are relevant for the application. These services must be called </p>
+<p>cyclically for XCP message handling, see (4.5 Main Functions). </p>
+<p>All other services are called <b>exclusively </b>by the XCP Protocol Layer. </p>
+<p><b> class Component Model FrXcp ASR4</b></p>
+<p><b>FrIf</b></p>
+<p><b>XcpProf</b></p>
+<p><b>FrXcp::FrXcp</b></p>
+<p>«interface»</p>
+<p><b>FrXcp::FrXcp</b></p>
+<p>+ </p>
+<p>FrXcp_Init()  :void</p>
+<p>+ </p>
+<p>FrXcp_TLService(const uint8*)  :uint8</p>
+<p>+ </p>
+<p>FrXcp_Send(uint8, const uint8*)  :void</p>
+<p>+ </p>
+<p>FrXcp_SendFlush(uint8)  :void</p>
+<p>+ </p>
+<p>FrXcp_MainFunctionRx()  :void</p>
+<p>+ </p>
+<p>FrXcp_MainFunctionTx()  :void</p>
+<p>+ </p>
+<p>FrXcp_DaqResumeStore()  :void</p>
+<p>+ </p>
+<p>FrXcp_DaqResumeClear()  :void</p>
+<p>+ </p>
+<p>FrXcp_GetVersionInfo(Std_VersionInfoType*)  :void</p>
+<p>«interface»</p>
+<p><b>FrXcp::FrXcp_Cbk (ASR4)</b></p>
+<p>+ </p>
+<p>Xcp_FrIfTxConfirmation(PduIdType)  :void</p>
+<p>+ </p>
+<p>Xcp_FrIfRxIndication(PduIdType, PduInfoType*)  :void</p>
+<p>+ </p>
+<p>Xcp_FrIfTriggerTransmit(PduIdType, PduInfoType*)  :void</p>
+<p>realize</p>
+<p>«use»</p>
+<p>use</p>
+<p>realize</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>4 </b></p>
+<p><b>Integration into the Application </b></p>
+<p>This </p>
+<p>chapter </p>
+<p>describes </p>
+<p>the </p>
+<p>steps </p>
+<p>necessary </p>
+<p>for </p>
+<p>successful </p>
+<p>integration </p>
+<p>of </p>
+<p>the </p>
+<p>XCP </p>
+<p>Transport Layer for FlexRay into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>XCP Transport Layer Files </b></p>
+<p>The files required for the XCP Transport Layer depend on whether source code or object </p>
+<p>code is available: </p>
+<p><b>Files of XCP on FlexRay Transport Layer with object code delivery </b></p>
+<p><b> </b></p>
+<p>FrXcp.o </p>
+<p>/ </p>
+<p>FrXcp.obj </p>
+<p>/ </p>
+<p>FrXcp.lib </p>
+<p>XCP Transport Layer object code / library. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp.h </p>
+<p>API definitions of the XCP Transport Layer FlexRay. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp_Cbk.h </p>
+<p>API of XCP Transport Layer call-back functions. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp_Cfg.h </p>
+<p>Pre-compile time configuration header file for the XCP Transport </p>
+<p>Layer. </p>
+<p> </p>
+<p>FrXcp_Lcfg.c </p>
+<p>Link time configuration source file for the XCP Transport Layer. </p>
+<p> </p>
+<p>FrXcp_Lcfg.h </p>
+<p>Link time configuration header file for the XCP Transport Layer. </p>
+<p> </p>
+<p>Table 4-1 </p>
+<p>  File List of XCP on FlexRay (object code) </p>
+<p> </p>
+<p><b>Files of XCP on FlexRay Transport Layer with source code delivery </b></p>
+<p><b> </b></p>
+<p>FrXcp.c </p>
+<p>XCP Transport Layer source code. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp.h </p>
+<p>XCP Transport Layer API definitions. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp_Cbk.h </p>
+<p>API of XCP Transport Layer call-back functions. </p>
+<p>This file must not be modified by the user! </p>
+<p> </p>
+<p>FrXcp_Cfg.h </p>
+<p>Pre-compile time configuration header file for the XCP Transport </p>
+<p>Layer. </p>
+<p> </p>
+<p>FrXcp_Lcfg.c </p>
+<p>Link time configuration source file for the XCP Transport Layer. </p>
+<p> </p>
+<p>FrXcp_Lcfg.h </p>
+<p>Link time configuration header file for the XCP Transport Layer. </p>
+<p> </p>
+<p>Table 4-2 </p>
+<p>  File List of XCP on FlexRay (source code) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>4.2 </b></p>
+<p><b>Auxiliary Files </b></p>
+<p>The following files are not part of the XCP Transport Layer. They are, however, used by the </p>
+<p>Transport Layer and must be provided accordingly. </p>
+<p><b>Auxiliary Files used by the XCP on FlexRay </b></p>
+<p><b> </b></p>
+<p>Std_Types.h </p>
+<p>Standard AUTOSAR header. </p>
+<p> </p>
+<p>ComStack_Types.h </p>
+<p>Standard AUTOSAR header. </p>
+<p> </p>
+<p>FrIf.h </p>
+<p>FlexRay Interface header, providing API prototypes for XCP on </p>
+<p>FlexRay. </p>
+<p> </p>
+<p>Det.h </p>
+<p>Development Error Tracer header, providing API prototypes for </p>
+<p>XCP on FlexRay. </p>
+<p> </p>
+<p>MemMap.h </p>
+<p>AUTOSAR Memory Mapping header (optional). </p>
+<p>This header is used if memory mapping is enabled. It must be </p>
+<p>provided by the user to define the section mapping. </p>
+<p> </p>
+<p>Table 4-3 </p>
+<p>  Auxiliary File List for XCP on FlexRay </p>
+<p><b>4.3 </b></p>
+<p><b>Version Changes </b></p>
+<p>Changes and the release versions of the XCP on FlexRay Transport Layer are listed at the </p>
+<p>beginning of the header and source code. </p>
+<p><b>4.4 </b></p>
+<p><b>Initialization </b></p>
+<p>For  initialization  the  service  FrXcp_Init  must  be  called.  In  Pre-compile  and  Link  time </p>
+<p>configurations a NULL_PTR must be passed. In Post build configuration or multi config the </p>
+<p>pointer of the Root config struct must be passed. </p>
+<p><b>4.5 </b></p>
+<p><b>Main Functions </b></p>
+<p>The  XCP  Protocol  Layer  as  well  as  the  XCP  Transport  Layer  have  main  functions  that </p>
+<p>must be called cyclically. </p>
+<p>Please refer to [6] for a detailed description of the XCP Protocol Layer main function </p>
+<p></p>
+<p> </p>
+<p>FrXcp_MainFunctionRx </p>
+<p></p>
+<p> </p>
+<p>FrXcp_MainFunctionTx </p>
+<p>The  XCP  Transport  Layer  provides  two  main  functions.  One  is  responsible  for  handling </p>
+<p>reception  related  processing  and  one  is  responsible  for  transmission  processing.  If  the </p>
+<p>respective  configuration  option  “Use  Tx  Task”  or  “Use  Rx  Task”  is  activated  in  the </p>
+<p>Generation Tool the MainFunction must be used accordingly. The </p>
+<p>FrXcp_MainFunctionRx</p>
+<p> </p>
+<p>must </p>
+<p>be </p>
+<p>executed </p>
+<p>after </p>
+<p>the </p>
+<p>FrIf </p>
+<p>Job </p>
+<p>that </p>
+<p>processes </p>
+<p>the </p>
+<p>FrXcp_RxIndication, </p>
+<p>the </p>
+<p>FrXcp_MainFunctionTx</p>
+<p> before the FrIf Job that processes the FrXcp_TriggerTransmit. </p>
+<p><b>4.6 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The XCP makes use of interrupt locking to guarantee atomic operation of critical sections. </p>
+<p>For this purpose three exclusive areas are defined </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p></p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_0</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_1</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>FRXCP_EXCLUSIVE_AREA_2</p>
+<p> </p>
+<p>These three exclusive areas must be mapped to interrupt lock and unlock functions which </p>
+<p>can be called nested. The exclusive areas are used in the following cases: </p>
+<p> </p>
+<p><b>4.6.1 </b></p>
+<p><b>FRXCP_EXCLUSIVE_AREA_0 </b></p>
+<p>This area is used whenever the services </p>
+<p>Xcp_Event, Xcp_SendCallBack, </p>
+<p>Xcp_MainFunction</p>
+<p>  and  </p>
+<p>Xcp_Command</p>
+<p> can interrupt each other. </p>
+<p> </p>
+<p><b>4.6.2 </b></p>
+<p><b>FRXCP_EXCLUSIVE_AREA_1 </b></p>
+<p>This area is used during the </p>
+<p>FrXcp_MainFunctionRx</p>
+<p>. When it is guaranteed that this </p>
+<p>MainFunction cannot be interrupted by the </p>
+<p>FrXcp_RxIndication </p>
+<p>this exclusive area can be </p>
+<p>left empty, i.e. not mapped to an interrupt disable function. </p>
+<p> </p>
+<p><b>4.6.3 </b></p>
+<p><b>FRXCP_EXCLUSIVE_AREA_2 </b></p>
+<p>This area is used during the </p>
+<p>FrXcp_MainFunctionTx</p>
+<p>. When it is guaranteed that this </p>
+<p>MainFunction cannot be interrupted by the </p>
+<p>FrXcp_TxConfirmation </p>
+<p>or</p>
+<p> </p>
+<p>FrXcp_TriggerTransmit</p>
+<p> this exclusive area can be left empty, i.e. not mapped to an </p>
+<p>interrupt disable function. </p>
+<p><b>4.7 </b></p>
+<p><b>PDU Mode </b></p>
+<p>The FrXcp has an API to disable PDU Transmission called: </p>
+<p>FrXcp_SetPduMode()</p>
+<p>. This API </p>
+<p>can be used to prevent transmission of PDUs when set to </p>
+<p>FRXCP_SET_OFFLINE</p>
+<p>. The PDUs </p>
+<p>are not lost but stored in the Send Queue until an overrun occurs while in the offline </p>
+<p>phase. If the PDU Mode is set to online again transmission of PDUs is resumed. </p>
+<p>This feature is useful when measurement during bus offline phases shall be performed, for </p>
+<p>example in the Resume Mode. Measurement is started automatically after Init while the </p>
+<p>FlexRay Bus still needs a few ms to go sync. During this time, measurement data is stored </p>
+<p>and transmission is started when the bus is sync. </p>
+<p>In a MICROSAR 3 Stack this API is automatically used by the FrSm, therefore no calls by </p>
+<p>the application are required. When a non MICROSAR FrSm is used or in an AUTOSAR 4 </p>
+<p>environment the API must be called manually, if activated. </p>
+<p><b>4.8 </b></p>
+<p><b>PDUs </b></p>
+<p>The PDU ID for the underlying Layer can be freely configured in the GenTool respectively </p>
+<p>in the configuration files. The XCP Transport Layer itself expects an incrementing PDU-ID </p>
+<p>for each PDU, starting with 0 for the first PDU. This holds true for </p>
+<p>FrXcp_RxIndication</p>
+<p> and </p>
+<p>FrXcp_TriggerTransmit</p>
+<p> </p>
+<p>respectively</p>
+<p> </p>
+<p>FrXcp_TxConfirmation</p>
+<p>. </p>
+<p>The PDUs need a size of at least 8 bytes if the buffer types are static. In most cases they </p>
+<p>are dynamic, i.e. reconfigured during runtime. In this case the PDUs need a size of at least </p>
+<p>12 bytes. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>4.9 </b></p>
+<p><b>Initialized Memory </b></p>
+<p>In order for the DET to work correctly, initialized memory is required. That means that all </p>
+<p>RAM, used by the XCP Transport Layer, has to be zeroed out. This is usually done by the </p>
+<p>startup code. If the startup code does not do this the service </p>
+<p>FrXcp_InitMemory</p>
+<p> must be </p>
+<p>called </p>
+<p><b>4.10 </b></p>
+<p><b>Memory Mapping </b></p>
+<p>The XCP supports the AUTOSAR Memory Mapping. The following standard sections are </p>
+<p>used by the Transport Layer as well as the Protocol Layer: </p>
+<p></p>
+<p> </p>
+<p>SEC_CODE </p>
+<p></p>
+<p> </p>
+<p>SEC_CONST_8BIT </p>
+<p></p>
+<p> </p>
+<p>SEC_CONST_16BIT </p>
+<p></p>
+<p> </p>
+<p>SEC_CONST_UNSPECIFIED </p>
+<p></p>
+<p> </p>
+<p>SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p></p>
+<p> </p>
+<p>SEC_VAR_NOINIT_8BIT </p>
+<p><b>4.11 </b></p>
+<p><b>Activation Macros </b></p>
+<p>The XCP Protocol Layer and Transport Layer can be activated and deactivated by a single </p>
+<p>macro called </p>
+<p>XCP_ACTIVATE()</p>
+<p> and </p>
+<p>XCP_DEACTIVATE()</p>
+<p>. By default XCP is activated. </p>
+<p>This feature can be used to en- or disable the XCP module during run time. Thus XCP </p>
+<p>functionality can be controlled by the application, e.g. by a diagnostic service to enable the </p>
+<p>component.  This  feature  allows  the  component  to  remain  in  series  production  ECU’s </p>
+<p>where it can be enabled on demand. </p>
+<p><b>4.12 </b></p>
+<p><b>Integration Notes </b></p>
+<p><b>4.12.1 </b></p>
+<p><b>Alignment </b></p>
+<p>Depending on the used Hardware it might be required to use an Alignment setting &gt; 8Bit. </p>
+<p>The </p>
+<p>following </p>
+<p>Table </p>
+<p>gives </p>
+<p>an </p>
+<p>example </p>
+<p>overview </p>
+<p>of </p>
+<p>several  Architectures </p>
+<p>and </p>
+<p>their </p>
+<p>alignment requirements: </p>
+<p>Architecture </p>
+<p>8Bit </p>
+<p>Alignment </p>
+<p>16Bit Alignment </p>
+<p>32Bit Alignment </p>
+<p>MCS12X </p>
+<p>Yes </p>
+<p>Yes</p>
+<p>1</p>
+<p> </p>
+<p>Yes</p>
+<p>1</p>
+<p> </p>
+<p>TriCore </p>
+<p>No </p>
+<p>Yes</p>
+<p>2</p>
+<p> </p>
+<p>Yes </p>
+<p>V850 FX2 </p>
+<p>No </p>
+<p>No </p>
+<p>Yes </p>
+<p>V850 Phoenix </p>
+<p>FS </p>
+<p>Yes</p>
+<p>2</p>
+<p> </p>
+<p>Yes</p>
+<p>2</p>
+<p> </p>
+<p>Yes </p>
+<p> </p>
+<p>                                            </p>
+<p>1</p>
+<p> Bandwidth penalty </p>
+<p>2</p>
+<p> Performance penalty </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>4.12.2 </b></p>
+<p><b>CANape Buffer ID </b></p>
+<p>The  Buffer  ID,  automatically  assigned  to  the  configured  PDUs  in  the  GenTool,  must  be </p>
+<p>configured in CANape accordingly. All TX PDUs are given an ascending buffer ID starting </p>
+<p>with 0. All Rx PDUs are attached behind the TX PDUs. </p>
+<p>The following configuration in GENy: </p>
+<p> </p>
+<p>Figure 4-1 CANape – PDU relation </p>
+<p>must match the configuration of the buffers in the a2l file with the Pdu Id as buffer number. </p>
+<p>For  easier  integration  the  GenTool  generates  an  FrXcp.a2l  fragment  which  contains  the </p>
+<p>buffer configuration for the Xcp Master Tool. </p>
+<p> </p>
+<p><b>4.12.3 </b></p>
+<p><b>Resume Mode </b></p>
+<p>To use the resume mode on FlexRay additional FrXcp specific information must be stored </p>
+<p>in NVM memory. For this an API exists which returns the data to be stored. </p>
+<p> </p>
+<p><b>4.12.3.1 </b></p>
+<p><b>Store FrXcp data to NVM </b></p>
+<p>The following API is called by the FrXcp and must be implemented by the application: </p>
+<p>void </p>
+<p>XcpAppl_DaqTlResumeStore(P2CONST(tXcpDaqTl, </p>
+<p>AUTOMATIC, </p>
+<p>FRXCP_APPL_DATA) rtConfigPt ) </p>
+<p>The parameter </p>
+<p>rtConfigPt</p>
+<p> is a pointer to the structure which must be saved. The size of </p>
+<p>this </p>
+<p>data </p>
+<p>can </p>
+<p>be </p>
+<p>retrieved </p>
+<p>by </p>
+<p>sizeof(</p>
+<p>tXcpDaqTl</p>
+<p>)*(</p>
+<p>FRXCP_NUM_TX_LPDUIDS </p>
+<p>+ </p>
+<p>FRXCP_NUM_RX_LPDUIDS</p>
+<p>)</p>
+<p>. </p>
+<p>The following API is called when the data has to be cleared from NVM again: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>void XcpAppl_DaqTlResumeClear( void ) </p>
+<p> </p>
+<p><b>4.12.3.2 </b></p>
+<p><b>Restore FrXcp data from NVM </b></p>
+<p>A call of </p>
+<p>FrXcp_Init()</p>
+<p> will trigger a call of the following call-back: </p>
+<p>uint8 </p>
+<p>XcpAppl_DaqTlResume(P2VAR(tXcpDaqTl, </p>
+<p>AUTOMATIC, </p>
+<p>FRXCP_APPL_DATA) rtConfigPt ) </p>
+<p>If resume data is available it must be restored in this call back. If no valid resume data is </p>
+<p>available this function can return doing nothing. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>5 </b></p>
+<p><b>Configuration </b></p>
+<p><b>5.1 </b></p>
+<p><b>A2L File </b></p>
+<p>The GenTool exports an a2l file for easier configuration of the XCP Master (e.g. CANape). </p>
+<p>This file is called FrXcp.a2l and contains the XCP_ON_FLEXRAY IF_DATA section which </p>
+<p>can be included by a master template a2l file. </p>
+<p> </p>
+<p><b>Hint! </b></p>
+<p><b>The following abstract can be used to include the generated a2l: </b></p>
+<p><b>  /begin IF_DATA XCP </b></p>
+<p><b>    …….. </b></p>
+<p><b>    /include &quot;FrXcp.a2l&quot; </b></p>
+<p><b>  /end IF_DATA </b></p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Manual Configuration </b></p>
+<p>It is also possible to configure XCP on FlexRay with the provided configuration templates. </p>
+<p>The individual configuration options are described in the following sub-chapters. </p>
+<p><b>5.2.1 </b></p>
+<p><b>Pre-Compile Configuration </b></p>
+<p>The following configuration options can be used to configure XCP on FlexRay during pre-</p>
+<p>compile time: </p>
+<p><b>Configuration options </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>kFrXcpMaxCTO </p>
+<p><b>&gt; </b></p>
+<p>12..253 </p>
+<p>This parameter defines the maximum length of </p>
+<p>Command Transfer Objects (CTO) in bytes. For </p>
+<p>FlexRay this parameter must be at least 12 and </p>
+<p>less than the maximum length of the PDU or Link-</p>
+<p>Layer frame. </p>
+<p>kFrXcpMaxDTO </p>
+<p><b>&gt; </b></p>
+<p>12..253 </p>
+<p>This parameter defines the maximum length of </p>
+<p>Data Transfer Objects (DTO). For FlexRay this </p>
+<p>parameter must be at least 12 and less than the </p>
+<p>maximum length of the PDU or Link-Layer frame. </p>
+<p>FRXCP_PDU_SIZE </p>
+<p><b>&gt; </b></p>
+<p>14..255 </p>
+<p>This parameter defines the maximum length of the </p>
+<p>PDU. </p>
+<p>This parameter must be at least Max. DTO + 2..4, </p>
+<p>depending on other configuration options (Frame </p>
+<p>Alignment, Frame Concatenation) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>FRXCP_DEV_ERROR_DETECT </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>Activate/Deactivate the development error </p>
+<p>detection. The development error detection </p>
+<p>comprises amongst others channel parameter </p>
+<p>checks and check of initialization upon every </p>
+<p>service call. </p>
+<p>It is strongly recommended to disable this option in </p>
+<p>production code. </p>
+<p>FRXCP_USE_DECOUPLED_MODE </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>It is possible to use the XCP either in Immediate or </p>
+<p>Decoupled Mode. Immediate Mode requires less </p>
+<p>resources but the XCP Event function must be </p>
+<p>used synchronous to the FlexRay bus, while in </p>
+<p>Decoupled Mode sampling is independent of the </p>
+<p>FlexRay bus. </p>
+<p>FRXCP_FRAME_CONCATENATION </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>With this attribute you can enable the </p>
+<p>concatenation of multiple XCP frames into one </p>
+<p>Protocol Data Unit (PDU). </p>
+<p>Be aware of higher protocol overhead and hence </p>
+<p>lower XCP bandwidth if enabled! </p>
+<p>FRXCP_SEQUENCE_COUNTER </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>The Sequence Counter can be used for safety </p>
+<p>reasons to detect missing frames and frame </p>
+<p>mix ups. An enabled Sequence Counter </p>
+<p>requires a slightly higher bandwidth overhead.</p>
+<p><b> </b></p>
+<p>FRXCP_USE_BUFFER_RECONFIG_A</p>
+<p>PI </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>This parameter enables an API that allows </p>
+<p>dynamic reconfiguration of physical buffers. </p>
+<p>The use case is to save physical buffers while </p>
+<p>maintaining flexibility. </p>
+<p>For this to work the FlexRay driver must support </p>
+<p>an enhanced API for buffer reconfiguration. </p>
+<p>FRXCP_FRAME_ALIGNMENT_[X]BI</p>
+<p>T </p>
+<p></p>
+<p> </p>
+<p>8 </p>
+<p></p>
+<p> </p>
+<p>16 </p>
+<p></p>
+<p> </p>
+<p>32 </p>
+<p>This parameter determines the Alignment of XCP </p>
+<p>frames within a PDU or Link-Layer frame. This </p>
+<p>parameter must be selected according to </p>
+<p>performance and architectural needs. </p>
+<p>FRXCP_USE_PDUMODE </p>
+<p></p>
+<p> </p>
+<p>ON </p>
+<p></p>
+<p> </p>
+<p>OFF </p>
+<p>Can be used to prevent XCP frames to be sent, </p>
+<p>e.g. if the bus is offline. The frames are stored in </p>
+<p>the send queue until the bus is available again </p>
+<p>FRXCP_CONFIG_VARIANT </p>
+<p></p>
+<p> </p>
+<p>1 </p>
+<p></p>
+<p> </p>
+<p>2 </p>
+<p></p>
+<p> </p>
+<p>3 </p>
+<p>Configuration variant </p>
+<p>1=Pre Compile </p>
+<p>2=Link time </p>
+<p>3=Post build </p>
+<p>Table 5-1 </p>
+<p>  Pre-Compile Configuration  </p>
+<p> </p>
+<p><b>5.2.2 </b></p>
+<p><b>Link Time &amp; Post Build Configuration </b></p>
+<p>The following configuration options can be used to configure XCP on FlexRay during post-</p>
+<p>build-time. </p>
+<p><b>Configuration options </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>FrXcp_RootConfig </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>FrXcpPduDescriptorList </p>
+<p><b>&gt; </b></p>
+<p>Pointer </p>
+<p>Pointer to pdu configuration, see below </p>
+<p>FrXcp_NAX </p>
+<p><b>&gt; </b></p>
+<p>0u...255u </p>
+<p>This unique node address identifies the XCP </p>
+<p>slave within a network. This address is normally </p>
+<p>defined by the system designer and can be the </p>
+<p>same address as used in the Network </p>
+<p>Management, for example. </p>
+<p>ConfTimeoutReload</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>0u..65535u </p>
+<p>Tx Confirmation timeout timer reload value in </p>
+<p>MainFunction cycles. Used in sync loss </p>
+<p>conditions when the FrIf does not provide </p>
+<p>TxConfirmations anymore. </p>
+<p>FrXcpPduDescriptorListSize </p>
+<p><b>&gt; </b></p>
+<p>1u...255u </p>
+<p>Number of PDU descriptors in the following List </p>
+<p>NumberOfTransmitFC</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>0u..255u </p>
+<p>Number of pdu buffers. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>FrXcpNumberOfTxPdus </p>
+<p><b>&gt; </b></p>
+<p>1u...255u </p>
+<p>Number of Tx PDUs </p>
+<p>FrXcpNumberOfRxPdus </p>
+<p><b>&gt; </b></p>
+<p>1u...255u </p>
+<p>Number of Rx PDUs </p>
+<p>FrXcpMaxTxPduID</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>1u…255u </p>
+<p>Max PDU ID for Tx PDUs </p>
+<p>FrXcpMaxRxPduID</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>1u...255u </p>
+<p>Max PDU ID for Rx PDUs </p>
+<p><b>&gt; </b></p>
+<p>FrXcpPduDescriptorList (for each Tx PDU) </p>
+<p>XcpPduId </p>
+<p><b>&gt; </b></p>
+<p>0u…255u </p>
+<p><b>&gt; </b></p>
+<p>0u…65535u </p>
+<p>Unique PDU ID of underlying layer, e.g. PDU </p>
+<p>Router or FlexRay Interface that is used for </p>
+<p>transmission of messages by the XCP. </p>
+<p>XcpPacketFilter </p>
+<p></p>
+<p> </p>
+<p>LPDU_TYPE_VARI</p>
+<p>ABLE </p>
+<p></p>
+<p> </p>
+<p>LPDU_TYPE_RES </p>
+<p></p>
+<p> </p>
+<p>LPDU_TYPE_EV </p>
+<p></p>
+<p> </p>
+<p>LPDU_TYPE_DAQ </p>
+<p>The Frame Type determines the type of XCP </p>
+<p>frames that can be sent via this PDU. </p>
+<p>MaxFlxLenBuf </p>
+<p><b>&gt; </b></p>
+<p>14u...254u </p>
+<p>Maximum length of this specific buffer. </p>
+<p>IsReconfigurable </p>
+<p><b>&gt; </b></p>
+<p>0; 1 </p>
+<p>Is this PDU reconfigurable via FLX_ASSIGN </p>
+<p>IsInitialized </p>
+<p><b>&gt; </b></p>
+<p>0; 1 </p>
+<p>If the XcpPacketFilter is not of type Variable this </p>
+<p>value must be 1. </p>
+<p>Table 5-2 </p>
+<p>  Post Build Configuration  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>6 </b></p>
+<p><b>Description of the API </b></p>
+<p>The following chapter contains a brief description of the API provided by the XCP on </p>
+<p>FlexRay component. </p>
+<p><b>6.1 </b></p>
+<p><b>Data Types </b></p>
+<p>The software module XCP on FlexRay uses the standard AUTOSAR data types that are </p>
+<p>defined within </p>
+<p>Std_Types.h</p>
+<p> and the platform specific data types that are defined within </p>
+<p>Platform_Types.h</p>
+<p>. </p>
+<p>Furthermore the following software module specific data types are used: </p>
+<p><b>Name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>XCP on FlexRay </p>
+<p>FrXcpPduDescriptorType </p>
+<p>struct </p>
+<p>Post-Compile configuration structure </p>
+<p>Table 6-1 </p>
+<p>  Data Types </p>
+<p><b>6.2 </b></p>
+<p><b>Global Variables </b></p>
+<p>There are no global variables within XCP on FlexRay. </p>
+<p><b>6.3 </b></p>
+<p><b>Global Constants </b></p>
+<p><b>6.3.1 </b></p>
+<p><b>Component Versions </b></p>
+<p>The component version of XCP on FlexRay is provided by three BCD constants. These </p>
+<p>constants are declared as external and can be read by the application at any time. </p>
+<p><b>Constant name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value </b></p>
+<p>XCP on FlexRay  </p>
+<p>FRXCP_MAJOR_VERSION </p>
+<p>BCD </p>
+<p>Contains the major version number. </p>
+<p>FRXCP_MINOR_VERSION </p>
+<p>BCD </p>
+<p>Contains the minor version number. </p>
+<p>FRXCP_PATCH_VERSION </p>
+<p>BCD </p>
+<p>Contains the patch level version number. Patch Version </p>
+<p>255 means BETA version </p>
+<p>Table 6-2 </p>
+<p>  Version Data </p>
+<p><b>6.3.2 </b></p>
+<p><b>Vendor ID </b></p>
+<p>The Vendor identifier of XCP on FlexRay is provided by the following constant according to </p>
+<p>HIS: </p>
+<p><b>Constant name  </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value </b></p>
+<p>XCP on FlexRay  </p>
+<p>FRXCP_VENDOR_ID </p>
+<p>- </p>
+<p>Vendor ID according to HIS. </p>
+<p>Vector Informatik GmbH = 30 (decimal) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>Table 6-3 </p>
+<p>  Vendor ID </p>
+<p><b>6.3.3 </b></p>
+<p><b>Module ID </b></p>
+<p>The Module identifier of XCP on FlexRay is provided by the following constant according </p>
+<p>to HIS: </p>
+<p><b>Constant name </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value </b></p>
+<p>XCP on FlexRay </p>
+<p>FRXCP_MODULE_ID </p>
+<p>- </p>
+<p>Module ID according to HIS. </p>
+<p>XCP on FlexRay = 211 (decimal) </p>
+<p>Table 6-4 </p>
+<p>  Module ID </p>
+<p><b>6.4 </b></p>
+<p><b>Services provided by XCP on FlexRay </b></p>
+<p><b>6.4.1 </b></p>
+<p><b>Administrative Functions </b></p>
+<p><b>6.4.1.1 </b></p>
+<p><b>FrXcp_Init: Initialization of XCP on FlexRay </b></p>
+<p><b>FrXcp_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_Init (P2CONST(FrXcp_ConfigType, AUTOMATIC, FRXCP_PBCFG) CfgPtr) </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>CfgPtr </p>
+<p>Pointer to Post build configuration </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>0 </p>
+<p><b>Functional Description </b></p>
+<p>Global initialization of the Transport Layer, i.e. all PDUs are set to an initial state. </p>
+<p><b>Preconditions </b></p>
+<p>None. </p>
+<p><b>Postconditions </b></p>
+<p>The Transport Layer will be initialized to the initial state. No PDUs will be sent, by default </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p></p>
+<p> </p>
+<p>Parameter CfgPtr is only evaluated in post build configuration </p>
+<p> </p>
+<p><b>6.4.1.2 </b></p>
+<p><b>FrXcp_MainFunctionRx: Main Function of XCP Transport Layer </b></p>
+<p><b>FrXcp_MainFunctionRx </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_MainFunctionRx ( void ) </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>200 </p>
+<p><b>Functional Description </b></p>
+<p>This service is responsible for cyclic reception handling of XCP-PDUs. </p>
+<p>This, together with the FrXcp_MainFunctionTx is the only service of the Transport Layer that has to be </p>
+<p>called by the application. All other services are called by the Protocol Layer exclusively. </p>
+<p><b>Preconditions </b></p>
+<p>The Transport Layer must be initialized. </p>
+<p><b>Postconditions </b></p>
+<p>None. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.1.3 </b></p>
+<p><b>FrXcp_MainFunctionTx: Main Function of XCP Transport Layer </b></p>
+<p><b>FrXcp_MainFunctionTx </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_MainFunctionTx ( void ) </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>201 </p>
+<p><b>Functional Description </b></p>
+<p>This service is responsible for cyclic transmission handling of XCP-PDUs. </p>
+<p>This, together with the FrXcp_MainFunctionRx is the only service of the Transport Layer that has to be </p>
+<p>called by the application. All other services are called by the Protocol Layer exclusively. </p>
+<p><b>Preconditions </b></p>
+<p>The Transport Layer must be initialized. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Postconditions </b></p>
+<p>None. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.2 </b></p>
+<p><b>Service Callback Functions </b></p>
+<p><b>6.4.2.1 </b></p>
+<p><b>FrXcp_TriggerTransmit: Call back for transmission of L-PDU </b></p>
+<p><b>FrXcp_TriggerTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_TriggerTransmit( const PduIdType XcpTxPduId, </p>
+<p>                            PduInfoType *PduInfoPtr ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>XcpTxPduId [in] </p>
+<p>ID of XCP L-PDU that has been triggered </p>
+<p>SduPtr [out] </p>
+<p>Contains Pointer and Length to triggered XCP L-SDU </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>103 </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by the FlexRay Interface when a XCP L-PDU has to be transmitted. It copies the XCP </p>
+<p>L-SDU with respect to the triggered XCP L-PDU ID. </p>
+<p><b>Preconditions </b></p>
+<p>The XCP and the FlexRay Interface are configured for Decoupled Mode. </p>
+<p>Use PduInfoType is enabled </p>
+<p><b>Postconditions </b></p>
+<p>Decoupled Mode: The respective PDU buffer is freed again. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level or interrupt context </p>
+<p></p>
+<p> </p>
+<p>Re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.2.2 </b></p>
+<p><b>FrXcp_TxConfirmation: Call back for transmission confirmation of L-PDU </b></p>
+<p><b>FrXcp_TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_TxConfirmation( const PduIdType XcpTlTxPduId ); </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>XcpTlTxPduId [in] </p>
+<p>ID of XCP L-PDU that has been triggered </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>101 </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by the FlexRay Interface after a XCP L-PDU has been transmitted. </p>
+<p><b>Preconditions </b></p>
+<p>None. </p>
+<p><b>Postconditions </b></p>
+<p>Immediate Mode: The respective PDU buffer is freed again </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level or interrupt context </p>
+<p></p>
+<p> </p>
+<p>Re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.2.3 </b></p>
+<p><b>FrXcp_RxIndication: Call back for reception of L-PDU  </b></p>
+<p><b>FrXcp_RxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_RxIndication( const PduIdType XcpRxPduId, </p>
+<p>                         const PduInfoType *PduInfoPtr ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>XcpRxPduId [in] </p>
+<p>ID of XCP L-PDU that has been received </p>
+<p>PduInfoPtr [in] </p>
+<p>Contains Pointer and Length to received XCP L-SDU </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>102 </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by the FlexRay Interface after a XCP L-PDU has been received. It copies the received </p>
+<p>L-SDU and stores it locally with respect to the received XCP L-PDU ID. </p>
+<p><b>Preconditions </b></p>
+<p>A valid XCP frame was received </p>
+<p>Use PduInfoType is enabled </p>
+<p><b>Postconditions </b></p>
+<p>None. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level or interrupt context </p>
+<p></p>
+<p> </p>
+<p>Re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p> </p>
+<p><b>6.4.3 </b></p>
+<p><b>Service Functions </b></p>
+<p><b>6.4.3.1 </b></p>
+<p><b>FrXcp_TLService: Handles Transport Layer Command </b></p>
+<p><b>FrXcp_TLService </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_TLService ( const uint8* pCmd ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>pCmd [in] </p>
+<p>Pointer to the transport layer command </p>
+<p><b>Return code </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Depending on the success of the operation, one of the following </p>
+<p>return codes is returned: </p>
+<p></p>
+<p> </p>
+<p>XCP_CMD_DENIED </p>
+<p></p>
+<p> </p>
+<p>XCP_CMD_OUT_OF_RANGE </p>
+<p></p>
+<p> </p>
+<p>XCP_CMD_OK </p>
+<p></p>
+<p> </p>
+<p>XCP_CMD_UNKNOWN </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>201 </p>
+<p><b>Functional Description </b></p>
+<p>This service evaluates a transport layer specific command, performs the required operation and returns the </p>
+<p>status of the operation. </p>
+<p>Currently supported transport layer specific commands are: </p>
+<p></p>
+<p> </p>
+<p>FLX_ASSIGN (partly) </p>
+<p></p>
+<p> </p>
+<p>FLX_ACTIVATE </p>
+<p></p>
+<p> </p>
+<p>FLX_DEACTIVATE </p>
+<p><b>Preconditions </b></p>
+<p>The XCP Transport Layer must be initialized </p>
+<p><b>Postconditions </b></p>
+<p>None. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>6.4.3.2 </b></p>
+<p><b>FrXcp_Send: Transmission of CTO or DTO </b></p>
+<p><b>FrXcp_Send </b></p>
+<p><b>Prototype </b></p>
+<p>uint8 FrXcp_Send ( uint8 len, const uint8 *msg ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>len [in] </p>
+<p>Length of message. </p>
+<p>msg [in] </p>
+<p>A Pointer to the message itself. </p>
+<p><b>Return code </b></p>
+<p>uint8</p>
+<p> </p>
+<p>The service returns </p>
+<p>XCP_TP_BUSY </p>
+<p>if there is no free PDU buffer available </p>
+<p>anymore, otherwise XCP_TP_OK is returned. </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>2 </p>
+<p><b>Functional Description </b></p>
+<p>This service prepares transmission of the referenced frame. </p>
+<p><b>Preconditions </b></p>
+<p>The XCP Transport Layer must be initialized. </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Re-entrant (not with the same channel) </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.3.3 </b></p>
+<p><b>FrXcp_SendFlush: Finish pending frames </b></p>
+<p><b>FrXcp_SendFlush </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_SendFlush ( uint8 XcpFlushTypeSel ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>XcpFlushTypeSel </p>
+<p>Selects which type of xcp frames are flushed. Possible values are: </p>
+<p></p>
+<p> </p>
+<p>XCP_FLUSH_CTO </p>
+<p></p>
+<p> </p>
+<p>XCP_FLUSH_DTO</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>XCP_FLUSH_ALL</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>4 </p>
+<p><b>Functional Description </b></p>
+<p>Purge the current Frame Cache. This service is only needed when frame concatenation is enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Preconditions </b></p>
+<p>The XCP Transport Layer must be initialized. </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Re-entrant (not with the same channel) </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.3.4 </b></p>
+<p><b>FrXcp_SetPduMode: Enable/Disable transmission </b></p>
+<p><b>FrXcp_SetPduMode </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_SetPduMode( NetworkHandleType XcpNwH, FrXcp_PduSetModeType PduMode ); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>XcpNwH [in] </p>
+<p><b>&gt; </b></p>
+<p>The network handle is usually 0 </p>
+<p>PduMode [in] </p>
+<p><b>&gt; </b></p>
+<p>The PDUMode which can be </p>
+<p></p>
+<p> </p>
+<p>FRXCP_SET_OFFLINE (default) </p>
+<p></p>
+<p> </p>
+<p>FRXCP_SET_ONLINE </p>
+<p><b>Return code </b></p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>7 </p>
+<p><b>Functional Description </b></p>
+<p>With this service it is possible to prevent transmission of frames. The frames are not lost but stored in the </p>
+<p>send queue until overrun occurs or transmission is enabled again. </p>
+<p><b>Preconditions </b></p>
+<p><b>&gt; </b></p>
+<p>- </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.3.5 </b></p>
+<p><b>FrXcp_GetVersionInfo: Get Version Information </b></p>
+<p><b>FrXcp_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void FrXcp_GetVersionInfo( Std_VersionInfoType *FrXcpVerInfoPtr ); </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>FrXcpVerInfoPtr [out] </p>
+<p>Pointer to version information structure </p>
+<p><b>Return code </b></p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>6 </p>
+<p><b>Functional Description </b></p>
+<p>FrXcp_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID of the </p>
+<p>component. The versions are BCD-coded. </p>
+<p><b>Preconditions </b></p>
+<p><b>&gt; </b></p>
+<p>- </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6.4.4 </b></p>
+<p><b>Macros </b></p>
+<p><b>6.4.4.1 </b></p>
+<p><b>XCP_ACTIVATE: Enable the Protocol and Transport Layer </b></p>
+<p><b>XCP_ACTIVATE </b></p>
+<p><b>Prototype </b></p>
+<p>XCP_ACTIVATE(); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>With this service it is possible to enable all functionality of the XCP Protocol and Transport Layer during </p>
+<p>runtime to prevent erroneous execution.  </p>
+<p><b>Preconditions </b></p>
+<p><b>&gt; </b></p>
+<p>- </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.4.4.2 </b></p>
+<p><b>XCP_DEACTIVATE: Disable the Protocol and Transport Layer </b></p>
+<p><b>XCP_DEACTIVATE </b></p>
+<p><b>Prototype </b></p>
+<p>XCP_DEACTIVATE(); </p>
+<p><b>Parameters [in/out/both] </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>-</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p>Service ID </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>With this service it is possible to lock all functionality of the XCP Protocol and Transport Layer during runtime </p>
+<p>to prevent erroneous execution.  </p>
+<p><b>Preconditions </b></p>
+<p><b>&gt; </b></p>
+<p>- </p>
+<p><b>Postconditions </b></p>
+<p>- </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> </p>
+<p>Call context: task level </p>
+<p></p>
+<p> </p>
+<p>Not re-entrant </p>
+<p></p>
+<p> </p>
+<p>Synchronous </p>
+<p> </p>
+<p><b>6.5 </b></p>
+<p><b>Services used by XCP on FlexRay </b></p>
+<p>The following  table  lists  services  which  are  provided  by  other components  and  used  by </p>
+<p>XCP on FlexRay. For details about prototype and functionality refer to the documentation </p>
+<p>of  the  respective  component. The  services  provided  by  the  XCP  Protocol Layer  are  not </p>
+<p>listed here. </p>
+<p><b>Component  </b></p>
+<p><b>API </b></p>
+<p>XCP Hal</p>
+<p> </p>
+<p>ApplXcpDaqTlResumeClear </p>
+<p>ApplXcpDaqTlResumeStore </p>
+<p>ApplXcpDaqTlResume </p>
+<p>FlexRay Interface </p>
+<p>FrIf_Transmit </p>
+<p>XCP Pl </p>
+<p>XcpSendCallBack </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p>Development Error Tracer</p>
+<p>1</p>
+<p> </p>
+<p>Det_ReportError </p>
+<p>AUTOSAR OS </p>
+<p>SuspendAllInterrupts </p>
+<p>ResumeAllInterrupts </p>
+<p>Table 6-5 </p>
+<p>  Services used by XCP on FlexRay </p>
+<p><b>6.6 </b></p>
+<p><b>Development Error Tracer </b></p>
+<p>The following table contains the supported DET error codes: </p>
+<p><b>Name  </b></p>
+<p><b>Error </b></p>
+<p><b>Id </b></p>
+<p><b>Description </b></p>
+<p><b>AUTOSAR / OEM / Vector specific </b></p>
+<p>XCP on FlexRay </p>
+<p>FRXCP_E_NOT_INITIALI</p>
+<p>ZED </p>
+<p> </p>
+<p>0x01 </p>
+<p>A XCP Transport Layer service was called without </p>
+<p>initializing the module first by calling FrXcp_Init. </p>
+<p>FRXCP_E_INV_PDU_ID </p>
+<p>0x02 </p>
+<p>The Xcp Transport Layer was called with an invalid </p>
+<p>PDU-ID. </p>
+<p>FRXCP_E_NULL_POINTER </p>
+<p> </p>
+<p>0x03 </p>
+<p>The Xcp Transport Layer was called with a Null </p>
+<p>pointer as parameter. </p>
+<p>FRXCP_E_RX_BUFFER_OV</p>
+<p>ERFLOW </p>
+<p>0x04 </p>
+<p>The Rx MainFunction was not called often enough. </p>
+<p>FRXCP_E_RX_INVALID_L</p>
+<p>ENGTH </p>
+<p>0x06 </p>
+<p>The received pdu has an illegal length. </p>
+<p>Table 6-6 </p>
+<p>  Development Error Detection Codes of XCP on FlexRay </p>
+<p><b>6.7 </b></p>
+<p><b>Diagnostic Event Manager </b></p>
+<p>The DEM is not used by the XCP. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>7 </b></p>
+<p><b>Extensions </b></p>
+<p>The  following  extensions  of  the  XCP  on  FlexRay  software  specifications  are  available </p>
+<p>within the FlexRay embedded software components. If required, the extensions have to be </p>
+<p>enabled during configuration: </p>
+<p>None. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>8 </b></p>
+<p><b>Known Issues/ Limitations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Reconfig LPDU </b></p>
+<p>Reconfiguration of LPDUs is currently not supported. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>9 </b></p>
+<p><b>Icons </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>This symbol calls your attention to warnings. </p>
+<p> </p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>Here you can obtain supplemental information. </p>
+<p> </p>
+<p> </p>
+<p><b>Practical Procedure</b> </p>
+<p>Step-by-step instructions provide assistance at these points. </p>
+<p> </p>
+<p> </p>
+<p><b>Example</b> </p>
+<p>Here is an example that has been prepared for you. </p>
+<p> </p>
+<p> </p>
+<p><b>Edit</b> </p>
+<p>Instructions on editing files are found at these points<b>. </b></p>
+<p> </p>
+<p> </p>
+<p><b>Do not edit manually</b> </p>
+<p>This symbol warns you not to edit the specified file<b>. </b></p>
+<p> </p>
+<p> </p>
+<p><b>FAQ</b> </p>
+<p>In this area you can get answers to frequently asked questions<b>. </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference XCP on FlexRay </p>
+<p> </p>
+<p></p>
+<p>2016, Vector Informatik GmbH </p>
+<p>Version: 1.13.00 </p>
+<p><b>10  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

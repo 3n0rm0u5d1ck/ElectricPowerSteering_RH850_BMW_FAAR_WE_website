@@ -1,0 +1,1150 @@
+---
+layout: default
+title: UserManual_Working_with_DCF
+nav_order: 14
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Working with DCF </b></p>
+<p>User Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Matthias Wernicke, Andreas Claus, Stefanie Kruse </p>
+<p><b>Version: </b></p>
+<p>1.6 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Wk </p>
+<p>2008-02-07 </p>
+<p>0.1  </p>
+<p>Initial version </p>
+<p>Wk </p>
+<p>2008-02-08 </p>
+<p>0.2 </p>
+<p>Additional remark in ch. 5.1 </p>
+<p>Wk </p>
+<p>2008-03-27 </p>
+<p>1.1 </p>
+<p>Ch. 6.2 “Handling of read-only objects” added. </p>
+<p>Ch. 5.1 “Creating a new DCF” updated. Ch. 7 </p>
+<p>“Limitations” added. Released. </p>
+<p>Cs </p>
+<p>2008-04-17 </p>
+<p>1.2 </p>
+<p>Ch. 4 “Relative path handling” added </p>
+<p>Ch. 7 “Limitations” updated </p>
+<p>Ske </p>
+<p>2009-02-08 </p>
+<p>1.3 </p>
+<p>Ch.7 “DCFUtility” added. “Limitations” removed. </p>
+<p>Wk </p>
+<p>2011-01-10 </p>
+<p>1.4 </p>
+<p>Harmonized with UserManual_DataImport.pdf  </p>
+<p>Wk </p>
+<p>2011-08-12 </p>
+<p>1.5 </p>
+<p>Ch. 6.2 updated. Screenshots updated. </p>
+<p>Wk </p>
+<p>2012-06-15 </p>
+<p>1.6 </p>
+<p>Obsolete terms and limitations removed. </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>History ....................................................................................................................... 2</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>About this Document ............................................................................................... 5</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Abbreviations and Items used in this Document ......................................... 5</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Introduction .............................................................................................................. 6</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>What is a DaVinci Developer Workspace? .................................................. 6</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>What is a DaVinci Configuration File? ......................................................... 6</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>DCF storage format .................................................................................................. 7</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Working with DCF ................................................................................................... 11</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Creating a new DCF ................................................................................. 11</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Opening an existing DCF .......................................................................... 12</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Exporting a DCF ....................................................................................... 13</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Importing a DCF ....................................................................................... 14</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Converting a DEV into a DCF (or vice versa) ............................................ 14</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Using DCF as interface to a CM system ................................................................ 15</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>General concept ....................................................................................... 15</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Handling of read-only objects ................................................................... 16</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Working with DaVinci Configuration File Utility ................................................... 18</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Installation ................................................................................................ 18</p>
+<p> </p>
+<p>7.1.1</p>
+<p> </p>
+<p>Setup program .......................................................................................... 18</p>
+<p> </p>
+<p>7.1.2</p>
+<p> </p>
+<p>Licensing .................................................................................................. 18</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Starting DaVinci Configuration File Utility .................................................. 18</p>
+<p> </p>
+<p>7.3</p>
+<p> </p>
+<p>Open DCF workspace .............................................................................. 20</p>
+<p> </p>
+<p>7.4</p>
+<p> </p>
+<p>DCF workspace ........................................................................................ 21</p>
+<p> </p>
+<p>7.4.1</p>
+<p> </p>
+<p>Content of a DCF workspace .................................................................... 21</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p>7.4.2</p>
+<p> </p>
+<p>Missing files .............................................................................................. 22</p>
+<p> </p>
+<p>7.5</p>
+<p> </p>
+<p>DCB files of a DCF workspace ................................................................. 23</p>
+<p> </p>
+<p>7.5.1</p>
+<p> </p>
+<p>Content of DCB files ................................................................................. 23</p>
+<p> </p>
+<p>7.5.2</p>
+<p> </p>
+<p>Corrupt DCB files ...................................................................................... 23</p>
+<p> </p>
+<p>7.6</p>
+<p> </p>
+<p>Compare AUTOSAR files of DCF workspaces .......................................... 25</p>
+<p> </p>
+<p>7.7</p>
+<p> </p>
+<p>Command line usage of comparison ......................................................... 26</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Tips and Tricks ....................................................................................................... 27</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>When to use DEV or DCF? ....................................................................... 27</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Working with temporary DEV .................................................................... 27</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact .................................................................................................................... 28</b></p>
+<p> </p>
+<p> </p>
+<p><b>Illustrations </b></p>
+<p>Figure 4-1: Granularity of the design objects in a DCF ........................................................... 8</p>
+<p> </p>
+<p>Figure 4-2: Folder structure of a DCFP .................................................................................. 8</p>
+<p> </p>
+<p>Figure 4-3: Example DCF .................................................................................................... 10</p>
+<p> </p>
+<p>Figure 6-1: Using DCF with a CM system ............................................................................ 16</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>About this Document </b></p>
+<p>Besides the traditional DaVinci Developer Workspace (DEV), DaVinci Developer supports </p>
+<p>an  alternative  storage  format  for  the  design  data:  the  DaVinci  Configuration  File  (DCF). </p>
+<p>This document describes when to use DCFs and how to work with DCFs. </p>
+<p><b>2.1 </b></p>
+<p><b>Abbreviations and Items used in this Document </b></p>
+<p>DEV </p>
+<p>DaVinci Developer Workspace </p>
+<p>DCF </p>
+<p>DaVinci Configuration File </p>
+<p>DCFP </p>
+<p>DaVinci Configuration File Package </p>
+<p>DCFE </p>
+<p>DaVinci Configuration File Element </p>
+<p>CM </p>
+<p>Configuration Management </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Introduction </b></p>
+<p>Design  data  created  with  DaVinci  Devloper  need  to  be  persistently  stored.  You  may </p>
+<p>choose among the following storage formats: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>DaVinci Developer Workspace (DEV) </p>
+<p></p>
+<p> </p>
+<p>DaVinci Configuration File (DCF) </p>
+<p>Both  formats  have  their  specific  advantages.  Depending  on  your  use  cases  you  should </p>
+<p>decide which format is appropriate for you. </p>
+<p><b>3.1 </b></p>
+<p><b>What is a DaVinci Developer Workspace? </b></p>
+<p>The  DaVinci  Developer  Workspace  is  the  native  XML  based  storage  format  of  DaVinci </p>
+<p>Developer. This storage format is optimized to achieve a fast loading and saving time of </p>
+<p>the design data. </p>
+<p>The detailed storage format is proprietary and might be changed by Vector without notice </p>
+<p>in future DaVinci versions. Of course, loading of old workspaces is always possible with a </p>
+<p>newer DaVinci version. </p>
+<p><b>3.2 </b></p>
+<p><b>What is a DaVinci Configuration File? </b></p>
+<p>The DaVinci Configuration File is an alternative storage format of DaVinci Developer. This </p>
+<p>format is appropriate for cooperative working with DaVinci Developer and any external CM </p>
+<p>system with a file-based interface. You may use DaVinci Developer as authoring tool for </p>
+<p>the  design  data,  and  you  may  use  the  CM  system  to  manage  the  design  data  in  a </p>
+<p>repository.  This  gives  you  the  maximum  degree  of  freedom  to  use  the  CM  system’s </p>
+<p>features like versioning, branching or merging files. To ensure long term readability of old </p>
+<p>design data in the CM system, the DCF concept avoids proprietary formats where possible </p>
+<p>and uses standardized AUTOSAR XML formats instead. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>DCF storage format </b></p>
+<p>A  DCF  is  a  storage  format,  which  allows  for  storing  any  AUTOSAR  design  data  and </p>
+<p>related proprietary data as consistent set of files. This overall set of files is called DaVinci </p>
+<p>Configuration File Package (DCFP). A DCFP may consist of the following files: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>1 DCF (DaVinci Configuration File) </p>
+<p>Central file, which contains file references to a consistent set of ARXML, DCB or </p>
+<p>gen_attr.XML files </p>
+<p></p>
+<p> </p>
+<p>1..n DCFE (DaVinci Configuration File Element), each consisting of </p>
+<p></p>
+<p> </p>
+<p>1 ARXML (AUTOSAR XML file) </p>
+<p>AUTOSAR compliant XML file to store the AUTOSAR design data </p>
+<p></p>
+<p> </p>
+<p>0..1 DCB (DaVinci Configuration Binary) </p>
+<p>Optional binary file to store the proprietary data (e.g. graphics) of DaVinci, which are </p>
+<p>not covered by AUTOSAR XML formats. The DCB is optional and always </p>
+<p>associated (by file name) to an ARXML. </p>
+<p></p>
+<p> </p>
+<p>0..1 gen_attr.XML (Generic Attribute XML file) </p>
+<p>Optional XML file in proprietary (but published) format to store the generic attributes </p>
+<p>of the design data. You find the specification of the format in the Technical </p>
+<p>Reference “User-define attribute XML-export”. The gen_attr.XML is optional and </p>
+<p>always associated (by file name) to an ARXML. </p>
+<p>When  using  DCF  in  combination  with  an  external  CM  system,  an  important  topic  is  the </p>
+<p>granularity of the data concerning versioning and branching. A trade-off needs to be found </p>
+<p>between too course grained (hard to merge) and too fine grained (huge number of files). </p>
+<p>DaVinci uses the following granularity within a DCFP: </p>
+<p> </p>
+<p><b>DaVinci object </b></p>
+<p><b>DCFP Granularity </b></p>
+<p>CAN Bus </p>
+<p>Stored within the DCFE of the ECU Project </p>
+<p>Component Type </p>
+<p>Each Component Type will be stored in as separate DCFE, </p>
+<p>regardless if it’s a Composition or Atomic </p>
+<p>Constant </p>
+<p>All Constants will be stored together in one DCFE  </p>
+<p>Data Type </p>
+<p>All Data Types will be stored together in one DCFE  </p>
+<p>ECU Project </p>
+<p>Each ECU Project will be stored in a separate DCFE </p>
+<p>FlexRay Cluster </p>
+<p>Stored within the DCFE of the ECU Project </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p>LIN Bus </p>
+<p>Stored within the DCFE of the ECU Project </p>
+<p>Port Interface </p>
+<p>All Port Interfaces will be stored together in one DCFE  </p>
+<p>Signal </p>
+<p>All Signals will be stored together in one DCFE </p>
+<p>Signal Group </p>
+<p>All Signal Groups will be stored in the Signals-DCFE </p>
+<p>Signal Type </p>
+<p>All Signal Types will be stored in the Signals-DCFE </p>
+<p>Figure 4-1: Granularity of the design objects in a DCF </p>
+<p>In the file system, a DCFP is represented by a folder, which has the following structure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-2: Folder structure of a DCFP </p>
+<p>Storing a DCF into an empty directory always creates the standard directory structure, </p>
+<p>i.e.  Constants,  DataTypes,  PortInterfaces,  and  Signals  are  stored  in  the  DCFP  folder, </p>
+<p>whereas ComponentTypes and ECUProjects get their own subdirectory. </p>
+<p>The paths within the DCF are relative to the DCFP folder. If desired the paths in the DCF </p>
+<p>can  be  modified  using  an  XML-Editor.  This  allows  loading/saving  of  DCF  parts  from </p>
+<p>other directories. </p>
+<p>The paths within the DCF can have a relative path format including any number of parent </p>
+<p>directories or subdirectories or an absolute path format. UNC notation is not supported. </p>
+<p>Example: </p>
+<p>..\..\MyFolder\MySubFolder\Signals.arxml </p>
+<p> </p>
+<p>.\MySignals\Signals.arxml </p>
+<p> </p>
+<p> E:\DCFPool\MyDCFPart\Signals.arxml</p>
+<p> </p>
+<p>&lt;DCFP folder&gt; </p>
+<p>&lt;DCF_name&gt;.dcf </p>
+<p>Constants.arxml </p>
+<p>Constants_gen_attr.xml </p>
+<p>DataTypes.arxml </p>
+<p>DataTypes_gen_attr.xml </p>
+<p>PortInterfaces.arxml </p>
+<p>PortInterfaces_gen_attr.xml </p>
+<p>Signals.arxml </p>
+<p>Signals_gen_attr.xml </p>
+<p>ComponentTypes </p>
+<p>&lt;Component Type name&gt;.arxml </p>
+<p>&lt;Component Type name&gt;.dcb </p>
+<p>&lt;Component Type name&gt;_gen_attr.xml </p>
+<p>ECUProjects </p>
+<p>&lt;ECU Project name&gt;.arxml </p>
+<p>&lt;ECU Project name&gt;.dcb </p>
+<p>&lt;ECU Project name&gt;_gen_attr.xml </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The file name itself is fixed and depends on the object type and name of the AUTOSAR </p>
+<p>ARXML file. The additional files (DCB, GEN_ATTR.XML) must always reside in the </p>
+<p>same directory as the ARXML file. It is not allowed to specify different paths within one </p>
+<p>single file reference in the DCF. </p>
+<p> </p>
+<p>Saving a DCF in a directory that already contains the same DCF will keep the paths as </p>
+<p>specified in the existent DCF. In this case the standard directory structure is only applied </p>
+<p>to newly created objects. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Each file reference requires the definition of the ROOTITEM type that corresponds with </p>
+<p>the  ARXML  file.  During  DCF  loading  this  ROOTITEM  is  evaluated  to  solve  external </p>
+<p>object  references  between  the  various  ARXML  files.  Wrong  or  missing  ROOTITEM </p>
+<p>definitions causes invalid object references that will be reported during DCF loading. </p>
+<p>An example DCF file looks like this: </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-3: Example DCF </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Working with DCF </b></p>
+<p><b>5.1 </b></p>
+<p><b>Creating a new DCF </b></p>
+<p>Select <b>File | New </b></p>
+<p><b>workspace… </b>or use the </p>
+<p>shortcut </p>
+<p>.  </p>
+<p> </p>
+<p> </p>
+<p>Select “DaVinci Configuration </p>
+<p>Files (*.dcf)” as file type. </p>
+<p>Browse for a suitable folder </p>
+<p>and set a file name for the </p>
+<p>DCF file. </p>
+<p>You may now work as usual in </p>
+<p>with DaVinci Developer to </p>
+<p>define new objects. </p>
+<p>To save the data select </p>
+<p><b>File | Save Workspace… </b>or </p>
+<p>use the shortcut </p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Please observe the following conditions, which apply to the folder of a DCF file: </p>
+<p></p>
+<p> </p>
+<p>The folder, which contains the DCF file, must not contain other DCF files </p>
+<p></p>
+<p> </p>
+<p>Within the folder of the DCF file and within any sub-folder, the following file types are </p>
+<p>“reserved” for DaVinci </p>
+<p></p>
+<p> </p>
+<p>*.arxml </p>
+<p></p>
+<p> </p>
+<p>*.dcf </p>
+<p></p>
+<p> </p>
+<p>*.dcb </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>*_gen_attr.xml </p>
+<p>These files are created and deleted by the DaVinci when saving the DCF workspace. </p>
+<p>Other files are not touched by DaVinci. </p>
+<p></p>
+<p> </p>
+<p>Sub-folders of the DCF folder are not deleted by DaVinci, even if the sub-folder has </p>
+<p>become obsolete (e.g. since the according object has been deleted in DaVinci) </p>
+<p><b>5.2 </b></p>
+<p><b>Opening an existing DCF </b></p>
+<p>Select <b>File | Open… </b>or use the </p>
+<p>shortcut </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Select “DaVinci Configuration </p>
+<p>Files (*.dcf)” as file type. </p>
+<p>Browse for the DCF file. </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Exporting a DCF </b></p>
+<p>You may create a new </p>
+<p>DCF as subset of the </p>
+<p>currently opened </p>
+<p>Workspace or DCF. </p>
+<p>Select one or more </p>
+<p>objects in the Library </p>
+<p>Browser and select the </p>
+<p>context menu item </p>
+<p><b>DCF Export...</b>.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The Export to DCF </p>
+<p>dialog opens. You may </p>
+<p>now select the DCF </p>
+<p>file to create. </p>
+<p>The dialog shows all </p>
+<p>dependent objects of </p>
+<p>the context object(s). </p>
+<p>Near each of these </p>
+<p>objects you see the </p>
+<p>file, which will be used </p>
+<p>to store the object. </p>
+<p>Select <b>Export </b>to </p>
+<p>create the new DCF. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.4 </b></p>
+<p><b>Importing a DCF </b></p>
+<p>You may import a DCF into </p>
+<p>an already opened workspace </p>
+<p>or DCF. </p>
+<p>Select <b>File | Import DCF…  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Converting a DEV into a DCF (or vice versa) </b></p>
+<p>You may convert an </p>
+<p>opened DEV into a </p>
+<p>DCF. </p>
+<p>Select <b>File | Save </b></p>
+<p><b>Workspace As…</b>.  </p>
+<p>Select “DaVinci </p>
+<p>Configuration File </p>
+<p>(*.dcf)” as file type. </p>
+<p>Browse for a suitable </p>
+<p>folder and set a file </p>
+<p>name for the DCF file. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>In a similar way you may convert an opened DCF into a DEV. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Using DCF as interface to a CM system </b></p>
+<p><b>6.1 </b></p>
+<p><b>General concept </b></p>
+<p>The DCF may serve as interface between DaVinci Developer and your CM system.  </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Using DaVinci Developer you create or edit the DCFP in your working copy of the CM </p>
+<p>repository. </p>
+<p></p>
+<p> </p>
+<p>Your working copy may contain several DCFP, e.g. one DCFP per ECU project you </p>
+<p>are currently developing, or some DCFP for particular software components. </p>
+<p>Depending on the capabilities of your CM system you may even have several </p>
+<p>variants (branches) of e.g. the same ECU project as separate DCFP in your working </p>
+<p>copy. </p>
+<p></p>
+<p> </p>
+<p>Using the CM system’s user interface you may check-in (commit) the DCFP into the </p>
+<p>repository, or get an already existing DCFP. </p>
+<p></p>
+<p> </p>
+<p>The read-only state of files within the DCFP (e.g. because they are checked-in) is </p>
+<p>reflected within DaVinci Developer (see chapter 6.2). </p>
+<p></p>
+<p> </p>
+<p>Optionally you may use external utility tools e.g. to merge the ARXML files within a </p>
+<p>DCFP. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-1: Using DCF with a CM system </p>
+<p><b>6.2 </b></p>
+<p><b>Handling of read-only objects </b></p>
+<p>After opening a DCF </p>
+<p>workspace, you may display </p>
+<p>the read-only state of the </p>
+<p>objects by selecting  </p>
+<p><b>View | Read-Only State…  </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p>The Read-Only State dialog </p>
+<p>opens. This dialog displays all </p>
+<p>DCFEs of the workspace </p>
+<p>according to the DCFP </p>
+<p>granularity (see chapter 4).  </p>
+<p>For each DCFE, the ARXML </p>
+<p>file name is displayed as well </p>
+<p>as the file attribute (“ro” read-</p>
+<p>only or “rw” read-write).  </p>
+<p>If a DCFE is read-only, all </p>
+<p>objects of the DCFE are </p>
+<p>assumed to be read-only. Any </p>
+<p>editing of the objects via </p>
+<p>dialogs or editors is blocked in </p>
+<p>DaVinci Developer. </p>
+<p>If you want to allow editing the </p>
+<p>object anyway, you may select </p>
+<p>the DCFE and push “Set state </p>
+<p>to read/write”. This will make </p>
+<p>the objects in the DCFE read-</p>
+<p>write, while the files remains </p>
+<p>read-only. Consequently, you </p>
+<p>can edit the object, but you </p>
+<p>cannot save the workspace </p>
+<p>unless you make the files “rw”. </p>
+<p>Note: If you have set a DCFE </p>
+<p>to read-write, it is not possible </p>
+<p>to set it to read-only again. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>Working with DaVinci Configuration File Utility </b></p>
+<p>This section describes working with DaVinci Configuration File Utility. ( DCFUtility ) </p>
+<p>DCFUtility is a tool to handle DCF files. </p>
+<p> </p>
+<p>The functionality of DCFUtility contains: </p>
+<p></p>
+<p> </p>
+<p>Visualize all files referenced within a DCF workspace. </p>
+<p></p>
+<p> </p>
+<p>Detect missing files of a DCF workspace </p>
+<p></p>
+<p> </p>
+<p>Show content of DCB files </p>
+<p></p>
+<p> </p>
+<p>Detect corrupt DCB file </p>
+<p></p>
+<p> </p>
+<p>Compare AUTOSAR files of two DCF workspaces </p>
+<p><b>7.1 </b></p>
+<p><b>Installation </b></p>
+<p><b>7.1.1 </b></p>
+<p><b>Setup program </b></p>
+<p>The DCFUtility can be installed by starting the setup program setup.exe. The tool is </p>
+<p>installed during the installation procedure of DaVinci Developer automatically. </p>
+<p> </p>
+<p> </p>
+<p>The DCFUtility is installed into the folder of your DaVinci Developer installation. </p>
+<p>The executable “DVDCFUtility.exe” is installed in the sub-folder “bin”. </p>
+<p><b>7.1.2 </b></p>
+<p><b>Licensing </b></p>
+<p>In order to run DCFUtility a license of DaVinci Developer is required on the PC. </p>
+<p><b>7.2 </b></p>
+<p><b>Starting DaVinci Configuration File Utility </b></p>
+<p>The DCFUtility can be started via one of the following options  </p>
+<p></p>
+<p> </p>
+<p>Via the Program menu                                                                                                 </p>
+<p>Using Program menu | DaVinci Developer &lt;Version&gt; | <b>DaVinci Configuration File </b></p>
+<p><b>Utility </b>the DCFUtility is started. Using <b>File | Open </b>you can open a dialog for selecting </p>
+<p>a DCF file files to be shown. After confirming this dialog, the DCF file is opened </p>
+<p></p>
+<p> </p>
+<p>Via the Windows Explorer                                                                                        </p>
+<p>After selecting a file with extension .dcf in the Windows Explorer, you can open the </p>
+<p>file using the context menu entry <b>Open with | DaVinci Configuration File Utility  </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7.3 </b></p>
+<p><b>Open DCF workspace </b></p>
+<p>Select <b>File | Open… </b>or use </p>
+<p>the shortcut </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>Select “DaVinci </p>
+<p>Configuration Files (*.dcf)” </p>
+<p>as file type. Browse for the </p>
+<p>DCF file. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7.4 </b></p>
+<p><b>DCF workspace </b></p>
+<p><b>7.4.1 </b></p>
+<p><b>Content of a DCF workspace </b></p>
+<p>The tree on the left hand shows the </p>
+<p>files referenced within a DCF file. </p>
+<p>The files are sorted within the main </p>
+<p>branches shown in the picture on </p>
+<p>the right side. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>For each DaVinci object there is </p>
+<p>one sub node within the according </p>
+<p>main branch. The sub branches </p>
+<p>name is the name of the DaVinci </p>
+<p>object. The children of the objects </p>
+<p>nodes contain the names of the files </p>
+<p>which belong to one object. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7.4.2 </b></p>
+<p><b>Missing files  </b></p>
+<p>When opening a DCF file </p>
+<p>referenced files in the DCF </p>
+<p>file are checked for </p>
+<p>existence automatically. </p>
+<p>Missing files and their </p>
+<p>parent nodes are marked </p>
+<p>red in the tree view of the </p>
+<p>DCF file. </p>
+<p>Use short cut </p>
+<p> to start the </p>
+<p>check again manually and </p>
+<p>to update the DCF file’s tree </p>
+<p>view. ( e.g. after copying </p>
+<p>missing files to the location </p>
+<p>specified in the DCF) </p>
+<p> </p>
+<p> </p>
+<p>Use short cut </p>
+<p> to show </p>
+<p>missing files and their </p>
+<p>parents only. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7.5 </b></p>
+<p><b>DCB files of a DCF workspace </b></p>
+<p><b>7.5.1 </b></p>
+<p><b>Content of DCB files </b></p>
+<p>Select a DCB file in tree view to </p>
+<p>show its content in the table on </p>
+<p>the right side. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Double click on a row in the </p>
+<p>table to show the object’s </p>
+<p>values.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.5.2 </b></p>
+<p><b>Corrupt DCB files </b></p>
+<p>Select  <b>Check  | Corrupt Files </b></p>
+<p>or use short cut </p>
+<p> to analyze all </p>
+<p>DCB files for corruptness. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Nodes of corrupt DCB files and </p>
+<p>their parent nodes are marked </p>
+<p>red in the DCF file’s tree view.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Use short cut </p>
+<p> to show corrupt </p>
+<p>DCB files only. The short cut is </p>
+<p>enabled after checking the DCF </p>
+<p>file for corrupt DCB files. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>7.6 </b></p>
+<p><b>Compare AUTOSAR files of DCF workspaces </b></p>
+<p>Select <b>File | Compare DCF  </b></p>
+<p>or use short cut </p>
+<p> to </p>
+<p>compare all same </p>
+<p>AUTOSAR files which are </p>
+<p>referenced in two DCF files. </p>
+<p> </p>
+<p>Select two existing DCF </p>
+<p>files and define a directory </p>
+<p>in which the result files of </p>
+<p>type “dvdiff” may be written. </p>
+<p>Select whether the </p>
+<p>AUTOSAR files are to be </p>
+<p>validated or not. If you </p>
+<p>choose validate “With </p>
+<p>external schema” you have </p>
+<p>to define a XSD file to </p>
+<p>validate against. </p>
+<p> </p>
+<p>In “Comparison Result </p>
+<p>Files” dialog a list of result </p>
+<p>files and their result status </p>
+<p>is shown.  </p>
+<p><b>Note: Files at same </b></p>
+<p><b>location are not </b></p>
+<p><b>compared.  </b></p>
+<p>Result “equal”: No Changes  </p>
+<p>Result “different”: Changed </p>
+<p>Result “failed”: Comparison </p>
+<p>failed. The results are </p>
+<p>written into an error file. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p>Double click a table row of </p>
+<p>the “Comparison Result </p>
+<p>Files” dialog to show the </p>
+<p>result file of the comparison </p>
+<p>in “AUTOSAR XML </p>
+<p>DifferenceView”.  </p>
+<p> </p>
+<p> </p>
+<p>or the error file of a failed </p>
+<p>comparison. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.7 </b></p>
+<p><b>Command line usage of comparison </b></p>
+<p>You can run the DCFUtility comparison of DCF files by the following command: </p>
+<p>DVDCFUtility.exe –s &lt;dcffile1&gt; -c &lt;dcffile2&gt; -o &lt;resultdir&gt; </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>parameters </p>
+<p></p>
+<p> </p>
+<p>–s &lt;dcffile1&gt; </p>
+<p>source file. </p>
+<p></p>
+<p> </p>
+<p>–c &lt;dcffile2&gt; </p>
+<p>DCF file which is compared with the source file. </p>
+<p>–o &lt;resultdir&gt; </p>
+<p>path of result directory which contains the difference files of all </p>
+<p>AUTOSAR files contained in both &lt;dcffile1&gt; and &lt;dcffile2&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>8 </b></p>
+<p><b>Tips and Tricks </b></p>
+<p><b>8.1 </b></p>
+<p><b>When to use DEV or DCF? </b></p>
+<p>You  should  use  the  DaVinci  Developer  Workspace  in  case  you  need  a  fast,  local </p>
+<p>saving/loading of your design data. </p>
+<p> </p>
+<p>You  should  use  the  DaVinci  Configuration  File  in  case  you  want  to  manage  the  design </p>
+<p>data as AUTOSAR compliant files in an external CM system.  </p>
+<p><b>8.2 </b></p>
+<p><b>Working with temporary DEV </b></p>
+<p>Saving and loading of a DCF usually takes more time than saving and loading of a DEV of </p>
+<p>the same content. If you e.g. work for several days on your design data without having to </p>
+<p>check-in/commit your work into the CM system, it may be useful to work like this: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Get the DCF from the CM system into your local working copy (e.g. </p>
+<p>c:\work\mySystem.dcf</p>
+<p>) </p>
+<p></p>
+<p> </p>
+<p>Save the DCF as temporary DEV (e.g. </p>
+<p>c:\tmp\mySystem.DEV</p>
+<p>) </p>
+<p></p>
+<p> </p>
+<p>Work on the temporary DEV </p>
+<p></p>
+<p> </p>
+<p>Save the temporary DEV back into the DCF in the working copy (e.g. </p>
+<p>c:\work\mySystem.dcf</p>
+<p>)  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual Working with DCF </p>
+<p> </p>
+<p></p>
+<p>2012, Vector Informatik GmbH </p>
+<p>Version: 1.6 </p>
+<p> </p>
+<p> </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

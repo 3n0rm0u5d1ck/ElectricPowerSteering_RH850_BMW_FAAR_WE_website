@@ -1,0 +1,1570 @@
+---
+layout: default
+title: TechnicalReference_3rdParty-MCAL-Integration
+nav_order: 72
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MCAL Integration Package </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Basics and workflows </p>
+<p>Version 1.04.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Andrej  Gazvoda,  Günther  Piehler,  Roland  Süß,  Ingo </p>
+<p>Wuttke </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>2 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Roland Süß ; Ingo Wuttke </p>
+<p>2015-02-27 </p>
+<p>1.00.00 </p>
+<p>Initial Ideas, usage as </p>
+<p>Application Note; Porting to </p>
+<p>Technical Reference </p>
+<p>template; adding detailed </p>
+<p>description about 3rd party </p>
+<p>tools etc. </p>
+<p>Günther Piehler </p>
+<p>2015-04-24 </p>
+<p>1.00.01 </p>
+<p>Review; small changes to </p>
+<p>increase understandability; </p>
+<p>Known Issue for missing </p>
+<p>config items added </p>
+<p></p>
+<p> </p>
+<p>released </p>
+<p>Andrej Gazvoda; Roland Süß </p>
+<p>2015-06-30 </p>
+<p>1.00.02 </p>
+<p>7.3 / 7.4 - Added known </p>
+<p>issues regarding EB tresos™ </p>
+<p>tool </p>
+<p>Günther Piehler </p>
+<p>2015-07-17 </p>
+<p>1.01.00 </p>
+<p>2.3 - Introduction of Mixed </p>
+<p>AUTOSAR use case </p>
+<p>3 ff - Extend description of </p>
+<p>MCAL preparation </p>
+<p>(prerequisites) </p>
+<p>4 - hint about recommended </p>
+<p>workflow added </p>
+<p>Günther Piehler </p>
+<p>2015-10-26 </p>
+<p>1.01.01 </p>
+<p>3.2.2 / 3.2.3 - parameter </p>
+<p>corrected </p>
+<p>4 – added hint for MCAL </p>
+<p>Integration video </p>
+<p>Günther Piehler </p>
+<p>2016-01-26 </p>
+<p>1.02.00 </p>
+<p>4.2 - added hint for “round </p>
+<p>trip” ability </p>
+<p>general - new CI applied </p>
+<p>Günther Piehler </p>
+<p>2016-07-05 </p>
+<p>1.03.00 </p>
+<p>Page 3 - Added further useful </p>
+<p>documents as reference </p>
+<p> </p>
+<p>Günther Piehler </p>
+<p>2016-09-27 </p>
+<p>1.04.00 </p>
+<p>1 – completely new </p>
+<p>Reference to QuickStart </p>
+<p>document deleted (replaced </p>
+<p>within this document); </p>
+<p>Reference to ScreenCase </p>
+<p>and ReleaseNote added </p>
+<p>Hints for AUTOSAR3 &lt;-&gt; </p>
+<p>AUTOSAR4 differentiation </p>
+<p>added </p>
+<p>3.2.2 – non-interactive mode </p>
+<p>introduced </p>
+<p>3.2.3 – reference to Release </p>
+<p>Notes added for further info </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>3 </p>
+<p>based on template version 5.2.0 </p>
+<p>6 – completely new </p>
+<p>7 – issue for “MCAL and SIP </p>
+<p>storage location” removed </p>
+<p>8 – hint to “generate all” </p>
+<p>added </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>Vector </p>
+<p>Product Information MICROSAR Vector SLP4 </p>
+<p>1.03.02 </p>
+<p>[2] </p>
+<p> </p>
+<p>Vector </p>
+<p>Catalog – Product Information MICROSAR – Chapter MCAL </p>
+<p>V1.3 – </p>
+<p>2015-02 </p>
+<p>[3] </p>
+<p> </p>
+<p>Vector </p>
+<p>Application Note “AN-ISC-8-1153_ThirdPartyModules.pdf” </p>
+<p>Latest </p>
+<p>(e.g. 1.0) </p>
+<p>[4] </p>
+<p> </p>
+<p>Vector </p>
+<p>Application Note “AN-ISC-8-1171_Tresos_LicenseHandling.pdf” </p>
+<p>Latest </p>
+<p>(e.g. </p>
+<p>1.00.01) </p>
+<p>[5] </p>
+<p> </p>
+<p>Vector </p>
+<p>Application Note “AN-ISC-8-1180_MCAL-Integration-Variants.pdf” </p>
+<p>Latest </p>
+<p>(e.g. 0.9) </p>
+<p>[6] </p>
+<p> </p>
+<p>Vector </p>
+<p>Release Note </p>
+<p>“ReleaseNotes_3rdPartyMCAL_VectorIntegration.pdf” </p>
+<p>As </p>
+<p>provided </p>
+<p>within </p>
+<p>your SIP </p>
+<p>[7] </p>
+<p> </p>
+<p>Vector </p>
+<p>ScreenCast_McalIntegration_Tresos.pdf </p>
+<p>As </p>
+<p>provided </p>
+<p>within </p>
+<p>your SIP </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>4 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Purpose of the document ............................................................................................. 7</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Responsibility ..................................................................................................... 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Support requests................................................................................................ 9</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Mix between AUTOSAR specification versions .................................................. 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>First Steps ................................................................................................................... 10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Delivery structure ............................................................................................. 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Starting up ....................................................................................................... 11</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>MCAL delivered within Vector SIP .................................................... 11</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>MCAL not contained within Vector SIP ............................................. 11</p>
+<p> </p>
+<p>3.2.3</p>
+<p> </p>
+<p>MCAL Update needed ...................................................................... 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Workflow ..................................................................................................................... 14</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Single configuration tool usage ........................................................................ 14</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Mixed configuration tool usage......................................................................... 15</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Split configuration tool usage ........................................................................... 17</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration tools ..................................................................................................... 19</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Vector DaVinci Configurator ............................................................................. 19</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>EB tresos™ ...................................................................................................... 19</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Setting up a new Configuration Project ............................................ 19</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Project Details .................................................................................. 20</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Selection of components .................................................................. 21</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Creation of importers and exporters ................................................. 22</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Configure the MCAL components .................................................... 23</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Generation of the 3rd party MCAL .................................................... 23</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Configuration hints for parallel usage of DaVinci Configurator and EB </p>
+<p>tresos™ ........................................................................................................... 23</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Vector DaVinci Configurator 5 .......................................................... 23</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>EB tresos™ ...................................................................................... 24</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Restrictions ................................................................................................................. 25</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>UNC path usage .............................................................................................. 25</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Known Issues ............................................................................................................. 26</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Long path names ............................................................................................. 26</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Missing configuration items within imported configuration ................................ 26</p>
+<p> </p>
+<p>7.3</p>
+<p> </p>
+<p>Configuration Export with EB tresos™ Version 13.0.0 ...................................... 26</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>5 </p>
+<p>based on template version 5.2.0 </p>
+<p>7.4</p>
+<p> </p>
+<p>Error messages regarding CommonPublishedInformation with EB tresos™ .... 27</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Frequently Asked Questions ..................................................................................... 28</b></p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 30</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 30</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 30</p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 31</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>6 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Configuration workflow – Mixed configuration tool usage .......................... 16</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>New Configuration Project ........................................................................ 20</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Configuration Project Data ........................................................................ 21</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>Component Configurations ....................................................................... 22</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>Create an exporter (step 1) ....................................................................... 22</p>
+<p> </p>
+<p>Figure 5-5</p>
+<p> </p>
+<p>Create an exporter (step 2 – AUTOSAR options) ...................................... 22</p>
+<p> </p>
+<p>Figure 5-6</p>
+<p> </p>
+<p>Generate Button ....................................................................................... 23</p>
+<p> </p>
+<p>Figure 5-7</p>
+<p> </p>
+<p>DEM Path using DaVinci Configurator 5 ................................................... 23</p>
+<p> </p>
+<p>Figure 5-8</p>
+<p> </p>
+<p>Settings within DaVinci Configurator 5 Pro................................................ 23</p>
+<p> </p>
+<p>Figure 5-9</p>
+<p> </p>
+<p>DEM-Path in the Outline window of tresos™ ............................................ 24</p>
+<p> </p>
+<p>Figure 5-10</p>
+<p> </p>
+<p>DEM-Path within tresos™ ......................................................................... 24</p>
+<p> </p>
+<p>Figure 5-11</p>
+<p> </p>
+<p>Settings for DEM within tresos™ .............................................................. 24</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Guidance for single configuration tool usage ............................................ 15</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Guidance for mixed configuration tool mode ............................................. 17</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Guidance for split configuration tool usage ............................................... 18</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>7 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>1 </b></p>
+<p><b>Purpose of the document </b></p>
+<p>This  document  supports  the  user  by  launching  the  delivery,  setting  up  a  project  and </p>
+<p>serving  the  tooling-  and  configuration-based  interfaces  between  the  Vector  MICROSAR </p>
+<p>BSW and the 3rd party MCAL. </p>
+<p>The term “tooling” means Vector DaVinci Configurator on the one hand and a third party </p>
+<p>configuration and generation framework (EB tresos™, KPIT ECU Spectrum™ …) on the </p>
+<p>other. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>8 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>The <i>MICROSAR MCAL Integration Package </i>covers the integration of a <i>3rd party MCAL </i></p>
+<p>package into the Vector MICROSAR BSW stack. As part of this, Vector performs a setup </p>
+<p>of the MCAL provided by the customer or the semiconductor vendor and supplements it </p>
+<p>with items needed for the integration with the MICROSAR BSW. </p>
+<p>Typically  the  semiconductor  vendor  delivers  the  MCAL  with  its  own  configuration  and </p>
+<p>generation  tool  chain.  Vector  provides  solutions  to  deal  with </p>
+<p>the  dependencies  and </p>
+<p>interfaces on embedded and on configuration level between the AUTOSAR BSW and the </p>
+<p>MCAL  components  (with AUTOSAR4.0.3  these  configuration  level  based  interfaces  are </p>
+<p>about 10 parameters). </p>
+<p>The  following  use  cases  and  corresponding  workflows  are  explained  and  illustrated  in </p>
+<p>detail later on: </p>
+<p>1. </p>
+<p><i>Single configuration tool usage</i>: Usage of the Vector DaVinci Configurator as exclusive </p>
+<p>configuration tool for both the MICROSAR BSW and the 3rd party MCAL. </p>
+<p>2. </p>
+<p><i>Mixed configuration tool usage</i>: Parallel and synchronized usage of the DaVinci </p>
+<p>Configurator and a 3rd party MCAL configuration tool. </p>
+<p>3. </p>
+<p><i>Split configuration tool usage</i>: Split configuration and code generation using DaVinci </p>
+<p>Configurator for the configuration/generation of the MICROSAR BSW and the 3rd </p>
+<p>party tool for configuration/generation of the MCAL. </p>
+<p>In principal all three use cases are supported and the decision which one is used depends </p>
+<p>on  user  requirements  as  well  as  on  the  capabilities  of  the  integrated  MCAL.  Detailed </p>
+<p>decision guidance and hints will be given in this document. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Many items described within this document are AUTOSAR release independent. </p>
+<p>Wherever necessary we will add a hint when there is a deviation within the workflow or </p>
+<p>any other topic from AUTOSAR4 to AUTOSAR3. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Responsibility </b></p>
+<p>Vector does not take over any responsibility for the usage and functionality of the </p>
+<p>integrated 3rd party components. The <i>MCAL integration </i>into the MICROSAR SIP does not </p>
+<p>include a full functional test for the 3rd party components. It remains the responsibility of </p>
+<p>the customer to ensure freeness of defect and shortcomings as well as functional </p>
+<p>completeness of the 3rd party components. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>9 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>2.2 </b></p>
+<p><b>Support requests </b></p>
+<p>Vector will support you in all aspects of the <i>MCAL integration </i>into your MICROSAR SIP. In </p>
+<p>case of questions or problems please get in touch with your MICROSAR contact (e.g. as </p>
+<p>defined in the delivery description that is part of your SIP). </p>
+<p>Since Vector is not the vendor of the integrated 3rd party components such support </p>
+<p>requests shall be directed to the 3rd party software vendor as they can provide you with </p>
+<p>first-hand information and support. </p>
+<p><b>2.3 </b></p>
+<p><b>Mix between AUTOSAR specification versions </b></p>
+<p>Sometimes it is necessary that there is a mixture of components released for different </p>
+<p>AUTOSAR versions. Most common case of mixture is the use of AUTOSAR 3.x related </p>
+<p>BSW (because OEMs have fixed their platform SW) with AUTOSAR4.0.x related MCALs. </p>
+<p>This is based on the fact that there are continuously new HW platforms available through </p>
+<p>the semiconductor vendors but not all devices will be supported with ASR4- as well as </p>
+<p>ASR3-based MCALs. In future there will be also the situation of mixture of AUTOSAR4.x </p>
+<p>based BSW with AUTOSAR3.x based MCALs (or also AUTOSAR4.x with AUTOSAR4.0.x </p>
+<p>MCAL to BSW or vice versa). This is due to some OEM decisions to start with </p>
+<p>AUTOSAR4.x but willing to use some older microcontroller devices. </p>
+<p>AUTOSAR3.x and AUTOSAR4.x based SW in general is not directly compatible. </p>
+<p>Nevertheless Vector supports you to be able to mix those components. There are several </p>
+<p>measures to take and Vector provides a solution for this with the term <i>MCAL Integration </i></p>
+<p><i>Package (mixed ASR)</i>. There are some wrappers (on embedded as well as on </p>
+<p>configuration side) that are part of your SIP. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Currently Vector supports mixing of AUTOSAR3.x related BSW with MCALs up to </p>
+<p>AUTOSAR4.0.3 but no higher releases. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>10 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>3 </b></p>
+<p><b>First Steps </b></p>
+<p>During <i>MCAL integration </i>at Vector several supplements have been created and integrated </p>
+<p>into your delivery. A short overview of contributed parts shall be given. </p>
+<p><b>3.1 </b></p>
+<p><b>Delivery structure </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The delivery structure may vary in few elements. The following description is meant to </p>
+<p>be a general one. Single artefacts may be located slightly different. This depends on </p>
+<p>evolving our MICROSAR BSW product as well as differentiation between used tooling </p>
+<p>(with AUTOSAR3 DaVinci Configurator 4 is used which relies on bit different folders as </p>
+<p>DaVinci Configurator 5 Vectors solution for AUTOSAR4 based product). </p>
+<p>Further details, e.g. about delivery structure, can be seen in [5]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>The following parts of the delivery (MICROSAR SIP) are relevant for the successful <i>MCAL </i></p>
+<p><i>integration (based on an AUTOSAR4 BSW SIP)</i>: </p>
+<p><b>&gt; </b></p>
+<p>BSW\&lt;MCAL_µC&gt;:</p>
+<p>  Contains the makefiles (AUTOSAR makefiles) for all 3rd party </p>
+<p>MCAL components (typically all MCAL components are merged into 1 file). </p>
+<p><b>&gt; </b></p>
+<p>BSWMD\&lt;MCAL_µC&gt;</p>
+<p>:  Contains configuration items for integration into the DaVinci </p>
+<p>Configurator. After execution of steps described under 3.2 the basic software definition </p>
+<p>files (VSMD) </p>
+<p><b>&gt; </b></p>
+<p>DaVinciConfigurator\Generator\&lt;MCAL_µC&gt;</p>
+<p>:  </p>
+<p>Contains configuration items </p>
+<p>for integration into the DaVinci Configurator e.g. XML-preparation files as well as files </p>
+<p>containing the commands for execution of the 3rd party code generator plus optional </p>
+<p>convenience features like registration of Init-APIs towards the ECUM component </p>
+<p>recommended configurations etc. </p>
+<p><b>&gt; </b></p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\Supply</p>
+<p>: </p>
+<p>Contains or currently must contain 3rd party </p>
+<p>MCAL and the tooling provided along with. The structure is defined by the MCAL </p>
+<p>supplier. Typically the supply folder contains: </p>
+<p><b>&gt; </b></p>
+<p>MCAL implementation (C- and H files) </p>
+<p><b>&gt; </b></p>
+<p>BSWMD description files according to AUTOSAR  </p>
+<p><b>&gt; </b></p>
+<p>Tooling for MCAL configuration and generation </p>
+<p><b>&gt; </b></p>
+<p>MCAL related documentation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>11 </p>
+<p>based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Your delivery (SIP) may not finally contain the integrated MCAL because of several </p>
+<p>reasons (license etc.). Currently it is recommended that the MCAL and its generation </p>
+<p>tooling, to be used with Vectors SIP, is directly installed into this above mentioned </p>
+<p>folder </p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\Supply</p>
+<p> with exactly the default name of your </p>
+<p>MCALs supplier! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Depending on the deployment of your MCAL supplier (keyword: 1 package for the </p>
+<p>whole MCAL, several packages for single functionalities like basic IO, memory, </p>
+<p>communication) you will have to install 1 or more packages into the </p>
+<p>Supply</p>
+<p> folder of </p>
+<p>your SIP. </p>
+<p>Example with MCAL from 3rd party MCAL of Infineon: </p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\Supply </p>
+<p>.\MC-ISAR_AS4XX_AURIX_TC27X_CA_PB_BASE_V100 </p>
+<p>.\MC-ISAR_AS4XX_AURIX_TC27X_CA_PB_MEM_V100 </p>
+<p>.\Tresos</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\VectorIntegration</p>
+<p>: </p>
+<p>Contains tools which supports </p>
+<p>the user during project setup (refer to 3.2) </p>
+<p><b>3.2 </b></p>
+<p><b>Starting up </b></p>
+<p>There are 3 possible scenarios for your SIP which will be explained in detail. </p>
+<p><b>3.2.1 </b></p>
+<p><b>MCAL delivered within Vector SIP </b></p>
+<p>To  figure  out  if  this  scenario  is  applied  with  your  SIP  just  have  a  look  into  the  above </p>
+<p>mentioned folders. When they are existent and contain the needed files (e.g. embedded </p>
+<p>source code, AUTOSAR description files etc.) you do not have to do any other preparation. </p>
+<p><b>3.2.2 </b></p>
+<p><b>MCAL not contained within Vector SIP </b></p>
+<p>With this scenario you have to do some preparations, e.g. install the MCAL etc. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>In order to activate the MCAL and to use the workflows described later on some </p>
+<p>adaptions have to be made on MCAL packages. </p>
+<p>To ease this procedure Vector provides a tool to execute these steps automatically. </p>
+<p>This feature also supports the user during MCAL package updates received from the </p>
+<p>MCAL manufacturer </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>12 </p>
+<p>based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Please consider that the different semiconductor vendors may provide several </p>
+<p>packages. Sometimes it might be necessary to perform merge actions by hand before </p>
+<p>above mentioned tool can be performed. For specific information please refer to the </p>
+<p>document [6]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>Please start the batch file located here: </p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\VectorIntegration\Script_MCAL_Prepare.bat</p>
+<p> </p>
+<p>with the option </p>
+<p>--prepare</p>
+<p>. </p>
+<p>If you are facing problems please refer to chapter 6 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>For compatibility reasons the </p>
+<p>Script_MCAL_Prepare.bat</p>
+<p> is taken over but currently </p>
+<p>does nothing else than calling a GUI tooling named <i>3rd party MCAL Integration Helper</i>. </p>
+<p>This tooling asks you for some details like the location the MCAL is currently installed </p>
+<p>in. It also double checks existence of the MCAL (e.g. for update use case etc.). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The tooling processes the following principal steps: </p>
+<p><b>&gt; </b></p>
+<p>Prepare MCAL configuration tool by copying of plugins or similar steps </p>
+<p><b>&gt; </b></p>
+<p>Delete/Rename MCAL specifics like </p>
+<p>Compiler_cfg.h</p>
+<p> and </p>
+<p>MemMap.h</p>
+<p> within include </p>
+<p>paths (as those files are already contained within the Vector SIP) </p>
+<p><b>&gt; </b></p>
+<p>Copy (maybe rename of) BSWMD files from a location within the 3rd party folder </p>
+<p>structure for one specific derivative to the location the Vector tooling is expecting it</p>
+<p>.</p>
+<p> If </p>
+<p>needed you will be asked which derivative shall be taken. </p>
+<p><b>&gt; </b></p>
+<p>Adaptions on certain artefacts created and delivered by Vector to integrate the MCAL </p>
+<p>on several levels (e.g. Makefiles, Tooling-interfaces) </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>13 </p>
+<p>based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Expert Knowledge </b></p>
+<p>The user may have the requirement to process all within an automated testsuite, which </p>
+<p>results in a so called non-interactive mode of the GUI tooling. Non-interactive means </p>
+<p>that the tooling does not require user inputs whilst showing up the GUI. </p>
+<p>This requires that the GUI inputs are handed over via the command line interface. </p>
+<p>Detailed description is included within the </p>
+<p>Script_MCAL_Prepare.bat</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.2.3 </b></p>
+<p><b>MCAL Update needed </b></p>
+<p>Usually  within  your  development  phase  there  will  be  updates  of  your  3rd  party  MCAL. </p>
+<p>Vector  supports  you  for  this  use  case  and  does  some  preparations  within  the  MCAL </p>
+<p>Integration Package phase. </p>
+<p>When you are receiving an update of the MCAL please clean up the MCAL Integration. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure </b></p>
+<p>Execute the </p>
+<p>Script_MCAL_Prepare.bat</p>
+<p> with the option </p>
+<p>--undo</p>
+<p>. </p>
+<p>Install the Update of the MCAL and execute the </p>
+<p>Script_MCAL_Prepare.bat</p>
+<p> with </p>
+<p>option </p>
+<p>--prepare</p>
+<p> again. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Due to the fact that the update process is quite supplier specific please refer to your </p>
+<p>provided [6]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>14 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>4 </b></p>
+<p><b>Workflow </b></p>
+<p>As  mentioned  in  the  introduction  there  are  three  reasonable  workflows  the  user  can </p>
+<p>choose </p>
+<p>from. </p>
+<p>Which </p>
+<p>one </p>
+<p>leads </p>
+<p>to </p>
+<p>the </p>
+<p>highest </p>
+<p>benefit-cost </p>
+<p>ratio </p>
+<p>depends </p>
+<p>on </p>
+<p>user </p>
+<p>requirements / preference on the one hand and on the level auf AUTOSAR conformance </p>
+<p>of  the  MCAL  on  the  other  hand.  In  the  following  all  three  workflows  are  introduced  and </p>
+<p>their corresponding prerequisites and advantages/disadvantages are listed for guidance. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Your SIP contains a Release Note [6] which describes the recommended / supported </p>
+<p>workflow. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Multimedia Link </b></p>
+<p>For the case that semiconductor supplies MCAL with EB tresos studio there is a video </p>
+<p>available which shows the MCAL integration as well as an exemplary workflow. We </p>
+<p>highly recommend having a look into this video for better understanding necessary </p>
+<p>inputs as well as interaction. </p>
+<p>Just have a look at [7]. </p>
+<p>When you are not able to watch this video please get in contact with Vector delivery </p>
+<p>engineer to provide you an offline-version. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Due to the fact that following chapters only mention the term DaVinci Configurator </p>
+<p>some words upfront. </p>
+<p>You will (have to) use DaVinci Configurator 4 for AUTOSAR3 based MICROSAR </p>
+<p>product. With AUTOSAR4 based MICROSAR product you will have to use DaVinci </p>
+<p>Configurator 5. </p>
+<p>For some special reasons you will get DaVinci Configurator 5 even if your delivery is </p>
+<p>based on MICROSAR3 but this is not driven by topic MCAL but on some others and </p>
+<p>therefore not explained in further details. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>4.1 </b></p>
+<p><b>Single configuration tool usage </b></p>
+<p>After execution of the first steps described in 3.2 the user is able to use Vector DaVinci </p>
+<p>Configurator as the exclusive configuration tool for both the MICROSAR BSW as well as </p>
+<p>the 3rd party MCAL. The configuration of the 3rd party components is based on the MCAL </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>15 </p>
+<p>based on template version 5.2.0 </p>
+<p>AUTOSAR  component  definition  files  (BSWMD)  which  are  (have  to  be)  included  in  the </p>
+<p>original semiconductor vendor packages. </p>
+<p>You can activate/add the 3rd party components to your configuration in the same way you </p>
+<p>would activate/add the MICROSAR BSW components. </p>
+<p>Vector has integrated the commands for the external code generators so that you will be </p>
+<p>able to start the MCAL code generation within the Configurator GUI by using this workflow. </p>
+<p>DaVinci  Configurator  is  used  to  call  the  MCAL  generator  and  also  displays  warnings, </p>
+<p>errors, and other information.  </p>
+<p> </p>
+<p><b>Prerequisite </b></p>
+<p>AUTOSAR component definition files provided by MCAL manufacturer must be completely </p>
+<p>AUTOSAR conform and consistent to possibly used proprietary file formats (used internally by </p>
+<p>the 3rd party tool). </p>
+<p><b>Advantages </b></p>
+<p><b>Disadvantages </b></p>
+<p>Only one configuration tool and one </p>
+<p>configuration file to be used / no redundant data </p>
+<p>No usage of convenience features which are </p>
+<p>possibly provided by MCAL manufacturer but </p>
+<p>not transferred/modeled within the AUTOSAR </p>
+<p>component definition files </p>
+<p>All dependencies between BSW and MCAL </p>
+<p>components can be solved easily </p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>Guidance for single configuration tool usage </p>
+<p><b>4.2 </b></p>
+<p><b>Mixed configuration tool usage </b></p>
+<p>The  configuration  tooling  respectively  the  internal  (proprietary)  description  files  of  some </p>
+<p>3rd party MCAL contains internal logic which supports the user during configuration steps. </p>
+<p>Examples are </p>
+<p><b>&gt; </b></p>
+<p>Parameter A is only needed if Parameter B is set to value “X” </p>
+<p><b>&gt; </b></p>
+<p>Parameter C is calculated automatically based on A and B </p>
+<p><b>&gt; </b></p>
+<p>During component instantiation a list of containers is created automatically with </p>
+<p>reasonable and different values </p>
+<p>These  mechanisms  are  not  completely  specified  by  the  AUTOSAR  standard  and  not </p>
+<p>always  modeled  correctly  within  the AUTOSAR  component  definition files  provided. The </p>
+<p>fact is that they are not feasible useable outside the original MCAL configuration tool. As a </p>
+<p>result and depending on the level of feature convenience of the MCAL tool it is advisable </p>
+<p>to at least use it for the project setup as it will speed up the process in this phase.  </p>
+<p>By doing so the user has to deal with two different tools during ECUC setup. But in a later </p>
+<p>phase it will be easier to use a <i>one tool solution </i>as described in 4.1. Thus the user will </p>
+<p>have to deal with a tool transition. To ease this procedure Vector has introduced some tool </p>
+<p>features. </p>
+<p>The diagram below shows a workflow to use both the features of the MCAL tool and the </p>
+<p>convenience of a solution which is based on a single tool. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>16 </p>
+<p>based on template version 5.2.0 </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Configuration workflow – Mixed configuration tool usage </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>17 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>Prerequisite </b></p>
+<p>AUTOSAR component definition files provided by MCAL manufacturer must be completely </p>
+<p>AUTOSAR conform and as consistent as possible to used proprietary files </p>
+<p><b>Advantages </b></p>
+<p><b>Disadvantages </b></p>
+<p>Usage of convenience features of both tools </p>
+<p>Additional tool knowledge is needed </p>
+<p>Dependencies between BSW and MCAL </p>
+<p>components can be solved by data </p>
+<p>synchronization (export/import) </p>
+<p>Overhead due to export/import workflow  </p>
+<p>Switch to single configuration tool and </p>
+<p>configuration file possible </p>
+<p> </p>
+<p>Table 4-2  </p>
+<p>Guidance for mixed configuration tool mode </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Practical Procedure (startup) </b></p>
+<p>1. </p>
+<p>Create a DaVinci project </p>
+<p>2. </p>
+<p>Activate BSW components needed, but no MCAL components </p>
+<p>3. </p>
+<p>Create a project within the 3rd party configuration tool (see 5.2) </p>
+<p>4. </p>
+<p>Configure all MCAL components needed within the 3rd party configuration </p>
+<p>tool </p>
+<p>5. </p>
+<p>Export all MCAL components from the 3rd party tool to an AUTOSAR </p>
+<p>conform ECUC file  </p>
+<p>6. </p>
+<p>Import this file in DaVinci Configurator </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>As marked in figure above, the loop or sometimes mentioned as round trip is generally </p>
+<p>supported. Precondition for a successful round trip is DaVinci Configurator 5.10 and </p>
+<p>above (this implies that with AUTOSAR3 based BSW and DaVinci Configurator 4 this </p>
+<p>scenario is not fully supported). </p>
+<p>Round trip workflow has been evaluated with several semiconductor vendors MCALs </p>
+<p>and in principal is working. </p>
+<p>Based on the semiconductors AUTOSAR compatibility there may raise some warnings </p>
+<p>or sometimes even single parameters may be reconfigured, based on insufficient </p>
+<p>importer functionality. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Split configuration tool usage </b></p>
+<p>This workflow is required if the third party configuration tool is not completely AUTOSAR </p>
+<p>compliant  as  it  e.g.  violates  the  AUTOSAR  standard  parameter  definition  or  does  not </p>
+<p>support a lossless ECUC roundtrip with DaVinci Configurator or other AUTOSAR tools. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>18 </p>
+<p>based on template version 5.2.0 </p>
+<p>As the number of interfaces respectively the number of exchanged parameters between </p>
+<p>the AUTOSAR BSW and the MCAL components is comparatively small it may also be a </p>
+<p>solution  to  use  both  tools  permanently  in  parallel.  The  implication  is  that  the  code </p>
+<p>generation will be triggered from the tool in which the configuration has been made. </p>
+<p>In order to integrate both parts on embedded side there is still the need to share some </p>
+<p>parameters  between  both  configuration  tools.  This  can  either  be  achieved  by  manual </p>
+<p>replication  (using  configuration  stubs,  e.g.  DEM  stub  of  3rd  party  MCAL,  MCU  stub  of </p>
+<p>Vector) or by using the import export mechanisms introduced in 4.2. </p>
+<p><b>Prerequisite </b></p>
+<p>AUTOSAR component definition files provided by MCAL manufacturer must be available but </p>
+<p>must be matching to proprietary formats only partly (at interfaces between BSW and MCAL). </p>
+<p><b>Advantages </b></p>
+<p><b>Disadvantages </b></p>
+<p>Relatively tolerant workflow in case that </p>
+<p>AUTOSAR component definition files and/or 3rd </p>
+<p>party tools are not completely AUTOSAR </p>
+<p>conform </p>
+<p>Dependencies between BSW and MCAL </p>
+<p>components must be solved manually </p>
+<p> </p>
+<p>Additional tool knowledge is needed </p>
+<p> </p>
+<p>Overhead due to 2 tool workflow and </p>
+<p>redundant configuration data </p>
+<p></p>
+<p> manual </p>
+<p>synchronization needed </p>
+<p>Table 4-3  </p>
+<p>Guidance for split configuration tool usage </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>19 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>5 </b></p>
+<p><b>Configuration tools </b></p>
+<p>In this chapter some hints for the configuration tools included in your package are given. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Most common tooling used by 3rd party MCAL supplier is EB tresos™ therefore the </p>
+<p>usage is explained extensively. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>5.1 </b></p>
+<p><b>Vector DaVinci Configurator </b></p>
+<p>Use DaVinci Configurator to configure your MICROSAR BSW using a DPA project. </p>
+<p>Please  refer  to  the  startup  manual  included  in  the  delivery.  In  addition  the </p>
+<p>DaVinci </p>
+<p>Configurator provides user support via the help menu. </p>
+<p><b>5.2 </b></p>
+<p><b>EB tresos™ </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Reference</b> </p>
+<p>Additional and useful information can be found here [7]. </p>
+<p>With questions about tooling license (applicable until EB tresos 16) additional </p>
+<p>information can be found there [4]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>The program itself is located in the folder beneath: </p>
+<p>ThirdParty\&lt;MCAL_µC&gt;\Supply\</p>
+<p> </p>
+<p>To  start  the  tool  the  user  must  execute </p>
+<p>tresos_gui.exe</p>
+<p>  which  can  be  found  usually </p>
+<p>beneath </p>
+<p>Tresos\bin</p>
+<p>.  Just  to  note,  some  3rd  party  MCAL  suppliers  also  provide  64bit </p>
+<p>versions of EB tresos™. </p>
+<p>A useful documentation when you are struggling with a task can be found within the tresos </p>
+<p>folder structure by searching for a document named “<i>Studio_documentation_users_guide</i>”. </p>
+<p><b>5.2.1 </b></p>
+<p><b>Setting up a new Configuration Project </b></p>
+<p><b>&gt; </b></p>
+<p>To create a new project the Project Wizard must be started by to selecting File </p>
+<p></p>
+<p> New </p>
+<p></p>
+<p> Configuration Project. </p>
+<p><b>&gt; </b></p>
+<p>The project name as well as the workspace location plus the relevant AUTOSAR </p>
+<p>Release Version can now be chosen. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>20 </p>
+<p>based on template version 5.2.0 </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>New Configuration Project </p>
+<p><b>&gt; </b></p>
+<p>Hint: The workspace location can be chosen freely the path for code generation output </p>
+<p>can be set in the next step. </p>
+<p><b>5.2.2 </b></p>
+<p><b>Project Details </b></p>
+<p>In the next step the wizard request the following data: </p>
+<p><b>&gt; </b></p>
+<p>ECU ID: fill in a symbolic name </p>
+<p><b>&gt; </b></p>
+<p>Target: Select your microcontroller target </p>
+<p><b>&gt; </b></p>
+<p>Generation Path: please choose the settings according to the settings within the </p>
+<p>DaVinci Configurator to keep consistency and avoid problems regarding make process </p>
+<p><b>&gt; </b></p>
+<p>The remaining choices can be selected such as in the figure below </p>
+<p><b>&gt; </b></p>
+<p>We recommend to activate the check box to ‘Automatically add the minimum number </p>
+<p>of child elements in lists’ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>21 </p>
+<p>based on template version 5.2.0 </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>Configuration Project Data </p>
+<p><b>&gt; </b></p>
+<p>Hint: Several project settings can be changed after creation of the project by editing </p>
+<p>the file </p>
+<p>preferences.xdm</p>
+<p> located within the created workspace folder; e.g. adapt the </p>
+<p>generation path by changing the default value ‘output’ to a relative or absolute path </p>
+<p>(</p>
+<p>&lt;d:var name=”GenerationPath” value=”output”/&gt;</p>
+<p>) </p>
+<p><b>5.2.3 </b></p>
+<p><b>Selection of components </b></p>
+<p>Now  choose  the  components,  which  should  be  added  to  the  project.  In  general,  every </p>
+<p>MCAL component should be selected. In that case, use STRG + A to select all and click on </p>
+<p>the tagged button. </p>
+<p>Attention: Some additional  “dummy” components (stubs) might be necessary in order to </p>
+<p>configure the MCAL components e.g. Base, Resource, Dem or EcuM. Those components </p>
+<p>are  only  used  to  provide  parameters and  references  needed  by  the  MCAL  components </p>
+<p>such as <i>Dem Events </i>and <i>EcuM run modes</i>, please refer to 5.3. </p>
+<p>The window should now be similar to this: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>22 </p>
+<p>based on template version 5.2.0 </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>Component Configurations </p>
+<p><b>5.2.4 </b></p>
+<p><b>Creation of importers and exporters </b></p>
+<p>Now </p>
+<p>the </p>
+<p>user </p>
+<p>has </p>
+<p>the </p>
+<p>possibility </p>
+<p>to </p>
+<p>create </p>
+<p>importer </p>
+<p>and/or </p>
+<p>exporter </p>
+<p>to </p>
+<p>create </p>
+<p>a </p>
+<p>configuration  file  in  an  AUTOSAR  standardized  format  out  of  the  proprietary  tresos™ </p>
+<p>configuration  files.  This  functionality  is  needed  to  enable  the  workflows  described  in </p>
+<p>chapter 4.2 and 0.  </p>
+<p>Please Click on + to add an Im-/Exporter and use the following settings: </p>
+<p>     </p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>Create an exporter (step 1) </p>
+<p>Figure 5-5 </p>
+<p>Create an exporter (step 2 – AUTOSAR options) </p>
+<p>The importer can be configured in a similar manner. </p>
+<p>If you don’t create the im-/exporters during setup you can do this later by using the context </p>
+<p>menu on the corresponding project. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>23 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>5.2.5 </b></p>
+<p><b>Configure the MCAL components </b></p>
+<p>Now the wizard is finished and the MCAL itself can be configured. </p>
+<p><b>5.2.6 </b></p>
+<p><b>  Generation of the 3rd party MCAL </b></p>
+<p>If everything is configured, click on the generation button. Tresos will now generate your </p>
+<p>project (note: there will be a validation phase triggered before to ensure that configuration </p>
+<p>is formal correct). </p>
+<p> </p>
+<p>Figure 5-6 </p>
+<p>Generate Button </p>
+<p><b>5.3 </b></p>
+<p><b>Configuration hints for parallel usage of DaVinci Configurator and EB </b></p>
+<p><b>tresos™ </b></p>
+<p>One  important  thing  to  consider  is  that  the  configurations  for  Dem  and  EcuM  must  be </p>
+<p>consistent  between  DaVinci  Configurator  and  tresos  as  these  are  interface  components </p>
+<p>provided by Vector that also have impact on the 3rd party software. Affected configuration </p>
+<p>entities </p>
+<p>are </p>
+<p>Dem/DemConfigSet/DemEventParameter</p>
+<p> </p>
+<p>and </p>
+<p>EcuM/EcuMConfiguration/EcuMCommonConfiguration/EcuMWakeupSource</p>
+<p>. </p>
+<p>The following chapters handle the configuration direction from upper layer to lower layer </p>
+<p>like mentioned above, but please are aware that the direction might also be inverse, i.e. for </p>
+<p>configuration of <i> Dio Ports</i>, <i>Mcu ConfigSets</i>, <i>Mcu ClockReferences </i>or <i>Fee Blocks</i>. If you </p>
+<p>use the workflows described in 0 and 4.2 this is done by export and import features. </p>
+<p><b>5.3.1 </b></p>
+<p><b>Vector DaVinci Configurator 5 </b></p>
+<p>You can find the configuration of e.g. DemEventParameter in the Basic Editor. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-7 </p>
+<p>DEM Path using DaVinci Configurator 5 </p>
+<p> </p>
+<p>Figure 5-8 </p>
+<p>Settings within DaVinci Configurator 5 Pro </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>24 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>5.3.2 </b></p>
+<p><b>EB tresos™ </b></p>
+<p><b>&gt; </b></p>
+<p>One fast way to change the configuration for DEM in tresos™ is with the Outline </p>
+<p>window.  </p>
+<p><b>&gt; </b></p>
+<p>To do so you, double-click on DEM. Now, if you have Outline opened, you will see the </p>
+<p>folder structure of DEM.  </p>
+<p><b>&gt; </b></p>
+<p>Navigate to </p>
+<p>DemEventParameter_0</p>
+<p>, select the same </p>
+<p>Event ID</p>
+<p> and </p>
+<p>Event Kind</p>
+<p> </p>
+<p>as in the DaVinci Configurator Pro. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-10 </p>
+<p>DEM-Path within tresos™       </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-11 </p>
+<p>Settings for DEM within tresos™ </p>
+<p>Figure 5-9 </p>
+<p>DEM-Path in the Outline </p>
+<p>window of tresos™</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>25 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>6 </b></p>
+<p><b>Restrictions </b></p>
+<p><b>6.1 </b></p>
+<p><b>UNC path usage </b></p>
+<p><i>3rd party MCAL Integration Helper </i>tool does not support calling it via UNC path. There is </p>
+<p>no workaround etc. available. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>26 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>7 </b></p>
+<p><b>Known Issues </b></p>
+<p>This chapter describes known issues which are related to MCAL integration package but </p>
+<p>are not fixable by Vector without support of 3rd parties. Vector is working on solutions in </p>
+<p>coordination with the other involved parties. </p>
+<p><b>7.1 </b></p>
+<p><b>Long path names </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The 3rd party deliverables are currently stored / copied into the Vector delivery </p>
+<p>structure and may use very long path names. The Vector delivery structure itself </p>
+<p>usually resides some folders below the root directory. It may happen that some </p>
+<p>Microsoft Windows™ tools are not able to access those files anymore due to resulting </p>
+<p>path names which are too long.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Currently Vector is working on a solution for this problem. </p>
+<p>As long as there is no final fix we recommend to install the Vector SIP as well as the 3rd </p>
+<p>party MCAL as near to the root-directory as possible (e.g. </p>
+<p>D:\&lt;ECU-Acronym&gt;</p>
+<p> like </p>
+<p>D:\BCM</p>
+<p>) </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Missing configuration items within imported configuration </b></p>
+<p>Sometimes </p>
+<p>it </p>
+<p>happens </p>
+<p>that </p>
+<p>3rd </p>
+<p>party </p>
+<p>tools </p>
+<p>do </p>
+<p>not </p>
+<p>export </p>
+<p>all </p>
+<p>configuration </p>
+<p>items </p>
+<p>/ </p>
+<p>information into AUTOSAR standard format of ECUC. </p>
+<p>Currently  there  is no workaround  available for this. The user will be  informed  within  the </p>
+<p>import process into DaVinci Configurator. After importing there must be manual editing of </p>
+<p>the configuration to add all of those “missed information” (Note: mainly these are not used </p>
+<p>by 3rd party tooling but relevant for consistent configuration with components BSWMDs). </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Due to the fact that 3rd party supply must be AUTOSAR conform please ask your </p>
+<p>MCAL vendor to provide an update of the corresponding artefacts. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>7.3 </b></p>
+<p><b>Configuration Export with EB tresos™ Version 13.0.0 </b></p>
+<p>After  you  have  exported  the  EB  tresos™  configuration,  you  have  to  close  the  project </p>
+<p>before you proceed the export the next time. If not, the export will be faulty and will cause </p>
+<p>problems during import into DaVinci Configurator. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>27 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>7.4 </b></p>
+<p><b>Error messages regarding CommonPublishedInformation with EB tresos™ </b></p>
+<p>After  setting  up  a  MCAL  project  with  EB  tresos™  error messages  might  occur for  each </p>
+<p>parameter of container CommonPublishedInformation like follows: </p>
+<p>Invalid value for node “/AUTOSAR/TOP-LEVEL-</p>
+<p>PACKAGES/Wdg/ELEMENTS/Wdg/CommonPublishedInformation/VendorId</p>
+<p>”: Value “” is no number </p>
+<p>Closing EB tresos™ tool once and opening again resolves the problem. This issue affects </p>
+<p>all MCAL modules. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>28 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>8 </b></p>
+<p><b>Frequently Asked Questions </b></p>
+<p><b>Q: </b> My  delivery  is  a  mixed  version  of  BSW  regarding AUTOSAR3  and  MCAL  regarding </p>
+<p>AUTOSAR4, what do I have to care for? </p>
+<p><b>A: </b>When you ordered a SIP from Vector with “MCAL Integration package (mixed ASR)” we </p>
+<p>already have cared about this and also provide you some embedded software wrappers </p>
+<p>(e.g. </p>
+<p>for </p>
+<p>Watchdog </p>
+<p>driver). </p>
+<p>The </p>
+<p>“integration </p>
+<p>process” </p>
+<p>at </p>
+<p>Vectors </p>
+<p>side </p>
+<p>has </p>
+<p>done </p>
+<p>all </p>
+<p>necessary topics like extensions of makefiles etc. that you as the user do not have to care </p>
+<p>about it. </p>
+<p> </p>
+<p><b>Q: </b>I have got a DaVinci Configurator 5 but my delivery is AUTOSAR3 based, are there any </p>
+<p>consequences or tasks I have to care about? </p>
+<p><b>A: </b>In regard of MCAL integration for AUTOSAR3 based products the DaVinci Configurator </p>
+<p>5 does not care! As a hint: There may be some AUTOSAR4-based components which use </p>
+<p>DaVinci  Configurator  5  framework  or  definitely  have  to  be  configured  using  DaVinci </p>
+<p>Configurator 5 but this will be explained in details with the respective components. But as </p>
+<p>mentioned before, this is not relevant for MCAL configuration / generation purpose. </p>
+<p> </p>
+<p><b>Q: </b>The MCAL will be generated component by component and takes a while. Is there any </p>
+<p>option to increase or speed up this generation? </p>
+<p><b>A: </b>Based on EB tresos as generation tooling there is the possibility to call the generation </p>
+<p>with  an  option  to  generate  all  MCAL  components  contained  in  the  ECUC  file. The  user </p>
+<p>therefore has to add a so called <i>external generation step </i>(applies to DaVinci Configurator </p>
+<p>5 naming but is also possible with DaVinci Configurator 4). For details about how to create </p>
+<p>an <i>external generation step </i>please use DaVinci tooling help. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>29 </p>
+<p>based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>External generation step needs a command line parameter as follows: </p>
+<p>tresos_cmd.bat -Dtarget=PA -Dderivate=MPC574XG legacy generate </p>
+<p>D:\BCM\XSL_Output.arxml@asc:4.0.3 -o D:\BCM\Gendata -n Adc -n </p>
+<p>Dio –n EcuM -n Fls -n Gpt -n Icu -n Mcl -n Mcu -n Port -n Pwm -n </p>
+<p>Spi -n Wdg -n Resource -n Dem -g Adc_TS_T2D35M10I1R0 -g </p>
+<p>Dio_TS_T2D35M10I1R0 -g Fls_TS_T2D35M10I1R0 -g </p>
+<p>Gpt_TS_T2D35M10I1R0 -g Icu_TS_T2D35M10I1R0 -g </p>
+<p>Mcl_TS_T2D35M10I1R0 -g Mcu_TS_T2D35M10I1R0 -g </p>
+<p>Port_TS_T2D35M10I1R0 -g Pwm_TS_T2D35M10I1R0 -g </p>
+<p>Spi_TS_T2D35M10I1R0 -g Wdg_TS_T2D35M10I1R0 -g </p>
+<p>Base_TS_T2D35M10I1R0 </p>
+<p>Please refer to EB tresos studio documentation about all needed details (e.g. </p>
+<p>derivative, component list etc.). Please watch out that there may be a “generate all” </p>
+<p>option. Please do not use this because then also Dem, EcuM or other components </p>
+<p>(maybe other COM components) will also be generated. This will definitely create </p>
+<p>conflicts for the build process later on! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Based on EB tresos internal behavior and plug-in management the ECUC which is </p>
+<p>handed over for generation reasons has to comply from naming perspective to the </p>
+<p>registered plugins. </p>
+<p>This results in the fact that ECUC file must not contain any other component then </p>
+<p>registered (e.g. NvM, OS etc.) and shortname / AR-package name has to fit to the </p>
+<p>registered one (Dem, EcuM). </p>
+<p>Vector does this during its integration of the MCAL via XSL-transformation file but only </p>
+<p>on component level and not for “generate all” purpose. So the user would have to </p>
+<p>create such a XSL-transformation file by its own if this use case (generate all) should </p>
+<p>be applied. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>30 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>9 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>9.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>3rd party components </p>
+<p>/ MCAL </p>
+<p>BSW components that have been provided by a company other than </p>
+<p>Vector. Vector may have integrated the software within the SIP but does </p>
+<p>not take over any responsibility with regard to the functionality of these </p>
+<p>components. </p>
+<p>3rd party MCAL </p>
+<p>Integration Helper </p>
+<p>Windows based tooling providing a GUI to support the user to integrate a </p>
+<p>3</p>
+<p>rd</p>
+<p> party MCAL into the Vector SIP. </p>
+<p>DaVinci Configurator  </p>
+<p>Vectors configuration and generation tool of the MICROSAR components </p>
+<p> </p>
+<p> </p>
+<p><b>9.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basic Software </p>
+<p>BSWMD </p>
+<p>Basic Software Module Description; AUTOSAR standard file </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager; AUTOSAR BSW component </p>
+<p>DPA </p>
+<p>DaVinci Project Assistant </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>ECUC </p>
+<p>ECU Configuration; configuration of all BSW as well as MCAL </p>
+<p>components (Note: AUTOSAR also supports ECUC splits containing just </p>
+<p>a subset of components with its configuration) </p>
+<p>ECUM </p>
+<p>ECU State Manager; AUTOSAR BSW component </p>
+<p>(G)UI </p>
+<p>(graphical) User Interface </p>
+<p>MCAL </p>
+<p>Microcontroller Abstraction layer  </p>
+<p>MICROSAR </p>
+<p>Vectors solution / brand for AUTOSAR BSW </p>
+<p>SIP </p>
+<p>Software Integration Package (as provided by Vector); MICROSAR </p>
+<p>delivery containing customers’ selection of MICROSAR BSW </p>
+<p>components including all parts of <i>MCAL Integration</i>. </p>
+<p>StMD </p>
+<p>Standard Module Definition also known as BSWMD </p>
+<p>VSMD </p>
+<p>Vendor Specific Module Definition (within AUTOSAR methodology it is </p>
+<p>derived from StMD) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MCAL Integration Package </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>31 </p>
+<p>based on template version 5.2.0 </p>
+<p><b>10  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

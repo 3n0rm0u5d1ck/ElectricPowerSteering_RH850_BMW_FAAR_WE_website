@@ -1,0 +1,2093 @@
+---
+layout: default
+title: PAGe_UserManual
+nav_order: 3
+parent: PAGe (TL125A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>User Guide PAGe</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-11-09</p>
+<p>Version</p>
+<p>1.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>1.1.0</p>
+<p>2017-11-09</p>
+<p>JC-42</p>
+<p>Initial Documentation Release</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 1 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>Purpose</p>
+<p>3</p>
+<p>1.2</p>
+<p>Usage</p>
+<p>3</p>
+<p>1.2.1</p>
+<p>Generation</p>
+<p>3</p>
+<p>1.2.2</p>
+<p>Validation</p>
+<p>3</p>
+<p>1.2.3</p>
+<p>verb</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>4</b></p>
+<p><b>3</b></p>
+<p><b>Functionality</b></p>
+<p><b>5</b></p>
+<p>3.1</p>
+<p>Command Line Usage</p>
+<p>5</p>
+<p>3.2</p>
+<p>Fileformat</p>
+<p>5</p>
+<p>3.3</p>
+<p>Available Function and Objects</p>
+<p>6</p>
+<p>3.4</p>
+<p>Handling of paramconf</p>
+<p>7</p>
+<p>3.5</p>
+<p>Notes ARXML shortcuts</p>
+<p>7</p>
+<p>3.6</p>
+<p>Loops</p>
+<p>7</p>
+<p><b>4</b></p>
+<p><b>Examples</b></p>
+<p><b>8</b></p>
+<p>4.1</p>
+<p>Basic Navigation</p>
+<p>8</p>
+<p>4.1.1</p>
+<p>ARXML Files</p>
+<p>8</p>
+<p>4.1.1.1</p>
+<p>input.arxml</p>
+<p>8</p>
+<p>4.1.2</p>
+<p>pgen Files</p>
+<p>9</p>
+<p>4.1.2.1</p>
+<p>input.pgen</p>
+<p>9</p>
+<p>4.1.3</p>
+<p>Command line</p>
+<p>10</p>
+<p>4.1.4</p>
+<p>Console Output</p>
+<p>10</p>
+<p>4.1.5</p>
+<p>File Output</p>
+<p>10</p>
+<p>4.2</p>
+<p>Logging</p>
+<p>11</p>
+<p>4.2.1</p>
+<p>pgen Files</p>
+<p>11</p>
+<p>4.2.1.1</p>
+<p>input.pgen</p>
+<p>11</p>
+<p>4.2.2</p>
+<p>Command line</p>
+<p>11</p>
+<p>4.2.3</p>
+<p>Console Output</p>
+<p>11</p>
+<p>4.2.4</p>
+<p>File Output</p>
+<p>11</p>
+<p>4.3</p>
+<p>Usage of Code Blocks</p>
+<p>11</p>
+<p>4.3.1</p>
+<p>pgen Files</p>
+<p>12</p>
+<p>4.3.1.1</p>
+<p>input.pgen</p>
+<p>12</p>
+<p>4.3.2</p>
+<p>Command line</p>
+<p>12</p>
+<p>4.3.3</p>
+<p>Console Output</p>
+<p>12</p>
+<p>4.3.4</p>
+<p>File Output</p>
+<p>12</p>
+<p>4.4</p>
+<p>Conditionals</p>
+<p>13</p>
+<p>4.4.1</p>
+<p>ARXML Files</p>
+<p>13</p>
+<p>4.4.1.1</p>
+<p>input.arxml</p>
+<p>13</p>
+<p>4.4.2</p>
+<p>pgen Files</p>
+<p>14</p>
+<p>4.4.2.1</p>
+<p>input.pgen</p>
+<p>14</p>
+<p>4.4.3</p>
+<p>Command line</p>
+<p>14</p>
+<p>4.4.4</p>
+<p>Console Output</p>
+<p>15</p>
+<p>4.4.5</p>
+<p>File Output</p>
+<p>15</p>
+<p>4.5</p>
+<p>More Functions</p>
+<p>15</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 2 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>4.5.1</p>
+<p>ARXML Files</p>
+<p>15</p>
+<p>4.5.1.1</p>
+<p>input.arxml</p>
+<p>15</p>
+<p>4.5.2</p>
+<p>pgen Files</p>
+<p>17</p>
+<p>4.5.2.1</p>
+<p>input.pgen</p>
+<p>17</p>
+<p>4.5.3</p>
+<p>Command line</p>
+<p>17</p>
+<p>4.5.4</p>
+<p>Console Output</p>
+<p>17</p>
+<p>4.5.5</p>
+<p>File Output</p>
+<p>17</p>
+<p>4.6</p>
+<p>ARXML Stuff</p>
+<p>17</p>
+<p>4.6.1</p>
+<p>ARXML Files</p>
+<p>18</p>
+<p>4.6.1.1</p>
+<p>input.arxml</p>
+<p>18</p>
+<p>4.6.2</p>
+<p>pgen Files</p>
+<p>19</p>
+<p>4.6.2.1</p>
+<p>input.pgen</p>
+<p>19</p>
+<p>4.6.3</p>
+<p>Command line</p>
+<p>19</p>
+<p>4.6.4</p>
+<p>Console Output</p>
+<p>19</p>
+<p>4.6.5</p>
+<p>File Output</p>
+<p>20</p>
+<p>4.7</p>
+<p>Filtering Elements</p>
+<p>20</p>
+<p>4.7.1</p>
+<p>ARXML Files</p>
+<p>20</p>
+<p>4.7.1.1</p>
+<p>input.arxml</p>
+<p>20</p>
+<p>4.7.2</p>
+<p>pgen Files</p>
+<p>21</p>
+<p>4.7.2.1</p>
+<p>input.pgen</p>
+<p>21</p>
+<p>4.7.3</p>
+<p>Command line</p>
+<p>21</p>
+<p>4.7.4</p>
+<p>Console Output</p>
+<p>21</p>
+<p>4.7.5</p>
+<p>File Output</p>
+<p>22</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 3 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p><b>Purpose</b></p>
+<p>This user guide describes the functionality and usage of the Python AUTOSAR Generator (PAGe).</p>
+<p>PAGe is a generator for text templates which has some knowledge of the AUTOSAR Meta Model</p>
+<p>regarding parameter configuration. It allows easy access of modules, containers and values as well as</p>
+<p>providing loops and verify a paramconf against a paramdef. These options are also available for postbuild.</p>
+<p>PAGe is based on Python 3. It uses only modules of the standard library.</p>
+<p>PAGe is designed for the usage with the BMW AUTOSAR Core modules.</p>
+<p>Input files must have the ending</p>
+<p>.pgen</p>
+<p>which is removed from the output filename.</p>
+<p><b>Usage</b></p>
+<p><b>Generation</b></p>
+<p>To generate a pgen file.</p>
+<p>python3 -m page example.pgen</p>
+<p>If arxmls should be used pass them to the commandline as well.</p>
+<p>python3 -m page -o /tmp example.pgen input.arxml</p>
+<p>Also multiple pgen files and arxml files work.</p>
+<p>python3 -m page -o /tmp example1.pgen example2.pgen input.arxml input_new.arxml</p>
+<p><b>Validation</b></p>
+<p>In case you want to check a paramconf against its corresponding paramdef you can use the following</p>
+<p>commandline</p>
+<p>python3 -m page paramconf.arxml paramdef.arxml</p>
+<p>The validation will be performed for all the variants if an ecuc configuration is provided, too.</p>
+<p>python3 -m page paramconf.arxml paramdef.arxml ecuc.arxml</p>
+<p><b>verb</b></p>
+<p>To enable a more verbose output add</p>
+<p>-v</p>
+<p>to</p>
+<p>-vvvv</p>
+<p>to the command line.</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 4 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>API</p>
+<p>Application Programming Interface</p>
+<p>Application</p>
+<p>Application stands for</p>
+<p>the high-level</p>
+<p>part</p>
+<p>of</p>
+<p>software that</p>
+<p>uses the APIs</p>
+<p>provided by the modules.</p>
+<p>It can also mean the driving application that does</p>
+<p>not belong to the Bootloader.</p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>OS</p>
+<p>Operating System</p>
+<p>PAGe</p>
+<p>Python AUTOSAR Generator</p>
+<p>pgen</p>
+<p>Page generation file</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 5 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Functionality</b></p>
+<p>PAGe builds a model of the provided ARXML paramconf and paramdefs. Within the pgen files you have</p>
+<p>access to this model and can navigate and retrieve values easily. Besides the access to the data you have</p>
+<p>the full power of python.</p>
+<p><b>Command Line Usage</b></p>
+<p>Either you install page or you add the main directory to the source path. Installation can be achieved by</p>
+<p>python3 setup.py install</p>
+<p>after that the</p>
+<p>page</p>
+<p>command will be available. So you can call PAGe using:</p>
+<p>page input.pgen test.arxml -vvvv</p>
+<p>But you may want to do install page only in a virtualenv so it does not harm any other installation.</p>
+<p><b>-o</b> Specify the output directory, default is the current directory.</p>
+<p><b>--stdout</b> do not write files, print output to stdout instead.</p>
+<p><b>-vvv</b> change level of verbosity.</p>
+<p><b>-l</b></p>
+<p>Location to write the logfile to. Default is stdout.</p>
+<p><b>-m</b> Specify delimiter to be used in pgen files. This allows you to specify other delimiters than the default</p>
+<p>e.g. you have files, where the defaults have a special meaning and you don't like to escape the every</p>
+<p>time used.</p>
+<p><b>-d</b> Enable debug mode (trap functions become active)</p>
+<p><b>-V</b> Verifies given paramconf against the paramdefs which ara supplied.</p>
+<p><b>-i</b></p>
+<p>Add paths for the search of includes.</p>
+<p><b>-D</b> Pass variables to the pgen files (</p>
+<p>params</p>
+<p>dictionary)</p>
+<p><b>-O</b> Change the optimisedb. This database stores the hash and the filename, so file with no change will</p>
+<p>not be overwritten.</p>
+<p><b>-f</b></p>
+<p>Forces write of files, even if no output change has been detected.</p>
+<p><b>Fileformat</b></p>
+<p>The pgen files shall be utf-8 encoded files. The files shall use unix file endings, windows file endings</p>
+<p>\r\n</p>
+<p>are transformed to</p>
+<p>\n</p>
+<p>.</p>
+<p>A file consists of text and several blocks that are interpreted by PAGe. These blocks are enclosed by a</p>
+<p>special sequence of characters.</p>
+<p>%{</p>
+<p>marks the beginning of a block and</p>
+<p>}%</p>
+<p>marks the end. The first</p>
+<p>character occuring directly after the opening tag has a special meaning an defines the type of the block.</p>
+<p>The following distinct blocks are supported:</p>
+<p><b>=</b> The result of the statement within the tags are printed as output. A single statement shall be used but</p>
+<p>can contain newline and indentiation. The result of the statement will appear in the output file.</p>
+<p><b>#</b> This marker indicates a section of code. The code can consist of any valid piece of python code and is</p>
+<p>also able to use the access functions for the data of the ARXMLs. It can be indentiated and consist</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 6 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>of multiple lines. For indentiation the first line is taken for reference, the rest of the indentiation has</p>
+<p>to follow Pythons rules.</p>
+<p><b>:</b></p>
+<p>For conditions the colon is used as a marker. It occurs at least two times, one for the condition and one</p>
+<p>time (without extra text) for the closure. This is needed for the correct handling. You still have to use</p>
+<p>if</p>
+<p>,</p>
+<p>elif</p>
+<p>and</p>
+<p>else</p>
+<p>keywords.</p>
+<p><b>?</b> For quick conditionals you can use a question mark. It works also directly as output. The condition</p>
+<p>followed by a colon which seperates it from the part which is written in case of success. And an</p>
+<p>optional second colon to seperate the ouput in the case the condition is not fullfilled.</p>
+<p><b>@</b> This one loops over a statement. You can loop over a number of container instances, or any other</p>
+<p>python iterateable. To iterate over a python iterateable use the syntax</p>
+<p>myitem in mycontainer</p>
+<p>which</p>
+<p>makes the current item available as</p>
+<p>myitem</p>
+<p>. For loop over arxml elements, please have a look at<b> ??</b></p>
+<p><b>+</b> Use the plus sign for including other pgen or python files. These files are included and interpreted at</p>
+<p>the current point within the file which they are included. A file can be included several times. Pure</p>
+<p>python files can be included, too. By default the current path of the currently leaded source files (or</p>
+<p>included files) is used as search directory. You can add directories using the command line switch</p>
+<p>-i</p>
+<p>This mark is for special handling of post build variation. It loops over the configured pre defined variants</p>
+<p>that are configured for the ecu. Within the context of this mark, you have two special variables</p>
+<p>available:</p>
+<p>predefined_variant_name</p>
+<p>which is the name of the current variant or</p>
+<p>None</p>
+<p>if no</p>
+<p>variantation is configured. And</p>
+<p>predefined_variant_postfix</p>
+<p>which contains an underscore</p>
+<p>followed by the variant name or an empty string else. This can be used to build the name of the</p>
+<p>configuration according to ECUConfiguration.</p>
+<p><b>Available Function and Objects</b></p>
+<p>The following functions are provided as part of PAGe:</p>
+<p><b>comment</b> Format a given string as a comment in the current context. If no delimiter are given, the</p>
+<p>functions calls the automatic delimiter resolution. The string is splitted into single lines and enclosed</p>
+<p>in the delimiter</p>
+<p><b>set_comment_delimiter</b> Set the comment markers</p>
+<p><b>count</b> Count elements found by shortname/search expression.</p>
+<p><b>current_file</b> Get the current filename of the file processed (pgen file).</p>
+<p><b>current_shortname</b> Get the AUTOSAR shortname of the current scope.</p>
+<p><b>current_shortname_path</b> Get the AUTOSAR shortname path.</p>
+<p><b>each</b> Get unique shortname paths of the elements that match the given search expression.</p>
+<p><b>exists</b> Checks existence of elements specified by search expression or shortname in current context.</p>
+<p><b>generation_file_fullpath</b> Full path of the source file.</p>
+<p><b>generation_file_modification</b> Date of modification of the source file.</p>
+<p><b>generation_info</b> Info about the generation as dict.</p>
+<p><b>generation_timestamp</b> Timestamp of generation.</p>
+<p><b>generation_tool</b></p>
+<p>name of the generation tool.</p>
+<p><b>generation_version_info</b> Version of Generator.</p>
+<p><b>get_elements</b> Get list of elements matching search expression.</p>
+<p><b>get_xpaths</b> Deprecated for get_elements.</p>
+<p><b>into</b> Change context to given target, resets if target is None. The scope is held in a stack</p>
+<p><b>join</b> Join a set of values referenced by the search expression.</p>
+<p><b>leave</b> Leave the current scope.</p>
+<p><b>reset</b> Resets the context to the root node.</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 7 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>set_debug</b> Enable pdb debugging.</p>
+<p><b>shortname</b> Get the shortname at the given shortname path expression,</p>
+<p><b>trap</b> Traps if debugging is enabled.</p>
+<p><b>value</b> Fetching the value or value-ref of a search expression. Values are automatically casted to the</p>
+<p>correct type.</p>
+<p><b>write</b> Write arguments to the output.</p>
+<p><b>container</b> Selects containers that refere to a given definition ref.</p>
+<p><b>module</b> Selects modules that refere to a given definition ref.</p>
+<p><b>ref</b></p>
+<p>Get the elements in the model, which refere to the given shortnamepath as definition ref.</p>
+<p><b>snpath</b> Get the element at the given shortname path.</p>
+<p>Additionally to the functions and objects there is a dictionary called</p>
+<p>params</p>
+<p>which contains parameters</p>
+<p>passed to page by the command line (</p>
+<p>-D test=hello</p>
+<p>).</p>
+<p><b>Handling of paramconf</b></p>
+<p>In general when using the data of a paramconf you should never enter a specific path you expect to be in</p>
+<p>the configuration. You should only use paths you define in the parameter definition or that are contained</p>
+<p>in the configuration as value (value refs).</p>
+<p><b>Notes ARXML shortcuts</b></p>
+<p>The shortnamepaths</p>
+<p>snpath</p>
+<p>are looked up in the following order:</p>
+<p><b>.</b></p>
+<p>return element</p>
+<p><b>..</b></p>
+<p>return parent</p>
+<p><b>contains *</b> Search children</p>
+<p><b>startwith /</b></p>
+<p>lookup full path from root node</p>
+<p><b>else</b> lookup relative path</p>
+<p>This means, whenever you want to get a grandchild of the current scope you need to prepend a star to</p>
+<p>the node you are looking for or use the search.</p>
+<p><b>Loops</b></p>
+<p>In case you loop over VALUE or VALUE-REF elements, you can access its value using</p>
+<p>value()</p>
+<p>without a</p>
+<p>target specified.</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 8 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Examples</b></p>
+<p><b>Basic Navigation</b></p>
+<p>This example will demonstrate basic navigation through an ARXML document.</p>
+<p>The example contains a module named</p>
+<p>MyModule</p>
+<p>which is of type</p>
+<p>TestModule</p>
+<p>and located in the</p>
+<p>package</p>
+<p>/TestPackage/TestModule</p>
+<p>It will demonstrate the following commands:</p>
+<p>into</p>
+<p>reset</p>
+<p>ref</p>
+<p>module</p>
+<p>current_shortname_path</p>
+<p>with</p>
+<p><b>ARXML Files</b></p>
+<p><b>input.arxml</b></p>
+<p><b>&lt;?xml version=</b>’1.0’<b>?&gt;</b></p>
+<p><b>&lt;AUTOSAR xmlns=</b>&quot;http://autosar.org/schema/r4.0&quot;</p>
+<p><b>xmlns:xsi=</b>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</p>
+<p><b>xsi:schemaLocation=</b>&quot;http://autosar.org/schema/r4.0 autosar.xsd&quot;<b>&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;ELEMENTS&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 9 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-FLOAT-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b></p>
+<p><b>REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-STRING-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>Hello World the value is:<b> &lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;/ELEMENTS&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AUTOSAR&gt;</b></p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>%{# i n t o ( r e f (</p>
+<p>' TestModule ' ) )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>T h i s</p>
+<p>w i l l</p>
+<p>change</p>
+<p>i n t o</p>
+<p>t h e</p>
+<p><i>∗</i>FIRST<i>∗</i></p>
+<p>element</p>
+<p>found</p>
+<p>%{# i n t o ( r e f (</p>
+<p>'</p>
+<p>V a l u e I n t</p>
+<p>' ) )</p>
+<p>}%</p>
+<p>The shortname</p>
+<p>w i l l</p>
+<p>be</p>
+<p>t a k e n</p>
+<p>from t h e</p>
+<p>p a r e n t</p>
+<p>element ,</p>
+<p>as</p>
+<p>t h i s</p>
+<p>element</p>
+<p>i s</p>
+<p>n o t</p>
+<p>an</p>
+<p>i d e n t i f y a b l e .</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>%{= v a l u e ( )</p>
+<p>}%</p>
+<p>%{# l e a v e ( )</p>
+<p>}%</p>
+<p>I f</p>
+<p>you</p>
+<p>e x p e c t</p>
+<p>more</p>
+<p>t h a n</p>
+<p>one use a</p>
+<p>l o o p</p>
+<p>For</p>
+<p>t h e</p>
+<p>l o o p</p>
+<p>t h e</p>
+<p>c o n t e x t</p>
+<p>i s</p>
+<p>a u t o m a t i c a l l y</p>
+<p>changed</p>
+<p>%{@ r e f (</p>
+<p>'</p>
+<p>V a l u e I n t</p>
+<p>' )</p>
+<p>}%</p>
+<p>%{= v a l u e ( )</p>
+<p>}%</p>
+<p>%{@}%</p>
+<p>%{# i n t o ( r e f (</p>
+<p>' V a l u e F l o a t</p>
+<p>' ) )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>%{= v a l u e ( )</p>
+<p>}%</p>
+<p>%{# r e s e t ( )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 10 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>%{# i n t o ( r e f (</p>
+<p>' TestModule ' ) )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>%{# i n t o ( )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>For</p>
+<p>a</p>
+<p>s h o r t</p>
+<p>i n t e r a c t i o n</p>
+<p>w i t h</p>
+<p>a</p>
+<p>c e r t a i n</p>
+<p>element</p>
+<p>w i t h i n</p>
+<p>a</p>
+<p>code</p>
+<p>b l o c k ,</p>
+<p>you can</p>
+<p>a l s o</p>
+<p>use</p>
+<p>t h e</p>
+<p>w i t h</p>
+<p>s t a t e m e n t</p>
+<p>o f</p>
+<p>python</p>
+<p>%{#</p>
+<p>w i t h</p>
+<p>module (</p>
+<p>' TestModule ' ) :</p>
+<p>i n p u t</p>
+<p>= v a l u e ( r e f (</p>
+<p>' V a l u e F l o a t</p>
+<p>' ) )</p>
+<p>i n p u t</p>
+<p>= i n p u t</p>
+<p><i>∗</i></p>
+<p>2</p>
+<p>w i t h</p>
+<p>module (</p>
+<p>' AnotherTestModule ' ) :</p>
+<p>s t r i n g</p>
+<p>= v a l u e ( r e f (</p>
+<p>'</p>
+<p>V a l u e S t r i n g ' ) )</p>
+<p>}%</p>
+<p>%{=</p>
+<p>' { }</p>
+<p>{ } ' . f o r m a t ( s t r i n g ,</p>
+<p>i n p u t )</p>
+<p>}%</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML :</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML took :</p>
+<p>0.000859 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading</p>
+<p>a l l</p>
+<p>XMLs</p>
+<p>t o o k :</p>
+<p>0.00104 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 1 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00317 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 1 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>/ TestPackage / TestModule / MyModule</p>
+<p>T h i s</p>
+<p>w i l l</p>
+<p>change</p>
+<p>i n t o</p>
+<p>t h e</p>
+<p><i>∗</i>FIRST<i>∗</i></p>
+<p>element</p>
+<p>found</p>
+<p>The shortname</p>
+<p>w i l l</p>
+<p>be</p>
+<p>t a k e n</p>
+<p>from t h e</p>
+<p>p a r e n t</p>
+<p>element ,</p>
+<p>as</p>
+<p>t h i s</p>
+<p>element</p>
+<p>i s</p>
+<p>n o t</p>
+<p>an</p>
+<p>i d e n t i f y a b l e .</p>
+<p>/ TestPackage / TestModule / MyModule / N u m e r i c a l V a l u e s</p>
+<p>5</p>
+<p>I f</p>
+<p>you</p>
+<p>e x p e c t</p>
+<p>more</p>
+<p>t h a n</p>
+<p>one use a</p>
+<p>l o o p</p>
+<p>For</p>
+<p>t h e</p>
+<p>l o o p</p>
+<p>t h e</p>
+<p>c o n t e x t</p>
+<p>i s</p>
+<p>a u t o m a t i c a l l y</p>
+<p>changed</p>
+<p>5</p>
+<p>8</p>
+<p>/ TestPackage / TestModule / MyModule / N u m e r i c a l V a l u e s</p>
+<p>3.1415</p>
+<p>ROOT</p>
+<p>/ TestPackage / TestModule / MyModule</p>
+<p>ROOT</p>
+<p>For</p>
+<p>a</p>
+<p>s h o r t</p>
+<p>i n t e r a c t i o n</p>
+<p>w i t h</p>
+<p>a</p>
+<p>c e r t a i n</p>
+<p>element</p>
+<p>w i t h i n</p>
+<p>a</p>
+<p>code</p>
+<p>b l o c k ,</p>
+<p>you can</p>
+<p>a l s o</p>
+<p>use</p>
+<p>t h e</p>
+<p>w i t h</p>
+<p>s t a t e m e n t</p>
+<p>o f</p>
+<p>python</p>
+<p>H e l l o</p>
+<p>World</p>
+<p>t h e</p>
+<p>v a l u e</p>
+<p>i s :</p>
+<p>6.283</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 11 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Logging</b></p>
+<p>This example will demonstrate the logging functionality.</p>
+<p>There are several log levels that depend on the</p>
+<p>-v</p>
+<p>s provided on the command line.</p>
+<p>It will demonstrate the following commands:</p>
+<p>logger.debug</p>
+<p>logger.info</p>
+<p>logger.warning</p>
+<p>logger.error</p>
+<p>logger.fatal</p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>Logging</p>
+<p>o f</p>
+<p>some</p>
+<p>i n f o r m a t i o n</p>
+<p>%{# l o g g e r . debug (</p>
+<p>' T h i s</p>
+<p>i s</p>
+<p>a</p>
+<p>message</p>
+<p>f o r</p>
+<p>debugging so you</p>
+<p>have</p>
+<p>t o</p>
+<p>s p e c i f y</p>
+<p>a</p>
+<p>few v</p>
+<p>on</p>
+<p>t h e command l i n e ' )</p>
+<p>}%</p>
+<p>%{# l o g g e r .</p>
+<p>i n f o (</p>
+<p>' T h i s</p>
+<p>t e x t</p>
+<p>w i l l</p>
+<p>appear</p>
+<p>i n</p>
+<p>t h e</p>
+<p>INFO l o g ' )</p>
+<p>}%</p>
+<p>%{# l o g g e r . w a r n i n g (</p>
+<p>' You '</p>
+<p>' ve been warned ' ) } %</p>
+<p>%{# l o g g e r .</p>
+<p>e r r o r (</p>
+<p>' T h i s</p>
+<p>w i l l</p>
+<p>n o t</p>
+<p>work ,</p>
+<p>ok</p>
+<p>I</p>
+<p>\</p>
+<p>'</p>
+<p>l l</p>
+<p>l e t</p>
+<p>you</p>
+<p>c o n t i n u e ' ) } %</p>
+<p>%{# l o g g e r .</p>
+<p>f a t a l</p>
+<p>(</p>
+<p>' Oh noooo ! ' ) } %</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 2 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>DEBUG</p>
+<p>T h i s</p>
+<p>i s</p>
+<p>a</p>
+<p>message</p>
+<p>f o r</p>
+<p>debugging so you</p>
+<p>have</p>
+<p>t o</p>
+<p>s p e c i f y</p>
+<p>a</p>
+<p>few v</p>
+<p>on</p>
+<p>the command</p>
+<p>l i n e</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>T h i s</p>
+<p>t e x t</p>
+<p>w i l l</p>
+<p>appear</p>
+<p>i n</p>
+<p>t h e</p>
+<p>INFO l o g</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>WARNING</p>
+<p>Youve been warned</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>ERROR</p>
+<p>T h i s</p>
+<p>w i l l</p>
+<p>n o t</p>
+<p>work ,</p>
+<p>ok</p>
+<p>I</p>
+<p>'</p>
+<p>l l</p>
+<p>l e t</p>
+<p>you</p>
+<p>c o n t i n u e</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>CRITICAL Oh noooo !</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00185 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 2 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>Logging</p>
+<p>o f</p>
+<p>some</p>
+<p>i n f o r m a t i o n</p>
+<p><b>Usage of Code Blocks</b></p>
+<p>This example will show a few details about the code block</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 12 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>The code block is one of PAGes super power. It allows to use any python code from within it. You can still</p>
+<p>use PAGes functions but also any other python statement you could think of.</p>
+<p>It will demonstrate the following commands:</p>
+<p>write</p>
+<p>CodeBlock</p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>Usage</p>
+<p>o f</p>
+<p>Code Blocks</p>
+<p>Besides</p>
+<p>t h e</p>
+<p>o u t p u t</p>
+<p>b l o c k s</p>
+<p>you can use code</p>
+<p>b l o c k s :</p>
+<p>%{#</p>
+<p># The</p>
+<p>f i r s t</p>
+<p>l i n e</p>
+<p>d e f i n e s</p>
+<p>t h e</p>
+<p>b a s i c</p>
+<p>i n d e n t i a t i o n .</p>
+<p># a l l</p>
+<p>l i n e s</p>
+<p>a r e</p>
+<p>i n t e r p r e t e d</p>
+<p>as</p>
+<p>pure</p>
+<p>python .</p>
+<p>d e f</p>
+<p>MyFunction ( a ,</p>
+<p>b ) :</p>
+<p>r e t u r n</p>
+<p>( a+b )<i> ∗</i> b</p>
+<p>}%</p>
+<p>A l l</p>
+<p>v a r i a b l e s ,</p>
+<p>f u n c t i o n s ,</p>
+<p>e c t .</p>
+<p>w i l l</p>
+<p>remain</p>
+<p>u n t i l</p>
+<p>t h e</p>
+<p>end</p>
+<p>o f</p>
+<p>t h e</p>
+<p>pgen</p>
+<p>f i l e .</p>
+<p>You can now see</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>o f</p>
+<p>t h e</p>
+<p>p r e v i o u s</p>
+<p>f u n c t i o n :</p>
+<p>%{= MyFunction ( 3 ,</p>
+<p>5 )</p>
+<p>}%</p>
+<p>I f</p>
+<p>you want</p>
+<p>t o</p>
+<p>w r i t e</p>
+<p>t o</p>
+<p>t h e</p>
+<p>o u t p u t</p>
+<p>from w i t h i n</p>
+<p>a</p>
+<p>code</p>
+<p>b l o c k ,</p>
+<p>you</p>
+<p>s h o u l d</p>
+<p>use</p>
+<p>t h e</p>
+<p><i>∗</i> w r i t e<i> ∗</i> command</p>
+<p>%{#</p>
+<p>f o r</p>
+<p>x</p>
+<p>i n</p>
+<p>range ( 1 ,</p>
+<p>1 5 ) :</p>
+<p>i f</p>
+<p>' 3 '</p>
+<p>i n</p>
+<p>s t r ( x )</p>
+<p>o r</p>
+<p>x % 3 == 0 :</p>
+<p>w r i t e (</p>
+<p>' buzz \ n ' )</p>
+<p>e l s e :</p>
+<p>w r i t e (</p>
+<p>' { } \ n ' .</p>
+<p>f o r m a t ( x ) )</p>
+<p>}%</p>
+<p>NB :</p>
+<p>w r i t e</p>
+<p>does</p>
+<p>n o t</p>
+<p>a u t o m a t i c a l l y</p>
+<p>add a</p>
+<p>n e w l i n e .</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 3 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00171 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 3 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 13 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Usage</p>
+<p>o f</p>
+<p>Code Blocks</p>
+<p>Besides</p>
+<p>t h e</p>
+<p>o u t p u t</p>
+<p>b l o c k s</p>
+<p>you can use code</p>
+<p>b l o c k s :</p>
+<p>A l l</p>
+<p>v a r i a b l e s ,</p>
+<p>f u n c t i o n s ,</p>
+<p>e c t .</p>
+<p>w i l l</p>
+<p>remain</p>
+<p>u n t i l</p>
+<p>t h e</p>
+<p>end</p>
+<p>o f</p>
+<p>t h e</p>
+<p>pgen</p>
+<p>f i l e .</p>
+<p>You can now see</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>o f</p>
+<p>t h e</p>
+<p>p r e v i o u s</p>
+<p>f u n c t i o n :</p>
+<p>40</p>
+<p>I f</p>
+<p>you want</p>
+<p>t o</p>
+<p>w r i t e</p>
+<p>t o</p>
+<p>t h e</p>
+<p>o u t p u t</p>
+<p>from w i t h i n</p>
+<p>a</p>
+<p>code</p>
+<p>b l o c k ,</p>
+<p>you</p>
+<p>s h o u l d</p>
+<p>use</p>
+<p>t h e</p>
+<p><i>∗</i> w r i t e<i> ∗</i> command</p>
+<p>1</p>
+<p>2</p>
+<p>buzz</p>
+<p>4</p>
+<p>5</p>
+<p>buzz</p>
+<p>7</p>
+<p>8</p>
+<p>buzz</p>
+<p>10</p>
+<p>11</p>
+<p>buzz</p>
+<p>buzz</p>
+<p>14</p>
+<p>NB :</p>
+<p>w r i t e</p>
+<p>does</p>
+<p>n o t</p>
+<p>a u t o m a t i c a l l y</p>
+<p>add a</p>
+<p>n e w l i n e .</p>
+<p><b>Conditionals</b></p>
+<p>This example will show the usage of conditional parts within a pgen file</p>
+<p>The example contains a module named</p>
+<p>MyModule</p>
+<p>which is of type</p>
+<p>TestModule</p>
+<p>and located in the</p>
+<p>package</p>
+<p>/TestPackage/TestModule</p>
+<p>It will demonstrate the following commands:</p>
+<p>if</p>
+<p>elif</p>
+<p>else</p>
+<p>ShortIfBlock</p>
+<p>ConditionalBlock</p>
+<p>value</p>
+<p><b>ARXML Files</b></p>
+<p><b>input.arxml</b></p>
+<p><b>&lt;?xml version=</b>’1.0’<b>?&gt;</b></p>
+<p><b>&lt;AUTOSAR xmlns=</b>&quot;http://autosar.org/schema/r4.0&quot;</p>
+<p><b>xmlns:xsi=</b>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 14 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>xsi:schemaLocation=</b>&quot;http://autosar.org/schema/r4.0 autosar.xsd&quot;<b>&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;ELEMENTS&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;/ELEMENTS&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AUTOSAR&gt;</b></p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>C o n d i t i o n a l s</p>
+<p>can be done</p>
+<p>as</p>
+<p>seen</p>
+<p>h e r e :</p>
+<p>%{:</p>
+<p>i f</p>
+<p>v a l u e ( r e f (</p>
+<p>'</p>
+<p>V a l u e I n t</p>
+<p>' ) )</p>
+<p>&lt; 6 }%</p>
+<p>Test</p>
+<p>%{:</p>
+<p>e l i f</p>
+<p>e x i s t s ( r e f (</p>
+<p>' V a l u e F l o a t</p>
+<p>' ) )</p>
+<p>}%</p>
+<p>T h i s</p>
+<p>w i l l</p>
+<p>n o t</p>
+<p>occur</p>
+<p>i n</p>
+<p>t h e</p>
+<p>o u t p u t</p>
+<p>%{:</p>
+<p>e l s e }%</p>
+<p>T h i s</p>
+<p>won '</p>
+<p>t</p>
+<p>appear</p>
+<p>%{:}%</p>
+<p>Want</p>
+<p>some</p>
+<p>s h o r t e r</p>
+<p>i f ?</p>
+<p>These</p>
+<p>w r i t e</p>
+<p>t h e</p>
+<p>t e x t</p>
+<p>p r o v i d e d</p>
+<p>dependent</p>
+<p>on</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>o f</p>
+<p>t h e</p>
+<p>s t a t e m e n t</p>
+<p>e v a l u a t i o n</p>
+<p># Both</p>
+<p>o p t i o n s</p>
+<p>p r o v i d e d</p>
+<p>True :</p>
+<p>%{? True</p>
+<p>: For</p>
+<p>s u r e ! : Nooooo!}%</p>
+<p>F a l s e :</p>
+<p>%{?</p>
+<p>F a l s e : For</p>
+<p>s u r e ! : Nooooo!}%</p>
+<p># No</p>
+<p>i s</p>
+<p>n o t</p>
+<p>an</p>
+<p>o p t i o n</p>
+<p>True :</p>
+<p>%{? True</p>
+<p>: For</p>
+<p>sur e !}%</p>
+<p>F a l s e :</p>
+<p>%{?</p>
+<p>F a l s e : For</p>
+<p>sure !}%</p>
+<p># Only</p>
+<p>o u t p u t</p>
+<p>something</p>
+<p>i f</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>i s</p>
+<p>f a l s e</p>
+<p>True :</p>
+<p>%{? True</p>
+<p>: : NO! ! ! ! } %</p>
+<p>F a l s e :</p>
+<p>%{?</p>
+<p>F a l s e : : NO! ! ! ! } %</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>i n p u t . pgen</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 15 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML :</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML took :</p>
+<p>0.000677 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading</p>
+<p>a l l</p>
+<p>XMLs</p>
+<p>t o o k :</p>
+<p>0.000871 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 4 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00211 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 4 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>C o n d i t i o n a l s</p>
+<p>can be done</p>
+<p>as</p>
+<p>seen</p>
+<p>h e r e :</p>
+<p>Test</p>
+<p>Want</p>
+<p>some</p>
+<p>s h o r t e r</p>
+<p>i f ?</p>
+<p>These</p>
+<p>w r i t e</p>
+<p>t h e</p>
+<p>t e x t</p>
+<p>p r o v i d e d</p>
+<p>dependent</p>
+<p>on</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>o f</p>
+<p>t h e</p>
+<p>s t a t e m e n t</p>
+<p>e v a l u a t i o n</p>
+<p># Both</p>
+<p>o p t i o n s</p>
+<p>p r o v i d e d</p>
+<p>True :</p>
+<p>For</p>
+<p>s u r e !</p>
+<p>F a l s e :</p>
+<p>Nooooo !</p>
+<p># No</p>
+<p>i s</p>
+<p>n o t</p>
+<p>an</p>
+<p>o p t i o n</p>
+<p>True :</p>
+<p>For</p>
+<p>s u r e !</p>
+<p>F a l s e :</p>
+<p># Only</p>
+<p>o u t p u t</p>
+<p>something</p>
+<p>i f</p>
+<p>t h e</p>
+<p>r e s u l t</p>
+<p>i s</p>
+<p>f a l s e</p>
+<p>True :</p>
+<p>F a l s e :</p>
+<p>NO ! ! ! !</p>
+<p><b>More Functions</b></p>
+<p>This example will contain usages of different functions.</p>
+<p>The example contains a module named</p>
+<p>MyModule</p>
+<p>which is of type</p>
+<p>TestModule</p>
+<p>and located in the</p>
+<p>package</p>
+<p>/TestPackage/TestModule</p>
+<p>It will demonstrate the following commands:</p>
+<p>count</p>
+<p>current_shortname</p>
+<p>exists</p>
+<p>with</p>
+<p><b>ARXML Files</b></p>
+<p><b>input.arxml</b></p>
+<p><b>&lt;?xml version=</b>’1.0’<b>?&gt;</b></p>
+<p><b>&lt;AUTOSAR xmlns=</b>&quot;http://autosar.org/schema/r4.0&quot;</p>
+<p><b>xmlns:xsi=</b>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</p>
+<p><b>xsi:schemaLocation=</b>&quot;http://autosar.org/schema/r4.0 autosar.xsd&quot;<b>&gt;</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 16 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;ELEMENTS&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-FLOAT-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b></p>
+<p><b>REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-STRING-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>Hello World the value is:<b> &lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;/ELEMENTS&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AUTOSAR&gt;</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 17 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>%{# i n t o ( r e f (</p>
+<p>' TestModule ' ) )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>We can</p>
+<p>a l s o</p>
+<p>check</p>
+<p>t h e</p>
+<p>number</p>
+<p>o f</p>
+<p>elements :</p>
+<p>There</p>
+<p>a r e %{= count ( r e f (</p>
+<p>'</p>
+<p>V a l u e I n t</p>
+<p>' ) )</p>
+<p>}% V a l u e I n t</p>
+<p>elements .</p>
+<p>There</p>
+<p>e x i s t s</p>
+<p>a t</p>
+<p>l e a s t</p>
+<p>one</p>
+<p>V a l u e F l o a t :</p>
+<p>%{= e x i s t s ( r e f (</p>
+<p>' V a l u e F l o a t</p>
+<p>' ) )</p>
+<p>}%.</p>
+<p>You can use</p>
+<p>t h e</p>
+<p>p r e v i o u s</p>
+<p>o p t i o n s</p>
+<p>a l s o</p>
+<p>as</p>
+<p>an</p>
+<p>asignment</p>
+<p>s t a t e m e n t :</p>
+<p>%{# p r e v i o u s _ s n</p>
+<p>= c u r r e n t _ s h o r t n a m e ( )</p>
+<p>}%</p>
+<p>%{# l e a v e ()}%</p>
+<p>and use</p>
+<p>i t</p>
+<p>l a t e r</p>
+<p>%{= p r e v i o u s _ s n }%</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML :</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML took :</p>
+<p>0.0012 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading</p>
+<p>a l l</p>
+<p>XMLs</p>
+<p>t o o k :</p>
+<p>0.00162 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 5 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00212 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 5 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>/ TestPackage / TestModule / MyModule</p>
+<p>We can</p>
+<p>a l s o</p>
+<p>check</p>
+<p>t h e</p>
+<p>number</p>
+<p>o f</p>
+<p>elements :</p>
+<p>There</p>
+<p>a r e</p>
+<p>2 V a l u e I n t</p>
+<p>elements .</p>
+<p>There</p>
+<p>e x i s t s</p>
+<p>a t</p>
+<p>l e a s t</p>
+<p>one</p>
+<p>V a l u e F l o a t :</p>
+<p>1 .</p>
+<p>You can use</p>
+<p>t h e</p>
+<p>p r e v i o u s</p>
+<p>o p t i o n s</p>
+<p>a l s o</p>
+<p>as</p>
+<p>an</p>
+<p>asignment</p>
+<p>s t a t e m e n t :</p>
+<p>and use</p>
+<p>i t</p>
+<p>l a t e r</p>
+<p>MyModule</p>
+<p><b>ARXML Stuff</b></p>
+<p>This example will demonstrate some more ARXML selection stuff which can be usefull.</p>
+<p>It will demonstrate the following commands:</p>
+<p>into</p>
+<p>module</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 18 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>each</p>
+<p>container</p>
+<p>ref</p>
+<p>snpath</p>
+<p><b>ARXML Files</b></p>
+<p><b>input.arxml</b></p>
+<p><b>&lt;?xml version=</b>’1.0’<b>?&gt;</b></p>
+<p><b>&lt;AUTOSAR xmlns=</b>&quot;http://autosar.org/schema/r4.0&quot;</p>
+<p><b>xmlns:xsi=</b>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</p>
+<p><b>xsi:schemaLocation=</b>&quot;http://autosar.org/schema/r4.0 autosar.xsd&quot;<b>&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;ELEMENTS&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-FLOAT-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b></p>
+<p><b>REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 19 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-STRING-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>Hello World the value is:<b> &lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;REFERENCE-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-REFERENCE-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-REFERENCE-DEF&quot;<b>&gt;</b>/BMW_DEF/AnotherTestModule/</p>
+<p>StringValues/ReferenceToNumericals<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE-REF DEST=</b>&quot;ECUC-CONTAINER-VALUE&quot;<b>&gt;</b>/TestPackage/TestModule/</p>
+<p>MyModule/NumericalValues<b>&lt;/VALUE-REF&gt;</b></p>
+<p><b>&lt;/ECUC-REFERENCE-VALUE&gt;</b></p>
+<p><b>&lt;/REFERENCE-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;/ELEMENTS&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AUTOSAR&gt;</b></p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p>Find</p>
+<p>a</p>
+<p>Module and change</p>
+<p>t h e</p>
+<p>c u r r e n t</p>
+<p>scope</p>
+<p>t o</p>
+<p>i t</p>
+<p>%{# i n t o (</p>
+<p>module (</p>
+<p>' TestModule ' ) )</p>
+<p>}%</p>
+<p>The</p>
+<p>n e x t</p>
+<p>element</p>
+<p>t o</p>
+<p>g e t</p>
+<p>t o</p>
+<p>i s</p>
+<p>a</p>
+<p>( sub ) c o n t a i n e r</p>
+<p>%{# i n t o (</p>
+<p>c o n t a i n e r (</p>
+<p>' N u m e r i c a l V a l u e s ' ) )</p>
+<p>}%</p>
+<p>But</p>
+<p>we need a</p>
+<p>d i f f e r e n t</p>
+<p>c o n t a i n e r</p>
+<p>%{#</p>
+<p>r e s e t ( )</p>
+<p>i n t o ( c o n t a i n e r (</p>
+<p>' AnotherTestModule / S t r i n g V a l u e s ' ) )</p>
+<p>}%</p>
+<p>You can</p>
+<p>s e a r c h</p>
+<p>f o r</p>
+<p>elements</p>
+<p>r e f e r e n c e s ,</p>
+<p>t o o :</p>
+<p>%{= v a l u e (</p>
+<p>r e f (</p>
+<p>' ReferenceToNumericals ' ) )</p>
+<p>}%</p>
+<p>You can use</p>
+<p>these</p>
+<p>t o</p>
+<p>go</p>
+<p>i n t o</p>
+<p>but</p>
+<p>you</p>
+<p>have</p>
+<p>t o</p>
+<p>use</p>
+<p>v a l u e</p>
+<p>t o</p>
+<p>g e t</p>
+<p>t h e</p>
+<p>s t r i n g</p>
+<p>o f</p>
+<p>t h e</p>
+<p>r e f e r e n c e</p>
+<p>%{# i n t o ( v a l u e ( r e f (</p>
+<p>' ReferenceToNumericals ' ) ) )</p>
+<p>}%</p>
+<p>%{= c u r r e n t _ s h o r t n a m e _ p a t h ( )</p>
+<p>}%</p>
+<p>%{# r e s e t ( )</p>
+<p>}%</p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML :</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML took :</p>
+<p>0.00095 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading</p>
+<p>a l l</p>
+<p>XMLs</p>
+<p>t o o k :</p>
+<p>0.00114 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 20 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 6 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00228 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>F i l e</p>
+<p>does</p>
+<p>n o t</p>
+<p>e x i s t</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>W r i t e</p>
+<p>/ 0 0 6 / i n p u t</p>
+<p><b>File Output</b></p>
+<p>Find</p>
+<p>a</p>
+<p>Module and change</p>
+<p>t h e</p>
+<p>c u r r e n t</p>
+<p>scope</p>
+<p>t o</p>
+<p>i t</p>
+<p>The</p>
+<p>n e x t</p>
+<p>element</p>
+<p>t o</p>
+<p>g e t</p>
+<p>t o</p>
+<p>i s</p>
+<p>a</p>
+<p>( sub ) c o n t a i n e r</p>
+<p>But</p>
+<p>we need a</p>
+<p>d i f f e r e n t</p>
+<p>c o n t a i n e r</p>
+<p>You can</p>
+<p>s e a r c h</p>
+<p>f o r</p>
+<p>elements</p>
+<p>r e f e r e n c e s ,</p>
+<p>t o o :</p>
+<p>/ TestPackage / TestModule / MyModule / N u m e r i c a l V a l u e s</p>
+<p>You can use</p>
+<p>these</p>
+<p>t o</p>
+<p>go</p>
+<p>i n t o</p>
+<p>but</p>
+<p>you</p>
+<p>have</p>
+<p>t o</p>
+<p>use</p>
+<p>v a l u e</p>
+<p>t o</p>
+<p>g e t</p>
+<p>t h e</p>
+<p>s t r i n g</p>
+<p>o f</p>
+<p>t h e</p>
+<p>r e f e r e n c e</p>
+<p>/ TestPackage / TestModule / MyModule / N u m e r i c a l V a l u e s</p>
+<p><b>Filtering Elements</b></p>
+<p>This example will demonstrate some techniques that can be used to filter some elements out of a larger</p>
+<p>list.</p>
+<p>It will demonstrate the following commands:</p>
+<p>into</p>
+<p>reset</p>
+<p>ref</p>
+<p>module</p>
+<p>current_shortname_path</p>
+<p>with</p>
+<p><b>ARXML Files</b></p>
+<p><b>input.arxml</b></p>
+<p><b>&lt;?xml version=</b>’1.0’<b>?&gt;</b></p>
+<p><b>&lt;AUTOSAR xmlns=</b>&quot;http://autosar.org/schema/r4.0&quot;</p>
+<p><b>xmlns:xsi=</b>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</p>
+<p><b>xsi:schemaLocation=</b>&quot;http://autosar.org/schema/r4.0 autosar.xsd&quot;<b>&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestPackage<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;AR-PACKAGES&gt;</b></p>
+<p><b>&lt;AR-PACKAGE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>TestModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;ELEMENTS&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>MyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NumericalValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 21 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>5<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-INTEGER-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueInt<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>8<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-FLOAT-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/TestModule/</p>
+<p>NumericalValues/ValueFloat<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>3.1415<b>&lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>NotMyModule<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-MODULE-DEF&quot;<b>&gt;</b>/BMW_DEF/AnotherTestModule<b>&lt;/DEFINITION-</b></p>
+<p><b>REF&gt;</b></p>
+<p><b>&lt;CONTAINERS&gt;</b></p>
+<p><b>&lt;ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;SHORT-NAME&gt;</b>StringValues<b>&lt;/SHORT-NAME&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-PARAM-CONF-CONTAINER-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;DEFINITION-REF DEST=</b>&quot;ECUC-STRING-PARAM-DEF&quot;<b>&gt;</b>/BMW_DEF/</p>
+<p>AnotherTestModule/StringValues/ValueString<b>&lt;/DEFINITION-REF&gt;</b></p>
+<p><b>&lt;VALUE&gt;</b>Hello World the value is:<b> &lt;/VALUE&gt;</b></p>
+<p><b>&lt;/ECUC-NUMERICAL-PARAM-VALUE&gt;</b></p>
+<p><b>&lt;/PARAMETER-VALUES&gt;</b></p>
+<p><b>&lt;/ECUC-CONTAINER-VALUE&gt;</b></p>
+<p><b>&lt;/CONTAINERS&gt;</b></p>
+<p><b>&lt;/ECUC-MODULE-CONFIGURATION-VALUES&gt;</b></p>
+<p><b>&lt;/ELEMENTS&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AR-PACKAGE&gt;</b></p>
+<p><b>&lt;/AR-PACKAGES&gt;</b></p>
+<p><b>&lt;/AUTOSAR&gt;</b></p>
+<p><b>pgen Files</b></p>
+<p><b>input.pgen</b></p>
+<p><b>Command line</b></p>
+<p>page<i> −</i>v v v v</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>i n p u t . pgen</p>
+<p><b>Console Output</b></p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML :</p>
+<p>i n p u t .</p>
+<p>a r x m l</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading XML took :</p>
+<p>0.000903 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Reading</p>
+<p>a l l</p>
+<p>XMLs</p>
+<p>t o o k :</p>
+<p>0.00111 s</p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 22 of 22</p>
+<h1 style="page-break-before:always; "></h1>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>p r o c e s s i n g Pgen :</p>
+<p>i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Open</p>
+<p>f i l e</p>
+<p>/ 0 0 7 / i n p u t . pgen</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>P r o c e s s i n g Pgen</p>
+<p>t o o k :</p>
+<p>0.00141 s</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>Empty</p>
+<p>c o n t e n t</p>
+<p><i>−</i>&gt; no</p>
+<p>f i l e</p>
+<p>w r i t t e n</p>
+<p>BMW PAGe</p>
+<p>:</p>
+<p>INFO</p>
+<p>S k i p p i n g</p>
+<p>w r i t e</p>
+<p>o f</p>
+<p>/ 0 0 7 / i n p u t</p>
+<p>,</p>
+<p>no changes</p>
+<p>d e t e c t e d</p>
+<p><b>File Output</b></p>
+<p>UserGuide_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 23 of 22</p>
+</body>
+</html>
+{% endraw %}

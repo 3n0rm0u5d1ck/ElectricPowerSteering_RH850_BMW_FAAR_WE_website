@@ -1,0 +1,806 @@
+---
+layout: default
+title: ReleaseNotes_Vin
+nav_order: 3
+parent: Vin
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes Vin</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-02-23</p>
+<p>Version</p>
+<p>3.5.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>3.5.0</p>
+<p>2017-02-23</p>
+<p>BAC-5764, BAC-5691</p>
+<p>3.4.2</p>
+<p>2016-10-27</p>
+<p>BAC-5544, BAC-5437</p>
+<p>3.4.1</p>
+<p>2016-08-25</p>
+<p>BAC-5426, BAC-5407, BAC-5399, BAC-5286, BAC-5198</p>
+<p>3.4.0</p>
+<p>2016-03-17</p>
+<p>BAC-5049, BAC-5031, BAC-4928</p>
+<p>3.3.0</p>
+<p>2015-12-11</p>
+<p>BAC-4763, BAC-4756, BAC-4702, BAC-4629, BAC-4562</p>
+<p>3.2.0</p>
+<p>2015-07-10</p>
+<p>BAC-4471, BAC-4409, BAC-4349, BAC-4345, BAC-4335,</p>
+<p>BAC-4266, BAC-4265, BAC-4230, BAC-4163, BAC-4129,</p>
+<p>BAC-3558</p>
+<p>3.1.0</p>
+<p>2015-03-13</p>
+<p>BAC-4108, BAC-3980, BAC-3927, BAC-3868, BAC-3861,</p>
+<p>BAC-3822, BAC-3658</p>
+<p>3.0.0</p>
+<p>2014-10-29</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 1 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Package Enumeration Scheme</b></p>
+<p>Every package carries a 3-digit version number. The following table explains how compatibility between</p>
+<p>versions can be determined from the version number:</p>
+<p><b>Changed Version</b></p>
+<p><b>Example</b></p>
+<p><b>Compatibility</b></p>
+<p>Patch Version</p>
+<p>1.0.0<i> →</i> 1.0.1</p>
+<p>A defect has been fixed. Versions are fully</p>
+<p>compatible.</p>
+<p>Minor Version</p>
+<p>1.0.0<i> →</i> 1.1.0</p>
+<p>API of package changed or a new feature was</p>
+<p>added. Versions may not be compatible. If the new</p>
+<p>package is used, other packages may be changed</p>
+<p>as well.</p>
+<p>Major Version</p>
+<p>1.0.0<i> →</i> 2.0.0</p>
+<p>Indicates the BAC4 Release, in which the module</p>
+<p>is delivered. Major Version 2 of a module refers to</p>
+<p>BAC4 Rel. 1. Major Version 3 of a module refers to</p>
+<p>BAC4 Rel. 2.</p>
+<p><b>2</b></p>
+<p><b>Package Description</b></p>
+<p>The Vin module is used to request the VIN over the bus, set the qualifier and hand it over to application</p>
+<p>software components.</p>
+<p>This package is maintained by BMW AUTOSAR Core 4 Support, via ASCENT Jira</p>
+<p>(https://asc.bmwgroup.net/jira/browse/BSUP or https://asc.bmw.com/jira/browse/BSUP) or telephone</p>
+<p>hotline (+49-89-382-32233).</p>
+<p><b>3</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>3.1</b></p>
+<p><b>Revision 3.5.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5764</p>
+<p>CR Headline:</p>
+<p>Vin: Inter-ECU communication with</p>
+<p>SYNCHRONOUS-SERVER-CALL-POINT considered harmful</p>
+<p>Description of Issues:</p>
+<p>The RUNNABLE-ENTITY &quot;Vin_SIAChallenge&quot; uses a</p>
+<p>SYNCHRONOUS-SERVER-CALL-POINT</p>
+<p>&quot;scp_generateAuthenticationCo&quot; with TIMEOUT &quot;0.0&quot; for</p>
+<p>inter-ECU communication. This may cause the executing task to</p>
+<p>wait for ever, making it necessary to map the invoking</p>
+<p>DATA-RECEIVED-EVENT &quot;dre_Challenge&quot; to its own exclusive</p>
+<p>extended task, because other events mapped to the same task</p>
+<p>would never get executed if the communication is not finished.</p>
+<p>Please check for alternatives.</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 2 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>use asynchronous server call point for</p>
+<p>ChassisNumberAuthentication/generateAuthenticationCode</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>src/Vin_SIAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5691</p>
+<p>CR Headline:</p>
+<p>Signed message is requested only once</p>
+<p>Description of Issues:</p>
+<p>Signed message is requested only once</p>
+<p>Description of Changes:</p>
+<p>request MAC multiple times before going into error state</p>
+<p>Changed Files:</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>src/Vin_Ssv.c</p>
+<p>Compatibility:</p>
+<p><b>3.2</b></p>
+<p><b>Revision 3.4.2 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5544</p>
+<p>CR Headline:</p>
+<p>Do not request MAC/Counterbase before reception of the VIN</p>
+<p>Description of Issues:</p>
+<p>Do not request MAC/Counterbase before reception of the VIN</p>
+<p>Description of Changes:</p>
+<p>Do not request MAC/Counterbase before reception of the VIN</p>
+<p>Changed Files:</p>
+<p>src/Vin.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5437</p>
+<p>CR Headline:</p>
+<p>Vin IntegrationManual: NvMNvBlockLength might depend on</p>
+<p>compiler</p>
+<p>Description of Issues:</p>
+<p>The values for NvMNvBlockLength given in the IntegrationManuals</p>
+<p>might be incorrect (depending on compiler optimisation).</p>
+<p>Description of Changes:</p>
+<p>Add a note on NVM block length in integration manual</p>
+<p>Changed Files:</p>
+<p>doc/IntegrationManual_Vin.pdf</p>
+<p>Compatibility:</p>
+<p><b>3.3</b></p>
+<p><b>Revision 3.4.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5426</p>
+<p>CR Headline:</p>
+<p>VIN: Integration Manual: NvMBlockWriteProt true</p>
+<p>Description of Issues:</p>
+<p>In Integration Manual you can find:</p>
+<p>NvMBlockWriteProt true</p>
+<p>but Vin module cannot handle this</p>
+<p>Description of Changes:</p>
+<p>fix NVM configuration</p>
+<p>Changed Files:</p>
+<p>doc/IntegrationManual_Vin.pdf</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 3 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5407</p>
+<p>CR Headline:</p>
+<p>VIN: missing memory mapping of the code in Vin_Dlog.c and</p>
+<p>Vin_SIAdapter.c.</p>
+<p>Description of Issues:</p>
+<p>Missing memory mapping of the code in Vin_Dlog.c and</p>
+<p>Vin_SIAdapter.c.</p>
+<p>Description of Changes:</p>
+<p>Add missing memory mapping.</p>
+<p>Changed Files:</p>
+<p>src/Vin_Dlog.c</p>
+<p>src/Vin_SIAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5399</p>
+<p>CR Headline:</p>
+<p>VIN: Vin_CurrentVin.Vin not initalized in VinInit</p>
+<p>Description of Issues:</p>
+<p>As Vin_CurrentVin.Vin is not initialized during c-startup (</p>
+<p>Vin_START_SEC_VAR_NO_INIT_UNSPECIFIED) and not</p>
+<p>initialized in Vin_init, a reset does not clear the containing last</p>
+<p>received VIN. At next startup (without power-loss) the variable still</p>
+<p>contains the VIN. Therefore the reception of the bus-vin via</p>
+<p>Vin_ReceiveFromCom is ignored and Vin_NotifyVinReceived() is</p>
+<p>not called.</p>
+<p>A call of Vin_ReceiveFromCom before Vin_Init also leads to this</p>
+<p>problem.</p>
+<p>Description of Changes:</p>
+<p>Always handle received VIN, if no VIN has been received before.</p>
+<p>Changed Files:</p>
+<p>src/Vin_Com.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5286</p>
+<p>CR Headline:</p>
+<p>Vin: Memcopy from struct to array</p>
+<p>Description of Issues:</p>
+<p>Using memcopy to copy data from an struct to an array is not</p>
+<p>allowed.</p>
+<p>Description of Changes:</p>
+<p>Copy single elements of struct to array instead of using memcpy.</p>
+<p>Changed Files:</p>
+<p>src/Vin_Com.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5198</p>
+<p>CR Headline:</p>
+<p>Please remove UUIDs</p>
+<p>Description of Issues:</p>
+<p>remove UUIDs in arxml files</p>
+<p>Description of Changes:</p>
+<p>remove UUIDs in arxml files</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 4 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3.4</b></p>
+<p><b>Revision 3.4.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5049</p>
+<p>CR Headline:</p>
+<p>Vin: Write frequency of NVM blocks shall be specified in integration</p>
+<p>manual</p>
+<p>Description of Issues:</p>
+<p>For correct configuration/wearing estimation of flash, the write</p>
+<p>frequency of BAC modules for their specified NvM blocks shall be</p>
+<p>specified. Although most of the time NO exact number can be</p>
+<p>given as it is ECU, use case, environment (customer behaviour)</p>
+<p>specific a rough information should be given, that allows the</p>
+<p>integrator to make a conclusion on that.</p>
+<p>Description of Changes:</p>
+<p>Specify write frequency of NVM blocks in integration manual.</p>
+<p>Changed Files:</p>
+<p>doc/IntegrationManual_Vin.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5031</p>
+<p>CR Headline:</p>
+<p>Use getter method to get the VIN in case it is not delivered upon</p>
+<p>subscription</p>
+<p>Description of Issues:</p>
+<p>Use getter method to get the VIN in case it is not delivered upon</p>
+<p>subscription on Ethernet.</p>
+<p>Description of Changes:</p>
+<p>Use getter method to get the VIN in case it is not delivered upon</p>
+<p>subscription on Ethernet.</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>generate/make/Vin_Cfg.mak.tt</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>generate/verify/Vin.autoverify.tt</p>
+<p>src/Vin_SIAdapter.c</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4928</p>
+<p>CR Headline:</p>
+<p>Challenge shall not be reversed on Ethernet</p>
+<p>Description of Issues:</p>
+<p>Challenge shall not be reversed on Ethernet</p>
+<p>Description of Changes:</p>
+<p>do not reverse challenge on Ethernet</p>
+<p>Changed Files:</p>
+<p>src/Vin_Ssv.c</p>
+<p>Compatibility:</p>
+<p><b>3.5</b></p>
+<p><b>Revision 3.3.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4763</p>
+<p>CR Headline:</p>
+<p>Vin: Naming of Rte_Write function is wrong</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 5 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>The name of function Rte_Write_Vin_SSVErrorCode_ErrorCode is</p>
+<p>wrong.</p>
+<p>Description of Changes:</p>
+<p>correct Rte_Write_Vin_SSVErrorCode_ErrorCode to</p>
+<p>Rte_Write_SSVErrorCode_ErrorCode</p>
+<p>Changed Files:</p>
+<p>src/Vin_Ssv.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4756</p>
+<p>CR Headline:</p>
+<p>Vin: IntegrationManuals: signal names for Ethernet</p>
+<p>Description of Issues:</p>
+<p>Currently, the IntegrationManuals are using signal short names as</p>
+<p>given in the DBN / BNE for Can/Flexray communication. The</p>
+<p>names for ethernet are different and can't always be found without</p>
+<p>greater effort.</p>
+<p>Description of Changes:</p>
+<p>added a note on the signal names in Ethernet</p>
+<p>Changed Files:</p>
+<p>doc/IntegrationManual_Vin.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4702</p>
+<p>CR Headline:</p>
+<p>Vin: Adapt ECUC and SWCD schema to 4.2.2</p>
+<p>Description of Issues:</p>
+<p>Adapt ECUC and SWCD schema to 4.2.2</p>
+<p>Description of Changes:</p>
+<p>Adapt ECUC and SWCD schema to 4.2.2</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>swcd/Vin_ext_interfaces.arxml</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4629</p>
+<p>CR Headline:</p>
+<p>Integration Manual Vin: P-Port VinRequest</p>
+<p>Description of Issues:</p>
+<p>Mapping of P-Port VinRequest is not clear</p>
+<p>Description of Changes:</p>
+<p>clarify data mapping in integration manual</p>
+<p>Changed Files:</p>
+<p>doc/IntegrationManual_Vin.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4562</p>
+<p>CR Headline:</p>
+<p>Vin: ID_FN_INQY change in BNE</p>
+<p>Description of Issues:</p>
+<p>For SP2018, ID_FN_INQY has changed: - the comment</p>
+<p>&quot;ACHTUNG: Dieses Signal bildet bezüglich des Byte-Orderings</p>
+<p>eine Ausnahme ...&quot; is deleted in the Message Katalog - the byte</p>
+<p>order of the values in the code table for ID_FN_INQY are changed</p>
+<p>(e.g. the code value for &quot;Fahrgestellnummer&quot; is changed from</p>
+<p>0x0380 to 0x8003)</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 6 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Switched endianess in default values of</p>
+<p>VinRequestMessageIdentifier and</p>
+<p>SecureVinRequestMessageIdentifier.</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>3.6</b></p>
+<p><b>Revision 3.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4471</p>
+<p>CR Headline:</p>
+<p>Not receiving the MAC is should not be considered an error for the</p>
+<p>SSV</p>
+<p>Description of Issues:</p>
+<p>Not receiving the MAC is should not be considered an error for the</p>
+<p>SSV -] Qualifier should remain in pending in this case.</p>
+<p>Description of Changes:</p>
+<p>Do not consider not receiving the MAC an error for the SSV, i.e. do</p>
+<p>not go into an error state</p>
+<p>Changed Files:</p>
+<p>src/Vin_Ssv.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4409</p>
+<p>CR Headline:</p>
+<p>Support runnables in concurrent tasks</p>
+<p>Description of Issues:</p>
+<p>Support runnables in concurrent tasks</p>
+<p>Description of Changes:</p>
+<p>Support runnables in concurrent tasks</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>include/Vin.h</p>
+<p>src/Vin.c</p>
+<p>src/Vin_Com.c</p>
+<p>src/Vin_Ssv.c</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4349</p>
+<p>CR Headline:</p>
+<p>Vin: Missing INIT-VALUE</p>
+<p>Description of Issues:</p>
+<p>RTE51034 Unconnected data element prototoype 'Flag' of port</p>
+<p>'FscsmVK_Established' of component 'Vin' does not provide an</p>
+<p>initial value.</p>
+<p>Description of Changes:</p>
+<p>added init value to FscsmVK_Established</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4345</p>
+<p>CR Headline:</p>
+<p>Vin: Helper macros not compliant with SW-C design</p>
+<p>Description of Issues:</p>
+<p>Vin_Helper.h shall include only Vin_Version.h.</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 7 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>include only Vin_Version.h in Vin_Helper.h</p>
+<p>Changed Files:</p>
+<p>include/Vin_Helper.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4335</p>
+<p>CR Headline:</p>
+<p>Dlog, Fscsm, Swt, Vin: All [Module]_ext_interfaces.arxml should be</p>
+<p>conform to AUTOSAR Blueprint</p>
+<p>Description of Issues:</p>
+<p>All Types, CompuMethods, Interfaces etc. in</p>
+<p>[Module]_ext_interfaces.arxml shall be defined according to the</p>
+<p>definitions in the AUTOSAR Blueprint for BSWServiceInterfaces.</p>
+<p>In particular ImplementationDataTypes shall have category</p>
+<p>TPYE_REFERENCE instead of VALUE.</p>
+<p>Description of Changes:</p>
+<p>use TYPE_REFERENCE instead of VALUE for implementation</p>
+<p>data types</p>
+<p>Changed Files:</p>
+<p>swcd/Vin_ext_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4266</p>
+<p>CR Headline:</p>
+<p>Transmission acknowledgment for 1:n communication not</p>
+<p>supported</p>
+<p>Description of Issues:</p>
+<p>Transmission acknowledgment for 1:n communication not</p>
+<p>supported</p>
+<p>Description of Changes:</p>
+<p>remove unnecessary TRANSMISSION-ACKNOWLEDGE</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4265</p>
+<p>CR Headline:</p>
+<p>add Vin_ChangeIndicator</p>
+<p>Description of Issues:</p>
+<p>add Vin_ChangeIndicator as described by BAC-1921 and</p>
+<p>requested by BSUP-3669.</p>
+<p>Description of Changes:</p>
+<p>added Vin_ChangeIndicator as described by BAC-1921 and</p>
+<p>requested by BSUP-3669.</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>include/Vin_Helper.h</p>
+<p>src/Vin.c</p>
+<p>src/Vin_Com.c</p>
+<p>src/Vin_Ssv.c</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4230</p>
+<p>CR Headline:</p>
+<p>Make max number of VIN requests configurable</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 8 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Make max number of VIN requests configurable.</p>
+<p>Description of Changes:</p>
+<p>Make max number of VIN requests configurable.</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>generate/verify/Vin.autoverify.tt</p>
+<p>src/Vin.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4163</p>
+<p>CR Headline:</p>
+<p>Vin: Remove R-Port &quot;LifeCycleLoopback&quot;, change P-Port</p>
+<p>&quot;LifeCycle&quot; to PR-Port</p>
+<p>Description of Issues:</p>
+<p>Remove R-Port &quot;LifeCycleLoopback&quot;, change P-Port &quot;LifeCycle&quot;</p>
+<p>to PR-Port.</p>
+<p>Description of Changes:</p>
+<p>remove R-Port LifeCycleLoopBack and use PR-Port for LifeCycle</p>
+<p>instead</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4129</p>
+<p>CR Headline:</p>
+<p>Make SSV-Id postbuild configurable</p>
+<p>Description of Issues:</p>
+<p>Make SSV-Id postbuild configurable</p>
+<p>Description of Changes:</p>
+<p>Make SSV-Id postbuild configurable</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>generate/include/Vin_PBCfg.h.tt</p>
+<p>generate/src/Vin_PBCfg.c.tt</p>
+<p>generate/verify/Vin.autoverify.tt</p>
+<p>make/Vin_defs.mak</p>
+<p>make/Vin_rules.mak</p>
+<p>sample/include/Vin_MemMap.h.sample</p>
+<p>src/Vin_Ssv.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3558</p>
+<p>CR Headline:</p>
+<p>Vin: Extention of VIN-Request for Ethernet</p>
+<p>Description of Issues:</p>
+<p>The Vin module shall support also Ethernet.</p>
+<p>Description of Changes:</p>
+<p>- add SI adapter SWC - adapted request behavior to SI adapter -</p>
+<p>added configuartion switch to enable or disable SI adapter</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>generate/make/Vin_Cfg.mak.tt</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>generate/verify/Vin.autoverify.tt</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 9 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>make/Vin_defs.mak</p>
+<p>make/Vin_rules.mak</p>
+<p>src/Vin_SIAdapter.c</p>
+<p>src/Vin_Ssv.c</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>3.7</b></p>
+<p><b>Revision 3.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4108</p>
+<p>CR Headline:</p>
+<p>VIN: VIN becomes invalid if one single signal is invalid</p>
+<p>Description of Issues:</p>
+<p>The received VIN should be marked as invalid if one ore more</p>
+<p>single signal contains '0xFF' (invalid content). Currently the VIN is</p>
+<p>only marked as invalid if all single signals contains '0xFF'.</p>
+<p>Description of Changes:</p>
+<p>ignore VIN, if one signal is invalid</p>
+<p>Changed Files:</p>
+<p>src/Vin_Com.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3980</p>
+<p>CR Headline:</p>
+<p>Move SSV from Fscsm to Vin</p>
+<p>Description of Issues:</p>
+<p>Move SSV from Fscsm to Vin</p>
+<p>Description of Changes:</p>
+<p>Move SSV from Fscsm to Vin</p>
+<p>Changed Files:</p>
+<p>Makefile</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>generate/include/Vin_Cfg.h.tt</p>
+<p>generate/include/Vin_Version.h.tt</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>generate/verify/Vin.autoverify.tt</p>
+<p>include/Vin.h</p>
+<p>include/Vin_Dlog.h</p>
+<p>include/Vin_Helper.h</p>
+<p>include/Vin_Ssv.h</p>
+<p>make/Vin_check.mak</p>
+<p>make/Vin_defs.mak</p>
+<p>make/Vin_rules.mak</p>
+<p>sample/include/Vin_MemMap.h.sample</p>
+<p>src/Vin.c</p>
+<p>src/Vin_Com.c</p>
+<p>src/Vin_Dlog.c</p>
+<p>src/Vin_Fscsm.c</p>
+<p>src/Vin_Ssv.c</p>
+<p>swcd/Vin_ext_interfaces.arxml</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 10 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3927</p>
+<p>CR Headline:</p>
+<p>Correct ConfigClass to PRE-COMPILE</p>
+<p>Description of Issues:</p>
+<p>The ConfigClass of parameters TimeoutInitialVinRequest and</p>
+<p>TimeoutSubsequentVinRequests should be PRE-COMPILE</p>
+<p>instead of PUBLISHED-INFORMATION.</p>
+<p>Description of Changes:</p>
+<p>set config class to PRE-COMPILE for TimeoutInitialVinRequest</p>
+<p>and TimeoutSubsequentVinRequests</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Vin_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3868</p>
+<p>CR Headline:</p>
+<p>Dlog, StbMBTestClient, Swt, Vin: DataTypes of ModeSwitch and</p>
+<p>ModeRequest interfaces</p>
+<p>Description of Issues:</p>
+<p>For ModeSwitch-Interfaces and ModeRequest-Interfaces</p>
+<p>(S/R-Interface) related to the same ModeDeclarationGroup the</p>
+<p>following shall apply:</p>
+<p>the data type of the VariableDataPrototype of the</p>
+<p>ModeRequest-Interface (S/R-interface) shall be identical to the</p>
+<p>ImplementationDataType that the ModeDeclarationGoup is</p>
+<p>mapped to via a ModeRequestTypeMap. this</p>
+<p>ImplementationDataType shall be extended with an ENUM-like</p>
+<p>CompuMethod that corresponds to the Modes of the</p>
+<p>ModeDeclarationGroup the ModeDeclarationGroup shall have</p>
+<p>EXPLICIT_ORDER, the modes shall have values according to the</p>
+<p>corresponding CompuMethod if the APIs Rte_Switch_...() or</p>
+<p>Rte_Write_...() are called with literal values, only the literal values</p>
+<p>RTE_MODE_[ModeDeclarationGroup]_[ModeDeclaration] shall be</p>
+<p>used. variables used in context of the APIs Rte_Switch_...(),</p>
+<p>Rte_Mode_...(), Rte_Read_...() and Rte_Write_...() shall be of the</p>
+<p>same ImplementationDataType, and shall only be set to or be</p>
+<p>compared with literal values</p>
+<p>RTE_MODE_[ModeDeclarationGroup]_[ModeDeclaration] the</p>
+<p>type Rte_ModeType_[ModeDeclarationGroup] is deprecated and</p>
+<p>shall not be used.</p>
+<p>Exceptions:</p>
+<p>if the mode requestor does not reference the</p>
+<p>ModeDeclarationGroup, the enumeration macros [EnumLiteral]</p>
+<p>derived from the CompuMethod can be used to request a mode</p>
+<p>via Rte_Write_...() (in this case the macros</p>
+<p>RTE_MODE_[ModeDeclarationGroup]_[ModeDeclaration] are not</p>
+<p>visible for the requestor) if the mode manager does not provide a</p>
+<p>ModeRequest-Interface: a CompuMethod is not necessary the</p>
+<p>category of the ModeDeclarationGroup can be either</p>
+<p>ALPHABETIC_ORDER (default) or EXPLICIT_ORDER the</p>
+<p>ModeRequestTypeMap can map the ModeDeclarationGroup</p>
+<p>directly to a platform type like uint8 or uint16</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 11 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>- use explicit order for mode declaration groups - use</p>
+<p>RTE_MODE... constants for evaluating mode values</p>
+<p>Changed Files:</p>
+<p>src/Vin.c</p>
+<p>swcd/Vin_interfaces.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3861</p>
+<p>CR Headline:</p>
+<p>Vin: Content of tag [VENDOR-ID] in *_internal.arxml</p>
+<p>Description of Issues:</p>
+<p>The [VENDOR-ID] in *_internal.arxml shall be set to 5 (i.e. BMW</p>
+<p>Vendor-Id).</p>
+<p>Description of Changes:</p>
+<p>change vendor id to 5</p>
+<p>Changed Files:</p>
+<p>generate/swcd/Vin_internal.arxml.tt</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3822</p>
+<p>CR Headline:</p>
+<p>Vin User Guide contains a TODO</p>
+<p>Description of Issues:</p>
+<p>Vin user guide contains:</p>
+<p>4.2 Evaluating the Qualifier TODO</p>
+<p>Description of Changes:</p>
+<p>add content to section 4.2 &quot;Evaluating the Qualifier&quot;.&quot;</p>
+<p>Changed Files:</p>
+<p>doc/UserGuide_Vin.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3658</p>
+<p>CR Headline:</p>
+<p>Vin: Adapt makefiles to EA requirements</p>
+<p>Description of Issues:</p>
+<p>Adapt makefiles to EA requirements</p>
+<p>Description of Changes:</p>
+<p>Adapt makefiles to EA requirements</p>
+<p>Changed Files:</p>
+<p>make/Vin_defs.mak</p>
+<p>Compatibility:</p>
+<p><b>3.8</b></p>
+<p><b>Revision 3.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2018</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2018</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2018</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 12 of 12</p>
+</body>
+</html>
+{% endraw %}

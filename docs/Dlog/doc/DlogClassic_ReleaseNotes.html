@@ -1,0 +1,543 @@
+---
+layout: default
+title: DlogClassic_ReleaseNotes
+nav_order: 3
+parent: Dlog
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes DlogClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.3.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.3.1</p>
+<p>2017-12-14</p>
+<p>BAC-6570, BAC-6575, BAC-6620, BAC-6728, BAC-6709,</p>
+<p>BAC-6721, BAC-6731, BAC-6672</p>
+<p>5.3.0</p>
+<p>2017-11-09</p>
+<p>BAC-6461, BAC-6363, BAC-6422, BAC-6362, BAC-6055</p>
+<p>5.2.1</p>
+<p>2017-10-12</p>
+<p>BAC-6373</p>
+<p>5.2.0</p>
+<p>2017-09-14</p>
+<p>BAC-6296, BAC-6223, BAC-6181, BAC-5169</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>BAC-6172, BAC-6089, BAC-6082, BAC-6035</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 1 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The DataLogistic is part of the BootManager, Bootloader and Application. It is needed for every ECU to<i> •</i></p>
+<p>get production information<i> •</i> identify software and hardware<i> •</i> check compatibility of hardware and</p>
+<p>software<i> •</i> check compatibility of all software units (SWEs)<i> •</i> check at startup if the software is valid and</p>
+<p>may be started</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.3.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6570</p>
+<p>CR Headline:</p>
+<p>Update NvM configuration in integration manual</p>
+<p>Description of Issues:</p>
+<p>Update NvM configuration in integration manual</p>
+<p>Description of Changes:</p>
+<p>Update NvM configuration in integration manual</p>
+<p>Changed Files:</p>
+<p>doc/DlogClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6575</p>
+<p>CR Headline:</p>
+<p>Update Sgbm-Entry in Dlog_Data after successfull flashing an swe</p>
+<p>Description of Issues:</p>
+<p>actually only the Bm updates this table. Therefore an read csvk</p>
+<p>direkt after CheckProgrammingDependencies does not show this</p>
+<p>newly flashed swe.</p>
+<p>Description of Changes:</p>
+<p>copy the SWE description from flash to RAM table in</p>
+<p>Dlog_SetSweValidState if SWE is valid</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SweInit.c</p>
+<p>include/Dlog_SweStatus.h</p>
+<p>src/Dlog_SweStatus.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6620</p>
+<p>CR Headline:</p>
+<p>Tidy up</p>
+<p>Description of Issues:</p>
+<p>Tidy up: * fix compiler warnings * remove unused defines and</p>
+<p>configuration switches * add missing config class specifications *</p>
+<p>remove compiler abstraction</p>
+<p>Description of Changes:</p>
+<p>Tidy up: * fix compiler warnings * remove unused defines and</p>
+<p>configuration switches * add missing config class specifications *</p>
+<p>remove compiler abstraction</p>
+<p>Changed Files:</p>
+<p>generate/src/Dlog_HweTable.c.pgen</p>
+<p>include/Dlog_Swe.h</p>
+<p>generate/include/Dlog_UDSAdapterAdd.h.pgen</p>
+<p>include/Dlog_User.h</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 2 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>include/Dlog_TimingParameters.h</p>
+<p>src/Dlog_UserAdapter.c</p>
+<p>generate/src/Dlog_SweTable.c.pgen</p>
+<p>generate/include/Dlog_PBCfg.h.pgen</p>
+<p>generate/include/DlogClassic_Cfg.h.pgen</p>
+<p>generate/pageinclude/Dlog_Help.pgen</p>
+<p>generate/include/Dlog_Nvm.h.pgen</p>
+<p>generate/src/Dlog_Nvm.c.pgen</p>
+<p>generate/meta/Dlog_ext_interfaces.arxml.pgen</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>generate/src/Dlog_UDSAdapter.c.pgen</p>
+<p>include/Dlog_BluSweCheckSum.h</p>
+<p>include/Dlog_Ecu.h</p>
+<p>generate/meta/Dlog_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6728</p>
+<p>CR Headline:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Description of Issues:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Description of Changes:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Changed Files:</p>
+<p>src/Dlog_Swe.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6709</p>
+<p>CR Headline:</p>
+<p>Dlog: Rename HWE Table structure element &quot;sgmbId&quot;</p>
+<p>Description of Issues:</p>
+<p>In file &quot;Dlog_HweTable.h&quot; you find the HW Table structure. Within</p>
+<p>you find several structures and type definitions like</p>
+<p>&quot;Dlog_HweInfoRomType&quot;. Included here is a uint8 element called</p>
+<p>&quot;sgmbId&quot;. It's supposed to be named &quot;SgbmId&quot; like in SP2018</p>
+<p>and in the Lastenheften (e.g. FP2_2426ff).</p>
+<p>Description of Changes:</p>
+<p>fix typo: rename sgmbId to sgbmId</p>
+<p>Changed Files:</p>
+<p>generate/src/Dlog_HweTable.c.pgen</p>
+<p>generate/include/Dlog_HweTable.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6721</p>
+<p>CR Headline:</p>
+<p>Dlog: handle BlockProtection DlogSvkHistory</p>
+<p>Description of Issues:</p>
+<p>The NvMBlock DlogSvkHistory is write-protected. So</p>
+<p>writeprotection must be unset before write and set after. Or</p>
+<p>integrationmanual entry for this block must be corrected.</p>
+<p>Description of Changes:</p>
+<p>set NvMBlockWriteProt to False for Svk History blocks in</p>
+<p>integration manual</p>
+<p>Changed Files:</p>
+<p>doc/DlogClassic_IntegrationManual.pdf</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 3 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6731</p>
+<p>CR Headline:</p>
+<p>Dlog: SvkBackupSize wrong calculated in ext_interfaces</p>
+<p>Description of Issues:</p>
+<p>Calculation uses old fingerprintlength. Use short fingerprint length</p>
+<p>4.</p>
+<p>Description of Changes:</p>
+<p>fix calculation of SvkBackupSize in Dlog_ext_interfaces.arxml.pgen</p>
+<p>Changed Files:</p>
+<p>generate/meta/Dlog_ext_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6672</p>
+<p>CR Headline:</p>
+<p>Dlog - version info not checked at compile time</p>
+<p>Description of Issues:</p>
+<p>Unlike for most other BAC modules the version information from</p>
+<p>the CommonPublishedInformation container is not validated at</p>
+<p>compile time in Dlog &amp; DlogShared.</p>
+<p>Description of Changes:</p>
+<p>add missing version checks</p>
+<p>Changed Files:</p>
+<p>src/Dlog_UserAdapter.c</p>
+<p>src/Dlog_NvMAdapter.c</p>
+<p>generate/include/DlogClassic_Version.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.3.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6461</p>
+<p>CR Headline:</p>
+<p>DlogClassic: Dlog_Data shall not be initialized</p>
+<p>Description of Issues:</p>
+<p>The problem is here that for some compilers (e.g. TASKING) the</p>
+<p>*Dlog_Data* variable will be seen as an initialized variable an put</p>
+<p>therefore to a *.data* section. As the other variables</p>
+<p>*Dlog_SweStatus* and *Dlog_SweInfos* are uninitialized they will</p>
+<p>be put into the *.bss* section. This makes it ugly to map it</p>
+<p>accordingly to a shared section between Appl, BM and Btld.</p>
+<p>Description of Changes:</p>
+<p>remove initialization of Dlog_Data</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SweStatus.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6363</p>
+<p>CR Headline:</p>
+<p>New DLOG API to set/withdraw bootloader boot target</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 4 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>For the ethernet parallel flash mode functionality (aka c3 flag),</p>
+<p>EthDiagMM needs an API from Dlog to indicate, whether next boot</p>
+<p>target should be bootloader and a corresponding API, to withdraw</p>
+<p>this &quot;wish&quot;. The C3/PFM flag is now (as of BAC4 Rel3)</p>
+<p>persisted/stored by EthDiagMM itself, but IF set, the ECU shall</p>
+<p>come up in Bootloader. The current idea is, that EthDiagMM</p>
+<p>always calls Dlog with this new/to be intzroduced API, whenever</p>
+<p>this PFM-value (and therefore the need to start up in bootloader)</p>
+<p>changes.</p>
+<p>Description of Changes:</p>
+<p>changed BootMode such that different users can request or</p>
+<p>unrequest bootloader</p>
+<p>Changed Files:</p>
+<p>include/Dlog_BootMode.h</p>
+<p>src/Dlog_BootMode.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6422</p>
+<p>CR Headline:</p>
+<p>Bs, Dlog, Pia: Schema of paramdefs, paramconfs and SWCDen</p>
+<p>should be AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>change arxml schema to</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Changed Files:</p>
+<p>generate/meta/Dlog_internal.arxml.pgen</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>generate/meta/Dlog_interfaces.arxml.pgen</p>
+<p>generate/meta/Dlog_ext_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6362</p>
+<p>CR Headline:</p>
+<p>Adapt to new postbuild variant handling</p>
+<p>Description of Issues:</p>
+<p>adapt to new postbuild variant handling</p>
+<p>Description of Changes:</p>
+<p>adapt to new postbuild variant handling</p>
+<p>Changed Files:</p>
+<p>generate/include/Dlog_PBCfg.h.pgen</p>
+<p>generate/src/Dlog_PBCfg.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6055</p>
+<p>CR Headline:</p>
+<p>Improve handling of DLOG_SWFK_DELSUP_AVAILABLE</p>
+<p>Description of Issues:</p>
+<p>At the moment DLOG_SWFK_DELSUP_AVAILABLE is set to</p>
+<p>STD_OFF.</p>
+<p>Description of Changes:</p>
+<p>move DLOG_SWFK_DELSUP_AVAILABLE back to classic since</p>
+<p>in adaptive it will be a postbuild parameter</p>
+<p>Changed Files:</p>
+<p>generate/include/Dlog_CfgCommon.h.pgen</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 5 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Revision 5.2.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6373</p>
+<p>CR Headline:</p>
+<p>Dlog: RDBI 0xf152 has only two bytes, not three</p>
+<p>Description of Issues:</p>
+<p>RDBI 0xf152 has only two bytes, not three as described in</p>
+<p>integration manual</p>
+<p>Description of Changes:</p>
+<p>fix size of RDBI 0xf152 in integration manual</p>
+<p>Changed Files:</p>
+<p>doc/DlogClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6296</p>
+<p>CR Headline:</p>
+<p>Description of RDBI commands outdated in integration manual</p>
+<p>Description of Issues:</p>
+<p>Description of RDBI commands outdated in integration manual.</p>
+<p>Description of Changes:</p>
+<p>Fix RDBI commands in integration manual</p>
+<p>Changed Files:</p>
+<p>doc/DlogClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6223</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES is deprecated</p>
+<p>and shall be replaced by VALUE-CONFIG-CLASSES according to</p>
+<p>ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>TPS_ECUC_06051 is removed from spec. In schema</p>
+<p>AUTOSAR_4-2-2.xsd IMPLEMENTATION-CONFIG-CLASSES is</p>
+<p>marked as deprecated. That means: IMPLEMENTATION-</p>
+<p>CONFIG-CLASSES/IMPLEMENTATION-CONFIG-CLASS has to</p>
+<p>be replaed by</p>
+<p>VALUE-CONFIG-CLASSES/VALUE-CONFIG-CLASS entirely</p>
+<p>within paramdefs!</p>
+<p>Description of Changes:</p>
+<p>fix config classes in paramdef.arxml file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6181</p>
+<p>CR Headline:</p>
+<p>Tidy up</p>
+<p>Description of Issues:</p>
+<p>Tidy up: - remove dependency to Srv in comment - remove</p>
+<p>remains of VirtualCPU - remove remains of RSU - remove remains</p>
+<p>of write fingerprint - remove dead code - fix file headers - fix</p>
+<p>compiler warnings</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 6 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Tidy up: - remove dependency to Srv in comment - remove</p>
+<p>remains of VirtualCPU - remove remains of RSU - remove remains</p>
+<p>of write fingerprint - remove dead code - fix file headers - fix</p>
+<p>compiler warnings</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SweInit.c</p>
+<p>src/Dlog_Swe.c</p>
+<p>include/Dlog_Swe.h</p>
+<p>src/Dlog_TimingParameters.c</p>
+<p>generate/include/Dlog_CfgCommon.h.pgen</p>
+<p>generate/include/Dlog_UDSAdapterAdd.h.pgen</p>
+<p>generate/include/Dlog_SweTable.h.pgen</p>
+<p>generate/src/Dlog_SweTable.c.pgen</p>
+<p>src/Dlog_SweGet.c</p>
+<p>src/Dlog_SweException.c</p>
+<p>generate/pageinclude/Dlog_Help.pgen</p>
+<p>include/Dlog_Memory.h</p>
+<p>src/Dlog_Memory.c</p>
+<p>src/Dlog_Ecu.c</p>
+<p>include/Dlog_Ecu.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5169</p>
+<p>CR Headline:</p>
+<p>Some (most?) BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR TPS_ECUConfiguration there is the</p>
+<p>following requirement:</p>
+<p>[TPS_ECUC_06004] AdminData field in ECU Configuration</p>
+<p>Parameter Definition XML file d An AdminData field is required at</p>
+<p>the beginning of every ECU Configuration Parameter Definition</p>
+<p>XML file (regardless whether it is the StMD or the VSMD file) to</p>
+<p>allow the setting of AdminData for the whole XML File. c()</p>
+<p>Most of our modules fail to define the AdminData Element (just</p>
+<p>saw it in Darh - and here the element contains mixed info to be</p>
+<p>fixed). It is somehow weired as we then will define version info</p>
+<p>within CommonPublishedInformation AND AdminData - but as it is</p>
+<p>formally required, we have to follow it.</p>
+<p>Description of Changes:</p>
+<p>add AdminData to paramdef file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6172</p>
+<p>CR Headline:</p>
+<p>Tidy up</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 7 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Tidy up: - remove remains of first start flag - remove random seed</p>
+<p>- remove remains of prog counter - fix compiler warnings</p>
+<p>Description of Changes:</p>
+<p>Tidy up: - remove remains of first start flag - remove random seed</p>
+<p>- remove remains of prog counter - fix compiler warnings</p>
+<p>Changed Files:</p>
+<p>src/Dlog_Swe.c</p>
+<p>include/Dlog_Swe.h</p>
+<p>include/Dlog_Rte2C.h</p>
+<p>generate/include/Dlog_CfgCommon.h.pgen</p>
+<p>generate/meta/Dlog_internal.arxml.pgen</p>
+<p>generate/src/Dlog_PBCfg.c.pgen</p>
+<p>generate/src/Dlog_UDSAdapter.c.pgen</p>
+<p>generate/include/DlogClassic_Cfg.h.pgen</p>
+<p>generate/src/Dlog_Nvm.c.pgen</p>
+<p>generate/meta/Dlog_ext_interfaces.arxml.pgen</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>src/Dlog_Ecu.c</p>
+<p>include/Dlog_Ecu.h</p>
+<p>generate/meta/Dlog_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6089</p>
+<p>CR Headline:</p>
+<p>Bm/Dlog inconsistent defines Blu does not start</p>
+<p>Description of Issues:</p>
+<p>Bm/Dlog inconsistent defines Blu does not start</p>
+<p>Description of Changes:</p>
+<p>return consistent application for programming dependency state in</p>
+<p>case of BLU</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SweInit.c</p>
+<p>src/Dlog_SweGet.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6082</p>
+<p>CR Headline:</p>
+<p>BAC43 Dlog dependency to Srv</p>
+<p>Description of Issues:</p>
+<p>remove Dlog dependency to Srv</p>
+<p>Description of Changes:</p>
+<p>remove/fix references to Srv</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogClassic_paramdef.arxml</p>
+<p>include/Dlog_BluSweCheckSum.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6035</p>
+<p>CR Headline:</p>
+<p>Dlog: SERVER-ARGUMENT-IMPL-POLICY should be set to</p>
+<p>USE-ARRAY-BASE-TYPE</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 8 of 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>SERVER-ARGUMENT-IMPL-POLICY should be set to</p>
+<p>USE-ARRAY-BASE-TYPE in all</p>
+<p>C/S-Interface-Operation-Parameters that are of array type.</p>
+<p>Description of Changes:</p>
+<p>change SERVER-ARGUMENT-IMPL-POLICY to</p>
+<p>USE-ARRAY-BASE-TYPE</p>
+<p>Changed Files:</p>
+<p>generate/meta/Dlog_interfaces.arxml.pgen</p>
+<p>generate/meta/Dlog_ext_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_DlogClassic, Version 5.3.1, Software Platforms</p>
+<p>Page 9 of 9</p>
+</body>
+</html>
+{% endraw %}

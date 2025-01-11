@@ -1,0 +1,205 @@
+---
+layout: default
+title: SysTimeClassic_ReleaseNotes
+nav_order: 3
+parent: SysTime
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes SysTimeClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.0.3</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.0.3</p>
+<p>2017-12-14</p>
+<p>BAC-6695</p>
+<p>5.0.2</p>
+<p>2017-10-12</p>
+<p>BAC-5176, BAC-6230, BAC-6433</p>
+<p>5.0.1</p>
+<p>2017-08-10</p>
+<p>BAC-6204, BAC-6200</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_SysTimeClassic, Version 5.0.3, Software Platforms</p>
+<p>Page 1 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>This package contains the adapter for a classic AUTOSAR platform for the SysTimeGeneric package. The</p>
+<p>System Time Client is modeled as an AUTOSAR software component (SWC) residing above the RTE.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.0.3 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6695</p>
+<p>CR Headline:</p>
+<p>Fix MISRA violations</p>
+<p>Description of Issues:</p>
+<p>SysTime has MISRA violations.</p>
+<p>Description of Changes:</p>
+<p>Fixed MISRA violations where reasonable.</p>
+<p>Changed Files:</p>
+<p>src/SysTime_ConcAdapter.c</p>
+<p>src/SysTimeClassic.c</p>
+<p>src/SysTime_TimerAdapter.c</p>
+<p>include/SysTime_AssertAdapter.h</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.2 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5176</p>
+<p>CR Headline:</p>
+<p>BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR_TPS_ECUConfiguration</p>
+<p>TPS_ECUC_06004 an AdminData field is required at the</p>
+<p>beginning of every ECU Configuration Parameter Definition XML</p>
+<p>file.</p>
+<p>Description of Changes:</p>
+<p>Added AdminData field containing module version and release</p>
+<p>date.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/SysTimeClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6230</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES in BMW</p>
+<p>modules is invalid according to ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>Elements IMPLEMENTATION-CONFIG-CLASSES containing</p>
+<p>ECUC-IMPLEMENTATION-CONFIGURATION-CLASS are</p>
+<p>deprecated.They shall be replaced by VALUE-CONFIG-</p>
+<p>CLASSES/ECUC-VALUE-CONFIGURATION-CLASS and/or</p>
+<p>MULTIPLICITY-CONFIG-CLASSES/ECUC-MULTIPLICITY-</p>
+<p>CONFIGURATION-CLASS</p>
+<p>ReleaseNotes_SysTimeClassic, Version 5.0.3, Software Platforms</p>
+<p>Page 2 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Replaced IMPLEMENTATION-CONFIG-CLASSES by</p>
+<p>VALUE-CONFIG-CLASSES, added</p>
+<p>MULTIPLICITY-CONFIG-CLASSES where necessary.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/SysTimeClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6433</p>
+<p>CR Headline:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of parameter definition files and SWCDs should be</p>
+<p>conform to AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>Adapted parameter definition files and SWCDs to schema</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/SysTimeClassic_paramdef.arxml</p>
+<p>generate/meta/SysTime_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/SysTime_internal.arxml.pgen</p>
+<p>generate/meta/SysTime_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6204</p>
+<p>CR Headline:</p>
+<p>SysTime: Wrong cross version check for classic adapter</p>
+<p>Description of Issues:</p>
+<p>SysTimeClassic_Version.h uses wrong cross version check of</p>
+<p>generic part.</p>
+<p>Description of Changes:</p>
+<p>Correct cross version check in classic adapter.</p>
+<p>Changed Files:</p>
+<p>generate/include/SysTimeClassic_Version.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6200</p>
+<p>CR Headline:</p>
+<p>Improve Requirements Traceability</p>
+<p>Description of Issues:</p>
+<p>Add requirements from IntegrationManual to RequirementsTable.</p>
+<p>Description of Changes:</p>
+<p>Added requirements from IntegrationManual to</p>
+<p>RequirementsTable.</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>ReleaseNotes_SysTimeClassic, Version 5.0.3, Software Platforms</p>
+<p>Page 3 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_SysTimeClassic, Version 5.0.3, Software Platforms</p>
+<p>Page 4 of 4</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,464 @@
+---
+layout: default
+title: RmhClassic_IntegrationManual
+nav_order: 2
+parent: Rmh
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Rmh Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.0.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.0.0</p>
+<p>2017-12-14</p>
+<p>Initial version for SP2021</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 1 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>3</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>3</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>4</b></p>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p><b>5</b></p>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>6</b></p>
+<p>5.1</p>
+<p>Dependencies to other Modules</p>
+<p>6</p>
+<p>5.2</p>
+<p>Dependencies to AUTOSAR modules</p>
+<p>6</p>
+<p>5.2.1</p>
+<p>Com</p>
+<p>6</p>
+<p>5.2.2</p>
+<p>RTE</p>
+<p>6</p>
+<p>5.2.3</p>
+<p>Det</p>
+<p>6</p>
+<p>5.3</p>
+<p>Dependencies to other modules</p>
+<p>6</p>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>7</b></p>
+<p>6.1</p>
+<p>Configuration of other modules</p>
+<p>7</p>
+<p>6.1.1</p>
+<p>Com</p>
+<p>7</p>
+<p>6.1.1.1</p>
+<p>ComSignal for Rmh data element requestedMsgID</p>
+<p>7</p>
+<p>6.1.1.2</p>
+<p>Optional ComSignal for Rmh data element dummySignal</p>
+<p>7</p>
+<p>6.1.2</p>
+<p>Det</p>
+<p>7</p>
+<p>6.2</p>
+<p>Configuration</p>
+<p>7</p>
+<p>6.2.1</p>
+<p>Operation Variants of Rmh</p>
+<p>7</p>
+<p>6.2.1.1</p>
+<p>Use zero length dummy trigger signals</p>
+<p>7</p>
+<p>6.2.1.2</p>
+<p>Use direct BSW call to Com_TriggerIPDUSend</p>
+<p>8</p>
+<p>6.2.2</p>
+<p>Rmh General</p>
+<p>8</p>
+<p>6.2.2.1</p>
+<p>RmhDevErrorDetect</p>
+<p>9</p>
+<p>6.2.2.2</p>
+<p>RmhPduTriggerMode</p>
+<p>9</p>
+<p>6.2.2.3</p>
+<p>RmhRequestPduMapping</p>
+<p>9</p>
+<p>6.3</p>
+<p>Configuration of the RTE/SchM</p>
+<p>9</p>
+<p>6.3.1</p>
+<p>Event Mapping</p>
+<p>10</p>
+<p>6.3.2</p>
+<p>Data Mapping</p>
+<p>10</p>
+<p>6.3.3</p>
+<p>Exclusive Areas</p>
+<p>10</p>
+<p>6.4</p>
+<p>Software Integration</p>
+<p>10</p>
+<p>6.4.1</p>
+<p>SWCD Adaption</p>
+<p>10</p>
+<p>6.4.2</p>
+<p>Startup/Initialization</p>
+<p>11</p>
+<p>6.4.3</p>
+<p>Normal Operation</p>
+<p>11</p>
+<p>6.4.4</p>
+<p>Shutdown/Deactivation</p>
+<p>11</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 2 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4 Platform Modules please refer to [1].</p>
+<p>This document only describes topics related to the Rmh BAC4 Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW system</p>
+<p>function Rmh.</p>
+<p><b>Functional overview</b></p>
+<p>The main objective of the Request Message Handler (</p>
+<p>Rmh</p>
+<p>) functionality is to trigger the transmission of</p>
+<p>specific Com I-PDUs, when a certain (Com-)Signal is received embedded in a special so-called request</p>
+<p>message. The use case in the BMW bordnet is as follows: If certain TX-Pdus of an ECU are marked as</p>
+<p>being &quot;requestable&quot; in the bordnet database, the ECU has to support the reception of a specific request</p>
+<p>message. In the payload of the request message is defined, which of the ECUs configured requestable</p>
+<p>TX-Pdus shall be sent out once again. This feature is used for TX-Pdus, which are either sent out</p>
+<p>on-change/on-event only or if the cyclic frequency is very low. Other ECUs in the vehicle, which are</p>
+<p>interessted in the reception of such an TX-Pdu can then send a request message to this ECU, to get the</p>
+<p>current value instead of waiting for a long time until it is sent out again regularly.</p>
+<p>The Rmh module itself is modeled as an AUTOSAR software component (SWC) residing above the RTE.</p>
+<p>Depending on the configuration variant an additional CD (complex driver) may be part of the Rmh module.</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>Abbreviation Acronym:</p>
+<p>Description:</p>
+<p>AUTOSAR</p>
+<p>Automotive Open Systems Architecture group</p>
+<p>BAC</p>
+<p>BMW AUTOSAR Core</p>
+<p>Com</p>
+<p>AUTOSAR Communication module</p>
+<p>Det</p>
+<p>AUTOSAR Default Error Tracer module</p>
+<p>ECU</p>
+<p>Electronical Control Unit</p>
+<p>PDU</p>
+<p>Protocol Data Unit</p>
+<p>Rmh</p>
+<p>BMW Request Message Handler system function (this module)</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>SWC</p>
+<p>Software Component</p>
+<p>SWCD</p>
+<p>Software Component Description</p>
+<p>All abbreviations used throughout this document -- except the ones listed here -- can be found in the</p>
+<p>official AUTOSAR glossary TR-Glossary.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 3 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>[1]</p>
+<p>BAC4 General Concept for the Module Integration</p>
+<p>BAC4_General_Concepts_for_the_Module_Integration.pdf</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 4 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p>None.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 5 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies to other Modules</b></p>
+<p>The RmhClassic is a standalone module. I.e. there is no generic part of Rmh, since the functionality of</p>
+<p>Rmh is only applicable to AUTOSAR CP (Classic AUTOSAR) platform.</p>
+<p><b>Dependencies to AUTOSAR modules</b></p>
+<p><b>Com</b></p>
+<p>Rmh supports a configuration mode, where it partly takes the role as a complex driver, which directly calls</p>
+<p>BSW module Com (</p>
+<p>Com_TriggerIPDUSend</p>
+<p>). In the configuration mode as a pure AUTOSAR SWC it</p>
+<p>accesses Com indirectly via Rte_Read/Rte_Write.</p>
+<p><b>RTE</b></p>
+<p>As a software component, the Rmh module uses Rte client/server and sender/receiver communication to</p>
+<p>communicate with BSW modules.</p>
+<p><b>Det</b></p>
+<p>Rmh optionally reports development errors to the Det.</p>
+<p><b>Dependencies to other modules</b></p>
+<p>There are no such dependencies.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 6 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other modules</b></p>
+<p>The following modules shall be configured, before the module</p>
+<p>Rmh</p>
+<p>is compiled and linked.</p>
+<p><b>Com</b></p>
+<p><b>ComSignal for Rmh data element requestedMsgID</b></p>
+<p>The ComSignal for the data element requestedMsgID shall be configured. This signal is currently named</p>
+<p>ID_FN_INQY in the BMW message catalog and is part of the multiplexed PDU ANFRAGE/Inquiry.</p>
+<p><b>Optional ComSignal for Rmh data element dummySignal</b></p>
+<p>In case the integrator has decided to go for</p>
+<p>Rmh</p>
+<p>variant ZERO_LENGTH_SIGNAL (see below), then for</p>
+<p>each Com-PDU, that can be requested, a Com dummy trigger signal with ComBitSize 0 and</p>
+<p>ComTransferProperty TRIGGERED has to configured and mapped to the corresponding Com-PDU.</p>
+<p><b>Det</b></p>
+<p>Configure the Det accordingly, that it provides the needed P-Port to the</p>
+<p>Rmh</p>
+<p>SWC.</p>
+<p><b>Configuration</b></p>
+<p>The</p>
+<p>Rmh</p>
+<p>configuration is formally described in</p>
+<p>cfgdesc/RmhClassic_paramdef.arxml</p>
+<p>.</p>
+<p>Here the configuration values will be set in the right context.</p>
+<p><b>Operation Variants of Rmh</b></p>
+<p>As roughly stated in subsection 6.1.1, ``Com'' the</p>
+<p>Rmh</p>
+<p>module can be used in two different modes. These</p>
+<p>two modes differ in the mechanism used, how to trigger the transmission of the requested Com-PDU.</p>
+<p>The integrator has to decide which variant fits best in his integration scenario.</p>
+<p><b>Use zero length dummy trigger signals</b></p>
+<p>In this variant, the</p>
+<p>Rmh</p>
+<p>consists only of one pure AUTOSAR SWC communicating strictly over RTE. To</p>
+<p>allow the transmission of a Com-PDU, the following strategy is used: For each PDU, which is configured</p>
+<p>as &quot;can be requested&quot;, the</p>
+<p>Rmh</p>
+<p>module generates an S/R P-Port over which it sends a uint8 dummy data</p>
+<p>element. The integrator now has to map each of these data elements to a dummy trigger Com signal,</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 7 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p>which is part of the PDU to be transmitted and which has the property</p>
+<p>ComTransferProperty</p>
+<p>set to</p>
+<p>TRIGGERED</p>
+<p>. Since the task of these dummy signals is solely to trigger the PDU transmission and the</p>
+<p>content of these signals shall NOT show up in the transmitted PDU on the network, the used Com stack</p>
+<p>has to support the concept of zero-length-signals. That means the Com dummy signal must support a</p>
+<p>configuration setting ComBitSize with value 0.</p>
+<p><b>Note</b>: This feature is currently marked as optional in AUTOSAR, so you have to check with your stack</p>
+<p>vendor, whether he truly supports this.</p>
+<p><b>Pro</b>: This variant does not need any ComplexDeviceDriverSwComponent support. This might be a</p>
+<p>benefit in ASIL environments, where the usage of non ASIL qualified ComplexDrivers is critical.</p>
+<p><b>Contra</b>: Depending on the number of PDUs that can be requested in your ECU, the</p>
+<p>Rmh</p>
+<p>has an</p>
+<p>equivalent number of ports, which consume resources. The additionally needed dummy Com signals also</p>
+<p>take up certain resources. Finally the configuration overhead for the integrator (data element mapping to</p>
+<p>Com signal mapping, creation of dummy Com signals) may be higher than in variant two.</p>
+<p><b>Use direct BSW call to Com_TriggerIPDUSend</b></p>
+<p>With this</p>
+<p>Rmh</p>
+<p>variant, the module consists of two components: An ApplicationSwComponent and a</p>
+<p>ComplexDeviceDriverSwComponent. The ComplexDeviceDriverSwComponent is nothing more than a</p>
+<p>small wrapper around the BSW API</p>
+<p>Com_TriggerIPDUSend</p>
+<p>of the Com module, which is not</p>
+<p>accessible via RTE. In contrast to variant one, the ApplicationSwComponent part of</p>
+<p>Rmh</p>
+<p>does not write</p>
+<p>dummy data elements to the RTE, but calls a C/S operation of the</p>
+<p>Rmh</p>
+<p>ComplexDeviceDriverSwComponent, which basically directly calls</p>
+<p>Com_TriggerIPDUSend</p>
+<p>, to transmit</p>
+<p>the requested PDU.</p>
+<p><b>Pro</b>: Lower resource footprint, less configuration overhead.<b> Contra</b>: Direct call to BSW code might be</p>
+<p>critical in ASIL environments. During generation of</p>
+<p>Rmh</p>
+<p>code/SWCD the configuration of the Com module</p>
+<p>must be read. This is an additional dependency that demands a real AUTOSAR compliant Com</p>
+<p>configuration (which should of course not be a big issue).</p>
+<p>The</p>
+<p>Rmh</p>
+<p>configuration allows configuring which requested message IDs are supported and which</p>
+<p>Com-PDUs shall be triggered by which request message ID. The</p>
+<p>Rmh</p>
+<p>configuration contains the</p>
+<p>following containers at root level:</p>
+<p>CommonPublishedInformation</p>
+<p>Rmh General</p>
+<p><b>Rmh General</b></p>
+<p>This container contains the configuration (parameters) of the</p>
+<p>Rmh</p>
+<p>.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 8 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>RmhDevErrorDetect</b></p>
+<p>BOOLEAN parameter to enable/disable the reporting of development errors. This can be useful to detect</p>
+<p>errors in the Com/</p>
+<p>Rmh</p>
+<p>configuration, when Rmh tries to trigger non-existent Com-PDUs.</p>
+<p><b>RmhPduTriggerMode</b></p>
+<p>This is a CHOICE-container, where the integrator can choose between</p>
+<p>Rmh</p>
+<p>variant one</p>
+<p>(RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL) and two (RMH_MODE_TRIGGER_IPDU_SEND)</p>
+<p>(see subsection 6.2.1, ``Operation Variants of Rmh'').</p>
+<p><b>RmhRequestPduMapping</b></p>
+<p>This container exists in variant one and variant two. Only the contents of this container slightly differ in</p>
+<p>both variants. For each PDU which can be requested in the ECU one container of this type has to be</p>
+<p>instantiated.</p>
+<p><b>RmhRequestedMsgId</b></p>
+<p>In both variants, this INTEGER-parameter is needed to identify the requested message. (Note that the ID</p>
+<p>is taken from the CAN frame ID of the requested message).</p>
+<p><b>RmhTriggerSignalPPortIdentifier</b></p>
+<p>Only in mode RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL. This STRING-parameter describes</p>
+<p>the P-Port name of the</p>
+<p>Rmh</p>
+<p>module for sending the dummy data element to trigger the Com-PDU</p>
+<p>denoted by the RmhRequestMsgId. We suggest, that you name this parameter in a way that the</p>
+<p>correspondence to the requested Com-PDU is visible.</p>
+<p><b>RmhRequestedComTxPdu</b></p>
+<p>Only in mode RMH_MODE_TRIGGER_IPDU_SEND. This is a reference to the Com-PDU that shall be</p>
+<p>sent/triggered, when RmhRequestMsgId is requested.</p>
+<p><b>Configuration of the RTE/SchM</b></p>
+<p>The R-Port Det of</p>
+<p>Rmh</p>
+<p>has to be connected with the corresponding P-Port of the BSW module Det. The</p>
+<p>R-Port TriggerIPDUSend of</p>
+<p>Rmh</p>
+<p>ApplicationSwComponent has to be connected to the corresponding</p>
+<p>P-Port TriggerIPDUSend of the</p>
+<p>Rmh_cdd</p>
+<p>ComplexDeviceDriverSwComponent in case variant</p>
+<p>RMH_MODE_TRIGGER_IPDU_SEND has been chosen.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 9 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Event Mapping</b></p>
+<p>The</p>
+<p>Rmh</p>
+<p>ApplicationSwComponent has the following runnable (in brackets it is noted, whether it can be</p>
+<p>invoked concurrently):</p>
+<p>RxRequestMsg (false)</p>
+<p>Depending at your RTE tooling at least the runnables that cannot be invoked concurrently must be</p>
+<p>mapped to tasks. The</p>
+<p>Rmh</p>
+<p>ComplexDeviceDriverSwComponent (variant</p>
+<p>RMH_MODE_TRIGGER_IPDU_SEND only) has the following runnable (in brackets it is noted, whether it</p>
+<p>can be invoked concurrently):</p>
+<p>TriggerComIPDUSend (false)</p>
+<p>Depending at your</p>
+<p>RTE</p>
+<p>tooling at least the runnables that cannot be invoked concurrently must be</p>
+<p>mapped to tasks.</p>
+<p><b>Data Mapping</b></p>
+<p>The following S/R data element shall be mapped to the corresponding ComSignal (see subsection 6.1.1,</p>
+<p>``Com''):</p>
+<p>requestedMsgID (R-Port RxRequestedMsgID)</p>
+<p>The following data element(s) mapping is only required if Rmh variant</p>
+<p>RMH_MODE_ZERO_LENGTH_TRIGGER_SIGNAL is used: The following S/R data element(s) shall be</p>
+<p>mapped to the corresponding ComSignal(s) (see subsection 6.1.1, ``Com''):</p>
+<p>dummySignal (R-Port Trigger</p>
+<p><i>&lt;</i></p>
+<p><i>RmhT riggerSignalP P ortIdentif ier &gt;</i>)</p>
+<p><b>Exclusive Areas</b></p>
+<p>Rmh</p>
+<p>has concurrently NO exclusive area.</p>
+<p><b>Software Integration</b></p>
+<p><b>SWCD Adaption</b></p>
+<p>The file</p>
+<p>Rmh_ext_interfaces.arxml</p>
+<p>contains one external dependency, which is defined here to</p>
+<p>express the expectations of Rmh (see explanation in [1]):</p>
+<p>The ClientServer interface of Det module to report development errors via ReportError operation.</p>
+<p>In case the interface signature looks different in your Det implementation (which is very unlikely), you</p>
+<p>could adapt it here, at least to a extent that does not change the C-signature of the runnable,</p>
+<p>implementing the C/S call.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 10 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Startup/Initialization</b></p>
+<p>Rmh does not need an explicit startup or initialization. It is triggered by data received events in case it is</p>
+<p>integrated. In case you do not want the Rmh to interact on data receive events you have to stop the</p>
+<p>corresponding ComPduGroup, which contains the request message/data element that triggers Rmh.</p>
+<p><b>Normal Operation</b></p>
+<p>See above (startup/initialization). Not applicable.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>See above (startup/initialization). Not applicable.</p>
+<p>RmhClassic_IntegrationManual.pdf, Version 5.0.0, Software Platforms</p>
+<p>Page 11 of 11</p>
+</body>
+</html>
+{% endraw %}

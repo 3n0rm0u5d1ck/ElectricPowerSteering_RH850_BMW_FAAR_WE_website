@@ -1,0 +1,794 @@
+---
+layout: default
+title: TechnicalReference_ComXf
+nav_order: 81
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR COM Based Transformer </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.8.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Cornelius Reuss, Sascha Sommer, Katharina Benkert </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>2 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Cornelius Reuss </p>
+<p>2015-07-07 </p>
+<p>1.0.0 </p>
+<p>Initial version </p>
+<p>Cornelius Reuss </p>
+<p>2016-02-26 </p>
+<p>1.1.0 </p>
+<p>New Layout </p>
+<p>Sascha Sommer </p>
+<p>2016-05-17 </p>
+<p>1.2.0 </p>
+<p>Version update only </p>
+<p>Sascha Sommer </p>
+<p>2016-05-17 </p>
+<p>1.3.0 </p>
+<p>Version update only </p>
+<p>Cornelius Reuss </p>
+<p>2016-06-23 </p>
+<p>1.4.0 </p>
+<p>Version update only </p>
+<p>Katharina Benkert </p>
+<p>2016-11-17 </p>
+<p>1.5.0 </p>
+<p>Version update only </p>
+<p>Bernd Sigle </p>
+<p>2017-03-20 </p>
+<p>1.6.0 </p>
+<p>Version update only </p>
+<p>Bernd Sigle </p>
+<p>2017-06-06 </p>
+<p>1.7.0 </p>
+<p>Version update only </p>
+<p>Bernd Sigle </p>
+<p>2017-08-17 </p>
+<p>1.8.0 </p>
+<p>Support for AUTOSAR 4.3.0 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_COMBasedTransformer.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>4.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_COM.pdf </p>
+<p>4.3.0 </p>
+<p><b>Scope of the Document </b></p>
+<p>This technical reference describes the general use of the COM Based Transformer. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>3 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 6</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 6</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 7</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 7</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations .......................................................................................... 7</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ........................................................................................................ 7</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States ................................................................................................................ 7</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions .................................................................................................. 7</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................... 7</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ............................................................. 7</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting ....................................................... 8</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ..................................................................................................................... 9</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................... 9</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ......................................................................................... 9</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................... 9</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 10</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Services provided by ComXf ............................................................................ 10</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>ComXf_Init ....................................................................................... 10</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>ComXf_DeInit................................................................................... 10</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>ComXf_GetVersionInfo .................................................................... 11</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>ComXf_&lt;transformerId&gt; ................................................................... 11</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>ComXf_Inv_&lt;transformerId&gt; ............................................................ 12</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 13</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 13</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Enabling / Disabling of data transformation ...................................................... 13</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 14</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 14</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 14</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 15</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>4 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR Architecture Overview ............................................................... 6</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Enable Data Transformation ..................................................................... 13</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 5</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 7</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ................................. 7</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................... 9</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ........................................................................................... 9</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>ComXf_Init ................................................................................................ 10</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>ComXf_DeInit ........................................................................................... 10</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>ComXf_GetVersionInfo ............................................................................. 11</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>ComXf_&lt;transformerId&gt; ........................................................................... 11</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>ComXf_Inv_&lt;transformerId&gt; ..................................................................... 12</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 14</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 14</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>5 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.0.0 </p>
+<p>Initial Creation  </p>
+<p>1.2.0 </p>
+<p>Version update only </p>
+<p>1.3.0 </p>
+<p>Version update only </p>
+<p>1.4.0 </p>
+<p>Version update only </p>
+<p>1.5.0 </p>
+<p>MISRA enhancements </p>
+<p>1.6.0 </p>
+<p>Version update only </p>
+<p>1.7.0 </p>
+<p>Version update only </p>
+<p>1.8.0 </p>
+<p>Support of AUTOSAR 4.3.0 </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>6 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module ComXf as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>COMXF_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>COMXF_MODULE_ID </p>
+<p>175 decimal </p>
+<p>(according to ref. [2]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The ComXf module provides the functionality to serialize complex data when the target </p>
+<p>bus system uses a fixed communication matrix. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the ComXf is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR Architecture Overview  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>7 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>ComXf. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Serialization / Deserialization of complex data for S/R communication. </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Development error detection.</p>
+<p> </p>
+<p>Postbuild support.</p>
+<p> </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>The ComXf does not have to be initialized or deinitialized. Calls to </p>
+<p>ComXf_Init()</p>
+<p> and </p>
+<p>ComXf_DeInit()</p>
+<p> can be omitted. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>No internal states exist. </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>No main function exists because all functionality is performed within the called API. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>No development error reporting is currently supported by ComXf. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>8 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.5.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>No production errors are speciﬁed for ComXf. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>9 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR ComXf into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the ComXf contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2. </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>- </p>
+<p>-</p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>ComXf.c </p>
+<p>Source file of the ComXf module. </p>
+<p>ComXf.h </p>
+<p>Main header file which shall be included by modules using the </p>
+<p>ComXf module. </p>
+<p>ComXf_MemMap.h </p>
+<p>Template contains ComXf specific part of the memory mapping. </p>
+<p>ComXf_Compiler_Cfg.h </p>
+<p>Template contains ComXf specific part of the compiler abstraction. </p>
+<p>ComXf_rules.mak, </p>
+<p>ComXf_defs.mak, </p>
+<p>ComXf_check.mak, </p>
+<p>ComXf_cfg.mak  </p>
+<p>Make files according to the AUTOSAR make environment </p>
+<p>proposal are generated into the mak subdirectory. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>10 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Services provided by ComXf </b></p>
+<p><b>5.1.1 </b></p>
+<p><b>ComXf_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>ComXf_Init</b></p>
+<p> </p>
+<p>(const ComXf_ConﬁgType *config)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>config </p>
+<p>Pointer to the transformer’s conﬁguration data. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initialization function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Expected Caller Context </p>
+<p>This function can be called in any context. </p>
+<p>Table 5-1  </p>
+<p>ComXf_Init </p>
+<p><b>5.1.2 </b></p>
+<p><b>ComXf_DeInit </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>ComXf_DeInit</b></p>
+<p> </p>
+<p>(void)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Deinitialization function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Expected Caller Context </p>
+<p>This function can be called in any context. </p>
+<p>Table 5-2  </p>
+<p>ComXf_DeInit </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>11 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5.1.3 </b></p>
+<p><b>ComXf_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>ComXf_GetVersionInfo</b></p>
+<p> </p>
+<p>(Std_VersionInfoType *versionInfo)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>versioninfo </p>
+<p>Pointer to where to store the version information of this module. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This API returns version information, vendor ID and AUTOSAR module ID of the called transformer module. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>This API is only available if enabled by the configuration parameter XfrmVersionInfoApi. </p>
+<p>Expected Caller Context </p>
+<p>This function can be called in any context. </p>
+<p>Table 5-3  </p>
+<p>ComXf_GetVersionInfo </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>ComXf_&lt;transformerId&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>ComXf_&lt;transformerId&gt;</b></p>
+<p> </p>
+<p>(uint8 *buffer, uint16 *bufferLength, const </p>
+<p>&lt;type&gt; *dataElement)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>buffer </p>
+<p>Buffer allocated by the RTE, where the transformed data has to be stored by </p>
+<p>the transformer. </p>
+<p>bufferLength </p>
+<p>Used length of the buffer. </p>
+<p>dataElement </p>
+<p>Data element which shall be transformed. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Serialization successful. </p>
+<p><b>Functional Description </b></p>
+<p>Serialization of signal group based on COM ECU configuration for S/R communication. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Expected Caller Context </p>
+<p>This function can be called in any context. </p>
+<p>Table 5-4  </p>
+<p>ComXf_&lt;transformerId&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>12 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5.1.5 </b></p>
+<p><b>ComXf_Inv_&lt;transformerId&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>ComXf_Inv_&lt;transformerId&gt;</b></p>
+<p> </p>
+<p>(const uint8 *buffer, uint16 </p>
+<p>bufferLength, &lt;type&gt; *dataElement)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>buffer </p>
+<p>Buffer allocated by the RTE, where the serialized data is stored by the Rte. </p>
+<p>bufferLength </p>
+<p>Used length of the buffer. </p>
+<p>dataElement </p>
+<p>Data element which is the result of the transformation and contains the </p>
+<p>deserialized data element. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Deserialization successful. </p>
+<p><b>Functional Description </b></p>
+<p>Deserialization of signal group based on COM ECU configuration for S/R communication. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Expected Caller Context </p>
+<p>This function can be called in any context. </p>
+<p>Table 5-5  </p>
+<p>ComXf_Inv_&lt;transformerId&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>13 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the ComXf the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator </p>
+<p>Currently, only the GetVersionInfo API can be enabled / disabled in the ComXf ECU </p>
+<p>configuration. </p>
+<p>The serialization / deserialization of the signal groups is based on the ECU configuration of </p>
+<p>the COM module (for details see [3]). </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The ComXf supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The </p>
+<p>configuration </p>
+<p>classes </p>
+<p>of </p>
+<p>the </p>
+<p>ComXf </p>
+<p>parameters </p>
+<p>depend </p>
+<p>on </p>
+<p>the </p>
+<p>supported </p>
+<p>configuration variants. For their definitions please see the </p>
+<p>ComXf_bswmd.arxml</p>
+<p> file. </p>
+<p><b>6.2 </b></p>
+<p><b>Enabling / Disabling of data transformation </b></p>
+<p>If a signal shall be handled by the ComXf, the parameter “Signal Group Array Access” has </p>
+<p>to be set in the ECU configuration of the COM module (see Figure 6-1 Enable </p>
+<p>Data </p>
+<p>Transformation). </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Enable Data Transformation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>14 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci Configurator </p>
+<p>Configuration and generation tool for MICROSAR components </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR COM Based Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.8.0 </p>
+<p>15 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

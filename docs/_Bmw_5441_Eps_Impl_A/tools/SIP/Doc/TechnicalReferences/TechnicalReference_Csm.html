@@ -1,0 +1,2643 @@
+---
+layout: default
+title: TechnicalReference_Csm
+nav_order: 86
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR CSM </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Cryptographic Service Manager </p>
+<p>Version 1.03.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Markus Schneider, Anant Gupta </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Schneider, Markus </p>
+<p>2017-03-14 </p>
+<p>1.01.00 </p>
+<p>Initial Creation for ASR 4.3 </p>
+<p>Gupta, Anant </p>
+<p>2017-03-17 </p>
+<p>1.01.00 </p>
+<p>Add configurational details </p>
+<p>Schneider, Markus </p>
+<p>2017-05-08 </p>
+<p>1.02.00 </p>
+<p>3.1.1 Added backward compatible static </p>
+<p>definition limitation </p>
+<p>5 Adapted to Specification </p>
+<p>Schneider, Markus </p>
+<p>2017-06-07 </p>
+<p>1.03.00 </p>
+<p>Adapted chapter 4.2 </p>
+<p>Added information about SecureCounter </p>
+<p>Removed API description for </p>
+<p>SecureCounter </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CryptoServiceManager.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>4.3.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 7</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 8</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 10</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 11</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 11</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 13</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 13</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 13</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 13</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 13</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 14</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 14</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by CSM ............................................................................... 14</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Csm_Init ........................................................................................... 14</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Csm_InitMemory .............................................................................. 15</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Csm_GetVersionInfo ........................................................................ 15</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Csm_CancelJob ............................................................................... 16</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Csm_KeyElementSet ....................................................................... 17</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Csm_KeySetValid ............................................................................ 17</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>Csm_KeyElementGet ....................................................................... 18</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>Csm_KeyElementCopy .................................................................... 19</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>Csm_KeyCopy ................................................................................. 20</p>
+<p> </p>
+<p>5.2.10</p>
+<p> </p>
+<p>Csm_RandomSeed .......................................................................... 20</p>
+<p> </p>
+<p>5.2.11</p>
+<p> </p>
+<p>Csm_KeyGenerate .......................................................................... 21</p>
+<p> </p>
+<p>5.2.12</p>
+<p> </p>
+<p>Csm_KeyDerive ............................................................................... 21</p>
+<p> </p>
+<p>5.2.13</p>
+<p> </p>
+<p>Csm_KeyExchangeCalcPubVal ....................................................... 22</p>
+<p> </p>
+<p>5.2.14</p>
+<p> </p>
+<p>Csm_KeyExchangeCalcSecret ........................................................ 23</p>
+<p> </p>
+<p>5.2.15</p>
+<p> </p>
+<p>Csm_CertificateParse ...................................................................... 24</p>
+<p> </p>
+<p>5.2.16</p>
+<p> </p>
+<p>Csm_CertificateVerify ....................................................................... 24</p>
+<p> </p>
+<p>5.2.17</p>
+<p> </p>
+<p>Csm_Hash ....................................................................................... 25</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2.18</p>
+<p> </p>
+<p>Csm_MacGenerate .......................................................................... 26</p>
+<p> </p>
+<p>5.2.19</p>
+<p> </p>
+<p>Csm_MacVerify ................................................................................ 26</p>
+<p> </p>
+<p>5.2.20</p>
+<p> </p>
+<p>Csm_Encrypt ................................................................................... 27</p>
+<p> </p>
+<p>5.2.21</p>
+<p> </p>
+<p>Csm_Decrypt ................................................................................... 28</p>
+<p> </p>
+<p>5.2.22</p>
+<p> </p>
+<p>Csm_AEADEncrypt .......................................................................... 29</p>
+<p> </p>
+<p>5.2.23</p>
+<p> </p>
+<p>Csm_AEADDecrypt.......................................................................... 30</p>
+<p> </p>
+<p>5.2.24</p>
+<p> </p>
+<p>Csm_SignatureGenerate ................................................................. 31</p>
+<p> </p>
+<p>5.2.25</p>
+<p> </p>
+<p>Csm_SignatureVerify ....................................................................... 32</p>
+<p> </p>
+<p>5.2.26</p>
+<p> </p>
+<p>Csm_RandomGenerate ................................................................... 33</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by CSM ..................................................................................... 33</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 34</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Csm_CallbackNotification ................................................................ 34</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 34</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Client Server Interface ..................................................................... 34</p>
+<p> </p>
+<p>5.5.1.1</p>
+<p> </p>
+<p>Provide Ports on CSM Side ........................................... 34</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 35</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Overview .......................................................................................................... 35</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration of a cryptographic operation ....................................................... 36</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 37</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Backward Compatibility .................................................................................... 37</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Configuration with DaVinci Configurator 5 Pro ................................................. 37</p>
+<p> </p>
+<p>6.5.1</p>
+<p> </p>
+<p>General Properties ........................................................................... 38</p>
+<p> </p>
+<p>6.5.2</p>
+<p> </p>
+<p>Key Properties ................................................................................. 38</p>
+<p> </p>
+<p>6.5.3</p>
+<p> </p>
+<p>Primitives Properties ........................................................................ 39</p>
+<p> </p>
+<p>6.5.4</p>
+<p> </p>
+<p>Queue Properties ............................................................................. 39</p>
+<p> </p>
+<p>6.5.5</p>
+<p> </p>
+<p>Callback Properties .......................................................................... 39</p>
+<p> </p>
+<p>6.5.6</p>
+<p> </p>
+<p>Job Properties .................................................................................. 40</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 41</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 41</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 41</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 42</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.3 Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the CSM ................................................ 9</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Structural overview and basic workflow .................................................... 35</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>Configuration CsmPrimitive ...................................................................... 36</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Configuration CryptoPrimitive ................................................................... 37</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>Configuration CryptoDriverObject ............................................................. 37</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 7</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 10</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 10</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 12</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 12</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 13</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 13</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 14</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Csm_Init ................................................................................................... 15</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Csm_InitMemory ...................................................................................... 15</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Csm_GetVersionInfo ................................................................................. 16</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Csm_CancelJob ....................................................................................... 16</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Csm_KeyElementSet ................................................................................ 17</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Csm_KeySetValid ..................................................................................... 18</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Csm_KeyElementGet ............................................................................... 19</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Csm_KeyElementCopy ............................................................................. 19</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Csm_KeyCopy .......................................................................................... 20</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>Csm_RandomSeed .................................................................................. 21</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Csm_KeyGenerate ................................................................................... 21</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Csm_KeyDerive ........................................................................................ 22</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Csm_KeyExchangeCalcPubVal ................................................................ 23</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>Csm_KeyExchangeCalcSecret ................................................................. 23</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>Csm_CertificateParse ............................................................................... 24</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>Csm_CertificateVerify ............................................................................... 25</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Csm_Hash ................................................................................................ 25</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>Csm_MacGenerate................................................................................... 26</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>Csm_MacVerify ........................................................................................ 27</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>Csm_Encrypt ............................................................................................ 28</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>Csm_Decrypt ............................................................................................ 29</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>Csm_AEADEncrypt .................................................................................. 30</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>Csm_AEADDecrypt .................................................................................. 31</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>Csm_SignatureGenerate .......................................................................... 32</p>
+<p> </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>Csm_SignatureVerify ................................................................................ 32</p>
+<p> </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>Csm_RandomGenerate ............................................................................ 33</p>
+<p> </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>Services used by the CSM ........................................................................ 34</p>
+<p> </p>
+<p>Table 5-29 </p>
+<p> </p>
+<p>Csm_CallbackNotification ......................................................................... 34</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>General Properties.................................................................................... 38</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Key Properties .......................................................................................... 38</p>
+<p> </p>
+<p>Table 6-3 </p>
+<p> </p>
+<p>Primitives Properties ................................................................................. 39</p>
+<p> </p>
+<p>Table 6-4 </p>
+<p> </p>
+<p>Queue Properties ..................................................................................... 39</p>
+<p> </p>
+<p>Table 6-5 </p>
+<p> </p>
+<p>Callback Properties................................................................................... 40</p>
+<p> </p>
+<p>Table 6-6 </p>
+<p> </p>
+<p>Job Properties .......................................................................................... 40</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 41</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 41</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00 </p>
+<p>Initial beta release </p>
+<p>1.01 </p>
+<p>Adaptions to the specification; several improvements and bugfixes </p>
+<p>1.02 </p>
+<p>Serial Production Release </p>
+<p>1.03 </p>
+<p>SafeBsw Release </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module CSM as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.3 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>CSM_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>CSM_MODULE_ID   </p>
+<p>110 decimal </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The CSM provides synchronous and asynchronous services to enable a unique access to </p>
+<p>basic  cryptographic  functionalities  for  software  components  (SWC)  and  basic  software </p>
+<p>(BSW). The CSM offers a standardized interface to higher software layers to access these </p>
+<p>functionalities. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the CSM is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.3 Architecture Overview  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>The next figure shows the interfaces to adjacent modules of the  CSM. These interfaces </p>
+<p>are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the CSM </p>
+<p><b> cmp Architecture</b></p>
+<p><b>CSM</b></p>
+<p><b>User Application</b></p>
+<p><b>BswM</b></p>
+<p><b>Det</b></p>
+<p><b>CRYIF</b></p>
+<p><b>RTE</b></p>
+<p>Csm_CancelJob</p>
+<p>Det_ReportError</p>
+<p>«optional»</p>
+<p>Csm_&lt;KeyManagement&gt;</p>
+<p>CryIf_ProcessJob</p>
+<p>CryIf_CancelJob</p>
+<p>Csm_&lt;Service&gt;</p>
+<p>UserCallback</p>
+<p>«optional»</p>
+<p>CryIf_&lt;KeyManagement&gt;</p>
+<p>Csm_MainFunction</p>
+<p>Csm_Init</p>
+<p>Csm_CallbackNotification</p>
+<p>«optional»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>CSM. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Queueing and cancellation of jobs </p>
+<p>Job prioritization </p>
+<p>Synchronous and asynchronous job handling </p>
+<p>Key management APIs </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>4.x backward compatible API and Client-Server Interface </p>
+<p>4.x backward compatible definitions are static and will be removed in the next release </p>
+<p>Secure Counter Increment and Secure Counter Read are not supported </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Before any other functionality of the  CSM module can be  used the initialization function </p>
+<p>Csm_Init()</p>
+<p> has to be called by the BSWM. </p>
+<p>For </p>
+<p>manual </p>
+<p>null </p>
+<p>initialization </p>
+<p>of </p>
+<p>RAM </p>
+<p>variables </p>
+<p>the </p>
+<p>CSM </p>
+<p>offers </p>
+<p>the </p>
+<p>function </p>
+<p>Csm_InitMemory() </p>
+<p>which can be called before the </p>
+<p>Csm_Init()</p>
+<p>. </p>
+<p><b>3.3 </b></p>
+<p><b>Main Functions </b></p>
+<p>The </p>
+<p>CSM </p>
+<p>module </p>
+<p>implementation </p>
+<p>provides </p>
+<p>one </p>
+<p>main </p>
+<p>function.  When </p>
+<p>the </p>
+<p>usage </p>
+<p>of </p>
+<p>asynchronous job processing is enabled, this main function has to be called cyclically on </p>
+<p>task level. The main function is responsible to dispatch new jobs to the underlying CRYIF </p>
+<p>respectively CRYPTO driver. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.4 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.4.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>CSM_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported CSM ID is 110. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>Csm_Init </p>
+<p>0x01 </p>
+<p>Csm_MainFunction </p>
+<p>0x3B </p>
+<p>Csm_GetVersionInfo </p>
+<p>0x5D </p>
+<p>Csm_Hash </p>
+<p>0x60 </p>
+<p>Csm_MacGenerate </p>
+<p>0x61 </p>
+<p>Csm_MacVerify </p>
+<p>0x5E </p>
+<p>Csm_Encrypt </p>
+<p>0x5F </p>
+<p>Csm_Decrypt </p>
+<p>0x62 </p>
+<p>Csm_AEADEncrypt </p>
+<p>0x63 </p>
+<p>Csm_AEADDecrypt </p>
+<p>0x76 </p>
+<p>Csm_SignatureGenerate </p>
+<p>0x64 </p>
+<p>Csm_SignatureVerify </p>
+<p>0x65 </p>
+<p>Csm_SecureCounterIncrement </p>
+<p>0x66 </p>
+<p>Csm_SecureCounterRead </p>
+<p>0x72 </p>
+<p>Csm_RandomGenerate </p>
+<p>0x78 </p>
+<p>Csm_KeyElementSet </p>
+<p>0x67 </p>
+<p>Csm_KeySetValid </p>
+<p>0x68 </p>
+<p>Csm_KeyElementGet </p>
+<p>0x71 </p>
+<p>Csm_KeyElementCopy </p>
+<p>0x73 </p>
+<p>Csm_KeyCopy </p>
+<p>0x69 </p>
+<p>Csm_RandomSeed </p>
+<p>0x6A </p>
+<p>Csm_KeyGenerate </p>
+<p>0x6B </p>
+<p>Csm_KeyDerive </p>
+<p>0x6C </p>
+<p>Csm_KeyExchangeCalcPubVal </p>
+<p>0x6D </p>
+<p>Csm_KeyExchangeCalcSecret </p>
+<p>0x6E </p>
+<p>Csm_CertificateParse </p>
+<p>0x74 </p>
+<p>Csm_CertificateVerify </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x6F </p>
+<p>Csm_CancelJob </p>
+<p>0x70 </p>
+<p>Csm_CallbackNotification </p>
+<p>Table 3-3  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>API request called with invalid parameter (Nullpointer) </p>
+<p>0x05 </p>
+<p>API request called before initialization of CSM module </p>
+<p>0x07 </p>
+<p>Initialization of CSM module failed </p>
+<p>0x09 </p>
+<p>Requested service is not initialized </p>
+<p>0x03 </p>
+<p>API request called with invalid parameter (invalid method for </p>
+<p>selected service) </p>
+<p>0x11 </p>
+<p>The service Csm_Init() is called while the module is already </p>
+<p>initialized </p>
+<p>Table 3-4  </p>
+<p>Errors reported to DET </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR CSM into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the CSM contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Csm.c </p>
+<p>This is the source file of the CSM.</p>
+<p> </p>
+<p>Csm.h </p>
+<p>This is the header file of the CSM. </p>
+<p>Csm_Cbk.h </p>
+<p>This is the header file which contains the callback function declaration.</p>
+<p> </p>
+<p>Csm_Types.h </p>
+<p>This is the common header file used within the crypto stack. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator 5 Pro. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Csm_Cfg.c </p>
+<p>This is configuration source file. </p>
+<p>Csm_Cfg.h </p>
+<p>This is configuration header file. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The  CSM  has  critical  code  sections  which  must  not  be  interrupted.  The  sections  are </p>
+<p>related to the queue handling, job sorting and job queuing. </p>
+<p>The CSM module calls the following function when entering a critical section: </p>
+<p><b>&gt; </b></p>
+<p>SchM_Enter_Csm_CSM_EXCLUSIVE_AREA_0 </p>
+<p>When the critical section is left the following function is called by the CSM module: </p>
+<p><b>&gt; </b></p>
+<p>SchM_Exit_Csm_CSM_EXCLUSIVE_AREA_0 </p>
+<p>This critical section is needed to ensure consistency of global RAM variables regarding the </p>
+<p>queue handling. The runtime and length of the critical section depends on the configured </p>
+<p>queue size. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The critical section is only needed when asynchronous jobs are configured. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>Application related types defined by the CSM are described in this chapter. All types not </p>
+<p>described here are defined by the CSM as described in [1]. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>Crypto_OperationMod</p>
+<p>eType </p>
+<p>uint8 </p>
+<p>Indicator of the </p>
+<p>mode(s)/operation(s) to </p>
+<p>be performed. </p>
+<p>CRYPTO_OPERATIONMODE_START </p>
+<p>Perform start operation </p>
+<p>CRYPTO_OPERATIONMODE_UPDAT</p>
+<p>E </p>
+<p>Perform update operation</p>
+<p> </p>
+<p>CRYPTO_OPERATIONMODE_FINIS</p>
+<p>H  </p>
+<p>Perform finish operation</p>
+<p> </p>
+<p>CRYPTO_OPERATIONMODE_STREA</p>
+<p>MSTART  </p>
+<p>Perform start and update operation</p>
+<p> </p>
+<p>CRYPTO_OPERATIONMODE_SINGL</p>
+<p>ECALL  </p>
+<p>Perform start, update and finish </p>
+<p>operation</p>
+<p> </p>
+<p>Crypto_VerifyResultTy</p>
+<p>pe </p>
+<p>uint8 </p>
+<p>Enumeration of the result </p>
+<p>type of verification </p>
+<p>operations.   </p>
+<p>CRYPTO_E_VER_OK  </p>
+<p>The result of the verification is </p>
+<p>&quot;true&quot;, i.e. the two compared </p>
+<p>elements are identical. This return </p>
+<p>code shall be given as value &quot;0&quot; </p>
+<p>CRYPTO_E_VER_NOT_OK  </p>
+<p>The result of the verification is </p>
+<p>&quot;false&quot;, i.e. the two compared </p>
+<p>elements are not identical. This </p>
+<p>return code shall be given as value </p>
+<p>&quot;1&quot;. </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by CSM </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>Csm_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Csm_Init </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the Csm. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>None </p>
+<p>Set all service states to initial idle.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-2  </p>
+<p>Csm_Init </p>
+<p> </p>
+<p><b>5.2.2 </b></p>
+<p><b>Csm_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Csm_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Power-up memory initialization. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Use this function in case these variables are not initialized by the startup code. </p>
+<p>Module is uninitialized. </p>
+<p>Initialize component variables at power up.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-3  </p>
+<p>Csm_InitMemory </p>
+<p> </p>
+<p><b>5.2.3 </b></p>
+<p><b>Csm_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Csm_GetVersionInfo </b>(Std_VersionInfoType *versioninfo) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>versioninfo [out] </p>
+<p>Pointer to where to store the version information. Parameter must not be </p>
+<p>NULL. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested services. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>Csm is initialized.GetVersionInfo API is enabled via pre-compile configuration. </p>
+<p>Calls the configured main function of the specific Cry service if requested.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-4  </p>
+<p>Csm_GetVersionInfo </p>
+<p> </p>
+<p><b>5.2.4 </b></p>
+<p><b>Csm_CancelJob </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_CancelJob </b>(uint32 jobId, Crypto_OperationModeType mode) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Not used, just for interface compatibility provided </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>Std_ReturnType </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p><b>Functional Description </b></p>
+<p>Cancels the given job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Removes the job in the Csm Queue and calls the job's callback with the result </p>
+<p>CRYPTO_E_JOB_CANCELED. It also passes the cancellation command to the CryIf to try to cancel the job </p>
+<p>in the Crypto Driver.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-5  </p>
+<p>Csm_CancelJob </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.5 </b></p>
+<p><b>Csm_KeyElementSet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyElementSet </b>(uint32 keyId, uint32 keyElementId, const </p>
+<p>uint8 *keyPtr, uint32 keyLength) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element to be written. </p>
+<p>keyPtr [in] </p>
+<p>Holds the pointer to the key element bytes to be processed. </p>
+<p>keyLength [in] </p>
+<p>Contains the number of key element bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed because write access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed because the key is not </p>
+<p>available </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key element </p>
+<p>size does not match size of provided data </p>
+<p><b>Functional Description </b></p>
+<p>Sets the given key element bytes to the key identified by keyId. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-6  </p>
+<p>Csm_KeyElementSet </p>
+<p> </p>
+<p><b>5.2.6 </b></p>
+<p><b>Csm_KeySetValid </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeySetValid </b>(uint32 keyId) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key for which a new material shall be validated. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Sets the key state of the key identified by keyId to valid. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-7  </p>
+<p>Csm_KeySetValid </p>
+<p> </p>
+<p><b>5.2.7 </b></p>
+<p><b>Csm_KeyElementGet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyElementGet </b>(uint32 keyId, uint32 keyElementId, uint8 </p>
+<p>*keyPtr, uint32 *keyLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key from which a key element shall be extracted. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element to be extracted. </p>
+<p>keyPtr [out] </p>
+<p>Holds the pointer to the memory location where the key shall be copied to. </p>
+<p>inout] [out] </p>
+<p>keyLengthPtr Holds a pointer to the memory location in which the output buffer </p>
+<p>length in bytes is stored. On calling this function, this parameter shall contain </p>
+<p>the buffer length in bytes of the keyPtr. When the request has finished, the </p>
+<p>actual size of the written input bytes shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed because read access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed because the key is not </p>
+<p>available </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Retrieves the key element bytes from a specific key element of the key identified by the keyId and stores </p>
+<p>the key element in the memory location pointed by the key pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-8  </p>
+<p>Csm_KeyElementGet </p>
+<p> </p>
+<p><b>5.2.8 </b></p>
+<p><b>Csm_KeyElementCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyElementCopy </b>(uint32 keyId, uint32 keyElementId, uint32 </p>
+<p>targetKeyId, uint32 targetKeyElementId) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the source for the copy </p>
+<p>operation. </p>
+<p>targetKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p>targetKeyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the destination for the </p>
+<p>copy operation. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed because read access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed because write access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed because the key is not </p>
+<p>available </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key element </p>
+<p>sizes are not compatible </p>
+<p><b>Functional Description </b></p>
+<p>This function shall copy a key elements from one key to a target key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-9  </p>
+<p>Csm_KeyElementCopy </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.9 </b></p>
+<p><b>Csm_KeyCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyCopy </b>(uint32 keyId, uint32 targetKeyId) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<p>targetKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed because read access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed because write access was </p>
+<p>denied </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed because the key is not </p>
+<p>available </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed because key element </p>
+<p>sizes are not compatible </p>
+<p><b>Functional Description </b></p>
+<p>This function shall copy all key elements from the source key to a target key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-10  </p>
+<p>Csm_KeyCopy </p>
+<p> </p>
+<p><b>5.2.10 </b></p>
+<p><b>Csm_RandomSeed </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_RandomSeed </b>(uint32 keyId, const uint8 *seedPtr, uint32 </p>
+<p>seedLength) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key for which a new material shall be generated. </p>
+<p>seedPtr [in] </p>
+<p>Holds a pointer to the memory location containing the data to feed the seed. </p>
+<p>seedLength [in] </p>
+<p>Contains the length of the seed in bytes. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>Std_ReturnType </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p><b>Functional Description </b></p>
+<p>Feeds a key with a random seed. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-11  </p>
+<p>Csm_RandomSeed </p>
+<p> </p>
+<p><b>5.2.11 </b></p>
+<p><b>Csm_KeyGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyGenerate </b>(uint32 keyId) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key for which a new material shall be generated. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>Std_ReturnType </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p><b>Functional Description </b></p>
+<p>Generates a key based on key element input. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-12  </p>
+<p>Csm_KeyGenerate </p>
+<p> </p>
+<p><b>5.2.12 </b></p>
+<p><b>Csm_KeyDerive </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyDerive </b>(uint32 keyId, uint32 targetKeyId) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key used for key derivation. </p>
+<p>targetKeyId [in] </p>
+<p>Holds the identifier of the key which is used to store the derived key. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy </p>
+<p><b>Functional Description </b></p>
+<p>Derives a new key by using the key elements in the given key identified by the keyId. The given key </p>
+<p>contains the key elements for the password and salt. The derived key is stored in the key element with the </p>
+<p>id 1 of the key identified by targetCryptoKeyId. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-13  </p>
+<p>Csm_KeyDerive </p>
+<p> </p>
+<p><b>5.2.13 </b></p>
+<p><b>Csm_KeyExchangeCalcPubVal </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyExchangeCalcPubVal </b>(uint32 keyId, uint8 *publicValuePtr, </p>
+<p>uint32 *publicValueLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the key identifier of the key to be used for the key exchange protocol. </p>
+<p>publicValuePtr [out] </p>
+<p>Contains the pointer to the data where the public value shall be stored. </p>
+<p>inout] [out] </p>
+<p>publicValueLengthPtr Holds a pointer to the memory location in which the </p>
+<p>public value length in bytes is stored. On calling this function, this parameter </p>
+<p>shall contain the size of the buffer in bytes provided by publicValuePtr. When </p>
+<p>the request has finished, the actual length of the returned value shall be </p>
+<p>stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_KEY_NOT_VALID Request failed because the key's state is </p>
+<p>&quot;invalid&quot; </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Calculates the public value of the current user for the key exchange and stores the public key in the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p>memory location pointed by the public value pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-14  </p>
+<p>Csm_KeyExchangeCalcPubVal </p>
+<p> </p>
+<p><b>5.2.14 </b></p>
+<p><b>Csm_KeyExchangeCalcSecret </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_KeyExchangeCalcSecret </b>(uint32 keyId, const uint8 </p>
+<p>*partnerPublicValuePtr, uint32 partnerPublicValueLength) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the key identifier of the key to be used for the key exchange protocol. </p>
+<p>partnerPublicValuePtr [in] </p>
+<p>Holds the pointer to the memory location containing the partner's public value. </p>
+<p>partnerPublicValueLength </p>
+<p>[in] </p>
+<p>Contains the number of bytes of the partner public value. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Calculates the shared secret key for the key exchange with the key material of the key identified by the </p>
+<p>keyId and the partner public key. The shared secret key is stored as a key element in the same key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-15  </p>
+<p>Csm_KeyExchangeCalcSecret </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.15 </b></p>
+<p><b>Csm_CertificateParse </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_CertificateParse </b>(uint32 keyId) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key to be used for the certificate parsing. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>Std_ReturnType </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p><b>Functional Description </b></p>
+<p>This function shall dispatch the certificate parse function to the CRYIF. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-16  </p>
+<p>Csm_CertificateParse </p>
+<p> </p>
+<p><b>5.2.16 </b></p>
+<p><b>Csm_CertificateVerify </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_CertificateVerify </b>(uint32 keyId, uint32 verifyKeyId, </p>
+<p>Crypto_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>keyId [in] </p>
+<p>Holds the identifier of the key to be used to validate the certificate. </p>
+<p>verifyKeyId [in] </p>
+<p>Holds the identifier of the key containing the certificate to be verified. </p>
+<p>verifyPtr [in] </p>
+<p>Holds a pointer to the memory location, which will contain the result of the </p>
+<p>certificate verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>Std_ReturnType </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p><b>Functional Description </b></p>
+<p>Verifies the certificate stored in the key referenced by verifyKeyId with the certificate stored in the key </p>
+<p>referenced by keyId. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-17  </p>
+<p>Csm_CertificateVerify </p>
+<p> </p>
+<p><b>5.2.17 </b></p>
+<p><b>Csm_Hash </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_Hash </b>(uint32 jobId, Crypto_OperationModeType mode, const </p>
+<p>uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data for which the hash shall be computed. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes to be hashed. </p>
+<p>resultPtr [out] </p>
+<p>Contains the pointer to the data where the hash value shall be stored. </p>
+<p>resultLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes is </p>
+<p>stored. On calling this function, this parameter shall contain the size of the </p>
+<p>buffer provided by resultPtr. When the request has finished, the actual length </p>
+<p>of the returned value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used for the hash computation service. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-18  </p>
+<p>Csm_Hash </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.18 </b></p>
+<p><b>Csm_MacGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_MacGenerate </b>(uint32 jobId, Crypto_OperationModeType mode, </p>
+<p>const uint8 *dataPtr, uint32 dataLength, uint8 *macPtr, uint32 *macLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data for which the MAC shall be computed. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes for the MAC generation. </p>
+<p>macPtr [out] </p>
+<p>Contains the pointer to the data where the MAC shall be stored. </p>
+<p>macLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes is </p>
+<p>stored. On calling this function, this parameter shall contain the size of the </p>
+<p>buffer provided by macPtr. When the request has finished, the actual length of </p>
+<p>the returned MAC shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Uses the given data to perform a MAC generation and stores the MAC in the memory location pointed to by </p>
+<p>the MAC pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-19  </p>
+<p>Csm_MacGenerate </p>
+<p> </p>
+<p><b>5.2.19 </b></p>
+<p><b>Csm_MacVerify </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_MacVerify </b>(uint32 jobId, Crypto_OperationModeType mode, </p>
+<p>const uint8 *dataPtr, uint32 dataLength, const uint8 *macPtr, uint32 macLength, </p>
+<p>Crypto_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data for which the MAC shall be verified. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of data bytes for which the MAC shall be verified. </p>
+<p>macPtr [in] </p>
+<p>Holds a pointer to the MAC to be verified. </p>
+<p>macLength [in] </p>
+<p>Contains the MAC length in BITS to be verified. </p>
+<p>verifyPtr [out] </p>
+<p>Holds a pointer to the memory location, which will hold the result of the MAC </p>
+<p>verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Verifies the given MAC by comparing if the MAC is generated with the given data. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-20  </p>
+<p>Csm_MacVerify </p>
+<p> </p>
+<p><b>5.2.20 </b></p>
+<p><b>Csm_Encrypt </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_Encrypt </b>(uint32 jobId, Crypto_OperationModeType mode, const </p>
+<p>uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data to be encrypted. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes to encrypt. </p>
+<p>resultPtr [out] </p>
+<p>Contains the pointer to the data where the encrypted data shall be stored. </p>
+<p>resultLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length information </p>
+<p>is stored in bytes. On calling this function, this parameter shall contain the size </p>
+<p>of the buffer provided by resultPtr. When the request has finished, the actual </p>
+<p>length of the returned value shall be stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Encrypts the given data and stores the ciphertext in the memory location pointed by the result pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-21  </p>
+<p>Csm_Encrypt </p>
+<p> </p>
+<p><b>5.2.21 </b></p>
+<p><b>Csm_Decrypt </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_Decrypt </b>(uint32 jobId, Crypto_OperationModeType mode, const </p>
+<p>uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 *resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data to be decrypted. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes to decrypt. </p>
+<p>resultPtr [out] </p>
+<p>Contains the pointer to the data where the decrypted data shall be stored. </p>
+<p>resultLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length information </p>
+<p>is stored in bytes. On calling this function, this parameter shall contain the size </p>
+<p>of the buffer provided by resultPtr. When the request has finished, the actual </p>
+<p>length of the returned value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Decrypts the given encrypted data and stores the decrypted plaintext in the memory location pointed by the </p>
+<p>result pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-22  </p>
+<p>Csm_Decrypt </p>
+<p> </p>
+<p><b>5.2.22 </b></p>
+<p><b>Csm_AEADEncrypt </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_AEADEncrypt </b>(uint32 jobId, Crypto_OperationModeType mode, </p>
+<p>const uint8 *plaintextPtr, uint32 plaintextLength, const uint8 </p>
+<p>*associatedDataPtr, uint32 associatedDataLength, uint8 *ciphertextPtr, uint32 </p>
+<p>*ciphertextLengthPtr, uint8 *tagPtr, uint32 *tagLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>plaintextPtr [in] </p>
+<p>Contains the pointer to the data to be encrypted. </p>
+<p>plaintextLength [in] </p>
+<p>Contains the number of bytes to encrypt. </p>
+<p>associatedDataPtr [in] </p>
+<p>Contains the pointer to the associated data. </p>
+<p>associatedDataLength [in] </p>
+<p>Contains the number of bytes of the associated data. </p>
+<p>ciphertextPtr [out] </p>
+<p>Contains the pointer to the data where the encrypted data shall be stored. </p>
+<p>ciphertextLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes of </p>
+<p>the ciphertext is stored. On calling this function, this parameter shall contain </p>
+<p>the size of the buffer in bytes provided by resultPtr. When the request has </p>
+<p>finished, the actual length of the returned value shall be stored. </p>
+<p>tagPtr [out] </p>
+<p>Contains the pointer to the data where the Tag shall be stored. </p>
+<p>tagLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes of </p>
+<p>the Tag is stored. On calling this function, this parameter shall contain the size </p>
+<p>of the buffer in bytes provided by resultPtr. When the request has finished, the </p>
+<p>actual length of the returned value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Uses the given input data to perform a AEAD encryption and stores the ciphertext and the MAC in the </p>
+<p>memory locations pointed by the ciphertext pointer and Tag pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-23  </p>
+<p>Csm_AEADEncrypt </p>
+<p> </p>
+<p><b>5.2.23 </b></p>
+<p><b>Csm_AEADDecrypt </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_AEADDecrypt (uint32 jobId, Crypto_OperationModeType mode, </b></p>
+<p><b>const uint8 *ciphertextPtr, uint32 ciphertextLength, const uint8 </b></p>
+<p><b>*associatedDataPtr, uint32 associatedDataLength, const uint8 *tagPtr, uint32 </b></p>
+<p><b>tagLength, uint8 *plaintextPtr, uint32 *plaintextLengthPtr, </b></p>
+<p><b>Crypto_</b>_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>ciphertextPtr [in] </p>
+<p>Contains the pointer to the data to be decrypted. </p>
+<p>ciphertextLength [in] </p>
+<p>Contains the number of bytes to decrypt. </p>
+<p>associatedDataPtr [in] </p>
+<p>Contains the pointer to the associated data. </p>
+<p>associatedDataLength [in] </p>
+<p>Contains the number of bytes of the associated data. </p>
+<p>tagPtr [in] </p>
+<p>Contains the pointer to the data where the Tag shall be stored. </p>
+<p>tagLength [in] </p>
+<p>Contains the length in bytes of the Tag to be verified. </p>
+<p>plaintextPtr [out] </p>
+<p>Contains the pointer to the data where the encrypted data shall be stored. </p>
+<p>plaintextLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes of </p>
+<p>the ciphertext is stored. On calling this function, this parameter shall contain </p>
+<p>the size of the buffer in bytes provided by resultPtr. When the request has </p>
+<p>finished, the actual length of the returned value shall be stored. </p>
+<p>verifyPtr [out] </p>
+<p>Contains the pointer to the result of the verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Uses the given data to perform an AEAD decryption and stores the plaintext and the result of in the memory </p>
+<p>locations pointed by the plaintext pointer and verifyPtr pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-24  </p>
+<p>Csm_AEADDecrypt </p>
+<p> </p>
+<p><b>5.2.24 </b></p>
+<p><b>Csm_SignatureGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_SignatureGenerate </b>(uint32 jobId, Crypto_OperationModeType </p>
+<p>mode, const uint8 *dataPtr, uint32 dataLength, uint8 *resultPtr, uint32 </p>
+<p>*resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data to be signed. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes to sign. </p>
+<p>resultPtr [out] </p>
+<p>Contains the pointer to the data where the signature shall be stored. </p>
+<p>resultLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the output length in bytes is </p>
+<p>stored. On calling this function, this parameter shall contain the size of the </p>
+<p>buffer in bytes provided by resultPtr. When the request has finished, the actual </p>
+<p>length of the returned value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Uses the given data to perform the signature calculation and stores the signature in the memory location </p>
+<p>pointed by the result pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-25  </p>
+<p>Csm_SignatureGenerate </p>
+<p> </p>
+<p><b>5.2.25 </b></p>
+<p><b>Csm_SignatureVerify </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_SignatureVerify </b>(uint32 jobId, Crypto_OperationModeType </p>
+<p>mode, const uint8 *dataPtr, uint32 dataLength, const uint8 *signaturePtr, </p>
+<p>uint32 signatureLength, Crypto_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>mode [in] </p>
+<p>Indicates which operation mode(s) to perfom. </p>
+<p>dataPtr [in] </p>
+<p>Contains the pointer to the data to be verified. </p>
+<p>dataLength [in] </p>
+<p>Contains the number of bytes to be verified. </p>
+<p>signaturePtr [in] </p>
+<p>Holds a pointer to the signature to be verified. </p>
+<p>signatureLength [in] </p>
+<p>Contains the signature length in bytes. </p>
+<p>verifyPtr [out] </p>
+<p>Holds a pointer to the memory location, which will hold the result of the </p>
+<p>signature verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>Verifies the given signature by comparing with a generated signature. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-26  </p>
+<p>Csm_SignatureVerify </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.26 </b></p>
+<p><b>Csm_RandomGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Csm_RandomGenerate </b>(uint32 jobId, uint8 *resultPtr, uint32 </p>
+<p>*resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>jobId [in] </p>
+<p>Holds the identifier of the job using the CSM service. </p>
+<p>resultPtr [out] </p>
+<p>Holds a pointer to the memory location which will hold the result of the random </p>
+<p>number generation. </p>
+<p>resultLengthPtr [in,out] </p>
+<p>Holds a pointer to the memory location in which the result length in bytes is </p>
+<p>stored. On calling this function, this parameter shall contain the number of </p>
+<p>random bytes, which shall be stored to the buffer provided by resultPtr. When </p>
+<p>the request has finished, the actual length of the returned value shall be </p>
+<p>stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>CSM_E_OK Request successful </p>
+<p>CSM_E_NOT_OK Request failed </p>
+<p>CRYPTO_E_BUSY Request failed, service is busy </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full </p>
+<p>CRYPTO_E_ENTROPY_EXHAUSTION Request failed, entropy of random </p>
+<p>number generator is exhausted </p>
+<p>CRYPTO_E_SMALL_BUFFER The provided buffer is too small to store the </p>
+<p>result </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used for generation of random numbers. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Service is idle. </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-27  </p>
+<p>Csm_RandomGenerate </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by CSM </b></p>
+<p>In the following table services provided by other components, which are used by the CSM </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>Table 5-28  </p>
+<p>Services used by the CSM </p>
+<p><b>5.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This chapter describes the callback functions that are implemented by the  CSM and can </p>
+<p>be invoked by other modules. The prototypes of the callback functions are provided in the </p>
+<p>header file </p>
+<p>Csm_Cbk.h</p>
+<p> by the CSM. </p>
+<p><b>5.4.1 </b></p>
+<p><b>Csm_CallbackNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Csm_CallbackNotification </b>( Crypto_JobType *job, Std_ReturnType result )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>job </p>
+<p>Points to the completed job's information structure. It contains a callbackID to </p>
+<p>identify which job is finished. </p>
+<p>result </p>
+<p>Contains the result of the cryptographic operation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Notifies the CSM about the completion of the request with the result of the cryptographic operation. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Table 5-29  </p>
+<p>Csm_CallbackNotification </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Service Ports </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>Client Server Interface </b></p>
+<p>A client server interface is related to a Provide Port at the server side and a Require Port </p>
+<p>at client side.  </p>
+<p><b>5.5.1.1 </b></p>
+<p><b>Provide Ports on CSM Side </b></p>
+<p>At  the  Provide  Ports  of  the  CSM  the  API  functions  described  in  5.2  are  available  as </p>
+<p>Runnable Entities. The Runnable Entities are invoked via Operations. The mapping from a </p>
+<p>SWC client call to an Operation is performed by the RTE. In this mapping the RTE adds </p>
+<p>Port Defined Argument Values to the client call of the SWC, if configured. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Overview </b></p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Structural overview and basic workflow </p>
+<p>Figure 6-1 gives a structural overview and shows the basic workflow of the crypto stack. </p>
+<p>The Swc requests a cryptographic service of the CSM providing the necessary data and </p>
+<p>the id of the CsmJob which will be performed in the underlying CryptoDriverObject. The </p>
+<p>CsmJob contains all computational parameters for performing the cryptographic operation </p>
+<p>(see chapter 6.2 and 6.5.6). </p>
+<p>At configuration time, each CsmJob is assigned to a CsmQueue, regardless of processing </p>
+<p>type (synchronous or asynchronous) of the job. Each CsmQueue is mapped to CryIfQueue </p>
+<p>and a CryIfQueue itself is mapped to a CryptoDriverObject of a crypto driver. At the crypto </p>
+<p>layer, N crypto drivers may coexist and do not interfere each other.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p>The </p>
+<p>CryptoDriverObject </p>
+<p>must </p>
+<p>allocate </p>
+<p>the </p>
+<p>required </p>
+<p>workspace </p>
+<p>and </p>
+<p>support </p>
+<p>the </p>
+<p>cryptographic  operational  in  general.  A  job  in  computation  occupies  the  cryptographic </p>
+<p>workspace of the cryptographic service; therefore jobs running in the same crypto driver </p>
+<p>object are processed in serialized fashion, whereas jobs running in different crypto driver </p>
+<p>objects or jobs of different cryptographic type may run in parallel.  </p>
+<p>All CSM attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator 5 Pro for a detailed description see 6.5   </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration of a cryptographic operation </b></p>
+<p>A cryptographic algorithm is mostly configurable and must be parametrized to operate in </p>
+<p>specific mode. A CsmJob encapsulates all these information and can be considered as an </p>
+<p>instance of a cryptographic algorithm realized in a CryptoDriverObject. The cryptographic </p>
+<p>operation and the operational mode are configured in a CsmPrimitive and is referred by a </p>
+<p>concrete CsmJob. A CsmPrimitive can be of following primitive service types: </p>
+<p>- </p>
+<p>MacGenerate </p>
+<p>- </p>
+<p>MacVerifiy </p>
+<p>- </p>
+<p>SignatureGenerate </p>
+<p>- </p>
+<p>SignatureVerify </p>
+<p>- </p>
+<p>Encrypt </p>
+<p>- </p>
+<p>Decrypt </p>
+<p>- </p>
+<p>Hash </p>
+<p>- </p>
+<p>Random Generate </p>
+<p>- </p>
+<p>AEADEncrypt </p>
+<p>- </p>
+<p>AEADDecrypt </p>
+<p>- </p>
+<p>Secure Counter Read </p>
+<p>- </p>
+<p>Secure Counter Increment </p>
+<p>Further, each CsmPrimitive defines the algorithm family, mode and secondary family. The </p>
+<p>user  has  to  ensure  that  the  underlying  destination  crypto  driver  object  supports  the </p>
+<p>configured  combination  of  these  three  parameters.  The  CryptoDriverObject  itself  must </p>
+<p>refer  at  least  one  CryptoPrimitive  which  matches  in  primitive  service  type,  family,  mode </p>
+<p>and secondary family (compare Figure 6-2, Figure 6-3 and Figure 6-4). </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>Configuration CsmPrimitive </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>37 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Configuration CryptoPrimitive </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>Configuration CryptoDriverObject </p>
+<p><b>6.3 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The CSM supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the CSM parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the Csm_bswmd.arxml file. </p>
+<p><b>6.4 </b></p>
+<p><b>Backward Compatibility </b></p>
+<p>The CSM does not support backward compatible interfaces to AUTOSAR 4.2.x, but offers </p>
+<p>old  standard  definitions  within  the </p>
+<p>Csm_Types.h</p>
+<p>.  However,  these  definitions  are  not </p>
+<p>configurable and must be adapted manually if needed. </p>
+<p><b>6.5 </b></p>
+<p><b>Configuration with DaVinci Configurator 5 Pro  </b></p>
+<p>The CSM is configured with the help of the configuration tool DaVinci Configurator 5 Pro. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>38 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6.5.1 </b></p>
+<p><b>General Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CsmDevErrorDetect </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>Pre-processor switch to enable and disable development </p>
+<p>error detection. </p>
+<p>CsmVersionInfoApi </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>Pre-processor switch to enable and disable availability of </p>
+<p>the API Csm_GetVersionInfo().  </p>
+<p>- True: API Csm_GetVersionInfo() is available.   </p>
+<p>- False: API Csm_GetVersionInfo() is not available. </p>
+<p>CsmCustomIncludeFiles </p>
+<p><b>- </b></p>
+<p>Include custom header file </p>
+<p>CsmMainFunctionPeriod </p>
+<p>0 - 3600 </p>
+<p><b>0.01 </b></p>
+<p>Specifies the period of main function Csm_MainFunction </p>
+<p>in seconds. </p>
+<p>CsmAsymPublicKeyMax</p>
+<p>Length </p>
+<p>1 - 4294967295 </p>
+<p>Maximum length in bytes of an asymmetric public key for </p>
+<p>all algorithms </p>
+<p>CsmAsymPrivateKeyMax</p>
+<p>Length </p>
+<p>1 - 4294967295 </p>
+<p>Maximum length in bytes of an asymmetric private key for </p>
+<p>all algorithms </p>
+<p>CsmSymKeyMaxLength </p>
+<p>1 - 4294967295 </p>
+<p>Maximum length in bytes of a symmetric key for all </p>
+<p>algorithms </p>
+<p>CsmUseDeprecated </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Currently not supported </p>
+<p> </p>
+<p>Decides if the deprecated interfaces shall be used </p>
+<p>(Backwards compatibility). </p>
+<p>- True: use deprecated interfaces. </p>
+<p>- False: use normal interfaces. </p>
+<p>Table 6-1  </p>
+<p>General Properties </p>
+<p><b>6.5.2 </b></p>
+<p><b>Key Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CsmKeyId </p>
+<p>0 - 4294967295 </p>
+<p>Identifier of the CsmKey </p>
+<p>CsmKeyUsePort </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>Does the key need RTE interfaces?  </p>
+<p>- True: RTE interfaces used for this key  </p>
+<p>- False: No RTE interfaces used for this key </p>
+<p>CsmKeyRef </p>
+<p><b>- </b></p>
+<p>This parameter refers to the used CryIfKey. The </p>
+<p>underlying CryIfKey refers to a specific CryptoKey in the </p>
+<p>Crypto Driver. </p>
+<p>Table 6-2  </p>
+<p>Key Properties </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>39 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6.5.3 </b></p>
+<p><b>Primitives Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>Csm&lt;Service&gt;Algorithm</p>
+<p>Mode </p>
+<p>Service </p>
+<p>depending </p>
+<p>literals </p>
+<p>Determines the algorithm mode used for the crypto </p>
+<p>service </p>
+<p>Csm&lt;Service&gt;Processin</p>
+<p>g </p>
+<p>CSM_ASYNCHR</p>
+<p>ONOUS </p>
+<p>CSM_SYNCHRO</p>
+<p>NOUS  </p>
+<p><b> </b></p>
+<p>Determines how the interface shall be used for that </p>
+<p>primitive </p>
+<p>Csm&lt;Service&gt;DataMaxL</p>
+<p>ength </p>
+<p>1 - 4294967295 </p>
+<p>Max size of the input data length in bytes. </p>
+<p>Csm&lt;Service&gt;Algorithm</p>
+<p>FamilyCustom </p>
+<p>String </p>
+<p>Set algorithm family which is not defined by AUTOSAR </p>
+<p>Csm&lt;Service&gt; </p>
+<p>AlgorithmModeCustom </p>
+<p>String </p>
+<p>Set algorithm mode which is not defined by AUTOSAR </p>
+<p>Csm&lt;Service&gt; </p>
+<p>AlgorithmSecondaryFami</p>
+<p>ly </p>
+<p>Service </p>
+<p>depending </p>
+<p>literals </p>
+<p>Determines the secondary algorithm family used for the </p>
+<p>crypto service </p>
+<p>e.g. The hash algorithm for RSA Signatures </p>
+<p>Csm&lt;Service&gt; </p>
+<p>AlgorithmSecondaryFami</p>
+<p>lyCustom </p>
+<p>String </p>
+<p>Set secondary algorithm family which is not defined by </p>
+<p>AUTOSAR </p>
+<p>Csm&lt;Service&gt;Algorithm</p>
+<p>Family </p>
+<p>Service </p>
+<p>depending </p>
+<p>literals </p>
+<p>Determines the algorithm family used for the crypto </p>
+<p>service </p>
+<p>Csm&lt;Service&gt;&lt;Type&gt;Le</p>
+<p>ngth </p>
+<p>1 - 4294967295 </p>
+<p>Service type specific length (Service dependent </p>
+<p>parameter) </p>
+<p>Table 6-3  </p>
+<p>Primitives Properties </p>
+<p><b>6.5.4 </b></p>
+<p><b>Queue Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CsmQueueSize </p>
+<p>1 - 4294967295 </p>
+<p>Size of the CsmQueue. If jobs cannot be processed by </p>
+<p>the underlying hardware since the hardware is busy, the </p>
+<p>jobs stay in the prioritized queue.  </p>
+<p>If the queue is full, the next job will be rejected. </p>
+<p>CsmChannelRef </p>
+<p>- </p>
+<p>This parameter refers to the used CryIfChannel. </p>
+<p>Table 6-4  </p>
+<p>Queue Properties </p>
+<p><b>6.5.5 </b></p>
+<p><b>Callback Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CsmCallbackFunc </p>
+<p>- </p>
+<p>Callback function to be called if an asynchronous </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>40 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>operation has finished   </p>
+<p>CsmCallbackId </p>
+<p>0 - 4294967295 </p>
+<p>Identifier of the callback function. </p>
+<p>Table 6-5  </p>
+<p>Callback Properties </p>
+<p><b>6.5.6 </b></p>
+<p><b>Job Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is typed </p>
+<p>bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CsmJobPriority </p>
+<p>0 - 4294967295 </p>
+<p>Priority of the job.  </p>
+<p>The higher the value, the higher the job's priority. </p>
+<p>CsmJobId </p>
+<p>0 - 4294967295 </p>
+<p>Identifier of the CSM job </p>
+<p>CsmJobUsePort </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>Does the job need RTE interfaces?  </p>
+<p>- True: the job needs RTE interfaces  </p>
+<p>- False: the job needs no RTE interfaces </p>
+<p>CsmJobPrimitiveCallback</p>
+<p>UpdateNotification </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>This parameter indicates, whether the callback function </p>
+<p>shall be called, if the UPDATE operation has finished. </p>
+<p>CsmJobUseOldPort </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Does the user needs old RTE interfaces? </p>
+<p>CsmJobPrimitiveRef </p>
+<p>- </p>
+<p>This parameter refers to the used CsmPrimitive. Different </p>
+<p>jobs may refer to one CsmPrimitive. The referred </p>
+<p>CsmPrimitive provides detailed information on the actual </p>
+<p>cryptographic routine. </p>
+<p>CsmJobPrimitiveCallback</p>
+<p>Ref </p>
+<p>- </p>
+<p>This parameter refers to the used CsmCallback.  </p>
+<p>The referred CsmCallback is called when the crypto job </p>
+<p>has been finished. </p>
+<p>CsmJobQueueRef </p>
+<p>- </p>
+<p>This parameter refers to the queue.  </p>
+<p>The queue is used if the underlying crypto driver object is </p>
+<p>busy. The queue refers also to the channel which is used. </p>
+<p>CsmJobKeyRef </p>
+<p>- </p>
+<p>This parameter refers to the key which shall be used for </p>
+<p>the CsmPrimitive. It's possible to use a CsmKey for </p>
+<p>different jobs </p>
+<p>Table 6-6  </p>
+<p>Job Properties </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>41 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>CSM </p>
+<p>Crypto Service Manager </p>
+<p>CRYIF </p>
+<p>Crypto Interface </p>
+<p>CRYPTO </p>
+<p>Crypto Driver </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CSM </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.03.00 </p>
+<p>42 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

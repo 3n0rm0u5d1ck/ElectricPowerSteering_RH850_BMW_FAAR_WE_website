@@ -1,0 +1,3154 @@
+---
+layout: default
+title: R20UT3727EJ0101-AUTOSAR
+nav_order: 2
+parent: SPI Handler Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SPI Driver Component Ver.1.0.12 </p>
+<p>Generation Tool User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.1.01 Feb 2017</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>2 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>3 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notice </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses and </p>
+<p>damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical information </p>
+<p>described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas Electronics </p>
+<p>disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, modification, copy or </p>
+<p>otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and undersea </p>
+<p>repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics disclaims any </p>
+<p>and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics product for which the </p>
+<p>product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the ranges </p>
+<p>specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation characteristics, </p>
+<p>installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of the use of Renesas </p>
+<p>Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your products/system. </p>
+<p>Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the final products or </p>
+<p>systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each Renesas </p>
+<p>Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, including </p>
+<p>without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all these applicable </p>
+<p>laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your noncompliance with </p>
+<p>applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or sale </p>
+<p>is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or technologies for (1) </p>
+<p>any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, such as nuclear weapons, </p>
+<p>chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering such weapons, (2) any purpose </p>
+<p>relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of disturbing international peace and </p>
+<p>security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or technologies to any third party whether directly </p>
+<p>or indirectly with knowledge or reason to know that the third party or any other party will engage in the activities described above. When </p>
+<p>exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall comply with any applicable export control laws and </p>
+<p>regulations promulgated and administered by the governments of the countries asserting jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from your </p>
+<p>resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>5 </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>BSWMDT</p>
+<p> </p>
+<p>Basic Software Module Description Template</p>
+<p> </p>
+<p>CSIH</p>
+<p> </p>
+<p>Enhanced Queued Clocked Serial Interface.</p>
+<p> </p>
+<p>DEM</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>EB</p>
+<p> </p>
+<p>External Buffer</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>e.g</p>
+<p> </p>
+<p>Example</p>
+<p> </p>
+<p>Hz</p>
+<p> </p>
+<p>Hertz</p>
+<p> </p>
+<p>HW</p>
+<p> </p>
+<p>Hardware</p>
+<p> </p>
+<p>IB</p>
+<p> </p>
+<p>Internal Buffer</p>
+<p> </p>
+<p>Id</p>
+<p> </p>
+<p>Identifier</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>MicroController Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>Micro Controller Unit</p>
+<p> </p>
+<p>PCLK </p>
+<p>Peripheral Clock </p>
+<p>Rx</p>
+<p> </p>
+<p>Receive</p>
+<p> </p>
+<p>SPI</p>
+<p> </p>
+<p>Serial Peripheral Interface</p>
+<p> </p>
+<p>Tx</p>
+<p> </p>
+<p>Transmit</p>
+<p> </p>
+<p>XML</p>
+<p> </p>
+<p>eXtensible Mark-up Language</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Terminology</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>BSWMDT File</p>
+<p> </p>
+<p>This file is the template for the Basic Software Module Description.</p>
+<p> </p>
+<p>Configuration XML File</p>
+<p> </p>
+<p>This file contains the setting of command line options.</p>
+<p> </p>
+<p>ECU Configuration Description </p>
+<p>File</p>
+<p> </p>
+<p>Input file to SPI Driver Generation Tool. It is generated by ECU </p>
+<p>Configuration Editor.</p>
+<p> </p>
+<p>Sl.No</p>
+<p> </p>
+<p>Serial Number.</p>
+<p> </p>
+<p>Translation XML File</p>
+<p> </p>
+<p>This file contains the translation and device specific header file path.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>6 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>7 </p>
+<p><b>Table of Contents </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ...................................................................................... 9</b></p>
+<p> </p>
+<p><b>1.1</b></p>
+<p> </p>
+<p><b>Document Overview .......................................................................................................... 9</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference ....................................................................................... 11</b></p>
+<p> </p>
+<p><b>2.1</b></p>
+<p> </p>
+<p><b>Reference Documents ..................................................................................................... 11</b></p>
+<p> </p>
+<p><b>2.2</b></p>
+<p> </p>
+<p><b>Trademark Notice ............................................................................................................ 11</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>SPI Driver Generation Tool Overview ........................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Input Files ....................................................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Output Files .................................................................................... 17</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Precautions .................................................................................... 19</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>User Configuration Validation ...................................................... 21</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>Messages........................................................................................ 23</b></p>
+<p> </p>
+<p><b>8.1</b></p>
+<p> </p>
+<p><b>Error Messages ................................................................................................................ 23</b></p>
+<p> </p>
+<p><b>8.2</b></p>
+<p> </p>
+<p><b>Warning Messages .......................................................................................................... 41</b></p>
+<p> </p>
+<p><b>8.3</b></p>
+<p> </p>
+<p><b>Information Messages ..................................................................................................... 43</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Notes ............................................................................................... 47</b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>8 </p>
+<p><b> </b></p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Overview of SPI Driver Generation Tool .................................................................... 13</p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table  5-1</p>
+<p> </p>
+<p>Output Files Description ....................................................................................................... 17</p>
+<p> </p>
+<p>Table  8-1</p>
+<p> </p>
+<p>Parameters and Containers related to ERR083004 ................................................................... 23</p>
+<p> </p>
+<p>Table  8-2</p>
+<p> </p>
+<p>Parameters and Containers related to ERR083024 ................................................................... 28</p>
+<p> </p>
+<p>Table  8-3</p>
+<p> </p>
+<p>Parameters and Containers related to ERR083084 ................................................................... 36</p>
+<p> </p>
+<p>Table  8-4</p>
+<p> </p>
+<p>Parameters and Containers related to ERR083085 ................................................................... 37</p>
+<p> </p>
+<p>Table  8-5</p>
+<p> </p>
+<p>Parameters and Containers related to ERR083091 ................................................................... 38</p>
+<p> </p>
+<p>Table  8-6        Parameter values related  to INF083003 ................................................................................. 44</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction  </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1 </b></p>
+<p> </p>
+<p>9 </p>
+<p><b>Chapter 1  Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The SPI Driver component provides the service for initializing the whole SPI </p>
+<p>structure of the microcontroller. </p>
+<p> </p>
+<p> </p>
+<p>The SPI Driver Component comprises of two sections as Embedded Software </p>
+<p>and the Generation Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p> </p>
+<p>The document describes the features of the SPI Driver Generation Tool. SPI </p>
+<p>Driver Generation Tool is a command line tool that extracts information from </p>
+<p>ECU Configuration Description File and generates SPI Driver C Source and C </p>
+<p>Header files (Spi_Cfg.h, Spi_Cbk.h, Spi_PBcfg.c and Spi_Lcfg.c). </p>
+<p> </p>
+<p> </p>
+<p>This document contains information on the options, input and output files of </p>
+<p>the SPI Driver Generation Tool. In addition, this manual covers a step-by-step </p>
+<p>procedure for the usage of tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ECU Configuration Description File contains information about SPI </p>
+<p>configuration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.1 </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>This user manual is organized as given in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>Provides an introduction to the document and explains how information </p>
+<p>is organized in this manual.</p>
+<p> </p>
+<p>Section 2 (Reference)</p>
+<p> </p>
+<p>Provides a list of documents referred while developing this document.</p>
+<p> </p>
+<p>Section 3 (SPI Driver </p>
+<p>Generation Tool Overview)</p>
+<p> </p>
+<p>Provides the component overview of SPI Driver.</p>
+<p> </p>
+<p>Section 4 (Input Files)</p>
+<p> </p>
+<p>Provides information about ECU Configuration Description File.</p>
+<p> </p>
+<p>Section 5 (Output Files)</p>
+<p> </p>
+<p>Explains the output files that are generated by the SPI Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 6 (Precautions)</p>
+<p> </p>
+<p>Contains precautions to be taken during configuration of ECU </p>
+<p>Configuration Description File.</p>
+<p> </p>
+<p>Section 7 (User Configuration </p>
+<p>Validation)</p>
+<p> </p>
+<p>Describes about user configuration validation done by the SPI Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 8 (Messages)</p>
+<p> </p>
+<p>Describes all the Error/Warning/Information messages of R4.0.3 which </p>
+<p>helps the user to understand the probable reason for </p>
+<p>the same.</p>
+<p> </p>
+<p>Section 9 (Notes)</p>
+<p> </p>
+<p>Provides notes to help the user to understand this document better.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                             Introduction  </b></p>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference  </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p>11 </p>
+<p> </p>
+<p><b>Chapter 2  Reference </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p>The following table lists the documents referred to develop this document: </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>AUTOSAR_SWS_SPIHandlerDriver.pdf</p>
+<p> </p>
+<p>3.2.0</p>
+<p> </p>
+<p>2. </p>
+<p><b>P1M Parameter Definition File </b></p>
+<p><b> </b></p>
+<p>R403_SPI_P1M_04_05_12_13_20_21.arxml </p>
+<p>1.0.8 </p>
+<p>3. </p>
+<p><b>P1M Parameter Definition File </b></p>
+<p><b> </b></p>
+<p>R403_SPI_P1M_10_11_14_15_18_19_22_23.arxml </p>
+<p>1.0.8 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>Trademark Notice </b></p>
+<p> </p>
+<p> </p>
+<p>Microsoft and Windows are trademarks/registered trademarks of Microsoft </p>
+<p>Corporation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference </b></p>
+<p> </p>
+<p>12 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>SPI Driver Generation Tool Overview </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p>13 </p>
+<p> </p>
+<p><b>Chapter 3  SPI Driver Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SPI Driver Generation Tool overview is shown </p>
+<p>below.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ECU </b></p>
+<p><b>Configuration </b></p>
+<p><b>Description </b></p>
+<p><b>File, BSWMDT </b></p>
+<p><b>File, Translation </b></p>
+<p><b>XML File and </b></p>
+<p><b>Configuration </b></p>
+<p><b>XML File </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SPI Driver </b></p>
+<p><b>Generation </b></p>
+<p><b>Tool </b></p>
+<p> </p>
+<p> </p>
+<p><b>Spi_Cfg.h, </b></p>
+<p><b>Spi_Cbk.h, </b></p>
+<p><b>Spi_Lcfg.c, </b></p>
+<p><b>Spi_PBcfg.c </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-1 </b></p>
+<p><b>Overview of SPI Driver Generation Tool </b></p>
+<p> </p>
+<p>SPI Driver Generation Tool is a command line tool that extracts, analyzes the </p>
+<p>configuration details provided in the input file and validates correctness of the </p>
+<p>data and provides scalability and configurability for SPI Driver module. It </p>
+<p>accepts ECU Configuration Description File(s), BSWMDT File, Translation </p>
+<p>XML File and Configuration XML File as input and displays appropriate </p>
+<p>context sensitive error messages for wrong input and exits. Tool creates the </p>
+<p>Log file Spi.log that contains the list of Error/Warning/Information messages in </p>
+<p>the output directory. </p>
+<p> </p>
+<p>For the error free input file, the tool generates the following output files: </p>
+<p>Spi_Lcfg.c, Spi_PBcfg.c, Spi_Cfg.h and Spi_Cbk.h. </p>
+<p> </p>
+<p>Spi_Cfg.h and Spi_Cbk.h will be compiled and linked with SPI Driver </p>
+<p>Component. Spi_Lcfg.c and Spi_PBcfg.c will be compiled and linked </p>
+<p>separately from the other C Source files and placed in flash. </p>
+<p> </p>
+<p>ECU Configuration Description File can be created or edited using ECU </p>
+<p>Configuration Editor. </p>
+<p> </p>
+<p> </p>
+<p><b>Remark</b> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>In case of errors the generation tool returns a 1, in case of no errors the </p>
+<p>generation tool returns a 0. </p>
+<p> </p>
+<p>• </p>
+<p>SPI Driver Generation Tool uses “Common Published Information” from SPI </p>
+<p>module specific BSWMDT File. SPI module specific BSWMDT File should </p>
+<p>not be updated manually since it is ”Static Configuration” file. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3                                                                                                   SPI Driver Generation Tool Overview </b></p>
+<p> </p>
+<p>14 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Input Files </b></p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p>15 </p>
+<p><b> </b></p>
+<p><b>Chapter 4  Input Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SPI Driver Generation Tool accepts ECU Configuration Description File(s), </p>
+<p>BSWMDT File, Translation XML File and Configuration XML File as input. </p>
+<p>SPI Driver Generation Tool needs information about SPI Driver module. </p>
+<p>Hence ECU Configuration Description File should contain configuration of </p>
+<p>SPI Driver module. Generation Tool ignores any other AUTOSAR component </p>
+<p>configured in the ECU Configuration Description File. ECU Configuration </p>
+<p>Description File can be generated using configuration editor. </p>
+<p> </p>
+<p>ECU Configuration Description File must comply with AUTOSAR standard </p>
+<p>ECU Configuration Description File format </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The detailed explanation about the parameters and containers are found in </p>
+<p>P1x Parameter Definition File referred in Reference Documents section. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                Input Files </b></p>
+<p> </p>
+<p>16 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Output Files </b></p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p> </p>
+<p>17 </p>
+<p><b> </b></p>
+<p><b>Chapter 5  Output Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SPI Driver Generation Tool generates configuration details in C Header and C </p>
+<p>Source files (Spi_Lcfg.c, Spi_PBcfg.c, Spi_Cbk.h and Spi_Cfg.h). </p>
+<p> </p>
+<p> </p>
+<p>The content of each output file is given in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Table  5-1 </b></p>
+<p><b>Output Files Description </b></p>
+<p> </p>
+<p><b>Output File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Spi_Cfg.h</p>
+<p> </p>
+<p>This file contains pre-compile time parameters and handles.</p>
+<p> </p>
+<p>Spi_Cbk.h</p>
+<p> </p>
+<p>This file contains callback function prototype declarations to be used by application.</p>
+<p> </p>
+<p>Spi_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build time parameters.</p>
+<p> </p>
+<p>Spi_Lcfg.c</p>
+<p> </p>
+<p>This file contains structures of link time parameters.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Output files generated by SPI Driver Generation Tool should not be modified </p>
+<p>or edited manually. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                             Output Files </b></p>
+<p> </p>
+<p>18 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Precautions </b></p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p> </p>
+<p>19 </p>
+<p> </p>
+<p><b>Chapter 6  Precautions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ECU Configuration Description File and BSWMDT File must comply with </p>
+<p>AUTOSAR standard for R4.0.3 ECU Configuration Description File and </p>
+<p>BSWMDT File respectively. </p>
+<p> </p>
+<p>• </p>
+<p>The input file must contain SPI Driver module. </p>
+<p> </p>
+<p>• </p>
+<p>Default Translation XML File (Spi_X1x.trxml) should be present in same </p>
+<p>location of Spi_X1x.dll when the variant specific trxml file is not given as  input </p>
+<p>in command line. </p>
+<p>• </p>
+<p>Default Configuration XML File (Spi_X1x.cfgxml) must be present in same </p>
+<p>location of Spi_X1x.dll. </p>
+<p> </p>
+<p>• </p>
+<p>If Translation XML File is not provided on the command line,  </p>
+<p>Spi_X1x.trxml which is present in same location of Spi_X1x.dll is  </p>
+<p>considered as ‘default’ Translation XML File. </p>
+<p> </p>
+<p>• </p>
+<p>If Configuration XML File is not provided on the command line,  </p>
+<p>Spi_X1x.cfgxml which is present in same location of Spi_X1x.dll is  </p>
+<p>considered as ‘default’ Configuration XML File. </p>
+<p> </p>
+<p>• </p>
+<p>Translation XML File should contain the file extension ‘.trxml’. </p>
+<p> </p>
+<p>• </p>
+<p>Configuration XML File should contain the file extension ‘.cfgxml’. </p>
+<p> </p>
+<p>• </p>
+<p>All the function names and the string values configured should follow C  </p>
+<p>syntax for variables. It can only contain alphanumeric characters and “_”. It </p>
+<p>should start with an alphabet. </p>
+<p> </p>
+<p>• </p>
+<p>If the output files generated by SPI Driver Generation Tool are modified </p>
+<p>externally, then they may not produce the expected results or may lead to </p>
+<p>error/warning/Information messages. </p>
+<p> </p>
+<p>• </p>
+<p>Short Name for a container should be unique within a name space. </p>
+<p> </p>
+<p>• </p>
+<p>An error free ECU Configuration Description File generated from  </p>
+<p>configuration editor has to be provided as input to the SPI Driver Generation </p>
+<p>Tool. Otherwise Tool may not produce the expected results or may lead to </p>
+<p>errors/warnings/information messages. </p>
+<p> </p>
+<p>• </p>
+<p>User has to make sure that the respective device specific configuration file is </p>
+<p>used, otherwise Tool may not produce the expected results or may lead to </p>
+<p>errors/warnings/information messages. </p>
+<p> </p>
+<p>• </p>
+<p>The description file should always be generated using AUTOSAR specified </p>
+<p>configuration editor and it should not be edited manually. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Please refer the SPI Component User Manual for deviations from AUTOSAR </p>
+<p>                 specifications, if any. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 6                                                                                                                                                Precautions </b></p>
+<p> </p>
+<p>20 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>User Configuration Validation </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p>21 </p>
+<p> </p>
+<p><b>Chapter 7  User Configuration Validation </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This section provides help to analyze the error, warning and information </p>
+<p>messages displayed during the execution of SPI Driver Generation Tool. It </p>
+<p>ensures conformance of input file with syntax and semantics. It also performs </p>
+<p>validation on the input file for correctness of the data. </p>
+<p> </p>
+<p> </p>
+<p>For more details on list of Error/Warning/Information messages that are </p>
+<p>displayed as a result of input file(s) validation, refer Chapter 8 “<i>Messages</i>”. </p>
+<p> </p>
+<p> </p>
+<p>The Generation Tool displays error or warning or information when the user </p>
+<p>has configured incorrect inputs. The format of Error/Warning/Information </p>
+<p>message is as shown below. </p>
+<p> </p>
+<p> </p>
+<p>•  ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information Message&gt;.  </p>
+<p> </p>
+<p>  where, </p>
+<p>&lt;mid&gt;: 083 - SPI Driver Module Id (083) for user configuration checks. </p>
+<p> </p>
+<p>000 - for command line checks. </p>
+<p> </p>
+<p>&lt;xxx&gt;: 001-999 - Message Id. </p>
+<p> </p>
+<p> </p>
+<p>•  File Name: Name of the file in which the error has occurred. </p>
+<p> </p>
+<p>•  Path: Absolute path of the container in which the parameter is present. </p>
+<p> </p>
+<p> </p>
+<p>‘File Name’ and ‘Path’ need not be present for all Error/Warning/Information </p>
+<p>messages. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7                                                                                                User Configuration Validation </b></p>
+<p>22</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8 </b></p>
+<p> </p>
+<p>23 </p>
+<p><b>Chapter 8  Messages </b></p>
+<p> </p>
+<p> </p>
+<p>The messages help to identify the syntax or semantic errors in the ECU </p>
+<p>Configuration Description File. Hence it ensures validity and correctness of </p>
+<p>the information available in the ECU Configuration Description File. </p>
+<p> </p>
+<p>The following section gives the list of error, warning and information </p>
+<p>messages displayed by the Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p><b>8.1 </b></p>
+<p><b>Error Messages </b></p>
+<p> </p>
+<p><b>ERR083001: Number of fields is not same for the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the number of fields is not same in the structure that is to </p>
+<p>be generated in the output file. </p>
+<p> </p>
+<p><b>ERR083002: Field 'Field Name' is empty in the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the structure fields that are to be generated in the output </p>
+<p>file are empty. </p>
+<p> </p>
+<p><b>ERR083003: 'SPI Driver/MCU Driver/DEM' Component is not present in </b></p>
+<p><b>the input file(s). </b></p>
+<p> </p>
+<p>This error will occur, if SPI Driver or MCU Driver or DEM component is not </p>
+<p>present in the input ECU Configuration Description File(s). </p>
+<p> </p>
+<p><b>ERR083004: The parameter 'parameter name' in the container 'container </b></p>
+<p><b>name' should be configured. </b></p>
+<p> </p>
+<p>This error occurs, if any of the mandatory configuration parameter(s) </p>
+<p>mentioned below is (are) not configured in ECU Configuration Description File. </p>
+<p>The list of mandatory parameters with respect to container is listed below: </p>
+<p> </p>
+<p><b>Table  8-1 </b></p>
+<p><b>Parameters and Containers related to ERR083004 </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>SpiCancelApi  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SpiGeneral </p>
+<p>SpiChannelBuffersAllowed   </p>
+<p> </p>
+<p>SpiDevErrorDetect   </p>
+<p> </p>
+<p>SpiHwStatusApi   </p>
+<p> </p>
+<p>SpiInterruptibleSeqAllowed   </p>
+<p> </p>
+<p>SpiLevelDelivered    </p>
+<p> </p>
+<p>SpiSupportConcurrentSyncTransmit   </p>
+<p> </p>
+<p>SpiVersionInfoApi    </p>
+<p> </p>
+<p>SpiDmaMode   </p>
+<p> </p>
+<p>SpiDataConsistencyCheckEnable  </p>
+<p> </p>
+<p>SpiDataWidthSelection    </p>
+<p> </p>
+<p>SpiMaxBaudrate   </p>
+<p>SpiSyncSeqEndNotificationEnable </p>
+<p>SpiPersistentHWConfiguration </p>
+<p>SpiDmaTypeUsed   </p>
+<p>SpiHighPriorityHwHandlingEnable </p>
+<p>SpiCriticalSectionProtection </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>24 </p>
+<p> </p>
+<p><b>  Parameter Name </b></p>
+<p><b>Container Name </b></p>
+<p><b> </b></p>
+<p><b>SpiGeneral </b></p>
+<p>SpiDeviceName  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SpiGeneral</p>
+<p> </p>
+<p>SpiAlreadyInitDetCheck  </p>
+<p> </p>
+<p>SpiVersionCheckExternalModules </p>
+<p>SpiSeqStartNotificationEnable   </p>
+<p>SpiTimeOut   </p>
+<p>SpiLoopBackSelfTest </p>
+<p>SpiECCSelfTest </p>
+<p>SpiInterruptConsistencyCheck </p>
+<p>SpiCSIGHWriteVerify </p>
+<p>SpiDMAWriteVerify </p>
+<p>SpiMaxChannel</p>
+<p> </p>
+<p> </p>
+<p>SpiDriver</p>
+<p> </p>
+<p>SpiMaxJob</p>
+<p> </p>
+<p>SpiMaxSequence</p>
+<p> </p>
+<p>SpiChannelId</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SpiChannel</p>
+<p> </p>
+<p>SpiChannelType</p>
+<p> </p>
+<p>SpiDataWidth</p>
+<p> </p>
+<p>SpiEbMaxLength</p>
+<p> </p>
+<p>SpiIbNBuffers</p>
+<p> </p>
+<p>SpiTransferStart</p>
+<p> </p>
+<p>SpiCsPolarity    </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p>  </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SpiExternalDevice</p>
+<p> </p>
+<p>SpiDataShiftEdge  </p>
+<p> </p>
+<p>SpiShiftClockIdleLevel  </p>
+<p> </p>
+<p>SpiCsIdentifier </p>
+<p>SpiEnableCs </p>
+<p>SpiHwUnit </p>
+<p>SpiTimeClk2Cs </p>
+<p>SpiClk2CsCount   </p>
+<p> </p>
+<p>SpiBaudrateConfiguration   </p>
+<p> </p>
+<p>SpiInputClockSelect  </p>
+<p> </p>
+<p>SpiInterruptDelayMode    </p>
+<p> </p>
+<p>SpiParitySelection    </p>
+<p> </p>
+<p>SpiBroadcastingPriority   </p>
+<p> </p>
+<p>SpiClockFrequencyRef   </p>
+<p> </p>
+<p>SpiBaudrate </p>
+<p>SpiJobId</p>
+<p> </p>
+<p> </p>
+<p>SpiJob</p>
+<p> </p>
+<p>SpiJobPriority </p>
+<p>SpiDeviceAssignment </p>
+<p>SpiInterruptibleSequence</p>
+<p> </p>
+<p> </p>
+<p>SpiSequence</p>
+<p> </p>
+<p>SpiSeqStartNotification </p>
+<p>SpiSequenceId </p>
+<p>SpiHighPriorityHwSequence </p>
+<p>SpiJobAssignment </p>
+<p>SpiHwUnitSelection</p>
+<p> </p>
+<p> </p>
+<p>SpiMemoryMode</p>
+<p> </p>
+<p>SpiMemoryModeSelection</p>
+<p> </p>
+<p>SpiTxDmaChannel</p>
+<p> </p>
+<p> </p>
+<p>SpiDma</p>
+<p> </p>
+<p>SpiRxDmaChannel</p>
+<p> </p>
+<p>SpiDmaHwUnit </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  25 </p>
+<p><b>  Parameter Name </b></p>
+<p><b>Container Name </b></p>
+<p><b> </b></p>
+<p><b>SpiGeneral </b></p>
+<p>SPI_E_HARDWARE_ERROR </p>
+<p>SpiDemEventParameterRefs </p>
+<p>SPI_E_DATA_TX_TIMEOUT_FAILURE </p>
+<p>SpiChannelIndex</p>
+<p> </p>
+<p> </p>
+<p>SpiChannelList</p>
+<p> </p>
+<p>SpiChannelAssignment</p>
+<p> </p>
+<p>SpiMaxHwUnit </p>
+<p>SpiPublishedInformation </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Remark </b></p>
+<p>If the containers SpiMemoryMode and SpiDmaMode are configured, then </p>
+<p>the respective parameters which are mandatory should be configured. </p>
+<p><b> </b></p>
+<p><b>ERR083005: In general per configuration set, the value of </b></p>
+<p><b>'SpiChannelId' should be unique and less than 'SpiMaxChannel' in </b></p>
+<p><b>'SpiDriver' container </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameter SpiChannelId present in the </p>
+<p>SpiChannel is not unique or not less than the value present in the </p>
+<p>SpiMaxChannel. </p>
+<p> </p>
+<p><b>ERR083006: The value of the parameter 'SpiChannelType' in the </b></p>
+<p><b>container 'SpiChannel' should be same for SPI Channels (having </b></p>
+<p><b>same channel Id) across multiple configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the value of parameter SpiChannelType in the </p>
+<p>container SpiChannel is not same for SPI Channels (having same </p>
+<p>channel Id) across multiple configuration sets. </p>
+<p> </p>
+<p><b>ERR083007: The number of SPI channels configured should be </b></p>
+<p><b>same across the multiple configurations set container 'SpiDriver'. </b></p>
+<p> </p>
+<p>This error occurs, if the number of SPI channels configured is not same </p>
+<p>across the multiple configurations set container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083008: The value of the parameters 'SpiEbMaxLength' and </b></p>
+<p><b>'SpiIbNBuffers' in the container 'SpiChannel' should be same for </b></p>
+<p><b>SPI Channels (having same channel Id) across multiple </b></p>
+<p><b>configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameters SpiEbMaxLength and </p>
+<p>SpiIbNBuffers are not same for all SPI Channels (having same channel </p>
+<p>Id) across multiple configuration sets in ECU Configuration Description </p>
+<p>File. </p>
+<p> </p>
+<p><b>ERR083009: The short name of the container 'SpiChannel' should be </b></p>
+<p><b>same for channel having same 'SpiChannelId' &lt;value for </b></p>
+<p><b>SpiChannelId&gt; across multiple configurations set container </b></p>
+<p><b>'SpiDriver'. </b></p>
+<p> </p>
+<p>This error occurs, if the short name of the container SpiChannel is not </p>
+<p>same for channel having same SpiChannelId across multiple </p>
+<p>configurations set in the container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083010: The value of the parameter 'SpiChannelType' in the </b></p>
+<p><b>container 'SpiChannel' should be configured as &lt;EB&gt;, since the </b></p>
+<p><b>value of the parameter 'SpiChannelBuffersAllowed' in the container </b></p>
+<p><b>'SpiGeneral' is configured as &lt;1&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if SpiChannelBuffersAllowed in the container </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>26 </p>
+<p> </p>
+<p>SpiGeneral is configured as 1 and the parameter SpiChannelType in the </p>
+<p>container SpiChannel is not configured as EB. </p>
+<p><b> </b></p>
+<p><b>ERR083011: The value of the parameter 'SpiChannelType' in the </b></p>
+<p><b>container 'SpiChannel' should be configured as &lt;IB&gt;, since the value </b></p>
+<p><b>of the parameter 'SpiChannelBuffersAllowed' in the container </b></p>
+<p><b>'SpiGeneral' is configured as &lt;0&gt;</b>. </p>
+<p> </p>
+<p>This error occurs, If SpiChannelBuffersAllowed in the container </p>
+<p>SpiGeneral is configured as 0 and the parameter SpiChannelType in the </p>
+<p>container SpiChannel is not configured as IB. </p>
+<p> </p>
+<p><b>ERR083012: The SPI channels configured for a specific job should </b></p>
+<p><b>not be repeated when the parameter 'SpiMemoryModeSelection' in </b></p>
+<p><b>the container 'SpiMemoryMode' is configured as  </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE/ TX_ONLY_MODE&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value for channels configured for a specific </p>
+<p>job is repeated when the parameter SpiMemoryModeSelection in the </p>
+<p>container SpiMemoryMode is configured as DUAL_BUFFER_MODE </p>
+<p>or TX_ONLY_MODE. </p>
+<p> </p>
+<p><b>ERR083013: The SPI channels configured for a specific job should </b></p>
+<p><b>have same value for the parameters 'SpiDataWidth'  and </b></p>
+<p><b>‘SpiTransferStartof’ of container 'SpiChannel' since the parameter </b></p>
+<p><b>'SpiMemoryModeSelection' in the container 'SpiMemoryMode' is </b></p>
+<p><b>configured as &lt;value of SpiMemoryModeSelection&gt; within a </b></p>
+<p><b>sequence. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameters SpiDataWidth </p>
+<p>or SpiTransferStart in the container SpiChannel for a specific job are </p>
+<p>different and the parameter SpiMemoryModeSelection in the container </p>
+<p>SpiMemoryMode is configured as DUAL_BUFFER_MODE or </p>
+<p>TX_ONLY_MODE or FIFO_MODE. </p>
+<p> </p>
+<p><b>ERR083014: The total number of buffers configured for all jobs </b></p>
+<p><b>linked to one CSIH HW Unit should be less than or equal to &lt;64/128&gt; </b></p>
+<p><b>since the value of the parameter 'SpiMemoryModeSelection' in the </b></p>
+<p><b>container 'SpiMemoryMode' is configured as &lt;TX_ONLY_MODE&gt; and </b></p>
+<p><b>the parameter 'SpiDataWidth' in the container 'SpiChannel' is </b></p>
+<p><b>configured as less than or equal to &lt;16&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the total number of buffers configured for all jobs </p>
+<p>linked to one CSIH HW Unit is more than 64/128 when the value of the </p>
+<p>parameter SpiMemoryModeModeSelection in the container </p>
+<p>SpiMemoryModeMode is configured as TX_ONLY_MODE and the </p>
+<p>parameter SpiDataWidth in the container SpiChannel is configured as less </p>
+<p>than or equal to 16. </p>
+<p> </p>
+<p><b>ERR083015: The total number of buffers configured for all jobs </b></p>
+<p><b>linked to one CSIH HW Unit should be less than or equal to &lt;32/64&gt; </b></p>
+<p><b>since the value of the parameter 'SpiMemoryModeSelection' in the </b></p>
+<p><b>container 'SpiMemoryMode' is configured as </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE&gt; and the parameter 'SpiDataWidth' in the </b></p>
+<p><b>container 'SpiChannel' is configured as greater than &lt;16&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the total number of buffers configured for all jobs </p>
+<p>linked to one CSIH HW Unit is more than 32/64 when the value of the </p>
+<p>parameter SpiMemoryModeModeSelection in the container </p>
+<p>SpiMemoryModeMode is configured as DUAL_BUFFER_MODE and the </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  27 </p>
+<p>parameter SpiDataWidth in the container SpiChannel is configured as </p>
+<p>greater than 16. </p>
+<p> </p>
+<p><b>ERR083016: The value of the parameter ‘SpiDataWidth’ in the </b></p>
+<p><b>container ‘SpiChannel’ should be less than or equal to 8 since the </b></p>
+<p><b>parameter ‘SpiDataWidthSelection’ in the container ‘SpiGeneral’ is </b></p>
+<p><b>configured as &lt;BITS_8&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiDataWidth in the </p>
+<p>container SpiChannel is not less than or equal to 8 when the parameter </p>
+<p>SpiDataWidthSelection in the container SpiGeneral is configured as </p>
+<p>BITS_8. </p>
+<p> </p>
+<p><b>ERR083017: The value of the parameter ‘SpiDataWidth’ in the </b></p>
+<p><b>container ‘SpiChannel’ should be less than or equal to 16 since the </b></p>
+<p><b>parameter ‘SpiDataWidthSelection’ in the container ‘SpiGeneral’ is </b></p>
+<p><b>configured as &lt;BITS_16&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value of the parameter SpiDataWidth in the </p>
+<p>container SpiChannel is not less than or equal to 16 when the parameter </p>
+<p>SpiDataWidthSelection in the container SpiGeneral is configured as </p>
+<p>BITS_16. </p>
+<p> </p>
+<p><b>ERR083018: In general per configuration set, the value of 'SpiJobId' </b></p>
+<p><b>should be unique and less than 'SpiMaxJob' in 'SpiDriver' container. </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameter SpiJobId present in the </p>
+<p>container SpiJob is not unique or not less than the value present in the </p>
+<p>SpiMaxJob. </p>
+<p> </p>
+<p><b>ERR083019: The number of SPI Jobs configured should be same </b></p>
+<p><b>across the multiple configurations set container ‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the number of SPI jobs configured is not same across </p>
+<p>the multiple configurations set container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083020: The value of the parameter ‘SpiJobEndNotification’ </b></p>
+<p><b>configured in the container ‘SpiJob’ should be unique for jobs </b></p>
+<p><b>with hardware units of different memory modes. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter SpiJobEndNotification of the container </p>
+<p>SpiJob is not unique for jobs with hardware units of different memory </p>
+<p>modes. </p>
+<p> </p>
+<p><b>ERR083021: The value of the parameter ‘SpiJobEndNotification’ </b></p>
+<p><b>present in the container ‘SpiJob’ should be same for SPI jobs </b></p>
+<p><b>(having same Job Id). </b></p>
+<p> </p>
+<p> </p>
+<p>This error occurs, if the parameter SpiJobEndNotification in the </p>
+<p>container SpiJob is not same for SPI jobs (having same Job Id) </p>
+<p>across multiple configuration sets in ECU Configuration Description </p>
+<p>File. </p>
+<p> </p>
+<p><b>ERR083022: The value for the parameter ‘SpiHwUnitSynchronous’ in </b></p>
+<p><b>the container ‘SpiJob' should be same for jobs that are associated </b></p>
+<p><b>with same sequence. </b></p>
+<p> </p>
+<p>This error occurs, if the value for the parameter SpiHwUnitSynchronous in </p>
+<p>the container SpiJob is not same for jobs that are associated with same </p>
+<p>sequence. In general, the transfer mode of the jobs (that are associated </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>28 </p>
+<p> </p>
+<p>with same sequence) should be same.  </p>
+<p><b> </b></p>
+<p><b>ERR083023: The value of the parameter ‘SpiHwUnitSynchronous’ in </b></p>
+<p><b>the container ‘SpiJob’ should be same for all jobs that are having </b></p>
+<p><b>same value for the parameter ‘SpiHwUnit’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ within a configuration set. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnitSynchronous in </p>
+<p>the container SpiJob is different for all jobs that are having same value for </p>
+<p>the parameter SpiHwUnit in the container SpiExternalDevice within a </p>
+<p>configuration set. </p>
+<p> </p>
+<p><b>ERR083024: The value configured for the parameter 'parameter </b></p>
+<p><b>name' should follow C Syntax &lt;[a-zA-Z][a-zA-Z0-9_]&gt;</b>. </p>
+<p> </p>
+<p>This error occurs, if the value of configuration parameters mentioned </p>
+<p>below does not adhere to C syntax i.e., the value should not contain </p>
+<p>characters other than (a-z, A-Z, 0-9 or “_”) and it also should start with an </p>
+<p>alphabet. </p>
+<p><b>Table  8-2 </b></p>
+<p><b>Parameters and Containers related to ERR083024 </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>SpiJobEndNotification</p>
+<p> </p>
+<p>SpiJob</p>
+<p> </p>
+<p>SpiSeqEndNotification</p>
+<p> </p>
+<p>SpiSequence</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ERR083025: The jobs configured for the parameter </b></p>
+<p><b>'SpiJobAssignment' in the container ‘SpiSequence’ should not be </b></p>
+<p><b>repeated since the parameter ‘SpiMemoryModeSelection’ in the </b></p>
+<p><b>container ‘SpiMemoryMode’ is configured as </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE/TX_ONLY_MODE&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter SpiMemoryModeSelection in the </p>
+<p>container SpiMemoryMode is configured as DUAL_BUFFER_MODE or </p>
+<p>TX_ONLY_MODE and the jobs configured for the parameter </p>
+<p>SpiJobAssignment in the container SpiSequence is repeated. </p>
+<p><b> </b></p>
+<p><b>ERR083026: The value of the parameter </b></p>
+<p><b>‘SpiMemoryModeSelection’ in the container ‘SpiMemoryMode’ </b></p>
+<p><b>should be same across the multiple configurations set container </b></p>
+<p><b>‘SpiDriver’</b>. </p>
+<p> </p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiMemoryModeSelection  </p>
+<p>in the container SpiMemoryMode is not same across the multiple </p>
+<p>configurations set container SpiDriver.  </p>
+<p><b> </b></p>
+<p><b>ERR083027: The value of the parameter ‘SpiHwUnit’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ should be same when the parameter </b></p>
+<p><b>‘SpiMemoryModeSelection’ in the container ‘SpiMemoryMode’ is </b></p>
+<p><b>configured as &lt;value of the parameter SpiMemoryModeSelection&gt; </b></p>
+<p><b>within a sequence. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnit in the container </p>
+<p>SpiExternalDevice is not same when the parameter </p>
+<p>SpiMemoryModeSelection in the container SpiMemoryMode is configured </p>
+<p>as DUAL_BUFFER_MODE and TX_ONLY_MODE within sequence. </p>
+<p><b>ERR083028: The short name of the container ‘SpiJob’ should be </b></p>
+<p><b>same for job having same 'SpiJobId' &lt;value for SpiJobId&gt; across </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  29 </p>
+<p><b>multiple configurations set container ‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the short name of the container SpiJob is not same for </p>
+<p>SPI jobs (having same job Id) across multiple configurations set container </p>
+<p>SpiDriver. </p>
+<p> </p>
+<p><b>ERR083029: The value of the parameter ‘SpiHwUnit’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;value of SpiHwUnit&gt;. The value </b></p>
+<p><b>&lt;value of SpiHwUnit&gt; is not configured for the parameter </b></p>
+<p><b>‘SpiHwUnitSelection’ in the container ‘SpiMemoryMode’. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnit in the </p>
+<p>container SpiExternalDevice is configured as CSIHn and the same </p>
+<p>value is not configured to the parameter SpiHwUnitSelection in the </p>
+<p>container SpiMemoryMode. Here n is integer numbers e.g. 0, 1, etc. </p>
+<p> </p>
+<p><b>ERR083030: The value of the parameter 'SpiHwUnit' in the container </b></p>
+<p><b>‘SpiExternalDevice’ is not configured for the same memory mode as </b></p>
+<p><b>the memory mode of the other jobs in the respective sequence. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnit in the container </p>
+<p>SpiExternalDevice is not configured for the same memory mode as the </p>
+<p>memory mode of the other jobs in the respective sequence.  </p>
+<p><b> </b></p>
+<p><b>ERR083031: The value &lt;value of SpiHwUnitSelection&gt; configured </b></p>
+<p><b>for the parameter 'SpiHwUnitSelection’ present in the container </b></p>
+<p><b>'SpiMemoryMode’ should be unique within configuration set  </b></p>
+<p><b>container </b></p>
+<p><b>'SpiDriver'. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnitSelection in </p>
+<p>the container SpiMemoryMode is not unique within configuration set </p>
+<p>container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083032: The same value should be configured for the parameter </b></p>
+<p><b>‘SpiHwUnit’ in the container 'SpiExternalDevice' across the </b></p>
+<p><b>multiple configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter SpiHwUnit in </p>
+<p>the container SpiExternalDevice is not same across multiple </p>
+<p>configuration sets. </p>
+<p> </p>
+<p><b>ERR083033: The value of the parameter 'SpiHwUnitSelection' in the </b></p>
+<p><b>container 'SpiMemoryMode' is configured as &lt;value for </b></p>
+<p><b>SpiHwUnitSelection&gt;, but none of the container 'SpiExternalDevice' </b></p>
+<p><b>has configured 'SpiHwUnit' as &lt;value for SpiHwUnitSelection&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the hardware unit configured in the container </p>
+<p>SpiMemoryMode is not present in any of the SpiExternalDevice container. </p>
+<p><b> </b></p>
+<p><b>ERR083034: The number of SPI sequences configured should be </b></p>
+<p><b>same across multiple configurations set container ‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the numbers of SPI sequences configured are not </p>
+<p>same across the multiple configurations set container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083035: The value of parameter 'SpiSeqEndNotification' present </b></p>
+<p><b>in the container 'SpiSequence' should be unique for the sequences </b></p>
+<p><b>having jobs with hardware units of different memory modes. </b></p>
+<p> </p>
+<p>This error occurs, if the value of parameter SpiSeqEndNotification present </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>30 </p>
+<p> </p>
+<p>in the container SpiSequence is not unique for the sequences having jobs </p>
+<p>with hardware units of different memory modes. </p>
+<p> </p>
+<p><b>ERR083036: The parameter ‘SpiSeqEndNotification’ in the container </b></p>
+<p><b>‘SpiSequence’ should be same for sequences having same </b></p>
+<p><b>'SpiSequenceId' &lt;value for SpiSequenceId&gt; across </b></p>
+<p><b>multiple configurations set container ‘SpiDriver’. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the parameter SpiSeqEndNotification in the container </p>
+<p>SpiSequence is not same for SPI Sequences (having same Sequence Id) </p>
+<p>across multiple configurations set container SpiSequence. </p>
+<p> </p>
+<p><b>ERR083037: In general per configuration set, the value of </b></p>
+<p><b>'SpiSequenceId' should be unique and less than 'SpiMaxSequence' </b></p>
+<p><b>in 'SpiDriver' container. </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameter SpiSequenceId present in </p>
+<p>the container SpiSequence is not unique or not less than the value </p>
+<p>present in the SpiMaxSequence. </p>
+<p> </p>
+<p><b>ERR083038: The short name of the container ‘SpiSequence’ should </b></p>
+<p><b>be same for sequence having same 'SpiSequenceId' &lt;value for </b></p>
+<p><b>SpiSequenceId&gt; across multiple configurations set container </b></p>
+<p><b>‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the short name of the container SpiSequence is not </p>
+<p>same for SPI Sequences (having same Sequence Id) across multiple </p>
+<p>configurations set container ‘SpiDriver’. </p>
+<p><b> </b></p>
+<p><b>ERR083039: The value of parameter ‘SpiPortPinSelect’ in the </b></p>
+<p><b>container ‘SpiJob’ should not be configured as &lt;value of the </b></p>
+<p><b>parameter SpiPortPinSelect&gt; since the value of the parameter </b></p>
+<p><b>‘SpiCsSelection’ present in the container ’SpiExternalDevice’ is </b></p>
+<p><b>configured as &lt;value of the parameter SpiCsSelection&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiPortPinSelect in the </p>
+<p>container SpiJob is configured as CSLn and the parameter </p>
+<p>SpiCsSelection present in the container SpiExternalDevice is configured </p>
+<p>as CS_VIA_GPIO. Here n is the integer number e.g. 0, 1, etc. </p>
+<p> </p>
+<p><b>ERR083040: The value of parameter ‘SpiPortPinSelect’ in the  </b></p>
+<p><b>container ‘SpiJob’ should not be configured as &lt;value of the </b></p>
+<p><b>parameter SpiPortPinSelect&gt; since the value of the parameter </b></p>
+<p><b>‘SpiCsSelection’ present in the container ’SpiExternalDevice’ is </b></p>
+<p><b>configured as &lt;value of the parameter SpiCsSelection&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiPortPinSelect in the </p>
+<p>container SpiJob is configured as Port group related pins and the </p>
+<p>parameter SpiCsSelection present in the container SpiExternalDevice is </p>
+<p>configured as CS_VIA_PERIPHERAL_ENGINE.  </p>
+<p> </p>
+<p><b>ERR083041: The value of parameter ‘SpiChannelType’ in the  </b></p>
+<p><b>container ‘SpiChannel’ should be configured as &lt;IB&gt; since the </b></p>
+<p><b>parameter </b></p>
+<p><b>‘SpiMemoryModeSelection’ in the container </b></p>
+<p><b>‘SpiMemoryMode’ is configured with one of the values from </b></p>
+<p><b>&lt;value of the parameter SpiMemoryModeSelection&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter </p>
+<p>SpiMemoryModeSelection in the container SpiMemoryMode is </p>
+<p>configured as DUAL_BUFFER_MODE or TX_ONLY_MODE and the </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  31 </p>
+<p>parameter SpiChannelType in the container SpiChannel is not </p>
+<p>configured as IB. </p>
+<p> </p>
+<p>The value of the parameter SpiChannelType in the SpiChannel </p>
+<p>container can be configured as EB, if the parameter </p>
+<p>SpiHighPriorityHwHandlingEnable is configured as true in SpiGeneral </p>
+<p>container and if this channel is linked to a job which is linked to a high </p>
+<p>priority sequence. </p>
+<p> </p>
+<p><b>ERR083042: The parameter ‘SpiHwUnit’ present in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;value of the parameter </b></p>
+<p><b>SpiHwUnit&gt; and all of the following parameters </b></p>
+<p><b>(SpiCsIdleEnforcement, SpiCsIdleTiming, SpiCsHoldTiming, </b></p>
+<p><b>SpiCsInterDataDelay and SpiCsSetupTime) should be configured. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter SpiHwUnit present in the container </p>
+<p>SpiExternalDevice is configured as CSIHm and any of the parameters </p>
+<p>SpiCsIdleEnforcement, SpiCsIdleTiming, SpiCsHoldTiming, </p>
+<p>SpiCsInterDataDelay and SpiCsSetupTime is not configured. Here m is </p>
+<p>integer number e.g. 0, 1, etc. </p>
+<p><b> </b></p>
+<p><b>ERR083043: The parameter ‘SpiPortPinSelect’ in the container </b></p>
+<p><b>‘SpiJob’ configured should be only one unique value, since the </b></p>
+<p><b>value of parameter ‘SpiHwUnit’ present in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;value of the parameter </b></p>
+<p><b>SpiHwUnit&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnit present in </p>
+<p>the container SpiExternalDevice is configured as CSIGn and more </p>
+<p>than one unique value is configured for the parameter </p>
+<p>SpiPortPinSelect in the container SpiJob. Here n is integer number e.g. </p>
+<p>0, 1, etc. </p>
+<p><b> </b></p>
+<p><b>ERR083044: The value of the parameter ‘SpiMaxChannel’ should </b></p>
+<p><b>be equal to the total number of 'SpiChannel' container configured </b></p>
+<p><b>within each 'SpiDriver' container. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiMaxChannel present in </p>
+<p>container SpiDriver is not equal to total number of channels configured </p>
+<p>within each SpiDriver container in ECU Configuration Description File. </p>
+<p><b> </b></p>
+<p><b>ERR083045: The value of the parameter ‘SpiMaxJob’ should be equal </b></p>
+<p><b>to the total number of 'SpiJob' container configured within each </b></p>
+<p><b>'SpiDriver' container. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiMaxJob in the </p>
+<p>container SpiDriver is not equal to the total number of jobs configured </p>
+<p>within each SpiDriver container in ECU Configuration Description File. </p>
+<p> </p>
+<p><b>ERR083046: The value of the parameter ‘SpiMaxSequence’ should </b></p>
+<p><b>be equal to the total number of 'SpiSequence' container configured </b></p>
+<p><b>within each 'SpiDriver' container. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiMaxSequence in the </p>
+<p>container SpiDriver is not equal to the total number of jobs configured </p>
+<p>within each SpiDriver container in ECU Configuration Description File.  </p>
+<p><b> </b></p>
+<p><b>ERR083048: The value of the parameter </b></p>
+<p><b>‘SpiMemoryModeSelection’ in the container ‘SpiMemoryMode’ </b></p>
+<p><b>should be configured as &lt;DIRECT_ACCESS_MODE&gt; since the </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>32 </p>
+<p> </p>
+<p><b>value configured for the parameter ‘SpiLevelDelivered’ in the </b></p>
+<p><b>container ‘SpiGeneral’ is &lt;0&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter </p>
+<p>SpiLevelDelivered in the container SpiGeneral is 0 and the value of the </p>
+<p>parameter SpiMemoryModeSelection in the container SpiMemoryMode is </p>
+<p>not configured as DIRECT_ACCESS_MODE. </p>
+<p> </p>
+<p><b>ERR083049: At least one instance of the container 'SpiDma' should </b></p>
+<p><b>be configured as the value of parameter 'SpiDmaMode' present in </b></p>
+<p><b>the container 'SpiGeneral' is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the parameter SpiDmaMode present in the container </p>
+<p>SpiGeneral is configured as true and no instance of the container </p>
+<p>SpiDma is configured. </p>
+<p> </p>
+<p><b>ERR083050: The value configured for the parameters </b></p>
+<p><b>‘SpiTxDmaChannel’ and ‘SpiRxDmaChannel’ should be unique </b></p>
+<p><b>within a configuration set. </b></p>
+<p> </p>
+<p>This error occurs, if the same DMA channel is configured for </p>
+<p>SpiTxDmaChannel or SpiRxDmaChannel of SpiDma container for </p>
+<p>hardware units (SpiDmaHwUnit) within a configuration set. DMA channel </p>
+<p>(Tx or Rx) should be unique within a configuration set. </p>
+<p> </p>
+<p><b>ERR083051: The number of SPI DMA configured should be same </b></p>
+<p><b>across multiple configurations set container ‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the number of SPI DMA configured is not same </p>
+<p>across multiple configurations set container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083052: The value configured in the parameters </b></p>
+<p><b>‘SpiTxDmaChannel’ and ‘SpiRxDmaChannel’ in the container </b></p>
+<p><b>‘SpiDma’ should be same across multiple configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured in the parameters </p>
+<p>SpiTxDmaChannel and SpiRxDmaChannel in the container SpiDma is  </p>
+<p>not same across multiple configuration set. </p>
+<p><b> </b></p>
+<p><b>ERR083053: The value configured for the parameter 'SpiDmaHwUnit'  </b></p>
+<p><b>in the container 'SpiDma' should be configured in any of the  </b></p>
+<p><b>hardware units selected for jobs. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value configured for the parameter SpiDmaHwUnit </p>
+<p>in the container SpiDma is not configured in any of the hardware units </p>
+<p>selected for jobs. </p>
+<p> </p>
+<p><b>ERR083054: The 'SpiDataWidthSelection' parameter in 'SpiGeneral' </b></p>
+<p><b>container, has to be fixed to 'BITS_16' as SpiDmaMode parameter is </b></p>
+<p><b>configured as true. </b></p>
+<p> </p>
+<p>This error occurs, if the configured value of the parameter </p>
+<p>SpiDataWidthSelection in the container SpiGeneral is other than BITS_16 </p>
+<p>and the SpiDmaMode parameter is configured as true. </p>
+<p> </p>
+<p><b>ERR083055: The value of parameter 'SpiPortPinSelect' &lt;value of the </b></p>
+<p><b>SpiPortPinSelect&gt; in the container 'SpiJob' should not be same since </b></p>
+<p><b>the hardware units configured for respective jobs are not same. </b></p>
+<p> </p>
+<p>This error occurs, if the value of parameter SpiPortPinSelect is configured </p>
+<p>in the container SpiJob is same and the hardware units configured for </p>
+<p>respective jobs are different. This error is applicable only for CSIG </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  33 </p>
+<p>hardware unit related jobs. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR083056: The DMA HW unit configured in 'SpiDmaHwUnit' </b></p>
+<p><b>parameter of the container 'SpiDma' is invalid as 'SpiDmaMode' </b></p>
+<p><b>parameter is configured as &lt;true&gt; and the same DMA HW unit is </b></p>
+<p><b>configured as &lt;SYNCHRONOUS&gt; in the parameter </b></p>
+<p><b>‘SpiHwUnitSynchronous’ of the container ‘SpiJob’. </b></p>
+<p> </p>
+<p> </p>
+<p>This error occurs, if the SpiDmaMode parameter is configured as true and </p>
+<p>the same DMA HW unit is configured as SYNCHRONOUS in the </p>
+<p>parameter SpiHwUnitSynchronous of the container SpiJob. </p>
+<p><b> ERR083057: The value of the parameter ‘SpiChannelIndex’ </b></p>
+<p><b>configured in container ‘SpiChannelList’ should be &lt;Expected value </b></p>
+<p><b>of SpiChannelIndex&gt;. In general per Spi Job, the value of </b></p>
+<p><b>‘SpiChannelIndex’ parameter should start with &lt;0&gt; and should be </b></p>
+<p><b>sequential without any gaps. </b></p>
+<p> </p>
+<p>This error occurs, if value of the parameter SpiChannelIndex in the </p>
+<p>container SpiChannelList is not starting with 0 and not sequential for any </p>
+<p>SpiJobId parameter in the container SpiJob. </p>
+<p> </p>
+<p><b>ERR083058: The reference path &lt;path&gt; provided for the parameter </b></p>
+<p><b>‘parameter name’ in the container ‘container name’, having short </b></p>
+<p><b>name&lt;container short name&gt; is incorrect. </b></p>
+<p> </p>
+<p>This error occurs, if incorrect reference provided for any of the </p>
+<p>reference parameters (SPI_E_HARDWARE_ERROR, </p>
+<p>SpiClockFrequencyRef,</p>
+<p> </p>
+<p>SpiDemEventParameterRefs, </p>
+<p>SpiDeviceAssignment, SpiChannelAssignment and </p>
+<p>SpiJobAssignment). </p>
+<p><b> </b></p>
+<p><b>ERR083059: The value of the parameter ‘SpiHwUnitSynchronous’ in </b></p>
+<p><b>the container ‘SpiJob’ should be same for all jobs that are having </b></p>
+<p><b>same value for the parameter ‘SpiHwUnit’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ across multiple configurations set container </b></p>
+<p><b>‘SpiDriver’. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnitSynchronous in </p>
+<p>the container SpiJob is different for all jobs that are having same value for </p>
+<p>the parameter SpiHwUnit in the container SpiExternalDevice across </p>
+<p>multiple configurations set container SpiDriver. </p>
+<p> </p>
+<p><b>ERR083061: The value of the parameter ‘SpiCsSelection’ in the </b></p>
+<p><b>container ‘SpiExternalDevice’ should not be configured as &lt;value of </b></p>
+<p><b>the parameter SpiCsSelection&gt; since the value of the parameter </b></p>
+<p><b>‘SpiHwUnit’ is configured as &lt;value of the parameter SpiHwUnit&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiHwUnit in the container </p>
+<p>SpiExternalDevice is configured as CSIG&lt;n&gt; and the value of the </p>
+<p>parameter SpiCsSelection in the container SpiExternalDevice is configured </p>
+<p>as CS_VIA_PERIPHERAL_ENGINE. Here &lt;n&gt; is an integer number e.g. 0, </p>
+<p>1 etc. </p>
+<p> </p>
+<p><b>ERR083062: The value of the parameter ‘SpiCsSelection’ in the </b></p>
+<p><b>container ‘SpiExternalDevice’ should be configured, since the value of </b></p>
+<p><b>the parameter ‘SpiEnableCs’ in the container ‘SpiExternalDevice’ is </b></p>
+<p><b>configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiEnableCs in the </p>
+<p>container SpiExternalDevice is configured as true and the parameter </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>34 </p>
+<p> </p>
+<p>SpiCsSelection in the container SpiExternalDevice is not configured. </p>
+<p><b>ERR083063: The value of the parameter ‘SpiPortPinSelect’ in </b></p>
+<p><b>the container ‘SpiJob’ should be configured, since the value </b></p>
+<p><b>of the parameter ‘SpiEnableCs’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiEnableCs in the </p>
+<p>container SpiExternalDevice is configured as true and the parameter </p>
+<p>SpiPortPinSelect in the container SpiJob is not configured. </p>
+<p> </p>
+<p><b>ERR083064: The value of the parameter ‘SpiCsSelection’ in the </b></p>
+<p><b>container ‘SpiExternalDevice’ should not be configured, since the </b></p>
+<p><b>value of the parameter ‘SpiEnableCs’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiEnableCs in the </p>
+<p>container SpiExternalDevice is configured as false and the </p>
+<p>parameter SpiCsSelection in the container SpiExternalDevice is </p>
+<p>configured.  </p>
+<p><b> </b></p>
+<p><b>ERR083065: The value of the parameter ‘SpiPortPinSelect’ in </b></p>
+<p><b>the container ‘SpiJob’ should not be configured, since the </b></p>
+<p><b>value of the parameter ‘SpiEnableCs’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiEnableCs in the </p>
+<p>container SpiExternalDevice is configured as false and the parameter </p>
+<p>SpiPortPinSelect in the container SpiJob is configured.  </p>
+<p><b> </b></p>
+<p><b>ERR083066: The DMA HW unit configured in ‘SpiDmaHwUnit’ </b></p>
+<p><b>parameter of ‘SpiDma’ container is invalid as the memory mode of </b></p>
+<p><b>the respective hardware unit is configured as  </b></p>
+<p><b>&lt;Configured memory mode&gt; when the ‘SpiHighPriorityHwSequence’ </b></p>
+<p><b>in the container ‘SpiSequence' is configured as false in the </b></p>
+<p><b>respective sequence. </b></p>
+<p> </p>
+<p>This error occurs, if DMA HW unit configured for the parameter </p>
+<p>SpiDmaHwUnit in the container SpiDma is configured with the memory </p>
+<p>mode DUAL_BUFFER_MODE or TX_ONLY_MODE and the </p>
+<p>SpiHighPriorityHwSequence is configured as false in the respective </p>
+<p>sequence. </p>
+<p> </p>
+<p><b>ERR083067: The value of the parameter ‘SpiHwUnitSynchronous’ in </b></p>
+<p><b>the container ‘SpiJob’ should be configured, since the value of the </b></p>
+<p><b>parameter ‘SpiLevelDelivered’ in the container ‘SpiGeneral’ is </b></p>
+<p><b>configured as &lt;2&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter SpiLevelDelivered in </p>
+<p>the container SpiGeneral is configured as 2 and the parameter </p>
+<p>SpiHwUnitSynchronous in the container SpiJob is not configured. </p>
+<p> </p>
+<p><b>ERR083068: The value for the parameter ‘SpiLevelDelivered’ in </b></p>
+<p><b>the container ‘SpiGeneral’ is configured as &lt;2&gt; and the </b></p>
+<p><b>parameter ‘SpiMemoryModeSelection’ in the container </b></p>
+<p><b>‘SpiMemoryMode’ should be configured as </b></p>
+<p><b>&lt;DIRECT_ACCESS_MODE&gt;, since the respective HW Unit is </b></p>
+<p><b>configured for &lt;SYNCHRONOUS&gt; in the parameter </b></p>
+<p><b>‘SpiHwUnitSynchronous’ of the container ‘SpiJob’. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter </p>
+<p>SpiMemoryModeSelection in the container SpiMemoryMode is </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  35 </p>
+<p>configured as DIRECT_ACCESS_MODE and the respective HW Unit is </p>
+<p>configured for SYNCHRONOUS in the parameter </p>
+<p>SpiHwUnitSynchronous of the container SpiJob with the value </p>
+<p>configured for the parameter SpiLevelDelivered in the container </p>
+<p>SpiGeneral is 2. </p>
+<p> </p>
+<p><b>ERR083069: The SPI channel configured across jobs should not be </b></p>
+<p><b>repeated when the parameter ' SpiMemoryModeSelection' in the </b></p>
+<p><b>container ' SpiMemoryMode' is configured as </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE/ TX_ONLY_MODE&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter </p>
+<p>SpiMemoryModeSelection in the container SpiMemoryMode is </p>
+<p>configured as DUAL_BUFFER_MODE or TX_ONLY_MODE and the </p>
+<p>channels configured for respective jobs are repeated. </p>
+<p><b> </b></p>
+<p><b>ERR083070: The parameter 'SpiInterruptibleSequence' in the container </b></p>
+<p><b>'SpiSequence' should be configured as &lt;false&gt;, since the jobs </b></p>
+<p><b>connected to the sequence having the value of the parameter </b></p>
+<p><b>'SpiMemoryModeSelection' in the container </b></p>
+<p><b>'SpiMemoryMode' is configured as </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE/TX_ONLY_MODE&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the jobs connected to the sequence having the value </p>
+<p>of the parameter SpiMemoryModeSelection in the container </p>
+<p>SpiMemoryMode is configured as DUAL_BUFFER_MODE or </p>
+<p>TX_ONLY_MODE and the value of the parameter </p>
+<p>SpiInterruptibleSequence in the container SpiSequence is not configured </p>
+<p>false. </p>
+<p> </p>
+<p><b>ERR083072: The value of the parameter ‘SpiDataWidth’ in the </b></p>
+<p><b>container ‘SpiChannel’ is not in the range of &lt;2 to 32&gt; since the value </b></p>
+<p><b>of the parameter ‘SpiHwUnit’ in the container SpiExternalDevice’ is </b></p>
+<p><b>configured as CSIHn. </b></p>
+<p><b> </b></p>
+<p>This error will occur, if the value of the parameter SpiDataWidth in the </p>
+<p>container SpiChannel is not in the range of 2 to 32 and the value of </p>
+<p>the parameter SpiHwUnit in the container SpiExternalDevice is </p>
+<p>configured as CSIH&lt;n&gt;. Here &lt;n&gt; is integer numbers e.g. 0, 1, etc. </p>
+<p><b> </b></p>
+<p><b>ERR083075: The chip select for the job &lt;SpiJob short name&gt; should </b></p>
+<p><b>not be configured as &lt;Chip select value&gt;, since this chip select is </b></p>
+<p><b>associated with a sequence &lt;SpiSequence short name&gt; which is </b></p>
+<p><b>having ‘SpiHighPriorityHwSequence' parameter is configured as </b></p>
+<p><b>&lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the chip select for the job is configured as Chip </p>
+<p>select value and this chip selects is associated with sequence which is </p>
+<p>having SpiHighPriorityHwSequence parameter is configured as true. </p>
+<p><b> </b></p>
+<p><b>ERR083076: Maximum acceptable baud rate for the Job  </b></p>
+<p><b>&lt;SpiJob short name&gt; should be less than or equal to PCLK/4 in </b></p>
+<p><b>external device &lt;SpiExternal device short name&gt; in the </b></p>
+<p><b>configuration set &lt;SpiDriver short name&gt;. </b></p>
+<p> </p>
+<p>This error occurs, when maximum acceptable baud rate for the job is </p>
+<p>greater than PCLK/4. </p>
+<p> </p>
+<p><b>ERR083078: The value of parameter ‘SpiHighPriorityHwSequence' </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>36 </p>
+<p> </p>
+<p><b>present in the container ‘SpiSequence' should be configured as </b></p>
+<p><b>&lt;true&gt; for at least one of the sequences, since the parameter </b></p>
+<p><b>‘SpiHighPriorityHwHandlingEnable' present in the container </b></p>
+<p><b>'SpiGeneral' is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>The error occurs, if the value of the parameter SpiHighPriorityHwSequence </p>
+<p>present in the container SpiSequence is not configured as true for none of </p>
+<p>the sequences and the value of parameter </p>
+<p>SpiHighPriorityHwHandlingEnable present in the container SpiGeneral is </p>
+<p>configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR083080: The value configured for the parameter </b></p>
+<p><b>'SpiSeqStartNotification' should follow C Syntax &lt; [a-zA-Z] [a-zA-Z0-</b></p>
+<p><b>9_]&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value of configuration parameters mentioned below </p>
+<p>does not adhere to C syntax i.e., the value should not contain characters </p>
+<p>other than (a-z, A-Z, 0-9 or “_”) and it also should start with an alphabet. </p>
+<p> </p>
+<p><b>ERR083081: The value of parameter 'SpiSeqStartNotification' present </b></p>
+<p><b>in the container 'SpiSequence' should be unique for the sequences </b></p>
+<p><b>having jobs with hardware units of different memory modes. </b></p>
+<p><b> </b></p>
+<p>The error occurs, if the value configured for the parameter </p>
+<p>'SpiSeqStartNotification' in the 'SpiSequence' container is same for the </p>
+<p>sequences having jobs with hardware units of different memory modes. </p>
+<p><b> </b></p>
+<p><b>ERR083082: The short name of the container ‘SpiSequence’ should be </b></p>
+<p><b>same for sequence having same 'SpiSequenceId' &lt;value for </b></p>
+<p><b>SpiSequenceId&gt; across multiple configurations set container </b></p>
+<p><b>‘SpiDriver’. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the short name of the container SpiSequence is not </p>
+<p>same for SPI Sequences (having same Sequence ID) across multiple </p>
+<p>configurations set container ‘SpiDriver’. </p>
+<p><b> </b></p>
+<p><b>ERR083084: The parameter ‘SpiSeqStartNotification’ in the container </b></p>
+<p><b>‘SpiSequence’ should be same for sequences having same </b></p>
+<p><b>'SpiSequenceId' &lt;value for SpiSequenceId&gt; across multiple </b></p>
+<p><b>configurations set container ‘SpiDriver’.</b></p>
+<p> </p>
+<p> </p>
+<p>This error will occur, if the parameter SpiSeqStartNotification in the </p>
+<p>container SpiSequence is not same for SPI Sequences (having same </p>
+<p>Sequence ID) across multiple configurations set container SpiSequence. </p>
+<p> </p>
+<p><b>Table  8-3 </b></p>
+<p><b>Parameters and Containers related to ERR083084 </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p><b> </b></p>
+<p>SpiSeqStartNotificationEnable</p>
+<p> </p>
+<p>SpiGeneral</p>
+<p> </p>
+<p>SpiSeqStartNotification </p>
+<p>SpiSequence </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>ERR083085: The parameter 'SpiSeqEndNotification' in the container </b></p>
+<p><b>'SpiSequence' should not be configured, when the parameter </b></p>
+<p><b>'SpiHwUnitSynchronous' in the container ‘SpiJob’ is configured with </b></p>
+<p><b>value 'SYNCHRONOUS' since the pre-compile parameter </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  37 </p>
+<p><b>'SpiSyncSeqEndNotificationEnable' in the 'SpiGeneral' container is </b></p>
+<p><b>configured as false. </b></p>
+<p> </p>
+<p>This error will occur if value of the parameter SpiHwUnitSynchronous in </p>
+<p>the container ‘SpiJob’ is configured as ‘Synchronous’ , when the </p>
+<p>parameter ‘SpiSyncSeqEndNotificationEnable’ in SpiGeneral container is </p>
+<p>FALSE and the sequence to which the ‘SpiJob’ belongs has Sequence </p>
+<p>end notification configured. </p>
+<p> </p>
+<p><b>Table  8-4 </b></p>
+<p><b>Parameters and Containers related to ERR083085 </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p><b> </b></p>
+<p>SpiSyncSeqEndNotificationEnable</p>
+<p> </p>
+<p>SpiGeneral</p>
+<p> </p>
+<p>SpiSeqEndNotification </p>
+<p>SpiSequence </p>
+<p> </p>
+<p><b>ERR083086: The value of the parameter 'SpiInputClockSelect' in the </b></p>
+<p><b>container '/Renesas/Spi0/SpiDriverx/SpiExternalDevicex' should be </b></p>
+<p><b>same for all Jobs using the same SpiHwUnit 'CSIHx'. </b></p>
+<p> </p>
+<p>The error occurs, if value of the parameter ‘SpiInputClockSelect’ in the </p>
+<p>container SpiExternalDevice is not same for all jobs using the same </p>
+<p>SpiHwUnit. </p>
+<p> </p>
+<p><b>ERR083087: The value of the parameter 'SpiBaudrateConfiguration' for </b></p>
+<p><b>'CSIH_BAUDRATE_REGISTER_x' in the container </b></p>
+<p><b>'/Renesas/Spi0/SpiDriverx/SpiExternalDevicex' should be same for all </b></p>
+<p><b>Jobs using the same SpiHwUnit 'CSIHx' </b></p>
+<p> </p>
+<p>The error occurs, if value of the parameter ‘SpiBaudrateConfiguration’ for a </p>
+<p>baudrate register in the container SpiExternalDevice is not same for all </p>
+<p>SpiExternalDevices using the same baudrate register for all jobs using the </p>
+<p>same SpiHwUnit. </p>
+<p><b> </b></p>
+<p><b>ERR083088: The value of the parameter 'SpiPortPinSelect' in the </b></p>
+<p><b>container '/Spi0/SpiDriverx/SpiJobz' used for            </b></p>
+<p><b>'/Renesas/Spi0/SpiDriverx/SpiExternalDevicex' should not be used for </b></p>
+<p><b>'/Renesas/Spi0/SpiDriverx/SpiExternalDevicey' in </b></p>
+<p><b>'/Spi0/SpiDriver0/SpiJobw'. </b></p>
+<p><b> </b></p>
+<p>The error occurs, if the same value of the parameter SpiPortPinSelect  </p>
+<p>used by an SpiExternalDevice in a SpiJob container is configured for an </p>
+<p>another SpiPortPinSelect used by another SpiExternalDevice in an  </p>
+<p>another SpiJob. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR083089: The value of the parameter 'SpiCsPolarity' in the  </b></p>
+<p><b>Container 'SpiExternalDevicex' used for '&lt;HardwareUnit_Name </b></p>
+<p><b>SpiPortPinSelect_Name&gt;’ should be same as the value of the </b></p>
+<p><b>parameter 'SpiCsPolarity' in the container 'SpiExternalDevicey' used </b></p>
+<p><b>for &lt;HardwareUnit_Name SpiPortPinSelect_Name&gt;’. </b></p>
+<p><b> </b></p>
+<p>The error occurs, if the value of the parameter SpiCsPolarity in the </p>
+<p>container SpiExternalDevice, is not same across all the external devices </p>
+<p>using the same SpiHwUnit CSIHx using the same chipselect. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>38 </p>
+<p> </p>
+<p><b>ERR083090: The value of the parameter &lt;Parameter_Name&gt; across the </b></p>
+<p><b>containers 'SpiExternalDevicex' and 'SpiExternalDevicey' should be </b></p>
+<p><b>same as they are referring the same SpiHw &lt;HardwareUnit_Name&gt; </b></p>
+<p><b>when ‘SpiPersistentHWConfiguration’ or </b></p>
+<p><b>‘SpiHighPriorityHwHandlingEnable’ is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if any of the parameters SpiCsInactiveAfterLastData, </p>
+<p>SpiShiftClockIdleLevel, SpiInputClockSelect or SpiInterruptDelayMode in </p>
+<p>the SpiExternalDevice container are not same across the External devices </p>
+<p>mapped to the same SpiHwUnit when SpiPersistentHWConfiguration or </p>
+<p>SpiHighPriorityHwHandlingEnable is configured as true. </p>
+<p> </p>
+<p><b>ERR083091: The value of the parameter 'SpiTransferStart' across the </b></p>
+<p><b>containers 'SpiChannelx' and 'SpiChannely' should be same as they </b></p>
+<p><b>are referring the same SpiHw 'CSIHn'. </b></p>
+<p> </p>
+<p>The error occurs, if value of the parameters SpiDataWidth,  </p>
+<p>SpiTransferStart present in SpiChannel container are not same across all </p>
+<p>the channel containers using the same SpiHw Unit and </p>
+<p>SpiPersistentHWConfiguration is configured as true. </p>
+<p>            </p>
+<p>In case of CSIHx SpiHw Unit the values of the parameters SpiDataWidth, </p>
+<p>SpiTransferStart present in SpiChannel container are not same across all </p>
+<p>the channel containers using the same CSIHx SpiHw and the same </p>
+<p>chipselect lines and SpiPersistentHWConfiguration is configured as true. </p>
+<p> </p>
+<p>In case of CSIGn SpiHw Unit the values of the parameters SpiDataWidth, </p>
+<p>SpiTransferStart present in SpiChannel container are not same across all </p>
+<p>the channel containers using the same CSIGn SpiHw and </p>
+<p>SpiPersistentHWConfiguration is configured as true. </p>
+<p> </p>
+<p><b>Table  8-5 </b></p>
+<p><b>Parameters and Containers related to ERR083091 </b></p>
+<p> </p>
+<p>Container </p>
+<p>Parameters </p>
+<p>SpiChannel </p>
+<p>SpiDataWidth </p>
+<p>SpiTransferStart </p>
+<p>SpiGeneral </p>
+<p>SpiPersistentHWConfiguration </p>
+<p> </p>
+<p><b>ERR083092: The reference path &lt;path&gt; provided for the parameter </b></p>
+<p><b>‘parameter name’ in the container ‘container name’, having short name </b></p>
+<p><b>&lt;container short name&gt; is incorrect. </b></p>
+<p>This error occurs, if incorrect reference provided for the reference </p>
+<p>parameter (‘SPI_E_DATA_TX_TIMEOUT_FAILURE’). </p>
+<p><b>ERR083093: The reference path &lt;path&gt; configured for the </b></p>
+<p><b>parameters ‘parameter name’ and ‘parameter name’ in the container </b></p>
+<p><b>‘container name’ should be unique. </b></p>
+<p> </p>
+<p>This error occurs, if the reference path provided for the parameters </p>
+<p>SPI_E_HARDWARE_ERROR and SPI_E_DATA_TX_TIMEOUT_FAILURE, </p>
+<p>are not unique. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  39 </p>
+<p><b>ERR083094: The reference path for parameter </b></p>
+<p><b>'SPI_E_DATA_TX_TIMEOUT_FAILURE/ SPI_E_HARDWARE_ERROR'  </b></p>
+<p><b>in the container 'SpiDemEventParameterRefs' should be same  </b></p>
+<p><b>across multiple configuration set. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the reference path provided for the parameters </p>
+<p>'SPI_E_DATA_TX_TIMEOUT_FAILURE/ SPI_E_HARDWARE_ERROR is </p>
+<p>not same across multiple configuration sets. </p>
+<p> </p>
+<p><b>ERR083107: The value configured for the parameter   </b></p>
+<p><b>‘SpiDmaTrigCtrlOnCS’ should be same across multiple configuration    </b></p>
+<p><b>set. </b></p>
+<p><b> </b></p>
+<p>This error occurs, when the value configured for the parameter </p>
+<p>SpiDmaTrigCtrlOnCS is not same across multiple configuration set. </p>
+<p><b> </b></p>
+<p><b>ERR083108: When the parameter ‘SpiDmaHwUnit’ is configured as </b></p>
+<p><b>&lt;value of parameter SpiDmaHwUnit&gt; and the parameter </b></p>
+<p><b>‘SpiDmaTrigCtrlOnCS’ is configured as &lt;value of parameter </b></p>
+<p><b>SpiDmaTrigCtrlOnCS&gt; in the container ‘SpiDma’, then the chip selects </b></p>
+<p><b>configured in ‘SpiDmaHwUnit’, ‘SpiDmaTrigCtrlOnCS’ and the </b></p>
+<p><b>parameter ‘SpiPortPinSelect’ in the container SpiJob should match. </b></p>
+<p><b> </b></p>
+<p>This error occurs, when the parameter SpiDmaHwUnit’ is configured as </p>
+<p>&lt;value of parameter SpiDmaHwUnit&gt; and the parameter </p>
+<p>SpiDmaTrigCtrlOnCS is configured as &lt;value of parameter </p>
+<p>SpiDmaTrigCtrlOnCS&gt; and the chip selects configured in ‘SpiDmaHwUnit’, </p>
+<p>‘SpiDmaTrigCtrlOnCS’ and the parameter ‘SpiPortPinSelect’ in the </p>
+<p>container SpiJob does not match. </p>
+<p> </p>
+<p><b>ERR083117: The value of parameter ‘SpiCsSelection‘ in the  </b></p>
+<p><b>container ‘SpiExternalDevice’ should not be configured as </b></p>
+<p><b>&lt;CS_VIA_GPIO&gt; since the value of the parameter ‘SpiHwUnit’ is </b></p>
+<p><b>configured as &lt; CSIH&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value of the parameter SpiHwUnit in the  </p>
+<p>container SpiExternalDevice is configured as CSIH&lt;n&gt; and the value  </p>
+<p>of the parameter SpiCsSelection in the container SpiExternalDevice is </p>
+<p>configured as CS_VIA_GPIO. Here &lt;n&gt; is an integer number e.g. 0, 1  </p>
+<p>etc. </p>
+<p><b> </b></p>
+<p><b>ERR083120: The parameter 'SpiPortPinSelect' value in the container </b></p>
+<p><b>'SpiJob&lt;x&gt;', should be configured as CSL&lt;n&gt; since 'CSIH&lt;x&gt;' is </b></p>
+<p><b>configured. </b></p>
+<p><b> </b></p>
+<p>This error will occur if SpiPortPinSelect is not configured when  </p>
+<p>SpiHwUnit is configured with CSIHn device. </p>
+<p> </p>
+<p><b>ERR083121: The value of the parameter ‘SpiDataWidth’ in the </b></p>
+<p><b>container ‘SpiChannel’ is not in the range of &lt;7 to 32&gt; since the </b></p>
+<p><b>value of the parameter ‘SpiHwUnit’ in the container </b></p>
+<p><b>‘SpiExternalDevice’ is configured as CSIGn. </b></p>
+<p><b> </b></p>
+<p>This error will occur, if the value of the parameter SpiDataWidth in the </p>
+<p>container SpiChannel is not in the range of 7 to 32 and the value of the </p>
+<p>parameter SpiHwUnit in the container SpiExternalDevice is configured as </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>40 </p>
+<p> </p>
+<p>CSIG&lt;n&gt;. Here &lt;n&gt; is integer numbers e.g. 0, 1, etc. </p>
+<p> </p>
+<p><b>ERR083122: The SPI channel having channel id &lt;value of the   </b></p>
+<p><b>parameter SpiChannelId&gt; configured in the container ‘SpiChannel’ </b></p>
+<p><b>should be referred by any of the SPI job. </b></p>
+<p> </p>
+<p>This error occurs, if configured SPI channel is not referred by any of the         </p>
+<p>SPI job. </p>
+<p> </p>
+<p><b>ERR083123: &quot;The value of parameter</b></p>
+<p> </p>
+<p><b>'SpiEnableCs' in the container </b></p>
+<p><b>'SpiExternalDevice' should not be configured as false, since the value </b></p>
+<p><b>of the parameter 'SpiHwUnit' in the container 'SpiExternalDevice'  is </b></p>
+<p><b>configured as CSIH.  </b></p>
+<p> </p>
+<p>This error occurs, if CSIH hardware unit is configured and 'SpiEnableCs' is </p>
+<p>configured as false. </p>
+<p> </p>
+<p><b>ERR083124: “The parameter 'SPI_E_ECC_SELFTEST_FAILURE' in the </b></p>
+<p><b>container 'SpiDemEventParameterRefs’ to be configured when the </b></p>
+<p><b>parameter 'SpiECCSelfTest' is configured as &lt;ECC_Init&gt; or </b></p>
+<p><b>&lt;ECC_Init_RunTime&gt; in 'SpiGeneral' container.” </b></p>
+<p><b> </b></p>
+<p>This error occurs when 'SpiECCSelfTest' is configured as &lt;ECC_Init&gt; or </p>
+<p>&lt;ECC_Init_RunTime&gt; and reference path for the dem error </p>
+<p>'SPI_E_ECC_SELFTEST_FAILURE' is not configured. </p>
+<p> </p>
+<p><b>ERR083125: “The parameter 'SpiECCSelfTest'should not be </b></p>
+<p><b>configured as &lt;ECC_Init&gt; or &lt;ECC_Init_RunTime&gt; in ‘SpiGeneral’ </b></p>
+<p><b>container when there are no &lt;CSIH&gt; hardware units configured.” </b></p>
+<p><b> </b></p>
+<p>This error occurs when 'SpiECCSelfTest' is configured as &lt;ECC_Init&gt; or </p>
+<p>&lt;ECC_Init_RunTime&gt; and there are no CSIH hardware units configured. </p>
+<p> </p>
+<p><b>ERR083126: “The parameter 'SPI_E_INT_INCONSISTENT' in the </b></p>
+<p><b>container 'SpiDemEventParameterRefs0' has to be configured when </b></p>
+<p><b>the parameter 'SpiInterruptConsistencyCheck' is configured as true in </b></p>
+<p><b>'SpiGeneral' container.” </b></p>
+<p><b> </b></p>
+<p>This error occurs when 'SpiInterruptConsistencyCheck' is configured as </p>
+<p>true and reference path for the dem error 'SPI_E_INT_INCONSISTENT' is </p>
+<p>not configured. </p>
+<p> </p>
+<p><b>ERR083127: “The parameter 'SPI_E_REG_WRITE_VERIFY' in the </b></p>
+<p><b>container 'SpiDemEventParameterRefs0' has to be configured when </b></p>
+<p><b>the parameter 'SpiCSIGHWriteVerify' or 'SpiDMAWriteVerify' are </b></p>
+<p><b>enabled in 'SpiGeneral' container.” </b></p>
+<p> </p>
+<p>This error occurs when 'SpiCSIGHWriteVerify' or 'SpiDMAWriteVerify' is </p>
+<p>configured as true and reference path for the dem error </p>
+<p>SPI_E_REG_WRITE_VERIFY is not configured. </p>
+<p> </p>
+<p><b>ERR083118: “The parameter </b></p>
+<p><b>'SPI_E_LOOPBACK_SELFTEST_FAILURE' in the container </b></p>
+<p><b>'SpiDemEventParameterRefs0' has to be configured when the </b></p>
+<p><b>parameter 'SpiLoopBackSelfTest’ is configured as &lt;LoopBack_Init&gt; </b></p>
+<p><b>or &lt;LoopBack_Init_RunTime&gt; in 'SpiGeneral' container.” </b></p>
+<p> </p>
+<p>This error occurs when 'SpiLoopBackSelfTest’ is configured as </p>
+<p>&lt;LoopBack_Init&gt; or &lt;LoopBack_Init_RunTime&gt; and reference path for the </p>
+<p>dem error 'SPI_E_LOOPBACK_SELFTEST_FAILURE' is not configured. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  41 </p>
+<p><b>ERR083128: “The SPI channels configured for a specific job should </b></p>
+<p><b>be consecutive in order when the parameter </b></p>
+<p><b>'SpiMemoryModeSelection' in the container 'SpiMemoryMode' is </b></p>
+<p><b>configured as &lt;DUAL_BUFFER_MODE/TX_ONLY_MODE&gt;.” </b></p>
+<p> </p>
+<p>This error occurs when multiple channels are configured for a specific job </p>
+<p>and are not in consecutive order when the parameter </p>
+<p>'SpiMemoryModeSelection' in the container 'SpiMemoryMode' is configured </p>
+<p>as &lt;DUAL_BUFFER_MODE/TX_ONLY_MODE&gt;. </p>
+<p> </p>
+<p><b>ERR083131: “The SPI jobs having Job Id &lt;value of the parameter  </b></p>
+<p><b>‘SpiJobId’&gt; configured in the container ‘SpiJob’ should be referred by </b></p>
+<p><b>any of the SPI sequence.” </b></p>
+<p> </p>
+<p>This error occurs, if configured SPI job is not referred by any of the SPI </p>
+<p>sequence in ECU Configuration Description File. </p>
+<p> </p>
+<p><b>ERR083129: “The parameter 'Spi_UseWriteVerifyErrorInterface' in the </b></p>
+<p><b>'SpiGeneral’ container should be configured when any of the </b></p>
+<p><b>parameters 'SpiCSIGHWriteVerify' or 'SpiDMAWriteVerify' are enabled'. </b></p>
+<p> </p>
+<p>This error occurs, if 'Spi_UseWriteVerifyErrorInterface' is configured but </p>
+<p>'SpiCSIGHWriteVerify' or 'SpiDMAWriteVerify' are not configured. </p>
+<p> </p>
+<p><b>ERR083130: “The parameter 'SpiWriteVerifyErrorInterface' in the </b></p>
+<p><b>'SpiGeneral' container should be configured when the parameters </b></p>
+<p><b>'Spi_UseWriteVerifyErrorInterface' is configured as 'true'. </b></p>
+<p> </p>
+<p>This error occurs, if 'Spi_WriteVerifyErrorInterface' is not configured while </p>
+<p>'Spi_UseWriteVerifyErrorInterface' is configured as 'true'. </p>
+<p> </p>
+<p><b>ERR083095: The value configured for the parameter 'SpiDmaHwUnit' </b></p>
+<p><b>should be same across multiple configuration set. </b></p>
+<p> </p>
+<p>This error occurs, if 'SpiDmaHwUnit' is not configured with the same value </p>
+<p>across multiple configurations. It should be same across multiple </p>
+<p>configurations. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Warning Messages </b></p>
+<p><b> </b></p>
+<p><b>WRN083002: The value of parameter 'SpiDeviceAssignment' from </b></p>
+<p><b>the container ‘short name of SpiJob container of one </b></p>
+<p><b>SpiPortPinSelect’ and ‘short name of SpiJob container of another </b></p>
+<p><b>SpiPortPinSelect’ should be same since the value of parameter </b></p>
+<p><b>'SpiPortPinSelect' of respective jobs is same, the memory mode of </b></p>
+<p><b>the respective Job's hardware unit is configured as </b></p>
+<p><b>&lt;DUAL_BUFFER_MODE or TX_ONLY_MODE&gt; and the respective </b></p>
+<p><b>jobs belong to the same sequence. </b></p>
+<p> </p>
+<p> </p>
+<p>This warning occurs, if SpiDeviceAssignment parameter in SpiJob is not </p>
+<p>same for the jobs having same SpiHwUnit and SpiPortPinSelect with in the </p>
+<p>same SpiSequence and the memory mode of the respective Job's </p>
+<p>hardware unit is configured as DUAL_BUFFER_MODE or </p>
+<p>TX_ONLY_MODE. </p>
+<p> </p>
+<p><b>WRN083004: The value for ‘SpiDmaMode’ should be configured as </b></p>
+<p><b>&lt;false&gt; since the value of the parameter ‘SpiLevelDelivered’ is </b></p>
+<p><b>configured as &lt;0&gt;. Hence configuration value for DMA will be ignored </b></p>
+<p><b>for this configuration. </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>42 </p>
+<p> </p>
+<p> </p>
+<p>This warning occurs, if the value for parameter SpiLevelDelivered is 0 and </p>
+<p>SpiDmaMode is configured as true. </p>
+<p> </p>
+<p><b>WRN083005: The value of parameter 'SpiDataWidth' from </b></p>
+<p><b>'SpiChannel' container is &lt;value of parameter SpiDataWidth&gt; and </b></p>
+<p><b>the value of parameter 'SpiDefaultData' is &lt;value of parameter </b></p>
+<p><b>SpiDefaultData&gt;. Hence only Least Significant Byte is considered </b></p>
+<p><b>from the value of parameter 'SpiDefaultData'. </b></p>
+<p> </p>
+<p>This warning occurs, if the value configured in the parameter </p>
+<p>SpiDefaultData of container SpiChannel is greater than the value  </p>
+<p>(2 SpiDataWidth – 1) of the same container when, the value of </p>
+<p>SpiDataWidthSelection in the container SpiGeneral is configured as </p>
+<p>BITS_8. </p>
+<p><b> </b></p>
+<p><b>WRN083006: The value of parameter 'SpiDataWidth' from </b></p>
+<p><b>'SpiChannel' container is &lt;value of parameter SpiDataWidth&gt; and </b></p>
+<p><b>the value of parameter 'SpiDefaultData' is &lt;value of parameter </b></p>
+<p><b>SpiDefaultData&gt;. Hence only Least Significant Word is considered </b></p>
+<p><b>from the value of parameter 'SpiDefaultData'. </b></p>
+<p> </p>
+<p>This warning occurs, if the value configured in the parameter </p>
+<p>SpiDefaultData of container SpiChannel is greater than the value  </p>
+<p>(2 SpiDataWidth – 1) of the same container when, the value of </p>
+<p>SpiDataWidthSelection in the container SpiGeneral is configured as </p>
+<p>BITS_16. </p>
+<p> </p>
+<p><b>WRN083009: The value of parameter 'SpiDmaMode' from the  </b></p>
+<p><b>container 'SpiGeneral' is configured as &lt;false&gt; and the container </b></p>
+<p><b>'SpiDma' is configured. In this case, the configuration provided in </b></p>
+<p><b>'SpiDma' container is ignored. </b></p>
+<p> </p>
+<p>This warning occurs, if the value of parameter SpiDmaMode from the </p>
+<p>container SpiGeneral is configured as false and the container SpiDma is </p>
+<p>configured. In this case, the configuration provided in SpiDma container is </p>
+<p>ignored. </p>
+<p> </p>
+<p><b>WRN083010: The value for parameter ‘SpiCsPolarity’, </b></p>
+<p><b> ‘SpiCsInactive’, ‘SpiInterruptDelayMode’, ‘SpiInputClockSelect’ </b></p>
+<p><b> or ‘SpiBaudrateConfiguration' from the container </b></p>
+<p><b> 'SpiExternalDevice' should be same since the memory mode of the </b></p>
+<p><b>respective hardware unit is configured as &lt;DUAL_BUFFER_MODE </b></p>
+<p><b> or TX_ONLY_MODE&gt; and the respective jobs belong to the same </b></p>
+<p><b>sequence. Only the configured value(s) for the first Job is  </b></p>
+<p><b>considered. </b></p>
+<p> </p>
+<p>This warning occurs, if the value for parameter SpiCsPolarity, </p>
+<p>SpiCsInactive, SpiInterruptDelayMode, SpiInputClockSelect or </p>
+<p>SpiBaudrateConfiguration from the container SpiExternalDevice is not </p>
+<p>same, the memory mode of the respective hardware unit is configured as </p>
+<p>DUAL_BUFFER_MODE or TX_ONLY_MODE and the respective jobs </p>
+<p>belong to the same sequence. Only the configured value(s) for the first </p>
+<p>Job is considered. </p>
+<p> </p>
+<p><b>WRN083012: SpiMemoryModeSelection for Spi jobs value of the </b></p>
+<p><b>SpiJob short name of the value of the SpiSequence should be </b></p>
+<p><b>&lt;TX_ONLY_MODE&gt;, since the parameter  </b></p>
+<p><b>SpiHighPriorityHwSequence in the SpiSequence container is </b></p>
+<p><b>configured as &lt;true&gt; for this sequence. Hence the generation  </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  43 </p>
+<p><b>tool ignores the value configured for the parameter </b></p>
+<p><b>SpiHighPriorityHwSequence for this sequence. </b></p>
+<p> </p>
+<p> </p>
+<p>This warning occurs, if the SpiMemoryModeSelection for Spi jobs value of </p>
+<p>the SpiJob short name of the value of the SpiSequence should be </p>
+<p>&lt;TX_ONLY_MODE&gt;, since the parameter SpiHighPriorityHwSequence in </p>
+<p>the SpiSequence container is configured as &lt;true&gt; for this sequence. </p>
+<p>Hence the generation tool ignores the value configured for the parameter </p>
+<p>SpiHighPriorityHwSequence for this sequence. </p>
+<p><b> </b></p>
+<p><b>WRN083079: The parameter 'SpiSeqStartNotification' in the container </b></p>
+<p><b>'SpiSequence' should not be configured, since the pre-compile </b></p>
+<p><b>parameter, SpiSeqStartNotificationEnable' in the 'SpiGeneral' </b></p>
+<p><b>container is configured as false. </b></p>
+<p><b> </b></p>
+<p>The warning occurs if value is configured for the parameter </p>
+<p>'SpiSeqStartNotification ‘in the container 'SpiSequence' when the  </p>
+<p>parameter 'SpiSeqStartNotificationEnable' in the 'SpiGeneral' container is </p>
+<p>configured as false. </p>
+<p> </p>
+<p><b>WRN083081: The value of the parameter 'SpiCsInactiveAfterLastData' </b></p>
+<p><b>in the container 'SpiExternalDevice' is ignored for any CSIH HW Unit </b></p>
+<p><b>as 'SpiCsIdleEnforcement' is configured as true. </b></p>
+<p> </p>
+<p>The warning will occur if the values are configured for parameters </p>
+<p>SpiCsIdleEnforcement is true and SpiCsInactiveAfterLastData is false in  </p>
+<p>the container SpiExternalDevice for a CSIH HW Unit. </p>
+<p> </p>
+<p><b>WRN083084: The parameter ‘SpiLevelDelivered’ is configured as &lt;0&gt; </b></p>
+<p><b>and ‘SpiInterruptibleSeqAllowed’ in the container ‘SpiGeneral’ is </b></p>
+<p><b>configured as &lt;true&gt;. Hence the value of parameter </b></p>
+<p><b>‘SpiInterruptibleSeqAllowed’ in the container ‘SpiGeneral’ is ignored. </b></p>
+<p> </p>
+<p>This warning occurs, if the parameter SpiLevelDelivered is configured as  </p>
+<p>0 (SPI Level 0 Driver) and SpiInterruptibleSeqAllowed in the container </p>
+<p>SpiGeneral is configured as true. Hence value of the parameter </p>
+<p>SpiInterruptibleSeqAllowed in the container SpiGeneral is ignored. </p>
+<p> </p>
+<p><b>WRN083085: The parameter 'SpiHighPriorityHwSequence' in the </b></p>
+<p><b>container ‘SpiSequence’ should not be configured as &lt;true&gt;. Since </b></p>
+<p><b>the pre-compile parameter 'SpiHighPriorityHwHandlingEnable' in  </b></p>
+<p><b>the ‘SpiGeneral’ container is configured as &lt;false&gt;. Hence the </b></p>
+<p><b>generation tool ignores the value configured for the parameter </b></p>
+<p><b>'SpiHighPriorityHwSequence'. </b></p>
+<p> </p>
+<p>This warning occurs, if the value of the parameter </p>
+<p>SpiHighPriorityHwSequence configured in the container SpiSequence  </p>
+<p>is not to be configured as true. And the parameter </p>
+<p>SpiHighPriorityHwHandlingEnable in the container SpiGeneral should be </p>
+<p>false. On that moment Generation tool ignores the value configured for  </p>
+<p>the parameter SpiHighPriorityHwSequence. </p>
+<p> </p>
+<p> </p>
+<p><b>8.3 </b></p>
+<p><b>Information Messages </b></p>
+<p><b> </b></p>
+<p><b>INF083001: The value of the parameter ‘SpiShiftClockIdleLevel’ in the </b></p>
+<p><b>container ‘SpiExternalDevice’ configured is ignored since the value of </b></p>
+<p><b>parameter ‘SpiHwUnit’ present in the container 'SpiExternalDevice' is </b></p>
+<p><b>configured as &lt;CSIGn&gt;. </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>44 </p>
+<p> </p>
+<p>This information occurs, if the value of parameter SpiHwUnit present in the </p>
+<p>container SpiExternalDevice is configured as CSIG&lt;n&gt; and the value of </p>
+<p>the parameter SpiShiftClockIdleLevel in the container SpiExternalDevice is </p>
+<p>configured. In this case the value of SpiShiftClockIdleLevel in the </p>
+<p>container SpiExternalDevice is ignored. Here &lt;n&gt; is integer number e.g. 0, </p>
+<p>1, etc. </p>
+<p><b> </b></p>
+<p><b>INF083003: Calculated SPI baud rate for job ‘SpiJob’ in configuration </b></p>
+<p><b>set ‘SpiDriver’ should be equal to &lt;Calculated </b></p>
+<p><b> Buadrate Hz&gt;. </b></p>
+<p> </p>
+<p>This information occurs to provide the calculated SPI baud rate for job </p>
+<p>(SpiJob) in configuration set SpiDriver.</p>
+<p> </p>
+<p>The calculation of baud rate is done as follows: </p>
+<p> </p>
+<p>Baudrate = (Referred peripheral clock from MCU) / </p>
+<p>[(2^m) * SpiBaudrateConfiguration * 2] </p>
+<p> </p>
+<p><b>      Table  8-6        Parameter values related  to INF083003 </b></p>
+<p> </p>
+<p><b>SpiInputClockSelect</b></p>
+<p> </p>
+<p><b>                                          m</b></p>
+<p> </p>
+<p>PCLK</p>
+<p> </p>
+<p>0</p>
+<p> </p>
+<p>PCLK_DIVBY_2</p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>PCLK_DIVBY_4</p>
+<p> </p>
+<p>2</p>
+<p> </p>
+<p>PCLK_DIVBY_8</p>
+<p> </p>
+<p>3</p>
+<p> </p>
+<p>PCLK_DIVBY_16</p>
+<p> </p>
+<p>4</p>
+<p> </p>
+<p>PCLK_DIVBY_32</p>
+<p> </p>
+<p>5</p>
+<p> </p>
+<p>PCLK_DIVBY_64</p>
+<p> </p>
+<p>6</p>
+<p> </p>
+<p> </p>
+<p><b>INF083005: The parameters 'SpiCsIdleEnforcement', 'SpiCsIdleTiming', </b></p>
+<p><b>'SpiCsHoldTiming', 'SpiCsInterDataDelay' and 'SpiCsSetupTime' from </b></p>
+<p><b>the container 'SpiExternalDevice' should not be configured since the </b></p>
+<p><b>parameter 'SpiHwUnit' present in the container 'SpiExternalDevice' is </b></p>
+<p><b>configured as &lt;CSIGn&gt;. </b></p>
+<p><b> </b></p>
+<p>This information occurs, if the parameters SpiCsIdleEnforcement, </p>
+<p>SpiCsIdleTiming, SpiCsHoldTiming, SpiCsInterDataDelay and </p>
+<p>SpiCsSetupTime are configured when the parameter SpiHwUnit in the </p>
+<p>container SpiExternalDevice is configured as CSIG&lt;n&gt;. Here &lt;n&gt; is </p>
+<p>integer number e.g. 0, 1, etc. </p>
+<p><b> </b></p>
+<p><b>INF083006: The HW unit &lt;value of the parameter SpiSynchHwUnit&gt; </b></p>
+<p><b>published in the parameter ‘SpiSynchHwUnit’ of the container </b></p>
+<p><b>‘SpiCsig&lt;m&gt;/SpiCsih&lt;n&gt;’ is not configured as &lt;SYNCHRONOUS&gt; </b></p>
+<p><b>for any of the hardware units selected for jobs. </b></p>
+<p> </p>
+<p>This information occurs, if the value of the parameter SpiSynchHwUnit </p>
+<p>configured in the container SpiCsig&lt;m&gt; or SpiCsih&lt;n&gt; is not configured </p>
+<p>as SYNCHRONOUS for hardware units selected for any of the jobs. </p>
+<p>Here &lt;m&gt; and &lt;n&gt; are integer numbers e.g. 0, 1, etc. </p>
+<p> </p>
+<p><b>INF083008: The DMA trigger configured for hardware unit &quot;CSIH1&quot; </b></p>
+<p><b>mentioned in the parameter 'SpiDmaTrigCtrlOnCS' does not match </b></p>
+<p><b>with the hardware unit &quot;CSIH0&quot; of the parameter 'SpiDmaHwUnit' in </b></p>
+<p><b>the container 'SpiDma', hence the value configured for the  </b></p>
+<p><b>parameter 'SpiDmaTrigCtrlOnCS' is ignored. </b></p>
+<p><b> </b></p>
+<p>This information occurs, if the hardware unit configured in the parameter </p>
+<p>SpiDmaTrigCtrlOnCS does not match with the hardware unit configured in </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Messages                                                                                                                               Chapter 8 </b></p>
+<p>   </p>
+<p> </p>
+<p>  45 </p>
+<p>the parameter SpiDmaHwUnit of SpiDma container. </p>
+<p> </p>
+<p><b>INF083009: The expected CS behavior may not be observed at high </b></p>
+<p><b>baud rates in case of Direct Access Mode due to general limitation of </b></p>
+<p><b>the serial controllers. A work around at high baud rates is to use FIFO </b></p>
+<p><b>mode. </b></p>
+<p><b> </b></p>
+<p>This information occurs when ever Direct Access Mode is configured to </p>
+<p>notify the user that, at chip select behavior may not be as expected at </p>
+<p>higher baud rate in Direct Access Mode. </p>
+<p> </p>
+<p><b>INF083010: When the parameter &lt;SpiCsPolarity&gt; in the container </b></p>
+<p><b>&lt;SpiExternalDevice&gt; is configured as high, then the setting of the </b></p>
+<p><b>parameter &lt;SpiDmaTrigCtrlOnCS&gt; in the container &lt;SpiDma&gt; shall be </b></p>
+<p><b>ignored.  </b></p>
+<p> </p>
+<p>This information occurs whenever the chip select polarity is high when DMA </p>
+<p>is enabled and SpiDmaTrigCtrlOnCS is having values other than </p>
+<p>&lt;CSIHn&gt;_&lt;CSLn&gt;_IC0_IR0_00. </p>
+<p> </p>
+<p>Note: n = 0 or 1. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                               Messages </b></p>
+<p>46 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Notes                                                                                                                                      Chapter 9 </b></p>
+<p>   </p>
+<p> </p>
+<p>  47 </p>
+<p><b>Chapter 9  Notes </b></p>
+<p> </p>
+<p> </p>
+<p>“Generation Tool” and “Tool” terminologies are used interchangeably to </p>
+<p>refer SPI Driver Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 9                                                                                                                                       Notes </b></p>
+<p>48 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>   </p>
+<p> </p>
+<p>  49 </p>
+<p><b>  Revision History </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>24-Oct-2013</p>
+<p> </p>
+<p>2.  </p>
+<p> Error message numbers updated. </p>
+<p> </p>
+<p>1.0.1 </p>
+<p>28-Jan-2014 </p>
+<p>3. </p>
+<p> Error message </p>
+<p>ERR083093 and ERR083094 are updated and                         </p>
+<p>ERR083118 and ERR083119 are added.</p>
+<p> </p>
+<p>1.0.2 </p>
+<p>29-Apr-2014 </p>
+<p>4. </p>
+<p> The information message </p>
+<p>INF083003 is updated for baud rate </p>
+<p>formula.</p>
+<p> </p>
+<p>1.0.3 </p>
+<p>12-May-2014 </p>
+<p>5. </p>
+<p>1. Parameter SpiReadBackConfiguration is removed from table of Error </p>
+<p>message ERR083004. </p>
+<p> 2. The information message INF083008 is added. </p>
+<p> 3. Parameter SpiLoopBackSelfTest is added in table of Error message </p>
+<p>ERR083004. </p>
+<p>4. Error message ERR083119 is removed,   INF083004 is made as </p>
+<p>WRN083084, </p>
+<p><b>  </b></p>
+<p>ERR083072 is updated and ERR083121 is added. </p>
+<p>5. INF083007 is made as</p>
+<p><b> </b></p>
+<p>WRN083085, Error message ERR083085 is </p>
+<p>reformulated and for ERR083084 table is added. </p>
+<p>6. </p>
+<p><b> </b></p>
+<p>ERR083120 is added. </p>
+<p>1.0.4 </p>
+<p>23-Jul-2014 </p>
+<p>6. </p>
+<p>1. Error message ERR083118 is removed. </p>
+<p>2. Description of error message ERR083041 is updated. </p>
+<p>3. Reference Documents section is updated. </p>
+<p>4. Chapter 4 remark section is updated. </p>
+<p>5. Chapter 6 is updated for the precautions. </p>
+<p>6.  Parameter SpiLoopBackSelfTest is removed in table of Error </p>
+<p>message ERR083004. </p>
+<p>7. Parameter SPI_E_SELF_TEST_FAILURE is removed from error </p>
+<p>messages ERR083093 and ERR083094. </p>
+<p>1.0.5 </p>
+<p>22-Oct-2014 </p>
+<p>7. </p>
+<p>1. Error messages ERR083005, ERR083018 and ERR083037 are </p>
+<p>rephrased. </p>
+<p>1.0.6 </p>
+<p>19-Nov-2014 </p>
+<p>8. </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>1. Updated section 2.1 ‘Reference Documents’ to correct the name and </p>
+<p>version of Parameter Definition Files. </p>
+<p>2. Section 8.1 and  Section 8.2 is modified for removing warning and </p>
+<p>adding error message ( WRN083001 to ERR083122) </p>
+<p> </p>
+<p>1.0.7 </p>
+<p>16-May-2015 </p>
+<p> </p>
+<p>9. </p>
+<p>Following changes are made: </p>
+<p>1. Updated Pdf versions in section 2.1 ‘Reference Documents’. </p>
+<p>2.  Mandatory parameters list updated to remove SpiFifoTimeOut </p>
+<p>parameter in section 8.1. </p>
+<p>3.  Mandatory parameters list updated to add SpiLoopBackSelfTest, </p>
+<p>SpiECCSelfTest, SpiInterruptConsistencyCheck, SpiWriteVerify and </p>
+<p>SpiDmaWriteVerify parameters  </p>
+<p>4. Error messages ERR083118, ERR083124, ERR083125, </p>
+<p>ERR083126, and ERR083127 are added. </p>
+<p>5. Information message INF083009 is added for chip select behavior </p>
+<p>with high baudrate. </p>
+<p>6.  ERR083054 is modified as part of fixing the ticket ARDAAAE-1452 </p>
+<p>7.  ERR083090 is updated to remove ‘SpiFifoTimeOut' as per JIRA# </p>
+<p>ARDAAAE-1334. </p>
+<p>1.0.8 </p>
+<p>28-Jan-2016 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>50 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>10. </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>ERR083013 is updated to add the validation for the parameter </p>
+<p>SpiTransferStart as per ticket ARDAAAE1699. </p>
+<p>2. </p>
+<p>ERR083128 is added for validating the order of channels. </p>
+<p>3. </p>
+<p>As per ticket ARDAAAE-1584, ERR083090 message is updated for </p>
+<p>the description. </p>
+<p>4. </p>
+<p>As part of ticket ARDAAAE-1699 fixing, ERR083089 is updated to </p>
+<p>brief the description in detail. </p>
+<p>5. </p>
+<p>WRN083002 has been converted to error message ERR0830131. </p>
+<p>1.0.9 </p>
+<p>07-Apr-2016 </p>
+<p>11 </p>
+<p>Following changes are made: </p>
+<p>1.     ERR083127 error message is updated. </p>
+<p>2.     Error messages ERR083129 and ERR083130 are added. </p>
+<p>3.     R-number is updated. </p>
+<p>4.     Removed the error messages ERR083109, ERR083110, </p>
+<p>ERR083111, ERR083113, ERR083115, ERR083116, ERR083114 </p>
+<p>and ERR083112 and updated the error description of ERR083108. </p>
+<p>5.     Added information message INF083010. </p>
+<p>6.     Updated error description of ERR083066. </p>
+<p>7.     Renamed the macros SpiWriteVerify and SpiDmaWriteVerify to </p>
+<p>SpiCSIGHWriteVerify and SpiDMAWriteVerify. </p>
+<p>8.     Removed the warning message WRN083080. </p>
+<p>1.0.10 </p>
+<p>15-Jul-2016 </p>
+<p>12 </p>
+<p>Following changes are made: </p>
+<p>1. Table numbers are added for tables present in Chapter 8. </p>
+<p>2. Updated error description of ERR083016 and ERR083017. </p>
+<p> </p>
+<p>1.0.11 </p>
+<p>28-Oct-2016 </p>
+<p>13 </p>
+<p>Following changes are made: </p>
+<p>1.Updated Pdf versions in section 2.1 ‘Reference Documents’ </p>
+<p>2.Error messages ERR083005, ERR083018 and ERR083037 are </p>
+<p>rephrased in the section 8.1 </p>
+<p>3.Error Message, ERR083095 is added in the section 8.1 </p>
+<p>4.R-number is updated. </p>
+<p>5.Notice and Company addresses are updated </p>
+<p>6.Copyright information is updated. </p>
+<p> </p>
+<p>1.0.12 </p>
+<p>17-Feb-2017 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>   </p>
+<p> </p>
+<p>  51 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>SPI Driver Component Ver.1.0.12 </b></p>
+<p><b>Generation Tool User's Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.1.01, February 17, 2017 </p>
+<p> </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p> Colophon 1.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3727EJ0101 </p>
+</body>
+</html>
+{% endraw %}

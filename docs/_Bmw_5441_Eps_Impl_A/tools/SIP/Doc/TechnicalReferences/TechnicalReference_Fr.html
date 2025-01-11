@@ -1,0 +1,4343 @@
+---
+layout: default
+title: TechnicalReference_Fr
+nav_order: 94
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR FR </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Base Content </p>
+<p>Version 1.04.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Roland Hocke, Matthias Müller </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p> </p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Matthias Müller </p>
+<p>2012-11-15 </p>
+<p>1.0 </p>
+<p>Initial Version of Autosar 4 </p>
+<p>Matthias Müller </p>
+<p>2013-07-18 </p>
+<p>1.0.1 </p>
+<p>ESCAN00069139: </p>
+<p>Added new restriction to </p>
+<p>section 3.14 FIFO reception </p>
+<p>Matthias Müller </p>
+<p>2013-08-01 </p>
+<p>1.1 </p>
+<p>ESCAN00067407 </p>
+<p>Remove obsolete MTS APIs </p>
+<p>Roland Hocke </p>
+<p>2013-10-24 </p>
+<p>1.2 </p>
+<p>Added Limitations and the </p>
+<p>description of </p>
+<p>StringentLength- and </p>
+<p>StringentCheck </p>
+<p>Matthias Müller </p>
+<p>2014-11-05 </p>
+<p>1.3 </p>
+<p>Added feature MICROSAR </p>
+<p>Identity Manager using Post-</p>
+<p>Build Selectable </p>
+<p>Matthias Müller </p>
+<p>2017-07-05 </p>
+<p>1.4 </p>
+<p>Adapted Features and added </p>
+<p>description of </p>
+<p>ApplFr_ISR_Timer0_1 and </p>
+<p>ApplFr_ISR_CycleStart_1. </p>
+<p> </p>
+<p>Table 1-1  </p>
+<p>History of the document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR_SWS_FlexRayDriver.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR_SWS_FlexRayDriver.pdf </p>
+<p>2.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR_SRS_FlexRay.pdf </p>
+<p>3.1.0 </p>
+<p>[4] </p>
+<p> AUTOSAR_SRS_FlexRay.pdf </p>
+<p>4.3.0 </p>
+<p>[5] </p>
+<p> AUTOSAR_SWS_DET.pdf </p>
+<p>2.2.0 </p>
+<p>[6] </p>
+<p> AUTOSAR_SWS_DEM.pdf </p>
+<p>2.2.1 </p>
+<p>[7] </p>
+<p> AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>1.2.0 </p>
+<p>[8] </p>
+<p> TechnicalReference_ASR_Fr_&lt;CCName&gt;_&lt;platform&gt;.pdf </p>
+<p>1.10 or </p>
+<p>later </p>
+<p>[9] </p>
+<p> FlexRay Communications System Protocol Specification </p>
+<p>2.1A </p>
+<p>[10]  TechnicalReference_ASR_FrIf.pdf </p>
+<p>3.0.7 or </p>
+<p>later </p>
+<p>[11]  TechnicalReference_Asr_EcuM.pdf </p>
+<p>2.1.0 or </p>
+<p>later </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p>[12]  TechnicalReference_Asr_FrTp.pdf </p>
+<p>1.14.0 or </p>
+<p>later </p>
+<p>[13]  TechnicalReference_Asr_AMDRunTimeMeasurement.pdf </p>
+<p>V1.0 or  </p>
+<p>later </p>
+<p>[14]  AN-ISC-8-1118 MICROSAR BSW Compatibility Check </p>
+<p>1.0 </p>
+<p>[15]  AUTOSAR_InterruptHandling_Explanation.pdf </p>
+<p>1.0.0 or </p>
+<p>later </p>
+<p>[16]  http://www.autosar.org/bugzilla/ </p>
+<p>n/a </p>
+<p>Table 1-2  </p>
+<p>Reference documents </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Scope of the Document  </b></p>
+<p>This technical reference describes the general use of the FlexRay driver basis software. All </p>
+<p>aspects </p>
+<p>which </p>
+<p>are </p>
+<p>Communication </p>
+<p>controller </p>
+<p>specific </p>
+<p>are </p>
+<p>described </p>
+<p>in </p>
+<p>a </p>
+<p>separate </p>
+<p>document [8], which is also part of the delivery. </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................. 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ....................................................................................... 2</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Scope of the Document...................................................................................... 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 9</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 13</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 14</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>States .............................................................................................................. 14</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Dual bus network usage................................................................................... 14</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 16</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 16</p>
+<p> </p>
+<p>3.7.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 16</p>
+<p> </p>
+<p>3.7.1.1</p>
+<p> </p>
+<p>Parameter Checking ...................................................... 18</p>
+<p> </p>
+<p>3.7.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 21</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Buffer Reconfiguration ..................................................................................... 21</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>Reconfig LPdu Support .................................................................................... 21</p>
+<p> </p>
+<p>3.10</p>
+<p> </p>
+<p>Dynamic Payload ............................................................................................. 22</p>
+<p> </p>
+<p>3.11</p>
+<p> </p>
+<p>Single Channel API .......................................................................................... 22</p>
+<p> </p>
+<p>3.12</p>
+<p> </p>
+<p>Direct Buffer Access ......................................................................................... 23</p>
+<p> </p>
+<p>3.13</p>
+<p> </p>
+<p>Hardware Loop with Cancellation ..................................................................... 23</p>
+<p> </p>
+<p>3.14</p>
+<p> </p>
+<p>FIFO reception ................................................................................................. 23</p>
+<p> </p>
+<p>3.15</p>
+<p> </p>
+<p>Reading out the Flexray parameters (Read CC Parameters) ........................... 24</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 25</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 25</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 25</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 25</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Include Structure .............................................................................................. 26</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping ..................................................... 26</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Interrupt Handling ............................................................................................ 26</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 27</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 28</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 28</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2</p>
+<p> </p>
+<p>Interrupt Service Routines provided by FR ....................................................... 28</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services provided by FR .................................................................................. 29</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Fr_InitMemory .................................................................................. 29</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Fr_Init .............................................................................................. 29</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>Fr_ControllerInit ............................................................................... 30</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>Fr_AllSlots ....................................................................................... 30</p>
+<p> </p>
+<p>5.3.5</p>
+<p> </p>
+<p>Fr_StartCommunication ................................................................... 31</p>
+<p> </p>
+<p>5.3.6</p>
+<p> </p>
+<p>Fr_HaltCommunication .................................................................... 31</p>
+<p> </p>
+<p>5.3.7</p>
+<p> </p>
+<p>Fr_AbortCommunication .................................................................. 32</p>
+<p> </p>
+<p>5.3.8</p>
+<p> </p>
+<p>Fr_AllowColdstart ............................................................................. 32</p>
+<p> </p>
+<p>5.3.9</p>
+<p> </p>
+<p>Fr_SendWUP ................................................................................... 33</p>
+<p> </p>
+<p>5.3.10</p>
+<p> </p>
+<p>Fr_SetWakeupChannel .................................................................... 33</p>
+<p> </p>
+<p>5.3.11</p>
+<p> </p>
+<p>Fr_GetPOCStatus ............................................................................ 34</p>
+<p> </p>
+<p>5.3.12</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu ......................................................................... 35</p>
+<p> </p>
+<p>5.3.13</p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu .......................................................................... 36</p>
+<p> </p>
+<p>5.3.14</p>
+<p> </p>
+<p>Fr_CancelTxLPdu ............................................................................ 36</p>
+<p> </p>
+<p>5.3.15</p>
+<p> </p>
+<p>Fr_CheckTxLPduStatus ................................................................... 37</p>
+<p> </p>
+<p>5.3.16</p>
+<p> </p>
+<p>Fr_GetGlobalTime ............................................................................ 38</p>
+<p> </p>
+<p>5.3.17</p>
+<p> </p>
+<p>Fr_GetNmVector .............................................................................. 38</p>
+<p> </p>
+<p>5.3.18</p>
+<p> </p>
+<p>Fr_GetVersionInfo ............................................................................ 39</p>
+<p> </p>
+<p>5.3.19</p>
+<p> </p>
+<p>Fr_GetSyncFrameList ...................................................................... 39</p>
+<p> </p>
+<p>5.3.20</p>
+<p> </p>
+<p>Fr_DisableLPdu (optional)................................................................ 40</p>
+<p> </p>
+<p>5.3.21</p>
+<p> </p>
+<p>Fr_ReconfigLPdu (optional) ............................................................. 41</p>
+<p> </p>
+<p>5.3.22</p>
+<p> </p>
+<p>Fr_SetAbsoluteTimer ....................................................................... 42</p>
+<p> </p>
+<p>5.3.23</p>
+<p> </p>
+<p>Fr_CancelAbsoluteTimer .................................................................. 42</p>
+<p> </p>
+<p>5.3.24</p>
+<p> </p>
+<p>Fr_EnableAbsoluteTimerIRQ ........................................................... 43</p>
+<p> </p>
+<p>5.3.25</p>
+<p> </p>
+<p>Fr_AckAbsoluteTimerIRQ ................................................................ 43</p>
+<p> </p>
+<p>5.3.26</p>
+<p> </p>
+<p>Fr_DisableAbsoluteTimerIRQ ........................................................... 44</p>
+<p> </p>
+<p>5.3.27</p>
+<p> </p>
+<p>Fr_GetAbsoluteTimerIRQStatus ....................................................... 45</p>
+<p> </p>
+<p>5.3.28</p>
+<p> </p>
+<p>Fr_GetChannelStatus ...................................................................... 45</p>
+<p> </p>
+<p>5.3.29</p>
+<p> </p>
+<p>Fr_GetClockCorrection .................................................................... 46</p>
+<p> </p>
+<p>5.3.30</p>
+<p> </p>
+<p>Fr_GetWakeupRxStatus .................................................................. 47</p>
+<p> </p>
+<p>5.3.31</p>
+<p> </p>
+<p>Fr_GetNumOfStartupFrames ........................................................... 47</p>
+<p> </p>
+<p>5.3.32</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu_DBA (optional) ................................................. 48</p>
+<p> </p>
+<p>5.3.33</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu_ImmediateDBA (optional) ................................ 49</p>
+<p> </p>
+<p>5.3.34</p>
+<p> </p>
+<p>Fr_RequestBuffer_DBA (optional) .................................................... 50</p>
+<p> </p>
+<p>5.3.35</p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu_DBA (optional) ................................................. 50</p>
+<p> </p>
+<p>5.3.36</p>
+<p> </p>
+<p>Fr_UnlockRxLPdu_DBA (optional) ................................................... 51</p>
+<p> </p>
+<p>5.3.37</p>
+<p> </p>
+<p>Fr_ReadCCConfig (optional) ............................................................ 52</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Services used by FR ........................................................................................ 52</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 53</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.6</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 53</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Notifications ..................................................................................... 53</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 53</p>
+<p> </p>
+<p>5.6.2.1</p>
+<p> </p>
+<p>ApplFr_ISR_Timer0 ....................................................... 53</p>
+<p> </p>
+<p>5.6.2.2</p>
+<p> </p>
+<p>ApplFr_ISR_Timer0_1 ................................................... 54</p>
+<p> </p>
+<p>5.6.2.3</p>
+<p> </p>
+<p>ApplFr_ISR_CycleStart .................................................. 54</p>
+<p> </p>
+<p>5.6.2.4</p>
+<p> </p>
+<p>ApplFr_ISR_CycleStart_1 .............................................. 55</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 56</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 56</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 56</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 57</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR architecture ............................................................................. 10</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the Fr ................................................... 11</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>FlexRay Driver Sequence Diagram ........................................................... 15</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Include structure ....................................................................................... 26</p>
+<p> </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the document .............................................................................. 2</p>
+<p> </p>
+<p>Table 1-2 </p>
+<p> </p>
+<p>Reference documents ................................................................................. 3</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 13</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 13</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 13</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Mapping of service IDs to services ........................................................... 17</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 18</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>Errors reported to DEM ............................................................................. 21</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 25</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 25</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Fr_InitMemory .......................................................................................... 29</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Fr_Init ....................................................................................................... 29</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Fr_ControllerInit ........................................................................................ 30</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Fr_AllSlots ................................................................................................ 31</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Fr_StartCommunication ............................................................................ 31</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Fr_HaltCommunication ............................................................................. 32</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Fr_AbortCommunication ........................................................................... 32</p>
+<p> </p>
+<p>Table 5-8</p>
+<p> </p>
+<p>Fr_AllowColdstart ..................................................................................... 33</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Fr_SendWUP ........................................................................................... 33</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Fr_SetWakeupChannel ............................................................................. 34</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>Fr_GetPOCStatus .................................................................................... 34</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Fr_TransmitTxLPdu .................................................................................. 35</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu................................................................................... 36</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Fr_CancelTxLPdu ..................................................................................... 37</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>Fr_CheckTxLPduStatus ............................................................................ 38</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>Fr_GetGlobalTime .................................................................................... 38</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>Fr_GetNmVector ....................................................................................... 39</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Fr_GetVersionInfo .................................................................................... 39</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>Fr_GetSyncFrameList ............................................................................... 40</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>Fr_DisableLPdu ........................................................................................ 41</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>Fr_ReconfigLPdu ...................................................................................... 42</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>Fr_SetAbsoluteTimer ................................................................................ 42</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>Fr_CancelAbsoluteTimer .......................................................................... 43</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>Fr_EnableAbsoluteTimerIRQ .................................................................... 43</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>Fr_AckAbsoluteTimerIRQ ......................................................................... 44</p>
+<p> </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>Fr_DisableAbsoluteTimerIRQ ................................................................... 44</p>
+<p> </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>Fr_GetAbsoluteTimerIRQStatus ............................................................... 45</p>
+<p> </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>Fr_GetChannelStatus ............................................................................... 46</p>
+<p> </p>
+<p>Table 5-29</p>
+<p> </p>
+<p>Fr_GetClockCorrection ............................................................................. 47</p>
+<p> </p>
+<p>Table 5-30 </p>
+<p> </p>
+<p>Fr_GetWakeupRxStatus ........................................................................... 47</p>
+<p> </p>
+<p>Table 5-31 </p>
+<p> </p>
+<p>Fr_GetNumOfStartupFrames .................................................................... 48</p>
+<p> </p>
+<p>Table 5-32</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu_DBA ......................................................................... 49</p>
+<p> </p>
+<p>Table 5-33</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu_ImmediateDBA ........................................................ 49</p>
+<p> </p>
+<p>Table 5-34</p>
+<p> </p>
+<p>Fr_RequestBuffer_DBA ............................................................................ 50</p>
+<p> </p>
+<p>Table 5-35</p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu_DBA ......................................................................... 51</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p>Table 5-36</p>
+<p> </p>
+<p>Fr_UnlockRxLPdu_DBA ........................................................................... 52</p>
+<p> </p>
+<p>Table 5-37</p>
+<p> </p>
+<p>Fr_ReadCCConfig .................................................................................... 52</p>
+<p> </p>
+<p>Table 5-38 </p>
+<p> </p>
+<p>Services used by the FR ........................................................................... 53</p>
+<p> </p>
+<p>Table 5-39 </p>
+<p> </p>
+<p>ApplFr_ISR_Timer0 .................................................................................. 54</p>
+<p> </p>
+<p>Table 5-40 </p>
+<p> </p>
+<p>ApplFr_ISR_Timer0 .................................................................................. 54</p>
+<p> </p>
+<p>Table 5-41 </p>
+<p> </p>
+<p>ApplFr_ISR_CycleStart ............................................................................. 55</p>
+<p> </p>
+<p>Table 5-42 </p>
+<p> </p>
+<p>ApplFr_ISR_CycleStart ............................................................................. 55</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 56</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 56</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module FR as specified in [8].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile, post-build </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Vendor ID: </b></p>
+<p>FR_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>FR_MODULE_ID   </p>
+<p>81 decimal </p>
+<p>(according to ref. [7]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Deviations can be described in [8].  </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the FR is located in the AUTOSAR architecture. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR architecture </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p>The next figure shows the interfaces to adjacent modules of the Fr. These interfaces are </p>
+<p>described in chapter “API Description”.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the Fr </p>
+<p> </p>
+<p> </p>
+<p><b> class Module Structure</b></p>
+<p>«EmbeddedInterface»</p>
+<p><b>Fr_General</b></p>
+<p>+ </p>
+<p>_Fr_TemplateFunction()  :void</p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_GetVersionInfo()</p>
+<p>+ </p>
+<p>Fr_Ini t()</p>
+<p>+ </p>
+<p>Fr_InitMemory()</p>
+<p>Module</p>
+<p>Application</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Startup</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_AllowColdstart()</p>
+<p>+ </p>
+<p>Fr_ControllerInit()</p>
+<p>+ </p>
+<p>Fr_SendWUP()</p>
+<p>+ </p>
+<p>Fr_SetWakeupChannel()</p>
+<p>+ </p>
+<p>Fr_StartCommunication()</p>
+<p>Module</p>
+<p>EcuM</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Communication</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_AllSlots()</p>
+<p>+ </p>
+<p>Fr_CancelTxLPdu()</p>
+<p>+ </p>
+<p>Fr_CheckTxLPduStatus()</p>
+<p>+ </p>
+<p>Fr_DisableLPdu()</p>
+<p>+ </p>
+<p>Fr_IrqLine0()</p>
+<p>+ </p>
+<p>Fr_IrqLine0_1()</p>
+<p>+ </p>
+<p>Fr_IrqLine1()</p>
+<p>+ </p>
+<p>Fr_IrqLine1_1()</p>
+<p>+ </p>
+<p>Fr_IrqTimer0()</p>
+<p>+ </p>
+<p>Fr_IrqTimer0_1()</p>
+<p>+ </p>
+<p>Fr_ISR_Status()</p>
+<p>+ </p>
+<p>Fr_ReceiveRxLPdu()</p>
+<p>+ </p>
+<p>Fr_ReconfigLPdu()</p>
+<p>+ </p>
+<p>Fr_TransmitTxLPdu()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>LocalHardw areAbstractionLayer</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>Fr_VCalHeaderCRC()  :uint16</p>
+<p>+ </p>
+<p>Fr_VEnterConfigMode()  :Std_ReturnType</p>
+<p>+ </p>
+<p>Fr_VExecutePOCCommand()  :Std_ReturnType</p>
+<p>+ </p>
+<p>Fr_VIsMsgId()  :boolean</p>
+<p>+ </p>
+<p>Fr_VLeaveConfigMode()  :Std_ReturnType</p>
+<p>+ </p>
+<p>Fr_VReadBackSupport()  :Std_ReturnType</p>
+<p>+ </p>
+<p>Fr_VReadDataFromCC()  :void</p>
+<p>+ </p>
+<p>Fr_VReadValue()</p>
+<p>+ </p>
+<p>Fr_VResetBits()</p>
+<p>+ </p>
+<p>Fr_VSetBits()</p>
+<p>+ </p>
+<p>Fr_VSetReg()  :Std_ReturnType</p>
+<p>+ </p>
+<p>Fr_VWriteDataToCC()  :void</p>
+<p>+ </p>
+<p>Fr_VWriteValue()</p>
+<p>Module</p>
+<p>FrIf</p>
+<p>Module</p>
+<p>Det</p>
+<p>Module</p>
+<p>DEM</p>
+<p>Module</p>
+<p>SchM</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Shutdow n</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_AbortCommunication()</p>
+<p>+ </p>
+<p>Fr_HaltCommunication()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Status</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_GetChannelStatus()</p>
+<p>+ </p>
+<p>Fr_GetClockCorrection()</p>
+<p>+ </p>
+<p>Fr_GetGlobalTime()</p>
+<p>+ </p>
+<p>Fr_GetNmVector()</p>
+<p>+ </p>
+<p>Fr_GetNumOfStartupFrames()</p>
+<p>+ </p>
+<p>Fr_GetPOCStatus()</p>
+<p>+ </p>
+<p>Fr_GetSyncFrameList()</p>
+<p>+ </p>
+<p>Fr_GetWakeupRxStatus()</p>
+<p>+ </p>
+<p>Fr_ReadCCConfig()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Timer</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_AckAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>Fr_CancelAbsoluteTimer()</p>
+<p>+ </p>
+<p>Fr_DisableAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>Fr_EnableAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>Fr_GetAbsoluteTimerIRQStatus()</p>
+<p>+ </p>
+<p>Fr_SetAbsoluteTimer()</p>
+<p>Hardware</p>
+<p>FlexRay CC</p>
+<p>FR</p>
+<p>Module</p>
+<p>Service User</p>
+<p>Module</p>
+<p>CDD</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Direct Buffer Access</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>Fr_ReceiveRxLPdu_DBA()  :void</p>
+<p>+ </p>
+<p>Fr_RequestBuffer_DBA()  :void</p>
+<p>+ </p>
+<p>Fr_TransmitTxLPdu_DBA()  :void</p>
+<p>+ </p>
+<p>Fr_TransmitTxLPdu_ImmediateDBA()  :void</p>
+<p>+ </p>
+<p>Fr_UnlockRxLPdu_DBA()  :void</p>
+<p><b>opt DBA</b></p>
+<p>[DBA services are only available on MFR-based and CANoeEmu platforms]</p>
+<p>On <b>CANoeEmu </b>platform the external Fr APIs </p>
+<p>directly access the CANoeAPI_* services (on </p>
+<p><b>VTT </b>platform these services are indirectly </p>
+<p>called via VttCntrl). </p>
+<p>Hence the LocalHardwareAbstractionLayer is </p>
+<p>not used in this case.</p>
+<p>Module</p>
+<p>VttCntrl</p>
+<p>Module</p>
+<p>CANoeAPI</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«access»</p>
+<p>«use»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>he features listed in the following tables cover the complete functionality specified for the </p>
+<p>FR. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector  Informatik  provides  further  FR  functionality  beyond  the AUTOSAR  standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Initialization: </p>
+<p></p>
+<p> </p>
+<p>FlexRay Communication Controller initialization </p>
+<p></p>
+<p> </p>
+<p>FlexRay Communication handling with startup, halt or abort communication </p>
+<p>LPdu transmission: </p>
+<p></p>
+<p> </p>
+<p>Transmission </p>
+<p></p>
+<p> </p>
+<p>Dynamic payload handling </p>
+<p></p>
+<p> </p>
+<p>Transparent hardware buffer reconfiguration </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>LPdu reception: </p>
+<p></p>
+<p> </p>
+<p>Reception </p>
+<p></p>
+<p> </p>
+<p>FIFO support </p>
+<p>Status information: </p>
+<p></p>
+<p> </p>
+<p>Synchronization information </p>
+<p></p>
+<p> </p>
+<p>FlexRay time </p>
+<p></p>
+<p> </p>
+<p>Sync frame list </p>
+<p></p>
+<p> </p>
+<p>NM vector </p>
+<p></p>
+<p> </p>
+<p>Version info </p>
+<p>Hardware Abstraction: </p>
+<p></p>
+<p> </p>
+<p>Handle two FlexRay CCs (E-Ray) </p>
+<p></p>
+<p> </p>
+<p>Disable LPdu </p>
+<p></p>
+<p> </p>
+<p>Reconfigure LPdu </p>
+<p>Configuration variants: </p>
+<p></p>
+<p> </p>
+<p>Precompile </p>
+<p></p>
+<p> </p>
+<p>Linktime </p>
+<p></p>
+<p> </p>
+<p>Post-build Selectable </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p></p>
+<p> </p>
+<p>Post-build Loadable </p>
+<p>Error detection and handling: </p>
+<p></p>
+<p> </p>
+<p>Dev error reporting </p>
+<p></p>
+<p> </p>
+<p>FlexRay controller hardware error with DEM reporting </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p>The following features specified in [1] are not or only partly supported: </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>Version </b></p>
+<p>Functional </p>
+<p>Implementation Requirements: Module vendor identification. </p>
+<p>3.0.0 </p>
+<p>Functional </p>
+<p>Extended Production Errors: The FlexRay protocol </p>
+<p>communication error which indicates errors on the network for a </p>
+<p>particular LPdu is not supported. (FrIfDemFTSlotStatusRef)  </p>
+<p>3.2.0 </p>
+<p>Functional </p>
+<p>Indexing Scheme: Handling of two FlexRay CCs is only supported by </p>
+<p>E-Ray based platforms. Mfr based platforms can still only handle one </p>
+<p>FlexRay CC. </p>
+<p>1.0.0 </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features provided beyond the AUTOSAR standard </b></p>
+<p>BSW debug parameters </p>
+<p>Message ID filtering </p>
+<p>Direct buffer access </p>
+<p>AMD runtime measurement </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b> </b></p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Before the Fr can be used it has to be initialized by Fr_InitMemory() which initialize local </p>
+<p>variables  and  Fr_Init(&amp;Fr_Config)  which  performs  the  basic  initialization  but  does  not </p>
+<p>enable the FlexRay communication.  </p>
+<p>All other API calls that are required for proper FlexRay communication are done by FrIf </p>
+<p>layer. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.3 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>Fr  supports  the  precompile  time  configuration  variant,  linktime  configuration  variant  and </p>
+<p>postbuild  configuration  variant.  Precompile  is  faster  due  to  a  direct  data  access.  At </p>
+<p>postbuild variant the configuration data section can be (over-)flashed without compiling the </p>
+<p>application. Respectively the configuration data is then only accessible by pointer.  </p>
+<p><b>3.4 </b></p>
+<p><b>States </b></p>
+<p>The  FlexRay  driver  life  cycle  comprises  three  states:  configuration,  communication  and </p>
+<p>end. Figure 3-1 shows the entire life cycle except interrupt and timer handling. Interrupts </p>
+<p>are handled during communication. The following interrupts are concerned: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Absolute Timer Interrupt (depending on configuration) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Cycle Start Interrupt (depending on configuration) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Receive Interrupt (depending on configuration) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Transmit Interrupt (depending on configuration) </p>
+<p> </p>
+<p><b>3.5 </b></p>
+<p><b>Dual bus network usage </b></p>
+<p>Fr supports two physical layer channels identified as channel A and channel B. When </p>
+<p>using the dual bus redundancy mode remember that the chronological first valid frame that </p>
+<p>reaches the CC on channel A or B is copied into the message buffer. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please keep in mind that a Null Frame is also a valid frame regarding to [9]. </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>FlexRay Driver Sequence Diagram </p>
+<p>Config </p>
+<p> </p>
+<p>Driver Initialization </p>
+<p> </p>
+<p>Controller Initialization </p>
+<p> </p>
+<p>Start </p>
+<p>Communication </p>
+<p><b>Driver </b></p>
+<p> </p>
+<p><b>FlexRay </b></p>
+<p><b>Interface </b></p>
+<p> </p>
+<p><b>Controller </b></p>
+<p> </p>
+<p>Register + Buffer Configuration </p>
+<p> </p>
+<p>Config Mode </p>
+<p> </p>
+<p>Ready Mode </p>
+<p> </p>
+<p>Normal Mode </p>
+<p> </p>
+<p>Halt / Stop </p>
+<p>Communication </p>
+<p> </p>
+<p>Send Frames </p>
+<p> </p>
+<p>Receive Frames </p>
+<p> </p>
+<p>Write Buffer </p>
+<p> </p>
+<p>Read Buffer </p>
+<p> </p>
+<p>Get Status </p>
+<p> </p>
+<p>Read Status </p>
+<p> </p>
+<p>Halt Mode </p>
+<p> </p>
+<p>Initialization </p>
+<p> </p>
+<p>Communication </p>
+<p> </p>
+<p>End </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6 </b></p>
+<p><b>Main Functions </b></p>
+<p>After  configuration  the  communication  can  be  started  and  in  case  of  success  FlexRay </p>
+<p>frames  can  be  sent  and  received  using  driver  interfaces.  The  driver  itself  has  no  main </p>
+<p>function that needs to be called cyclically. </p>
+<p>During  bus  operation  the  driver  handles  cycle  start,  timer  and  optional  send  /  receives </p>
+<p>interrupts by clearing the interrupt flags and calling the interrupt specific handler routines. </p>
+<p>In addition the driver offers interfaces to obtain the synchronization status of the FlexRay </p>
+<p>bus and the POC status. </p>
+<p>The driver offers interfaces to handle the Absolute Timer. </p>
+<p><b>3.7 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.7.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()as </p>
+<p>specified in [3], if development error reporting is enabled (i.e. </p>
+<p>GenTool switch ‘Dev Error Detect’ is set). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported FR ID is 81u. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.3. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p> </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>FR_API_ID_CONTROLLER_INIT </p>
+<p>0x03 </p>
+<p>FR_API_ID_START_COMMUNICATION </p>
+<p>0x04 </p>
+<p>FR_API_ID_HALT_COMMUNICATION </p>
+<p>0x05 </p>
+<p>FR_API_ID_ABORT_COMMUNICATION </p>
+<p>0x06 </p>
+<p>FR_API_ID_SEND_WUP </p>
+<p>0x07 </p>
+<p>FR_API_ID_SET_WAKEUP_CHANNEL </p>
+<p>0x0A </p>
+<p>FR_API_ID_GET_POC_STATUS </p>
+<p>0x0B </p>
+<p>FR_API_ID_TRANSMIT_TX_LPDU </p>
+<p>0x0C </p>
+<p>FR_API_ID_RECEIVE_RX_LPDU </p>
+<p>0x0D </p>
+<p>FR_API_ID_CHECK_TX_LPDU_STATUS </p>
+<p>0x10 </p>
+<p>FR_API_ID_GET_GLOBAL_TIME </p>
+<p>0x11 </p>
+<p>FR_API_ID_SET_ABSOLUTE_TIMER </p>
+<p>0x13 </p>
+<p>FR_API_ID_CANCEL_ABSOLUTE_TIMER </p>
+<p>0x15 </p>
+<p>FR_API_ID_ENABLE_ABSOLUTE_TIMER_IRQ </p>
+<p>0x17 </p>
+<p>FR_API_ID_ACK_ABSOLUTE_TIMER_IRQ </p>
+<p>0x19 </p>
+<p>FR_API_ID_DISABLE_ABSOLUTE_TIMER_IRQ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x1B </p>
+<p>FR_API_ID_GET_VERSION_INFO </p>
+<p>0x1C </p>
+<p>FR_API_ID_INIT </p>
+<p>0x1F </p>
+<p>FR_API_ID_PREPARE_LPDU </p>
+<p>0x20 </p>
+<p>FR_API_ID_GET_ABSOLUTE_TIMER_IRQ_STATUS </p>
+<p>0x22 </p>
+<p>FR_API_ID_GET_NM_VECTOR </p>
+<p>0x23 </p>
+<p>FR_API_ID_ALLOW_COLDSTART </p>
+<p>0x24 </p>
+<p>FR_API_ID_ALLSLOTS (optional) </p>
+<p>0x25 </p>
+<p>FR_API_ID_RECONFIG_LPDU </p>
+<p>0x26 </p>
+<p>FR_API_ID_DISABLE_LPDU </p>
+<p>0x27 </p>
+<p>FR_API_ID_GETNUMOFSTARTUPFRAMES (optional) </p>
+<p>0x28 </p>
+<p>FR_API_ID_GET_CHANNEL_STATUS </p>
+<p>0x29 </p>
+<p>FR_API_ID_GET_CLOCK_CORRECTION </p>
+<p>0x2A </p>
+<p>FR_API_ID_GET_SYNC_FRAME_LIST(optional) </p>
+<p>0x2B </p>
+<p>FR_API_ID_GETWAKEUPRXSTATUS (optional) </p>
+<p>0x2D </p>
+<p>FR_API_ID_CANCELTXLPDU (optional) </p>
+<p>0x2E </p>
+<p>FR_API_ID_READCCCONFIG </p>
+<p>0x30 </p>
+<p>FR_API_ID_REQUEST_BUFFER_DBA (optional) </p>
+<p>0x31 </p>
+<p>FR_API_ID_TRANSMIT_TX_LPDU_DBA (optional) </p>
+<p>0x32 </p>
+<p>FR_API_ID_RECEIVE_RX_LPDU_DBA (optional) </p>
+<p>0x33 </p>
+<p>FR_API_ID_UNLOCK_RX_LPDU_DBA (optional) </p>
+<p>0x34 </p>
+<p>FR_API_ID_LOCK_FTU (optional) </p>
+<p>0x35 </p>
+<p>FR_API_ID_UNLOCK_FTU (optional) </p>
+<p>0x36 </p>
+<p>FR_API_ID_TRANSMIT_TX_LPDU_IMMEDIATE_DBA (optional) </p>
+<p>Table 3-4  </p>
+<p>Mapping of service IDs to services </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>FR_E_INV_TIMER_IDX </p>
+<p>parameter timer index exceeds number of available </p>
+<p>timers </p>
+<p>0x02 </p>
+<p>FR_E_INV_POINTER </p>
+<p>invalid pointer in parameter list </p>
+<p>0x03 </p>
+<p>FR_E_INV_OFFSET </p>
+<p>parameter offset exceeds bounds </p>
+<p>0x04 </p>
+<p>FR_E_INV_CTRL_IDX </p>
+<p>invalid controller index </p>
+<p>0x05 </p>
+<p>FR_E_INV_CHNL_IDX </p>
+<p>invalid channel index </p>
+<p>0x06 </p>
+<p>FR_E_INV_CYCLE </p>
+<p>parameter cycle exceeds 63 </p>
+<p>0x08 </p>
+<p>FR_E_NOT_INITIALIZED </p>
+<p>Fr module was not initialized </p>
+<p>0x09 </p>
+<p>FR_E_INV_POCSTATE </p>
+<p>Fr CC is not in the expected POC state. </p>
+<p>0x0A </p>
+<p>FR_E_INV_LENGTH </p>
+<p>Payload length parameter has an invalid value. </p>
+<p>0x0B </p>
+<p>FR_E_INV_LPDU_IDX </p>
+<p>invalid LPdu index </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x0C </p>
+<p>FR_E_INV_HEADERCRC </p>
+<p>Invalid header CRC </p>
+<p>0x0D </p>
+<p>FR_E_INV_CONFIG_IDX </p>
+<p>Invalid value passed as parameter Fr_ConfigParamIdx. </p>
+<p>0x40 </p>
+<p>FR_E_INV_LISTSIZE </p>
+<p>Invalid Listsize in function Fr_GetSyncFrameList </p>
+<p>Table 3-5  </p>
+<p>Errors reported to DET </p>
+<p><b>3.7.1.1 </b></p>
+<p><b>Parameter Checking </b></p>
+<p>The following table shows which parameter checks are performed on which services: </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>Note that the FR_E_INV_CTRL_IDX error is only reported to DET by the FlexRay </p>
+<p>driver if the “Single Channel API” feature is disabled. Refer to section 3.11 how to </p>
+<p>disable the “Single Channel API” feature. </p>
+<p> </p>
+<p> </p>
+<p><b>Check </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>FR_E_INV_TIMER_IDX  </p>
+<p>FR_E_INV_POINTER </p>
+<p>FR_E_INV_OFFSET </p>
+<p>FR_E_INV_LISTSIZE </p>
+<p>FR_E_INV_CTRL_IDX </p>
+<p>FR_E_INV_CHNL_IDX </p>
+<p>FR_E_INV_CYCLE </p>
+<p>FR_E_INV_HEADERCRC </p>
+<p>FR_E_INV_CONFIG </p>
+<p>FR_E_NOT_INITIALIZED </p>
+<p>FR_E_INV_POCSTATE </p>
+<p>FR_E_INV_LENGTH </p>
+<p>FR_E_INV_LPDU_IDX </p>
+<p>Fr_InitMemory </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_Init </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_ControllerInit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_AllSlots </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_StartCommunication </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_AllowColdstart </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_HaltCommunication </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_AbortCommunication </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_SendWUP </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_SetWakeupChannel </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetPOCStatus </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetNumOfStartupFrames </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetWakeupRxStatus </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_RequestBuffer_DBA </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Check </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>FR_E_INV_TIMER_IDX  </p>
+<p>FR_E_INV_POINTER </p>
+<p>FR_E_INV_OFFSET </p>
+<p>FR_E_INV_LISTSIZE </p>
+<p>FR_E_INV_CTRL_IDX </p>
+<p>FR_E_INV_CHNL_IDX </p>
+<p>FR_E_INV_CYCLE </p>
+<p>FR_E_INV_HEADERCRC </p>
+<p>FR_E_INV_CONFIG </p>
+<p>FR_E_NOT_INITIALIZED </p>
+<p>FR_E_INV_POCSTATE </p>
+<p>FR_E_INV_LENGTH </p>
+<p>FR_E_INV_LPDU_IDX </p>
+<p>Fr_TransmitTxLPdu_DBA </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu_DBA </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_TransmitTxLPdu_ImmediateDBA </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_TransmitTxLPdu </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_UnlockRxLPdu_DBA </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_CheckTxLPduStatus </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_GetSyncFrameList </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_DisableLPdu </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_ReconfigLPdu </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Fr_PrepareLPdu </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetGlobalTime </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_NmVectorPtr </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetVersionInfo </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetClockCorrection </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetChannelStatus </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_ReadCCConfig </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_SetAbsoluteTimer </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_CancelAbsoluteTimer </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_EnableAbsoluteTimerIRQ </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_AckAbsoluteTimerIRQ </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_DisableAbsoluteTimerIRQ </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Fr_GetAbsoluteTimerIRQStatus </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>3.7.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>By  default,  production  code  related  errors  are  reported  to  the  DEM  using  the  service </p>
+<p>Dem_ReportErrorStatus()</p>
+<p> as specified in [6], if production error reporting is enabled </p>
+<p>(i.e. GenTool switch ‘Prod Error Detect’ is set). </p>
+<p>If another module  is used for production  code  error reporting,  the  function  prototype for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Dem_ReportErrorStatus()</p>
+<p>. </p>
+<p>The errors reported to DEM are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>FrDemCtrlTestResultRef </p>
+<p>Access to FlexRay CC event ID </p>
+<p>Table 3-6  </p>
+<p>Errors reported to DEM </p>
+<p><b>3.8 </b></p>
+<p><b>Buffer Reconfiguration  </b></p>
+<p>The  FlexRay  Communication  Controllers  (CC)  that  are  currently  available,  only  offer  a </p>
+<p>limited  amount  of message  buffers. A  FlexRay  Schedule  with  a  large  number of frames </p>
+<p>might exceed the number of available message buffers. </p>
+<p>The buffer reconfiguration feature reduces the amount of hardware message buffers that </p>
+<p>are  used  by  the  FR. This  is  done  by  changing  the  message  buffer  configuration  during </p>
+<p>runtime.  </p>
+<p>The </p>
+<p>buffer </p>
+<p>reconfiguration </p>
+<p>can </p>
+<p>be </p>
+<p>enabled </p>
+<p>with </p>
+<p>the </p>
+<p>GenTool </p>
+<p>option </p>
+<p>“Enable </p>
+<p>Buffer </p>
+<p>Reconfiguration” (MICROSAR PARAMETER DEFINITION: 'FrEnableBufferReconfig'). </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>When a frame f1 cannot be transmitted because it has been preempted by other </p>
+<p>frames (i.e. latestTx has been exceeded) and another frame f2 shall be transmitted in </p>
+<p>the next cycle using the same message buffer, the message buffer will be reconfigured. </p>
+<p>Hence f1 will not be transmitted. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The reconfiguration of the message buffer is done at the runtime. Note that this feature </p>
+<p>uses more processor resources.  </p>
+<p><b> </b></p>
+<p><b>3.9 </b></p>
+<p><b>Reconfig LPdu Support </b></p>
+<p>The </p>
+<p>Autosar </p>
+<p>4.0 </p>
+<p>feature </p>
+<p>“Reconfig </p>
+<p>LPdu </p>
+<p>Support” </p>
+<p>(MICROSAR </p>
+<p>PARAMETER </p>
+<p>DEFINITION: 'FrReconfigLPduSupport') allows to reconfigure LPDUs at runtime. However, </p>
+<p>there can be some restrictions based on hardware properties.  </p>
+<p>1)  It is not allowed to reconfigure a buffer with larger payload as it was configured at </p>
+<p>startup of ECU.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p>2)  It  is  not  allowed  to  reconfigure  FIFO  buffers  or  to  configure  a  buffer  into  a  FIFO </p>
+<p>range. </p>
+<p>3)  Depending on hardware and cluster It is not allowed to configure the sync frame </p>
+<p> </p>
+<p>The reconfigurable LPDUs are disabled by default in Fr_ControllerInit. Disable means that </p>
+<p>LPDUs were not transmitted nor received. This is done to avoid collisions as more than </p>
+<p>one ECU can use the same LPDU for transmission.  To avoid reception of LPDUs without </p>
+<p>explicit knowledge of the transmitter, receive LPDu are also disabled at initialization of CC. </p>
+<p>The LPDUs have to be manually enabled by API “Fr_ReconfigLPdu” (see 5.3.21) </p>
+<p><b>3.10 </b></p>
+<p><b>Dynamic Payload </b></p>
+<p>The  payload  of  frames  that  was  selected  as  “dynamic  payload”  within  FrIf  module  is </p>
+<p>change by the FR at the runtime (refer to [10] for how to set “dynamic payload”). The FR </p>
+<p>updates the buffer configuration with the new payload and new calculated header CRC at </p>
+<p>runtime.  </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The values of the new payload shall be smaller or equal as the payload value that was </p>
+<p>define within FIBEX or EcuC.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The calculation of the header CRC is done at the runtime. Note that this feature uses </p>
+<p>more processor resources </p>
+<p><b> </b></p>
+<p><b>3.11 </b></p>
+<p><b>Single Channel API </b></p>
+<p>According to the FlexRay controller driver software specification every FlexRay controller </p>
+<p>driver service contains a controller or timer handle. </p>
+<p>If only one FlexRay controller driver instance is used this handle is not necessary, except </p>
+<p>for development error detection. Therefore, if only one FlexRay controller driver instance is </p>
+<p>used, the handle can be removed by a macro. These macros still expect channel handles, </p>
+<p>which remain unused. </p>
+<p>The </p>
+<p>described </p>
+<p>prototypes </p>
+<p>in </p>
+<p>chapter </p>
+<p>5 </p>
+<p>are </p>
+<p>written </p>
+<p>similar </p>
+<p>to </p>
+<p>the </p>
+<p>functions </p>
+<p>in </p>
+<p>the </p>
+<p>corresponding C file. In the C-File the macro </p>
+<p>FR_VCTRL_SYSTEMTYPE_ONLY</p>
+<p> is used for </p>
+<p>the single channel API feature. In the H- file the same function has the prototype with the </p>
+<p>macro </p>
+<p>FR_VCTRL_SYSTEMTYPE_FIRST</p>
+<p>.  </p>
+<p>If the feature ‘Single Channel API’ is not used, the macros are replaced with the Autosar </p>
+<p>prototype ‘</p>
+<p>uint8 Fr_CtrlIdx’. </p>
+<p>If the feature ‘Single Channel API’ is used, the two macros are left empty and the code is </p>
+<p>smaller and faster in this module and also in the modules uses the Fr. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.12 </b></p>
+<p><b>Direct Buffer Access </b></p>
+<p>Without  direct buffer access,  received  and transmitted  FlexRay  data  are  copied from  Fr </p>
+<p>driver into RAM where CC reads data from or writes data to. </p>
+<p>Some CC provides the possibility that FlexRay data is located in host RAM and can be </p>
+<p>accessed directly from application. To save execution time, the goal of direct buffer access </p>
+<p>is to save the copy of Fr-data from RAM to RAM in Fr driver and provide the possibility, </p>
+<p>that upper layers copy their data directly to RAM where CC reads/writes from. </p>
+<p>Depending on CC, access to the RAM and additional necessary functionality (like locking </p>
+<p>of RAM) are described in [8]. </p>
+<p> </p>
+<p><b>3.13 </b></p>
+<p><b>Hardware Loop with Cancellation </b></p>
+<p>The FlexRay driver sends commands which sometimes require confirmation to go on. It </p>
+<p>will enter a waiting loop (i.e. hardware loop). To avoid an infinite waiting time (e.g. caused </p>
+<p>by hardware defects), only a limited amount of loops will be performed. That means that </p>
+<p>after  expiration  of  a  configurable  time  the  loop  will  be  breaked.  The  actual  executed </p>
+<p>function then exits with a DEM notification. </p>
+<p>For the determination of an adequate timeout value refer to [8]. </p>
+<p><b>3.14 </b></p>
+<p><b>FIFO reception </b></p>
+<p>FIFO is used to define Slot ID ranges for receive frames. All Slot ID within the Slot ID </p>
+<p>range are received from driver. That can be used to received frames with the same use-</p>
+<p>case e.g. network management frames. The driver supports more than one FIFO </p>
+<p>configuration set. </p>
+<p>  </p>
+<p> </p>
+<p>Please ensure that your configuration meets the following requirements: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>the FIFO needs at least one Rx frame triggering within the range </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>one FIFO range supports either channel A or channel B. It is not possible to configure </p>
+<p>a FIFO range for both channels </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>All frames within a FIFO range must have the same frame type (i.e. only NM frames or </p>
+<p>only TP frames) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>the FIFO ranges that are defined for one channel must not overlap </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>payload length of the frames that are received by FIFO must be identical </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>FIFO depth must not be greater than 255, i.e. RangeMax - RangeMin must not be </p>
+<p>greater than 254 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.15 </b></p>
+<p><b>Reading out the Flexray parameters (Read CC Parameters) </b></p>
+<p>With activation of this feature the FlexRay low level parameters (see [2] for coverage) can </p>
+<p>be read and verified at runtime. The FlexRay driver offers an API </p>
+<p>Fr_ReadCCConfig()</p>
+<p> to </p>
+<p>read the FlexRay low level parameters. Refer to [2] for detail description.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The following parameters are intended to be used in FlexRay Protocol 3.0 and will return 0 </p>
+<p>for FlexRay Protocol 2.1 Rev A compliance: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PSecondKeySlotId </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>GCycleCountMax </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>GdSymbolWindowActionPointOffset </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>GdIgnoreAfterTx </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PExternalSync </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PFallBackInternal </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PKeySlotOnlyEnabled </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PNmVectorEarlyUpdate </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PTwoKeySlotMode </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The value of parameter GdBit is returned as an enumeration value instead numerical </p>
+<p>value as defined in [2]. The reason for this behaviour is the still open Issue 49741 at </p>
+<p>please refer to [16]. The enumeration values correlation: 0</p>
+<p></p>
+<p>T100NS; 1</p>
+<p></p>
+<p>T200NS; </p>
+<p>2</p>
+<p></p>
+<p>T400NS. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR FR into an </p>
+<p>application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The  delivery  of  the  FR  contains  the files  which  are  described  in the  chapters  4.1.1  and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fr.c </p>
+<p>Main Module contains the main driver functionality</p>
+<p> </p>
+<p>Fr.h </p>
+<p>AUTOSAR driver API </p>
+<p>Fr_Timer.c </p>
+<p>Timer handling contains timer related functionality </p>
+<p>Fr_Irq.c </p>
+<p>References of the Interrupt service routínes </p>
+<p>Fr_Ext.h </p>
+<p>Driver callback functions, additional function driver API </p>
+<p>Fr_Priv.h </p>
+<p>Macros  </p>
+<p>Fr_&lt;CC&gt;.h </p>
+<p>Macros and Defines for CC </p>
+<p>Fr_GeneralTypes.h </p>
+<p>Datatype definitions according to AUTOSAR </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the GenTool Cfg5 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fr_Cfg.h </p>
+<p>General configuration data </p>
+<p>Fr_Lcfg.c </p>
+<p>Linker configuration data </p>
+<p>Fr_PBcfg.c </p>
+<p>Postbuild configuration data </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.2 </b></p>
+<p><b>Include Structure </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Include structure </p>
+<p><b>4.3 </b></p>
+<p><b>Compiler Abstraction and Memory Mapping  </b></p>
+<p>The  objects  (e.g.  variables,  functions,  constants)  are  declared  by  compiler  independent </p>
+<p>definitions  –  the  compiler  abstraction  definitions.  Each  compiler  abstraction  definition  is </p>
+<p>assigned to a memory section. </p>
+<p>For a detailed table please refer to [8]. </p>
+<p><b>4.4 </b></p>
+<p><b>Interrupt Handling </b></p>
+<p>The  interrupts  are  to  be  enabled  by  OS  or  the  application.  The  following  interrupts  are </p>
+<p>supported by Fr: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Timer0 (Absolute-Timer) Interrupt (must be enabled if FrIf is used), </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Cyclestart Interrupt (depending on configuration). </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The Timer0 (Absolute-Timer) Interrupt is mandatory for the FlexRay functionality if FrIf </p>
+<p>is used.  </p>
+<p> </p>
+<p>Depending  on  the  used  CC  module  the  interrupt  service  routines  have  specific  names. </p>
+<p>Their implementation is provided by Fr_Irq.c. </p>
+<p>The Fr provides optional callout functions triggered by Timer1- resp. Cyclestart Interrupt. At </p>
+<p>usage  they  may  be  implemented  by  the  application.  Prototypes  of  these  functions  are </p>
+<p>defined in Fr_Ext.h. Please refer to chapter “API Description” for more details. </p>
+<p><b>object Header File Structure</b></p>
+<p><b>Fr.c</b></p>
+<p><b>dem.h</b></p>
+<p><b>SchM_Fr.h</b></p>
+<p><b>Fr.h</b></p>
+<p><b>Fr_cfg.h</b></p>
+<p><b>Fr_priv .h</b></p>
+<p><b>MemMap.h</b></p>
+<p><b>Det.h</b></p>
+<p><b>Fr_&lt;CC&gt;.h</b></p>
+<p><b>Fr_ext.h</b></p>
+<p><b>Platform_Types.h</b></p>
+<p><b>Std_Types.h</b></p>
+<p><b>Fr_GeneralTypes.h</b></p>
+<p>«include»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4.5 </b></p>
+<p><b>Critical Sections  </b></p>
+<p>Special attention is given to critical code sections, that must not be interrupted. For details </p>
+<p>see [8]. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The  software  module  FlexRay  Driver  uses  the  standard AUTOSAR  data  types  that  are </p>
+<p>defined  within  Std_Types.h  and  the  platform  specific  data  types  that  are  defined  within </p>
+<p>Platform_Types.h. </p>
+<p>If  the  FlexRay  Driver  Interface  is  used  the  Communication  Stack  Types  defined  within </p>
+<p>ComStack_Types.h are used too. </p>
+<p>For specific type definitions please refer to [8]. </p>
+<p><b>5.2 </b></p>
+<p><b>Interrupt Service Routines provided by FR  </b></p>
+<p>The GenTool option “Type of interrupt function” has to be adapted accordingly to the usage </p>
+<p>of the FlexRay driver interrupt services. If OS is used, the interrupts are of type “Category </p>
+<p>2”. CC specific interrupt routine names have to be entered in OS configurator.  </p>
+<p>Otherwise on usage of “void func(void)” the addresses of the interrupt routines have to be </p>
+<p>entered in interrupt table or interrupt dispatcher. For details please refer to [8]. </p>
+<p>Category 1 interrupts are not allowed.  </p>
+<p>For a detailed description of Interrupt types please refer to see [15]. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>If “void func(void)” is used, secure that the interrupt function is not executed within a </p>
+<p>category 1 interrupt. Further it is possible to call a “void func(void)” within a user task </p>
+<p>(not recommended) or an interrupt of type category 2. </p>
+<p> </p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The implementation is hardware specific. For details please refer to [8]. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3 </b></p>
+<p><b>Services provided by FR </b></p>
+<p>The FR API consists of services, which are realized by function calls. </p>
+<p><b>5.3.1 </b></p>
+<p><b>Fr_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_CODE) <b>Fr_InitMemory </b>(void); </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes the global variables of the module. It shall be called first of all services. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-1  </p>
+<p>Fr_InitMemory </p>
+<p><b>5.3.2 </b></p>
+<p><b>Fr_Init </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC( void, FR_CODE) <b>Fr_Init</b>( </p>
+<p>  P2CONST(Fr_ConfigType, AUTOMATIC, FR_PBCFG) Fr_ConfigPtr); </p>
+<p><b>Parameter </b></p>
+<p>Fr_ConfigPtr </p>
+<p>Pointer to post-build configuration. If Variant 1 (Pre-compile Configuration) is </p>
+<p>used, the parameter is ignored and a Null pointer can be passed. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This method initializes the access to the Post Build Configuration. A pointer to the configuration gets </p>
+<p>passed in and is stored. This API must be called when the FlexRay Stack gets started or if a new </p>
+<p>configuration gets flashed </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>Fr_InitMemory is already executed.  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-2  </p>
+<p>Fr_Init </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3.3 </b></p>
+<p><b>Fr_ControllerInit </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_ControllerInit </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY); </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method configures the Communication Controller (CC). Initially, the CC will be set into Config State. </p>
+<p>The internal RAM gets cleared and configured with the content of the Post Build Configuration into the CC </p>
+<p>register and the frame buffers. Finally the CC is put into Cold Start State preparing the start of FlexRay </p>
+<p>communication. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>It is required that a valid configuration is set using function ‘Fr_Init’. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-3  </p>
+<p>Fr_ControllerInit </p>
+<p><b>5.3.4 </b></p>
+<p><b>Fr_AllSlots </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_AllSlots </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Invokes the CC CHI command 'ALL_SLOTS'. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available with enabled GenTool FrIf option “All Slots Support”. It is required </p>
+<p>that Fr_Init() is called before. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-4  </p>
+<p>Fr_AllSlots </p>
+<p><b>5.3.5 </b></p>
+<p><b>Fr_StartCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_StartCommunication </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method starts the FlexRay communication. The POC state changes from FR_POCSTATE_READY </p>
+<p>state into FR_POCSTATE_STARTUP state </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>It is required that the Controller is in Ready state by previous call of Fr_ControllerInit. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-5  </p>
+<p>Fr_StartCommunication </p>
+<p><b>5.3.6 </b></p>
+<p><b>Fr_HaltCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_HaltCommunication </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method halts the specified Communication Controller at the end of the current communication cycle. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>The physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-6  </p>
+<p>Fr_HaltCommunication </p>
+<p><b>5.3.7 </b></p>
+<p><b>Fr_AbortCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_AbortCommunication </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method halts the specified Communication Controller independent of its current state </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>This API can be removed from code depending on the GenTool configuration. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-7  </p>
+<p>Fr_AbortCommunication </p>
+<p><b>5.3.8 </b></p>
+<p><b>Fr_AllowColdstart </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_AllowColdstart </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This method invokes the CC CHI command ‘ALLOW_COLDSTART’ </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>The CC is in any POCState except POC:default config, POC:config or POC:halt. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-8 </p>
+<p>Fr_AllowColdstart </p>
+<p><b>5.3.9 </b></p>
+<p><b>Fr_SendWUP </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_SendWUP </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method sends the Wakeup pattern. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>It is required that the Controller is in Ready state by previous call of Fr_ControllerInit. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-9  </p>
+<p>Fr_SendWUP </p>
+<p><b>5.3.10 </b></p>
+<p><b>Fr_SetWakeupChannel </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_SetWakeupChannel </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  Fr_ChannelType Fr_ChnlIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_ChnlIdx </p>
+<p>Index of the FlexRay channel </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method activates the given channel for sending the Wakeup pattern. The Wakeup pattern can not be </p>
+<p>sent on both Channels simultaneous. Trying issues a DET error. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>It is required that the Controller is in Ready state. </p>
+<p>This API can be removed from code depending on the GenTool configuration. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-10  </p>
+<p>Fr_SetWakeupChannel </p>
+<p><b>5.3.11 </b></p>
+<p><b>Fr_GetPOCStatus </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetPOCStatus</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  P2VAR(Fr_POCStatusType, AUTOMATIC, FR_APPL_DATA) Fr_POCStatusPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_POCStatusPtr </p>
+<p>Current POC status information </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method gives back the POC status </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-11  </p>
+<p>Fr_GetPOCStatus </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3.12 </b></p>
+<p><b>Fr_TransmitTxLPdu </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_TransmitTxLPdu</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint16 Fr_LPduIdx, </p>
+<p>  P2CONST(uint8, AUTOMATIC, FR_APPL_DATA) Fr_LPduPtr, </p>
+<p>  uint8 Fr_LPduLength) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p>Fr_LPduPtr </p>
+<p>This reference points to a buffer where the assembled LSdu to be transmitted </p>
+<p>within this LPdu is stored at. </p>
+<p>Fr_LPduLength </p>
+<p>Determines the length of the data (in Bytes) to be transmitted. The value is not </p>
+<p>modified by this method </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method sends a frame on the bus thus the bus must be initialized. The method figures out the physical </p>
+<p>buffer where the LPdu should be copied to. The method copies the data to that physical buffer and </p>
+<p>activates it for transmission. </p>
+<p>This method reconfigures the message buffer in case dynamic payload or buffer reconfigure is enabled.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-12  </p>
+<p>Fr_TransmitTxLPdu </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The method does not check whether the “old” data is successfully send in the last </p>
+<p>configured frame. The message buffer is always overwrite with the new requested data </p>
+<p>rather frame in case enabled buffer reconfigure. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3.13 </b></p>
+<p><b>Fr_ReceiveRxLPdu </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_ReceiveRxLPdu</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  uint16 Fr_LPduIdx,   </p>
+<p>  P2VAR(uint8, AUTOMATIC, FR_APPL_DATA) Fr_LPduPtr, </p>
+<p>  P2VAR(Fr_RxLPduStatusType, AUTOMATIC, FR_APPL_DATA) Fr_LPduStatusPtr, </p>
+<p>  P2VAR(uint8, AUTOMATIC, FR_APPL_DATA) Fr_LPduLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p>Fr_LPduPtr </p>
+<p>This reference points to the buffer where the LPdu to be received shall be </p>
+<p>stored. </p>
+<p>Fr_LPduStatusPtr </p>
+<p>This reference points to the memory location where the status of the LPdu </p>
+<p>shall be stored. </p>
+<p>Fr_LPduLengthPtr </p>
+<p>This reference points to the memory location where the length of the LPdu (in </p>
+<p>bytes) shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method figures out if a new FlexRay frame identified by Fr_LPduIdx was received. It copies the </p>
+<p>payload to data of Fr_LPduPtr. The length parameter specifies the length in bytes whereas FlexRay is </p>
+<p>using 2-byte lengths. </p>
+<p>The method returns “</p>
+<p>FR_RECEIVED_MORE_DATA_AVAILABLE</p>
+<p>” at the “</p>
+<p>Fr_LPduStatusPtr</p>
+<p>”  in case the </p>
+<p>requested frame is placed within a FIFO range and the FIFO is not empty. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-13  </p>
+<p>Fr_ReceiveRxLPdu </p>
+<p><b>5.3.14 </b></p>
+<p><b>Fr_CancelTxLPdu </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_CancelTxLPdu</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint16 Fr_LPduIdx) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>37 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘Single Channel API’ this macro is </p>
+<p>either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a zero </p>
+<p>based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Cancels the already pending transmission of a LPdu contained in a controllers physical transmit resource </p>
+<p>(e.g. message buffer). </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available with enabled GenTool FrIf option “Cancel Transmit Support”. It </p>
+<p>is required that Fr_Init() is called before. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-14  </p>
+<p>Fr_CancelTxLPdu </p>
+<p><b>5.3.15 </b></p>
+<p><b>Fr_CheckTxLPduStatus </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_CheckTxLPduStatus</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint16 Fr_LPduIdx, </p>
+<p>  P2VAR(Fr_TxLPduStatusType, AUTOMATIC, FR_APPL_DATA) Fr_LPduStatusPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘Single Channel API’ this macro is </p>
+<p>either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a zero </p>
+<p>based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p>Fr_LPduStatusPtr </p>
+<p>This reference is used to store the transmit status of the LSdu </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method checks if previous send request succeeded.  </p>
+<p>In addition this method checks the configuration of the message buffer in case buffer reconfiguration is </p>
+<p>enabled. The method returns E_NOT_OK and FR_NOT_TRANSMITTED in case the message buffer is </p>
+<p>already used for other frame.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> - </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>38 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-15  </p>
+<p>Fr_CheckTxLPduStatus </p>
+<p><b>5.3.16 </b></p>
+<p><b>Fr_GetGlobalTime </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetGlobalTime</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  P2VAR(uint8,  AUTOMATIC, FR_APPL_DATA) Fr_CyclePtr, </p>
+<p>  P2VAR(uint16, AUTOMATIC, FR_APPL_DATA) Fr_MacroTickPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_CyclePtr </p>
+<p>Buffer for current Cycle Counter </p>
+<p>Fr_MacroTickPtr </p>
+<p>Buffer for current Macrotick Counter </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method returns the current time specified in Cycle Counts and Macroticks if the bus is running (SYNC) </p>
+<p>i.e. Normal Active. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions  </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-16  </p>
+<p>Fr_GetGlobalTime </p>
+<p><b>5.3.17 </b></p>
+<p><b>Fr_GetNmVector </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetNmVector</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  P2VAR(uint8, AUTOMATIC, FR_APPL_DATA) Fr_NmVectorPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_NmVectorPtr </p>
+<p>Address where the NmVector of the last communication cycle shall be stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>39 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Gets the network management vector of the last communication cycle </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>GenTool option ‘NM Vector Support’ is enabled. It is required that the physical layer is in sync </p>
+<p>with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-17  </p>
+<p>Fr_GetNmVector </p>
+<p><b>5.3.18 </b></p>
+<p><b>Fr_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_CODE) <b>Fr_GetVersionInfo </b>( </p>
+<p>  P2VAR(Std_VersionInfoType, AUTOMATIC, FR_APPL_DATA) VersionInfo ) </p>
+<p><b>Parameter </b></p>
+<p>VersionInfo </p>
+<p>Pointer to where to store the version information of this module. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This method returns the version info. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>GenTool option ‘Version Info Api’ is switched on and ‘Version Info Api As Macro’ is switched off </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-18  </p>
+<p>Fr_GetVersionInfo </p>
+<p><b>5.3.19 </b></p>
+<p><b>Fr_GetSyncFrameList </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetSyncFrameList</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_ListSize,  </p>
+<p>  (uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelAEvenListPtr, </p>
+<p>  (uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelBEvenListPtr, </p>
+<p>  (uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelAOddListPtr,  </p>
+<p>  (uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelBOddListPtr ) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>40 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_ListSize </p>
+<p>Size of the parameter arrays </p>
+<p>Fr_ChannelAEvenListPtr </p>
+<p>the list of sync frames on channel A within the even communication cycle </p>
+<p>Fr_ChannelBEvenListPtr </p>
+<p>the list of sync frames on channel B within the even communication cycle </p>
+<p>Fr_ChannelAOddListPtr </p>
+<p>the list of sync frames on channel A within the odd communication cycle </p>
+<p>Fr_ChannelBOddListPtr </p>
+<p>the list of sync frames on channel B within the odd communication cycle </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method reads the list of sync frames received in the last communication cycle and write it as array to </p>
+<p>the appropriate array. A maximum of 15 for parameter Fr_ListSize is used if Fr_ListSize is greater than 15. </p>
+<p>In this case additionally a DET error (FR_E_INV_LISTSIZE ) is thrown if DET is enabled. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-19  </p>
+<p>Fr_GetSyncFrameList </p>
+<p><b>5.3.20 </b></p>
+<p><b>Fr_DisableLPdu (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_DisableLPdu </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  uint16 Fr_LPduIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method configures the corresponding HW-buffer in a way that it does not take part in the FlexRay </p>
+<p>communication. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>41 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-20  </p>
+<p>Fr_DisableLPdu </p>
+<p><b>5.3.21 </b></p>
+<p><b>Fr_ReconfigLPdu (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_ReconfigLPdu </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  uint16 Fr_LPduIdx,  </p>
+<p>  uint16 Fr_FrameId,  </p>
+<p>  Fr_ChannelType Fr_ChnlIdx,  </p>
+<p>  uint8 Fr_CycleRepetition,  </p>
+<p>  uint8 Fr_CycleOffset,  </p>
+<p>  uint8 Fr_PayloadLength,  </p>
+<p>  uint16 Fr_HeaderCRC ) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p>Fr_FrameId </p>
+<p>FlexRay Frame ID the FrIf_LPdu shall be configured to </p>
+<p>Fr_ChnlIdx </p>
+<p>FlexRay Channel the FrIf_LPdu shall be configured to. </p>
+<p>Fr_CycleRepetition </p>
+<p>Cycle Repetition part of the cycle filter mechanism FrIf_LPdu shall be </p>
+<p>configured to. </p>
+<p>Fr_CycleOffset </p>
+<p>Cycle Offset part of the cycle filter mechanism FrIf_LPdu shall be configured </p>
+<p>to. </p>
+<p>Fr_PayloadLength </p>
+<p>Payloadlength in units of bytes the FrIf_LPduIdx shall be configured to. </p>
+<p>Fr_HeaderCRC </p>
+<p>Header CRC the FrIf_LPdu shall be configured to. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method reconfigures during runtime the corresponding HW buffer according the given parameters. </p>
+<p>If LPDU reconfiguration is enabled for a specific LPDU, this LPDU is not sent after initialization of Fr but </p>
+<p>has to be enabled with this method. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>42 </p>
+<p>based on template version 6.0.1 </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-21  </p>
+<p>Fr_ReconfigLPdu </p>
+<p> </p>
+<p><b>5.3.22 </b></p>
+<p><b>Fr_SetAbsoluteTimer </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_SetAbsoluteTimer </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx, </p>
+<p>  uint8 Cycle, uint16 MacrotickOffset) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p>Cycle </p>
+<p>Cycle in which the timer will fire </p>
+<p>MacrotickOffset </p>
+<p>MacrotickOffset </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method sets the absolute timer. The time is specified in FlexRay terms i.e. Cycle Counts and </p>
+<p>Macroticks. The timer fires an interrupt after n Macroticks in given Cycle. Hence the maximum duration is </p>
+<p>limited to one complete communication cycle (i.e. 64 Cycles). </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>It is required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-22  </p>
+<p>Fr_SetAbsoluteTimer </p>
+<p><b>5.3.23 </b></p>
+<p><b>Fr_CancelAbsoluteTimer </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_CancelAbsoluteTimer</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>43 </p>
+<p>based on template version 6.0.1 </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method cancels the absolute timer </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-23  </p>
+<p>Fr_CancelAbsoluteTimer </p>
+<p><b>5.3.24 </b></p>
+<p><b>Fr_EnableAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_EnableAbsoluteTimerIRQ</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method enables the absolute timer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-24  </p>
+<p>Fr_EnableAbsoluteTimerIRQ </p>
+<p><b>5.3.25 </b></p>
+<p><b>Fr_AckAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_AckAbsoluteTimerIRQ</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>44 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method acknowledges the absolute timer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>This API can be removed from code depending on the GenTool configuration. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-25  </p>
+<p>Fr_AckAbsoluteTimerIRQ </p>
+<p><b>5.3.26 </b></p>
+<p><b>Fr_DisableAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_DisableAbsoluteTimerIRQ</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method disables the absolute timer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>This API can be removed from code depending on the GenTool configuration. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-26  </p>
+<p>Fr_DisableAbsoluteTimerIRQ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>45 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3.27 </b></p>
+<p><b>Fr_GetAbsoluteTimerIRQStatus </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetAbsoluteTimerIRQStatus</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_AbsTimerIdx,  </p>
+<p>  P2VAR(boolean, AUTOMATIC, FR_APPL_DATA) Fr_IRQStatusPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_AbsTimerIdx </p>
+<p>Index of the Timer </p>
+<p>Fr_IRQStatusPtr </p>
+<p>Result value of the Timer IRQ Status </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Gets IRQ status of the absolute timer </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>This API can be removed from code depending on the GenTool configuration. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-27  </p>
+<p>Fr_GetAbsoluteTimerIRQStatus </p>
+<p> </p>
+<p><b>5.3.28 </b></p>
+<p><b>Fr_GetChannelStatus </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetChannelStatus </b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  P2VAR(uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelAStatusPtr, </p>
+<p>  P2VAR(uint16, AUTOMATIC, FR_APPL_DATA) Fr_ChannelBStatusPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_ChannelAStatusPtr </p>
+<p>Address where the bitcoded channel A status information shall be stored. </p>
+<p>Fr_ChannelBStatusPtr </p>
+<p>Address where the bitcoded channel B status information shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>46 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Returns the current aggregated channel status information. The information is bitcoded as follow: </p>
+<p>Bit 0: Channel A/B aggregated channel status vSS!ValidFrame </p>
+<p>Bit 1: Channel A/B aggregated channel status vSS!SyntaxError </p>
+<p>Bit 2: Channel A/B aggregated channel status vSS!ContentError </p>
+<p>Bit 3: Channel A/B aggregated channel status additional communication </p>
+<p>Bit 4: Channel A/B aggregated channel status vSS!Bviolation </p>
+<p>Bit 5: Channel A/B aggregated channel status vSS!TxConflict (This bit is not supportet at FlexRay 2.1 </p>
+<p>hardware) </p>
+<p>Bit 6: Not used (0) </p>
+<p>Bit 7: Not used (0) </p>
+<p>Bit 8: Channel A/B symbol window status data vSS!ValidMTS </p>
+<p>Bit 9: Channel A/B symbol window status data vSS!SyntaxError </p>
+<p>Bit 10: Channel A/B symbol window status data vSS!Bviolation </p>
+<p>Bit 11: Channel A/B symbol window status data vSS!TxConflict </p>
+<p>Bit 12: Channel A/B NIT status data vSS!SyntaxError </p>
+<p>Bit 13: Channel A/B NIT status data vSS!Bviolation </p>
+<p>Bit 14: Not used (0) </p>
+<p>Bit 15: Not used (0) </p>
+<p>The aggregated channel status information is cleared after the read operation.   </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available with enabled GenTool option “Get Channel Status Support”. It is </p>
+<p>required that the physical layer is in sync with the network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-28  </p>
+<p>Fr_GetChannelStatus </p>
+<p><b>5.3.29 </b></p>
+<p><b>Fr_GetClockCorrection </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) <b>Fr_GetClockCorrection</b>( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  P2VAR(sint16, AUTOMATIC, FR_APPL_DATA) Fr_RateCorrectionPtr,  </p>
+<p>  P2VAR(sint32, AUTOMATIC, FR_APPL_DATA) Fr_OffsetCorrectionPtr ) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_RateCorrectionPtr </p>
+<p>Address where the rate correction value shall be stored.  </p>
+<p>Fr_OffsetCorrectionPtr </p>
+<p>Address where the offset correction value shall be stored.  </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Returns the values of the rate and offset correction. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>47 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available in a delivery with extended channel status and enabled GenTool </p>
+<p>option “Get Clock Correction Support”. It is required that the physical layer is in sync with the </p>
+<p>network. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Asynchronous </p>
+<p>Table 5-29 </p>
+<p>Fr_GetClockCorrection </p>
+<p><b>5.3.30 </b></p>
+<p><b>Fr_GetWakeupRxStatus </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Fr_GetWakeupRxStatus</b>(FR_VCTRL_SYSTEMTYPE_ONLY, uint8* </p>
+<p>Fr_WakeupRxStatusPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYPE_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ </p>
+<p>this macro is either empty or contains the value for uint8 Fr_CtrlIdx. </p>
+<p>Fr_CtrlIdx is a zero based index identifies the CC controller for which </p>
+<p>the API call has to be applied. </p>
+<p>Fr_WakeupRxStatusPtr </p>
+<p>Address where bitcoded wakeup reception status shall be  </p>
+<p>stored.  </p>
+<p>Bit 0: Wakeup received on channel A indicator  </p>
+<p>Bit 1: Wakeup received on channel B indicator  </p>
+<p>Bit 2-7: Unused </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>API call finished successfully. </p>
+<p>E_NOT_OK </p>
+<p>API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Gets the wakeup received information from the FlexRay controller. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available with enabled GenTool FrIf option “Get Wakeup Rx Status </p>
+<p>Support”. It is required that Fr_Init() is called before. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> This function can be called in any context. </p>
+<p>Table 5-30  </p>
+<p>Fr_GetWakeupRxStatus </p>
+<p> </p>
+<p><b>5.3.31 </b></p>
+<p><b>Fr_GetNumOfStartupFrames </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Fr_GetNumOfStartupFrames</b>(FR_VCTRL_SYSTEMTYPE_ONLY, uint8* </p>
+<p>Fr_NumOfStartupFramesPtr)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>48 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYPE_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ </p>
+<p>this macro is either empty or contains the value for uint8 Fr_CtrlIdx. </p>
+<p>Fr_CtrlIdx is a zero based index identifies the CC controller for which </p>
+<p>the API call has to be applied. </p>
+<p>Fr_NumOfStartupFramesPtr </p>
+<p>Address where the number of startup frames seen within the last </p>
+<p>even/odd cycle pair shall be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>API call finished successfully. </p>
+<p>E_NOT_OK </p>
+<p>API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>Gets the current number of startup frames seen on the cluster. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The method is only available with enabled GenTool FrIf option “Get Num Of Startup Frames </p>
+<p>Support”. It is required that Fr_Init() is called before. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> This function can be called in any context. </p>
+<p>Table 5-31  </p>
+<p>Fr_GetNumOfStartupFrames </p>
+<p><b>5.3.32 </b></p>
+<p><b>Fr_TransmitTxLPdu_DBA (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_TransmitTxLPdu_DBA( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  uint16 Fr_LPduIdx, </p>
+<p>  uint8 Fr_LPduLength) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p>Fr_LPduLength </p>
+<p>Determines the length of the data (in Bytes) to be transmitted. The value is not </p>
+<p>modified by this method </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method sends a frame on the bus thus the bus must be initialized. The method figures out the physical </p>
+<p>buffer where the LPdu should be copied to. The method does not copy the data to that physical buffer. This </p>
+<p>must be done by other modules. The method activates the prepared buffer for transmission. </p>
+<p>This method reconfigures the message buffer in case dynamic payload or buffer reconfigure is enabled.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>49 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Prototype </b></p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> It is required that the physical layer is in sync with the network. </p>
+<p>The location of the buffer can be get from method “Fr_RequestBuffer_DBA” </p>
+<p></p>
+<p> The API availability depends on the platform please refer to [8]. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-32 </p>
+<p>Fr_TransmitTxLPdu_DBA </p>
+<p><b>5.3.33 </b></p>
+<p><b>Fr_TransmitTxLPdu_ImmediateDBA (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_TransmitTxLPdu_ImmediateDBA ( </p>
+<p>FR_VCTRL_SYSTEMTYPE_ONLY, uint16 Fr_LPduIdx, P2CONST(uint8, AUTOMATIC, </p>
+<p>FR_APPL_DATA) Fr_LPduPtr, uint8 Fr_LPduLength) </p>
+<p><b>Parameter </b></p>
+<p>Fr_CtrlIdx </p>
+<p>This zero based index identifies the driver within the context of the Fr to which </p>
+<p>the API call has to be applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p>*Fr_LPduPtr </p>
+<p>This reference points to the buffer where the LPdu to be received shall be </p>
+<p>stored. </p>
+<p>Fr_LPduLengthPtr </p>
+<p>This reference points to the memory location where the length of the LPdu (in </p>
+<p>bytes) shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method requests a buffer, copies the payload and prepares and configures a buffer to be sent on </p>
+<p>FlexRay bus. </p>
+<p>The function brings FTU in halt mode and disables the interrupts. Afterwards it copies the payload, </p>
+<p>transmits the buffer and set the FTU in normal mode again and enables the interrupts. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> It is required that the physical layer is in sync with the network. </p>
+<p></p>
+<p> The API availability depends on the platform please refer to [8]. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-33 </p>
+<p>Fr_TransmitTxLPdu_ImmediateDBA </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>50 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3.34 </b></p>
+<p><b>Fr_RequestBuffer_DBA (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_RequestBuffer_DBA ( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  </p>
+<p>  uint16 Fr_LPduIdx,  </p>
+<p>  P2VAR(Fr_LPduPtrType, AUTOMATIC, FR_APPL_DATA) Fr_LPduPtr, </p>
+<p>  uint8 Fr_LPduLength) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame </p>
+<p>Fr_LPduPtr </p>
+<p>This pointer to a reference gives back the pointer of the buffer where the </p>
+<p>assembled LSdu to be transmitted within this LPdu is stored at </p>
+<p>Fr_LPduLength </p>
+<p>Determines the length of the data (in Bytes) to be transmitted. The value is not </p>
+<p>modified by this method </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method gives back the pointer to the buffer of the corresponding LPDU The method figures out the </p>
+<p>physical buffer where the LPdu should be copied to. This method should be called before </p>
+<p>Fr_TransmitTxLPdu_DBA to get the message buffer where the data should be written to. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> It is required that the physical layer is in sync with the network.  </p>
+<p></p>
+<p> The API availability depends on the platform please refer to [8]. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-34 </p>
+<p>Fr_RequestBuffer_DBA </p>
+<p><b>5.3.35 </b></p>
+<p><b>Fr_ReceiveRxLPdu_DBA (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_ReceiveRxLPdu_DBA(  </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint16 Fr_LPduIdx, P2VAR(Fr_LPduPtrType, AUTOMATIC, FR_APPL_DATA) </p>
+<p>  Fr_LPduPtr, </p>
+<p>  P2VAR(Fr_RxLPduStatusType, AUTOMATIC, FR_APPL_DATA) Fr_LPduStatusPtr, </p>
+<p>  P2VAR(uint8, AUTOMATIC, FR_APPL_DATA) Fr_LPduLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>51 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Prototype </b></p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p>Fr_LPduPtr </p>
+<p>This pointer to a reference gives back the pointer to the buffer where the LPdu </p>
+<p>to be received is stored. </p>
+<p>Fr_LPduStatusPtr </p>
+<p>This reference points to the memory location where the status of the LPdu </p>
+<p>shall be stored. </p>
+<p>Fr_LPduLengthPtr </p>
+<p>This reference points to the memory location where the length of the LPdu (in </p>
+<p>bytes) shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method figures out if a new FlexRay frame identified by Fr_LPduIdx was received. It gives back the </p>
+<p>pointer to the data of Fr_LPduPtr. The length parameter specifies the length in bytes whereas FlexRay is </p>
+<p>using 2-byte lengths. The method locks the buffer from unsynchronized access of the CC.  </p>
+<p>The method returns “</p>
+<p>FR_RECEIVED_MORE_DATA_AVAILABLE</p>
+<p>” at the “</p>
+<p>Fr_LPduStatusPtr</p>
+<p>” in case the </p>
+<p>requested frame is placed within a FIFO range and the FIFO is not empty. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> It is required that the physical layer is in sync with the network.  </p>
+<p></p>
+<p> The method Fr_UnlockRxLPdu_DBA should be called after the data of Fr_LPduIdx was </p>
+<p>processed.  </p>
+<p></p>
+<p> The API availability depends on the platform please refer to [8]. </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-35 </p>
+<p>Fr_ReceiveRxLPdu_DBA </p>
+<p><b>5.3.36 </b></p>
+<p><b>Fr_UnlockRxLPdu_DBA (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_UnlockRxLPdu_DBA(  </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY,  uint16 Fr_LPduIdx) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method unlocks the message buffer identified by Fr_LPduIdx. The method should be called after the </p>
+<p>data, received by method Fr_ReceiveRxLPdu_DBA, was processed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>52 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Prototype </b></p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> It is required that the physical layer is in sync with the network.  </p>
+<p></p>
+<p> The method Fr_UnlockRxLPdu_DBA should be called after the data of Fr_LPduIdx was </p>
+<p>processed.  </p>
+<p></p>
+<p> The API availability depends on the platform please refer to [8].  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-36 </p>
+<p>Fr_UnlockRxLPdu_DBA </p>
+<p><b>5.3.37 </b></p>
+<p><b>Fr_ReadCCConfig (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(Std_ReturnType, FR_CODE) Fr_ReadCCConfig( </p>
+<p>  FR_VCTRL_SYSTEMTYPE_ONLY, </p>
+<p>  uint8 Fr_CCLLParamIndex, </p>
+<p>  P2VAR(uint32, AUTOMATIC, FR_APPL_DATA) Fr_CCLLParamValue) </p>
+<p><b>Parameter </b></p>
+<p>FR_VCTRL_SYSTEMTYP</p>
+<p>E_ONLY</p>
+<p> </p>
+<p>Depending on preconfiguration parameter ‘DrvFrBaseApiOptimization’ this </p>
+<p>macro is either empty or contains the value for uint8 Fr_CtrlIdx. Fr_CtrlIdx is a </p>
+<p>zero based index identifies the CC controller for which the API call has to be </p>
+<p>applied. </p>
+<p>Fr_CCLLParamIndex </p>
+<p>Parameter index. </p>
+<p>Fr_CCLLParamValue </p>
+<p>Value of index. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>E_OK: API call finished successfully.  </p>
+<p>E_NOT_OK: API call aborted due to errors. </p>
+<p><b>Functional Description </b></p>
+<p>This method returns the requested ECUC parameter. Please refer to [2] to find out the index of </p>
+<p>corresponding low level parameter. </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>The API is only available if GenTool option “Read CC Parameters” is set.  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Synchronous </p>
+<p>Table 5-37 </p>
+<p>Fr_ReadCCConfig </p>
+<p><b>5.4 </b></p>
+<p><b>Services used by FR </b></p>
+<p>In Table 5-38 services provided by other components, which are used by the FR are listed. </p>
+<p>For  details  about  prototype  and functionality  refer to  the documentation of  the providing </p>
+<p>component. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>53 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError  </p>
+<p>DEM </p>
+<p>Dem_ReportErrorStatus  </p>
+<p>Vstdlib.c </p>
+<p>Usage of this API is CC specfic please refer to </p>
+<p>[8] </p>
+<p>SchM </p>
+<p>SchM_Enter_Fr </p>
+<p>SchM_Exit_Fr</p>
+<p> </p>
+<p>EcuM </p>
+<p>EcuM_GeneratorCompatibilityError </p>
+<p>Table 5-38  </p>
+<p>Services used by the FR </p>
+<p><b>5.5 </b></p>
+<p><b>Callback Functions </b></p>
+<p>The MICROSAR Fr does not use any callback functions. </p>
+<p> </p>
+<p><b>5.6 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.6.1 </b></p>
+<p><b>Notifications </b></p>
+<p>The MICROSAR Fr does not use any notifications. </p>
+<p> </p>
+<p><b>5.6.2 </b></p>
+<p><b>Callout Functions </b></p>
+<p>At  its  configurable  interfaces  the  Fr  defines  callout  functions.  The  declarations  of  the </p>
+<p>callout functions are provided by the BSW module, i.e. the Fr. It is the integrator's task to </p>
+<p>provide  the  corresponding  function  definitions.  The  definitions  of  the  callouts  can  be </p>
+<p>adjusted to the system's needs. The callout functions are optional and can be invoked by </p>
+<p>other modules. They are described in the following tables: </p>
+<p> </p>
+<p><b>5.6.2.1 </b></p>
+<p><b>ApplFr_ISR_Timer0 </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_APPL_CODE) <b>ApplFr_ISR_Timer0 </b>(void); </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>The method is called when the absolute timer fires. The Interrupt is cleared within the handler. The method </p>
+<p>is only used with enabled compiler switch ‘FR_CFG_APPL_CALLBACK_TIMER0’ </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Called within the interrupt handler. It is required that the physical layer is in sync with the </p>
+<p>network. </p>
+<p>Depending on  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>54 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Interrupt context </p>
+<p>Table 5-39  </p>
+<p>ApplFr_ISR_Timer0 </p>
+<p><b>5.6.2.2 </b></p>
+<p><b>ApplFr_ISR_Timer0_1 </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_APPL_CODE) <b>ApplFr_ISR_Timer0_1 </b>(void); </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>The method is called when the absolute timer fires. The Interrupt is cleared within the handler. The method </p>
+<p>is only used with enabled compiler switch ‘FR_CFG_APPL_CALLBACK_TIMER0’ and </p>
+<p>‘FR_NUM_CTRL_USED &gt; 1’ </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Called within the interrupt handler. It is required that the physical layer is in sync with the </p>
+<p>network. </p>
+<p>Depending on  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Interrupt context </p>
+<p>Table 5-40  </p>
+<p>ApplFr_ISR_Timer0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.6.2.3 </b></p>
+<p><b>ApplFr_ISR_CycleStart </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_APPL_CODE) <b>ApplFr_ISR_CycleStart </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>None </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>The method is called when a new communication cycle starts. The Interrupt is cleared within the handler. </p>
+<p>The method is only used with enabled compiler switch ‘FR_CFG_APPL_CALLBACK_CYCLE_START’ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>55 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Called within the interrupt handler. It is required that the physical layer is in sync with the </p>
+<p>network.  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Interrupt context </p>
+<p>Table 5-41  </p>
+<p>ApplFr_ISR_CycleStart </p>
+<p><b>5.6.2.4 </b></p>
+<p><b>ApplFr_ISR_CycleStart_1 </b></p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_APPL_CODE) <b>ApplFr_ISR_CycleStart_1 </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>None </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>The method is called when a new communication cycle starts. The Interrupt is cleared within the handler. </p>
+<p>The method is only used with enabled compiler switch ‘FR_CFG_APPL_CALLBACK_CYCLE_START’ and </p>
+<p>‘FR_NUM_CTRL_USED &gt; 1’ </p>
+<p><b>Particularities and Limitations </b></p>
+<p></p>
+<p> Particularities, limitations, post-conditions, pre-conditions </p>
+<p>Called within the interrupt handler. It is required that the physical layer is in sync with the </p>
+<p>network.  </p>
+<p>Expected Caller Context </p>
+<p></p>
+<p> Interrupt context </p>
+<p>Table 5-42  </p>
+<p>ApplFr_ISR_CycleStart </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>56 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>6.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>EAD </p>
+<p>Embedded Architecture Designer; generation tool for MICROSAR </p>
+<p>components </p>
+<p>Cfg5 </p>
+<p>Generation tool for AUTOSAR4 MICROSAR components </p>
+<p>Table 6-1  </p>
+<p>Glossary </p>
+<p><b>6.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CC </p>
+<p>FlexRay Communication Controller </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>Host </p>
+<p>Specific microcontroller where Fr CC is implemented and on which the Fr </p>
+<p>software is executed. </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>JLE </p>
+<p>Job List Execution (see [10]) </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>MTS </p>
+<p>Media Test Symbol </p>
+<p>PPort </p>
+<p>Provide Port </p>
+<p>RPort </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>EcuC </p>
+<p>ECU Configuration file </p>
+<p>Table 6-2  </p>
+<p>Abbreviations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FR </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.04.00 </p>
+<p>57 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+<p> </p>
+<p><b> </b></p>
+</body>
+</html>
+{% endraw %}

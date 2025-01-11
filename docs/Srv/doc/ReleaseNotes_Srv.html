@@ -1,0 +1,173 @@
+---
+layout: default
+title: ReleaseNotes_Srv
+nav_order: 2
+parent: Srv
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes Srv</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2015-12-11</p>
+<p>Version</p>
+<p>3.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>3.1.0</p>
+<p>2015-12-11</p>
+<p>BAC-4692</p>
+<p>3.0.1</p>
+<p>2015-03-13</p>
+<p>BAC-3938, BAC-3651</p>
+<p>3.0.0</p>
+<p>2014-10-29</p>
+<p>ReleaseNotes_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 1 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Package Enumeration Scheme</b></p>
+<p>Every package carries a 3-digit version number. The following table explains how compatibility between</p>
+<p>versions can be determined from the version number:</p>
+<p><b>Changed Version</b></p>
+<p><b>Example</b></p>
+<p><b>Compatibility</b></p>
+<p>Patch Version</p>
+<p>1.0.0<i> →</i> 1.0.1</p>
+<p>A defect has been fixed. Versions are fully</p>
+<p>compatible.</p>
+<p>Minor Version</p>
+<p>1.0.0<i> →</i> 1.1.0</p>
+<p>API of package changed or a new feature was</p>
+<p>added. Versions may not be compatible. If the new</p>
+<p>package is used, other packages may be changed</p>
+<p>as well.</p>
+<p>Major Version</p>
+<p>1.0.0<i> →</i> 2.0.0</p>
+<p>Indicates the BAC4 Release, in which the module</p>
+<p>is delivered. Major Version 2 of a module refers to</p>
+<p>BAC4 Rel. 1. Major Version 3 of a module refers to</p>
+<p>BAC4 Rel. 2.</p>
+<p><b>2</b></p>
+<p><b>Package Description</b></p>
+<p>The Srv (Service) module contains some general purpose functions commonly used by other modules</p>
+<p>like Dlog, Prog and Bm. It is used in Application, Bootloader and Bootmanager.</p>
+<p>This package is maintained by BMW AUTOSAR Core 4 Support, via ASCENT Jira</p>
+<p>(https://asc.bmwgroup.net/jira/browse/BSUP or https://asc.bmw.com/jira/browse/BSUP) or telephone</p>
+<p>hotline (+49-89-382-32233).</p>
+<p><b>3</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>3.1</b></p>
+<p><b>Revision 3.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4692</p>
+<p>CR Headline:</p>
+<p>Srv: Adapt ECUC and SWCD schema to 4.2.2</p>
+<p>Description of Issues:</p>
+<p>Adapt ECUC schema to 4.2.2</p>
+<p>Description of Changes:</p>
+<p>Adapt ECUC schema to 4.2.2</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Srv_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>3.2</b></p>
+<p><b>Revision 3.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3938</p>
+<p>CR Headline:</p>
+<p>Srv: Set Parameters' ConfigClass from container</p>
+<p>CommonPublishedInformation to PUBLISHED-INFORMATION</p>
+<p>ReleaseNotes_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 2 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Although the module's version is checked during pre-compile</p>
+<p>there's no need to have this parameter configurable to the user.</p>
+<p>Therefore, all modules should have the ConfigClass from the</p>
+<p>parameters SwMajorVersion, SwMinorVersion and</p>
+<p>SwPatchVersion set to PUBLISHED-INFORMATION.</p>
+<p>Description of Changes:</p>
+<p>set config class of CommonPublishedInformation to</p>
+<p>PUBLISHED-INFORMATION</p>
+<p>Changed Files:</p>
+<p>autosar/Asr40/Srv_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-3651</p>
+<p>CR Headline:</p>
+<p>Srv: Adapt makefiles to EA requirements</p>
+<p>Description of Issues:</p>
+<p>Adapt makefiles to EA requirements</p>
+<p>Description of Changes:</p>
+<p>Adapt makefiles to EA requirements</p>
+<p>Changed Files:</p>
+<p>generate/verify/Srv.autoverify.tt</p>
+<p>make/Srv_defs.mak</p>
+<p>Compatibility:</p>
+<p><b>3.3</b></p>
+<p><b>Revision 3.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2018</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2018</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2018</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 3 of 3</p>
+</body>
+</html>
+{% endraw %}

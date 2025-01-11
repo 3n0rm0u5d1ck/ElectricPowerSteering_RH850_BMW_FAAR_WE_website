@@ -1,0 +1,5194 @@
+---
+layout: default
+title: UserManual_E2EPW
+nav_order: 2
+parent: E2EPW
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Schoenbrunner Str. 7, A-1040 Vienna, Austria, Tel. + 43 1 585 34 34-0, Fax +43 1 585 34 34-90, support@tttech-automotiv e.com</p>
+<p>The data in this document may  not be altered or amended without special notif ication f rom TTTech Automotiv e GmbH. TTTech Automotiv e GmbH</p>
+<p>undertakes no f urther obligation in relation to this document. The sof tware described in it can only  be used if  the customer is in possession of  a general</p>
+<p>license agreement or single license.</p>
+<p>Using and copy ing is only  allowed in concurrence with the specif ications stipulated in the contract. Under no circumstances may  any  part of  this</p>
+<p>document be copied, reproduced, transmitted, stored in a retriev al sy stem, or translated into another language without written permission of  TTTech</p>
+<p>Automotiv e GmbH.</p>
+<p>The names and designations used in this document are trademarks or brands belonging to the respectiv e owners.</p>
+<p>© 2015 TTTech Automotiv e GmbH. All rights reserv ed.                                                                                 Subject to changes and corrections.</p>
+<p>TTTech Automotiv e GmbH Conf idential and Proprietary  Inf ormation</p>
+<p><b>TTTech Automotive GmbH</b></p>
+<p>2.0.1</p>
+<p>13.03.2015</p>
+<p>D-MSP-G-70-001</p>
+<p>Version:</p>
+<p>Date:</p>
+<p>Document number:</p>
+<p><b>End-to-End Protection Wrapper Generator</b></p>
+<p>User Manual</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>End-to-End Protection Wrapper Generator</b></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>Page</p>
+<p>2</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>End-to-End Protection Wrapper Generator  2.0.1</i></p>
+<p><b>Table of Contents</b></p>
+<p><b>1 Introduction</b></p>
+<p><b>4</b></p>
+<p><b>................................................................................................................................... 4</b></p>
+<p><b>1.1 E2E Protection Wrapper Generator</b></p>
+<p><b>................................................................................................................................... 5</b></p>
+<p><b>1.2 Tools Integration</b></p>
+<p><b>................................................................................................................................... 5</b></p>
+<p><b>1.3 Use Cases</b></p>
+<p><b>2 Versions</b></p>
+<p><b>7</b></p>
+<p><b>3 Installation</b></p>
+<p><b>7</b></p>
+<p><b>4 Preprocessor</b></p>
+<p><b>8</b></p>
+<p><b>................................................................................................................................... 8</b></p>
+<p><b>4.1 Preprocessor Help</b></p>
+<p><b>.......................................................................................................................................................... 8</b></p>
+<p><b>4.1.1    Using the Preprocessor </b></p>
+<p><b>.......................................................................................................................................................... 11</b></p>
+<p><b>4.1.2    Behavior and Log Output </b></p>
+<p><b>.......................................................................................................................................................... 11</b></p>
+<p><b>4.1.3    Log Message Format </b></p>
+<p><b>.......................................................................................................................................................... 12</b></p>
+<p><b>4.1.4    Warning and Info Log Messages </b></p>
+<p><b>5 E2E Protection Wrapper Generator</b></p>
+<p><b>14</b></p>
+<p><b>................................................................................................................................... 14</b></p>
+<p><b>5.1 Using the Generator</b></p>
+<p><b>................................................................................................................................... 15</b></p>
+<p><b>5.2 E2EConfig file</b></p>
+<p><b>.......................................................................................................................................................... 15</b></p>
+<p><b>5.2.1    Syntax </b></p>
+<p><b>.......................................................................................................................................................... 18</b></p>
+<p><b>5.2.2    Description of Elements </b></p>
+<p><b>.......................................................................................................................................................... 24</b></p>
+<p><b>5.2.3    File Content Checks </b></p>
+<p><b>6 Generated Code</b></p>
+<p><b>26</b></p>
+<p><b>................................................................................................................................... 26</b></p>
+<p><b>6.1 API</b></p>
+<p><b>.......................................................................................................................................................... 26</b></p>
+<p><b>6.1.1    Initialization </b></p>
+<p><b>.......................................................................................................................................................... 27</b></p>
+<p><b>6.1.2    Status </b></p>
+<p><b>.......................................................................................................................................................... 27</b></p>
+<p><b>6.1.3    Transmission and Reception </b></p>
+<p><b>.......................................................................................................................................................... 29</b></p>
+<p><b>6.1.4    Usage Example Code </b></p>
+<p>......................................................................................................................................................... 29</p>
+<p>Application Sample Code</p>
+<p><b>.......................................................................................................................................................... 32</b></p>
+<p><b>6.1.5    Differences to SW-C End-to-End Communication Protection Library </b></p>
+<p><b>7 File Structure</b></p>
+<p><b>44</b></p>
+<p><b>8 Functional Specification</b></p>
+<p><b>45</b></p>
+<p><b>................................................................................................................................... 45</b></p>
+<p><b>8.1 Return values</b></p>
+<p><b>................................................................................................................................... 45</b></p>
+<p><b>8.2 Function E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>................................................................................................................................... 47</b></p>
+<p><b>8.3 Function E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>9 Environment Specifics</b></p>
+<p><b>51</b></p>
+<p><b>................................................................................................................................... 51</b></p>
+<p><b>9.1 Vector DaVinci Developer/RTE Configurator for AUTOSAR 3.2</b></p>
+<p><b>.......................................................................................................................................................... 51</b></p>
+<p><b>9.1.1    Configuration Restrictions </b></p>
+<p><b>.......................................................................................................................................................... 51</b></p>
+<p><b>9.1.2    Preprocessor Restrictions </b></p>
+<p><b>.......................................................................................................................................................... 51</b></p>
+<p><b>9.1.3    E2EPW and RTE in a Safety-Related System </b></p>
+<p><b>................................................................................................................................... 52</b></p>
+<p><b>9.2 Other Issues</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>3</p>
+<p><b>End-to-End Protection Wrapper Generator</b></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p>Page</p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>End-to-End Protection Wrapper Generator  2.0.1</i></p>
+<p><b>10 Integration Notes</b></p>
+<p><b>53</b></p>
+<p><b>................................................................................................................................... 53</b></p>
+<p><b>10.1 Checking the Tool Input</b></p>
+<p><b>................................................................................................................................... 53</b></p>
+<p><b>10.2 Checking the Generated Files</b></p>
+<p><b>................................................................................................................................... 53</b></p>
+<p><b>10.3 Performing an Integration Test</b></p>
+<p><b>.......................................................................................................................................................... 53</b></p>
+<p><b>10.3.1    Using Restbus Simulation </b></p>
+<p>......................................................................................................................................................... 55</p>
+<p>Example Scenarios</p>
+<p>......................................................................................................................................................... 58</p>
+<p>Integration Test Message Sequence</p>
+<p>......................................................................................................................................................... 63</p>
+<p>Hints for Integration Test Setup</p>
+<p><b>.......................................................................................................................................................... 63</b></p>
+<p><b>10.3.2    Using Intra-ECU Signaling </b></p>
+<p>......................................................................................................................................................... 64</p>
+<p>Sending Correct Messages</p>
+<p>......................................................................................................................................................... 64</p>
+<p>Sending Manipulated Messages</p>
+<p><b>11 Abbreviations</b></p>
+<p><b>66</b></p>
+<p><b>12 Glossary</b></p>
+<p><b>67</b></p>
+<p><b>13 References</b></p>
+<p><b>68</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction</b></p>
+<p>Page</p>
+<p>4</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>Many automotive applications are distributed among several <b>electronic control units</b></p>
+<p><b>(ECU)  </b>and  include  communication via  embedded  networks.  The  exchanged  data  is</p>
+<p>often  critical  (for  example,  car  speed  or  steering  angle),  and  incorrect  data  could</p>
+<p>endanger  both,  the  driver  and  the  car.  Therefore,  special  mechanisms  have  been</p>
+<p>introduced to prevent the processing of incorrect data. One of them is the <b>End-to-End</b></p>
+<p><b>Communication  Protection  Library  (E2Elib)</b>,</p>
+<p> which  has  been  standardized  in</p>
+<p>AUTOSAR [AS_E2E_SWS]</p>
+<p>.</p>
+<p>Most automotive networks  protect  data  with checksums.  These  mechanisms  are  not</p>
+<p>adequate for protecting the application data, because errors in gateways or software</p>
+<p>layers within the ECU could destroy the data before and after it is transferred over the</p>
+<p>network. End-to-end protection also  covers  this  path.  The  E2Elib  uses  an additional</p>
+<p>checksum and a sequence counter in order to detect false and missing data directly in</p>
+<p>the application.</p>
+<p>The figure below shows an <b>I-PDU  </b>with a  length of  four  bytes  and  a  <b>signal  </b>with two</p>
+<p>bytes:</p>
+<p>Byte 1</p>
+<p>Data</p>
+<p>Byte 0</p>
+<p>Byte 2</p>
+<p>Byte 3</p>
+<p>The  <b>end-to-end  communication  protection  </b>requires  additional</p>
+<p> signals  in  the</p>
+<p>protected signal area for the checksum and the sequence counter:</p>
+<p>Byte 1</p>
+<p>Data</p>
+<p>CRC</p>
+<p>Seq. counter</p>
+<p>Byte 0</p>
+<p>Byte 2</p>
+<p>Byte 3</p>
+<p>For</p>
+<p> details  about</p>
+<p> this  mechanism,</p>
+<p> see  the  <i>AUTOSAR  E2Elib  Specification</i></p>
+<p>[AS_E2E_SWS]</p>
+<p> and  the  communication  protection  specification  of  the  original</p>
+<p>equipment manufacturer.</p>
+<p><b>1.1</b></p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Applications using the <b>E2Elib </b>or similar communication protection mechanisms  have</p>
+<p>one major problem: the E2E library protection routines need the I-PDU representation to</p>
+<p>apply protection mechanisms.</p>
+<p>Therefore, the application would have to provide the DE  in that I-PDU representation,</p>
+<p>which  means  that  the  signals  of  the  DE  must  be  marshaled  using  information  the</p>
+<p>application normally does not have: byte order, bit length and start bit position of each</p>
+<p>signal, and the length of the I-PDU.</p>
+<p>To  write  CPU-independent  code  and  reuse  application functions  for  more  than  one</p>
+<p>customer (OEM), it is necessary to have a software layer to deal with this. Usually, a so-</p>
+<p>called COM layer is used. The application of the E2E-Lib must create a similar layer</p>
+<p>beside or above COM. That is, the application must implement parts of the COM layer</p>
+<p>again. The application must know details of the communication system that can normally</p>
+<p>be accessed only in lower layers. </p>
+<p>The  <b>E2E  Protection  Wrapper  (E2EPW)  </b>provides  a  layer  that</p>
+<p> circumvents  this</p>
+<p>problem.  The  protection  wrapper  is  generated  code.  That  code  consists  of  copy</p>
+<p>routines which know about the I-PDU layout and contain calls to the E2Elib routines. For</p>
+<p>transmission, the application passes the DE  to the wrapper instead  of  the  RTE.  The</p>
+<p>68</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5</p>
+<p>Page</p>
+<p><b>Introduction</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>wrapper then builds the I-PDU representation, invokes the E2E library function, and then</p>
+<p>the RTE function. For reception, the application calls the wrapper instead of the RTE.</p>
+<p>The wrapper receives the DE from the RTE and invokes the E2E library function before</p>
+<p>returning the DE.</p>
+<p>According  to  the  <i>AUTOSAR  E2Elib  Specification  </i>[AS_E2E_SWS]</p>
+<p>,</p>
+<p> the  <b>E2E</b></p>
+<p><b>Protection  Wrapper  Generator  (E2EPWG)  </b>generates  the  code  for  the  protection</p>
+<p>wrapper from a specific <b>E2EConfig file</b>.</p>
+<p><b>Note: </b>This user manual does not cover safety-related topics. For safety-critical projects</p>
+<p>that need to fulfill ISO 26262 requirements, refer to the <i>End-to-End Protection Wrapper</i></p>
+<p><i>Safety Manual </i>[TT_E2EPW_SM]</p>
+<p>.</p>
+<p><b>1.2</b></p>
+<p><b>Tools Integration</b></p>
+<p>This document describes how to use the <b>E2EPWG </b>developed by TTTech Automotive.</p>
+<p><b>Example (integration into the Vector tools environment):</b></p>
+<p>In this environment, a special preprocessor is available. This preprocessor converts the</p>
+<p>XML files produced by the Vector tools to a <b>E2EConfig  file </b>that can be used  as  an</p>
+<p>input for the <b>E2EPWG</b>.</p>
+<p><b>Vector Tools</b></p>
+<p><b>XML</b></p>
+<p>Preprocessor</p>
+<p><b>Config</b></p>
+<p><b>file</b></p>
+<p>E2EPW</p>
+<p>Generator</p>
+<p><b>.c</b></p>
+<p><b>files</b></p>
+<p><b>.h</b></p>
+<p><b>files</b></p>
+<p>developed according to </p>
+<p>ISO 26262 ASIL D</p>
+<p><b>XML</b></p>
+<p><i><b>Overview of the E2EPW Generator and Preprocessor</b></i></p>
+<p><b>1.3</b></p>
+<p><b>Use Cases</b></p>
+<p>End-to-end protection is a technique that has been used in safety-relevant distributed</p>
+<p>applications, in the automotive  and  other  industrial  sectors  for  quite  some  time.  The</p>
+<p><b>E2EPW  </b>is  intended  for  use  in  all  areas  where  <b>checksum  (CRC)  </b>and  <b>sequence</b></p>
+<p><b>counter (SC) </b>are used in the data area for <b>end-to-end  communication  protection</b>.</p>
+<p>However, the way data is exchanged differs slightly in different scenarios. The defined</p>
+<p>use cases are:</p>
+<p>AUTOSAR  E2E  Protection  Wrapper  with  RTE  for  data  exchange  (use  case</p>
+<p><b>AUTOSAR RTE</b>) </p>
+<p>AUTOSAR  E2E  Protection  Wrapper  without  RTE  (use  case  <b>AUTOSAR  NO</b></p>
+<p>68</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction</b></p>
+<p>Page</p>
+<p>6</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>RTE</b>)</p>
+<p>J1939 CAN stack with an E2E Protection Wrapper using the transport layer (use</p>
+<p>case </p>
+<p>J1939 CAN</p>
+<p>)</p>
+<p>Currently, only the use cases <b>AUTOSAR RTE </b>and <b>AUTOSAR NO RTE </b>are supported.</p>
+<p>This user manual gives a detailed description of use case <b>AUTOSAR RTE </b>only.</p>
+<p><b>Overview of Use Case AUTOSAR RTE</b></p>
+<p>In this use case, the <b>SW-C </b>sends/receives </p>
+<p>DataElement</p>
+<p> (<b>complex data element </b>of</p>
+<p>AUTOSAR) data structures, consisting of fields for signals and a special CRC and SC</p>
+<p>signal. The <b>Protection Wrapper </b>is called by the <b>SW-C</b>.</p>
+<p>At <b>transmission  </b>(see <b>left </b>figure below), the Protection Wrapper calculates  the  CRC</p>
+<p>and SC and passes the </p>
+<p>DataElement</p>
+<p> to the RTE.</p>
+<p>At <b>reception </b>(see <b>right </b>figure below), the Protection Wrapper checks the CRC and SC</p>
+<p>in the received </p>
+<p>DataElement</p>
+<p> and passes it to the SW-C.</p>
+<p>The status provides additional information,  such as error codes and the number of lost</p>
+<p>DataElements.</p>
+<p>SW-C</p>
+<p><b>RTE</b></p>
+<p><b>AUTOSAR BSW</b></p>
+<p>E2Elib</p>
+<p><b>Protection Wrapper</b></p>
+<p><i>DataElem with CRC, SC</i></p>
+<p><i>DataElem</i></p>
+<p>Status</p>
+<p>SW-C</p>
+<p><b>RTE</b></p>
+<p><b>AUTOSAR BSW</b></p>
+<p>E2Elib</p>
+<p><b>Protection Wrapper</b></p>
+<p><i>DataElem with CRC, SC</i></p>
+<p><i>DataElem with </i></p>
+<p><i>CRC, SC</i></p>
+<p>Status</p>
+<p><i><b>Overview of Use Case AUTOSAR RTE</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>7</p>
+<p>Page</p>
+<p><b>Introduction</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>2</b></p>
+<p><b>Versions</b></p>
+<p>This User Manual describes </p>
+<p>the <b>Preprocessor Version </b>2.0.2 and</p>
+<p>the <b>Protection Wrapper Generator Version </b>2.0.1.</p>
+<p><b>3</b></p>
+<p><b>Installation</b></p>
+<p>The <b>Preprocessor </b>and the <b>E2EPWG </b>are Windows console applications. There is no</p>
+<p>special installation procedure for them.</p>
+<p>If the <b>E2EPW </b>is shipped together with Vector BSW, the files</p>
+<p> </p>
+<p>E2EPW_MemMap.inc</p>
+<p> and</p>
+<p> </p>
+<p>E2EPW_Compiler_Cfg.inc</p>
+<p>are already incorporated into the Vector BSW.</p>
+<p>Otherwise  the  files  </p>
+<p>E2EPW_Compiler_Cfg.inc</p>
+<p> and  </p>
+<p>E2EPW_MemMap.inc</p>
+<p> are</p>
+<p>also shipped with the <b>Preprocessor </b>and the <b>E2EPWG </b>and are example files that must</p>
+<p>be  adapted  to  the  actual</p>
+<p> build  environment</p>
+<p> and  requirements  according  to  the</p>
+<p><i>AUTOSAR  Specification  of  Compiler  Abstraction  </i>[AS_COMABS_SWS]</p>
+<p> and  the</p>
+<p><i>AUTOSAR Specification of Memory Mapping </i>[AS_MEM_SWS]</p>
+<p>.</p>
+<p>For  tool</p>
+<p> integration,  the  Preprocessor  can  be  invoked  using  the  command  line</p>
+<p>parameters. Please refer to the respective tool manual for how to do this.</p>
+<p><b>Note: </b>If the Preprocessor and the E2EPWG are part of a software package, they may</p>
+<p>be</p>
+<p> installed</p>
+<p> and</p>
+<p> integrated</p>
+<p> transparently.</p>
+<p> The</p>
+<p> content</p>
+<p> of</p>
+<p>E2EPW_Compiler_Cfg.inc</p>
+<p> and  </p>
+<p>E2EPW_MemMap.inc</p>
+<p> may  then  be  already</p>
+<p>included in the corresponding </p>
+<p>Compiler_Cfg.h</p>
+<p> and </p>
+<p>MemMap.h</p>
+<p> files of the software</p>
+<p>package.</p>
+<p>The Preprocessor is built with </p>
+<p>py2exe</p>
+<p> and includes <b>Python 2.7.3 </b>and <b>lxml 2.2.8</b>.</p>
+<p>The corresponding software licenses for these open source packages are contained in</p>
+<p>the file </p>
+<p>LICENSE</p>
+<p>, which is bundled with the Preprocessor executable.</p>
+<p>The following <b>DLLs </b>must be available in the system:</p>
+<p>USER32.dll</p>
+<p>SHELL32.dll</p>
+<p>WSOCK32.dll</p>
+<p>ADVAPI32.dll</p>
+<p>WS2_32.dll</p>
+<p>KERNEL32.dll</p>
+<p>MSVCR90.dll</p>
+<p><b>Note</b>: If this DLL is not available, it must be installed manually. The installer for this</p>
+<p>DLL is availbale from http://www.microsoft.com/downloads/details.aspx?</p>
+<p>FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&amp;displaylang=en</p>
+<p>68</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Installation</b></p>
+<p>Page</p>
+<p>8</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>4</b></p>
+<p><b>Preprocessor</b></p>
+<p>The Preprocessor takes the <b>ECU information </b>of the system description and the <b>SW-C</b></p>
+<p><b>design </b>information as an input. The output of the Preprocessor is a <b>E2EConfig file </b>(in</p>
+<p>a specific  format)  that  can be  interpreted  by the  <b>E2EPWG  </b>in order  to  generate  the</p>
+<p>protection wrapper code.</p>
+<p>The behavior of the preprocessor is controlled with command line parameters</p>
+<p>.</p>
+<p><b>4.1</b></p>
+<p><b>Preprocessor Help</b></p>
+<p>The behavior of the Preprocessor is controlled with command line parameters.</p>
+<p>Calling  the  preprocessor  with  the  command  line  parameter  </p>
+<p>–h</p>
+<p> gives  the  following</p>
+<p>output:</p>
+<p>E2EPWG PreProcessor v2.0.2</p>
+<p>Usage: pwg_preprocessor.exe [options] ProjectName [SystemDescriptionComm]</p>
+<p>SystemDescription OutputDir</p>
+<p>Options:</p>
+<p>  -h, --help            show this help message and exit</p>
+<p>  -b BYTEORDER, --cpu-byte-order=BYTEORDER</p>
+<p>                        Set the cpu-byte-order to BYTEORDER. Valid values are:</p>
+<p>                        BIG_ENDIAN, LITTLE_ENDIAN, HIGH_BYTE_FIRST,</p>
+<p>                        LOW_BYTE_FIRST.</p>
+<p>  -e FILE, --e2epwg=FILE</p>
+<p>                        Execute E2EPWG using the config file created by the</p>
+<p>                        PreProcessor.</p>
+<p>  -v LEVEL, --verbose=LEVEL</p>
+<p>                        Output extended information (with LEVEL verbosity</p>
+<p>                        level). Levels above 1 are useful for debugging.</p>
+<p>  -f, --error_format    Enables the Vector tool error format.</p>
+<p>  -E FILE, --ecuc=FILE  Additional ECU Description File containing byte-order</p>
+<p>                        data.</p>
+<p><b>4.1.1</b></p>
+<p><b>Using the Preprocessor</b></p>
+<p>To  run  the  <b>Preprocessor</b>,  enter  the  following  <b>command  </b>in  a  command  prompt</p>
+<p>window: </p>
+<p>pwg_preprocessor.exe</p>
+<p> [&lt;options&gt;]</p>
+<p><i> &lt;ProjectName&gt;</i></p>
+<p><i>[&lt;SystemDescriptionComm&gt;] &lt;SystemDescription&gt; &lt;OutputDir&gt;</i></p>
+<p>8</p>
+<h1 style="page-break-before:always; "></h1>
+<p>9</p>
+<p>Page</p>
+<p><b>Preprocessor</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The following table describes the <b>mandatory </b>command line <b>parameters</b>:</p>
+<p><b>Name</b></p>
+<p><b>Meaning</b></p>
+<p><i>&lt;ProjectName&gt;</i></p>
+<p>This is an arbitrary name. This parameter is used as</p>
+<p>the file <b>name </b>of the <b>generated configuration </b>file.</p>
+<p><i>[&lt;SystemDescriptionCom</i></p>
+<p><i>m&gt;]</i></p>
+<p>This parameter specifies the <b>location </b>and <b>name </b>of</p>
+<p>the (ECU extract of the) <b>system description file</b>. It</p>
+<p>contains  the  communication  part</p>
+<p> of</p>
+<p> the  system</p>
+<p>description,</p>
+<p> e.g.,</p>
+<p> the</p>
+<p> signals</p>
+<p> and</p>
+<p> their</p>
+<p>corresponding mapping to I-PDUs.</p>
+<p>This  file  is  <b>optional  </b>for  <b>AUTOSAR  3  </b>formats,</p>
+<p>because it is only necessary if the information is not</p>
+<p>already</p>
+<p> contained</p>
+<p> in</p>
+<p> </p>
+<p>SystemDescription</p>
+<p>,</p>
+<p>which is always the case for AUTOSAR 4 formats.</p>
+<p><i>&lt;SystemDescription&gt;</i></p>
+<p>This parameter specifies the <b>location </b>and <b>name </b>of</p>
+<p>the  <b>system description </b>file (application part). This</p>
+<p>file contains the design of the software components</p>
+<p>together</p>
+<p> with  all</p>
+<p> the  tasks,</p>
+<p> events,</p>
+<p> ports  and</p>
+<p>(variable) data prototypes.</p>
+<p>It  can also  contain signals,  I-PDUs  and  mappings</p>
+<p>between  signals  and  I-PDUs.  For  AUTOSAR  4</p>
+<p>formats, this information is mandatory.</p>
+<p>The  ECU  file  is  an  XML  file  with  a  format  that</p>
+<p>conforms  to  the  meta  model</p>
+<p> of</p>
+<p> the  AUTOSAR</p>
+<p>specification  versions  3.1.4,</p>
+<p> 3.2.1,</p>
+<p> 3.2.2,</p>
+<p> 4.0.3,</p>
+<p>4.1.2, or 4.1.3. The file is generated by the Vector</p>
+<p>tools. The file extension is </p>
+<p>.arxml</p>
+<p>.</p>
+<p><i>&lt;OutputDir&gt;</i></p>
+<p>This  parameter</p>
+<p> specifies  the  <b>path  </b>where  the</p>
+<p><b>generated configuration </b>file will be stored.</p>
+<p> The following table describes the <b>optional </b>command line <b>parameters</b>:</p>
+<p><b>Name</b></p>
+<p><b>Meaning</b></p>
+<p>-h</p>
+<p>Shows the help message</p>
+<p>.</p>
+<p>-b BYTEORDER,</p>
+<p>--cpu-byte-order=BYTEORDER</p>
+<p>This  parameter  specifies  the  <b>value  </b>that  must  be</p>
+<p>assigned  to  the  <b>attribute  </b></p>
+<p>Byte_Order_CPU</p>
+<p> of  the</p>
+<p>generated <b>E2EConfig file</b>.</p>
+<p>The  CPU  byte  order  must  be  provided,  either  by</p>
+<p>using command line parameter -b or -E.</p>
+<p><b>Possible values:</b></p>
+<p>BIG_ENDIAN (=HIGH_BYTE_FIRST),</p>
+<p>8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Preprocessor</b></p>
+<p>Page 10</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Name</b></p>
+<p><b>Meaning</b></p>
+<p>LITTLE_ENDIAN (=LOW_BYTE_FIRST)</p>
+<p>.</p>
+<p>-e FILE, --e2epwg=FILE</p>
+<p>This  parameter</p>
+<p> specifies  the  location  of</p>
+<p> the</p>
+<p><b>E2EPWG</b>.  When  this  parameter  is  specified,  the</p>
+<p>generator  is  invoked  after  the  Preprocessor  has</p>
+<p>successfully generated the <b>E2EConfig file</b>.</p>
+<p>The command line option </p>
+<p>–e</p>
+<p> accepts a path to an</p>
+<p>executable file (the E2EPWG) and calls this file after</p>
+<p>configuration generation as follows:</p>
+<p>&lt;FILE&gt; &lt;OutputDir&gt;\&lt;EcuProjectName&gt;.cfg</p>
+<p>&lt;OutputDir&gt;</p>
+<p>where</p>
+<p>&lt;FILE&gt;</p>
+<p> is the <b>executable </b>file </p>
+<p><i>FILE</i></p>
+<p>,</p>
+<p>&lt;OutputDir&gt;</p>
+<p> is the </p>
+<p><i>OutputDir</i></p>
+<p> parameter provided</p>
+<p>to the Preprocessor and</p>
+<p>&lt;EcuProjectName&gt;</p>
+<p> is</p>
+<p> the</p>
+<p> </p>
+<p><i>EcuProjectName</i></p>
+<p>parameter provided to the Preprocessor.</p>
+<p>-v LEVEL,</p>
+<p>--verbose=LEVEL</p>
+<p>This</p>
+<p> parameter</p>
+<p> is</p>
+<p> used</p>
+<p> for</p>
+<p> <b>detailed</b></p>
+<p><b> error</b></p>
+<p><b>reporting</b>. The higher the verbosity level, the more</p>
+<p>detailed is the report. </p>
+<p><b>Possible values:</b></p>
+<p>Levels  <b>above  1  </b>are  useful  for  <b>debugging</b>.  The</p>
+<p><b>default </b>value is <b>0 </b>(a short error notice is written to</p>
+<p>stderr</p>
+<p>).</p>
+<p>For <b>level 1</b>, the context of the action that failed is</p>
+<p>also  printed  to  </p>
+<p>stderr</p>
+<p>.  If  the  error  occurred</p>
+<p>during  the  parsing  of  the  XML  input  data,  the</p>
+<p>location  within  the  XML  file  (line  number)</p>
+<p> is</p>
+<p>provided.</p>
+<p>For <b>level 2</b>, the XPATH  query that  failed  is  also</p>
+<p>printed. If the  XPATH  query is  not  based  on the</p>
+<p>root node, the location within the XML document,</p>
+<p>from where the XPATH query was started, is also</p>
+<p>provided.</p>
+<p>-f,</p>
+<p>--error_format</p>
+<p>This parameter enables the error format needed by</p>
+<p>the Vector tools to parse the output messages of the</p>
+<p>Preprocessor.</p>
+<p>-E,</p>
+<p>--ecuc</p>
+<p>This  parameter  is  used  to  provide  the  ECUC  file,</p>
+<p>which contains the definition of the CPU byte order.</p>
+<p>If  this  option is  not  used,  the  byte  order  must  be</p>
+<p>provided by using the </p>
+<p>-b</p>
+<p> parameter.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>11</p>
+<p>Page</p>
+<p><b>Preprocessor</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Note: </b>Given the call parameters above, the <b>E2EPWG </b>will put all the generated files into</p>
+<p>the </p>
+<p><i>&lt;OutputDir&gt;</i></p>
+<p> directory. If a file created by the <b>E2EPWG </b>exists already, e.g., from</p>
+<p>a  previous  run,  the  generator  will  output  an  error  message  and  exit.  It  is  therefore</p>
+<p>recommended  to  provide  an  empty,</p>
+<p> but</p>
+<p> existing</p>
+<p><i>&lt;OutputDir&gt;</i></p>
+<p> directory  to  the</p>
+<p>Preprocessor when the command line option </p>
+<p>-e</p>
+<p> is used.</p>
+<p><b>4.1.2</b></p>
+<p><b>Behavior and Log Output</b></p>
+<p>The overall behavior of the Preprocessor was changed for version 1.6.1, 2.0.1 and</p>
+<p>onward. Previously, the Preprocessor would have aborted with an error message if the</p>
+<p>resulting E2EConfig file had not been complete/valid regarding the provided ARXML</p>
+<p>input.</p>
+<p>The new behavior performs a best-effort strategy to provide as much content derived</p>
+<p>from the input ARXML as possible, even if the result is only partial and not a valid</p>
+<p>E2EConfig file. This has several implications:</p>
+<p>Almost all error messages are now reported as warning. This is mainly due to the</p>
+<p>default behavior of the default tool chain (Vector DaVinci), which discards all</p>
+<p>generated output if an error is reported.</p>
+<p>Warnings may build up and result in causally linked warning messages.</p>
+<p>The overall amount of log output messages increases drastically as the preprocessor</p>
+<p>continues to process the input ARXML, where it previously would have simply aborted</p>
+<p>with a single error message.</p>
+<p>The generated E2EConfig file may not be valid and result in an error message of the</p>
+<p>E2EPW Generator. Manual adaptions of the E2EConfig file or of the ARXML input</p>
+<p>may be necessary to get a valid E2EConfig file. Hints are provided in [Warning] and</p>
+<p>[Info] messages.</p>
+<p>EndToEndProtections may be skipped due to errors and a warning message is</p>
+<p>provided. There will not be a corresponding Protected_Area defined in the eventually</p>
+<p>generated E2EConfig file.</p>
+<p>In general, log output is written to stderr.</p>
+<p><b>4.1.3</b></p>
+<p><b>Log Message Format</b></p>
+<p>The format of log output messages is aligned to the format specification of the Vector</p>
+<p>DaVinci tools.</p>
+<p>The format is as follows:</p>
+<p>[<i>&lt;Severity&gt;</i>] E2E<i>&lt;ID&gt; </i>- <i>&lt;Summary&gt;</i></p>
+<p>- <i>&lt;Description&gt;</i></p>
+<p>Where </p>
+<p><i>&lt;Severity&gt;</i></p>
+<p> is one of the following:</p>
+<p>[Info]</p>
+<p> - For information only, guiding through the process or indicating what the</p>
+<p>Preprocessor currently does.</p>
+<p>[Warning]</p>
+<p> - Depending on the particular message, this can be a simple indication as</p>
+<p>&quot;that there might be a problem&quot; as well as a severe warning like &quot;the output file is</p>
+<p>incomplete / cannot be used as is&quot;.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Preprocessor</b></p>
+<p>Page 12</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>[Error]</p>
+<p> - For hard errors where no output can be created. Typically, these are run-</p>
+<p>time errors, e.g. input file missing, cannot write to file, or unrecoverable parsing errors.</p>
+<p><i>&lt;ID&gt;</i></p>
+<p> is a five-digit number indicating the message type.</p>
+<p>&lt;Summary&gt;</p>
+<p> is optional and provides a short summary of the particular message.</p>
+<p><i>&lt;Description&gt;</i></p>
+<p> provides detailed information about the cause of the message.</p>
+<p><b>4.1.4</b></p>
+<p><b>Warning and Info Log Messages</b></p>
+<p>The Preprocessor provides helpful log output, which should always be checked for</p>
+<p>[Warning] and [Info] messages.</p>
+<p>Some of the [Info] messages are only provided if the verbose level is greater 0</p>
+<p>(command line option </p>
+<p>-v</p>
+<p> /</p>
+<p> --verbose</p>
+<p>).</p>
+<p>This section lists common [Warning] and [Info] log messages and describes their</p>
+<p>meaning. Some of them are also related to each other.</p>
+<p><b>Message</b></p>
+<p><b>Description</b></p>
+<p><b>[Info] E2E01004 </b>- </p>
+<p>- Found maximum value for</p>
+<p>MaxDeltaCounterInit of 15 which</p>
+<p>should actually be 14 - value will be</p>
+<p>corrected in generated E2E-config file</p>
+<p>This message occours if MaxDeltaCounterInit is set to the</p>
+<p>maximum value as described in SWS_E2Elibrary, which is</p>
+<p>apparently not a meaningful value and therefore rejected by</p>
+<p>the E2EPW Generator. Background: MaxDeltaCounterInit is</p>
+<p>used to initialize the status variable MaxDeltaCounter. The</p>
+<p>maximum possible value is 14 (Profile 1) respectively 15</p>
+<p>(Profile 2). However, MaxDeltaCounter is always incremented</p>
+<p>by the E2Elib before it is used. Therefore, a</p>
+<p>MaxDeltaCounterInit value of 13 and 14 is semantically</p>
+<p>equivalent with Profile 1 (14 and 15 are equivalent with Profile</p>
+<p>2). The E2EPW Generator, however, is pessimistic and</p>
+<p>assumes an erroneous configuration if a configuration value</p>
+<p>makes no sense. Therefore, the Preprocessor adapts the</p>
+<p>value and provides an [Info] message. Additionally, the</p>
+<p>Preprocessor places a comment after the corrected value in</p>
+<p>the E2EConfig file.</p>
+<p><b>[Info] E2E01100 </b>- </p>
+<p>Could not find adequate signals in</p>
+<p>signal group</p>
+<p>'example_sgrp_with_offset' to be</p>
+<p>configured as protection signals</p>
+<p>- trying non-zero data offset of signal</p>
+<p>group to find matching signals.</p>
+<p>Only appears if verbose level is greater</p>
+<p> 0</p>
+<p>. It indicates that the</p>
+<p>protection signals could not be found at their expected</p>
+<p>position, but they simply might be offset from the start. The</p>
+<p>preprocessor then tries several offsets to find a matching</p>
+<p>value for all signals. If a matching offset is found, another</p>
+<p>[Info] E2E01100</p>
+<p> message is provided.</p>
+<p><b>[Info] E2E01100 </b>- </p>
+<p>Signal Group offset seems to fit with</p>
+<p>offset 16 (at begin of first signal)</p>
+<p>This message only appears if the previous </p>
+<p>[Info]</p>
+<p>E2E01100</p>
+<p> message was provided. It states the result of the</p>
+<p>offset search. Please note that the E2EPW Generator has no</p>
+<p>direct support for non-zero offsets, so the Preprocessor will</p>
+<p>substract this offset value from the Bit_Position of each signal</p>
+<h1 style="page-break-before:always; "></h1>
+<p>13</p>
+<p>Page</p>
+<p><b>Preprocessor</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Message</b></p>
+<p><b>Description</b></p>
+<p>in the E2EConfig file. This is also stated as a comment before</p>
+<p>the signals block in the corresponding Protected_Area in the</p>
+<p>E2EConfig file.</p>
+<p><b>[Warning] E2E00210 </b>-</p>
+<p>- Could not determine position/name</p>
+<p>of (all) protection signals in signal</p>
+<p>group</p>
+<p>'Eng_Rs_EngCtrl_Pr2_24huh6mozixa</p>
+<p>c7vybqdhljanf' Resulting E2E Config</p>
+<p>file must be adapted manually</p>
+<p>regarding Bit_Position and</p>
+<p>Signal_Property</p>
+<p>This [Warning] message indicates that there was no match</p>
+<p>for the determination of protection signals. This might be due</p>
+<p>to a mismatching</p>
+<p> Bit_Position</p>
+<p> of single signals,</p>
+<p>Signal_Type</p>
+<p> or </p>
+<p>Bit_Length</p>
+<p>, but most probably there is a</p>
+<p>misconfiguration in the system  (missing mapping of signals</p>
+<p>to data elements, or signal layout configuration). The E2EPW</p>
+<p>Generator will not accept this E2EConfig file without</p>
+<p>modification.</p>
+<p><b>[Info] E2E01101 </b>- </p>
+<p>- There was an error/warning during</p>
+<p>processing an End-To-End-Protection</p>
+<p>('End-To-End-Protection_SHORT-</p>
+<p>NAME'). No E2E config section will</p>
+<p>be generated for this End-To-End-</p>
+<p>Protection. However, continuing to</p>
+<p>process remaining End-To-End-</p>
+<p>Protections.</p>
+<p>This info message refers to a previously stated warning for</p>
+<p>that End-To-End-Protection. The severity of that warning leads</p>
+<p>to this info message, which states that the preprocessor did</p>
+<p>not generate a Protected_Area for that End-To-End-</p>
+<p>Protection. However, it will go on with processing the next</p>
+<p>End-To-End-Protection.</p>
+<p><b>[Warning] E2E01003 </b>- </p>
+<p>- Profile 'PROFILE_04' is not</p>
+<p>supported/ignored for E2EPW</p>
+<p>configuration generation - Please use</p>
+<p>E2E Transformer (E2EXf) generator.</p>
+<p>Found End-To-End-Profile with</p>
+<p>Category 'PROFILE_04'</p>
+<p>Example.arxml.</p>
+<p>If Profile 4, 5, or 6 are found, the Preprocessor provides a</p>
+<p>warning message, which states that these profiles are not</p>
+<p>handled by the Preprocessor. End-To-End-Protections are</p>
+<p>ignored, so that they can be processed using the E2E</p>
+<p>Transformer (E2EXf) tool chain.</p>
+<p><b>[Warning] E2E00206 </b>- </p>
+<p>- No supported End-to-End protection</p>
+<p>found.</p>
+<p>A follow-up warning message to message </p>
+<p>[Info]</p>
+<p>E2E01101</p>
+<p> or </p>
+<p>[Warning] E2E01003.</p>
+<p> If all End-To-End-</p>
+<p>Protections are skipped due to severe warnings, no</p>
+<p>E2EConfig file will be generated. Also, no final &quot;Configuration</p>
+<p>file &lt;filename&gt; successfully written.&quot; message will be</p>
+<p>provided.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Preprocessor</b></p>
+<p>Page 14</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>5</b></p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>The generator is a Microsoft Windows console application. It uses an <b>E2EConfig file </b>to</p>
+<p>generate files that contain the <b>E2EPW </b>code.</p>
+<p>The Windows version on which the generator was tested during development is noted in</p>
+<p>the corresponding Safety Manual  [TT_E2EPW_SM]</p>
+<p>.  An addendum  also  confirms</p>
+<p>compatibility  with  Microsoft  Windows  7.  However,  as  there  are  no  special  system</p>
+<p>requirements, the generator should run without problems on all Windows version since</p>
+<p>Microsoft Windows XP SP3.</p>
+<p><b>5.1</b></p>
+<p><b>Using the Generator</b></p>
+<p>To use the generator, use the following command line:</p>
+<p>  </p>
+<p>pwg.exe <i>&lt;config-file&gt; &lt;output-path&gt;</i></p>
+<p>where &lt;<i>config-file</i>&gt; and &lt;<i>output-path</i>&gt; must exist.</p>
+<p> The following table lists the command line <b>parameters</b>:</p>
+<p><b>Name</b></p>
+<p><b>Meaning</b></p>
+<p><i>&lt;config-file&gt;</i></p>
+<p>This  parameter</p>
+<p> specifies  the  path  to  a  valid</p>
+<p>E2EConfig file</p>
+<p>.</p>
+<p><i>&lt;output-path&gt;</i></p>
+<p>This  parameter  specifies  the  path  to  which  the</p>
+<p>generator will write the created files.</p>
+<p>The E2EPWG will output an error message and quit if something goes wrong. This will</p>
+<p>be the case if:</p>
+<p>command line parameters are omitted.</p>
+<p>the E2EConfig file could not be found.</p>
+<p>the output path does not exist.</p>
+<p>the </p>
+<p><i>&lt;config-file&gt;</i></p>
+<p> or the </p>
+<p><i>&lt;output-path&gt;</i></p>
+<p> parameter exceeds the maximum</p>
+<p>length of a valid file path (260 characters).</p>
+<p>the major version of the E2EConfig file and the E2EPWG do not match.</p>
+<p>the  minor  version  of  the  E2EConfig  file  is  larger  than  the  minor  version  of  the</p>
+<p>E2EPWG.</p>
+<p>the <b>E2EConfig file </b>has an <b>invalid syntax</b>.</p>
+<p>the <b>E2EConfig file </b>has an <b>invalid content</b>.</p>
+<p>a file the E2EPWG wants to create already exists (for example, from a previous run).</p>
+<p>a <b>file I/O error </b>occurs, such as insufficient disk space or missing write permissions.</p>
+<p>there is  not enough memory left.</p>
+<p><b>Note: </b>It is also possible to call the E2EPWG directly from the preprocessor.</p>
+<p>68</p>
+<p>15</p>
+<h1 style="page-break-before:always; "></h1>
+<p>15</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>5.2</b></p>
+<p><b>E2EConfig file</b></p>
+<p>This Section gives a description of the syntax</p>
+<p> of the <b>E2EConfig file </b>and its elements</p>
+<p>.</p>
+<p><b>5.2.1</b></p>
+<p><b>Syntax</b></p>
+<p>The  <b>E2EConfig  file  </b>version 2.0.0  syntax   has  a  <b>human-readable  </b>text  format.  The</p>
+<p>encoding is <b>ASCII</b>. Comments can be added using C++-style syntax:</p>
+<p>/* comment until asterisk-slash */</p>
+<p>// comment until end of line</p>
+<p>All the <b>keywords </b>(field names and keyword values) are <b>case-sensitive</b>.</p>
+<p><b>Note: </b>The order of the field names is fixed.</p>
+<p>The <b>syntax </b>is given in <b>EBNF</b>:</p>
+<p><b>Symbol</b></p>
+<p><b>Meaning</b></p>
+<p>::= </p>
+<p>A name on the left side of the </p>
+<p>::=</p>
+<p> is expressed with the syntax on</p>
+<p>its right side.</p>
+<p>&lt;&gt; </p>
+<p>Angle brackets  are used to mark objects that are specified later.</p>
+<p>| </p>
+<p>The definition separator symbol indicates <b>choice</b>. Exactly one of</p>
+<p>the choices must appear.</p>
+<p>[ ] </p>
+<p>The text between the square brackets is <b>optional</b>.</p>
+<p>{ }</p>
+<p>The  text  between  the  curly  brackets  may  be  omitted  or  may</p>
+<p>appear once  or  may be  repeated  arbitrarily.  The  <b>brackets  </b>are</p>
+<p><b>underlined </b>to distinguish them from the <b>literals </b>&quot;{&quot; and &quot;}&quot;.</p>
+<p>&lt;string&gt; </p>
+<p>Indicates  any  character  string  enclosed  in  double  quotes  (i.e.,</p>
+<p>&quot;string&quot;).</p>
+<p>15</p>
+<p>18</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 16</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The syntax is as follows:</p>
+<p>&lt;E2EPW_configuration_file&gt; ::=    </p>
+<p>    E2EPW_configuration    </p>
+<p>    {</p>
+<p>        Version_Major = &lt;integer&gt; ;</p>
+<p>        Version_Minor = &lt;integer&gt; ;</p>
+<p>        Version_Patch = &lt;integer&gt; ;</p>
+<p>        Protected_Areas &lt;protected_area&gt; {,&lt;protected_area&gt;} ;</p>
+<p>    } ;</p>
+<p>&lt;protected_area&gt; ::=</p>
+<p>    {</p>
+<p>        PDE_Name = &lt;string&gt; ;</p>
+<p>        PDE_Type = &lt;string&gt; ;</p>
+<p>        Node_Name = &lt;string&gt; ;</p>
+<p>        Direction = &lt;direction&gt; ;</p>
+<p>        Byte_Order_CPU = &lt;byte_order&gt; ;</p>
+<p>        Bit_Order = &lt;bit_order&gt; ;</p>
+<p>        Bit_Counting = &lt;bit_counting&gt; ;</p>
+<p>        Unused_Bit_Value = &lt;integer&gt; ;</p>
+<p>        Check_DeSerial = &lt;no_yes&gt; ;</p>
+<p>        [ Includes_H = &lt;string_list&gt; ; ]</p>
+<p>        [ Includes_C = &lt;string_list&gt; ; ]</p>
+<p>        Profile &lt;profile_p01&gt; </p>
+<p>              | &lt;profile_p02&gt; </p>
+<p>        Signals &lt;signal&gt; {,&lt;signal&gt;} ;</p>
+<p>        Protection_Wrapper &lt;autosar_rte&gt; </p>
+<p>                         | &lt;autosar_no_rte&gt; </p>
+<p>                         | &lt;j1939_can&gt;</p>
+<p>    }</p>
+<p>&lt;profile_p01&gt; ::=</p>
+<p>    {</p>
+<p>        Category = P01 ;</p>
+<p>        Data_Length = &lt;integer&gt; ;</p>
+<p>        Data_ID = &lt;hex&gt; ;</p>
+<p>        Data_ID_Mode = &lt;data_id_mode&gt; ;</p>
+<p>        Max_Delta_Counter_Init = &lt;integer&gt; ;</p>
+<p>        CRC_Offset = &lt;hex&gt; ;</p>
+<p>        Counter_Offset = &lt;hex&gt; ;</p>
+<p>        Data_ID_Nibble_Offset = &lt;hex&gt; ;</p>
+<p>        Max_No_New_Or_Repeated_Data = &lt;integer&gt; ;</p>
+<p>        Sync_Counter_Init = &lt;integer&gt; ;</p>
+<p>    } ;</p>
+<p>&lt;profile_p02&gt; ::=</p>
+<p>    {</p>
+<p>        Category = P02 ;</p>
+<p>        Data_Length = &lt;integer&gt; ;</p>
+<p>        Data_ID_List = &lt;hex_list_16&gt; ;</p>
+<p>        Max_Delta_Counter_Init = &lt;integer&gt; ;</p>
+<p>        Max_No_New_Or_Repeated_Data = &lt;integer&gt; ;</p>
+<p>        Sync_Counter_Init = &lt;integer&gt; ;</p>
+<p>        Offset = &lt;integer&gt; ;</p>
+<p>    } ;</p>
+<p>&lt;signal&gt; ::=</p>
+<p>    {</p>
+<p>        Signal_Name = &lt;string&gt; ;</p>
+<p>        Signal_Type = &lt;sig_type&gt; ;</p>
+<p>        Signal_ID = &lt;integer&gt; ;</p>
+<p>        Signal_Property = &lt;sig_prop&gt; ;</p>
+<p>        Byte_Order = &lt;byte_order&gt; ;</p>
+<p>        Bit_Length = &lt;integer&gt; ;</p>
+<p>        Bit_Position = &lt;integer&gt; ;</p>
+<p>    }</p>
+<h1 style="page-break-before:always; "></h1>
+<p>17</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>&lt;autosar_rte&gt; ::=</p>
+<p>    {</p>
+<p>        E2EPW_Usecase = AUTOSAR_RTE ;</p>
+<p>        Port_Name = &lt;string&gt; ;</p>
+<p>        VDP_Name = &lt;string&gt; ;</p>
+<p>        Is_Opaque = &lt;no_yes&gt; ;</p>
+<p>        Use_Call_By_Ref = &lt;no_yes&gt; ;</p>
+<p>        Use_RTE_Update = &lt;no_yes&gt; ;</p>
+<p>        Use_RTE_Instance = &lt;no_yes&gt; ;</p>
+<p>    } ;</p>
+<p>&lt;autosar_no_rte&gt; ::=</p>
+<p>    {</p>
+<p>        E2EPW_Usecase = AUTOSAR_NO_RTE ;</p>
+<p>        Signal_Grp_ID = &lt;integer&gt; ;</p>
+<p>        Is_Opaque = &lt;no_yes&gt; ;</p>
+<p>    } ;</p>
+<p>&lt;j1939_can&gt; ::=</p>
+<p>    {</p>
+<p>        E2EPW_Usecase = J1939_CAN ;</p>
+<p>        PGN_Number = &lt;integer&gt; ;</p>
+<p>        Is_Opaque = &lt;no_yes&gt; ;</p>
+<p>    } ;</p>
+<p>&lt;direction&gt; ::=</p>
+<p>    RX | TX</p>
+<p>&lt;byte_order&gt; ::=</p>
+<p>    LITTLE_ENDIAN | BIG_ENDIAN</p>
+<p>&lt;bit_order&gt; ::=</p>
+<p>    DECREASING | INCREASING</p>
+<p>&lt;bit_counting&gt; ::=</p>
+<p>    SAWTOOTH | MONOTONE</p>
+<p>&lt;no_yes&gt; ::=</p>
+<p>    NO | YES</p>
+<p>&lt;string_list&gt; ::=</p>
+<p>    &lt;string&gt; {,&lt;string&gt;}</p>
+<p>&lt;data_id_mode&gt; ::=</p>
+<p>    BOTH | ALT | LOW | NIBBLE</p>
+<p>&lt;hex_list_16&gt; ::=</p>
+<p>      &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;</p>
+<p>    , &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;</p>
+<p>    , &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;</p>
+<p>    , &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt;, &lt;hex&gt; ;</p>
+<p>&lt;sig_type&gt; ::=</p>
+<p>    UINT8 | UINT16 | UINT32 | SINT8 | SINT16 | SINT32 | BOOLEAN | UINT8N</p>
+<p>&lt;sig_prop&gt; ::=</p>
+<p>    NORMAL | CHK | SEQCNT | NIBBLE</p>
+<p>&lt;integer&gt; ::=</p>
+<p>    &lt;digit&gt;{&lt;digit&gt;}</p>
+<p>&lt;digit&gt; ::=</p>
+<p>    0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 18</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>&lt;hex&gt; ::=</p>
+<p>    &lt;hex_prefix&gt;&lt;hex_digit&gt;{&lt;hex_digit&gt;}</p>
+<p>&lt;hex_prefix&gt; ::=</p>
+<p>    0x | 0X</p>
+<p>&lt;hex_digit&gt; ::=</p>
+<p>    &lt;digit&gt; | a | b | c | d | e | f | A | B | C | D | E | F</p>
+<p><b>5.2.2</b></p>
+<p><b>Description of Elements</b></p>
+<p>Although the <b>syntax </b>of the <b>E2EConfig file </b>is <b>defined  </b>for <b>3  use  cases  </b>and  several</p>
+<p>profiles, <b>only </b>the use case <b>AUTOSAR  RTE  </b>is supported by the  delivered  package.</p>
+<p>Depending on the delivered E2EPWG variant, different profiles may be supported. The</p>
+<p>E2EPWG  checks  the  semantics  for  plausibility,  but  further  checks  must  be  done</p>
+<p>manually.</p>
+<p> They  are  described  in  the  <i>E2E  Protection  Wrapper</i></p>
+<p><i> Safety  Manual</i></p>
+<p>[TT_E2EPW_SM]</p>
+<p>. Also, the cause of validation errors is explained here.</p>
+<p>The description of the semantics is structured in the same way as the BNF description</p>
+<p>of the syntax.</p>
+<p>A <b>C-identifier </b>is a string that has some <b>limitations </b>regarding the contained characters</p>
+<p>and  the  length:  It  starts  with  a  <b>letter  </b>or  an  <b>underscore  </b>and  contains  only  letters,</p>
+<p>numbers, and underscores. It must not be identical to one of the <b>ANSI C </b>keywords. The</p>
+<p><b>maximum length </b>of a C-identifier allowed in the <b>E2EConfig file </b>is <b>128 </b>characters.</p>
+<p>A  <b>name identifier </b>is a string that consists only of letters,  numbers,  and  underscores</p>
+<p>(max. 128 characters).</p>
+<p><i><b>&lt;E2EPW_configuration_file&gt;</b></i></p>
+<p>Version_Major</p>
+<p>Must match the corresponding values of the E2EPWG version. </p>
+<p>Version_Minor</p>
+<p>Must be smaller than or equal  to the corresponding values  of the</p>
+<p>E2EPWG version. </p>
+<p>Version_Patch</p>
+<p>Can differ from the corresponding value of the E2EPWG version.</p>
+<p><i><b>&lt;protected_area&gt;</b></i></p>
+<p>PDE_Name</p>
+<p>This parameter defines a <b>name identifier </b>for the <b>PDE</b>. This string</p>
+<p>is used as part of the file name of some of the generated files.  It</p>
+<p>must</p>
+<p> not</p>
+<p> be  longer  than  128  characters.</p>
+<p> For</p>
+<p> the  use  case</p>
+<p>AUTOSAR RTE, </p>
+<p>PDE_Name</p>
+<p> must be equal to </p>
+<p>VDP_Name</p>
+<p>.</p>
+<p>PDE_Type</p>
+<p>This parameter defines  the <b>data  type  </b>of the <b>PDE </b>data structure.</p>
+<p>This string is a <b>C-identifier </b>or begins with </p>
+<p>struct</p>
+<p> followed by  a</p>
+<p>white space and a C-identifier.  The  C-identifier  part  must  not  be</p>
+<p>longer than 128 characters in both cases. </p>
+<p>PDE_Type</p>
+<p> must match</p>
+<p>the data type defined for and used by the application.</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>19</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>Node_Name</p>
+<p>This parameter defines the <b>name identifier </b>that is used as a part</p>
+<p>of the file name of some of the generated files. It must not be longer</p>
+<p>than 128 characters. For use case </p>
+<p>AUTOSAR RTE</p>
+<p>, the SW-C type</p>
+<p>must be used (name of the software component).</p>
+<p>Direction</p>
+<p>This parameter defines the <b>direction </b>of the message flow.</p>
+<p>TX</p>
+<p> means that the PDE is <b>sent </b>by the application, therefore the</p>
+<p>E2EPW must provide a <b>write </b>function.</p>
+<p>RX</p>
+<p> means  that  the  PDE  is  <b>received</b>,  so  the  E2EPW  must</p>
+<p>provide a <b>read </b>function.</p>
+<p>Byte_Order_CPU</p>
+<p>This parameter defines the <b>byte order </b>of the host CPU.</p>
+<p>BIG_ENDIAN</p>
+<p> means that the most significant byte is  stored at</p>
+<p>the lowest address.</p>
+<p>LITTLE_ENDIAN</p>
+<p> means that the least significant byte is stored</p>
+<p>at the lowest address.</p>
+<p>Bit_Order</p>
+<p>This parameter defines  the <b>ordering  </b>of the <b>bits </b>within a byte.  In</p>
+<p>AUTOSAR,</p>
+<p> this  is  used  to  define  the  order  of  bits  that</p>
+<p> are</p>
+<p>transmitted.</p>
+<p>DECREASING</p>
+<p> means that the logical numeration of bits in a byte</p>
+<p>is decreasing, e.g.,  7,  6,  5,  4,  3,  2,  1,  0 for the first  byte of a</p>
+<p>sequence.</p>
+<p>INCREASING</p>
+<p> means that the logical numeration of bits in a byte</p>
+<p>is  increasing,</p>
+<p> e.g.,</p>
+<p> 0,1,2,3,4,5,6,7  for</p>
+<p> the  first</p>
+<p> byte  of</p>
+<p> a</p>
+<p>sequence.</p>
+<p>Bit_Counting</p>
+<p>This  parameter defines  the <b>order  of  significance  </b>of  bits  over  a</p>
+<p>transmitted data unit.</p>
+<p>MONOTONE</p>
+<p> means  that  the  significance  is  either  increasing  or</p>
+<p>decreasing constantly, while</p>
+<p>SAWTOOTH</p>
+<p> means</p>
+<p> that</p>
+<p> there  is</p>
+<p> a  discontinuity</p>
+<p> between</p>
+<p>consecutive bytes.</p>
+<p>Only</p>
+<p> the</p>
+<p> following</p>
+<p> combinations</p>
+<p> of</p>
+<p> </p>
+<p>Bit_Order</p>
+<p> and</p>
+<p>Bit_Counting</p>
+<p> are supported:</p>
+<p>DECREASING</p>
+<p> with </p>
+<p>SAWTOOTH</p>
+<p> and</p>
+<p>INCREASING</p>
+<p> with </p>
+<p>MONOTONE</p>
+<p>.</p>
+<p>Unused_Bit_Value</p>
+<p>This  parameter defines  the <b>value  </b>to which <b>unused  bits </b>in the I-</p>
+<p>PDU must be set. The only valid values are <b>0 </b>and <b>1</b>.</p>
+<p>Check_DeSerial</p>
+<p>If </p>
+<p>YES</p>
+<p>, a <b>deserialization check </b>is done when a PDE is received.</p>
+<p>The value can only be </p>
+<p>YES</p>
+<p> if </p>
+<p>Direction</p>
+<p> is </p>
+<p>RX</p>
+<p> and </p>
+<p>Is_Opaque</p>
+<p> is</p>
+<p>NO</p>
+<p>.  In  [AS_E2E_SWS]</p>
+<p>,  this  value  is  defined  to  be  </p>
+<p>YES</p>
+<p> if</p>
+<p>Direction</p>
+<p> is </p>
+<p>RX</p>
+<p> and </p>
+<p>Is_Opaque</p>
+<p> is </p>
+<p>NO</p>
+<p>.</p>
+<p>Includes_H</p>
+<p>This  parameter defines  the e<b>xternal  include  files </b>that  must  be</p>
+<p>included in the generated <b>header  </b>files.  Each file  name  must  be</p>
+<p>unique within this list, and the length of each file name must not be</p>
+<p>greater than 260 characters.</p>
+<p>For use case </p>
+<p>AUTOSAR RTE</p>
+<p>, the value will contain </p>
+<p>Rte_Type.h</p>
+<p>and the header file of the application.</p>
+<p>Includes_C</p>
+<p>This  parameter defines  the <b>external  include  files </b>that  must  be</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 20</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>included in the generated <b>source  </b>files.  Each  file  name  must  be</p>
+<p>unique within this list, and the length of each file name must not be</p>
+<p>greater than 260 characters.</p>
+<p>For use case </p>
+<p>AUTOSAR RTE</p>
+<p>,  all  necessary  files  are included  in</p>
+<p>Includes_H</p>
+<p>.</p>
+<p><i><b>&lt;profile_p01&gt;</b></i></p>
+<p>Category</p>
+<p>This parameter defines the <b>name </b>of the <b>profile</b>, in this case <b>P01</b>.</p>
+<p>Unsupported profiles will cause an error message that  is  reported</p>
+<p>by the E2EPWG.</p>
+<p>Data_Length</p>
+<p>This  parameter  defines  the  <b>length  </b>of  the  <b>I-PDU  </b>in  bits.</p>
+<p> The</p>
+<p>minimum value is 16. The maximum value is 240. The value must</p>
+<p>be a <b>multiple of 8</b>.</p>
+<p>Data_ID</p>
+<p>The sender and the receiver share the same </p>
+<p>Data_ID</p>
+<p>,  which is</p>
+<p>incorporated into the CRC calculation. In this way, it is possible to</p>
+<p>detect if the sender and/or receiver is the intended one or not. The</p>
+<p>Data_ID</p>
+<p> has <b>2 bytes</b>. For profile P01, the </p>
+<p>Data_ID</p>
+<p>  is equivalent</p>
+<p>to the Application ID in [BMW_LAST_KOMM]</p>
+<p>.</p>
+<p>Data_ID_Mode</p>
+<p>This parameter defines how the </p>
+<p>Data_ID</p>
+<p> is  incorporated into the</p>
+<p>CRC calculation.</p>
+<p>BOTH</p>
+<p> means that both bytes of the </p>
+<p>Data_ID</p>
+<p> are used for CRC</p>
+<p>calculation (lower byte first).</p>
+<p>LOW</p>
+<p> means that only the lower byte is used.</p>
+<p>ALT</p>
+<p> means that the lower byte is used when the counter is even,</p>
+<p>otherwise the higher byte is used.</p>
+<p>NIBBLE  means  that</p>
+<p> the  lower  8  bits  are  used  for</p>
+<p> implicit</p>
+<p>inclusion in CRC calculation, while additional 4 bits are explicitly</p>
+<p>placed in the transmitted I-PDU array as distinct signal.</p>
+<p>Max_Delta_Counter_Init</p>
+<p>This  parameter  defines  the  <b>initialization  value  </b>of  the  variable</p>
+<p>Max_Delta_Counter</p>
+<p> as  specified in [TT_E2EPW_SM]</p>
+<p>.  The</p>
+<p>value must be in the closed interval </p>
+<p><b>[0...13]</b></p>
+<p>.</p>
+<p>CRC_Offset</p>
+<p>This parameter determines,  in bits,  the offset  of the CRC byte in</p>
+<p>the I-PDU array. It must be a <b>multiple of 8</b>. The </p>
+<p>CRC_Offset</p>
+<p> is</p>
+<p>the position of the least significant bit.</p>
+<p>Counter_Offset</p>
+<p>This parameter determines, in bits, the offset of the Counter in the</p>
+<p>I-PDU array. It must be a <b>multiple of 4</b>. The </p>
+<p>Counter_Offset</p>
+<p> is</p>
+<p>the position of the least significant bit.</p>
+<p>Data_ID_Nibble_Offset</p>
+<p>Determines the offset of the Data ID nibble in the PDU array in bits.</p>
+<p>The Data_ID_Nibble_Offset  is  the position of the  least  significant</p>
+<p>bit.</p>
+<p>Max_No_New_Or_Repeated_</p>
+<p>Data</p>
+<p>The  threshold  value  of  maximum  consecutive  data  losses  or</p>
+<p>repetitions before re-synchronization according to AUTOSAR SWS</p>
+<p>E2Elib  is  performed.  The  value  must  be  in  the  closed  interval</p>
+<p>68</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>21</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>[0...15]</b></p>
+<p>.</p>
+<p> Backward-compatibility  to  previous  E2Elib  profile</p>
+<p>versions without this feature is given by the default value <b>15</b>.</p>
+<p>Sync_Counter_Init</p>
+<p>After re-synchronization according  to  AUTOSAR  SWS  E2Elib  is</p>
+<p>performed, Sync_Counter_Init determines how many SYNC states</p>
+<p>are returned on valid receptions before normal operation continues.</p>
+<p>The value must  be in the closed interval  </p>
+<p><b>[0...255]</b></p>
+<p>.  Backward-</p>
+<p>compatibility  to  previous  E2Elib  profile  versions  without</p>
+<p> this</p>
+<p>features is given by the default value <b>0</b>.</p>
+<p><i><b>&lt;profile_p02&gt;</b></i></p>
+<p>Category</p>
+<p>This parameter defines the <b>name </b>of the <b>profile</b>, in this case <b>P02</b>.</p>
+<p>Unsupported profiles will cause an error message that  is  reported</p>
+<p>by the E2EPWG.</p>
+<p>Data_Length</p>
+<p>This  parameter  defines  the  <b>length  </b>of  the  <b>I-PDU  </b>in  bits.</p>
+<p> The</p>
+<p>minimum value is 16. The maximum value is 2048. The value must</p>
+<p>be a <b>multiple of 8</b>.</p>
+<p>Data_ID_List</p>
+<p>This parameter defines a <b>list </b>of <b>16 values </b>in hexadecimal  format.</p>
+<p>Each value must be in the range</p>
+<p> 0x00...0xff</p>
+<p>.  This  is  the list</p>
+<p>of <b>data IDs </b>as specified in [TT_E2EPW_SM]</p>
+<p>.</p>
+<p>Max_Delta_Counter_Init</p>
+<p>This  parameter  defines  the  <b>initialization  value  </b>of  the  variable</p>
+<p>Max_Delta_Counter</p>
+<p> as  specified in [TT_E2EPW_SM]</p>
+<p>.  The</p>
+<p>value must be in the closed interval </p>
+<p><b>[0...14]</b></p>
+<p>.</p>
+<p>Max_No_New_Or_Repeated_</p>
+<p>Data</p>
+<p>The  threshold  value  of  maximum  consecutive  data  losses  or</p>
+<p>repetitions before re-synchronization according to AUTOSAR SWS</p>
+<p>E2Elib  is  performed.  The  value  must  be  in  the  closed  interval</p>
+<p><b>[0...16]</b></p>
+<p>.</p>
+<p> Backward-compatibility  to  previous  E2Elib  profile</p>
+<p>versions without this feature is given by the default value <b>16</b>.</p>
+<p>Sync_Counter_Init</p>
+<p>After performing are-synchronzation according to AUTOSAR SWS</p>
+<p>E2Elisb,  Sync_Counter_Init  determines  how  many  SYNC  states</p>
+<p>are returned on valid receptions before normal operation continues.</p>
+<p>The value must  be in the closed interval  </p>
+<p><b>[0...255]</b></p>
+<p>.  Backward-</p>
+<p>compatibility  to  previous  E2Elib  profile  versions  without</p>
+<p> this</p>
+<p>features is given by the default value <b>0</b>.</p>
+<p>Offset</p>
+<p>Additional offset of the CRC and sequence counter signals  in the</p>
+<p>PDU array in bits. The value must be a <b>multiple of 8</b>.  Backward-</p>
+<p>compatibility to previous E2Elib profile versions without this feature</p>
+<p>is given by the default value <b>0</b>.</p>
+<p><i><b>&lt;signal&gt;</b></i></p>
+<p>Signal_Name</p>
+<p>This parameter defines the <b>name </b>of the <b>signal</b>. The signal name is</p>
+<p><b>unique  </b>within the  protected  area.  The  signal  name  must  be  the</p>
+<p>68</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 22</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>same as  the one that  is  defined in the data type definition of  the</p>
+<p>data element used by the application. The value must be a valid C-</p>
+<p>identifier.</p>
+<p>Signal_Type</p>
+<p>This parameter defines the <b>data type </b>of the <b>signal</b>. It must be the</p>
+<p>same as in the data type definition of the data element used by the</p>
+<p>application. The value must be a valid C-identifier.</p>
+<p>Signal_ID</p>
+<p>This parameter defines the <b>unique numeric identifier </b>of a <b>signal</b>.</p>
+<p>For</p>
+<p> use  case  </p>
+<p>AUTOSAR  RTE</p>
+<p>,</p>
+<p> the  only  requirement</p>
+<p> to  the</p>
+<p>Signal_ID</p>
+<p> is that it must be in the range </p>
+<p><b>[0...65535]</b></p>
+<p> and be</p>
+<p>unique within the protected area.</p>
+<p>Signal_Property</p>
+<p>This  parameter  defines  if  the  signal</p>
+<p> is  a  <b>normal</b></p>
+<p> user  <b>signal</b></p>
+<p>(</p>
+<p>Signal_Property</p>
+<p> is </p>
+<p>NORMAL</p>
+<p>) or a <b>special signal </b>used for the</p>
+<p>protection of the protected area. There must be exactly <b>one signal</b></p>
+<p>with </p>
+<p>Signal_Property</p>
+<p> </p>
+<p>CHK</p>
+<p> for the profiles <b>P01</b>, <b>P02 </b>and exactly</p>
+<p>one  with  the  </p>
+<p>Signal_Property</p>
+<p> </p>
+<p>SEQCNT</p>
+<p> for  all</p>
+<p> profiles.  Also,</p>
+<p>Bit_Length</p>
+<p>, </p>
+<p>Bit_Position</p>
+<p> and </p>
+<p>Signal_Type</p>
+<p> must meet the</p>
+<p>requirements and settings for the used profile. The allowed value for</p>
+<p>Bit_Position</p>
+<p> also depends on the </p>
+<p>Byte_Order</p>
+<p> of the signal.</p>
+<p>Byte_Order</p>
+<p>This parameter defines the <b>byte order </b>of the signal. Depending on</p>
+<p>this value and the values of </p>
+<p>Bit_Length</p>
+<p> and </p>
+<p>Bit_Position</p>
+<p>, the</p>
+<p>signal is <b>mapped </b>to the corresponding <b>I-PDU</b>.</p>
+<p>Bit_Length</p>
+<p>This parameter defines the <b>length </b>of the <b>signal </b>in <b>bits</b>.</p>
+<p>If the </p>
+<p>Signal_Type</p>
+<p> is </p>
+<p>BOOLEAN</p>
+<p>, </p>
+<p>Bit_Length</p>
+<p> must be <b>1</b>.</p>
+<p>If  the  </p>
+<p>Signal_Type</p>
+<p> is  </p>
+<p>UINT8N</p>
+<p>,  the  signal  length  must  be  a</p>
+<p><b>multiple of 8</b>.</p>
+<p>Bit_Position</p>
+<p>This parameter defines the <b>position </b>of the <b>signal </b>within the I-PDU.</p>
+<p>If  </p>
+<p>Byte_Order</p>
+<p> is  </p>
+<p>LITTLE_ENDIAN</p>
+<p>,  </p>
+<p>Bit_Position</p>
+<p> defines</p>
+<p>the position of the least significant bit. </p>
+<p>If  </p>
+<p>Byte_Order</p>
+<p> is  </p>
+<p>BIG_ENDIAN</p>
+<p>,  </p>
+<p>Bit_Position</p>
+<p> defines  the</p>
+<p>position of the most significant bit.</p>
+<p>If  the  </p>
+<p>Signal_Type</p>
+<p> is  </p>
+<p>UINT8N</p>
+<p>,  this  parameter  specifies  the</p>
+<p>least significant bit of the first byte.</p>
+<p>There  are  further  restrictions  that  must  be  met,  some  of  them  are  provided  in  this</p>
+<p>section. However, all restrictions, if not explicitly stated in the safety manual, are  also</p>
+<p>automatically  checked  by  the  E2EPWG.  Therefore,  this  section  is  for  information</p>
+<p>purposes only.</p>
+<p>Signals must not overlap each other or exceed the I-PDU length.</p>
+<p>The </p>
+<p>Signal_Type</p>
+<p> of both, the checksum and the sequence counter signal must be</p>
+<p>UINT8</p>
+<p>.</p>
+<p><b>Profile 1</b></p>
+<p>The  checksum  signal  must  be  byte-aligned  (i.e.,  it  can  occupy  any  byte  of  the</p>
+<p>protected area). The </p>
+<p>Bit_Length</p>
+<p> must be 8.</p>
+<p>20</p>
+<h1 style="page-break-before:always; "></h1>
+<p>23</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The sequence counter signal must be positioned in the 4 least or most significant bits</p>
+<p>of any byte of the protected area. The </p>
+<p>Bit_Length</p>
+<p> must be 4.</p>
+<p>The data ID  nibble  signal  must  be  present  if  </p>
+<p>Data_ID_Mode</p>
+<p> is  </p>
+<p>NIBBLE</p>
+<p> and  be</p>
+<p>positioned in the 4 least or most significant bits of any byte of the protected area. The</p>
+<p>Bit_Length</p>
+<p> must be 4.</p>
+<p><b>Profile 2</b></p>
+<p>The checksum signal must be positioned in the 8 bits of the first byte of the protected</p>
+<p>area.</p>
+<p>o</p>
+<p>For </p>
+<p>Byte_Order = BIG_ENDIAN</p>
+<p>, the </p>
+<p>Bit_Position</p>
+<p> must be 7.</p>
+<p>o</p>
+<p>For </p>
+<p>Byte_Order = LITTLE_ENDIAN</p>
+<p>, the </p>
+<p>Bit_Position</p>
+<p> must be 0.</p>
+<p>o</p>
+<p>The </p>
+<p>Bit_Length</p>
+<p> must be 8.</p>
+<p>The sequence counter signal must be positioned in the 4 least significant bits of the</p>
+<p>second byte of the protected area.</p>
+<p>o</p>
+<p>For </p>
+<p>Byte_Order = BIG_ENDIAN</p>
+<p>, the </p>
+<p>Bit_Position</p>
+<p> must be 11.</p>
+<p>o</p>
+<p>For </p>
+<p>Byte_Order = LITTLE_ENDIAN</p>
+<p>, the </p>
+<p>Bit_Position</p>
+<p> must be 8.</p>
+<p>o</p>
+<p>The </p>
+<p>Bit_Length</p>
+<p> must be 4.</p>
+<p><i><b>&lt;autosar_rte&gt;</b></i></p>
+<p>E2EPW_Usecase</p>
+<p>Value must be </p>
+<p>AUTOSAR_RTE</p>
+<p>.</p>
+<p>Port_Name</p>
+<p>This parameter defines the <b>name identifier </b>of the <b>communication</b></p>
+<p><b>port</b>.  This  parameter  is  used  as  a  part  of  the  names  of  some</p>
+<p>generated functions. </p>
+<p>VDP_Name</p>
+<p>This  parameter  defines  the  <b>name  identifier  </b>of  the  <b>VDP</b>.</p>
+<p> This</p>
+<p>parameter  is  used  as  a  part  of  the  names  of  some  generated</p>
+<p>functions.  The parameter  </p>
+<p>VDP_Name</p>
+<p> must  be  the  </p>
+<p>DataElement</p>
+<p>name used by the RTE.</p>
+<p>Is_Opaque</p>
+<p>This  parameter</p>
+<p> defines  if</p>
+<p> the  PDE  is  provided  as  I-PDU  at</p>
+<p>application level. If </p>
+<p>YES</p>
+<p>, the application is responsible for marshaling</p>
+<p>or unmarshaling the DE.  The DE  is  provided as  byte array  to  the</p>
+<p>protection  wrapper.  Also,  the  lower  layers  must  be  configured  to</p>
+<p>handle the DE as I-PDU.</p>
+<p>Use_Call_By_Ref</p>
+<p>For complex data types, the RTE expects that DEs are provided by</p>
+<p>reference. If </p>
+<p>Direction</p>
+<p> is </p>
+<p>RX</p>
+<p>, the RTE always expects the DE to</p>
+<p>be provided by reference.</p>
+<p>USE_RTE_Update</p>
+<p>If</p>
+<p> </p>
+<p>YES</p>
+<p>,</p>
+<p> the</p>
+<p> E2EPW</p>
+<p> calls</p>
+<p> the</p>
+<p> RTE</p>
+<p> function</p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>,  where </p>
+<p>&lt;p&gt;</p>
+<p> is  the port  and  </p>
+<p>&lt;o&gt;</p>
+<p>the  </p>
+<p>VariableDataElement</p>
+<p>.</p>
+<p> The  value  must</p>
+<p> be  </p>
+<p>NO</p>
+<p>,</p>
+<p> if</p>
+<p> the</p>
+<p>AUTOSAR RTE</p>
+<p> does not support this function.</p>
+<p>Use_RTE_Instance</p>
+<p>Must be </p>
+<p>YES</p>
+<p> if the SW-C supports multiple RTE instances (multiple</p>
+<p>instantiation). Otherwise, the value must be </p>
+<p>NO</p>
+<p>.</p>
+<p>21</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 24</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>5.2.3</b></p>
+<p><b>File Content Checks</b></p>
+<p>This Section only lists a selection of important checks revealing missing files or files that</p>
+<p>cannot be compiled. For detailed instructions on how to check a <b>E2EConfig file</b>, refer</p>
+<p>to the <i>E2E Protection Wrapper Safety Manual </i>[TT_E2EPW_SM]</p>
+<p>. </p>
+<p>The</p>
+<p> parameter</p>
+<p> combination</p>
+<p> </p>
+<p>PDE_Name</p>
+<p>,</p>
+<p> </p>
+<p>Node_Name</p>
+<p>,</p>
+<p> </p>
+<p>Port_Name</p>
+<p> and</p>
+<p>Direction</p>
+<p> must  be  unique  within  the  <b>E2EConfig  file</b>.</p>
+<p> Also,</p>
+<p> the  parameter</p>
+<p>combination  </p>
+<p>VDP_Name</p>
+<p>,  </p>
+<p>Node_Name</p>
+<p>,  </p>
+<p>Port_Name</p>
+<p>,  and  </p>
+<p>Direction</p>
+<p> must  be</p>
+<p>unique within the <b>E2EConfig file</b>. </p>
+<p>The  </p>
+<p>PDE_Name</p>
+<p> needs  not  be  unique,  but  make  sure  by review  that  PAs  with the</p>
+<p>same </p>
+<p>PDE_Name</p>
+<p> have the same signal definition if marshaling is required.</p>
+<p>Make sure that file names generated by the E2EPWG do not exceed the limitations of</p>
+<p>the file system or the operating system.</p>
+<p>Most Windows applications are bound to a restrictive limitation: Using the standard</p>
+<p>file access functions restricts the total path length to  <b>260  characters</b>,  including  the</p>
+<p>drive letter prefix and the null termination character. This also refers to relative paths,</p>
+<p>and can only be mitigated by path substitution using the DOS command </p>
+<p>subst</p>
+<p>.</p>
+<p>The <b>files </b>generated by the E2EPWG are named according to the following patterns.</p>
+<p>These files contain the protection wrapper interface functions:</p>
+<p>o</p>
+<p>E2EPW_<i>&lt;Node_Name&gt;_&lt;Port_Name&gt;_&lt;PDE_Name&gt;_&lt;Direction&gt;</i>.h</p>
+<p>o</p>
+<p>E2EPW_<i>&lt;Node_Name&gt;_&lt;Port_Name&gt;_&lt;PDE_Name&gt;_&lt;Direction&gt;</i>.c</p>
+<p>These files contain the marshaling functions if required:</p>
+<p>o</p>
+<p>E2EPW_Marshal_&lt;PDE_Name&gt;.h</p>
+<p>o</p>
+<p>E2EPW_Marshal_&lt;PDE_Name&gt;.c</p>
+<p>These files contain the deserialization check function if required:</p>
+<p>o</p>
+<p>E2EPW_CheckDeserial_<i>&lt;PDE_Name&gt;</i>.h</p>
+<p>o</p>
+<p>E2EPW_CheckDeserial_<i>&lt;PDE_Name&gt;</i>.c</p>
+<p>It  must  be  ensured  that  the  <b>overall  file  name  length  </b>does  <b>not  exceed  </b>the  <b>260</b></p>
+<p><b>character  </b>limit  for  the  <b>absolute  path  </b>length.  Otherwise  it  will  not  be  possible  to</p>
+<p>create some files, and the E2EPWG will exit with an error message.</p>
+<p>The  generated  code  contains  <b>memory  mapping  defines</b>,</p>
+<p> which  require  a</p>
+<p>corresponding counterpart in the </p>
+<p><i>MemMap.h</i></p>
+<p> include file. Otherwise, the </p>
+<p><i>MemMap.h</i></p>
+<p>include file will prompt the compiler to display a warning or error message. There are</p>
+<p><b>three types </b>of <b>defines </b>used in the generated code: </p>
+<p>1. Defines with the <b>prefix </b></p>
+<p><i><b>E2EPW_</b></i></p>
+<p>, which are provided in the </p>
+<p><i>E2EPW_MemMap.inc</i></p>
+<p> </p>
+<p>file and should be incorporated into the </p>
+<p><i>MemMap.h</i></p>
+<p> include file of the system, and</p>
+<p>2. <b>SW-C-specific </b>defines.</p>
+<p>The SW-C specific defines are:</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_START_SEC_CODE</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_STOP_SEC_CODE</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_START_SEC_CONST_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_STOP_SEC_CONST_UNSPECIFIED</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>25</p>
+<p>Page</p>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_START_SEC_VAR_INIT_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_STOP_SEC_VAR_INIT_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_START_SEC_VAR_NOINIT_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_STOP_SEC_VAR_NOINIT_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_START_SEC_VAR_ZERO_INIT_UNSPECIFIED</p>
+<p>-</p>
+<p><i>&lt;swc&gt;</i>_STOP_SEC_VAR_ZERO_INIT_UNSPECIFIED</p>
+<p>where </p>
+<p><i>&lt;swc&gt;</i></p>
+<p> is the value of the configuration field </p>
+<p>Node_Name</p>
+<p>.</p>
+<p>These  are  assumed  to  be  provided  in  a  file  </p>
+<p>&lt;swc&gt;_MemMap.h</p>
+<p>,  which  is</p>
+<p>generated by the RTE generator or must be created manually.</p>
+<p>3. The defines for software component independent code (marshaling and check-</p>
+<p>deserialization check) are:</p>
+<p>-</p>
+<p>E2EPW_START_SEC_CODE_LIB</p>
+<p>-</p>
+<p>E2EPW_STOP_SEC_CODE_LIB</p>
+<p>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>E2E Protection Wrapper Generator</b></p>
+<p>Page 26</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>6</b></p>
+<p><b>Generated Code</b></p>
+<p><b>6.1</b></p>
+<p><b>API</b></p>
+<p>This Section describes the API of the generated functions.</p>
+<p><b>Note:  </b>When  referring  to  a  <b>byte  number  </b>within  a  multi-byte  value,</p>
+<p> the  number</p>
+<p>describes <b>bytes of increasing order</b>. <b>Byte 0 </b>is therefore of least significance.</p>
+<p>The <b>function names </b>use the following <b>placeholders</b>:</p>
+<p><b>Placeholder</b></p>
+<p><b>Config field</b></p>
+<p><b>Description</b></p>
+<p>&lt;node&gt;</p>
+<p>Node_Name</p>
+<p>The node name. Also referred to as SW-C name.</p>
+<p>&lt;o&gt;</p>
+<p>VDP_Name</p>
+<p>The </p>
+<p>VariableDataPrototype</p>
+<p> (</p>
+<p>VariableDataElement</p>
+<p>)</p>
+<p> </p>
+<p>of the messages through a port.</p>
+<p>&lt;p&gt;, &lt;port&gt;</p>
+<p>Port_Name</p>
+<p>The port name.</p>
+<p>&lt;pde&gt;</p>
+<p>PDE_Name</p>
+<p>The PDE name.</p>
+<p>&lt;profile&gt;</p>
+<p>Category</p>
+<p>P01</p>
+<p> or </p>
+<p>P02</p>
+<p>, depending on the E2Elib profile used.</p>
+<p>&lt;pde-type&gt;</p>
+<p>PDE_Type</p>
+<p>The data type of the PDE.</p>
+<p>&lt;rxtx&gt;</p>
+<p>Direction</p>
+<p>The direction (</p>
+<p>RX</p>
+<p> or </p>
+<p>TX</p>
+<p>) in lowercase.</p>
+<p><b>6.1.1</b></p>
+<p><b>Initialization</b></p>
+<p><b>Syntax</b></p>
+<p>void E2EPW_WriteInit_&lt;p&gt;_&lt;o&gt;x () </p>
+<p><b>Reentrancy</b></p>
+<p>reentrant</p>
+<p><b>Parameters </b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>none</p>
+<p><b>Description</b></p>
+<p>This function initializes the E2Elib communication state for a DE</p>
+<p>defined by </p>
+<p>&lt;p&gt;</p>
+<p> and </p>
+<p>&lt;o&gt;</p>
+<p> on the sender side. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>27</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Syntax</b></p>
+<p>void E2EPW_ReadInit_&lt;p&gt;_&lt;o&gt; () </p>
+<p><b>Reentrancy</b></p>
+<p>reentrant</p>
+<p><b>Parameters</b></p>
+<p>none</p>
+<p><b>Return value </b></p>
+<p>none</p>
+<p><b>Description</b></p>
+<p>This function initializes the E2Elib communication state for a DE</p>
+<p>defined by </p>
+<p>&lt;p&gt;</p>
+<p> and </p>
+<p>&lt;o&gt;</p>
+<p> on the receiver side. </p>
+<p><b>6.1.2</b></p>
+<p><b>Status</b></p>
+<p><b>Syntax</b></p>
+<p>E2E_&lt;profile&gt;ProtectStateType * </p>
+<p>E2EPW_Get_ProtectState_&lt;p&gt;_&lt;o&gt; () </p>
+<p><b>Reentrancy</b></p>
+<p>reentrant</p>
+<p><b>Parameters</b></p>
+<p>none</p>
+<p><b>Return value</b></p>
+<p>E2E_&lt;profile&gt;ProtectStateType</p>
+<p>*</p>
+<p>     </p>
+<p>pointer to</p>
+<p>E2E_&lt;profile&gt;ProtectStateTyp</p>
+<p>e</p>
+<p><b>Description</b></p>
+<p>Returns a pointer to the current E2Elib communication state on the</p>
+<p>sender side. </p>
+<p><b>Syntax</b></p>
+<p>E2E_&lt;profile&gt;CheckStateType *</p>
+<p>E2EPW_Get_CheckState_&lt;p&gt;_&lt;o&gt; () </p>
+<p><b>Reentrancy</b></p>
+<p>reentrant</p>
+<p><b>Parameters</b></p>
+<p>none</p>
+<p><b>Return value</b></p>
+<p>E2E_&lt;profile&gt;CheckReceiverSt</p>
+<p>ateType* </p>
+<p>pointer to </p>
+<p>E2E_&lt;profile&gt;CheckStateType</p>
+<p> </p>
+<p><b>Description</b></p>
+<p>Returns a pointer to the current E2Elib communication state  on the</p>
+<p>receiver side. </p>
+<p><b>6.1.3</b></p>
+<p><b>Transmission and Reception</b></p>
+<p>The following function is provided for protected transmission with E2EPW: </p>
+<p><b>Syntax</b></p>
+<p>uint32 E2EPW_Write_&lt;p&gt;_&lt;o&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 28</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>( [Rte_Instance instance, ] &lt;type&gt; [*] AppData)</p>
+<p><b>Reentrancy</b></p>
+<p>not reentrant </p>
+<p><b>Parameters</b></p>
+<p><b>(in)</b></p>
+<p>instance</p>
+<p>The </p>
+<p>instance</p>
+<p> value is passed to </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>. This</p>
+<p>is an optional parameter, which depends on the configuration option</p>
+<p>Use_RTE_Instance</p>
+<p>.</p>
+<p>AppData</p>
+<p>This parameter defines the DE to be protected and transmitted.  Its</p>
+<p>type, </p>
+<p>&lt;type&gt;</p>
+<p>, depends on the configuration of the DE. </p>
+<p>This parameter can be called:</p>
+<p><b>by value </b>(</p>
+<p>AppData</p>
+<p> is passed by value) or </p>
+<p><b>by reference </b>(a pointer to </p>
+<p>AppData</p>
+<p> is passed). </p>
+<p><b>Return value</b></p>
+<p>uint32</p>
+<p><b>Byte 0</b></p>
+<p>, the return-code of </p>
+<p>E2E_Protect ()</p>
+<p>: </p>
+<p>E2E_E_INPUTERR_NULL</p>
+<p> </p>
+<p>E2E_E_INPUTERR_WRONG</p>
+<p> </p>
+<p>E2E_E_OK</p>
+<p> (default) </p>
+<p><b>Byte 1</b></p>
+<p>, the return-code of </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>: </p>
+<p>RTE_E_COM_STOPPED </p>
+<p>RTE_E_SEG_FAULT </p>
+<p>RTE_E_OK </p>
+<p>(default) </p>
+<p><b>Byte 2</b></p>
+<p>, the result of the </p>
+<p>AppData=NULL</p>
+<p> check: </p>
+<p>E2E_E_INPUTERR_NULL </p>
+<p>E2E_E_OK </p>
+<p>(default) </p>
+<p><b>Byte 3</b></p>
+<p>, always 0 </p>
+<p><b>Note: </b>The default value is the value that is used when the corresponding function/check</p>
+<p>is not called (e.g., in case of a previous error).</p>
+<h1 style="page-break-before:always; "></h1>
+<p>29</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The following function is provided for protected reception with E2EPW: </p>
+<p><b>Syntax</b></p>
+<p>uint32 E2EPW_Read_&lt;p&gt;_&lt;o&gt; </p>
+<p>( [Rte_Instance instance, ] &lt;type&gt; [*] AppData) </p>
+<p><b>Reentrancy</b></p>
+<p>not reentrant</p>
+<p><b>Parameters</b></p>
+<p><b>(in)</b></p>
+<p>instance</p>
+<p>The </p>
+<p>instance</p>
+<p> value is  passed to </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.  This</p>
+<p>is an optional parameter, which depends on the configuration option</p>
+<p>Use_RTE_Instance</p>
+<p>. </p>
+<p>AppData</p>
+<p>This parameter defines the DE  to be protected and transmitted.  Its</p>
+<p>type, </p>
+<p>&lt;type&gt;</p>
+<p>, depends on the configuration of the DE. </p>
+<p><b>Return value</b></p>
+<p>uint32</p>
+<p><b>Byte 0</b></p>
+<p>, the return-code of </p>
+<p>E2E_Check ()</p>
+<p>:</p>
+<p>E2E_E_INPUTERR_NULL</p>
+<p>E2E_E_INPUTERR_WRONG</p>
+<p>E2E_E_OK (default)</p>
+<p><b>Byte 1</b></p>
+<p>, the return-code of </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>:</p>
+<p>RTE_E_INVALID</p>
+<p>RTE_E_MAX_AGE_EXCEEDED</p>
+<p>RTE_E_NEVER_RECEIVED</p>
+<p>RTE_E_UNCONNECTED</p>
+<p>RTE_E_OK</p>
+<p> (default)</p>
+<p><b>Byte 2</b></p>
+<p>, the result of the </p>
+<p>AppData=NULL</p>
+<p> check: </p>
+<p>E2E_E_INPUTERR_NULL</p>
+<p>E2E_E_OK</p>
+<p><b>Byte 3</b></p>
+<p>/</p>
+<p><b>Bit 7</b></p>
+<p>, deserial check:</p>
+<p>1 (E2EPW_DESERIAL_ERR)</p>
+<p>0</p>
+<p> (default)</p>
+<p><b>Byte 3</b></p>
+<p>/</p>
+<p><b>Bit 0...6</b></p>
+<p>, </p>
+<p>State-&gt;Status</p>
+<p>:</p>
+<p>E2E_&lt;profile&gt;STATUS_OK: 0x00</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA: 0x01</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC: 0x02</p>
+<p>E2E_&lt;profile&gt;STATUS_SYNC: 0x03</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL: 0x04</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED: 0x08</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST: 0x20</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQUENCE 0x40</p>
+<p><b>Note: </b>The default value is the value that is used when the corresponding function/check</p>
+<p>is not called (e.g., in case of a previous error).</p>
+<p><b>6.1.4</b></p>
+<p><b>Usage Example Code</b></p>
+<p><b>6.1.4.1</b></p>
+<p><i>Application Sample Code</i></p>
+<p>This is an application sample code to be used with use case AUTOSAR RTE</p>
+<p> and</p>
+<p>profile 2</p>
+<p>.</p>
+<p>23</p>
+<p>21</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 30</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The following code example is a guideline only and must be adapted to the respective</p>
+<p>application design. In particular, the error handling depends on the application and on</p>
+<p>how and when to use the received data in case of errors.</p>
+<p>The placeholders defined in the previous sections are used here again with the same</p>
+<p>meaning.</p>
+<p>Necessary include files:</p>
+<p>#include &quot;E2EPW_&lt;node&gt;_&lt;port&gt;_&lt;pde&gt;.h&quot;</p>
+<p>..</p>
+<p><b>Convenience Code</b></p>
+<p>#define RETURNCODE_E2E       (x)  ((uint32)(x) &amp; 0xFF)</p>
+<p>#define RETURNCODE_RTE       (x) (((uint32)(x) &amp; 0xFF00) &gt;&gt; 8)</p>
+<p>#define RETURNCODE_APPDATA   (x) (((uint32)(x) &amp; 0xFF0000) &gt;&gt; 16)</p>
+<p>#define RETURNCODE_E2ESTATUS (x) (((uint32)(x) &amp; 0x7F000000) &gt;&gt; 24)</p>
+<p>#define RETURNCODE_DESER     (x) (((uint32)(x) &amp; 0x80000000) &gt;&gt; 31)</p>
+<p>const uint32 e2epw_read_status_ok_u32 =</p>
+<p>       (0&lt;&lt;31)                         /* Deserial-Check */</p>
+<p>    | ((E2E_P02STATUS_OK &amp; 0x7F)&lt;&lt;24)  /* ReceiverStatus */</p>
+<p>    |  (E2E_E_OK&lt;&lt;16)                  /* Protection Wrapper */</p>
+<p>    |  (RTE_E_OK&lt;&lt;8)                   /* Rte_Read/Rte_Write */</p>
+<p>    |  (E2E_E_OK);                     /* E2E_P02Check/E2E_P02Protect */</p>
+<p>const uint32 e2epw_write_status_ok_u32 =</p>
+<p>       (0&lt;&lt;31)                         /* Deserial-Check */</p>
+<p>    |  (E2E_E_OK&lt;&lt;16)                  /* Protection Wrapper */</p>
+<p>    |  (RTE_E_OK&lt;&lt;8)                   /* Rte_Read/Rte_Write */</p>
+<p>    |  (E2E_E_OK);                     /* E2E_P02Check/E2E_P02Protect */</p>
+<p><b>Code for Initialization</b></p>
+<p>/* initialize all tx */</p>
+<p>E2EPW_WriteInit_&lt;p&gt;_&lt;o&gt; ();</p>
+<p>…</p>
+<p>/* initialize all rx */</p>
+<p>E2EPW_ReadInit_&lt;p&gt;_&lt;o&gt; ();</p>
+<p>…</p>
+<p><b>Code for Transmission and Check of Return Values</b></p>
+<p>uint32       r_tx_u32;</p>
+<p>Rte_Instance inst;</p>
+<p>&lt;type&gt;       AppData;</p>
+<p>&lt;type&gt; *     AppDataPtr = &amp;AppData;</p>
+<p>/* set AppData */</p>
+<p>...</p>
+<p>/* send AppData */</p>
+<p>r_tx_u32 = E2EPW_Write_&lt;p&gt;_&lt;o&gt; ( inst, AppDataPtr);</p>
+<p>if (r_tx_u32 != e2epw_write_status_ok_u32)</p>
+<p>{</p>
+<p>    /* something went wrong - find out what */</p>
+<p>    if (RETURNCODE_APPDATA (r_tx_u32) != E2E_E_OK)</p>
+<p>    {</p>
+<p>        /* AppDataPtr was NULL */</p>
+<h1 style="page-break-before:always; "></h1>
+<p>31</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>    }</p>
+<p>    if (RETURNCODE_E2E (r_tx_u32) != E2E_E_OK)</p>
+<p>    {</p>
+<p>        /* E2Elib reported some error */</p>
+<p>    }</p>
+<p>    if (RETURNCODE_RTE (r_tx_u32) != RTE_E_OK)</p>
+<p>    {</p>
+<p>        /* RTE reported some error */</p>
+<p>    }</p>
+<p>    ..</p>
+<p>}</p>
+<p><b>Code for Reception and Check of Return Values</b></p>
+<p>uint32       r_rx_u32;</p>
+<p>Rte_Instance inst;</p>
+<p>&lt;type&gt;       AppData;</p>
+<p>&lt;type&gt; *     AppDataPtr = &amp;AppData;</p>
+<p>...</p>
+<p>/* receive AppData */</p>
+<p>r_rx_u32 = E2EPW_Read_&lt;p&gt;_&lt;o&gt; (inst, AppDataPtr);</p>
+<p>if (r_rx_u32 != e2epw_read_status_ok_u32)</p>
+<p>{</p>
+<p>    /* something went wrong - find out what */</p>
+<p>    if (RETURNCODE_APPDATA (r_rx_u32) != E2E_E_OK)</p>
+<p>    {</p>
+<p>        /* AppDataPtr was NULL */</p>
+<p>    }</p>
+<p>    if (RETURNCODE_E2E (r_rx_u32) != E2E_E_OK)</p>
+<p>    {</p>
+<p>        /* E2Elib reported some error */</p>
+<p>    }</p>
+<p>    if (RETURNCODE_RTE (r_rx_u32) != RTE_E_OK)</p>
+<p>    {</p>
+<p>        /* RTE reported some error */</p>
+<p>    }</p>
+<p>    if (RETURNCODE_DESER (r_rx_u32) != 0)</p>
+<p>    {</p>
+<p>        /* E2EPW detected some deserialization error caused by the COM */</p>
+<p>    }</p>
+<p>    if (RETURNCODE_E2ESTATUS (r_rx_u32) != E2E_P02STATUS_OK)</p>
+<p>    {</p>
+<p>        /* E2Elib detected some status other than ok */</p>
+<p>        switch (RETURNCODE_E2ESTATUS (r_rx_u32))</p>
+<p>        {</p>
+<p>            case E2E_P02STATUS_NONEWDATA:       /* no new message was available */</p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_WRONGCRC:        /* CRC was wrong */ </p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_SYNC:            /* sync in progress */ </p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_INITIAL:         /* first data received  */ </p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_REPEATED:        /* message was repeated */ </p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_OKSOMELOST:      /* some messages were lost, but it's</p>
+<p>ok */ </p>
+<p>                                 break;</p>
+<p>            case E2E_P02STATUS_WRONGSEQUENCE:   /* message had invalid sequence count</p>
+<p>*/ </p>
+<p>                                 break;</p>
+<p>        }</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 32</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>    }</p>
+<p>}</p>
+<p><b>Note:  </b>For  debugging,  all</p>
+<p> values  of</p>
+<p> </p>
+<p>E2E_P02CheckStatesType  ()</p>
+<p> may  be</p>
+<p>relevant. Then the function </p>
+<p>E2EPW_Get_CheckState_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> </p>
+<p>can be used to</p>
+<p>retrieve state information.</p>
+<p><b>6.1.5</b></p>
+<p><b>Differences to SW-C End-to-End Communication Protection Library</b></p>
+<p>The implementation of the E2EPW is based on the guideline in [AS_E2E_SWS]</p>
+<p>, </p>
+<p>Annex B.</p>
+<p>However, there are some deviations from the guideline.</p>
+<p>Deviations are required/suggested due to:</p>
+<p>Incompleteness or errors in the guideline of the initial AUTOSAR Release 4.0.1/3.2.1,</p>
+<p>or</p>
+<p>Extensions for easier integration and application of the E2EPW API, or</p>
+<p>Backward-compatibility with previous versions of the E2EPW by TTTech.</p>
+<p>The deviations are listed here:</p>
+<p><b>Title</b></p>
+<p><b>API Extension</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR does not provide API functions to initialize the E2Elib</p>
+<p>communication state.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>Additional functions:</p>
+<p>E2EPW_Init_&lt;p&gt;_&lt;o&gt;_rx ()</p>
+<p> and</p>
+<p>E2EPW_Init_&lt;p&gt;_&lt;o&gt;_tx ()</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Init Functions defined as:</p>
+<p>Std_ReturnType  E2EPW_WriteInit_&lt;p&gt;_&lt;o&gt;  (  Rte_Instance</p>
+<p>&lt;instance&gt; )</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Renamed functions to conform to AUTOSAR Release: 4.2.1:</p>
+<p>void E2EPW_ReadInit_&lt;p&gt;_&lt;o&gt; (void)</p>
+<p> and</p>
+<p>void E2EPW_WriteInit_&lt;p&gt;_&lt;o&gt;_tx (void)</p>
+<p><b>Reason</b></p>
+<p><b>API extension:</b></p>
+<p>Initialization shall be possible each time the application is reset.</p>
+<p>Renaming of initialization functions due to increase compatibility</p>
+<p>to AUTOSAR specification document. However, return value  is</p>
+<p>not  used,  the  parameter  must  not  be  present  according  to</p>
+<p>AUTOSAR specification.</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>33</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>API Extension</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR  does  not  provide  API  functions  for  retrieving  the</p>
+<p>current E2Elib communication state.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>Additional functions:</p>
+<p>E2E_&lt;profile&gt;SenderStateType *</p>
+<p>    E2EPW_Get_SenderState_&lt;p&gt;_&lt;o&gt; (void)</p>
+<p>and</p>
+<p>E2E_&lt;profile&gt;ReceiverStateType *</p>
+<p>    E2EPW_Get_ReceiverState_&lt;p&gt;_&lt;o&gt; (void)</p>
+<p>Where</p>
+<p> </p>
+<p>&lt;profile&gt;</p>
+<p> is the short name of the profile.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>-</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Renamed additional  functions  to  reflect  renamed  state  type  of</p>
+<p>E2Elib:</p>
+<p>E2E_&lt;profile&gt;ProtectStateType *</p>
+<p>    E2EPW_Get_ProtectState_&lt;p&gt;_&lt;o&gt; (void)</p>
+<p>and</p>
+<p>E2E_&lt;profile&gt;CheckStateType *</p>
+<p>    E2EPW_Get_CheckState_&lt;p&gt;_&lt;o&gt; (void)</p>
+<p>Where</p>
+<p> </p>
+<p>&lt;profile&gt;</p>
+<p> is the short name of the profile.</p>
+<p><b>Reason</b></p>
+<p><b>API extension</b>: The AUTOSAR  guideline  does  not  include  an</p>
+<p>API to retrieve the current state.</p>
+<p><b>Note</b>: The internal State variable has been moved from function</p>
+<p>level to module level.</p>
+<p>The internal State variable cannot be read  directly,  but  only by</p>
+<p>these functions.</p>
+<p><b>Title</b></p>
+<p><b>Communication State </b></p>
+<p><b>State</b></p>
+<p><b>.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>The  communication  state  is  function-local</p>
+<p> (in</p>
+<p> </p>
+<p>E2EPW_Read/</p>
+<p>Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>).</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The communication state is defined at module level.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The communication state is defined at module level.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>The communication state is defined at module level.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 34</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Communication State </b></p>
+<p><b>State</b></p>
+<p><b>.</b></p>
+<p><b>Reason</b></p>
+<p>The  Communication State  must  be  accessible  among  several</p>
+<p>functions  in the  module,  variables  must  be  defined  at  module</p>
+<p>level  to  be  memory-mapped  using  the  MemMap  approach  of</p>
+<p>AUTOSAR.</p>
+<p><b>Title</b></p>
+<p><b>Deserialization  return  value  of  </b></p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</b></p>
+<p><b>(see </b></p>
+<p><b>E2E0265</b></p>
+<p><b>)</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR  specifies</p>
+<p> </p>
+<p><b>byte  3</b></p>
+<p> </p>
+<p>of  the  return  value  to  mark  a</p>
+<p>deserialization error, which is <b>0 </b>(OK) or <b>1 </b>(failed).</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The value of the deserialization error has been moved to</p>
+<p> </p>
+<p><b>bit 7</b></p>
+<p> </p>
+<p>of</p>
+<p><b>byte 3</b></p>
+<p>. </p>
+<p>Use <b>bits 0-6 </b>for the value of</p>
+<p> </p>
+<p>State-&gt;Status</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The layout of the return value changed various times in previous</p>
+<p>AUTOSAR  releases.</p>
+<p> No</p>
+<p> backward-compatibility</p>
+<p> between</p>
+<p>releases. Deserialization error is currently reported in <b>byte 1</b>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>The layout is backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p><b>Usage</b>:</p>
+<p>With  the</p>
+<p> </p>
+<p>State-&gt;Status</p>
+<p> </p>
+<p>value  in  the  return  value  of  function</p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p>,  the  reception  result  can  be  easily</p>
+<p>analyzed. A  call of  function </p>
+<p>E2EPW_Get_ReceiverState_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p> </p>
+<p>is  only  required  for  special  cases,  like  retrieving  </p>
+<p>State-</p>
+<p>&gt;LostData</p>
+<p> </p>
+<p>if</p>
+<p> </p>
+<p>State-&gt;Status</p>
+<p> </p>
+<p>is</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>, where</p>
+<p> </p>
+<p>&lt;profile&gt;</p>
+<p> </p>
+<p>is the short</p>
+<p>name of the profile.</p>
+<p><b>Title</b></p>
+<p><b>Return  value  layout  of  </b></p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</b></p>
+<p><b> and</b></p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR specifies the following for</p>
+<p> E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>:</p>
+<p><b>byte 0</b>is the return value of </p>
+<p>E2E_&lt;profile&gt;Protect ()</p>
+<p>.</p>
+<p><b>byte 1</b>is the status of </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>byte 2 </b>is  the  status  of</p>
+<p> </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> internal</p>
+<p>checks.</p>
+<p><b>byte 3</b>is</p>
+<p> E2E_E_OK</p>
+<p> (not used).</p>
+<p>and for</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>:</p>
+<p><b>byte 0</b>is the return value of </p>
+<p>E2E_&lt;profile&gt;Check ()</p>
+<p>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>35</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Return  value  layout  of  </b></p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</b></p>
+<p><b> and</b></p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>byte 1</b>is the status of </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>byte 2 </b>is  the  status  of</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> internal</p>
+<p>checks.</p>
+<p><b>byte 3</b>is</p>
+<p> </p>
+<p>the status of the deserialization check (bit extension)</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The value of the deserialization error has been moved to</p>
+<p> </p>
+<p>bit 7</p>
+<p>of</p>
+<p> </p>
+<p>byte 3</p>
+<p>. </p>
+<p>Use bits 0-6 for the value of</p>
+<p> </p>
+<p>State-&gt;Status</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The layout of the return value changed various times in previous</p>
+<p>AUTOSAR  releases.</p>
+<p> No</p>
+<p> backward-compatibility</p>
+<p> between</p>
+<p>releases.</p>
+<p>The current layout for</p>
+<p> E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>:</p>
+<p><b>byte 0</b>is the status of </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>byte 1 </b>is  the  status  of</p>
+<p> </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> internal</p>
+<p>checks.</p>
+<p><b>byte 2</b>is the return value of </p>
+<p>E2E_&lt;profile&gt;Protect ()</p>
+<p>.</p>
+<p><b>byte 3</b>is</p>
+<p> E2E_E_OK</p>
+<p> (not used).</p>
+<p>and for</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>:</p>
+<p><b>byte 0</b>is the status of </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>byte 1 </b>is  the  status  of</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> internal</p>
+<p>checks, including deserialization (bit extension) check.</p>
+<p><b>byte 2</b>is the return value of </p>
+<p>E2E_&lt;profile&gt;Check ()</p>
+<p>.</p>
+<p><b>byte 3</b>is</p>
+<p> </p>
+<p>the</p>
+<p> value</p>
+<p> of</p>
+<p> </p>
+<p>State-&gt;Status</p>
+<p>(</p>
+<p>E2E_&lt;profile&gt;CheckStatusType</p>
+<p>).</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>The layout is backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Initially, the deviation was to fix severe  flaws  in the  AUTOSAR</p>
+<p>specification. Now, backward-compatibility to previous versions</p>
+<p>of TTTech E2EPW is to be maintained.</p>
+<p><b>Title</b></p>
+<p><b>Abortion in case of errors</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR defines that all steps in </p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p> are evaluated even in case of errors.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>In case of an error, the generated function aborts and returns a</p>
+<p>proper error code. This includes the following kinds of errors:</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 36</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Abortion in case of errors</b></p>
+<p>NULL </p>
+<p>check of parameter</p>
+<p> </p>
+<p>AppData</p>
+<p>,</p>
+<p>E2E_&lt;profile&gt;Protect/Check ()</p>
+<p> </p>
+<p>returns an error,</p>
+<p>RTE_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> </p>
+<p>returns an error or</p>
+<p>deserialization check returns an error.</p>
+<p>Where</p>
+<p> </p>
+<p>&lt;profile&gt;</p>
+<p> </p>
+<p>is the short name of the profile.</p>
+<p>Note  that  the  return-values  of</p>
+<p> </p>
+<p>RTE_Read_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> </p>
+<p>is  not</p>
+<p>considered</p>
+<p> to</p>
+<p> be</p>
+<p> an</p>
+<p> error</p>
+<p> (in</p>
+<p> the</p>
+<p> manner</p>
+<p> that</p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> </p>
+<p>needs to abort).</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Changed specification to abort  in case  of  error,  as  in TTTech</p>
+<p>E2EPW 1.3</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Behavior  as  in TTTech E2EPW  1.3  and  therefore  conform  to</p>
+<p>AUTOSAR 4.2.1.</p>
+<p><b>Reason</b></p>
+<p><b>Safer code:</b></p>
+<p>Continuation does not make sense after an error was detected.</p>
+<p>Continuation in case of an error can cause other errors.</p>
+<p><b>Title</b></p>
+<p><b>Return Code Interpretation for </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>All  steps  in  </p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> </p>
+<p>are  done  even  if</p>
+<p>errors  occur.  Thus,  each <b>byte  0...3  </b>of  the  return  value  gets  a</p>
+<p>corresponding value.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>In case of error,</p>
+<p> </p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> aborts and the</p>
+<p>result values of further steps still have default values.</p>
+<p>The return codes are interpreted as follows:</p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>:</p>
+<p>1.</p>
+<p>If  </p>
+<p><b>byte  0  </b></p>
+<p>is  unequal  to</p>
+<p> </p>
+<p>E2E_E_OK  (0)</p>
+<p>,  then  a  severe  error</p>
+<p>occurred  in</p>
+<p> </p>
+<p>E2E_&lt;profile&gt;Check  ()</p>
+<p>.</p>
+<p> All</p>
+<p> other  bytes  are</p>
+<p>irrelevant.</p>
+<p>2.</p>
+<p>If  <b>byte  2  </b>is  unequal  to</p>
+<p> </p>
+<p>E2E_E_OK  (0)</p>
+<p>,  then  a  severe  error</p>
+<p>occurred in the Protection Wrapper code. All other bytes are</p>
+<p>irrelevant.</p>
+<p>3.</p>
+<p>If <b>bit 7 </b>in <b>byte 3 </b>is <b>1</b>, then the deserialization check failed. All</p>
+<p>other bytes are irrelevant.</p>
+<p>4.</p>
+<p>If <b>byte 0 </b>and <b>byte 2 </b>are</p>
+<p> </p>
+<p>E2E_E_OK</p>
+<p> </p>
+<p>and <b>bit 7 </b>of <b>byte 3 </b>is <b>0</b>,</p>
+<p>then </p>
+<p>a.</p>
+<p><b>byte 1 </b>holds the return value of</p>
+<p> </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> </p>
+<p>and</p>
+<p>b.</p>
+<p><b>bits  0...6  </b>in <b>byte  3  </b>hold  the  communication  status  from</p>
+<h1 style="page-break-before:always; "></h1>
+<p>37</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Return Code Interpretation for </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;</b></p>
+<p>E2E_&lt;profile&gt;Check ().</p>
+<p>Both are to be interpreted by the application.</p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>:</p>
+<p>1.</p>
+<p>If  <b>byte  0  </b>is  unequal  to</p>
+<p> </p>
+<p>E2E_E_OK  (0)</p>
+<p>,  then  a  severe  error</p>
+<p>occurred  in</p>
+<p> </p>
+<p>E2E_&lt;profile&gt;Protect  ()</p>
+<p>.  All  other  bytes  are</p>
+<p>irrelevant.</p>
+<p>2.</p>
+<p>If  <b>byte  2  </b>is  unequal  to</p>
+<p> </p>
+<p>E2E_E_OK  (0)</p>
+<p>,  then  a  severe  error</p>
+<p>occurred in the Protection Wrapper code. All other bytes are</p>
+<p>irrelevant.</p>
+<p>3.</p>
+<p>If <b>byte 0 </b>and <b>byte 2 </b>are</p>
+<p> </p>
+<p>E2E_E_OK</p>
+<p>, then <b>byte 1 </b>holds the return</p>
+<p>value of</p>
+<p> </p>
+<p>RTE_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>, which is to be interpreted by</p>
+<p>the application.</p>
+<p>4.</p>
+<p><b>Byte 3 </b>is always <b>0</b>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Changed specification to  abort  in case  of  error,  as  in TTTech</p>
+<p>E2EPW 1.3.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Behavior  as  in TTTech E2EPW  1.3  and  therefore  conform  to</p>
+<p>AUTOSAR 4.2.1.</p>
+<p><b>Reason</b></p>
+<p>Interpretation  is  consequence  of  abortion  in  case  of  severe</p>
+<p>errors.</p>
+<p><b>Title</b></p>
+<p><b>Variables ret0...ret3 in </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR defines a separate variable for each check within the</p>
+<p>read/write function.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The  generated  code  holds  an  internal</p>
+<p> </p>
+<p>uint32</p>
+<p> </p>
+<p>variable,  which</p>
+<p>represents the return value and is filled in case of an error.</p>
+<p>It is a merge of the variables</p>
+<p> </p>
+<p>ret0..ret3</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>AUTOSAR specification more relaxed on the internal variables,</p>
+<p>semantically backward-compatible.  Code  Example  and  activity</p>
+<p>diagrams use more verbose names.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>As in TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p><b>Simpler code</b>:</p>
+<p>Before  each step,  it  must  be  evaluated  whether  an  error  has</p>
+<p>raised or not. A single </p>
+<p>uint32</p>
+<p> variable makes these evaluations</p>
+<p>simpler.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 38</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>NULL_PTR</b></p>
+<p><b> check at begin of </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR proposes</p>
+<p> a </p>
+<p>NULL_PTR</p>
+<p> </p>
+<p>check for</p>
+<p> </p>
+<p>AppData</p>
+<p> </p>
+<p>at the end of</p>
+<p>the function.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The</p>
+<p> </p>
+<p>NULL</p>
+<p> check is the first step to do in the functions.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Changed specification to check </p>
+<p>AppData</p>
+<p> at beginning and abort</p>
+<p>in case of error, as in TTTech E2EPW 1.3.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Behavior  as  in TTTech E2EPW  1.3  and  therefore  conform  to</p>
+<p>AUTOSAR 4.2.1.</p>
+<p><b>Reason</b></p>
+<p><b>Safer  code</b>:  Applying  </p>
+<p>AppData</p>
+<p> </p>
+<p>before</p>
+<p> </p>
+<p>NULL_PTR</p>
+<p> </p>
+<p>check  may</p>
+<p>cause other errors.</p>
+<p><b>Title</b></p>
+<p><b>E2E_USING_RTE_ISUPDATED</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR uses a </p>
+<p>#define</p>
+<p> to control the setting of </p>
+<p>State-&gt;NewDataAvailable</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The configuration of </p>
+<p>State-&gt;NewDataAvailable</p>
+<p> </p>
+<p>is moved to the</p>
+<p>E2EConfig file.</p>
+<p>As a result, the generated code contains either</p>
+<p>State-&gt;NewDataAvailable</p>
+<p> =</p>
+<p> Rte_IsUpdated_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p>or</p>
+<p>State-&gt;NewDataAvailable = TRUE</p>
+<p>There is no #define anymore.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> is  no  longer  used  (since  4.1.1),</p>
+<p>return value of </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> is used instead now (non-</p>
+<p>configurable).</p>
+<p> If</p>
+<p> return</p>
+<p> is</p>
+<p> not</p>
+<p> </p>
+<p>RTE_E_OK</p>
+<p>,</p>
+<p> then</p>
+<p> </p>
+<p>State-</p>
+<p>&gt;NewDataAvailable</p>
+<p> is set to </p>
+<p>FALSE</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible  to  TTTech E2EPW  1.3.  Return  value  of</p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> does  not  affect  further  evaluation,  but  is</p>
+<p>returned  in  the  E2EPW  return  code.</p>
+<p> Therefore,</p>
+<p> while  in</p>
+<p>AUTOSAR 4.2.1 the unavailability of new data by the RTE would</p>
+<p>be  treated  as  &quot;no  new  data&quot;,  it  will  be  treated  as  &quot;repeated&quot;</p>
+<p>here, if Rte_IsUpdated_</p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>is not used.</p>
+<p><b>Reason</b></p>
+<p>All</p>
+<p> configuration  for</p>
+<p> generated  code  is  gathered  in  the</p>
+<p>E2EConfig file. Simpler code.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>39</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Encapsulation of marshaling in separate function.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR defines the marshaling code directly in the wrapper</p>
+<p>code.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;</p>
+<p> ()</p>
+<p> calls</p>
+<p> a</p>
+<p> separate</p>
+<p> function</p>
+<p>E2EPW_Marshal_&lt;pde&gt; ()</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>No change to AUTOSAR 3.2.1/4.0.1.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Simpler code. Improved structure. Code-sharing for same Signal</p>
+<p>Group (e.g. multiple Receivers) possible.</p>
+<p><b>Title</b></p>
+<p><b>Encapsulation  of</b></p>
+<p><b> deserialization</b></p>
+<p><b> check</b></p>
+<p><b> in</b></p>
+<p><b> separate</b></p>
+<p><b>function.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR defines the code for the check directly in the wrapper</p>
+<p>code.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt;</p>
+<p> ()</p>
+<p> </p>
+<p>calls</p>
+<p> a</p>
+<p> separate</p>
+<p> function</p>
+<p>E2EPW_CheckDeserial_&lt;pde&gt; ()</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>No change to AUTOSAR 3.2.1/4.0.1.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Simpler code. Improved structure. Code-sharing for same Signal</p>
+<p>Group (e.g. multiple Receivers) possible.</p>
+<p><b>Title</b></p>
+<p><b>Variants for parameters of </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>AUTOSAR defines the parameters</p>
+<p> </p>
+<p>Instance</p>
+<p> and  </p>
+<p>AppData</p>
+<p> (call</p>
+<p>by reference).</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The following variants are configurable:</p>
+<p>Instance</p>
+<p> </p>
+<p>may be given as a parameter or not. However, it has</p>
+<p>no meaning to the functionality of the E2EPW code and is merely</p>
+<p>used as call parameter for </p>
+<p>Rte_Read/Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p>AppData</p>
+<p> </p>
+<p>can be passed <b>call by value </b>or <b>call by reference</b>. For</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;</p>
+<p> (), it is always <b>call by reference</b>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Parameter </p>
+<p>Instance</p>
+<p> is specified in all API functions as optional,</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 40</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Variants for parameters of </b></p>
+<p><b>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>additional</p>
+<p> specifications  state  that</p>
+<p> the  Instance  feature  is</p>
+<p>explicitly not supported by E2E.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Call signature of </p>
+<p>E2EPW_Read/Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> is aligned to the</p>
+<p>specification of  </p>
+<p>Rte_Read/Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>  in the AUTOSAR</p>
+<p>RTE document.</p>
+<p><b>Title</b></p>
+<p><b>Variables  Config  and  ConfigVal  in  </b></p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>and </b></p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b> are 'const'.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>The variables</p>
+<p> </p>
+<p>Config</p>
+<p> </p>
+<p>and</p>
+<p> </p>
+<p>ConfigVal</p>
+<p> </p>
+<p>are  declared</p>
+<p> </p>
+<p>static</p>
+<p> </p>
+<p>and</p>
+<p>non-constant.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>Config</p>
+<p> </p>
+<p>and</p>
+<p> </p>
+<p>ConfigVal</p>
+<p> </p>
+<p>are defined </p>
+<p>static</p>
+<p> </p>
+<p>and</p>
+<p> </p>
+<p>const</p>
+<p>.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>Config</p>
+<p> was renamed to </p>
+<p>Config_&lt;p&gt;_&lt;o&gt;</p>
+<p> and is defined as static</p>
+<p>and const. </p>
+<p>ConfigVal</p>
+<p> was removed from the code examples in</p>
+<p>4.2.1 as it is not required to achieve the desired functionality.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>static</p>
+<p> </p>
+<p>is by specification in [AS_E2E_SWS]</p>
+<p>.</p>
+<p>const</p>
+<p> moves the variables from (often sparse) RAM to ROM.</p>
+<p><b>Note: </b>The variables have been renamed to </p>
+<p>Config_&lt;p&gt;_&lt;o&gt;</p>
+<p> and</p>
+<p> </p>
+<p>ConfigVal_&lt;p&gt;_&lt;o&gt;</p>
+<p> to satisfy MISRA rules. This has no effect on</p>
+<p>the E2EPW API.</p>
+<p><b>Title</b></p>
+<p><b>Redundant Wrapper not implemented</b></p>
+<p><b>AUTOSAR</b></p>
+<p>Specified as an optional feature in AUTOSAR.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>Redundant</p>
+<p> Wrapper</p>
+<p> (</p>
+<p>E2EPW_Write1/2_&lt;p&gt;_&lt;o&gt;</p>
+<p> ()</p>
+<p>,</p>
+<p>E2EPW_Read1/2_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>) , which is not implemented.</p>
+<p>Only single channel is implemented.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>No change.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p>68</p>
+<h1 style="page-break-before:always; "></h1>
+<p>41</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Redundant Wrapper not implemented</b></p>
+<p><b>Reason</b></p>
+<p>The  Redundant</p>
+<p> Wrapper  is  not</p>
+<p> an  appropriate  solution  to</p>
+<p>achieve  the  system-wide  ASIL  D  level.  Another  solution  (e.g.,</p>
+<p>ASIL D  HW) would be a  better  approach.  However,  redundant</p>
+<p>channels can be modeled on SW-C level.</p>
+<p><b>Title</b></p>
+<p><b>Direct use of opaque parameter in </b></p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>When the parameter</p>
+<p> </p>
+<p>AppData</p>
+<p> </p>
+<p>is opaque,</p>
+<p> </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p> copies the array to a local variable </p>
+<p>Data</p>
+<p>. Then it protects </p>
+<p>Data</p>
+<p>and  copies  </p>
+<p>CRC</p>
+<p> and</p>
+<p> </p>
+<p>counter</p>
+<p> in  </p>
+<p>Data</p>
+<p> back  to  </p>
+<p>AppData</p>
+<p> and</p>
+<p>passes </p>
+<p>AppData</p>
+<p> to</p>
+<p> </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>When the parameter</p>
+<p> </p>
+<p>AppData</p>
+<p> is opaque, </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p> passes</p>
+<p> </p>
+<p>AppData</p>
+<p> directly  to  </p>
+<p>E2E_&lt;profile&gt;Protect</p>
+<p> and</p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>. No local variable is used. </p>
+<p>Side-effect:</p>
+<p>AppData</p>
+<p> is modified.</p>
+<p>After </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> returned, </p>
+<p>CRC</p>
+<p> and </p>
+<p>counter</p>
+<p> are</p>
+<p>visible to the application.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>No change.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>Backward-compatible to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Improved  runtime</p>
+<p> performance</p>
+<p> (no</p>
+<p> copy),</p>
+<p> less</p>
+<p> memory</p>
+<p>consumption (no copy).</p>
+<p><b>Title</b></p>
+<p><b>The array</b></p>
+<p><b> </b></p>
+<p><b>ppa_&lt;port&gt;_&lt;vdp&gt;_au8 []</b></p>
+<p><b> is module-local.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>The variable to store the marshaled version of a given PDE  is</p>
+<p>local in</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> and </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The variable is module-local and static.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The variable is still local in the code example.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>No change to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>MemMap.h</p>
+<p> is used for both, the function and the variable. </p>
+<p>MemMap</p>
+<p>sections cannot be stacked.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 42</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>Profile configuration is module-local.</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>The profile  configuration constant  </p>
+<p>E2E_&lt;profile&gt;ConfigType</p>
+<p> is</p>
+<p>local in</p>
+<p> </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; () and E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>The constant is module-local and static.</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The profile configuration is defined as module-local as constant.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>No change to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>MemMap.h</p>
+<p> is used for both, the function and the variable. </p>
+<p>MemMap</p>
+<p>sections cannot be stacked.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>43</p>
+<p>Page</p>
+<p><b>Generated Code</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Title</b></p>
+<p><b>File Structure</b></p>
+<p><b>AUTOSAR</b></p>
+<p><b>3.2.1/4.0.1</b></p>
+<p>A separate pair of files (</p>
+<p>*.c</p>
+<p> and </p>
+<p>*.h</p>
+<p>) for each SW-C, containing</p>
+<p>wrapper code for all protected data elements on this SW-C:</p>
+<p>E2EPW_&lt;swc&gt;.h</p>
+<p> </p>
+<p>and</p>
+<p>E2EPW_&lt;swc&gt;.c</p>
+<p>.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>1.3</b></p>
+<p>A  separate pair of files (</p>
+<p>*.c</p>
+<p> and  </p>
+<p>*.h</p>
+<p>)  for  each protected  data</p>
+<p>element:</p>
+<p>E2EPW_&lt;swc&gt;_&lt;p&gt;_&lt;o&gt;.h</p>
+<p> </p>
+<p>and</p>
+<p>E2EPW_&lt;sws&gt;_&lt;p&gt;_&lt;o&gt;.c</p>
+<p>.</p>
+<p>The  code  for  marshaling  and  deserialization  check  is  also</p>
+<p>extracted into separate files:</p>
+<p>E2EPW_Marshal_&lt;pde&gt;.c</p>
+<p> </p>
+<p>E2EPW_Marshal_&lt;pde&gt;.h</p>
+<p> </p>
+<p>E2EPW_CheckDeserial_&lt;pde&gt;.c</p>
+<p> </p>
+<p>E2EPW_CheckDeserial_&lt;pde&gt;.h</p>
+<p> </p>
+<p>Where</p>
+<p>&lt;swc&gt;</p>
+<p> is the</p>
+<p> </p>
+<p>Node_Name</p>
+<p>&lt;p&gt;</p>
+<p> is the </p>
+<p>Port_Name</p>
+<p>&lt;o&gt;</p>
+<p> is the</p>
+<p> </p>
+<p>VDP_Name</p>
+<p>&lt;pde&gt;</p>
+<p> is the </p>
+<p>PDE_Name</p>
+<p><b>AUTOSAR 4.2.1</b></p>
+<p>The file structure has not changed since AUTOSAR 3.2.1/4.0.1.</p>
+<p><b>TTTech</b></p>
+<p><b> E2EPW</b></p>
+<p><b>2.0</b></p>
+<p>No change to TTTech E2EPW 1.3.</p>
+<p><b>Reason</b></p>
+<p>Significantly simpler design of  the  E2EPWG.  Shared  code  for</p>
+<p>marshaling/deserial check for the same PDE.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generated Code</b></p>
+<p>Page 44</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>7</b></p>
+<p><b>File Structure</b></p>
+<p>The file structure of the generated files is shown in the figure below (for Profile 2</p>
+<p>). For</p>
+<p>simplicity, inclusions of the files  </p>
+<p>StdTypes.h</p>
+<p>, </p>
+<p>MemMap.h, &lt;swc&gt;_MemMap.h</p>
+<p> and</p>
+<p>of files stated in </p>
+<p>Includes_H</p>
+<p> and </p>
+<p>Includes_C</p>
+<p> are not shown.</p>
+<p><b>cmp File Structure</b></p>
+<p>«headerFile»</p>
+<p><b>::E2E_P02.h</b></p>
+<p><b>E2EPW_&lt;node&gt;_&lt;port&gt;_&lt;pde&gt;_&lt;rxtx&gt;.c</b></p>
+<p>«headerFile»</p>
+<p><b>E2EPW_&lt;node&gt;_&lt;port&gt;_&lt;pde&gt;_&lt;rxtx&gt;.h</b></p>
+<p>E2E Protection Wrapper interface generated by the </p>
+<p>E2E Protection Wrapper Generator.</p>
+<p>One source and one header file per PDE.</p>
+<p>«headerFile»</p>
+<p><b>RTE_&lt;SWC-Type-short name&gt;.h</b></p>
+<p>RTE interface of SWC </p>
+<p>generated by </p>
+<p>AUTOSAR toolchain.</p>
+<p><b>SWC implementation files</b></p>
+<p>«headerFile»</p>
+<p><b>E2EPW_Marshal_&lt;pde&gt;.h</b></p>
+<p>«headerFile»</p>
+<p><b>E2EPW_CheckDeserial_&lt;pde&gt;.h</b></p>
+<p><b>E2EPW_CheckDeserial_&lt;pde&gt;.c</b></p>
+<p><b>E2EPW_Marshal_&lt;pde&gt;.c</b></p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p><i><b>File structure</b></i></p>
+<p>21</p>
+<h1 style="page-break-before:always; "></h1>
+<p>45</p>
+<p>Page</p>
+<p><b>File Structure</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>8</b></p>
+<p><b>Functional Specification</b></p>
+<p>This  Section  contains  the  functional  specification  of  the  two  main  functions  of  the</p>
+<p>protection wrapper: </p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p> and </p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>.</p>
+<p><b>8.1</b></p>
+<p><b>Return values</b></p>
+<p>The return values of the write and read function are a composition of several values.</p>
+<p>Each step or function call within the write and  read  function results  in a  value  that  is</p>
+<p>incorporated into the return value of the function. As the further execution of the read or</p>
+<p>write function depends on the result of such a step or function call, the return value is</p>
+<p>referred to as status.</p>
+<p>The status value is a 32-bit unsigned integer value which is composed as follows:</p>
+<p>0</p>
+<p>AppData==NULL</p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>E2E_&lt;profile&gt;Protect ()</p>
+<p>31</p>
+<p>24</p>
+<p>16</p>
+<p>8</p>
+<p>0</p>
+<p>E2EPW_Write_ ()</p>
+<p>State -&gt; Status</p>
+<p>AppData==NULL</p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>E2E_&lt;profile&gt;Check ()</p>
+<p>24</p>
+<p>16</p>
+<p>8</p>
+<p>0</p>
+<p>E2EPW_Read_ ()</p>
+<p>E2EPW_CheckDeserial_ ()</p>
+<p>31</p>
+<p><b>Note: </b>The figures above show the logical bit and byte order. The generated code uses</p>
+<p>logical bit operations to maintain this logical representation regardless of the platform</p>
+<p>byte order.</p>
+<p><b>8.2</b></p>
+<p><b>Function E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>Depending  on  the  configuration,</p>
+<p> the  </p>
+<p><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</b></p>
+<p> function  is</p>
+<p>generated differently.</p>
+<p>Options that affect the data flow are:</p>
+<p>Use_Call_By_Ref</p>
+<p>IsOpaque</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Functional Specification</b></p>
+<p>Page 46</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The following figures show variants of the </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> function:</p>
+<p><b>act E2EPW_Write Marshal</b></p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ([Rte_Instance], AppData)</p>
+<p>AppData == NULL</p>
+<p><b>udpate status v alue</b></p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p><b>set AppData fields for crc and sequence </b></p>
+<p><b>counter to the v alues calculated by </b></p>
+<p><b>E2EP02_Protect ()</b></p>
+<p>status == OK</p>
+<p><b>Update status v alue</b></p>
+<p><b>return status v alue</b></p>
+<p><b>update status v alue</b></p>
+<p>return</p>
+<p><b>set status to OK</b></p>
+<p>this code is only generated if </p>
+<p>Use_Call_By_Ref = YES</p>
+<p><b>call E2EP02_Protect with </b></p>
+<p><b>marshaled uint8 array</b></p>
+<p><b>marshal AppData into an uint8 array using </b></p>
+<p><b>E2EPW_Marshal_&lt;pde&gt; ()</b></p>
+<p><b>transmit AppData by calling </b></p>
+<p><b>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p><i><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; () </b></i></p>
+<p><i><b>with</b></i></p>
+<p><i><b> Use_Call_By_Ref = YES </b></i></p>
+<p><i><b>and</b></i></p>
+<p><i><b> Is_Opaque = NO</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>47</p>
+<p>Page</p>
+<p><b>Functional Specification</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>act E2EPW_Write Opaque</b></p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ([Rte_Instance], AppData)</p>
+<p>AppData == NULL</p>
+<p><b>update status v alue</b></p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p><b>Update status v alue</b></p>
+<p><b>return status v alue</b></p>
+<p><b>update status</b></p>
+<p>return</p>
+<p><b>set status to OK</b></p>
+<p>this code is only generated </p>
+<p>if Use_Call_By_Ref = YES</p>
+<p><b>call E2EP02_Protect () </b></p>
+<p><b>with AppData</b></p>
+<p><b>transmit AppData using </b></p>
+<p><b>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p><i><b>E2EPW_Write_&lt;p&gt;_&lt;o&gt; () </b></i></p>
+<p><i><b>with</b></i></p>
+<p><i><b> Use_Call_By_Ref = YES </b></i></p>
+<p><i><b>and</b></i></p>
+<p><i><b> Is_Opaque = YES</b></i></p>
+<p><b>8.3</b></p>
+<p><b>Function E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>Depending  on  the  configuration,</p>
+<p> the  </p>
+<p><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</b></p>
+<p> function  is</p>
+<p>generated differently. Options that affect the data flow are:</p>
+<p>CheckDeserial</p>
+<p>IsOpaque</p>
+<p>Use_Rte_Update</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Functional Specification</b></p>
+<p>Page 48</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>The following figures show variants of the </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> function:</p>
+<p><b>act E2EPW_Read</b></p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ([Rte_Instance], AppData)</p>
+<p>AppData == NULL</p>
+<p><b>update status v alue</b></p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p><b>return status v alue</b></p>
+<p><b>update status including return v alue of </b></p>
+<p><b>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>status == OK</p>
+<p><b>Store return v alue</b></p>
+<p><b>update ppa with v alues of </b></p>
+<p><b>checksum and sequence </b></p>
+<p><b>counter</b></p>
+<p>return</p>
+<p><b>set status to OK</b></p>
+<p><b>NewDataAv ailable = TRUE</b></p>
+<p><b>get AppData by calling </b></p>
+<p><b>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>marshal AppData into an uint8 array using </b></p>
+<p><b>E2EPW_Marshal_&lt;pde&gt; ()</b></p>
+<p><b>call E2EP02_Check () with </b></p>
+<p><b>uint8 array</b></p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p><i><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></i></p>
+<p><i><b> with </b></i></p>
+<p><i><b>CheckDeserial=NO</b></i></p>
+<p><i><b>, </b></i></p>
+<p><i><b>Use_Rte_Update=NO</b></i></p>
+<p><i><b> and </b></i></p>
+<p><i><b>Is_Opaque=NO</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>49</p>
+<p>Page</p>
+<p><b>Functional Specification</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>act E2EPW_Read IsUpdated CheckDeserial</b></p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ([Rte_Instance], AppData)</p>
+<p>AppData == NULL</p>
+<p><b>Update status v alue</b></p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p><b>return status v alue</b></p>
+<p><b>update status including </b></p>
+<p><b>return v alue of </b></p>
+<p><b>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>NewDataAvailable == TRUE</p>
+<p>status == OK</p>
+<p><b>Store return v alue</b></p>
+<p>status == OK</p>
+<p><b>Update status</b></p>
+<p><b>update uint8 array with </b></p>
+<p><b>v alues of checksum and </b></p>
+<p><b>sequence counter</b></p>
+<p>return</p>
+<p><b>set status to OK</b></p>
+<p>this code is only generated if </p>
+<p>Use_Rte_Update = YES;</p>
+<p>otherwise, NewDataAvailable is set to </p>
+<p>TRUE.</p>
+<p>this code is only </p>
+<p>generated if </p>
+<p>CheckDeserial = YES</p>
+<p><b>set NewDataAv ailable by calling </b></p>
+<p><b>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>get AppData by calling Rte_Read_&lt;p&gt;_&lt;o&gt; </b></p>
+<p><b>()</b></p>
+<p><b>check signal v alues by calling </b></p>
+<p><b>E2EPW_CheckDeserial_&lt;pde&gt; ()</b></p>
+<p><b>marshal AppData into an uint8 array using </b></p>
+<p><b>E2EPW_Marshal_&lt;pde&gt; ()</b></p>
+<p><b>call E2EP02_Check () with </b></p>
+<p><b>uint8 array</b></p>
+<p>The uint8 array may contain data </p>
+<p>from a previous call, depending on </p>
+<p>the value of NewDataAvailable. This </p>
+<p>is due to E2Elibary specification.</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p><i><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></i></p>
+<p><i><b> with </b></i></p>
+<p><i><b>CheckDeserial = YES</b></i></p>
+<p><i><b>, </b></i></p>
+<p><i><b>Use_Rte_Update = YES</b></i></p>
+<p><i><b> and </b></i></p>
+<p><i><b>Is_Opaque = NO</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Functional Specification</b></p>
+<p>Page 50</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>act E2EPW_Read IsUpdated Opaque</b></p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ([Rte_Instance], AppData)</p>
+<p>AppData == NULL</p>
+<p><b>update status v alue</b></p>
+<p>status == OK</p>
+<p>status == OK</p>
+<p><b>return status v alue</b></p>
+<p><b>update status including </b></p>
+<p><b>return v alue of </b></p>
+<p><b>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>NewDataAvailable == TRUE</p>
+<p>status == OK</p>
+<p><b>Store return v alue</b></p>
+<p>return</p>
+<p><b>set status to OK</b></p>
+<p>this code is only generated if </p>
+<p>Use_Rte_Update = YES;</p>
+<p>otherwise, NewDataAvailable </p>
+<p>is set to TRUE.</p>
+<p>The uint8 array may contain </p>
+<p>data from a previous call, </p>
+<p>depending on the value of </p>
+<p>NewDataAvailable. This is </p>
+<p>due to E2Elibary </p>
+<p>specification.</p>
+<p><b>receiv e AppData by calling </b></p>
+<p><b>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p><b>copy AppData to uint8 </b></p>
+<p><b>array using </b></p>
+<p><b>E2EPW_Memcpy ()</b></p>
+<p><b>call E2EP02_Check () with </b></p>
+<p><b>uint8 array</b></p>
+<p><b>set NewDataAv ailable by calling </b></p>
+<p><b>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</b></p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[TRUE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[FALSE]</p>
+<p>[TRUE]</p>
+<p><i><b>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</b></i></p>
+<p><i><b> with </b></i></p>
+<p><i><b>CheckDeserial = NO</b></i></p>
+<p><i><b>, </b></i></p>
+<p><i><b>Use_Rte_Update = YES</b></i></p>
+<p><i><b> and </b></i></p>
+<p><i><b>Is_Opaque = YES</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>51</p>
+<p>Page</p>
+<p><b>Environment Specifics</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>9</b></p>
+<p><b>Environment Specifics</b></p>
+<p>This  Section  explains  the  properties  and  restrictions  of</p>
+<p> the  build  and  runtime</p>
+<p>environment. They affect the Preprocessor, the E2EPWG and the E2EConfig file, and</p>
+<p>depend not only on the build environment, but also on the AUTOSAR revision, the use</p>
+<p>case,</p>
+<p> and  the  supported  profiles  of</p>
+<p> the  protection  wrapper  generator</p>
+<p> and  the</p>
+<p>preprocessor.</p>
+<p><b>9.1</b></p>
+<p><b>Vector DaVinci Developer/RTE Configurator for AUTOSAR 3.2</b></p>
+<p>In  this  build  environment,  only  the  use  case  AUTOSAR  RTE</p>
+<p> is  available.  The</p>
+<p>Preprocessor and Generator support one or more of  the  E2Elib  profiles  P01</p>
+<p> and</p>
+<p>P02</p>
+<p>, depending on the product license purchased. </p>
+<p>The  Preprocessor  and  Generator  are  integrated  into  this  environment,</p>
+<p> and  are</p>
+<p>automatically invoked when building the project. See the corresponding DaVinci  user</p>
+<p>manuals for details.</p>
+<p><b>9.1.1</b></p>
+<p><b>Configuration Restrictions</b></p>
+<p>There are several restrictions to the configuration when the Vector RTE  for AUTOSAR</p>
+<p>3.2 and AUTOSAR 4.0 is used:</p>
+<p>IsOpaque</p>
+<p> must always be </p>
+<p>NO</p>
+<p> (the RTE does not support opaque DEs)</p>
+<p>Use_Call_By_Ref</p>
+<p> must always be </p>
+<p>YES</p>
+<p> (only record-type DEs are supported  by</p>
+<p>the RTE)</p>
+<p>Use_Rte_Update</p>
+<p> is </p>
+<p>YES</p>
+<p> by default. If the RTE in the given system does not support</p>
+<p>the function </p>
+<p>Rte_Is_Updated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>,  then </p>
+<p>Use_Rte_Update</p>
+<p> must  be</p>
+<p>NO</p>
+<p>.  The  preprocessor  for  this  build  environment  generates  E2EConfig  files  that</p>
+<p>conform  to  those  restrictions.  Restrictions  relating  to  the  preprocessor  itself  are</p>
+<p>described in the following Section.</p>
+<p><b>9.1.2</b></p>
+<p><b>Preprocessor Restrictions</b></p>
+<p>The preprocessor uses the name of the </p>
+<p>VDP</p>
+<p> (</p>
+<p>VDP_Name</p>
+<p>) for the </p>
+<p>PDE_Name</p>
+<p> and the</p>
+<p>SW-C name for the </p>
+<p>Node_Name</p>
+<p> in the E2EConfig file.</p>
+<p>The combination of the attributes </p>
+<p>Node_Name</p>
+<p> and  </p>
+<p>VDP_Name</p>
+<p> in the  configuration</p>
+<p>must be unique. As the </p>
+<p>PDE_Name</p>
+<p> can be chosen freely (it is only used in file names</p>
+<p>and internal functions such as </p>
+<p>Marshal</p>
+<p> and </p>
+<p>CheckDeserial</p>
+<p>), it can be changed</p>
+<p>manually in the  E2EConfig  file.  With  the  DaVinci  tools  release  R12,  the  DaVinci</p>
+<p>Developer supports SW-C-specific defines for the memory mapping (see also Other</p>
+<p>issues</p>
+<p>). </p>
+<p>Node_Name</p>
+<p> must be the SW-C  name because this identifier is used in</p>
+<p>the generated </p>
+<p>MemMap</p>
+<p> defines.</p>
+<p>The </p>
+<p>Byte_Order_CPU</p>
+<p> must be provided as command line parameter. The default</p>
+<p>value is </p>
+<p>LITTLE_ENDIAN</p>
+<p>. If the </p>
+<p>Byte_Order_CPU</p>
+<p> is not set to the correct value,</p>
+<p>signals with a length of more than 8 bits are not correctly marshaled.</p>
+<p><b>9.1.3</b></p>
+<p><b>E2EPW and RTE in a Safety-Related System</b></p>
+<p>If a safety-relevant application developed according to ISO 26262 calls functions which</p>
+<p>are  generated  by a  tool  in QM  quality,  the  <i>called  </i>functions  must  be  considered  as</p>
+<p>23</p>
+<p>20</p>
+<p>21</p>
+<p>52</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Environment Specifics</b></p>
+<p>Page 52</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>safety-relevant as well, as they can potentially interfere with the <i>calling </i>application (e.g.,</p>
+<p>by overwriting data, consuming  execution time,  etc.).  Therefore,  additional  measures</p>
+<p>can be necessary to ensure <b>freedom from interference</b>. These can be applied at the</p>
+<p>function level (e.g., code reviews, tests, development process) or already at the system</p>
+<p>design level (<b>decoupling</b>).</p>
+<p>In the present implementation, the generated E2EPW directly calls RTE functions which</p>
+<p>are generated by a tool in QM quality (i.e., the <b>DaVinci RTE Configurator</b>), which fits</p>
+<p>into the scenario described above. As the RTE  functions are rather small and simple,</p>
+<p>both  kinds  of  measures  (code  review  and  decoupling)  are  suitable,  whereas  the</p>
+<p>complex COM  is  almost  impossible  to  be  tackled  without  decoupling.  The  following</p>
+<p>example illustrates both cases.</p>
+<p><b>Example:</b></p>
+<p>A safety-related software component <i>SW-C A </i>sends a message using the E2EPW. As</p>
+<p>the  RTE  is  generated  by  the  RTE  generator,  the  RTE  code  of  SW-C  A  <b>must  be</b></p>
+<p><b>reviewed manually </b>by the integrator to meet the requirements of ISO 26262. However,</p>
+<p>the  function  </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> (see  Functional  specification</p>
+<p>)  calls  some</p>
+<p>COM functions, which are also not developed according to ISO 26262. Therefore, the</p>
+<p>safety-related <i>SW-C A </i>sends the protected data element to another <i>SW-C B</i>. This <i>SW-</i></p>
+<p><i>C B </i>runs in a <b>different context </b>(i.e., in the same as the COM) and can call the COM</p>
+<p>directly. Thus the <i>SW-C B </i>is used as a proxy, and the E2EPW is only called in <i>SW-C A</i>.</p>
+<p>The RTE and the E2EPW must be configured accordingly.</p>
+<p><b>9.2</b></p>
+<p><b>Other Issues</b></p>
+<p>As  of  version  1.3,  the  E2EPWG  uses  the  contents  of</p>
+<p> the  configuration  field</p>
+<p>Node_Name</p>
+<p> to  generate  SW-C  specific  defines  for  the  memory  mapping.  As  of</p>
+<p>version  2.0.1,  those  must  be  defined  in  the  corresponding  </p>
+<p>&lt;swc&gt;_MemMap.h</p>
+<p>include file of the software component which are generated by the RTE gnerator. If not</p>
+<p>present, a compiler warning or error may be triggered.</p>
+<p>File names of the generated files can become very long. As the maximum length of</p>
+<p>most string-type fields in the E2EConfig file is 128 characters, it is possible that files</p>
+<p>cannot be generated due to file name or path length restrictions.</p>
+<p>For  example,  <b>Windows  XP  </b>and  <b>Windows  7  </b>restrict  the  <b>maximum  total  path</b></p>
+<p><b>length </b>to <b>260  </b>characters  (including  the  terminating  null  character).  If  </p>
+<p>Node_Name</p>
+<p>,</p>
+<p>PDE_Name</p>
+<p> and </p>
+<p>VDP_Name</p>
+<p> are very long, the generated files can easily exceed this</p>
+<p>length, especially if they are generated into a subdirectory. A  possible solution is to</p>
+<p>choose a short </p>
+<p>PDE_Name</p>
+<p> and change it manually in the E2EConfig file.</p>
+<p>45</p>
+<h1 style="page-break-before:always; "></h1>
+<p>53</p>
+<p>Page</p>
+<p><b>Environment Specifics</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>10</b></p>
+<p><b>Integration Notes</b></p>
+<p>This Section contains further information and work instructions regarding the integration</p>
+<p>and integration testing of the <b>E2EPW </b>and the <b>E2Elib</b>.</p>
+<p>It extends the requirements and comments of the <i>E2E Protection Wrapper Safety</i></p>
+<p><i>Manual  </i>([TT_E2EPW_SM]</p>
+<p>) and provides further explanations and code examples.</p>
+<p><b>10.1</b></p>
+<p><b>Checking the Tool Input</b></p>
+<p>Make sure the settings in the Vector tools are as expected and the signals are mapped</p>
+<p>correctly to the signals on the bus.</p>
+<p>This  can  be  done  by  comparing  the  communication  specification  of  the  system</p>
+<p>specification with the  settings  in the  Vector  tools  and  the  content  of  the  generated</p>
+<p>E2EConfig file. A detailed description of the syntax and semantics of the E2EConfig file</p>
+<p>can be found in Section E2EConfig file</p>
+<p>.</p>
+<p><b>10.2</b></p>
+<p><b>Checking the Generated Files</b></p>
+<p>Make sure that</p>
+<p>the E2EConfig file generated by the preprocessor is generated correctly (generation</p>
+<p>messages/errors on </p>
+<p>stdout</p>
+<p> – it is not sufficient to watch message on </p>
+<p>stdout</p>
+<p>, the</p>
+<p>E2EConfig file must be checked). </p>
+<p>the files generated by the E2EPWG (</p>
+<p>pwg.exe</p>
+<p>) are generated correctly (generation</p>
+<p>messages/errors on </p>
+<p>stdout</p>
+<p>).</p>
+<p>the files are compiled and linked correctly to the binary (</p>
+<p>.elf</p>
+<p> file, memory mapping;</p>
+<p>build environment messages/errors).</p>
+<p><b>10.3</b></p>
+<p><b>Performing an Integration Test</b></p>
+<p>There are several ways to ensure that End-to-End Protection is integrated properly. The</p>
+<p>most common option is to build the target and perform an integration test by simulating</p>
+<p>the  environment.  For  End-to-End  Protection,  this  could  be  done  by  simulating  the</p>
+<p>communication of the other ECUs on the communication network (restbus simulation</p>
+<p>).  Here,  the  communication  network  is  simulated,  and  messages  are  sent  to  and</p>
+<p>received  from  the  target  ECU.  This  can  be  done  with  or  without  a  special</p>
+<p> test</p>
+<p>application, depending on the test requirements (unaltered target, test coverage, etc.),</p>
+<p>which also depends on the application using End-to-End Protection.</p>
+<p>Another  way  to  perform  an  integration  test  is  a  self-test  using  internal  (intra-ECU)</p>
+<p>signaling</p>
+<p>. A sending and a receiving software component communicates with End-</p>
+<p>to-End Protection. After checking that End-to-End Protection is working when no fault is</p>
+<p>present, the sender produces sequences of messages simulating predefined faults.</p>
+<p><b>10.3.1</b></p>
+<p><b>Using Restbus Simulation</b></p>
+<p>A common way to check the effectiveness of the End-to-End protection is to test it by</p>
+<p>simulating  the  bus  communication.  This  also  enables  testing  of  the  fault  handling</p>
+<p>mechanisms  of  the  receiving  application  using  the  End-to-End  Protection.  As  the</p>
+<p>E2EPW only reports the status of the End-to-End protection, the test highly relies on the</p>
+<p>68</p>
+<p>15</p>
+<p>53</p>
+<p>63</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 54</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>receiving  application using  the  E2EPW  and  its  behavior  in  case  of  communication</p>
+<p>faults.</p>
+<p>The sender application does not get any information about the state of the End-to-End</p>
+<p>protection. The test of the sender side is therefore always straight forward: Send some</p>
+<p>predefined  data,  check  if  the  checksum  is  correct  regarding  the  sent  data  and  the</p>
+<p>DataID, and check if the sequence counter is incremented with each message.</p>
+<p>If there are no special requirements given by the application, a test for the End-to-End</p>
+<p>protection  at  the  receiver  shall  systematically  provoke  the  different  communication</p>
+<p>status values the E2EPW can report:</p>
+<p><b>E2Elib &lt;profile&gt; status defines</b></p>
+<p><b>Description</b></p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>Initial (Message ok)</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>Message ok</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC</p>
+<p>Wrong CRC</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>Some messages lost, but within tolerance</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQUENCE</p>
+<p>Messages received in wrong sequence</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>Message repeated</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA</p>
+<p>No new message</p>
+<p>By its  design,  the  E2EPW  only reports  symptoms  of  communication faults,  not  their</p>
+<p>cause. Using additional information, the application can derive some possible causes,</p>
+<p>depending  on  assumptions  regarding  attributes  of  the  system  and  communication</p>
+<p>behavior.</p>
+<p>An example list of communication faults and the status reported by the E2EPW:</p>
+<p><b>Status</b></p>
+<p><i><b>Fault</b></i></p>
+<p><b>Wrong</b></p>
+<p><b>CRC</b></p>
+<p><b>Messages lost</b></p>
+<p><b>Invalid</b></p>
+<p><b>sequence</b></p>
+<p><b>Message</b></p>
+<p><b>repeated</b></p>
+<p><b>No new</b></p>
+<p><b>Message</b></p>
+<p><i><b>Bit flip</b></i></p>
+<p>X</p>
+<p><i><b>Byte swap</b></i></p>
+<p>X</p>
+<p><i><b>Wrong</b></i></p>
+<p><i><b>sender</b></i></p>
+<p><i><b>1</b></i></p>
+<p>X</p>
+<p><i><b>Message(s)</b></i></p>
+<p><i><b>lost on bus</b></i></p>
+<p>X</p>
+<p>X</p>
+<p>X</p>
+<p><i><b>Message</b></i></p>
+<p><i><b> not</b></i></p>
+<p><i><b>sent (in time)</b></i></p>
+<p>X</p>
+<p>X</p>
+<p><i><b>Message</b></i></p>
+<p><i><b>repeated</b></i></p>
+<p><i><b> at</b></i></p>
+<p><i><b>sender</b></i></p>
+<p>X</p>
+<p><i>1</i></p>
+<p><i> Refers to masquerading / message insertion</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>55</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>There are some faults that  induce  a  characteristic  sequence  of  status  values.  Some</p>
+<p>values depend on the system (communication) characteristics, others are  reported  in</p>
+<p>sequence:</p>
+<p>For the scenario where messages are lost on the bus, a periodically checking receiver</p>
+<p>would yield a status depending on the following cases:</p>
+<p>1.</p>
+<p>As  long  as  no  message  has  been  received  after  a  startup/restart,  the  status  is</p>
+<p>NONEWDATA</p>
+<p><i>.  </i></p>
+<p>2.</p>
+<p>If a message has been received since the last startup/restart, then, depending on the</p>
+<p>number  of</p>
+<p> lost</p>
+<p> messages  and  the  configuration,</p>
+<p> the  status  might</p>
+<p> be  either</p>
+<p>messages  lost</p>
+<p> or</p>
+<p> </p>
+<p>invalid  sequence</p>
+<p>,</p>
+<p> depending  on  the  setting  of</p>
+<p>Max_Delta_Counter_Init</p>
+<p>.  Also,  </p>
+<p>message  ok</p>
+<p> or  </p>
+<p>message  repeated</p>
+<p>would also be possible if a multiple of 16 (15 for E2Elib profile 1) messages were</p>
+<p>lost consecutively. For the latter case, the sequence checking capabilities of End-to-</p>
+<p>End Protection would not be suitable if the system is expected to be capable of such</p>
+<p>a fault.</p>
+<p><b>10.3.1.1</b></p>
+<p><i>Example Scenarios</i></p>
+<p>The following examples show how important the system attributes and assumptions are</p>
+<p>for the handling of communication faults.</p>
+<p><b>Example 1:</b></p>
+<p>Assuming a given system of a sender ECU and a receiver ECU, having the following</p>
+<p>properties:</p>
+<p>1.</p>
+<p>The  sender  application  is  called  periodically  to  send  an  end-to-end-protected</p>
+<p>message.</p>
+<p>2.</p>
+<p>The sender  communication stack  periodically takes  the  last  message  sent  by the</p>
+<p>sender application and sends it over the communication bus.</p>
+<p>3.</p>
+<p>The receiver communication stack periodically checks for received messages on the</p>
+<p>bus.</p>
+<p>4.</p>
+<p>The receiver application periodically queries the communication stack for  received</p>
+<p>messages using the E2EPW.</p>
+<p>5.</p>
+<p>All periods are equal; the tasks are in sync with each other.</p>
+<p>The  following  fault  is  simulated:  after  message  3,  the  sender  application  misses  its</p>
+<p>deadline for sending the end-to-end-protected message.</p>
+<p>The result of the fault in the system: The sender communication stack does not get the</p>
+<p>next message (</p>
+<p>counter=4</p>
+<p>) and sends the last message (</p>
+<p>counter=3</p>
+<p>) again on the</p>
+<p>bus.</p>
+<p> The  receiver  receives  the  old  message  (</p>
+<p>counter=3</p>
+<p>)  again.</p>
+<p> In  the  next</p>
+<p>communication cycle, the sender application sends the next message (</p>
+<p>counter=5</p>
+<p>) at</p>
+<p>the proper time. The sender communication stack takes the  message  (</p>
+<p>counter=5</p>
+<p>)</p>
+<p>and sends it on the bus.</p>
+<p>Status values reported by the E2EPW at the receiver side:</p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>1</p>
+<p>1</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>2</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 56</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>3</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>5</p>
+<p>5</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>6</p>
+<p>6</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p><b>Example 2:</b></p>
+<p>In the next scenario, the same fault  as  in <i>Example  1  </i>is  introduced,  but  some  of  the</p>
+<p>above assumptions are extended:</p>
+<p>The sender communication stack uses an update bit (extends assumption 2).</p>
+<p>The receiver communication stack evaluates the update bit (extends assumption 3).</p>
+<p>The</p>
+<p> E2EPW  checks</p>
+<p> for</p>
+<p> updated</p>
+<p> data</p>
+<p> (by</p>
+<p> using</p>
+<p> the</p>
+<p> RTE</p>
+<p> function</p>
+<p>Rte_Is_Updated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>; extends assumption 4).</p>
+<p>Now the fault is perceived in a slightly different way:</p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>1</p>
+<p>1</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>2</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA</p>
+<p>5</p>
+<p>5</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>6</p>
+<p>6</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>Here, instead of </p>
+<p>Repeated</p>
+<p><i>, </i></p>
+<p>No new message</p>
+<p><i>’</i>is reported.</p>
+<p><b>Example 3:</b></p>
+<p>As a next modification, let the sender communication stack use a queue for  the  sent</p>
+<p>messages:</p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>1</p>
+<p>1</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>2</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA</p>
+<p>5</p>
+<p>4</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<h1 style="page-break-before:always; "></h1>
+<p>57</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>6</p>
+<p>5</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>Here, the sender misses the deadline for message 4, and as a result the messages are</p>
+<p>queued.The  message  with  counter  4  is  received  in  call  5,  as  there  was  no  new</p>
+<p>message received before. By assuming that the receiving application was executed as</p>
+<p>specified, a timing violation can be derived by the receiving application when receiving</p>
+<p>message with counter 4 in call 5, when expecting message with counter 5. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 58</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Example 4:</b></p>
+<p>Using the original assumptions, but with the following fault scenario:</p>
+<p>After  call</p>
+<p> 3,  the  receiver  communication  stack  is  not  called  before  the  receiver</p>
+<p>application tries to receive the next message.</p>
+<p>The result of the fault on the system: the receiver application misses the deadline  for</p>
+<p>message 4. It receives the old message with counter  3  again,  and  then the  receiver</p>
+<p>communication stack is called and receives the new message with counter 4. Before</p>
+<p>the  receiver  application  is  called  the  next  time,  the  receiver  communication  stack</p>
+<p>receives the next message, with counter 5.</p>
+<p><b>Call Number</b></p>
+<p><b>Sequence counter</b></p>
+<p><b>Status</b></p>
+<p>1</p>
+<p>1</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>2</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>3</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>5</p>
+<p>5</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>6</p>
+<p>6</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>Here, the reported status values are the same as in the first scenario. The conclusion is</p>
+<p>that  the  cause  of  the  perceived  communication  fault  cannot  be  determined  reliably</p>
+<p>without further information (which is out of the scope of the E2EPW).</p>
+<p><b>10.3.1.2</b></p>
+<p><i>Integration Test Message Sequence</i></p>
+<p>In this Section, a small example integration test is provided using fixed sequences of</p>
+<p>messages to trigger all status values the E2EPW can report.</p>
+<p>The following system properties are assumed:</p>
+<p>1.</p>
+<p>The receiver communication stack periodically checks for received messages on the</p>
+<p>bus.</p>
+<p>2.</p>
+<p>The receiver application periodically queries the communication stack for  received</p>
+<p>messages using the E2EPW.</p>
+<p>3.</p>
+<p>All periods are of equal duration; the tasks are ‘in sync’ with each other.</p>
+<p>4.</p>
+<p>The  receiver  application uses  the  RTE  function</p>
+<p> </p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> </p>
+<p>to</p>
+<p>determine if a new message is received since the last call of</p>
+<p> </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p>.</p>
+<p>5.</p>
+<p>The E2Elib configuration has</p>
+<p> </p>
+<p>Max_Delta_Counter_Init = 2</p>
+<p>, </p>
+<p>SyncCounterInit</p>
+<p>= 0.</p>
+<p>Each of the following tables is a message sequence. The message sequence  of  the</p>
+<p>first table is retrieved by sending valid messages and recording them.  The  message</p>
+<p>sequences of the other tables are modifications of the message sequence of the first</p>
+<p>table.</p>
+<p>The meaning of the columns of the following tables is:</p>
+<h1 style="page-break-before:always; "></h1>
+<p>59</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Call</b></p>
+<p>The call number of the function </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ().</p>
+<p><b>SC</b></p>
+<p>The sequence counter value of the message sent over the bus</p>
+<p>by the E2EPW.</p>
+<p><b>CRC</b></p>
+<p>OK</p>
+<p> if the CRC is as expected.</p>
+<p>NOK</p>
+<p> if the CRC is wrong.</p>
+<p><b>Status</b></p>
+<p>The expected status value reported by the E2EPW.</p>
+<p><b>Description</b></p>
+<p>A short description of the semantics of the simulated fault.</p>
+<p><b>*</b></p>
+<p>For E2Elib profile 1</p>
+<p>, there is no counter value 15. This line</p>
+<p>can be omitted.</p>
+<p><i>Sequence of correct messages:</i></p>
+<p><b>Call</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>1</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>2</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>5</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>6</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>7</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>8</p>
+<p>7</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>9</p>
+<p>8</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>10</p>
+<p>9</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>11</p>
+<p>10</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>12</p>
+<p>11</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>13</p>
+<p>12</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>14</p>
+<p>13</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>15</p>
+<p>14</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>16</p>
+<p>15*</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p><i>Deleted and repeated messages:</i></p>
+<p><b>Call</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>1</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>First message.</p>
+<p>20</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 60</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Call</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>2</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>-</p>
+<p>-</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA</p>
+<p>No new message received.</p>
+<p>4</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>One message lost (2).</p>
+<p>5</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>6</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>7</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>Message 5 received again.</p>
+<p>8</p>
+<p>7</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>One message lost (6).</p>
+<p>9</p>
+<p>8</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>10</p>
+<p>9</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>11</p>
+<p>9</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>Message 9 received again.</p>
+<p>12</p>
+<p>10</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>Message  10  received  at  call</p>
+<p>11.</p>
+<p>13</p>
+<p>11</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>Message  11  received  at  call</p>
+<p>12.</p>
+<p>14</p>
+<p>13</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>One message lost (12).</p>
+<p>15</p>
+<p>14</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>16</p>
+<p>15*</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p><i>Wrong CRC due to different failure modes:</i></p>
+<p><b>Cycle</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>1</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>2</p>
+<p>NOK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC</p>
+<p>Bit flip in message.</p>
+<p>4</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>One message lost (2).</p>
+<p>5</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>6</p>
+<p>5</p>
+<p>NOK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC</p>
+<p>Used different DataID.</p>
+<p>7</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>One message lost (5).</p>
+<p>8</p>
+<p>7</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>9</p>
+<p>8</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>10</p>
+<p>13</p>
+<p>NOK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC</p>
+<p>Bit</p>
+<p> flip  in  sequence  counter</p>
+<p>signal.</p>
+<p>11</p>
+<p>14</p>
+<p>NOK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGCRC</p>
+<p>Bit</p>
+<p> flip  in  sequence  counter</p>
+<p>signal.</p>
+<p>12</p>
+<p>11</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOST</p>
+<p>Two</p>
+<p> messages</p>
+<p> lost</p>
+<p> (with</p>
+<p>sequence counter values 9 and</p>
+<h1 style="page-break-before:always; "></h1>
+<p>61</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Cycle</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>10).</p>
+<p>13</p>
+<p>12</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>14</p>
+<p>13</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>15</p>
+<p>14</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>16</p>
+<p>15*</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p><i>Sequence error because of swap and sender reset:</i></p>
+<p><b>Cycle</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>1</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>2</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELOS</p>
+<p>T</p>
+<p>One message lost (3).</p>
+<p>5</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>Messages 3 and 4 swapped.</p>
+<p>6</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>7</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>8</p>
+<p>-</p>
+<p>-</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDATA</p>
+<p>No new message received.</p>
+<p>9</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>Sender was reset.</p>
+<p>10</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>11</p>
+<p>2</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>12</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>13</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>14</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQU</p>
+<p>ENCE</p>
+<p>15</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>16</p>
+<p>7</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p><i>Sequence error because of receiver timing violation:</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 62</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>Call</b></p>
+<p><b>SC</b></p>
+<p><b>CRC</b></p>
+<p><b>Status</b></p>
+<p><b>Description</b></p>
+<p>1</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_INITIAL</p>
+<p>2</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>3</p>
+<p>2</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>4</p>
+<p>-</p>
+<p>-</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDAT</p>
+<p>A</p>
+<p>No new data received (extra  call</p>
+<p>of receiver task simulated).</p>
+<p>5</p>
+<p>-</p>
+<p>-</p>
+<p>E2E_&lt;profile&gt;STATUS_NONEWDAT</p>
+<p>A</p>
+<p>No new data received (extra  call</p>
+<p>of receiver task simulated).</p>
+<p>6</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OKSOMELO</p>
+<p>ST</p>
+<p>Two messages lost (3, 4).</p>
+<p>7</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>8</p>
+<p>10</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>Three  messages  lost</p>
+<p> because</p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> was</p>
+<p>not  called  three  times  in  a  row.</p>
+<p>Only  two  losses  are  tolerated</p>
+<p>because</p>
+<p> of</p>
+<p>Max_Delta_Counter_Init =</p>
+<p>2</p>
+<p>.</p>
+<p>As  the  sequence  counter  of  the</p>
+<p>sender increases, but the receiver</p>
+<p>expects  values  7,</p>
+<p> 8  or  9,</p>
+<p> the</p>
+<p>E2EPW reports an error.</p>
+<p>9</p>
+<p>11</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>10</p>
+<p>12</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>11</p>
+<p>13</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>12</p>
+<p>14</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>13</p>
+<p>15*</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>14</p>
+<p>0</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>15</p>
+<p>1</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>16</p>
+<p>2</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>17</p>
+<p>3</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>18</p>
+<p>4</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>19</p>
+<p>5</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_WRONGSEQ</p>
+<p>UENCE</p>
+<p>20</p>
+<p>6</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_REPEATED</p>
+<p>Got  the same sequence  counter</p>
+<p>as last valid message.</p>
+<p>21</p>
+<p>7</p>
+<p>OK</p>
+<p>E2E_&lt;profile&gt;STATUS_OK</p>
+<p>Finally</p>
+<p> got</p>
+<p> a  valid  sequence</p>
+<p>counter.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>63</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>10.3.1.3</b></p>
+<p><i>Hints for Integration Test Setup</i></p>
+<p>Using  the  tables  in  the  Section  above,  it  is  necessary  to  be  able  to  check  the</p>
+<p>correctness  of  protected  messages  as  well  as  to  generate  correct  and  incorrect</p>
+<p>messages according to the test sequences. </p>
+<p>One  way  to  establish  this  is  to  build  a  test  environment  that  provides  the  E2Elib</p>
+<p>functionality and generates and checks protected messages dynamically. If this is not</p>
+<p>possible, static message sequences can be used:</p>
+<p>1.</p>
+<p>For each data element received using the E2EPW, configure another data element</p>
+<p>that is sent using the E2EPW.</p>
+<p>2.</p>
+<p>Send 16 messages and record them. Make sure that  this  sequence  of  messages</p>
+<p>corresponds  to  the  message  sequence  listed  in  Table  <i>Sequence  of</i></p>
+<p><i> correct</i></p>
+<p><i>messages</i></p>
+<p> and make sure that the CRC is correct.</p>
+<p>3.</p>
+<p>Build  the  message  sequences  of  the  other  tables  by  adapting  the  recorded</p>
+<p>messages.</p>
+<p>4.</p>
+<p>Use  the  message  sequences  to  test  the  E2EPW  for  the  data  elements  it  is</p>
+<p>configured to receive and check the reported return values.</p>
+<p><b>Note:  </b>To  get  the  message  sequences  of  the  other  tables,  the  original  message</p>
+<p>sequence must be adapted (reordering, bit-manipulation,…). For message 5 in Table</p>
+<p><i>Wrong  CRC  due  to  different  failure  modes</i></p>
+<p>,  the  CRC  must  be  calculated  with  a</p>
+<p>different message ID. This can be done with the sent messages, but by modifying the</p>
+<p>configuration of the E2EPW to use a different message ID and record message 5 of the</p>
+<p>sequence.</p>
+<p><b>10.3.2</b></p>
+<p><b>Using Intra-ECU Signaling</b></p>
+<p>Another way to test the E2EPW and the E2Elib is to set up a software component that</p>
+<p>checks the functionality by sending end-to-end-protected messages, manipulating them</p>
+<p>according to some fault assumptions, and evaluating the reported status of the E2EPW</p>
+<p>on the receiver side. This can be done at any time, possibly at startup, regularly during</p>
+<p>runtime, or after a software update.</p>
+<p><b>Note1: </b>This test only covers the code of the E2Elib and the part of the E2EPW that is</p>
+<p>used for the protected messages sent/received. There is no test coverage for the actual</p>
+<p>E2EPW code  used  by the  other  applications,  or  for  the  code  of  the  communication</p>
+<p>layers or the applications themselves.</p>
+<p><i>Prerequisites: </i>A sender and a receiver port using the E2EPW must be configured and</p>
+<p>connected. Both ports must use the same VDP.</p>
+<p><b>Note 2: </b>As those ports do not send to or receive from a communication bus, there is no</p>
+<p>tool  support  for  adding  End-to-End  Protection  (an  I-PDU  layout  is  needed  for  the</p>
+<p>marshaling).  The  configuration  of  End-to-End  Protection  must  be  done  manually.  A</p>
+<p>convenient  way to  do  this  is  to  reuse  an existing  data  element  and  copy the  signal</p>
+<p>definitions from there.</p>
+<p><b>Note 3: </b>The function </p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> must be emulated if it is used</p>
+<p>by  </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p>,  which  is  assumed  in  the  message  sequences</p>
+<p>described  in  this  document.  Therefore,  the  </p>
+<p>Use_RteUpdate</p>
+<p> must  be  </p>
+<p>YES</p>
+<p> in  the</p>
+<p>E2EConfig file. The RTE generator must not generate the function, because the return</p>
+<p>value must be chosen according to the message sequence: Each time a message is</p>
+<p>59</p>
+<p>60</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 64</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>sent by the sender, the function </p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> must  return </p>
+<p>TRUE</p>
+<p>once. The user must provide this function.</p>
+<p>As the RTE functions </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> and </p>
+<p>Rte_Read_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> only</p>
+<p>pass  on  pointers  to  the  sent/received  data  structure,  there  is  no  need  for  multiple</p>
+<p>software  components  or  even  runnables  for  this  test.  However,  transmission  using</p>
+<p>multiple software components can be beneficial if memory partitioning is used, and is</p>
+<p>hence also subject to this test.</p>
+<p><b>E2Etest_CP::E2Etest _CT</b></p>
+<p>Send _SiGroup_P</p>
+<p>Recv_SiGroup_P</p>
+<p><i><b>Software component setup</b></i></p>
+<p><b>10.3.2.1</b></p>
+<p><i>Sending Correct Messages</i></p>
+<p>The <b>correct messages </b>sequence (see Table <i>Sequence of correct  messages</i></p>
+<p>)  is</p>
+<p>the  simple  part:  The  sender  just  sends  messages  using  </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p>, and the receiver checks the reported status returned by </p>
+<p>E2EPW_Read_&lt;p&gt;_&lt;o&gt;</p>
+<p>()</p>
+<p>.</p>
+<p><b>10.3.2.2</b></p>
+<p><i>Sending Manipulated Messages</i></p>
+<p>For</p>
+<p> manipulated</p>
+<p> messages,</p>
+<p> the</p>
+<p> sender</p>
+<p> cannot</p>
+<p> use</p>
+<p> the</p>
+<p> function</p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> directly, because not all  manipulation operations  can</p>
+<p>be  performed  before  or  after  the  call  of  </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> (e.g.,  the</p>
+<p>manipulation of the DataID  used for the CRC  calculation). Therefore, the sender must</p>
+<p>emulate  the  function </p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> and  modify  it  according  to  the</p>
+<p>message sequence. The functional behavior of the E2EPW write function is as follows:</p>
+<p>1.</p>
+<p>Build a byte array representing the I-PDU of the data element by calling the function</p>
+<p>E2EPW_Marshal_&lt;pde&gt; ()</p>
+<p>. The  parameters  are  a  pointer  to  the  array and  a</p>
+<p>pointer to the data element.</p>
+<p>2.</p>
+<p>Call  </p>
+<p>E2E_&lt;profile&gt;Protect ()</p>
+<p>,  with  the  parameters  being  pointers  to  the</p>
+<p>configuration</p>
+<p> data structure,  to  the  </p>
+<p>status</p>
+<p> data  structure  and  to  the  I-PDU</p>
+<p>byte array.</p>
+<p>3.</p>
+<p>Extract  the  counter  and  CRC  value  from  the  byte  array  (configuration-dependent</p>
+<p>position) and write them to the corresponding signals in the </p>
+<p>data element</p>
+<p> data</p>
+<p>structure.</p>
+<p>4.</p>
+<p>Call </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> with the data element as parameter.</p>
+<p>To generate and send manipulated messages,  the  configuration and/or  status  of  the</p>
+<p>E2Elib must be altered  (sequence  counter  value,  DataID,  ...),  and  data  manipulation</p>
+<p>may  be  necessary  (to  provoke  a  wrong  CRC),</p>
+<p> before  sending  the  data  with</p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.  While  the  </p>
+<p>status</p>
+<p> data  structure  is  available  to  the</p>
+<p>application, the </p>
+<p>configuration</p>
+<p> data structure is  declared  as  static  </p>
+<p>const</p>
+<p> in the</p>
+<p>E2EPW_Write_&lt;p&gt;_&lt;o&gt; ()</p>
+<p> function and therefore not accessible. The application</p>
+<p>must emulate </p>
+<p>E2EPW_Write</p>
+<p> with its own configuration data structure, which can then</p>
+<p>59</p>
+<h1 style="page-break-before:always; "></h1>
+<p>65</p>
+<p>Page</p>
+<p><b>Integration Notes</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p>be altered if necessary.</p>
+<p>The steps to send manipulated messages are:</p>
+<p>1.</p>
+<p>Prepare the data element.</p>
+<p>2.</p>
+<p>Call</p>
+<p> the  function  </p>
+<p>E2EPW_Marshal_&lt;pde&gt;  ()</p>
+<p> with  a  pointer  to  the  </p>
+<p>data</p>
+<p>element</p>
+<p> data structure and a pointer to a byte array in order to get  a  byte  array</p>
+<p>representing the I-PDU of the data element.</p>
+<p>3.</p>
+<p>Alter the </p>
+<p>Counter</p>
+<p> field of the </p>
+<p>status</p>
+<p> data structure to be </p>
+<p>&lt;Counter Value&gt;</p>
+<p> - 1</p>
+<p>mod 16  (mod 15 for profile 1) according to the message sequence.</p>
+<p>4.</p>
+<p>Alter  the  </p>
+<p>configuration</p>
+<p> data  structure,  if  necessary (e.g.,  change  the  DataID</p>
+<p>field).</p>
+<p>5.</p>
+<p>Call  </p>
+<p>E2E_&lt;profile&gt;Protect ()</p>
+<p>,  with  the  parameters  being  pointers  to  the</p>
+<p>configuration</p>
+<p> data structure,  to  the  </p>
+<p>status</p>
+<p> data  structure  and  to  the  I-PDU</p>
+<p>byte array.</p>
+<p>6.</p>
+<p>Extract  the  counter  and  CRC  value  from  the  byte  array  according  to  the  E2Elib</p>
+<p>configuration and write them to the signals in the </p>
+<p>message</p>
+<p> data structure.</p>
+<p>7.</p>
+<p>Manipulate the </p>
+<p>data element</p>
+<p> data structure, if necessary (according to message</p>
+<p>sequence).</p>
+<p>8.</p>
+<p>Call  </p>
+<p>Rte_Write_&lt;p&gt;_&lt;o&gt;  ()</p>
+<p> with  a  pointer  to  the  </p>
+<p>data  element</p>
+<p> data</p>
+<p>structure.</p>
+<p>9.</p>
+<p>Maintain the value returned by </p>
+<p>Rte_IsUpdated_&lt;p&gt;_&lt;o&gt; ()</p>
+<p>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration Notes</b></p>
+<p>Page 66</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>11</b></p>
+<p><b>Abbreviations</b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description</b></p>
+<p><b>API</b></p>
+<p>Application Programming Interface</p>
+<p><b>ASIL</b></p>
+<p>Application Safety Integrity Level</p>
+<p><b>COM</b></p>
+<p>Communication layer, a software layer that un/packs signal</p>
+<p>from a network PDU</p>
+<p><b>CRC</b></p>
+<p>Cyclic Redundancy Check</p>
+<p><b>DE</b></p>
+<p>Data Element</p>
+<p><b>E2EConfig file</b></p>
+<p>E2E Configuration File, which is the input for the E2EPWG</p>
+<p><b>E2EPW</b></p>
+<p>E2E Protection Wrapper</p>
+<p><b>E2EPWG</b></p>
+<p>E2E Protection Wrapper Generator</p>
+<p><b>E2Elib</b></p>
+<p>End-to-End Communication Protection Library</p>
+<p><b>EBNF</b></p>
+<p>Extended  Backus-Naur-Form  (see  http://en.wikipedia.org/</p>
+<p>wiki/Extended_Backus Naur_Form)</p>
+<p><b>ECU</b></p>
+<p>Electronic Control Unit</p>
+<p><b>QM</b></p>
+<p>Quality  Management  (safety  level  according  to  company</p>
+<p>standards, but not ISO26262)</p>
+<p><b>PA</b></p>
+<p>Protected Area</p>
+<p><b>PDE</b></p>
+<p>Protected Data Element</p>
+<p><b>I-PDU</b></p>
+<p>Interaction Layer Protocol Data Unit</p>
+<p><b>PGN</b></p>
+<p>Parameter Group Number</p>
+<p><b>RTE</b></p>
+<p>Run-Time Environment</p>
+<p><b>SC</b></p>
+<p>Sequence Counter</p>
+<p><b>SW-C, SWC</b></p>
+<p>Software Component</p>
+<p><b>VDP</b></p>
+<p>Variable Data Prototype</p>
+<h1 style="page-break-before:always; "></h1>
+<p>67</p>
+<p>Page</p>
+<p><b>Abbreviations</b></p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>12</b></p>
+<p><b>Glossary</b></p>
+<p><b>Term </b></p>
+<p><b>Description</b></p>
+<p><b>Communication stack</b></p>
+<p>The  Autosar  software  stack  (in  the  context  of  E2EPW:</p>
+<p>Flexray or CAN stack).</p>
+<p><b>Data Element (DE)</b></p>
+<p>A  C-like  structure  containing  signal</p>
+<p> values.</p>
+<p> Used  at</p>
+<p>application  level.  A  DE  is  the  smallest  unit  that  can  be</p>
+<p>transmitted/received  with a  single  transmission/reception-</p>
+<p>function from the application view.</p>
+<p>If the transmission/reception of a Data Element is protected</p>
+<p>by the E2Elib, it is called a <i>Protected Data Element</i>.</p>
+<p><b>(E2E)Protection</b></p>
+<p><b>Wrapper</b></p>
+<p>A set of API functions that encapsulates the protection and</p>
+<p>check mechanisms of the E2Elib at application level:</p>
+<p>At sender side, there is an API function which adds CRC</p>
+<p>and counter to the data and passes it along  to  the  next</p>
+<p>lower layer (RTE, COM or Transport layer).</p>
+<p>At reception side, there is an API function that  receives</p>
+<p>data from  the  lower  layer,  checks  its  CRC  and  counter</p>
+<p>and returns a state telling if the data is correct or not. </p>
+<p><b>Marshaling</b></p>
+<p>The process of copying the DE  (a  C  struct)  to  the  I-PDU</p>
+<p>representation of the DE. The CRC  evaluation is done on</p>
+<p>the I-PDU representation.</p>
+<p><b>Protected Area</b></p>
+<p>The E2EConfig file contains a list of Protected Areas. Each</p>
+<p>protected  area  holds  all  information  that  is  required  to</p>
+<p>generate  wrapper  code  to  send/receive  a  certain  signal</p>
+<p>group using the COM layer:</p>
+<p>information  for  the  E2EPW  API  (e.g.,  the  PDE  name,</p>
+<p>node name, communication direction),</p>
+<p>information  for  the  calls  of  the  COM  API  (e.g.,  signal</p>
+<p>group ID, opaque property), and</p>
+<p>information on signals  for  marshaling  (signal  positions,</p>
+<p>signal lengths).</p>
+<p><b>Protected</b></p>
+<p><b> Data</b></p>
+<p><b>Element</b></p>
+<p>See <i>Data Element</i>.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Glossary</b></p>
+<p>Page 68</p>
+<p><i>TTTech Automotive Confidential and Proprietary</i></p>
+<p><i>© 2015 TTTech Automotive GmbH</i></p>
+<p><i>End-to-End Protection Wrapper Generator 2.0.1</i></p>
+<p><i>Document number: D-MSP-G-70-001</i></p>
+<p><b>13</b></p>
+<p><b>References</b></p>
+<p>[TT_E2EPW_SM]</p>
+<p> TTTech</p>
+<p> Automotive</p>
+<p> GmbH.</p>
+<p> <i>E2E</i></p>
+<p><i> Protection</i></p>
+<p><i> Wrapper</i></p>
+<p><i> Safety</i></p>
+<p><i> Manual</i>,</p>
+<p>SafetyManual_E2EPW.pdf,</p>
+<p> </p>
+<p>D-MSP-M-70-002</p>
+<p>[AS_E2E_SWS]  AUTOSAR.  <i>Specification  of  SW-C  End-to-End  Communication  Protection  Library</i>,</p>
+<p>Version 1.2.0, Release 3.2.1, Annex B Section 12.1.</p>
+<p>[TT_E2EP01_SM]  TTTech  Automotive  GmbH,  <i>E2Elib  Profile-1  Safety  Manual</i>,  D-MSP-M-70-003,  V</p>
+<p>1.1.8, 2012</p>
+<p>[TT_E2EP02_SM] TTTech Automotive GmbH, <i>E2Elib Profile-2 Safety Manual</i>, D-001-M-70-001, V 1.2.9,</p>
+<p>2012</p>
+<p>[BMW_LAST_KOMM] <i>Lastenheft Bordnetz-Kommunikation</i>, 10000235-000-09, BMW Group, 2009</p>
+<p>[AS_COMABS_SWS] AUTOSAR Gbr, <i>Specification of Compiler Abstraction</i>, ID 051, V2.1.0, Rel. 3.2.1</p>
+<p>[AS_MEM_SWS] AUTOSAR Gbr, <i>Specification of Memory Mapping</i>, ID 128, V1.2.1, Rel 3.2.1</p>
+</body>
+</html>
+{% endraw %}

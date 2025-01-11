@@ -1,0 +1,282 @@
+---
+layout: default
+title: StdDiagGeneric_ReleaseNotes
+nav_order: 5
+parent: StdDiag
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes StdDiagGeneric</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.3.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.3.0</p>
+<p>2017-12-14</p>
+<p>BAC-6628, BAC-6248</p>
+<p>5.2.0</p>
+<p>2017-11-09</p>
+<p>BAC-6469, BAC-6249</p>
+<p>5.1.1</p>
+<p>2017-10-12</p>
+<p>BAC-5176, BAC-6230, BAC-6241, BAC-6433</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>BAC-6148, BAC-6134</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_StdDiagGeneric, Version 5.3.0, Software Platforms</p>
+<p>Page 1 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The main functionality of the StdDiag module is to handle the active session states (&quot;subsessions&quot;) of the</p>
+<p>default diagnostic session and the extended diagnostic session. It ensures that the programming</p>
+<p>preparation process (i.e. the transition from the diagnostic default session via the extended diagnostic</p>
+<p>session to the programming session) is only successful, if the diagnostic requests are received in the</p>
+<p>correct sequence and all necessary preconditions are fulfilled. It also checks whether diagnostic requests</p>
+<p>shall be rejected or allowed in the different session states.</p>
+<p>The StdDiag module also provides diagnostic service handlers for - clearing the secondary error memory</p>
+<p>- reading the active session state - reading the programming preconditions - reading the SGBD-Index -</p>
+<p>diagnostic communication loopback functionality - handling Diagnostic Log and Trace settings - handling</p>
+<p>IDRL basic functionality</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.3.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6628</p>
+<p>CR Headline:</p>
+<p>Adapt generated code comment to new PAGe generator</p>
+<p>Description of Issues:</p>
+<p>Name of IDRL Client in comment of StdDiag_DIDArray is not</p>
+<p>generated correctly with latest PAGe version.</p>
+<p>Description of Changes:</p>
+<p>Adapt generation of comment to latest PAGe version.</p>
+<p>Changed Files:</p>
+<p>generate/src/StdDiag_Cfg.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6248</p>
+<p>CR Headline:</p>
+<p>Provide callback mechanism to establish intrinsic safety</p>
+<p>Description of Issues:</p>
+<p>Provide an asynchronous callback mechanism to establish intrinsic</p>
+<p>safety for long running user callouts.</p>
+<p>Description of Changes:</p>
+<p>Provided callback interfaces for long running applications.</p>
+<p>Changed Files:</p>
+<p>include/StdDiag.h</p>
+<p>src/StdDiag_ProgPreparation.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6469</p>
+<p>CR Headline:</p>
+<p>StdDiag: Extended Session handling</p>
+<p>Description of Issues:</p>
+<p>Flash Acceptance Test (FAT) fails due to wrong session states</p>
+<p>after processing diagnostic requests to change (extended) energy</p>
+<p>mode.</p>
+<p>ReleaseNotes_StdDiagGeneric, Version 5.3.0, Software Platforms</p>
+<p>Page 2 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Corrected active session states depending on energy mode</p>
+<p>settings.</p>
+<p>Changed Files:</p>
+<p>src/StdDiag_ProgPreparation.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6249</p>
+<p>CR Headline:</p>
+<p>Provide PostBuild configuration of SGBD-Index</p>
+<p>Description of Issues:</p>
+<p>Parameter &quot;StdDiagSgbdIndex&quot; shall be post build selectable.</p>
+<p>Description of Changes:</p>
+<p>Moved parameter &quot;StdDiagSgbdIndex&quot; to adapter part and add</p>
+<p>post build support.</p>
+<p>Changed Files:</p>
+<p>include/StdDiag.h</p>
+<p>CMakeLists.txt</p>
+<p>cfgdesc/StdDiag_paramdef.arxml</p>
+<p>src/StdDiag_SgbdIndex.c</p>
+<p>generate/include/StdDiag_Cfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5176</p>
+<p>CR Headline:</p>
+<p>BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR_TPS_ECUConfiguration</p>
+<p>TPS_ECUC_06004 an AdminData field is required at the</p>
+<p>beginning of every ECU Configuration Parameter Definition XML</p>
+<p>file.</p>
+<p>Description of Changes:</p>
+<p>Added AdminData field containing module version and release</p>
+<p>date.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StdDiag_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6230</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES in BMW</p>
+<p>modules is invalid according to ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>Elements IMPLEMENTATION-CONFIG-CLASSES containing</p>
+<p>ECUC-IMPLEMENTATION-CONFIGURATION-CLASS are</p>
+<p>deprecated.They shall be replaced by VALUE-CONFIG-</p>
+<p>CLASSES/ECUC-VALUE-CONFIGURATION-CLASS and/or</p>
+<p>MULTIPLICITY-CONFIG-CLASSES/ECUC-MULTIPLICITY-</p>
+<p>CONFIGURATION-CLASS</p>
+<p>Description of Changes:</p>
+<p>Replaced IMPLEMENTATION-CONFIG-CLASSES by</p>
+<p>VALUE-CONFIG-CLASSES, added</p>
+<p>MULTIPLICITY-CONFIG-CLASSES where necessary.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StdDiag_paramdef.arxml</p>
+<p>ReleaseNotes_StdDiagGeneric, Version 5.3.0, Software Platforms</p>
+<p>Page 3 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6241</p>
+<p>CR Headline:</p>
+<p>StdDiag: wrong NegReponseCode for $10 02 in default session</p>
+<p>Description of Issues:</p>
+<p>Diagnostic request to switch from default to programming session</p>
+<p>is answered with wrong negative response code.</p>
+<p>Description of Changes:</p>
+<p>Corrected negative response code from 0x7F</p>
+<p>(ServiceNotSupportedInActiveSession) to 0x7E</p>
+<p>(SubFunctionNotSupportedInActiveSession)</p>
+<p>Changed Files:</p>
+<p>src/StdDiag_ProgPreparation.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6433</p>
+<p>CR Headline:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of parameter definition files and SWCDs should be</p>
+<p>conform to AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>Adapted parameter definition files and SWCDs to schema</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StdDiag_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6148</p>
+<p>CR Headline:</p>
+<p>StdDiag: Programming Precondition Check shall not fail in case of</p>
+<p>missing PWF status</p>
+<p>Description of Issues:</p>
+<p>Programming Precondition Check fails if no PWF signal is available.</p>
+<p>Description of Changes:</p>
+<p>Accept unknown PWF state as valid Programming Precondition.</p>
+<p>Changed Files:</p>
+<p>src/StdDiag_ProgPreparation.c</p>
+<p>include/StdDiag_StmAdapter.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6134</p>
+<p>CR Headline:</p>
+<p>StdDiag: Svkaktuell fails in extendedSession.FlashModeActivated</p>
+<p>Description of Issues:</p>
+<p>RDBI-Job fails with ConditionsNotCorrect in Status</p>
+<p>ExtendedSession.FlashModeActivated.</p>
+<p>Description of Changes:</p>
+<p>Allowed execution of all RDBI jobs in any state.</p>
+<p>Changed Files:</p>
+<p>src/StdDiag_ProgPreparation.c</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_StdDiagGeneric, Version 5.3.0, Software Platforms</p>
+<p>Page 4 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_StdDiagGeneric, Version 5.3.0, Software Platforms</p>
+<p>Page 5 of 5</p>
+</body>
+</html>
+{% endraw %}

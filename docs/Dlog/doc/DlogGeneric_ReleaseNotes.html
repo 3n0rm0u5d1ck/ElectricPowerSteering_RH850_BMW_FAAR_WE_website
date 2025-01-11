@@ -1,0 +1,312 @@
+---
+layout: default
+title: DlogGeneric_ReleaseNotes
+nav_order: 5
+parent: Dlog
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes DlogGeneric</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.1.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.1.1</p>
+<p>2017-12-14</p>
+<p>BAC-6672, BAC-6726</p>
+<p>5.1.0</p>
+<p>2017-11-09</p>
+<p>BAC-6266, BAC-6422, BAC-6055</p>
+<p>5.0.2</p>
+<p>2017-09-14</p>
+<p>BAC-6223, BAC-6213, BAC-6181, BAC-5169</p>
+<p>5.0.1</p>
+<p>2017-08-10</p>
+<p>BAC-6172, BAC-6089</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_DlogGeneric, Version 5.1.1, Software Platforms</p>
+<p>Page 1 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The DataLogistic is part of the BootManager, Bootloader and Application. It is needed for every ECU to<i> •</i></p>
+<p>get production information<i> •</i> identify software and hardware<i> •</i> check compatibility of hardware and</p>
+<p>software<i> •</i> check compatibility of all software units (SWEs)<i> •</i> check at startup if the software is valid and</p>
+<p>may be started</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.1.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6672</p>
+<p>CR Headline:</p>
+<p>Dlog - version info not checked at compile time</p>
+<p>Description of Issues:</p>
+<p>Unlike for most other BAC modules the version information from</p>
+<p>the CommonPublishedInformation container is not validated at</p>
+<p>compile time in Dlog &amp; DlogShared.</p>
+<p>Description of Changes:</p>
+<p>add missing version checks</p>
+<p>Changed Files:</p>
+<p>include/Dlog_UDSAdapter.h</p>
+<p>include/Dlog_NvMAdapter.h</p>
+<p>include/Dlog_SvkGen.h</p>
+<p>src/Dlog_SweGen.c</p>
+<p>include/Dlog_CodingAdapter.h</p>
+<p>include/Dlog_SweGen.h</p>
+<p>include/Dlog_Data.h</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>generate/include/Dlog_Cfg.h.pgen</p>
+<p>include/Dlog_UserAdapter.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6726</p>
+<p>CR Headline:</p>
+<p>Do not write History after first start after debug flash</p>
+<p>Description of Issues:</p>
+<p>Do not write History after first start after debug flash, i.e. when the</p>
+<p>NvM block is not readable.</p>
+<p>Description of Changes:</p>
+<p>Do not write History after first start after debug flash, i.e. when the</p>
+<p>NvM block is not readable.</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6266</p>
+<p>ReleaseNotes_DlogGeneric, Version 5.1.1, Software Platforms</p>
+<p>Page 2 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>CR Headline:</p>
+<p>Invalid SWFK with alternative SWFK</p>
+<p>Description of Issues:</p>
+<p>after deleting the last SWFK of an group which must contain at</p>
+<p>least one SWFK an invalid entry must display when read</p>
+<p>SVK_AKTUELL.</p>
+<p>Description of Changes:</p>
+<p>output default entry for missing SWFK in</p>
+<p>DLOG_SWEGROUP_ONEOBLIGATORY</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6422</p>
+<p>CR Headline:</p>
+<p>Bs, Dlog, Pia: Schema of paramdefs, paramconfs and SWCDen</p>
+<p>should be AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>change arxml schema to</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Dlog_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6055</p>
+<p>CR Headline:</p>
+<p>Improve handling of DLOG_SWFK_DELSUP_AVAILABLE</p>
+<p>Description of Issues:</p>
+<p>At the moment DLOG_SWFK_DELSUP_AVAILABLE is set to</p>
+<p>STD_OFF.</p>
+<p>Description of Changes:</p>
+<p>move DLOG_SWFK_DELSUP_AVAILABLE back to classic since</p>
+<p>in adaptive it will be a postbuild parameter</p>
+<p>Changed Files:</p>
+<p>generate/include/Dlog_Cfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.2 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6223</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES is deprecated</p>
+<p>and shall be replaced by VALUE-CONFIG-CLASSES according to</p>
+<p>ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>TPS_ECUC_06051 is removed from spec. In schema</p>
+<p>AUTOSAR_4-2-2.xsd IMPLEMENTATION-CONFIG-CLASSES is</p>
+<p>marked as deprecated. That means: IMPLEMENTATION-</p>
+<p>CONFIG-CLASSES/IMPLEMENTATION-CONFIG-CLASS has to</p>
+<p>be replaed by</p>
+<p>VALUE-CONFIG-CLASSES/VALUE-CONFIG-CLASS entirely</p>
+<p>within paramdefs!</p>
+<p>Description of Changes:</p>
+<p>fix config classes in paramdef.arxml file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Dlog_paramdef.arxml</p>
+<p>ReleaseNotes_DlogGeneric, Version 5.1.1, Software Platforms</p>
+<p>Page 3 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6213</p>
+<p>CR Headline:</p>
+<p>Write Svk History after reprogramming</p>
+<p>Description of Issues:</p>
+<p>Write Svk History after reprogramming</p>
+<p>Description of Changes:</p>
+<p>Write Svk History after reprogramming</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>include/Dlog_SvkGen.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6181</p>
+<p>CR Headline:</p>
+<p>Tidy up</p>
+<p>Description of Issues:</p>
+<p>Tidy up: - remove dependency to Srv in comment - remove</p>
+<p>remains of VirtualCPU - remove remains of RSU - remove remains</p>
+<p>of write fingerprint - remove dead code - fix file headers - fix</p>
+<p>compiler warnings</p>
+<p>Description of Changes:</p>
+<p>Tidy up: - remove dependency to Srv in comment - remove</p>
+<p>remains of VirtualCPU - remove remains of RSU - remove remains</p>
+<p>of write fingerprint - remove dead code - fix file headers - fix</p>
+<p>compiler warnings</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>src/Dlog_EcuGen.c</p>
+<p>CMakeLists.txt</p>
+<p>include/Dlog_EcuGen.h</p>
+<p>include/Dlog_SvkGen.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5169</p>
+<p>CR Headline:</p>
+<p>Some (most?) BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR TPS_ECUConfiguration there is the</p>
+<p>following requirement:</p>
+<p>[TPS_ECUC_06004] AdminData field in ECU Configuration</p>
+<p>Parameter Definition XML file d An AdminData field is required at</p>
+<p>the beginning of every ECU Configuration Parameter Definition</p>
+<p>XML file (regardless whether it is the StMD or the VSMD file) to</p>
+<p>allow the setting of AdminData for the whole XML File. c()</p>
+<p>Most of our modules fail to define the AdminData Element (just</p>
+<p>saw it in Darh - and here the element contains mixed info to be</p>
+<p>fixed). It is somehow weired as we then will define version info</p>
+<p>within CommonPublishedInformation AND AdminData - but as it is</p>
+<p>formally required, we have to follow it.</p>
+<p>Description of Changes:</p>
+<p>add AdminData to paramdef file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Dlog_paramdef.arxml</p>
+<p>ReleaseNotes_DlogGeneric, Version 5.1.1, Software Platforms</p>
+<p>Page 4 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6172</p>
+<p>CR Headline:</p>
+<p>Tidy up</p>
+<p>Description of Issues:</p>
+<p>Tidy up: - remove remains of first start flag - remove remains of</p>
+<p>prog counter - fix compiler warnings</p>
+<p>Description of Changes:</p>
+<p>Tidy up: - remove remains of first start flag - remove remains of</p>
+<p>prog counter - fix compiler warnings</p>
+<p>Changed Files:</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6089</p>
+<p>CR Headline:</p>
+<p>Bm/Dlog inconsistent defines Blu does not start</p>
+<p>Description of Issues:</p>
+<p>Bm/Dlog inconsistent defines Blu does not start</p>
+<p>Description of Changes:</p>
+<p>return consistent application for programming dependency state in</p>
+<p>case of BLU</p>
+<p>Changed Files:</p>
+<p>include/Dlog_Data.h</p>
+<p>src/Dlog_SvkGen.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_DlogGeneric, Version 5.1.1, Software Platforms</p>
+<p>Page 5 of 5</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,144 @@
+---
+layout: default
+title: PAGe_ReleaseNotes
+nav_order: 1
+parent: PAGe (TL125A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes PAGe</p>
+<p>Project</p>
+<p>adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-11-09</p>
+<p>Version</p>
+<p>1.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 22522</p>
+<p>Contact</p>
+<p>abac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>1.1.0</p>
+<p>2017-11-09</p>
+<p>BAC-6409, BAC-6509, BAC-6150</p>
+<p>1.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 1 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>Tool to generate text from AUTOSAR paramconf.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 1.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6409</p>
+<p>CR Headline:</p>
+<p>PAGe should only rely on Python std library modules.</p>
+<p>Description of Issues:</p>
+<p>The dependecy of lxml shall be removed</p>
+<p>Description of Changes:</p>
+<p>The parsing of the XML was changed so PAGe now builds an</p>
+<p>internal model and does not rely on xpath expressions.</p>
+<p>Changed Files:</p>
+<p>utility/utility.py</p>
+<p>utility/exceptions.py</p>
+<p>core/command.py</p>
+<p>codeparts/codepart.py</p>
+<p>utility/xpath_resolver.py</p>
+<p>core/model.py</p>
+<p>core/xmlcache.py</p>
+<p>core/verify.py</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6509</p>
+<p>CR Headline:</p>
+<p>PAGe must be more robust for shortnames</p>
+<p>Description of Issues:</p>
+<p>Improve Robustness of Shortnamepath operations</p>
+<p>Description of Changes:</p>
+<p>Allow strings and trailing slashes in shortnamepaths.</p>
+<p>Changed Files:</p>
+<p>codeparts/inputtext.py</p>
+<p>utility/utility.py</p>
+<p>codeparts/inputpart.py</p>
+<p>core/model.py</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6150</p>
+<p>CR Headline:</p>
+<p>BAC 4.3: Provide shell wrapper/.cmd-file for PAGe</p>
+<p>Description of Issues:</p>
+<p>Add a shell script to wrap page call</p>
+<p>Description of Changes:</p>
+<p>A shell script is provided in the bin directory. This allows calling</p>
+<p>page without manually setting the PYTHONPATH.</p>
+<p>Changed Files:</p>
+<p>bin/page</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 2 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Revision 1.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_PAGe, Version 1.1.0, Software Platforms</p>
+<p>Page 3 of 3</p>
+</body>
+</html>
+{% endraw %}

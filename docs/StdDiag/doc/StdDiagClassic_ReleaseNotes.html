@@ -1,0 +1,367 @@
+---
+layout: default
+title: StdDiagClassic_ReleaseNotes
+nav_order: 3
+parent: StdDiag
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes StdDiagClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.4.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.4.0</p>
+<p>2017-12-14</p>
+<p>BAC-6630, BAC-6257, BAC-6699, BAC-6248</p>
+<p>5.3.0</p>
+<p>2017-11-09</p>
+<p>BAC-6506, BAC-6249</p>
+<p>5.2.0</p>
+<p>2017-10-12</p>
+<p>BAC-6413, BAC-6347, BAC-5176, BAC-6339, BAC-6433,</p>
+<p>BAC-6230</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>BAC-6162, BAC-6148</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 1 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>This package contains the adapter for a classic AUTOSAR platform for the StdDiagGeneric package. The</p>
+<p>StdDiag module is modeled as an AUTOSAR software component residing above the RTE.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.4.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6630</p>
+<p>CR Headline:</p>
+<p>StdDiagClassic - *.pgen templates inconsistent with paramdef</p>
+<p>Description of Issues:</p>
+<p>Optional configuration container &quot;StdDiagUserDefinedMemory&quot; is</p>
+<p>treated as mandatory if parameter</p>
+<p>&quot;StdDiagClearSecondaryErrorMemory&quot; is enabled, which may</p>
+<p>cause misleading error messages.</p>
+<p>Description of Changes:</p>
+<p>Create proper error message if configuration dependencies are</p>
+<p>violated.</p>
+<p>Changed Files:</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/pageinclude/StdDiag_GetIdrlConfig.pgen</p>
+<p>generate/include/StdDiagClassic_Cfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6257</p>
+<p>CR Headline:</p>
+<p>Provide feature &quot;Application Data Transfer (ADT)&quot;</p>
+<p>Description of Issues:</p>
+<p>Provide dispatcher for common diagnostic requests of functionality</p>
+<p>&quot;Application Data Transfer&quot; (ADT) (german:</p>
+<p>&quot;Applikationsdatenübertragung&quot;, ADÜ).</p>
+<p>Description of Changes:</p>
+<p>Provided dispatcher for RoutineControl &quot;Upload/Download</p>
+<p>Pre/Post-Processing&quot; (RID 0x7000) and diagnostic services</p>
+<p>&quot;RequestDownload&quot; (0x34), &quot;RequestUpload&quot; (0x35),</p>
+<p>&quot;TransferData&quot; (0x36) and &quot;RequestTransferExit&quot; (0x37). Provided</p>
+<p>configuration parameters for ADT memory objects.</p>
+<p>Changed Files:</p>
+<p>CMakeLists.txt</p>
+<p>cfgdesc/StdDiagClassic_paramdef.arxml</p>
+<p>doc/StdDiagClassic_IntegrationManual.pdf</p>
+<p>generate/include/StdDiagClassic_Cfg.h.pgen</p>
+<p>generate/meta/StdDiag_bswmd.arxml.pgen</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>generate/meta/StdDiag_interfaces.arxml.pgen</p>
+<p>generate/pageinclude/StdDiag_GetAdtConfig.pgen</p>
+<p>generate/src/StdDiagClassic_Cfg.c.pgen</p>
+<p>include/StdDiag_AdtTypes.h</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 2 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>include/StdDiag_DcmTypes.h</p>
+<p>src/StdDiag_Adt.c</p>
+<p>src/StdDiag_AdtInternal.h</p>
+<p>src/StdDiag_AdtUploadDownload.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6699</p>
+<p>CR Headline:</p>
+<p>Remove compiler abstraction from source code</p>
+<p>Description of Issues:</p>
+<p>Remove AUTOSAR compiler abstraction from source code.</p>
+<p>Description of Changes:</p>
+<p>Removed compiler abstraction.</p>
+<p>Changed Files:</p>
+<p>generate/src/StdDiagClassic_Cfg.c.pgen</p>
+<p>src/StdDiag_IDRLAdapter.c</p>
+<p>include/StdDiag_IDRLAdapter.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6248</p>
+<p>CR Headline:</p>
+<p>Provide callback mechanism to establish intrinsic safety</p>
+<p>Description of Issues:</p>
+<p>Provide an asynchronous callback mechanism to establish intrinsic</p>
+<p>safety for long running user callouts.</p>
+<p>Description of Changes:</p>
+<p>Provided callback interfaces for long running applications.</p>
+<p>Changed Files:</p>
+<p>src/StdDiagClassic.c</p>
+<p>src/StdDiag_AppAdapter.c</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/StdDiag_interfaces.arxml.pgen</p>
+<p>doc/StdDiagClassic_IntegrationManual.pdf</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.3.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6506</p>
+<p>CR Headline:</p>
+<p>Adapt pgen templates to PAGe v1.1.0</p>
+<p>Description of Issues:</p>
+<p>Adapt pgen files to PAGe v1.1.0.</p>
+<p>Description of Changes:</p>
+<p>Adapted pgen files to PAGe v1.1.0.</p>
+<p>Changed Files:</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6249</p>
+<p>CR Headline:</p>
+<p>Provide PostBuild configuration of SGBD-Index</p>
+<p>Description of Issues:</p>
+<p>Parameter &quot;StdDiagSgbdIndex&quot; shall be post build selectable.</p>
+<p>Description of Changes:</p>
+<p>Moved parameter &quot;StdDiagSgbdIndex&quot; to adapter part and add</p>
+<p>post build support.</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 3 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Changed Files:</p>
+<p>src/StdDiagClassic.c</p>
+<p>generate/include/StdDiagClassic_PBCfg.h.pgen</p>
+<p>cfgdesc/StdDiagClassic_paramdef.arxml</p>
+<p>generate/src/StdDiagClassic_PBCfg.c.pgen</p>
+<p>CMakeLists.txt</p>
+<p>doc/StdDiagClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6413</p>
+<p>CR Headline:</p>
+<p>StdDiag: Remove SP2015/2015 suffixes from VEHICLE STATE</p>
+<p>Description of Issues:</p>
+<p>Remove suffixes &quot;SP2015&quot; from interfaces provided by Stm to be</p>
+<p>compatible with current Stm release.</p>
+<p>Description of Changes:</p>
+<p>Removed suffixes &quot;SP2015&quot; from all Stm interfaces and types.</p>
+<p>Changed Files:</p>
+<p>src/StdDiag_StmAdapter.c</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6347</p>
+<p>CR Headline:</p>
+<p>StdDiag: Use of DcmGetSecurityLevel</p>
+<p>Description of Issues:</p>
+<p>Remove unused server call point to operation &quot;GetSecurityLevel&quot;</p>
+<p>Description of Changes:</p>
+<p>Removed all fragments from SWCD related to operation</p>
+<p>&quot;GetSecurityLevel&quot;.</p>
+<p>Changed Files:</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5176</p>
+<p>CR Headline:</p>
+<p>BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR_TPS_ECUConfiguration</p>
+<p>TPS_ECUC_06004 an AdminData field is required at the</p>
+<p>beginning of every ECU Configuration Parameter Definition XML</p>
+<p>file.</p>
+<p>Description of Changes:</p>
+<p>Added AdminData field containing module version and release</p>
+<p>date.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StdDiagClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6339</p>
+<p>CR Headline:</p>
+<p>Compiler warning due to undefined identifier</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 4 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Compiler raises warning due to undefined identifier</p>
+<p>'STDDIAG_DEV_ERROR_DETECT'</p>
+<p>Description of Changes:</p>
+<p>Fixed compiler warning.</p>
+<p>Changed Files:</p>
+<p>src/StdDiagClassic.c</p>
+<p>include/StdDiag_AssertAdapter.h</p>
+<p>src/StdDiag_ErrMemAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6433</p>
+<p>CR Headline:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of parameter definition files and SWCDs should be</p>
+<p>conform to AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>Adapted parameter definition files and SWCDs to schema</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.</p>
+<p>Changed Files:</p>
+<p>generate/meta/StdDiag_interfaces.arxml.pgen</p>
+<p>cfgdesc/StdDiagClassic_paramdef.arxml</p>
+<p>generate/meta/StdDiag_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/StdDiag_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6230</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES in BMW</p>
+<p>modules is invalid according to ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>Elements IMPLEMENTATION-CONFIG-CLASSES containing</p>
+<p>ECUC-IMPLEMENTATION-CONFIGURATION-CLASS are</p>
+<p>deprecated.They shall be replaced by VALUE-CONFIG-</p>
+<p>CLASSES/ECUC-VALUE-CONFIGURATION-CLASS and/or</p>
+<p>MULTIPLICITY-CONFIG-CLASSES/ECUC-MULTIPLICITY-</p>
+<p>CONFIGURATION-CLASS</p>
+<p>Description of Changes:</p>
+<p>Replaced IMPLEMENTATION-CONFIG-CLASSES by</p>
+<p>VALUE-CONFIG-CLASSES, added</p>
+<p>MULTIPLICITY-CONFIG-CLASSES where necessary.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StdDiagClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6162</p>
+<p>CR Headline:</p>
+<p>StdDiag: Wrong cross version check for classic adapter</p>
+<p>Description of Issues:</p>
+<p>StdDiagClassic_Version.h uses wrong cross version check of</p>
+<p>generic part.</p>
+<p>Description of Changes:</p>
+<p>Correct cross version check in classic adapter.</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 5 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Changed Files:</p>
+<p>generate/include/StdDiagClassic_Version.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6148</p>
+<p>CR Headline:</p>
+<p>StdDiag: Programming Precondition Check shall not fail in case of</p>
+<p>missing PWF status</p>
+<p>Description of Issues:</p>
+<p>Programming Precondition Check fails if no PWF signal is available.</p>
+<p>Description of Changes:</p>
+<p>Accept unknown PWF state as valid Programming Precondition.</p>
+<p>Changed Files:</p>
+<p>src/StdDiagClassic.c</p>
+<p>src/StdDiag_StmAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_StdDiagClassic, Version 5.4.0, Software Platforms</p>
+<p>Page 6 of 6</p>
+</body>
+</html>
+{% endraw %}

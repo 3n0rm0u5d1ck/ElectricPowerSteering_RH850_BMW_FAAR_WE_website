@@ -1,0 +1,4458 @@
+---
+layout: default
+title: TechnicalReference_PduR
+nav_order: 2
+parent: PDU Router
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR PDU Router </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>DaVinci Configurator </p>
+<p>Version 3.00.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Erich Schondelmaier, Gunnar Meiss, Sebastian </p>
+<p>Waldvogel, Florian Röhm </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>2 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Erich Schondelmaier </p>
+<p>2012-12-20  </p>
+<p>1.00.00 </p>
+<p>Initial version based on PduR Technical </p>
+<p>Reference  </p>
+<p>Erich Schondelmaier </p>
+<p>2012-07-12 </p>
+<p>2.00.00 </p>
+<p>Adapted to AUTOSAR 4.0.3  </p>
+<p>Erich Schondelmaier </p>
+<p>2012-10-15 </p>
+<p>2.01.00 </p>
+<p>TP Gateway </p>
+<p>IF Gateway </p>
+<p>Gunnar Meiss </p>
+<p>2012-11-21 </p>
+<p>2.02.00 </p>
+<p>AR4-285: Support PduRRoutingPathGroups </p>
+<p>Erich Schondelmaier </p>
+<p>2013-02-07 </p>
+<p>2.02.01 </p>
+<p>Adapted Tp- API description </p>
+<p>Erich Schondelmaier </p>
+<p>2013-02-15 </p>
+<p>2.02.02 </p>
+<p>Added some ASR deviations  </p>
+<p>ESCAN00064126 </p>
+<p>Erich Schondelmaier </p>
+<p>2013-03-19 </p>
+<p>2.03.00 </p>
+<p>ESCAN00064364 AR4-325: Post-Build </p>
+<p>Loadable  </p>
+<p>Added Cancel- Receive/ Transmit Support  </p>
+<p>Erich Schondelmaier </p>
+<p>2014-04-15 </p>
+<p>2.04.00 </p>
+<p>Added TP routing with variable addresses </p>
+<p>(MetaData Handling) </p>
+<p>Added Threshold “0” support </p>
+<p>Erich Schondelmaier </p>
+<p>2014-04-15 </p>
+<p>2.04.01 </p>
+<p>Support  the  StartOfReception  API  (with  the </p>
+<p>PduInfoType),  </p>
+<p>TxConfirmation  and  RxIndication  according </p>
+<p>ASR4.1.2 </p>
+<p>Erich Schondelmaier </p>
+<p>2014-09-01 </p>
+<p>2.05.00 </p>
+<p>Added SecOC to the Interface Overview </p>
+<p>Extended </p>
+<p>Tp </p>
+<p>Gateway </p>
+<p>Routing </p>
+<p>behavior </p>
+<p>description </p>
+<p>Updated Configuration Variant </p>
+<p>Sebastian Waldvogel </p>
+<p>2015-02-23 </p>
+<p>2.06.00 </p>
+<p>FEAT-1057: </p>
+<p>Added </p>
+<p>documentation </p>
+<p>about </p>
+<p>configuration </p>
+<p>of </p>
+<p>range </p>
+<p>routing </p>
+<p>paths </p>
+<p>and </p>
+<p>functional requests gateway </p>
+<p>Sebastian Waldvogel </p>
+<p>2015-05-11 </p>
+<p>2.06.01 </p>
+<p>FEAT-1057: Improvements of documentation </p>
+<p>Florian Röhm </p>
+<p>2015-07-30 </p>
+<p>2.07.00 </p>
+<p>FEAT-109:  Added  documentation  for  PduR </p>
+<p>switching feature and N:1 routing paths </p>
+<p>Florian Röhm </p>
+<p>2016-01-16 </p>
+<p>2.08.00 </p>
+<p>FEAT-1485:  Added </p>
+<p>documentation  for </p>
+<p>1:N </p>
+<p>and N:1 transport protocol routing paths </p>
+<p>Gunnar Meiss </p>
+<p>2016-02-25 </p>
+<p>2.08.00 </p>
+<p>FEAT-1631: </p>
+<p>Trigger </p>
+<p>Transmit </p>
+<p>API </p>
+<p>with </p>
+<p>SduLength In/Out according to ASR4.2.2 </p>
+<p>Erich Schondelmaier </p>
+<p>2016-03-17 </p>
+<p>2.08.00 </p>
+<p>added limitation: </p>
+<p>- The  Polling  Mode  cannot  be  used  for  N:1 </p>
+<p>routings. </p>
+<p>-  Cancel  Transmit  for  N:1  routing  paths  is </p>
+<p>only </p>
+<p>supported </p>
+<p>if </p>
+<p>a </p>
+<p>Tx </p>
+<p>Confirmation </p>
+<p>is </p>
+<p>enabled. </p>
+<p>-  Removed  limitation:  N:1  interface  routing </p>
+<p>paths suppport only for lower layer CanIf.   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>3 </p>
+<p>based on template version 4.9.2 </p>
+<p>Florian Röhm </p>
+<p>2016-04-01 </p>
+<p>2.08.01 </p>
+<p>Removed empty chapters </p>
+<p>Erich Schondelmaier, </p>
+<p>Florian Röhm </p>
+<p>2016-08-10 </p>
+<p>3.00.00 </p>
+<p>Shared/Dedicated Buffer support </p>
+<p>Memory mapping extension </p>
+<p>Sebastian Waldvogel </p>
+<p>2016-11-24 </p>
+<p>3.00.00 </p>
+<p>Smart Learning (Switching) </p>
+<p>Florian Röhm </p>
+<p>2017-06-22 </p>
+<p>3.00.01 </p>
+<p>ESCAN00095254: </p>
+<p>Missing </p>
+<p>DET </p>
+<p>error </p>
+<p>PDUR_E_PDU_INSTANCES_LOST </p>
+<p>description  in  case  of  N:1  communication </p>
+<p>interface routings with upper layer </p>
+<p>Florian Röhm </p>
+<p>2017-06-23 </p>
+<p>3.00.01 </p>
+<p>STORYC-1629: N:1 routing path support for </p>
+<p>IpduM Container feature </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>4 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_PDURouter.pdf </p>
+<p>4.0.3 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_PDURouter.pdf. </p>
+<p>4.1.1 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_PDURouter.pdf </p>
+<p>4.1.2 </p>
+<p>[4] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>3.2.0 </p>
+<p>[5] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>1.6.0 </p>
+<p>[6] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_SAEJ1939TransportLayer.pdf </p>
+<p>1.5.0 </p>
+<p>[7] </p>
+<p> Vector </p>
+<p>TechnicalReference_CanIf.pdf </p>
+<p>6.02.00 </p>
+<p>[8] </p>
+<p> Vector </p>
+<p>TechnicalReference_&lt;CAN Driver&gt;.pdf </p>
+<p>- </p>
+<p>[9] </p>
+<p> AUTOSAR </p>
+<p>TechnicalReference_CanTp.pdf </p>
+<p>2.00.00 </p>
+<p> </p>
+<p>This technical reference describes the general use of the PduR basis software module.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>5 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History .................................................................................................... 10</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................. 11</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ...................................................................................... 12</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 14</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 14</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the PDUR .................................................... 15</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 15</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>States .............................................................................................................. 15</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 15</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 15</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Interface Layer Gateway .................................................................................. 15</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Data Provision .................................................................................. 15</p>
+<p> </p>
+<p>3.6.1.1</p>
+<p> </p>
+<p>Direct data provision ...................................................... 15</p>
+<p> </p>
+<p>3.6.1.2</p>
+<p> </p>
+<p>Trigger transmit data provision ....................................... 16</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>FIFO Queue ..................................................................................... 16</p>
+<p> </p>
+<p>3.6.3</p>
+<p> </p>
+<p>Buffer Configurations ....................................................................... 16</p>
+<p> </p>
+<p>3.6.3.1</p>
+<p> </p>
+<p>No Buffer ....................................................................... 16</p>
+<p> </p>
+<p>3.6.3.2</p>
+<p> </p>
+<p>Direct Data Provision FIFO ............................................ 16</p>
+<p> </p>
+<p>3.6.3.3</p>
+<p> </p>
+<p>Trigger Transmit Data Provision FIFO ............................ 16</p>
+<p> </p>
+<p>3.6.3.4</p>
+<p> </p>
+<p>Trigger Transmit Data Provision Single Buffer ................ 16</p>
+<p> </p>
+<p>3.6.4</p>
+<p> </p>
+<p>Shared Tx Buffer Pool support ......................................................... 17</p>
+<p> </p>
+<p>3.6.5</p>
+<p> </p>
+<p>Timing aspects ................................................................................. 17</p>
+<p> </p>
+<p>3.6.6</p>
+<p> </p>
+<p>Dynamic DLC Routing ...................................................................... 17</p>
+<p> </p>
+<p>3.6.7</p>
+<p> </p>
+<p>Transport protocol low level routing .................................................. 17</p>
+<p> </p>
+<p>3.6.8</p>
+<p> </p>
+<p>Smart Learning (Switching) .............................................................. 19</p>
+<p> </p>
+<p>3.6.8.1</p>
+<p> </p>
+<p>Configuration ................................................................. 20</p>
+<p> </p>
+<p>3.6.8.2</p>
+<p> </p>
+<p>Example ......................................................................... 23</p>
+<p> </p>
+<p>3.6.9</p>
+<p> </p>
+<p>Queue overflow notification callback ................................................ 24</p>
+<p> </p>
+<p>3.6.10</p>
+<p> </p>
+<p>N:1 Routing Paths with Upper Layer and Tx confirmation ................ 26</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Transport Protocol Gateway ............................................................................. 27</p>
+<p> </p>
+<p>3.7.1</p>
+<p> </p>
+<p>Multi-Routing .................................................................................... 27</p>
+<p> </p>
+<p>3.7.2</p>
+<p> </p>
+<p>TP Threshold ................................................................................... 27</p>
+<p> </p>
+<p>3.7.2.1</p>
+<p> </p>
+<p>Restrictions .................................................................... 28</p>
+<p> </p>
+<p>3.7.2.2</p>
+<p> </p>
+<p>Threshold “0” ................................................................. 28</p>
+<p> </p>
+<p>3.7.3</p>
+<p> </p>
+<p>Tx Buffer Handling ........................................................................... 28</p>
+<p> </p>
+<p>3.7.3.1</p>
+<p> </p>
+<p>Tx Buffer Usage Types ................................................... 29</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>6 </p>
+<p>based on template version 4.9.2 </p>
+<p>3.7.3.1.1</p>
+<p> </p>
+<p>Dedicated Tx Buffer ................................... 29</p>
+<p> </p>
+<p>3.7.3.1.2</p>
+<p> </p>
+<p>Shared Tx Buffer ........................................ 29</p>
+<p> </p>
+<p>3.7.3.1.3</p>
+<p> </p>
+<p>Local Tx Buffer Pool ................................... 30</p>
+<p> </p>
+<p>3.7.3.1.4</p>
+<p> </p>
+<p>Global Tx Buffer Pool ................................. 30</p>
+<p> </p>
+<p>3.7.3.2</p>
+<p> </p>
+<p>Example Configuration ................................................... 30</p>
+<p> </p>
+<p>3.7.3.3</p>
+<p> </p>
+<p>Tx Buffer Length Configuration ...................................... 31</p>
+<p> </p>
+<p>3.7.3.4</p>
+<p> </p>
+<p>Amount of Tx Buffer ....................................................... 31</p>
+<p> </p>
+<p>3.7.3.5</p>
+<p> </p>
+<p>Tx Buffer Selection Algorithm ......................................... 32</p>
+<p> </p>
+<p>3.7.4</p>
+<p> </p>
+<p>TP Queue ........................................................................................ 32</p>
+<p> </p>
+<p>3.7.5</p>
+<p> </p>
+<p>Error Handling .................................................................................. 32</p>
+<p> </p>
+<p>3.7.6</p>
+<p> </p>
+<p>Meta Data Handling ......................................................................... 33</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 34</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 34</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 34</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 34</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 35</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Memory Sections ............................................................................................. 35</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 35</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 36</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Services provided by PDUR ............................................................................. 36</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>PduR_Init ......................................................................................... 36</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>PduR_InitMemory ............................................................................ 36</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services ........................................................................................................... 37</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>PduR_GetVersionInfo ...................................................................... 37</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>PduR_GetConfigurationId ................................................................ 37</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>PduR_EnableRouting ....................................................................... 37</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>PduR_DisableRouting ...................................................................... 38</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Communication Interface ................................................................................. 39</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>PduR_&lt;GenericUp&gt;Transmit ........................................................... 39</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;RxIndication ...................................................... 39</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TriggerTransmit ................................................. 40</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TxConfirmation ................................................. 41</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Transport Protocol ........................................................................................... 42</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;ChangeParameter ........................................ 42</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelReceive ............................................. 42</p>
+<p> </p>
+<p>5.4.3</p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelTransmit ............................................ 43</p>
+<p> </p>
+<p>5.4.4</p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;StartOfReception .......................................... 44</p>
+<p> </p>
+<p>5.4.5</p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyRxData ................................................. 44</p>
+<p> </p>
+<p>5.4.6</p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyTxData .................................................. 45</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>7 </p>
+<p>based on template version 4.9.2 </p>
+<p>5.4.7</p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TpTxConfirmation ............................................. 46</p>
+<p> </p>
+<p>5.4.8</p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TpRxIndication .................................................. 47</p>
+<p> </p>
+<p>5.4.9</p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;Transmit ....................................................... 48</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 49</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Complex Device Driver Interaction ................................................... 49</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 50</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Use Case Configuration: Communication interface range gateway .................. 50</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Step-by-step configuration ............................................................... 51</p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Optional configuration variants / options ........................................... 55</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Use Case Configuration: Functional requests gateway routing ........................ 57</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>Step-by-step configuration ............................................................... 58</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Use Case Configuration: N:1 routing path ........................................................ 64</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>AUTOSAR Standard Compliance............................................................................... 66</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Deviations ........................................................................................................ 66</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Limitations........................................................................................................ 67</p>
+<p> </p>
+<p>7.2.1</p>
+<p> </p>
+<p>General ............................................................................................ 67</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 68</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 68</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 69</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 71</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>8 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.1 Architecture Overview ....................................................... 12</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the PDUR ............................................ 13</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Example routing path configurations: Every ECU transmits to every other </p>
+<p>ECU (via N:M routing paths) or ECU0 can exclusively broadcast to all </p>
+<p>other ECUs. Other ECUs can only reach ECU0 ........................................ 19</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Network specific assignment of PduRRouting path sources and </p>
+<p>destinations to a PduRConnection ............................................................ 20</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Example Extended CAN ID layout ............................................................ 21</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Example switching network topology ........................................................ 23</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Example Standard CAN ID layout ............................................................. 23</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Example switching EcuC configuration - PduRConnection ....................... 23</p>
+<p> </p>
+<p>Figure 3-7</p>
+<p> </p>
+<p>Example switching EcuC configuration - </p>
+<p>PduRSaTaFromMetaDataCalculationStrategy .......................................... 24</p>
+<p> </p>
+<p>Figure 3-8</p>
+<p> </p>
+<p>Overflow notification callback configuration .............................................. 25</p>
+<p> </p>
+<p>Figure 3-9</p>
+<p> </p>
+<p>Configured Tp Buffer with possible Threshold ranges ............................... 28</p>
+<p> </p>
+<p>Figure 3-10</p>
+<p> </p>
+<p>Buffer pool configuration ........................................................................... 30</p>
+<p> </p>
+<p>Figure 3-11</p>
+<p> </p>
+<p>Shared buffer pool .................................................................................... 30</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Meta data routing with CanIf ..................................................................... 50</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>CanIf / PduR range routing example overview .......................................... 51</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Example functional requests gateway network architecture ...................... 57</p>
+<p> </p>
+<p>Figure 6-4</p>
+<p> </p>
+<p>Functional request gateway architecture ................................................... 57</p>
+<p> </p>
+<p>Figure 6-5</p>
+<p> </p>
+<p>example N:1 routing path configuration ..................................................... 64</p>
+<p> </p>
+<p>Figure 6-6</p>
+<p> </p>
+<p>EcuC configuration of (mixed) N:1 / 1:N routing paths .............................. 65</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history.................................................................................... 10</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 14</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 15</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 15</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Example FIB content after reception of Pdus from source 0x00 and 0x02 19</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>How to get the associated gateway routing path ....................................... 25</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 34</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 35</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 35</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>PduR_Init .................................................................................................. 36</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>PduR_InitMemory ..................................................................................... 37</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>PduR_GetVersionInfo ............................................................................... 37</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>PduR_GetConfigurationId ......................................................................... 37</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>PduR_EnableRouting ............................................................................... 38</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>PduR_DisableRouting .............................................................................. 38</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>PduR_&lt;GenericUp&gt;Transmit .................................................................... 39</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;RxIndication............................................................... 40</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TriggerTransmit ......................................................... 40</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TxConfirmation .......................................................... 41</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;ChangeParameter ................................................ 42</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelReceive...................................................... 43</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelTransmit ..................................................... 43</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;StartOfReception ................................................... 44</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyRxData .......................................................... 45</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyTxData .......................................................... 46</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TpTxConfirmation ...................................................... 47</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>9 </p>
+<p>based on template version 4.9.2 </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>PduR_&lt;GenericLo&gt;TpRxIndication .......................................................... 47</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>PduR_&lt;GenericUpTp&gt;Transmit ................................................................ 48</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Example range routings ............................................................................ 51</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Example functional diagnostic request routing .......................................... 58</p>
+<p> </p>
+<p>Table 8-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 69</p>
+<p> </p>
+<p>Table 8-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 70</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>10 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>MICROSAR 4 Base  </p>
+<p>2.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>AUTOSAR 4.0.3 </p>
+<p>2.01 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>TP Gateway </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>IF Gateway </p>
+<p>2.02 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Routing Path Groups </p>
+<p>2.03 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Post-Build Loadable </p>
+<p>5.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Changed  StartOfReception, TpRxIndication and </p>
+<p>TpTxConfirmation APIs according to AUTOSAR 4.1.2 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Added TP routing with variable addresses </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Meta-Data support </p>
+<p>6.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Post-Build Selectable </p>
+<p>7.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>CAN-FD </p>
+<p>8.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>PduR Switching </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>N:1 Interface routing path support </p>
+<p>9.00 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>1:N/N:1 transport protocol routing path support </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>11 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module PDUR as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>PRE-COMPILE [SELECTABLE]  </p>
+<p>POST-BUILD-LOADABLE [SELECTABLE] </p>
+<p><b>Vendor ID: </b></p>
+<p>PDUR_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>PDUR_MODULE_ID   </p>
+<p>51 decimal </p>
+<p>(according to ref. [5]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p> </p>
+<p>The  main  task  of  the  PDU  Router  module  is  to  abstract  from  the  type  of  bus  </p>
+<p>access (Interface layer and TP layer) and from the bus type itself.  </p>
+<p>Since the PDU Router module has to route Rx and Tx PDUs to and from the upper- and  </p>
+<p>lower-  layers  and  any  software  component  uses  its  own  handle  space,  multiple  </p>
+<p>routing tables  are  required.  The  PDU  Router  uses  the  input  handle  as  an  index  to  </p>
+<p>the  related routing table. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>12 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p> Figure 2-1 shows where the PDUR is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.1 Architecture Overview   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>13 </p>
+<p>based on template version 4.9.2 </p>
+<p>Figure 2-2 shows the interfaces to adjacent modules of the PDUR. These interfaces are </p>
+<p>described in chapter 5.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the PDUR </p>
+<p> </p>
+<p>Applications do not access the services of the BSW modules directly. They use the service </p>
+<p>ports provided by the BSW modules via the RTE. The service ports provided by the PDUR </p>
+<p>are listed in chapter 0 and are defined in [1]. </p>
+<p><b> class Architecture</b></p>
+<p><b>&lt;LoIf&gt;</b></p>
+<p><b>J1939Rm</b></p>
+<p><b>DoIp</b></p>
+<p><b>J1939Tp</b></p>
+<p><b>CanTp</b></p>
+<p><b>FrTp</b></p>
+<p><b>CanNm</b></p>
+<p><b>J1939Dcm</b></p>
+<p><b>Det</b></p>
+<p><b>&lt;UpTp&gt;</b></p>
+<p><b>IpduM</b></p>
+<p><b>PduR</b></p>
+<p><b>LinIf</b></p>
+<p><b>FrNm</b></p>
+<p><b>FrArTp</b></p>
+<p><b>CddPduRUpperLayerContribution</b></p>
+<p><b>J1939Nm</b></p>
+<p><b>Dcm</b></p>
+<p><b>&lt;LoTp&gt;</b></p>
+<p><b>SoAd</b></p>
+<p><b>CanIf</b></p>
+<p><b>Com</b></p>
+<p><b>&lt;UpIf&gt;</b></p>
+<p><b>FrIf</b></p>
+<p><b>CddPduRLow erLayerContribution</b></p>
+<p><b>LdCom</b></p>
+<p><b>SecOC</b></p>
+<p><b>BswM</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>14 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b> Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>PDUR. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>For further information of not supported features see also chapter 0. </p>
+<p>Vector Informatik provides further PDUR functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Pre compile and Post build time configuration variant </p>
+<p>I-PDU transmission and reception </p>
+<p>Cancel-Receive/Transmit support </p>
+<p>Change Parameter support </p>
+<p>1:1 routing between upper- and lower-layer communication interface modules </p>
+<p>1:1 routing between upper- and lower-layer transport protocol modules </p>
+<p>1:1 Interface Gateway Routing </p>
+<p>1:N Interface Gateway Routing </p>
+<p>1:1 Transport protocol Gateway Routing </p>
+<p>1:N Transport protocol Gateway Routing (single and multiframe Tp messages) </p>
+<p>Complex device driver ( CDD ) support </p>
+<p>Routing Path Groups </p>
+<p>Debugging support (optional feature) </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Link time configuration  </p>
+<p>1:N fan-out from the same upper layer PDU (IF/ Tp) </p>
+<p>Zero cost operation </p>
+<p>Minimum Routing (Reduced state) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>15 </p>
+<p>based on template version 4.9.2 </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>N:1 Interface routing path capability (destinations with polling behaviour are not supported) </p>
+<p>PduR Switching: Smart learning of routing path destinations depending on received Pdus </p>
+<p>1:N and N:1 transport protocol single- and multiframe routing path capability </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2 </b></p>
+<p><b>Interfaces to adjacent modules of the PDUR </b></p>
+<p>The PDU Router provides generic communication interfaces and transport protocol APIs </p>
+<p>for any lower and upper layer module.  </p>
+<p><b>3.3 </b></p>
+<p><b>Initialization </b></p>
+<p>Before  the  PduR  can be  used  it  has  to  be  initialized  by  PduR_Init()  which  performs  the </p>
+<p>basic initialization. Initialization is normally driven by the Communication Manager.  If this </p>
+<p>software  component  is  not  available  a  similar  component  has  to  be  provided  by  the </p>
+<p>integrator. </p>
+<p><b>3.4 </b></p>
+<p><b>States </b></p>
+<p>The  PduR  is  initially  not  activated.  Basic  RAM  arrays  are  initialized  with  the  call  of </p>
+<p>PduR_InitMemory or with the startup code of your ECU. If PduR_Init() is called with valid </p>
+<p>parameters, the PduR is in the state “PduR_IsInitialized” and the communication can start. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [4],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>PDUR_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported PDUR ID is 51. </p>
+<p><b>3.6 </b></p>
+<p><b>Interface Layer Gateway </b></p>
+<p><b>3.6.1 </b></p>
+<p><b>Data Provision </b></p>
+<p><b>3.6.1.1 </b></p>
+<p><b>Direct data provision </b></p>
+<p>For  Direct  Data  Provision  routing  paths  the  data  will  be  copied <b> by  the  PduR </b> to  the </p>
+<p>destination module in the transmit API call. If a FIFO queue is configured, the data might </p>
+<p>be queued and will then be transmitted in the Tx Confirmation context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>16 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.6.1.2 </b></p>
+<p><b>Trigger transmit data provision </b></p>
+<p>For  Trigger  Transmit </p>
+<p>Data </p>
+<p>Provision </p>
+<p>routing </p>
+<p>paths </p>
+<p>the </p>
+<p>data </p>
+<p>will </p>
+<p>be </p>
+<p>copied </p>
+<p><b>by </b></p>
+<p><b>the </b></p>
+<p><b>destination module </b>in the trigger transmit API call. This is useful if the destination module </p>
+<p>always wants to fetch the latest data available (single buffer configuration) or it has specific </p>
+<p>timing requirements when it needs to provide the data. </p>
+<p><b>3.6.2 </b></p>
+<p><b>FIFO Queue </b></p>
+<p>A FIFO is used if loss of I-PDU instances is critical. In case of several parallel transmitting </p>
+<p>FIFO queues, the order of transmission depends upon the bus access of the lower layer </p>
+<p>and not on the relative order of I-PDU reception. One FIFO queue therefore only cares for </p>
+<p>a FIFO based sorting of the instances of its own queued I-PDUs.  </p>
+<p>The queue depth can be configured for each routing path independently. </p>
+<p>If the transmission of an I-PDU failed (negative return value of the interface layer transmit </p>
+<p>request),  the  PDU  Router  removes  the  I-PDUs  instance  from  the  queue  and  retries  the </p>
+<p>transmission with the next instance – until the queue is empty or the transmission request </p>
+<p>is accepted. </p>
+<p>In case of a buffer overrun, all queued I-PDU instances of the affected queue are removed </p>
+<p>and the newly received I-PDU is transmitted. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>EcuC structural changes with PduR version 9.00.00 </b></p>
+<p>The PduRTxBufferDepth has been removed and was replaced by the </p>
+<p>PduRDestPduQueueDepth parameter. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.6.3 </b></p>
+<p><b>Buffer Configurations </b></p>
+<p><b>3.6.3.1 </b></p>
+<p><b>No Buffer </b></p>
+<p>No buffering will be used if the PduRDestPduQueueDepth is not configured. </p>
+<p><b>3.6.3.2 </b></p>
+<p><b>Direct Data Provision FIFO </b></p>
+<p>A  FIFO  queue  will  be  used  if  the  data  provision  is  set  to  direct  transmission  and  the </p>
+<p>PduRDestPduQueueDepth is larger than zero. </p>
+<p><b>3.6.3.3 </b></p>
+<p><b>Trigger Transmit Data Provision FIFO </b></p>
+<p>A </p>
+<p>FIFO </p>
+<p>will </p>
+<p>be </p>
+<p>used </p>
+<p>if </p>
+<p>the </p>
+<p>data </p>
+<p>provision </p>
+<p>is </p>
+<p>set </p>
+<p>to </p>
+<p>trigger </p>
+<p>transmit </p>
+<p>and </p>
+<p>the </p>
+<p>PduRDestPduQueueDepth is larger than one. </p>
+<p><b>3.6.3.4 </b></p>
+<p><b>Trigger Transmit Data Provision Single Buffer </b></p>
+<p>A  single  buffer  will  be  used  if  the  data  provision  is  set  to  trigger  transmit  and  the </p>
+<p>PduRDestPduQueueDepth is one.  </p>
+<p>Last  is  best  semantics  apply.  Values  in  the  buffer  will  be  overwritten  so  that  a  Trigger </p>
+<p>Transmit call always gets the latest data from the buffer. It is necessary to specify default </p>
+<p>values for the buffer, as the Trigger Transmit API can be called before any new data was </p>
+<p>written to the buffer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>17 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.6.4 </b></p>
+<p><b>Shared Tx Buffer Pool support </b></p>
+<p>The  Interface  Layer  Gateway  supports  shared  Tx  Buffer.  Tx  Buffer  can  be  assigned  to </p>
+<p>multiple routing paths at once. This is useful for routing paths which are not active at the </p>
+<p>same time. Thus, RAM consumption can be reduced. </p>
+<p><b>3.6.5 </b></p>
+<p><b>Timing aspects </b></p>
+<p>The  PDU  Router  triggers  the  transmission  of  I-PDU  instances  to  be  routed  as  soon  as </p>
+<p>possible. If the queue is empty, a reception will directly cause a transmission request to the </p>
+<p>interface layer. If the queue is occupied, the I-PDU instance will be added to the queue. </p>
+<p>Queued  I-PDU  instances  are  transmitted  within  the  Tx  confirmation  of  the  preceding </p>
+<p>instance. This queuing behavior can cause bursts on the destination channel (especially </p>
+<p>CAN)  if  several  queue  instances  are  queued  and  if  the  driver  layer  does  not  free  the </p>
+<p>hardware queue. </p>
+<p>The  PDU  Router  does  not  provide  a  mechanism  to  implement  a  rate  conversion  (e.g. </p>
+<p>change the cycle time from the source to the destination channel). A rate conversion can </p>
+<p>be  implemented  (at  extra  runtime  costs)  by  signal  routing  paths  using  the  COM  signal </p>
+<p>gateway. </p>
+<p><b>3.6.6 </b></p>
+<p><b>Dynamic DLC Routing </b></p>
+<p>With PduR version 9.00.00 and later there is no restriction for the dynamic length routing </p>
+<p>for gateway routing paths.  All lengths between 0 and the configured PDU length can be </p>
+<p>routed. The length can be adapted dynamically during runtime. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>A Pdu with a DLC larger than the configured Pdu length will be truncated to the length </p>
+<p>of the smallest available buffer of this routing path. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.6.7 </b></p>
+<p><b>Transport protocol low level routing </b></p>
+<p>If the TP segments (N-PDUs) on the source and the destination network are identical, it is </p>
+<p>possible to route TP I-PDUs using the interface layer gateway (“low-level” routing). If low-</p>
+<p>level  routing  is  used,  the  (former)  N-PDU  is  no  longer  accessible  to  the  TP  layer  and </p>
+<p>therefore seen as an I-PDU by the PDU Router module. </p>
+<p>The advantage of low-level routing is that it is executed in the context of the interface layer </p>
+<p>RxIndication and therefore introduces a minimal routing latency.  </p>
+<p>Low-level routing has, however, several drawbacks which might cause that a high-level TP </p>
+<p>routing is more adequate: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>TP protocol conversion is not possible as the frame-layout and the flow-control </p>
+<p>handling must be the same on the source and the destination network. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>No forwarding of routed TP I-PDUs to the local DCM is possible as it may be required </p>
+<p>for functional requests. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Eventual loss of TP parameters, such as the STmin timing and the block size, due to </p>
+<p>bursts on the destination bus. Bursts are a result of queued I-PDUs which were </p>
+<p>transmitted in the TxConfirmation of the previous I-PDU.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>18 </p>
+<p>based on template version 4.9.2 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A buffer overrun in the FiFo queue causes the queue to be flushed and therefore </p>
+<p>corrupts the TP communication. The TP layer gateway can avoid buffer overflows if the </p>
+<p>receiving TP connection supports a dynamic block size adaptation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>19 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.6.8 </b></p>
+<p><b>Smart Learning (Switching) </b></p>
+<p>The PduR routing path relations are statically configured and cannot be modified during </p>
+<p>runtime. In case ECUs will be attached to different networks during assembly or a huge </p>
+<p>amount  of  possible  routing  relations  will  be  required,  the  dynamic  learning  of  routing </p>
+<p>relations can be used. </p>
+<p>The switching functionality is based on a dynamic RAM table, the forwarding information </p>
+<p>base (FIB) inside the PduR. This RAM table stores the location (network) of the different </p>
+<p>ECUs and will be used to direct the routings to the correct destination. The identification of </p>
+<p>the communication partners is done by a source- and target address which is determined </p>
+<p>based  on  the  PDU  meta  data.  The  FIB  is  updated  with  the  related  location  (called </p>
+<p>connection) on reception of every participating PDU.  </p>
+<p><b>Source address </b></p>
+<p><b>Learned destination location/connection </b></p>
+<p>0x00 </p>
+<p>Connection 2 </p>
+<p>0x01 </p>
+<p>&lt;not yet learned&gt; </p>
+<p>0x02 </p>
+<p>Connection 0 </p>
+<p>… </p>
+<p>… </p>
+<p>Table 3-4  </p>
+<p>Example FIB content after reception of Pdus from source 0x00 and 0x02 </p>
+<p>On </p>
+<p>reception </p>
+<p>of </p>
+<p>every </p>
+<p>PDU </p>
+<p>a </p>
+<p>lookup </p>
+<p>in </p>
+<p>the </p>
+<p>FIB </p>
+<p>is </p>
+<p>done </p>
+<p>to </p>
+<p>check </p>
+<p>whether </p>
+<p>the </p>
+<p>location/connection </p>
+<p>of </p>
+<p>the </p>
+<p>target </p>
+<p>address </p>
+<p>is </p>
+<p>already </p>
+<p>known. </p>
+<p>If </p>
+<p>the </p>
+<p>target </p>
+<p>address </p>
+<p>destination  (FIB  source  address)  is  not  yet  known,  the  PDU  will  be  broadcasted  to  all </p>
+<p>destinations  of  the  respective  routing  path.  In  case  the  target  address  destination  was </p>
+<p>already learned by the gateway, the PDU will be routed to the learned destination instead </p>
+<p>of the broadcasting. </p>
+<p>From the technical point of view the switching functionality is an add-on for the static PduR </p>
+<p>routing path relations. The standard PduR routing paths are used to describe all required </p>
+<p>routing relations which are necessary if no dynamic learning is available. This means that </p>
+<p>the routing paths must be configured in a way that the PDUs are broadcasted to all desired </p>
+<p>networks which have possible destination ECUs connected. This is typically a 1:N routing </p>
+<p>path  which  performs  a  broadcasting  of  the  PDU.  The  switching  add-on  suppresses  the </p>
+<p>routing to the individual destinations based on the FIB information. In case the destination </p>
+<p>of a single PDU / target address is not yet known, the PDU will be routed to all destinations </p>
+<p>of  the  1:N  routing  path.  In  case  the  destination  is  already  learned,  the  routing  to  all </p>
+<p>destinations except the learned one is suppressed. </p>
+<p>    </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Example routing path configurations: Every ECU transmits to every other ECU (via N:M routing paths) </p>
+<p>or ECU0 can exclusively broadcast to all other ECUs. Other ECUs can only reach ECU0 </p>
+<p>Gateway ECU</p>
+<p>ECU0</p>
+<p>CAN0</p>
+<p>ECU1</p>
+<p>CAN1</p>
+<p>ECU2</p>
+<p>CAN2</p>
+<p>Gateway ECU</p>
+<p>ECU0</p>
+<p>CAN0</p>
+<p>ECU1</p>
+<p>CAN1</p>
+<p>ECU2</p>
+<p>CAN2</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>20 </p>
+<p>based on template version 4.9.2 </p>
+<p>An  important  concept for the  smart  learning functionality  is the  usage  of  communication </p>
+<p>interface  range  routing  paths  where  multiple  PDUs  can  be  routed  with  a  single  routing </p>
+<p>path. For the examples this means that only three N:M or 1:N/N:1 routing paths have to be </p>
+<p>configured  between  the  networks.  The  range  filters  of  the  Rx  CAN  range  Pdus  can  be </p>
+<p>used to define the concrete CAN ID range to be routed via the routing paths. For further </p>
+<p>information see chapter 6.1. </p>
+<p>The memorization of the source / target address locations/networks is done on the basis of </p>
+<p>the actual extracted source / and target addresses which are based on the CAN ID of the </p>
+<p>routed range PDUs.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The PduR switching feature is only supported for MetaData Pdus. Therefore the </p>
+<p>referenced routing paths in a PduR Connection must be MetaData routing paths. </p>
+<p>Currently only the CanIf supports the MetaData feature. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The </p>
+<p>switching </p>
+<p>functionality </p>
+<p>is </p>
+<p>automatically </p>
+<p>enabled </p>
+<p>for </p>
+<p>all </p>
+<p>PDUs </p>
+<p>associated </p>
+<p>to </p>
+<p>a </p>
+<p>PduRDataPlane</p>
+<p> (see chapter 3.6.8.1).  </p>
+<p>All entries of the FIB will be set to ‘not yet learned’ during initialization of the PduR. This is </p>
+<p>the  only  way  to  completely  ‘unlearn’  the  FIB  table. A  relearning  is  possible  by  receiving </p>
+<p>messages with the corresponding source address on some other channel. The PduR will </p>
+<p>then update the connection/location of this address. </p>
+<p>  </p>
+<p><b>3.6.8.1 </b></p>
+<p><b>Configuration </b></p>
+<p>The  configuration  and  activation  of  the  switching  functionality  is  done  within  the  EcuC </p>
+<p>container </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRDataPlaneTable</p>
+<p>. </p>
+<p>By </p>
+<p>adding </p>
+<p>a </p>
+<p>new  </p>
+<p>PduRDataPlane </p>
+<p>an independent FIB RAM table will be instantiated. Therefore it is possible </p>
+<p>to configure multiple different independent smart learning / switching behaviors in a single </p>
+<p>gateway. </p>
+<p>Within a </p>
+<p>PduRDataPlane </p>
+<p>the </p>
+<p>PduRDataPlane/PduRConnection</p>
+<p> containers are used to assign </p>
+<p>the </p>
+<p>static </p>
+<p>PduR </p>
+<p>routing </p>
+<p>path </p>
+<p>sources </p>
+<p>and </p>
+<p>destinations </p>
+<p>to </p>
+<p>a </p>
+<p>network </p>
+<p>(location). </p>
+<p>A </p>
+<p>PduRConnection </p>
+<p>represents a single network.  </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Network specific assignment of PduRRouting path sources and destinations to a PduRConnection </p>
+<p>Gateway ECU</p>
+<p>Connection_CAN1</p>
+<p>Connection_CAN1</p>
+<p>Connection_CAN0</p>
+<p>ECU0</p>
+<p>CAN0</p>
+<p>ECU1</p>
+<p>CAN1</p>
+<p>ECU2</p>
+<p>CAN2</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>21 </p>
+<p>based on template version 4.9.2 </p>
+<p>Reference all related </p>
+<p>PduRRoutingPath/PduRSrcPdu </p>
+<p>and</p>
+<p> PduRRoutingPath/PduRDestPdu</p>
+<p> </p>
+<p>of </p>
+<p>a single network to the </p>
+<p>PduRConnection</p>
+<p> by the references </p>
+<p>PduRConnection/PduRSrcPduRef</p>
+<p> </p>
+<p>and </p>
+<p>PduRConnection/PduRDestPduRef</p>
+<p>. </p>
+<p> </p>
+<p>The </p>
+<p>behavior </p>
+<p>of </p>
+<p>the </p>
+<p>switching </p>
+<p>logic </p>
+<p>itself </p>
+<p>is </p>
+<p>configured </p>
+<p>in </p>
+<p>the </p>
+<p>PduRDataPlane/PduRSwitchingStrategy/PduRSaTaSwitchingStrategy</p>
+<p> </p>
+<p>container. </p>
+<p>The </p>
+<p>currently available strategy is based on source- and target addresses as described above. </p>
+<p>Within the </p>
+<p>PduRSaTaSwitchingStrategy</p>
+<p> different strategies are supported to determine the </p>
+<p>source- and target address of the PDUs: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>PduRLinearTaToSaCalculationStrategy </b></p>
+<p>The target address is the CAN ID (contained in the Pdu meta data). The source </p>
+<p>address is calculated by masking the target address and adding a linear offset.  </p>
+<p>For PDUs referenced by </p>
+<p>PduRAddOffsetSrcPduRef</p>
+<p>: </p>
+<p>    source address = (target address + offset) &amp; mask </p>
+<p>For PDUs referenced by </p>
+<p>PduRSubtractOffsetSrcPduRef</p>
+<p>: </p>
+<p>    source address = (target address - offset) &amp; mask </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>PduRSaTaFromMetaDataCalculationStrategy </b></p>
+<p>The source and target address is directly read from the CAN ID contained in the meta </p>
+<p>data. The bit access will occur on the logical CAN ID extracted from the meta data.  </p>
+<p>The source address bit position is defined by the </p>
+<p>PduRSaStartBitPosition </p>
+<p>and</p>
+<p> </p>
+<p>PduRSaEndBitPosition</p>
+<p> parameters. The target address bit position is defined by the </p>
+<p>PduRTaStartBitPosition</p>
+<p> </p>
+<p>and </p>
+<p>PduRTaEndBitPosition</p>
+<p> parameters. </p>
+<p>Example bit position configuration of the CAN ID layout shown in Figure 3-3: </p>
+<p>PduRSaStartBitPosition: 0 </p>
+<p>PduRSaEndBitPosition:   9 </p>
+<p>PduRTaStartBitPosition: 10 </p>
+<p>PduRTaEndBitPosition:   19</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Example Extended CAN ID layout</p>
+<p> </p>
+<p> </p>
+<p>Message ID (29 bit)</p>
+<p>&lt;Reserved&gt;</p>
+<p>9bit</p>
+<p>Target Address</p>
+<p>10bit</p>
+<p>Source Address</p>
+<p>10bit</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>22 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>EcuC structural changes with PduR version 9.00.00  </b></p>
+<p> </p>
+<p><b>PduRConnection </b></p>
+<p>In the previous versions the </p>
+<p>PduRConnection/PduRSrcPduRef </p>
+<p>and </p>
+<p>PduRConnection/PduRDestPduRef</p>
+<p> parameters were used to separate between </p>
+<p>request and response routing paths. A separation between request and response </p>
+<p>routing paths does not exist anymore. Instead the references are now just used for </p>
+<p>network to </p>
+<p>PduRSrcPdu</p>
+<p> /</p>
+<p> PduRDestPdu</p>
+<p> mapping. </p>
+<p>An automated migration of the </p>
+<p>PduRConnection </p>
+<p>references is not possible. Please </p>
+<p>add missing references manually. </p>
+<p> </p>
+<p><b>PduRLinearMappingStrategy </b></p>
+<p>In the previous versions the mapping between request and response PDUs was </p>
+<p>configured in the </p>
+<p>PduRDataPlane/PduRDataPlaneMappingStrategy/PduRLinearMappingStrategy </p>
+<p>container. This container will be automatically migrated to the new location </p>
+<p>PduRDataPlane/PduRSwitchingStrategy/PduRSaTaSwitchingStrategy/PduRSaTa</p>
+<p>CalculationStrategy/PduRLinearTaToSaCalculationStrategy</p>
+<p>.</p>
+<p> </p>
+<p>As described </p>
+<p>above the separation between request and response routing paths by the </p>
+<p>PduRConnection/PduRSrcPduRef </p>
+<p>and </p>
+<p>PduRConnection/PduRDestPduRef</p>
+<p> does not </p>
+<p>exist anymore. Rather the new references </p>
+<p>PduRLinearTaToSaCalculationStrategy/PduRAddOffsetSrcPduRef</p>
+<p> and</p>
+<p> </p>
+<p>PduRLinearTaToSaCalculationStrategy/PduRSubtractOffsetSrcPduRef</p>
+<p> were </p>
+<p>introduced. </p>
+<p>PduRAddOffsetSrcPduRef</p>
+<p> </p>
+<p>must reference all </p>
+<p>PduRSrcPdus</p>
+<p> </p>
+<p>where the </p>
+<p>offset shall be added to the target address to determine the related source address. </p>
+<p>PDUs where the offset shall be subtracted must be referenced with the </p>
+<p>PduRSubtractOffsetSrcPduRef</p>
+<p> references. </p>
+<p>The </p>
+<p>AddOffset- </p>
+<p>and </p>
+<p>SubtractOffsetSrcPduRef</p>
+<p> references are automatically </p>
+<p>migrated. Former </p>
+<p>PduRSrcPdu </p>
+<p>referenced by </p>
+<p>PduRConnection/PduRDestPduRef </p>
+<p>are </p>
+<p>migrated to</p>
+<p> PduRAddOffsetSrcPduRef</p>
+<p>.</p>
+<p> </p>
+<p>Former </p>
+<p>PduRSrcPdu </p>
+<p>referenced by </p>
+<p>PduRConnection/PduRSrcPduRef </p>
+<p>are migrated to</p>
+<p> PduRSubtractOffsetSrcPduRef</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>23 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.6.8.2 </b></p>
+<p><b>Example </b></p>
+<p>Network topology is as shown in Figure 3-4. The CAN ID layout is as shown in Figure 3-5. </p>
+<p>Strategy </p>
+<p>PduRSaTaFromMetaDataCalculationStrategy</p>
+<p> </p>
+<p>used (see chapter 3.6.8.1). Routing </p>
+<p>path configuration as shown in Figure 3-1 (every ECU can broadcast to the other ECUs).  </p>
+<p><b> </b></p>
+<p>Figure 3-4 </p>
+<p>Example switching network topology </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Example Standard CAN ID layout </p>
+<p> </p>
+<p>Figure 3-6 </p>
+<p>Example switching EcuC configuration - PduRConnection </p>
+<p> </p>
+<p>Gateway ECU</p>
+<p>ECU0</p>
+<p>address = 0x4</p>
+<p>CAN 0</p>
+<p>CAN 1</p>
+<p>CAN 2</p>
+<p>Routing  logic</p>
+<p>FIB</p>
+<p>ECU1</p>
+<p>address = 0x2</p>
+<p>ECU2</p>
+<p>address = 0x3</p>
+<p>Message ID (11 bit)</p>
+<p>&lt;Reserved&gt;</p>
+<p>3bit</p>
+<p>Target Address</p>
+<p>4bit</p>
+<p>Source Address</p>
+<p>4bit</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>24 </p>
+<p>based on template version 4.9.2 </p>
+<p> </p>
+<p>Figure 3-7 </p>
+<p>Example switching EcuC configuration - PduRSaTaFromMetaDataCalculationStrategy </p>
+<p>Example communication sequence and FIB contents: </p>
+<p>1. ECU0 transmits the range Pdu with CAN ID <b>0x034</b>. </p>
+<p>This </p>
+<p>means </p>
+<p>ECU0 </p>
+<p>uses </p>
+<p>its </p>
+<p>address </p>
+<p>as </p>
+<p>source </p>
+<p>address (0x4), and addresses ECU2 with the target </p>
+<p>address </p>
+<p>0x3. </p>
+<p>The </p>
+<p>PDU </p>
+<p>will </p>
+<p>be </p>
+<p>broadcasted </p>
+<p>to </p>
+<p>CAN1 and CAN2 and the location of ECO0 address </p>
+<p>is updated in the FIB. </p>
+<p> </p>
+<p><b>Source Address </b></p>
+<p><b>Learned location </b></p>
+<p>… </p>
+<p>… </p>
+<p>0x02 </p>
+<p>&lt;not yet learned&gt; </p>
+<p>0x03 </p>
+<p>&lt;not yet learned&gt; </p>
+<p><b>0x04 </b></p>
+<p><b>Connection_CAN0 </b></p>
+<p>… </p>
+<p>… </p>
+<p>2. ECU2 responds to the initial PDU of ECU0 with a </p>
+<p>PDU  with  CAN  ID <b> 0x043</b>.  The  PDU  will  only  be </p>
+<p>routed to CAN0 because the location of the target </p>
+<p>address (0x4) was already learned by the first PDU </p>
+<p>of </p>
+<p>ECU0. </p>
+<p>Additionally </p>
+<p>the </p>
+<p>location </p>
+<p>of </p>
+<p>ECU2 </p>
+<p>is </p>
+<p>updated in the FIB. </p>
+<p> </p>
+<p><b>Source Address </b></p>
+<p><b>Learned location </b></p>
+<p>… </p>
+<p>… </p>
+<p>0x02 </p>
+<p>&lt;not yet learned&gt; </p>
+<p><b>0x03 </b></p>
+<p><b>Connection_CAN2 </b></p>
+<p>0x04 </p>
+<p>Connection_CAN0 </p>
+<p>… </p>
+<p>… </p>
+<p>3. Finally ECU1 transmits a PDU with CAN ID <b>0x032</b>. </p>
+<p>The PDU will only be routed to CAN2 because the </p>
+<p>location  of  the  target  address  (0x3)  was  already </p>
+<p>learned. The FIB gets updated with the location of </p>
+<p>ECU1. </p>
+<p> </p>
+<p><b>Source Address </b></p>
+<p><b>Learned location </b></p>
+<p>… </p>
+<p>… </p>
+<p><b>0x02 </b></p>
+<p><b>Connection_CAN1 </b></p>
+<p>0x03 </p>
+<p>Connection_CAN2 </p>
+<p>0x04 </p>
+<p>Connection_CAN0 </p>
+<p>… </p>
+<p>… </p>
+<p> </p>
+<p><b>3.6.9 </b></p>
+<p><b>Queue overflow notification callback </b></p>
+<p>The </p>
+<p>PDU </p>
+<p>Router </p>
+<p>supports </p>
+<p>a </p>
+<p>Queue </p>
+<p>overflow </p>
+<p>notification </p>
+<p>callback. </p>
+<p>In </p>
+<p>case </p>
+<p>of </p>
+<p>a </p>
+<p>communication interface routing with unfavorable FIFO configuration or if the destination </p>
+<p>bus  is  not  available  (e.g.  bus  off)  a  buffer  overflow  can  occur.  In  this  case  the  FIFO  is </p>
+<p>flushed.  </p>
+<p>Additionally  a  callback  could  be  configured  to  capture  this  event  and  perform  error </p>
+<p>handling. See Figure 3-8. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>25 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Enable Feature overflow notification callback </b></p>
+<p><b>&gt; </b></p>
+<p>PduR_QueueOverflowNotification activates / deactivates a PduR </p>
+<p>communication interface TxBuffer overflow notification. </p>
+<p><b>&gt; </b></p>
+<p>Set an individual error notification module name by using </p>
+<p>PduR_ErrorNotificationModuleName parameter. This parameter is optional </p>
+<p>and can be left empty. ‘Error Notification’ is used as default value. </p>
+<p><b> </b></p>
+<p>If the feature is enabled two additional source files are generated to the Gendata folder. </p>
+<p>A &lt;ErrorNotification&gt;_Cbk.h file and a _&lt;ErrorNotification&gt;_Cbk.c template file. The </p>
+<p>template contains the error notification function which must be implemented. </p>
+<p><b>&gt; </b></p>
+<p>Implement the error notification function and remove the template </p>
+<p>underscore. </p>
+<p>Figure 3-8 </p>
+<p>Overflow notification callback configuration </p>
+<p>During runtime the error notification is called by the PDU Router in case of a FIFO </p>
+<p>overflow. The lower layer interface handle is passed to the notification callback. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>How to get the associated gateway routing path </b></p>
+<p>  </p>
+<p><b>&gt; </b></p>
+<p>Open the Find view and enter the destination PDU name with the </p>
+<p>associated handle. Syntax: value == destination PDU name </p>
+<p><b>&gt; </b></p>
+<p>Right click on the PDU Router destination container in the result view and </p>
+<p>open the reference using the “Show referenced item in” dialog. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Table 3-5  </p>
+<p>How to get the associated gateway routing path </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>26 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The error notification function is called in the interrupt context! Please keep the error </p>
+<p>handling short.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.6.10 </b></p>
+<p><b>N:1 Routing Paths with Upper Layer and Tx confirmation </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If a N:1 communication interface routing path includes an upper layer source with </p>
+<p>enabled Tx confirmation, the destination will be locked when a Pdu is routed from the </p>
+<p>upper layer to the destination until the upper layer receives the corresponding Tx </p>
+<p>confirmation. While this lock is active no other Pdu can be routed on this routing path </p>
+<p>(neither gateway nor API forwarding routings). All corresponding transmit requests will </p>
+<p>not be executed and a DET error will be reported if enabled. </p>
+<p>This behavior can be avoided if no Tx Confirmation is configured for the upper layer </p>
+<p>source. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>27 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.7 </b></p>
+<p><b>Transport Protocol Gateway </b></p>
+<p>The TP layer gateway allows high-level routing of TP I-PDUs.  </p>
+<p>In order to reduce runtime and memory consumption, the gateway supports the so called </p>
+<p>routing on-the-fly (for 1:1, 1:N and N:1 single and multiframe routing paths). Depending on </p>
+<p>the </p>
+<p>“Threshold” </p>
+<p>configuration </p>
+<p>of </p>
+<p>each </p>
+<p>routing </p>
+<p>path, </p>
+<p>the </p>
+<p>gateway </p>
+<p>starts </p>
+<p>with </p>
+<p>the </p>
+<p>transmission on the destination network before the reception has completed on the source </p>
+<p>network.  </p>
+<p>Since AUTOSAR 4 the PduR copies the data within the PduR_&lt;LoTp&gt;_CopyRxData() call. </p>
+<p>So  the  PduR  module  always  knows  how  much  buffer  is  still  available  and  provides  the </p>
+<p>complete size to the Tp module. The PduR is not limited to linear buffer boundaries like in </p>
+<p>AUTOSAR 3, so the PduR data rate is very efficient.  </p>
+<p>The Tp  module  will  never  get  more  buffer  within  one  PduR_&lt;LoTp&gt;_CopyRxData()  call </p>
+<p>than the PduR provides to the Tp module. Therefore the Tp modules should not try to copy </p>
+<p>more data than the provided buffer length. </p>
+<p><b>3.7.1 </b></p>
+<p><b>Multi-Routing </b></p>
+<p>The PduR supports N:1 and 1:N routing paths for both single- and multiframes. Each of </p>
+<p>these routing paths will only occupy a single Tx Buffer at runtime (if no FIFO behavior is </p>
+<p>required). For details on the queuing behavior refer to chapter 3.7.4. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>1:N gateway routing paths which involve an upper layer destination must be configured </p>
+<p>as a store and forward routing path. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.7.2 </b></p>
+<p><b>TP Threshold </b></p>
+<p>The Threshold value is used to… </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>… define the fill level of the buffer where the transmission is triggered on the </p>
+<p>destination bus. </p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>… exclude buffers from the selection during runtime. This could be helpful to ensure </p>
+<p>that small buffers which are configured for single frames are not taken into account for </p>
+<p>long multi messages. If the Threshold is larger than the buffer size it is ensured that </p>
+<p>the PduR will not use this buffer to perform the routing. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Small buffers can also be excluded from the selection at runtime using the </p>
+<p>dedicated/shared Tx Buffer pool support. All suitable buffers can be assigned to the </p>
+<p>respective routing paths. Only these assigned buffers will be used at runtime. The </p>
+<p>assigned buffers can also be shared between multiple other routing paths. </p>
+<p>See chapter 3.7.3 for details. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>28 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.7.2.1 </b></p>
+<p><b>Restrictions</b></p>
+<p><b> </b></p>
+<p>The setting of the TP Threshold is restricted for CanTp, LinTp and FrArTp routing paths. </p>
+<p>Threshold values in the shaded sections of Figure 3-9 are not allowed to be configured for </p>
+<p>these kind of gateway routings.  </p>
+<p>Each PduR_&lt;LoTp&gt;_CopyRxData() call requires that a complete consecutive frame (CF) </p>
+<p>will be copied to the buffer. If not enough buffer is available the Tp tries again to get more </p>
+<p>buffer. But the PduR still cannot dequeue data because the threshold is not reached. In </p>
+<p>this situation there will never be enough buffer space and the routing will be aborted with a </p>
+<p>timeout.  </p>
+<p>The DaVinci Configurator validates this and provides appropriate Solving-Actions to set a </p>
+<p>suitable Threshold. The recommended values are adapted to the boundaries.  </p>
+<p>If just the largest buffer of Figure 3-9 should be used for a routing the Threshold must be </p>
+<p>set to Section 2. If the routing should have both buffer options the Threshold level must be </p>
+<p>set somewhere in Section 1.  </p>
+<p> </p>
+<p>Figure 3-9 </p>
+<p>Configured Tp Buffer with possible Threshold ranges </p>
+<p> </p>
+<p><b>3.7.2.2 </b></p>
+<p><b>Threshold “0” </b></p>
+<p>Since  ASR  4.1.2  the  PduR  module  supports  a  Threshold  of  “0”.  This  means  that  the </p>
+<p>transmission  will  be  triggered  immediately.  The  first  frame  of  some  Transport  Protocol </p>
+<p>modules (J1939Tp and FrTp) does not contain data but it is required that the transmission </p>
+<p>will </p>
+<p>be </p>
+<p>triggered </p>
+<p>nevertheless. </p>
+<p>For </p>
+<p>further </p>
+<p>details </p>
+<p>refer </p>
+<p>for </p>
+<p>example </p>
+<p>the </p>
+<p>J1939Tp </p>
+<p>specification [6]. </p>
+<p><b>3.7.3 </b></p>
+<p><b>Tx Buffer Handling </b></p>
+<p>Diagnostic communication usually does not take place within all ECUs at the same time. </p>
+<p>Therefore a TP routing path typically has no dedicated assigned buffer. In order to reduce </p>
+<p>the amount of RAM required for queues, the Tx buffers are assigned dynamically to active </p>
+<p>TP routing paths and can be reused in different routing paths automatically.  </p>
+<p>CFs</p>
+<p> </p>
+<p>CF size- 1</p>
+<p> </p>
+<p>MetaData</p>
+<p> </p>
+<p>FF</p>
+<p> </p>
+<p> </p>
+<p>   </p>
+<p> </p>
+<p>   </p>
+<p>Section 1</p>
+<p> </p>
+<p>Section 2</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>29 </p>
+<p>based on template version 4.9.2 </p>
+<p>If a buffer is assigned to a routing path during runtime, this buffer is exclusively reserved </p>
+<p>for this routing. If all available buffers are occupied, no further routing is possible and the </p>
+<p>PduR  signalizes  the  state  “BUFREQ_E_NOT_OK”  towards  the  TP  module.  It  will  then </p>
+<p>create an appropriate flow-control frame depending on its capabilities. </p>
+<p>The PduR supports a ring buffer mechanism. Due to the AUTOSAR 4 architecture long TP </p>
+<p>messages  can  now  be  routed  through  a  small </p>
+<p>PduRTxBuffer</p>
+<p>,  especially  if  the  source </p>
+<p>and destination bus have the same data rate. </p>
+<p>The </p>
+<p>PduRTxBuffer</p>
+<p> will be released during initialization of the PduR module and after a </p>
+<p>routing has terminated either successfully or with an error. They can then be allocated by </p>
+<p>other </p>
+<p>PduRDestPdus</p>
+<p> again. </p>
+<p>The PduR supports multiple Tx Buffer assignment strategies to support different usecases. </p>
+<p><b>3.7.3.1 </b></p>
+<p><b>Tx Buffer Usage Types </b></p>
+<p>A PduRTxBuffer can either be referenced by zero, one or multiple PduRDestPdus.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If a PduRDestPdu references at least one PduRTxBuffer, it has only access to this pool </p>
+<p>of buffers and cannot use the global Tx Buffer pool of unassigned PduRTxBuffers. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.7.3.1.1 </b></p>
+<p><b>Dedicated Tx Buffer </b></p>
+<p>If a </p>
+<p>PduRTxBuffer</p>
+<p> is referenced by only <b>one </b></p>
+<p>PduRDestPdu</p>
+<p>, it is called a dedicated Tx </p>
+<p>Buffer. The buffer can only be used by this </p>
+<p>PduRDestPdu</p>
+<p>. </p>
+<p>Dedicated Tx  Buffers  accelerate  the  buffer  search  algorithm  as  the  amount  of  available </p>
+<p>PduRTxBuffer is more limited compared to a global Tx Buffer Pool use case. </p>
+<p>Dedicated  Tx  Buffer  can  be  used  to  ensure  the  availability  of  suitable  Tx  Buffers  and </p>
+<p>optimize the buffer for certain bus architectures. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Expert Knowledge </b></p>
+<p>Routing of a functional request is a typical use case for a dedicated buffer. For a short </p>
+<p>diagnostic request it is required to avoid searching for a buffer in the global Tx buffer </p>
+<p>pool. If a dedicated buffer is assigned to the </p>
+<p>PduRDestPdu,</p>
+<p> this buffer will be used </p>
+<p>during runtime.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Dedicated Tx Buffers raise the RAM consumption. Every Tx Buffer allocates its needed </p>
+<p>memory in RAM. This memory will not be shared with any other routing path.  </p>
+<p><b>3.7.3.1.2 </b></p>
+<p><b>Shared Tx Buffer </b></p>
+<p>If  a </p>
+<p>PduRTxBuffer</p>
+<p>  is  referenced  by <b> multiple </b></p>
+<p>PduRDestPdus</p>
+<p>,  it  is  a  shared Tx  buffer </p>
+<p>which can be used by all corresponding </p>
+<p>PduRDestPdus</p>
+<p>.  </p>
+<p>If  the  Tx  buffer  is  currently  used  by  a </p>
+<p>PduRDestPdu</p>
+<p>,  it  can’t  be  used  by  any  other </p>
+<p>PduRDestPdu</p>
+<p> until the processing of the active routing path is finished.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>30 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Expert Knowledge </b></p>
+<p>A buffer pool configuration avoids that a non-suitable buffer is used for a routing during </p>
+<p>runtime. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>It is also possible to share Tx Buffers between communication interface and transport </p>
+<p>protocol routings. Keep in mind that an allocated buffer is locked until the routing is </p>
+<p>finished.  </p>
+<p><b>3.7.3.1.3 </b></p>
+<p><b>Local Tx Buffer Pool </b></p>
+<p>If  one </p>
+<p>PduRDestPdu</p>
+<p>  references  more  than  one </p>
+<p>PduRTxBuffer</p>
+<p>,  it  is  called  a  local Tx </p>
+<p>Buffer  Pool. These  can  either  be  dedicated </p>
+<p>PduRTxBuffer</p>
+<p>  or they  can  be  shared  with </p>
+<p>other </p>
+<p>PduRDestPdus</p>
+<p>. A mix of dedicated and shared </p>
+<p>PduRTxBuffers</p>
+<p> is supported. </p>
+<p>The corresponding routing path can only request the referenced </p>
+<p>PduRTxBuffers</p>
+<p>. </p>
+<p><b>3.7.3.1.4 </b></p>
+<p><b>Global Tx Buffer Pool </b></p>
+<p>A </p>
+<p>PduRTxBuffer</p>
+<p> which is not referenced by any </p>
+<p>PduRDestPdu</p>
+<p> is part of the global Tx </p>
+<p>Buffer </p>
+<p>pool. </p>
+<p>It </p>
+<p>can </p>
+<p>be </p>
+<p>used </p>
+<p>by </p>
+<p>any </p>
+<p>PduRDestPdu</p>
+<p> </p>
+<p>which </p>
+<p>has </p>
+<p>not </p>
+<p>referenced </p>
+<p>any </p>
+<p>PduRTxBuffer</p>
+<p>. </p>
+<p><b>3.7.3.2 </b></p>
+<p><b>Example Configuration </b></p>
+<p>In the example shown in Figure 3-10 the buffer 3 belongs to the global Tx Buffer Pool and </p>
+<p>Buffer 1 and 2 are dedicated Tx Buffers of Routing 1 (local Tx Buffer Pool). Routing 2 does </p>
+<p>not have a buffer reference. This routing will use buffer 3 from the global Tx Buffer Pool. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-10 </p>
+<p>Buffer pool configuration </p>
+<p>Figure 3-11</p>
+<p> </p>
+<p>shows a shared buffer pool configuration. Buffer 1 and 2 are shared between </p>
+<p>Routing 1 and 2</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-11 </p>
+<p>Shared buffer pool  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>31 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If Routing 1 uses Buffer 1 and Buffer 2, Routing 2 will not get a buffer until Buffers are </p>
+<p>released. Use shared buffer pool configurations carefully.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.7.3.3 </b></p>
+<p><b>Tx Buffer Length Configuration </b></p>
+<p>The  length  of  each  buffer  element  is  configured  individually  and  therefore  allows  fine </p>
+<p>adaptations  according  to  the  use  case.  First  of  all,  the  length  of  the  configured  buffer </p>
+<p>depends on the Threshold of the configured routing paths. If the gateway assigns a buffer </p>
+<p>element to a routing path it is required that the buffer has at least the size of the Threshold. </p>
+<p>Increase the PduRTxBuffer length to adapt a high bus load on the reception side to a lower </p>
+<p>bandwidth on the transmit side. </p>
+<p>Due to the ring-buffer mechanism it is not required that a buffer element with the size of </p>
+<p>the largest expected TP I-PDU is configured. A buffer smaller than the routed I-PDU can </p>
+<p>result in wait-frames or a buffer-overflow if the destination connection is slower than the </p>
+<p>source connection. A buffer overflow can be avoided if the receiving TP connection allows </p>
+<p>dynamic adaptation of the block size (BS) (e.g. CanTp connection with BS greater 0). If a </p>
+<p>BS of 0 is used by some of the source TP connections, the configured buffer length should </p>
+<p>be dimensioned in a way that buffer overflows are avoided.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It might make sense to configure a small Tp buffer (e.g. 7 bytes) to allow single </p>
+<p>frame routings without occupying a larger and therefore more “expensive” buffer </p>
+<p>for  this  task.  This </p>
+<p>is  applicable  for  both  local  and </p>
+<p>global  Tx  Buffer  Pool </p>
+<p>configuration. Dedicated assigned TxBuffer can be used to avoid this problem. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If Meta Data Support is enabled please consider that the MetaDataLength must be </p>
+<p>copied to the Tp Buffer additionally. The MetaDataLength should be taken into account </p>
+<p>during the Tp buffer configuration. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.7.3.4 </b></p>
+<p><b>Amount of Tx Buffer </b></p>
+<p>The Tp gateway requires at least one buffer element to allow the routing of Tp I-PDUs.  </p>
+<p>The number of buffer elements that have to be configured depends on the number of TP I-</p>
+<p>PDUs that shall be routed at the same time.  </p>
+<p>For each 1:N and N:1 routing path only one buffer element is occupied at runtime. More </p>
+<p>than one buffer element will be occupied if a FIFO behavior is desired. </p>
+<p>As  the  buffer  elements  are  not  assigned  to  a  routing  path  statically,  the  number  of </p>
+<p>configured buffer elements can be smaller than the number of routing paths.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>32 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>3.7.3.5 </b></p>
+<p><b>Tx Buffer Selection Algorithm </b></p>
+<p>The PduR uses the following rules to choose one of the configured Tx buffers: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the size of the incoming I-PDU is smaller than the configured TP Threshold the </p>
+<p>smallest available buffer is used that can hold the entire I-PDU. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If the size of the incoming I-PDU is larger than the configured TP Threshold it uses the </p>
+<p>smallest Tx buffer which can hold the entire I-PDU. If such a buffer is not availabe it </p>
+<p>will use the largest available buffer which has a size larger than the TpThreshold.  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>If all buffer are occupied, the buffer request is rejected and the TP I-PDU is not routed. </p>
+<p><b>3.7.4 </b></p>
+<p><b>TP Queue </b></p>
+<p>Every  destination  PDU  can  be  configured  to  use  a  queue  to  buffer the TP I-PDUs. The </p>
+<p>amount  of  I-PDUs  which  will  be  buffered  can  be  configured  with  the  Dest  PDU  Queue </p>
+<p>Depth parameter.  </p>
+<p>The </p>
+<p>Queue </p>
+<p>supports </p>
+<p>FIFO </p>
+<p>behavior. </p>
+<p>This </p>
+<p>means </p>
+<p>that </p>
+<p>the </p>
+<p>first </p>
+<p>started </p>
+<p>source </p>
+<p>TP </p>
+<p>connection is transmitted to the destination first. </p>
+<p>TP Queues are supported for the following routing paths: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>1:1 routing path </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>1:N routing path (Queue Depth must be equal for all destinations) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>N:1 routing path (Queue Depth must be equal for all DestPdus which reference the </p>
+<p>one common destination global PDU) </p>
+<p>Multiple I-PDUs from different source connections can be received at once on N:1 routing </p>
+<p>paths, as long as the TP Queue is not full. For routing paths with only one possible source </p>
+<p>Tp connection (1:1, 1:N), only one I-PDU can be received at once. If the transmission on </p>
+<p>the  destination  side  is  delayed,  multiple  I-PDU  instances  which  were  received  on  the </p>
+<p>source Tp connection are stored in the queue. </p>
+<p>The default  value for the  Dest Pdu  Queue Depth  is  2. This  corresponds  to  the  back-to-</p>
+<p>back routing behavior. After one TP I-PDU was received successfully it is transmitted to the </p>
+<p>destination </p>
+<p>and </p>
+<p>another </p>
+<p>instance </p>
+<p>of </p>
+<p>the </p>
+<p>I-PDU </p>
+<p>can </p>
+<p>be </p>
+<p>received </p>
+<p>on </p>
+<p>the </p>
+<p>same </p>
+<p>TP </p>
+<p>connection. Basically every queue with a depth greater than one can store multiple TP I-</p>
+<p>PDUs.  </p>
+<p>A  TP  queue  does  not  reserve  the  actual  memory  location  for  the  Pdu.  This  is  done </p>
+<p>dynamically at runtime. TP buffer will be assigned to the queue,  if it requests to store a </p>
+<p>new I-PDU. In case there are no suitable TP buffer available, the StartOfReception call will </p>
+<p>be rejected. </p>
+<p><b>3.7.5 </b></p>
+<p><b>Error Handling </b></p>
+<p>If one of the source or destination TP components that are involved in a TP data transfer </p>
+<p>stops  its  transmission  or  reception  due  to  an  error  (e.g.  a  timeout  has  occurred),  the </p>
+<p>corresponding  TP-routing  relation  and  buffer-element  will  be  released.  The  next  buffer </p>
+<p>request on the not yet aborted Tp connection will return &quot;BUFREQ_E_NOT_OK&quot; and will </p>
+<p>release the Tp connection. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>33 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>There is no AUTOSAR mechanism which notifies the other TP component side of an </p>
+<p>error during the reception or transmission. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.7.6 </b></p>
+<p><b>Meta Data Handling </b></p>
+<p>Since  ASR  4.1.2  the  StartOfReception()  API  was  extended  by  the  “PduInfoPtr”.  This </p>
+<p>parameter can be used to transmit Meta Data. </p>
+<p>In case of a gateway routing the payload provided in the “PduInfoPtr” will be ignored by the </p>
+<p>PduR.  Just  Meta  Data  are  buffered  and  transmitted  via  the  &lt;LL&gt;_Transmit  function.  In </p>
+<p>case of forwarding to an upper layer module (e.g. DCM or CDD ) the payload and Meta </p>
+<p>Data  will  be  forwarded  and  the  upper  layer  must  extract  the  Meta  Data  according  the </p>
+<p>configured Meta Data length. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The length of the “PduInfoPtr” does not contain the “MetaDataLength” information. The </p>
+<p>length parameter represents the I-PDU total length. Each module must copy the </p>
+<p>MetaData from the ”PduInfoPtr” according the configured “MetaDataLength”. Do <b>not </b></p>
+<p><b>use </b>the length of the “PduInfoPtr” to copy “MetaData” from the “PduInfoPtr”. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The lower layer module must provide the complete payload in the CopyRxData() </p>
+<p>function  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>34 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR PDUR into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the PDUR contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File </b></p>
+<p><b>Name </b></p>
+<p><b>Source Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Description </b></p>
+<p>PduR.c </p>
+<p></p>
+<p> </p>
+<p>This is the source file of the PDUR </p>
+<p>PduR.h </p>
+<p></p>
+<p> </p>
+<p>This is the header file of PDUR </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>PduR_Cfg.h   </p>
+<p>This file contains: </p>
+<p></p>
+<p> global constant macros </p>
+<p></p>
+<p> global function macros </p>
+<p></p>
+<p> global data types and structures </p>
+<p></p>
+<p> global data prototypes </p>
+<p></p>
+<p> global function prototypes </p>
+<p>of CONFIG-CLASS PRE-COMPILE data. </p>
+<p>PduR_Lcfg.h </p>
+<p>This file contains: </p>
+<p></p>
+<p> global constant macros </p>
+<p></p>
+<p> global function macros </p>
+<p></p>
+<p> global data types and structures </p>
+<p></p>
+<p> global data prototypes </p>
+<p></p>
+<p> global function prototypes </p>
+<p>of CONFIG-CLASS LINK data. </p>
+<p>PduR_Lcfg.c </p>
+<p>This file contains: </p>
+<p></p>
+<p> local constant macros </p>
+<p></p>
+<p> local function macros </p>
+<p></p>
+<p> local data types and structures </p>
+<p></p>
+<p> local data prototypes </p>
+<p></p>
+<p> local data </p>
+<p></p>
+<p> global data </p>
+<p>of CONFIG-CLASS LINK and PRE-COMPILE data. </p>
+<p>PduR_PBcfg.h</p>
+<p> </p>
+<p>This file contains: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>35 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p></p>
+<p> global constant macros </p>
+<p></p>
+<p> global function macros </p>
+<p></p>
+<p> global data types and structures </p>
+<p></p>
+<p> global data prototypes </p>
+<p></p>
+<p> global function prototypes </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>PduR_PBcfg.c</p>
+<p> </p>
+<p>This file contains: </p>
+<p></p>
+<p> local constant macros </p>
+<p></p>
+<p> local function macros </p>
+<p></p>
+<p> local data types and structures </p>
+<p></p>
+<p> local data prototypes </p>
+<p></p>
+<p> local data </p>
+<p></p>
+<p> global data </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>PduR_Types.h </p>
+<p>This file contains types and defines for the PduR. </p>
+<p>PduR_&lt;Up&gt;.h   </p>
+<p>This is the interface header of the PduR to an Upper Layer Module.  </p>
+<p>PduR_&lt;Lo&gt;.h </p>
+<p>This is the interface header of the PduR to a Lower Layer Module </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The critical section PDUR_EXCLUSIVE_AREA_0 has to lock global interrupts to protect </p>
+<p>common critical sections. </p>
+<p><b>4.3 </b></p>
+<p><b>Memory Sections  </b></p>
+<p>With PDUR_START_SEC_BUFFER_VAR_NOINIT_8BIT and   </p>
+<p>PDUR_STOP_SEC_BUFFER_VAR_NOINIT_8BIT large Tx buffer can be mapped into an </p>
+<p>own memory section. </p>
+<p><b>4.4 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the PDUR are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>PduR_RoutingPathGroupIdType </p>
+<p>uint16 </p>
+<p>Identification of the routing path </p>
+<p>group. Routing path groups are </p>
+<p>defined in the  </p>
+<p>PDU router configuration. </p>
+<p>unsigned int </p>
+<p>Table 4-3  </p>
+<p>Type definitions </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>36 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Services provided by PDUR </b></p>
+<p><b>5.1.1 </b></p>
+<p><b>PduR_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_Init </b>(const PduR_PBConfigType* ConfigPtr) </p>
+<p><b>Parameter </b></p>
+<p>ConfigPtr </p>
+<p>&gt; </p>
+<p>NULL_PTR in the PDUR_CONFIGURATION_VARIANT_PRECOMPILE </p>
+<p>&gt; </p>
+<p>Pointer to the PduR configuration data in the </p>
+<p>PDUR_CONFIGURATION_VARIANT_POSTBUILD_LOADABLE and </p>
+<p>PDUR_CONFIGURATION_VARIANT_POSTBUILD_SELECTABLE </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This function initializes the PDU Router and performs configuration consistency checks. If the initialization </p>
+<p>is performed successfully the PDU Router is in the state PduR_IsInitialized else not PduR_IsInitialized. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is used by the Ecu State Manager </p>
+<p> </p>
+<p><b>Caution</b> </p>
+<p>PduR_Init shall not pre-empt any PDU Router function.  </p>
+<p>Call Context </p>
+<p>The function must be called on task level. To avoid problems calling the PDU Router module uninitialized it </p>
+<p>is important that the PDU Router module is initialized before interfaced modules. </p>
+<p>Table 5-1  </p>
+<p>PduR_Init </p>
+<p><b>5.1.2 </b></p>
+<p><b>PduR_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>The function initializes variables, which cannot be initialized with the startup code. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the application. </p>
+<p>Call Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>37 </p>
+<p>based on template version 4.9.2 </p>
+<p>The function must be called on task level. </p>
+<p>Table 5-2  </p>
+<p>PduR_InitMemory </p>
+<p><b>5.2 </b></p>
+<p><b>Services </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>PduR_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_GetVersionInfo </b>(Std_VersionInfoType* versioninfo) </p>
+<p><b>Parameter </b></p>
+<p>versioninfo </p>
+<p>Pointer to where to store the version information of the PDU Router. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information of the PDU Router. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the application. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level. </p>
+<p>Table 5-3  </p>
+<p>PduR_GetVersionInfo </p>
+<p><b>5.2.2 </b></p>
+<p><b>PduR_GetConfigurationId </b></p>
+<p><b>Prototype </b></p>
+<p>uint32 <b>PduR_GetConfigurationId </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>uint32 </p>
+<p>uint32 </p>
+<p><b>Functional Description </b></p>
+<p>Provides the unique identifier of the PDU Router configuration. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the application. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level. </p>
+<p>Table 5-4  </p>
+<p>PduR_GetConfigurationId </p>
+<p><b>5.2.3 </b></p>
+<p><b>PduR_EnableRouting </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_EnableRouting </b>(PduR_RoutingPathGroupIdType id) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>38 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>Identification of the routing path group. Routing path groups are defined in the </p>
+<p>PDU router configuration. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This function enables a routing path group. If the routing path group does not exist or is already enabled, </p>
+<p>the function returns with no action. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the BSW Mode Manager. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_EnableRouting or PduR_DisableRouting calls for the same id. </p>
+<p>Table 5-5  </p>
+<p>PduR_EnableRouting </p>
+<p><b>5.2.4 </b></p>
+<p><b>PduR_DisableRouting </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_DisableRouting </b>(PduR_RoutingPathGroupIdType id) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>Identification of the routing path group. Routing path groups are defined in the </p>
+<p>PDU router configuration. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This function disables a routing path group. If the routing path group does not exist or is already disabled, </p>
+<p>the function returns with no action. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by the BSW Mode Manager. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_EnableRouting or PduR_DisableRouting calls for the same id. </p>
+<p>Table 5-6  </p>
+<p>PduR_DisableRouting </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>39 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.3 </b></p>
+<p><b>Communication Interface  </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>PduR_&lt;GenericUp&gt;Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>PduR_&lt;GenericUp&gt;Transmit </b>(PduIdType id, PduInfoType* </p>
+<p>info) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the &lt;GenericUp&gt; I-PDU to be transmitted </p>
+<p>info </p>
+<p>Payload information of the I-PDU (pointer to data and data length) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType </p>
+<p>E_OK The request was accepted by the PDU Router and by the destination </p>
+<p>layer. </p>
+<p>E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the info is not valid </p>
+<p>or the request was not accepted by the destination layer. </p>
+<p><b>Functional Description </b></p>
+<p>The function serves to request the transmission of a Communication Interface I-PDU. The PDU Router </p>
+<p>evaluates the upper layer I-PDU handle and performs appropriate handle and port conversion. The call is </p>
+<p>routed to a lower communication interface module using the appropriate I-PDU handle of the destination </p>
+<p>layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by an upper layer. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericUp&gt;Transmit calls for the same upper layer id. </p>
+<p>Table 5-7  </p>
+<p>PduR_&lt;GenericUp&gt;Transmit </p>
+<p><b>5.3.2 </b></p>
+<p><b>PduR_&lt;GenericLo&gt;RxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_&lt;GenericLo&gt;RxIndication </b>(PduIdType id, const PduInfoType* </p>
+<p>info) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>Handle ID of the received &lt;GenericLo&gt; I-PDU. </p>
+<p>info </p>
+<p>Payload information of the received I-PDU (pointer to data and data length). </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>40 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Functional Description </b></p>
+<p>The function is called by a lower communication interface to indicate the complete reception of a lower </p>
+<p>communication interface I-PDU. The PDU Router evaluates the lower communication interface I-PDU </p>
+<p>handle and performs appropriate handle and port conversion. The call is routed to an upper communication </p>
+<p>interface module using the appropriate I-PDU handle of the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower communication interface module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLo&gt;RxIndication calls for the same a lower communication interface id. </p>
+<p>Table 5-8  </p>
+<p>PduR_&lt;GenericLo&gt;RxIndication </p>
+<p><b>5.3.3 </b></p>
+<p><b>PduR_&lt;GenericLo&gt;TriggerTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_&lt;GenericLo&gt;TriggerTransmit </b>(PduIdType id, PduInfoType* info) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>Handle ID of the &lt;GenericLo&gt; I-PDU that will be transmitted. </p>
+<p>info </p>
+<p>Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be </p>
+<p>copied, and the available buffer size in SduLengh. On return, the service will </p>
+<p>indicate the length of the copied SDU data in SduLength. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK: The SDU has been copied and the SduLength indicates the number of </p>
+<p>copied bytes. </p>
+<p>E_NOT_OK: No data has been copied, because PduR is not initialized or </p>
+<p>TxPduId is not valid or PduInfoPtr is NULL_PTR or SduDataPtr is NULL_PTR </p>
+<p>or SduLength is too small. </p>
+<p><b>Functional Description </b></p>
+<p>The function is called by a lower layer communication interface to request the TX I-PDU data before </p>
+<p>transmission. The PDU Router evaluates the lower layer communication interface I-PDU handle and </p>
+<p>performs appropriate handle and port conversion. The call is routed to an upper IF module using the </p>
+<p>appropriate I-PDU handles of the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower layer communication interface </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLo&gt;TriggerTransmit calls for the same id. </p>
+<p>Table 5-9  </p>
+<p>PduR_&lt;GenericLo&gt;TriggerTransmit </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>41 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.3.4 </b></p>
+<p><b>PduR_&lt;GenericLo&gt;TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_&lt;GenericLo&gt;TxConfirmation </b>(PduIdType id) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>Handle ID of the transmitted lower layer communication interface I-PDU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>The function is called by a lower communication interface to confirm the complete transmission of a lower </p>
+<p>communication interface I-PDU. The PDU Router evaluates the lower communication interface I-PDU </p>
+<p>handle and performs appropriate handle and port conversion. The call is routed to an upper layer </p>
+<p>communication interface module using the appropriate I-PDU handle of the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower communication interface module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLo&gt;TxConfirmation calls for the same lower layer communication interface id. </p>
+<p>Table 5-10  </p>
+<p>PduR_&lt;GenericLo&gt;TxConfirmation </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>42 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.4 </b></p>
+<p><b>Transport Protocol </b></p>
+<p>This  chapter  describes  the  interfaces  provided  to  Upper  Layers  (e.g.  Dcm, ApplTp  and </p>
+<p>Cdds). Replace the tag &lt;UpTp&gt; by the MSN of the Upper Layer. </p>
+<p> </p>
+<p><b>5.4.1 </b></p>
+<p><b>PduR_&lt;GenericUpTp&gt;ChangeParameter </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>PduR_&lt;GenericUpTp&gt;ChangeParameter </b>(PduIdType id, </p>
+<p>TPParameterType parameter, uint16 value) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the &lt;UpTp&gt; I-PDU where the parameter has to be changed </p>
+<p>parameter </p>
+<p>The TP parameter that shall be changed. </p>
+<p>value </p>
+<p>The new value for the TP parameter. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType </p>
+<p>E_OK: The parameter was changed successfully.  </p>
+<p>E_NOT_OK: The parameter change was rejected. </p>
+<p><b>Functional Description </b></p>
+<p>The function serves to change a specific transport protocol parameter (e.g. block-size). </p>
+<p>The PDU Router evaluates the &lt;UpTp&gt; I-PDU handle and performs appropriate handle and port </p>
+<p>conversion. The call is routed to a lower TP module using the appropriate I-PDU handle of the destination </p>
+<p>layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by &lt;UpTp&gt;. </p>
+<p>Call Context </p>
+<p>This function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;UpTp&gt;ChangeParameter calls for the same id. </p>
+<p>Table 5-11  </p>
+<p>PduR_&lt;GenericUpTp&gt;ChangeParameter </p>
+<p><b>5.4.2 </b></p>
+<p><b>PduR_&lt;GenericUpTp&gt;CancelReceive </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>PduR_&lt;GenericUpTp&gt;CancelReceive </b>(PduIdType id) </p>
+<p><b>Parameter </b></p>
+<p> id </p>
+<p>ID of the RX &lt;GenericUp&gt; I-PDU to be cancelled </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType </p>
+<p>E_OK:       Cancellation was executed successfully by the destination module.  </p>
+<p>E_NOT_OK:  Cancellation was rejected by the destination module. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>43 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Functional Description </b></p>
+<p>The function serves to cancel the reception of a TP layer I-PDU. </p>
+<p>The PDU Router evaluates the upper layer transport protocol I-PDU handle and performs appropriate </p>
+<p>handle and port conversion. The call is routed to a lower TP module using the appropriate I-PDU handle of </p>
+<p>the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by an upper layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelReceive calls for the same upper layer id. </p>
+<p>Table 5-12  </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelReceive </p>
+<p><b>5.4.3 </b></p>
+<p><b>PduR_&lt;GenericUpTp&gt;CancelTransmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>PduR_&lt;GenericUpTp&gt;CancelTransmit </b>(PduIdType id) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the TX upper layer I-PDU of the routing that must be cancelled in the </p>
+<p>lower layer </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType </p>
+<p>E_OK The cancellation request was accepted by the PDU Router and by the </p>
+<p>TP layer. </p>
+<p>E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the request was not accepted by the TP layer. </p>
+<p><b>Functional Description </b></p>
+<p>The function serves to cancel the transmission of a TP layer I-PDU. </p>
+<p>The PDU Router evaluates the upper layer transport protocol I-PDU handle and performs appropriate </p>
+<p>handle and port conversion. The call is routed to a lower TP module using the appropriate I-PDU handle of </p>
+<p>the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by an upper layer transport protocol module  </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelTransmit calls for the same upper layer id. </p>
+<p>Table 5-13  </p>
+<p>PduR_&lt;GenericUpTp&gt;CancelTransmit </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>44 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.4.4 </b></p>
+<p><b>PduR_&lt;GenericLoTp&gt;StartOfReception </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>PduR_&lt;GenericLoTp&gt;StartOfReception </b>(PduIdType id, </p>
+<p>PduInfoType info, PduLengthType TpSduLength, PduLengthType* </p>
+<p>bufferSizePtr) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the &lt;GenericLo&gt; I-PDU that will be received. </p>
+<p>info </p>
+<p>Pointer to the buffer (SduDataPtr) contains MetaData if this feature is enabled.  </p>
+<p>TpSduLength </p>
+<p>Length of the entire &lt;GenericLo&gt; TP SDU which will be received </p>
+<p>bufferSizePtr </p>
+<p>Pointer to the receive buffer in the receiving module. </p>
+<p> This parameter will be used to compute Block Size (BS) in the transport </p>
+<p>protocol module. </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType BUFREQ_OK Connection has been accepted. </p>
+<p>bufferSizePtr indicates the available receive buffer. </p>
+<p>BUFREQ_E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the info is not valid </p>
+<p>or the request was not accepted by the upper layer. </p>
+<p>or no buffer is available </p>
+<p><b>Functional Description </b></p>
+<p>This function will be called by the lower layer at the start of receiving an I-PDU. The I-PDU might be </p>
+<p>fragmented into multiple N-PDUs (FF with one or more following CFs) or might consist of a single N-PDU </p>
+<p>(SF). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by lower layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLoTp&gt;StartOfReception calls for the same lower layer transport protocol id. </p>
+<p>Table 5-14  </p>
+<p>PduR_&lt;GenericLoTp&gt;StartOfReception </p>
+<p><b>5.4.5 </b></p>
+<p><b>PduR_&lt;GenericLoTp&gt;CopyRxData </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>PduR_&lt;GenericLoTp&gt;CopyRxData </b>(PduIdType id, </p>
+<p>PduInfoType* info, PduLengthType* bufferSizePtr) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the lower layer transport protocol I-PDU that will be received. </p>
+<p>info </p>
+<p>Pointer to the buffer (SduDataPtr) and its length (SduLength) containing the </p>
+<p>data to be copied by PDU Router module in case of gateway or upper layer </p>
+<p>module in case of reception. </p>
+<p>bufferSizePtr </p>
+<p>Available receive buffer after data has been copied. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>45 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType </p>
+<p>BUFREQ_OK Buffer request accomplished successful. </p>
+<p>BUFREQ_E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the info is not valid </p>
+<p>or the request was not accepted by the upper layer. </p>
+<p>or the request length to copy is greater than the remaining buffer size </p>
+<p>BUFREQ_E_OVFL The upper TP module is not able to receive the number of </p>
+<p>bytes. The request was not accepted by the upper layer. </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by the lower layer transport protocol if data has to be copied to the receiving module. </p>
+<p>Parallel routing of several I-PDU is possible. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by lower layer transport protocol </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyRxData calls for the same lower layer transport protocol id. </p>
+<p>Table 5-15  </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyRxData </p>
+<p><b>5.4.6 </b></p>
+<p><b>PduR_&lt;GenericLoTp&gt;CopyTxData </b></p>
+<p><b>Prototype </b></p>
+<p>BufReq_ReturnType <b>PduR_&lt;GenericLoTp&gt;CopyTxData </b>(PduIdType id, </p>
+<p>PduInfoType* info, RetryInfoType* retry, PduLengthType* </p>
+<p>availableDataPtr) </p>
+<p><b>Parameter </b></p>
+<p><b> </b></p>
+<p>id </p>
+<p>ID of the lower layer I-PDU that will be transmitted. </p>
+<p>info </p>
+<p>Pointer to the destination buffer and the number of bytes to copy. </p>
+<p>In case of gateway the PDU Router module will copy otherwise the source </p>
+<p>upper layer module will copy the data. If not enough transmit data is available, </p>
+<p>no data is copied. The transport protocol module will retry. </p>
+<p>A size of copy size of “0” can be used to indicate state changes in the retry </p>
+<p>parameter. </p>
+<p>retry </p>
+<p>retry not supported yet, is always a NULL_PTR. </p>
+<p>availableDataPtr </p>
+<p>Indicates the remaining number of bytes that are available in the PDU Router </p>
+<p>Tx buffer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>46 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Return code </b></p>
+<p>BufReq_ReturnType </p>
+<p>BufReq_ReturnType </p>
+<p>BUFREQ_OK The data has been copied to the transmit buffer successful. </p>
+<p>BUFREQ_E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the info is not valid </p>
+<p>or the request was not accepted by the upper layer and no data has been </p>
+<p>copied. </p>
+<p>BUFREQ_E_BUSY The request cannot be processed because the TX data is </p>
+<p>not available and no data has been copied. The TP layer might retry later the </p>
+<p>copy process. </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by a lower layer transport protocol module to query the transmit data of an I-PDU </p>
+<p>segment. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyTxData calls for the same a lower layer transport protocol module id. </p>
+<p>Table 5-16  </p>
+<p>PduR_&lt;GenericLoTp&gt;CopyTxData </p>
+<p><b>5.4.7 </b></p>
+<p><b>PduR_&lt;GenericLo&gt;TpTxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_&lt;GenericLo&gt;TpTxConfirmation </b>(PduIdType id, Std_ReturnType </p>
+<p>result) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the &lt;GenericLo&gt; I-PDU that will be transmitted. </p>
+<p>result </p>
+<p>Result of the TP transmission </p>
+<p>E_OK            The TP transmission has been completed successfully. </p>
+<p>E_NOT_OK   PduR_Init() has not been called </p>
+<p>                       or the transmission was aborted </p>
+<p>                       or the id is not valid </p>
+<p>                       or the id is not forwarded </p>
+<p>                       or the request was not accepted by the destination upper layer. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>47 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>Functional Description </b></p>
+<p>The function is called by a lower layer transport protocol module to confirm a successful transmission of a </p>
+<p>lower layer transport protocol module TX SDU or to report an error that occurred during transmission. The </p>
+<p>PDU Router evaluates the lower layer transport protocol module I-PDU handle and performs appropriate </p>
+<p>handle and port conversion. The call is routed to an upper TP module using the appropriate I-PDU handle </p>
+<p>of the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLo&gt;TpTxConfirmation calls for the same the lower layer transport protocol module id. </p>
+<p>Table 5-17  </p>
+<p>PduR_&lt;GenericLo&gt;TpTxConfirmation </p>
+<p><b>5.4.8 </b></p>
+<p><b>PduR_&lt;GenericLo&gt;TpRxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>PduR_&lt;GenericLo&gt;TpRxIndication </b>(PduIdType id, Std_ReturnType </p>
+<p>result) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the &lt;GenericLo&gt; I-PDU that will be received. </p>
+<p>result </p>
+<p>Result of the TP reception </p>
+<p>E_OK          The TP reception has been completed successfully. </p>
+<p>E_NOT_OK PduR_Init() has not been called </p>
+<p>                    or the reception was aborted  </p>
+<p>                    or the id is not valid </p>
+<p>                    or the id is not forwarded </p>
+<p>                    or the request was not accepted by the destination upper layer. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>The function is called by the lower layer transport protocol module to indicate the complete reception of a </p>
+<p>lower layer transport protocol module SDU or to report an error that occurred during reception. The PDU </p>
+<p>Router evaluates the lower layer transport protocol module I-PDU handle and performs appropriate handle </p>
+<p>and port conversion. The call is routed to an upper TP module using the appropriate I-PDU handle of the </p>
+<p>destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by a lower layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericLo&gt;TpRxIndication</p>
+<p><b> </b></p>
+<p>calls for the same lower layer transport protocol module. </p>
+<p>Table 5-18  </p>
+<p>PduR_&lt;GenericLo&gt;TpRxIndication </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>48 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.4.9 </b></p>
+<p><b>PduR_&lt;GenericUpTp&gt;Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>PduR_&lt;GenericUpTp&gt;Transmit </b>(PduIdType id, PduInfoType* </p>
+<p>info) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>ID of the upper layer I-PDU that have to be transmitted </p>
+<p>info </p>
+<p>Payload information of the I-PDU (pointer to data and data length) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>Std_ReturnType </p>
+<p>E_OK The request was accepted by the PDU Router and by the destination </p>
+<p>layer. </p>
+<p>E_NOT_OK PduR_Init() has not been called </p>
+<p>or the id is not valid </p>
+<p>or the id is not forwarded in this identity </p>
+<p>or the info is not valid </p>
+<p>or the request was not accepted by the TP layer. </p>
+<p><b>Functional Description </b></p>
+<p>The function serves to request the transmission of a TP layer I-PDU. </p>
+<p>The PDU Router evaluates the incoming I-PDU ID and performs appropriate ID and port conversion. The </p>
+<p>call is routed to the TP layer using the appropriate I-PDU handle of the destination layer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The function is called by an upper layer transport protocol module. </p>
+<p>Call Context </p>
+<p>The function can be called on interrupt and task level and has not to be interrupted by other </p>
+<p>PduR_&lt;GenericUpTp&gt;Transmit calls for the same an upper layer transport protocol module id. </p>
+<p>Table 5-19  </p>
+<p>PduR_&lt;GenericUpTp&gt;Transmit </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>49 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>5.5 </b></p>
+<p><b>Service Ports </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>Complex Device Driver Interaction  </b></p>
+<p>Besides  the  AUTOSAR  modules,  Complex  Device  Drivers  (CDD)  are  also  possible  as </p>
+<p>upper  layer  and  lower  transport  protocol  or  communication  interface  modules  for  the </p>
+<p>PduR. When a callout function of the PduR is invoked from a lower or upper layer module </p>
+<p>for a PDU that is transmitted or received by a CDD, the PduR invokes the corresponding </p>
+<p>target function of the CDD. If all PDUs transmitted or received by a CDD are referenced by </p>
+<p>communication interface modules, the CDD requires a communication interface API.  If all </p>
+<p>PDUs transmitted or received by a CDD are referenced by transport protocol modules, the </p>
+<p>CDD requires a transport protocol API. </p>
+<p>A  CDD  can  either  require  a  communication  interface  API  or  it  can  require  a  transport </p>
+<p>protocol API but not both. The API functions provided by the PduR for the CDD interaction </p>
+<p>contain the CDD’s name. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>50 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Use Case Configuration: Communication interface range gateway </b></p>
+<p>The PduR routing paths configuration is typically focused on the routing of dedicated Pdus </p>
+<p>and  their  bus-specific  representation  (e.g.  the  concrete  CAN  ID,  DLC,  …).  For  some </p>
+<p>network  and  communication  architectures  it  might  be  helpful  to  avoid  the  dedicated </p>
+<p>configuration of all possible and required PduR routing paths. Especially if a huge amount </p>
+<p>of  Pdus  shall  be  routed  between  networks,  the  PduR  routing  paths  configuration  gets </p>
+<p>extensive, error-prone and requires a lot of hardware resources (ROM / RAM). </p>
+<p>To overcome this situation, so called range-routings could be used. For the routing of a full </p>
+<p>Pdu range between two networks just single PduR routing path needs to be configured. </p>
+<p>Technically, the range-routing is based on the usage of MetaData information appended to </p>
+<p>the  Pdu  data  field.  During  Pdu  reception  the  related  bus  interface  module  stores  all </p>
+<p>required Pdu meta information (the CAN ID) in the MetaData part of the Pdu data field. </p>
+<p>The  PduR  itself  performs  the  routing  of  the  full  Pdu  data  field,  including  the  MetaData. </p>
+<p>During transmission the related bus interface module uses  the MetaData information for </p>
+<p>dynamic  adaptation  (the  CAN  ID)  of  the  transmitted  bus  Pdu.  The  range  of  the  routed </p>
+<p>Pdus is defined by the bus interface specific Rx Pdu range. In case of CanIf, the CAN ID </p>
+<p>Rx filter is used to define the range. Figure 6-1 visualizes the range-routing technique. </p>
+<p> </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Meta data routing with CanIf </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Limitations </b></p>
+<p>There are some limitations when using the described range-routing technique: </p>
+<p></p>
+<p> Available for CAN only  </p>
+<p></p>
+<p> No CAN ID conversion possible </p>
+<p></p>
+<p> No length conversion possible </p>
+<p></p>
+<p> No dynamic PDU lengths possible  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>CanIf</p>
+<p>PduR</p>
+<p>MetaData</p>
+<p>Payload</p>
+<p>CAN ID</p>
+<p>Use stored CAN ID </p>
+<p>from meta data for </p>
+<p>transmission</p>
+<p>Routed CAN ID is identical</p>
+<p>Rx ID mask </p>
+<p>filter</p>
+<p>Pdu</p>
+<p>CAN ID</p>
+<p>Store Rx </p>
+<p>CAN ID in </p>
+<p>meta data</p>
+<p>Pdu</p>
+<p>CAN ID</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>51 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6.1.1 </b></p>
+<p><b>Step-by-step configuration </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Configuration Example </b></p>
+<p>All following step-by-step instructions are based on this range-routing example: </p>
+<p><b>CAN ID </b></p>
+<p><b>code </b></p>
+<p><b>CAN ID </b></p>
+<p><b>mask </b></p>
+<p><b>DLC </b></p>
+<p><b>Source network / </b></p>
+<p><b>channel </b></p>
+<p><b>Destination network(s) / channel(s) </b></p>
+<p>0x700 </p>
+<p>0x708 </p>
+<p>8 </p>
+<p>CAN0 </p>
+<p>CAN1, CAN2 </p>
+<p>0x708 </p>
+<p>0x708 </p>
+<p>8 </p>
+<p>CAN1 </p>
+<p>CAN0 </p>
+<p>0x708 </p>
+<p>0x708 </p>
+<p>8 </p>
+<p>CAN2 </p>
+<p>CAN0 </p>
+<p>Table 6-1  </p>
+<p>Example range routings </p>
+<p>The CAN ID range is defined by the condition </p>
+<p>&lt;received CAN-ID&gt; &amp; &lt;mask&gt; == &lt;code&gt; &amp; &lt;mask&gt; </p>
+<p> </p>
+<p>The following step-by-step configurations steps will result in the following CanIf / PduR </p>
+<p>range routing architecture shown in Figure 6-2. </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>CanIf / PduR range routing example overview </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Derived model elements / Validation and solving actions </b></p>
+<p>During project setup the EcuC configuration will be automatically derived from the </p>
+<p>provided input files. Therefore some of the following manual configuration steps are </p>
+<p>redundant. In this case, please extend or adapt the existing configuration containers </p>
+<p>and parameters to the described step-by-step configuration. </p>
+<p>Parameters and containers which will be created and configured by background-</p>
+<p>validations are not described explicitly. Please finalize all manual configuration steps </p>
+<p>before solving the open validations results. Use the provided solving actions. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>PduR</p>
+<p>CanIf</p>
+<p>CAN0 Rx</p>
+<p>1:N routing path</p>
+<p>CAN1 Tx</p>
+<p>CAN2 Tx</p>
+<p>CAN1 Rx</p>
+<p>CAN2 Rx</p>
+<p>CAN0 Tx</p>
+<p>Tx FIFO </p>
+<p>CAN1</p>
+<p>Tx FIFO </p>
+<p>CAN2</p>
+<p>Tx FIFO </p>
+<p>CAN2_to_C</p>
+<p>AN0</p>
+<p>Tx FIFO </p>
+<p>CAN1_to_C</p>
+<p>AN0</p>
+<p>Rx range</p>
+<p>ID</p>
+<p>mask</p>
+<p>0x700</p>
+<p>0x708</p>
+<p>Rx range</p>
+<p>ID</p>
+<p>mask</p>
+<p>0x708</p>
+<p>0x708</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>52 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create global Pdus </b></p>
+<p></p>
+<p> Create global Pdus for every required range routing source and destination channel. </p>
+<p>Global Pdu container: </p>
+<p>/MICROSAR/EcuC/EcucPduCollection/Pdu</p>
+<p> </p>
+<p></p>
+<p> Create and configure a MetaData length. 2 bytes are required for standard CAN IDs, </p>
+<p>4 bytes are required for extended CAN identifiers. </p>
+<p>MetaData length: </p>
+<p>/MICROSAR/EcuC/EcucPduCollection/Pdu/MetaDataLength</p>
+<p> </p>
+<p></p>
+<p> Configure the Pdu length to the Pdu payload length. </p>
+<p>Pdu length: </p>
+<p>/MICROSAR/EcuC/EcucPduCollection/Pdu/PduLength</p>
+<p> </p>
+<p>For the example configuration this results in the following global Pdu configuration: </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>53 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create CanIf Rx Pdus  </b></p>
+<p></p>
+<p> Create a CanIf Rx Pdu for every required range routing source channel. </p>
+<p>CanIf Rx Pdu container: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg</p>
+<p> </p>
+<p></p>
+<p> Configure the Rx CAN ID range by the CAN ID code and the CAN ID mask </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanId</p>
+<p>  </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdMask </p>
+<p>The CAN ID range is defined by the filter condition </p>
+<p>&lt;received CAN-ID&gt; &amp; &lt;mask&gt; == &lt;code&gt; &amp; &lt;mask&gt;</p>
+<p> </p>
+<p></p>
+<p> Configure the CAN ID type (standard or extended) and the DLC with the parameters  </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdType </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduDlc</p>
+<p> </p>
+<p></p>
+<p> Reference the related channel specific Rx global Pdu created in the previous steps </p>
+<p>with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduRef</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Reference the related CAN channel hardware receive object (HRH) used for </p>
+<p>reception of the range Pdus with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduHrhIdRef </p>
+<p></p>
+<p> Assign the PduR as upper layer user with the parameter </p>
+<p>/MICROSAR/CanIf/ </p>
+<p>CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduUserRxIndicationUL</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following CanIf Rx Pdu configuration: </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create CanIf Tx Pdus </b></p>
+<p></p>
+<p> Create a CanIf Tx Pdu for every required range routing destination channel. </p>
+<p>CanIf Tx Pdu container: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg</p>
+<p> </p>
+<p></p>
+<p> Configure the Tx CAN ID used for prioritization of this dynamic Tx Pdu against other </p>
+<p>static Pdus with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduCanId</p>
+<p> </p>
+<p>Use the highest priority CAN ID of the routing range for this prioritization ID. </p>
+<p></p>
+<p> </p>
+<p>Configure the CAN DLC with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduDlc</p>
+<p> </p>
+<p></p>
+<p> Reference the related global Pdu created in the previous steps with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduRef</p>
+<p> </p>
+<p></p>
+<p> Reference the related channel specific CanIf Tx buffer object used for transmission </p>
+<p>of the range Pdus with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduBufferRef</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following CanIf Tx Pdu configuration: </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>54 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create PduR routing paths </b></p>
+<p>Finally create the PduR routing paths connecting the CanIf Rx and Tx range Pdus. A </p>
+<p>single PduR routing path for every channel specific range routing is required. </p>
+<p></p>
+<p> Create a PduR routing path: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath</p>
+<p> </p>
+<p></p>
+<p> Reference the related channel specific Rx global Pdu at the routing path source: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRSrcPdu/PduRSrcPduRef</p>
+<p> </p>
+<p></p>
+<p> Reference the related channel specific Tx global Pdu at the routing path destination: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRDestPdu/PduRDestPduRef</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following PduR routing path </p>
+<p>configuration: </p>
+<p><b>RoutingPath </b></p>
+<p><b>RoutingPath Source </b></p>
+<p><b>Global Pdu </b></p>
+<p><b>RoutingPath Destination(s) </b></p>
+<p><b>Global Pdu(s) </b></p>
+<p>RP_RangeRouting_</p>
+<p>CAN0_to_CAN1_2 </p>
+<p>RxRangePdu_CAN0 </p>
+<p>TxRangePdu_CAN0_to_CAN1, </p>
+<p>TxRangePdu_CAN0_to_CAN2 </p>
+<p>RP_RangeRouting_</p>
+<p>CAN1_to_CAN0 </p>
+<p>RxRangePdu_CAN1 </p>
+<p>TxRangePdu_CAN1_to_CAN0 </p>
+<p>RP_RangeRouting_</p>
+<p>CAN2_to_CAN0 </p>
+<p>RxRangePdu_CAN2 </p>
+<p>TxRangePdu_CAN2_to_CAN0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>For further details regarding the PduR communication interface gateway, please refer </p>
+<p>to chapter 3.6. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>55 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6.1.2 </b></p>
+<p><b>Optional configuration variants / options </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>[Optional] Configure PduR FIFO routing </b></p>
+<p>In case the sequence of successive routed range Pdus shall be retained, a </p>
+<p>FIFO queue must be configured within the PduR. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Create PduR Tx buffer (FIFO) for every range routing destination channel: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer</p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Configure the Tx buffer length to the length of the routed global Pdu </p>
+<p>(including the MetaData length):</p>
+<p> </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer/Pdu</p>
+<p>RPduMaxLength</p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Configure the Tx buffer depth to the maximum expected amount of queued </p>
+<p>Pdus (see also chapter 3.6.2):  </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRTxBufferTable/PduRTxBuffer/Pdu</p>
+<p>RTxBufferDepth</p>
+<p> </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Reference the created Tx buffers at the related PduR range routing paths: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/P</p>
+<p>duRDestPdu/PduRDestTxBufferRef</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>56 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>[Optional] CAN priority inversion </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Enable the CanIf feature „Cancellation of PDUs and requeueing” in order to </p>
+<p>avoid inner priority inversion: </p>
+<p>/MICROSAR/CanIf/CanIfCtrlDrvCfg/CanIfCtrlDrvTxCancellation </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Enable the CAN driver feature „Multiplexed Transmission“ in order to avoid </p>
+<p>external priority inversion: </p>
+<p>/MICROSAR/&lt;CAN_Platform&gt;/Can/CanGeneral/CanMultiplexedTransmission </p>
+<p> </p>
+<p> </p>
+<p>If this feature is enabed, multiple hardware objects are used for </p>
+<p>transmission of a single logical Tx object. </p>
+<p>Hint: These features are not supported by all CAN controllers. Please refer to  </p>
+<p>[7] and [8]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>[Optional] Alternative CanIf Rx range configuration method </b></p>
+<p>Depending on the required CAN ID range, the range can also be configured using an </p>
+<p>upper- and lower layer ID using the following container / parameters: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdRange </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdRange/CanIfR</p>
+<p>xPduCanIdRangeLowerCanId </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdRange/CanIfR</p>
+<p>xPduCanIdRangeUpperCanId </p>
+<p> </p>
+<p> </p>
+<p>In case of this alternative range configuration method, the previously used range </p>
+<p>configuration parameters must not be used: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanId </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdMask</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>For further details about the CanIf and CAN driver modules, please refer to [7] and [8]. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>57 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6.2 </b></p>
+<p><b>Use Case Configuration: Functional requests gateway routing </b></p>
+<p>Gateway  ECUs  typically  include  diagnostic  services,  handling  physical  and  functional </p>
+<p>addressed </p>
+<p>requests </p>
+<p>used </p>
+<p>by </p>
+<p>external </p>
+<p>diagnostic </p>
+<p>tools </p>
+<p>during </p>
+<p>the </p>
+<p>development, </p>
+<p>manufacturing and service. </p>
+<p>Functionally addressed request messages are a kind of broadcast requests which shall be </p>
+<p>processed by all (or a dedicated set of) ECUs. Typically this includes the gateway ECU </p>
+<p>itself  as  well.  In  case  the  ECUs  are  distributed  on  multiple  CAN  networks,  the  gateway </p>
+<p>ECU  needs  to  handle  the  broadcasting  of  the  request messages  to  the  connected  sub-</p>
+<p>network as well as the handling of the functional requests by the gateway-own diagnostic </p>
+<p>handler. </p>
+<p>  </p>
+<p>Figure 6-3 </p>
+<p>Example functional requests gateway network architecture </p>
+<p>To realize the gateway behavior as visualized in Figure 6-3, a PduR 1:N transport protocol </p>
+<p>gateway could be configured, as shown in Figure 6-4. </p>
+<p> </p>
+<p>Figure 6-4 </p>
+<p>Functional request gateway architecture </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Handling of physically addressed diagnostic messages </b> </p>
+<p>Routing of physically addressed diagnostic messages is not focus of this chapter. </p>
+<p>Please refer to chapter 6.1 introducing range-routing paths which could be used for </p>
+<p>efficient and simple routing of physically addressed diagnostic messages. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Gateway ECU</p>
+<p>Diagnostic </p>
+<p>Tool</p>
+<p>Diagnostic  handler</p>
+<p>ECU A</p>
+<p>CAN 0</p>
+<p>Diagnostic </p>
+<p>handler</p>
+<p>CAN 1</p>
+<p>functional  requests</p>
+<p>CAN 2</p>
+<p>ECU B</p>
+<p>Diagnostic </p>
+<p>handler</p>
+<p>CanIf</p>
+<p>Dcm</p>
+<p>CanTp</p>
+<p>PduR</p>
+<p>Physical request / </p>
+<p>response message</p>
+<p>Service  handler</p>
+<p>Physical</p>
+<p>request </p>
+<p>handler</p>
+<p>Functional</p>
+<p>request  handler</p>
+<p>1:N routing path</p>
+<p>Functional request </p>
+<p>message</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>58 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6.2.1 </b></p>
+<p><b>Step-by-step configuration </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Configuration Example </b></p>
+<p>All following step-by-step instructions are based on the following functional diagnostic </p>
+<p>routing example: </p>
+<p><b>Functional diagnostic </b></p>
+<p><b>request ID</b> </p>
+<p><b>DLC </b></p>
+<p><b>Source network / </b></p>
+<p><b>channel </b></p>
+<p><b>Destination network(s) / </b></p>
+<p><b>channel(s) </b></p>
+<p>0x7DF </p>
+<p>8 </p>
+<p>CAN0 </p>
+<p>CAN1, CAN2 </p>
+<p>Table 6-2  </p>
+<p>Example functional diagnostic request routing</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Derived model elements / Validation and solving actions </b></p>
+<p>During project setup the EcuC configuration will be automatically derived from the </p>
+<p>provided input files. Therefore some of the following manual configuration steps are </p>
+<p>redundant. In this case, please extend or adapt the existing configuration containers </p>
+<p>and parameters to the described step-by-step configuration. </p>
+<p>Parameters and containers which will be created and configured by background-</p>
+<p>validations are not described explicitly. Please finalize all manual configuration steps </p>
+<p>before solving the open validations results. Use the provided solving actions. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create global Pdus / Sdus </b></p>
+<p></p>
+<p> Create two global Pdus for the received functional request. The first global Pdu </p>
+<p>interconnects the CanIf and CanTp receive paths. The second global Pdu (Sdu) </p>
+<p>interconnects the CanTp, PduR and the related diagnostic handler (e.g. Dcm). </p>
+<p>Global Pdu container: </p>
+<p>/MICROSAR/EcuC/EcucPduCollection/Pdu </p>
+<p>This step is optional if the own functional request routing path was automatically </p>
+<p>derived based on input files during project setup. </p>
+<p></p>
+<p> Create a pair of global Pdus (Pdu and Sdu) for every destination channel where the </p>
+<p>functional requests shall be routed to. </p>
+<p></p>
+<p> </p>
+<p>Configure the Pdu length to the CAN frame length of the functional request </p>
+<p>message. The length of the Sdu (interconnection between CanTp, PduR and the </p>
+<p>related diagnostic handler) shall be the length of transport protocol payload.  </p>
+<p>Pdu length: </p>
+<p>/MICROSAR/EcuC/EcucPduCollection/Pdu/PduLength</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following global Pdu configuration:</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>59 </p>
+<p>based on template version 4.9.2 </p>
+<p> </p>
+<p><b>Create CanIf Rx Pdus  </b></p>
+<p>The following steps are optional if the own functional request routing path was </p>
+<p>automatically derived based on input files during project setup. </p>
+<p> </p>
+<p></p>
+<p> Create a CanIf Rx Pdu for the functional diagnostic request message. </p>
+<p>CanIf Rx Pdu container: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg</p>
+<p> </p>
+<p></p>
+<p> Configure the static Rx CAN ID of the functional request message </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanId</p>
+<p> </p>
+<p></p>
+<p> Configure the CAN ID type (standard or extended) and the DLC with the parameters  </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduCanIdType </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduDlc</p>
+<p> </p>
+<p></p>
+<p> Reference the related functional request Rx global Pdu created in the previous </p>
+<p>steps with the parameter </p>
+<p> </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduRef</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Reference the related CAN channel hardware receive object (HRH) used for </p>
+<p>reception of the functional request message with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduHrhIdRef </p>
+<p></p>
+<p> Assign the CanTp as upper layer user with the parameter </p>
+<p>/MICROSAR/CanIf/ </p>
+<p>CanIfInitCfg/CanIfRxPduCfg/CanIfRxPduUserRxIndicationUL</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following CanIf Rx Pdu configuration:</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create CanIf Tx Pdus </b></p>
+<p></p>
+<p> Create a CanIf Tx Pdu for every destination channel where the functional requests </p>
+<p>shall be routed to: </p>
+<p>CanIf Tx Pdu container: </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg</p>
+<p> </p>
+<p></p>
+<p> Configure the static Tx CAN ID of the functional request message with the </p>
+<p>parameter  </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduCanId</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Configure the CAN DLC with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduDlc</p>
+<p> </p>
+<p></p>
+<p> Reference the related functional request Tx global Pdu created in the previous steps </p>
+<p>with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduRef</p>
+<p> </p>
+<p></p>
+<p> Reference the related channel specific CanIf Tx buffer object used for transmission </p>
+<p>of the functional request message with the parameter </p>
+<p>/MICROSAR/CanIf/CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduBufferRef</p>
+<p> </p>
+<p></p>
+<p> Assign the CanTp as upper layer user with the parameter </p>
+<p>/MICROSAR/CanIf/ </p>
+<p>CanIfInitCfg/CanIfTxPduCfg/CanIfTxPduUserTxConfirmationUL</p>
+<p> </p>
+<p> </p>
+<p>For the example configuration this results in the following CanIf Tx Pdu configuration: </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>60 </p>
+<p>based on template version 4.9.2 </p>
+<p> </p>
+<p><b>Create CanTp Rx channel  </b></p>
+<p>The following steps are optional if the own functional request routing path was </p>
+<p>automatically derived based on input files during project setup. </p>
+<p></p>
+<p> Create a CanTp Rx channel for the functional request  </p>
+<p>CanTp Rx channel container: </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel</p>
+<p> </p>
+<p></p>
+<p> Create a CanTp Rx N-Sdu container below the previously created Rx channel: </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpRxNSdu</p>
+<p> </p>
+<p></p>
+<p> Reference the related global Pdu (Sdu, interconnecting the CanTp, PduR and </p>
+<p>diagnostic handler) created in the previous steps with the parameter </p>
+<p> </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpRxNSdu/CanTpRxNSduRef</p>
+<p> </p>
+<p></p>
+<p> Configure the Rx Sdu as functional communication type with the parameter </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpRxNSdu/CanTpRxTaType</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> Reference the related global Pdu (interconnecting the CanIf and CanTp) created in </p>
+<p>the previous steps with the parameter </p>
+<p>/MICROSAR/CanTp/CanTpConfig/ </p>
+<p>CanTpChannel/CanTpRxNSdu/CanTpRxNPdu/CanTpRxNPduRef</p>
+<p> </p>
+<p> </p>
+<p>For further information regarding the CanTp timing configuration parameters please </p>
+<p>refer to [9]. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>61 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create CanTp Tx channels</b> </p>
+<p></p>
+<p> Create a CanTp Tx channel for every destination channel where the functional </p>
+<p>requests shall be routed to. </p>
+<p>CanTp Tx channel container: </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Set the channel mode of the created Tx channel to half-duplex mode:</p>
+<p> </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpChannelMode </p>
+<p> </p>
+<p></p>
+<p> Create a CanTp Tx N-Sdu container below the previously created Tx channel: </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpTxNSdu</p>
+<p> </p>
+<p></p>
+<p> Reference the related global Pdu (Sdu, interconnecting the CanTp, PduR and </p>
+<p>diagnostic handler) created in the previous steps with the parameter </p>
+<p> </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpTxNSdu/CanTpTxNSduRef</p>
+<p> </p>
+<p></p>
+<p> Configure the Tx Sdu as functional communication type with the parameter </p>
+<p>/MICROSAR/CanTp/CanTpConfig/CanTpChannel/CanTpTxNSdu/CanTpTxTaType</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> Reference the related global Pdu (interconnecting the CanIf and CanTp) created in </p>
+<p>the previous steps with the parameter </p>
+<p>/MICROSAR/CanTp/CanTpConfig </p>
+<p>/CanTpChannel/CanTpTxNSdu/CanTpTxNPdu/CanTpTxNPduRef</p>
+<p> </p>
+<p> </p>
+<p>For further information regarding the CanTp timing configuration parameters please </p>
+<p>refer to [9]. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>62 </p>
+<p>based on template version 4.9.2 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create a PduR TP buffer </b></p>
+<p>The following steps are optional if sufficient TP buffers are already configured. </p>
+<p></p>
+<p> Create a new PduR TP buffer which will be used for the TP gateway routing of the </p>
+<p>functional request messages. </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRTpBufferTable/PduRTpBuffer</p>
+<p> </p>
+<p></p>
+<p> Configure the size of TP buffer to the TP payload length of the functional requests. </p>
+<p>In case of CanTp the buffer size must be at least 7 bytes. </p>
+<p> </p>
+<p>Please refer to chapter 3.7.3 for further details regarding the TP buffer configuration. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Create / Extend PduR routing path </b></p>
+<p>Finally create a PduR 1:N routing path. This 1:N routing path shall route the received </p>
+<p>functional diagnostic requests to the gateway-own diagnostic application and all </p>
+<p>connected destination channels.  </p>
+<p>In case the functional request routing path for the gateway-own diagnostic application </p>
+<p>was derived automatically the first steps describing the creation of a routing path can </p>
+<p>be skipped. Proceed with the configuration of the additional routing destinations. </p>
+<p></p>
+<p> Create the PduR routing path: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath</p>
+<p> </p>
+<p></p>
+<p> Reference the related functional request Rx global Pdu (Sdu, interconnecting the </p>
+<p>CanTp, PduR and diagnostic handler) at the routing path source: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRSrcPdu/PduRSrcPduRef</p>
+<p> </p>
+<p>and the routing path destination: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRDestPdu/PduRDestPduRef</p>
+<p> </p>
+<p>This step is optional if the own functional request routing path was automatically </p>
+<p>derived based on input files during project setup. </p>
+<p></p>
+<p> Add a new routing destination to the previously created routing path for every </p>
+<p>destination channel the functional requests shall be routed to </p>
+<p>PduR routing path destination: </p>
+<p>/MICROSAR/PduR/ </p>
+<p>PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/PduRDestPdu</p>
+<p> </p>
+<p>and reference the related functional request Tx global Pdu (Sdu) at the new routing </p>
+<p>path destination: </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRDestPdu/PduRDestPduRef</p>
+<p> </p>
+<p></p>
+<p> Configure the TP threshold value of the created gateway routing path to the value 1. </p>
+<p>Please refer to chapter 3.7.2 for further details of the TP threshold configuration. </p>
+<p>/MICROSAR/PduR/PduRRoutingTables/PduRRoutingTable/PduRRoutingPath/Pd</p>
+<p>uRDestPdu/PduRTpThreshold</p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>63 </p>
+<p>based on template version 4.9.2 </p>
+<p>For the example configuration this results in the following PduR routing path </p>
+<p>configuration: </p>
+<p><b>RoutingPath </b></p>
+<p><b>RoutingPath Source </b></p>
+<p><b>Global Pdu </b></p>
+<p><b>RoutingPath Destination(s) Global </b></p>
+<p><b>Pdu(s) </b></p>
+<p>RP_FuncReq_CAN</p>
+<p>0_to_CAN1_2 </p>
+<p>RxSdu_FuncReq_CAN0 </p>
+<p>RxSdu_FuncReq_CAN0 </p>
+<p> </p>
+<p>(gateway-own diagnostic application), </p>
+<p>TxSdu_FuncReq_CAN1, </p>
+<p>TxSdu_FuncReq_CAN2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>For further details about the CanIf and CanTp modules, please refer to [7] and [9]. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>64 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>6.3 </b></p>
+<p><b>Use Case Configuration: N:1 routing path </b></p>
+<p>N:1  routing  paths  are  not  specified  by  AUTOSAR.  The  multiplicity  of  a </p>
+<p>PduRSrcPdu</p>
+<p> </p>
+<p>container is defined to one. Therefore N single 1:1/1:M routing paths (mixture of 1:M/N:1 </p>
+<p>routing paths is supported) referencing the same global Pdu in one of their </p>
+<p>PduRDestPdu</p>
+<p> </p>
+<p>container  must  be  configured.  Every </p>
+<p>PduRSrcPdu</p>
+<p>  container  must  reference  their  own </p>
+<p>global PDU, duplicates are not allowed. Whereas more than one </p>
+<p>PduRDestPdu</p>
+<p> container </p>
+<p>may  reference  the  same  global  PDU  to  support  the  N:1  routing  feature.  An  example </p>
+<p>configuration is shown in Figure 6-5. Both configured routing paths are 1:2 routing paths, </p>
+<p>but  both  routing  paths  refer  to  the  same  global  PDU  in  one  of  their  two </p>
+<p>PduRDestPdu</p>
+<p> </p>
+<p>container. That makes them also a 2:1 routing path. The data flow is shown in Figure 6-6. </p>
+<p>The names refer to the example configuration in Figure 6-5. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Cancel Transmit for N:1 routing paths is only supported if a Tx Confirmation is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 6-5 </p>
+<p>example N:1 routing path configuration </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>65 </p>
+<p>based on template version 4.9.2 </p>
+<p> </p>
+<p>Figure 6-6 </p>
+<p>EcuC configuration of (mixed) N:1 / 1:N routing paths </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>66 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>7 </b></p>
+<p><b>AUTOSAR Standard Compliance </b></p>
+<p><b>7.1 </b></p>
+<p><b>Deviations </b></p>
+<p></p>
+<p> The API PduR_&lt;User:LoTp&gt;StartOfReception is implemented according to </p>
+<p>SWS_PduR_00507 ASR 4.1.2 [3]  </p>
+<p></p>
+<p> The PduR does not provide the return value  “BUFREQ_E_BUSY” for the function </p>
+<p>PduR_&lt;User:LoTp&gt;StartOfReception like specified in Requirement PDUR507 in  [1].  </p>
+<p></p>
+<p> The parameter list contains a PduInfoType </p>
+<p> </p>
+<p></p>
+<p> The API PduR_&lt;User:LoTp&gt;RxIndication is implemented according to </p>
+<p>SWS_PduR_00375 ASR 4.1.2 [3] </p>
+<p></p>
+<p> Result type changed to Std_ReturnType </p>
+<p> </p>
+<p></p>
+<p> The API PduR_&lt;User:LoTp&gt;TxConfirmation is implemented according to </p>
+<p>SWS_PduR_00381 ASR 4.1.2 [3] </p>
+<p></p>
+<p> Result type changed to Std_ReturnType </p>
+<p> </p>
+<p></p>
+<p> The PduR does not provide the return value “BUFREQ_E_BUSY” for the function </p>
+<p>PduR_&lt;User:LoTp&gt;CopyRxData like specified in Requirement PDUR512 in [1]. The API </p>
+<p>is implemented according to SWS_PduR_00512 ASR 4.1.1 [2] </p>
+<p> </p>
+<p></p>
+<p> If the PduR_&lt;Lo&gt;StartOfReception is called with an I-PDU ID that is already in process, </p>
+<p>the PDU Router does not forward the call to the upper module </p>
+<p> </p>
+<p></p>
+<p> In case a transport protocol module reports PduR_&lt;LoTp&gt;TxConfirmation with result </p>
+<p>other than NTFRSLT_OK the PDUR does not forward the result in the </p>
+<p>&lt;Up&gt;_TpTxConfirmation to the source upper layer module due to optimization reason. </p>
+<p> </p>
+<p></p>
+<p> The PduR does not support the retry parameter in the PduR_&lt;LoTp&gt;CopyTxData like </p>
+<p>specified in Requirement PDUR518 in [1] </p>
+<p> </p>
+<p></p>
+<p> State Management: PDUR_REDUCED is not used </p>
+<p> </p>
+<p></p>
+<p> PduR does not return any value if a routing path group is disabled </p>
+<p> </p>
+<p></p>
+<p> PduR does not clear the buffers if a routing path group is disabled </p>
+<p> </p>
+<p></p>
+<p> The header files does not contain software and specification version number </p>
+<p> </p>
+<p></p>
+<p> If the routing path group id does not exist, then the PDUR call the DET instate of return </p>
+<p>with no action. [PDUR0716] </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>67 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>7.2 </b></p>
+<p><b>Limitations </b></p>
+<p>Since 8-bit micro controllers are out of scope in AUTOSAR, PDUR has been optimized for </p>
+<p>the  usage  on  16-  and  32-bit  controllers.  Therefore  the  target  system  must  be  able  to </p>
+<p>provide atomic read and write accesses to 16-bit variables. </p>
+<p> </p>
+<p><b>7.2.1 </b></p>
+<p><b>General </b></p>
+<p></p>
+<p> Link-time configuration support </p>
+<p></p>
+<p> Multiple Configuration support </p>
+<p></p>
+<p> 1:N fan-out from the same upper layer PDU </p>
+<p></p>
+<p> N:1 fan-in to the same upper layer PDU </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>68 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>8 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>BSWMD </p>
+<p>The BSWMD is a formal notation of all information belonging to a certain </p>
+<p>BSW artifact (BSW module or BSW cluster) in addition to the </p>
+<p>implementation of that artifact. </p>
+<p>Buffer </p>
+<p>A buffer in a memory area located in the RAM. It is an memory area </p>
+<p>reserved by the application for data storage. </p>
+<p>Callback function </p>
+<p>This is a function provided by an application. E.g. the CAN Driver calls a </p>
+<p>callback function to allow the application to control some action, to make </p>
+<p>decisions at runtime and to influence the work of the driver. </p>
+<p>Cfg5 </p>
+<p>DaVinci Configurator </p>
+<p>Channel </p>
+<p>A channel defines the assignment (1:1) between a physical </p>
+<p>communication interface and a physical layer on which different modules </p>
+<p>are connected to (either CAN or LIN). 1 channel consists of 1..X </p>
+<p>network(s). </p>
+<p>Component </p>
+<p>CAN Driver, Network Management ... are software COMPONENTS in </p>
+<p>contrast to the expression module, which describes an ECU. </p>
+<p>Confirmation </p>
+<p>A service primitive defined in the ISO/OSI Reference Model (ISO 7498). </p>
+<p>With the service primitive 'confirmation' a service provider informs a </p>
+<p>service user about the result of a preceding service request of the service </p>
+<p>user. Notification by the CAN Driver on asynchronous successful </p>
+<p>transmission of a CAN message. </p>
+<p>Critical section </p>
+<p>A critical section is a sequence of instructions where mutual exclusion </p>
+<p>must be ensured. Such a section is called 'critical' because shared data is </p>
+<p>modified within it. </p>
+<p>Electronic Control </p>
+<p>Unit </p>
+<p>Also known as ECU. Small embedded computer system consisting of at </p>
+<p>least one CPU and corresponding periphery which is placed in one </p>
+<p>housing. </p>
+<p>Event </p>
+<p>An exclusive signal which is assigned to a certain extended task. An </p>
+<p>event can be used to send binary information to an extended task. The </p>
+<p>meaning of events is defined by the application. Any task can set an </p>
+<p>event for an extended task. The event can only be cleared by the task </p>
+<p>which is assigned to the event. </p>
+<p>Gateway </p>
+<p>A gateway is designed to enable communication between different bus </p>
+<p>systems, e.g. from CAN to LIN. </p>
+<p>Indication </p>
+<p>A service primitive defined in the ISO/OSI Reference Model (ISO 7498). </p>
+<p>With the service primitive 'indication' a service provider informs a service </p>
+<p>user about the occurrence of either an internal event or a service request </p>
+<p>issued by another service user. Notification of application in case of </p>
+<p>events in the Vector software components, e.g. an asynchronous </p>
+<p>reception of a CAN message. </p>
+<p>Interrupt </p>
+<p>Processor-specific event which can interrupt the execution of a current </p>
+<p>program section. </p>
+<p>Interrupt service </p>
+<p>The function used for direct processing of an interrupt. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>69 </p>
+<p>based on template version 4.9.2 </p>
+<p>routine </p>
+<p>Network </p>
+<p>A network defines the assignment (1:N) between a logical communication </p>
+<p>grouping and a physical layer on which different modules are connected </p>
+<p>to (either CAN or LIN). One network consists of one channel, Y networks </p>
+<p>consists of 1..Z channel(s). We say network if we talk about more than </p>
+<p>one bus. </p>
+<p>Overrun </p>
+<p>Overwriting data in a memory with limited capacity, e.g. queued message </p>
+<p>object. </p>
+<p>Post-build </p>
+<p>This type of configuration is possible after building the software module or </p>
+<p>the ECU software. The software may either receive parameters of its </p>
+<p>configuration during the download of the complete ECU software resulting </p>
+<p>from the linkage of the code, or it may receive its configuration file that </p>
+<p>can be downloaded to the ECU separately, avoiding a re-compilation and </p>
+<p>re-build of the ECU software modules. In order to make the post-build </p>
+<p>time re-configuration possible, the re-configurable parameters shall be </p>
+<p>stored at a known memory location of ECU storage area. </p>
+<p>Schedule table </p>
+<p>Table containing the sequence of LIN message identifiers to be </p>
+<p>transmitted together with the message delay. </p>
+<p>Signal </p>
+<p>A signal is responsible for the logical transmission and reception of </p>
+<p>information depending on the restrictions of the physical layer. The </p>
+<p>definition of the signal contents is part of the database given by the </p>
+<p>vehicle manufacturer. Signals describe the significance of the individual </p>
+<p>data segments within a message.  Typically bits, bytes or words are used </p>
+<p>for data segments but individual bit combinations are also possible. In the </p>
+<p>CAN data base, each data segment is assigned a symbolic name, a </p>
+<p>value range, a conversion formula and a physical unit, as well as a list of </p>
+<p>receiving nodes. </p>
+<p>Transport Protocol </p>
+<p>Some information that must be transferred over the CAN/LIN bus does </p>
+<p>not fit into individual message frames because the data length exceeds </p>
+<p>the maximum of 8 bytes. In this case, the sender must divide up the data </p>
+<p>into a number of messages. Additional information is necessary for the </p>
+<p>receiver to put the data together again. </p>
+<p>Use case </p>
+<p>A model of the usage by the user of a system in order to realize a single </p>
+<p>functional feature of the system. </p>
+<p>Table 8-1  </p>
+<p>Glossary </p>
+<p><b>8.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>BSWMD </p>
+<p>Basic Software Module Description </p>
+<p>CAN </p>
+<p>Controller Area Network protocol originally defined for use as a </p>
+<p>communication network for control applications in vehicles. </p>
+<p>CDD </p>
+<p>Complex Device Driver </p>
+<p>COM </p>
+<p>Communication </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>70 </p>
+<p>based on template version 4.9.2 </p>
+<p>DCM </p>
+<p>Diagnostic Communication Manager </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>DLC </p>
+<p>Data Length Code, Number of data bytes of a CAN message </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>ECUC </p>
+<p>ECU Configuration </p>
+<p>FIFO </p>
+<p>First In First Out </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ID </p>
+<p>Identifier (e.g. Identifier of a CAN message) </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>LIN </p>
+<p>Local Interconnect Network </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>MSN </p>
+<p>Module shortname </p>
+<p>PDU </p>
+<p>Protocol Data Unit </p>
+<p>PDUR </p>
+<p>PDU Router </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>ROM </p>
+<p>Read-Only Memory </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SDU </p>
+<p>Segmented Data Unit </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>TP </p>
+<p>Transport Protocol </p>
+<p>Table 8-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR PDU Router </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 3.00.01 </p>
+<p>71 </p>
+<p>based on template version 4.9.2 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>News </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Products </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Demo software </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Support </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Training data </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

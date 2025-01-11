@@ -1,0 +1,573 @@
+---
+layout: default
+title: AN-ISC-8-1207_Synchronization_Cry_Fls
+nav_order: 45
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Synchronization between AUTOSAR Cry and Fls </b></p>
+<p>Version 1.00.03 </p>
+<p>2017-08-14 </p>
+<p>Application Note AN-ISC-8-1207 </p>
+<p><b>Author </b></p>
+<p>Bernhard Wissinger </p>
+<p><b>Restrictions </b></p>
+<p>Customer Confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>AUTOSAR Crypto and Flash Driver might access a common hardware resource. This </p>
+<p>application note describes possible synchronization mechanisms. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction ................................................................................................................................... 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Access Conflict Types .......................................................................................................... 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Dependency of Access Conflics to the ECU use case ........................................................ 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Use Case Description ................................................................................................................... 3</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Synchronization Methods of SecOC and Fls ............................................................................. 4</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Prevent Execution of SecOC_MainFunction ....................................................................... 4</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Prevent Execution of Cry Function ...................................................................................... 5</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Optimized Execution Prevention .......................................................................................... 5</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Interrupt Fls Operation ......................................................................................................... 6</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Asynchronous Operation of SecOC ..................................................................................... 7</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Synchronization Method for Key Management .......................................................................... 8</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Contacts ......................................................................................................................................... 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>AUTOSAR defines Crypto Driver (Cry) and Flash Driver (Fls) as MCAL modules for independent </p>
+<p>hardware modules. But as the crypto module also provides key storage functionality, this is often </p>
+<p>implemented in the microcontroller by using a shared flash unit. This can lead to race conditions, if </p>
+<p>AUTOSAR Crypto Driver and Flash Driver are used concurrently. </p>
+<p> </p>
+<p>Figure 1 - Race Condition during Flash Memory Access </p>
+<p>This application note describes several synchronization methods and gives advice which method </p>
+<p>should be applied. The synchronization itself must be implemented by the application during the </p>
+<p>integration of the MICROSAR stack, as the used method depends on the system layout and </p>
+<p>requirements. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The occurrence and effect of the race condition heavily depends on the used </p>
+<p>microcontroller. Please double-check whether your specific hardware is affected and </p>
+<p>confirm whether the methods described in this application note are applicable to your </p>
+<p>system. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The examples in this application note are not thoroughly tested. The user must verify the </p>
+<p>functionality for the intended use case. Vector´s liability shall be expressly excluded to the </p>
+<p>extent admissible by law or statute. </p>
+<p> </p>
+<p> </p>
+<p><b>1.1 </b></p>
+<p><b>Access Conflict Types </b></p>
+<p>Table 1 lists possible access conflict types. In this application note, it is assumed that each of these </p>
+<p>combinations will lead to a race condition and must be prevented. E.g. even if the Crypto driver </p>
+<p>performs only a read access to the key (like MacVerify), a parallel read access of the flash driver to </p>
+<p>the hardware is not allowed. </p>
+<p>If the used microcontroller is less restrictive, a less restrictive synchronization scheme might be </p>
+<p>applied. Such optimized synchronization scheme is not covered by this application note. </p>
+<p>Flash Module</p>
+<p>Crypto Module</p>
+<p>Flash Memory</p>
+<p>Flash Driver</p>
+<p>Crypto Driver</p>
+<p><i>Hardware</i></p>
+<p><i>Software</i></p>
+<p><i>No Synchronization</i></p>
+<p><i><b>Race Condition</b></i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Crypto Driver </b></p>
+<p><b>Flash Driver </b></p>
+<p><b>Conflict </b></p>
+<p>Use Key (e.g. MacVerify, MacGenerate) </p>
+<p>Read Flash Memory </p>
+<p>Read / Read  </p>
+<p>Write Key (e.g. KeyElementSet) </p>
+<p>Read Flash Memory </p>
+<p>Write / Read </p>
+<p>Use Key (e.g. MacVerify, MacGenerate) </p>
+<p>Write Flash Memory </p>
+<p>Read / Write </p>
+<p>Write Key (e.g. KeyElementSet) </p>
+<p>Write Flash Memory </p>
+<p>Write / Write </p>
+<p>Table 1 - Access Conflict Types </p>
+<p><b>1.2 </b></p>
+<p><b>Dependency of Access Conflics to the ECU use case </b></p>
+<p>The possibility of an access conflict heavily depends on the ECU use case. As an access conflict can </p>
+<p>only happen if the Flash module and Crypto module are used at the same time, a detailed analysis of </p>
+<p>this use case is needed. </p>
+<p><b>&gt; </b></p>
+<p>E.g. if the Crypto module is used only during ECU run state for secure communication, whereas </p>
+<p>Flash module access is limited to ECU startup and shutdown, no access conflict might occur.  </p>
+<p><b>&gt; </b></p>
+<p>The access conflict might be limited to system startup, in case the Crypto module can cache the </p>
+<p>keys in secure RAM and therefore has no need to access data flash during later usage. </p>
+<p>The potential access conflicts need to be analyzed by the user. This application note gives an </p>
+<p>example how to solve such a conflict for secure communication and data flash access.  </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The occurrence and effect of access conflicts heavily depend on the ECU use case. </p>
+<p>Please analyze the specific Crypto and Flash use cases in your ECU to confirm potential </p>
+<p>conflicts and to judge for the appropriate resolution method. </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Use Case Description </b></p>
+<p>The synchronization methods are discussed based on three different users of Crypto and Flash Driver. </p>
+<p>Please adapt the described concepts in case of a different use case shall be implemented. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The described behavior of the Fls module is implementation-specific. Please confirm this </p>
+<p>behavior for the used Fls module. </p>
+<p> </p>
+<p> </p>
+<p><b>User </b></p>
+<p><b>Functionality </b></p>
+<p><b>Call context of hardware access </b></p>
+<p>Nonvolatile Memory </p>
+<p>Fls: Read and Write </p>
+<p>Fls_MainFunction </p>
+<p>SecOC </p>
+<p>Cry: MAC Processing </p>
+<p>SecOC_MainFunction </p>
+<p>Key Management </p>
+<p>Cry: Key Update </p>
+<p>KM_MainFunction </p>
+<p>Table 2 - Users of Crypto Driver and Flash Driver </p>
+<p>The Fls is used asynchronously: the flash operation is started in </p>
+<p>Fls_MainFunction</p>
+<p>, but will be </p>
+<p>finished later.  </p>
+<p>The Cry is used synchronously: the crypto hardware is idle after the execution of </p>
+<p>SecOC_MainFunction</p>
+<p> and </p>
+<p>KM_MainFunction</p>
+<p> is completed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>4 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 2 - Conflict between Fls and Cry </p>
+<p><b>3 </b></p>
+<p><b>Synchronization Methods of SecOC and Fls </b></p>
+<p>This chapter describes synchronization methods between Fls and Cry for the SecOC use case.  </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>It is assumed that </p>
+<p>Fls_MainFunction</p>
+<p> cannot interrupt </p>
+<p>SecOC_MainFunction</p>
+<p>. E.g. </p>
+<p>Fls_MainFunction</p>
+<p> is mapped to the same or a </p>
+<p>lower priority OS task as </p>
+<p>SecOC_MainFunction</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p>Table 3 gives an overview and comparison of the different methods which are described in this </p>
+<p>chapter. </p>
+<p><b>Method </b></p>
+<p><b>Characteristics </b></p>
+<p><b>AUTOSAR Extensions </b></p>
+<p>3.1 </p>
+<p>SecOC messages will not be sent during Fls </p>
+<p>operation. Especially Fls erase might take a long </p>
+<p>time. </p>
+<p>None </p>
+<p>3.2 </p>
+<p>Same as 3.1 </p>
+<p>Cry extension “Read Start” interface </p>
+<p>3.3 </p>
+<p>Less impact on SecOC messages for “short” Fls </p>
+<p>operations </p>
+<p>Fls extension “GetHWStatus” </p>
+<p>3.4 </p>
+<p>Difficult if Suspend/Resume needs a long time </p>
+<p>Fls extension “Suspend/Resume” </p>
+<p>3.5 </p>
+<p>Most complex approach </p>
+<p>Fls extensions “Suspend/Resume” </p>
+<p>and “asynchronous notification” </p>
+<p>Table 3 – Comparison Matrix </p>
+<p><b>3.1 </b></p>
+<p><b>Prevent Execution of SecOC_MainFunction </b></p>
+<p>The current state of Fls can be polled by the function </p>
+<p>Fls_GetStatus</p>
+<p>. Therefore </p>
+<p>SecOC_MainFunction</p>
+<p> should not be called in case </p>
+<p>Fls_GetStatus</p>
+<p> returns “busy”. </p>
+<p> </p>
+<p> </p>
+<p>Fls</p>
+<p>Cry</p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>cycle time</i></p>
+<p><i>Fls HW busy</i></p>
+<p><i>Cry HW busy</i></p>
+<p><b>conflict</b></p>
+<p><i>no Fls HW </i></p>
+<p><i>access in </i></p>
+<p><i>this call </i></p>
+<p><i>cycle</i></p>
+<p><i>asynchronous handling of Fls HW</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>5 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>It is assumed that </p>
+<p>Fls_GetStatus</p>
+<p> can be called reentrant. Please confirm this behavior </p>
+<p>for the used Fls module. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 3 - Prevent Execution of SecOC_MainFunction </p>
+<p><b>3.2 </b></p>
+<p><b>Prevent Execution of Cry Function </b></p>
+<p>This approach is similar to chapter 3.1. But instead of preventing the execution of </p>
+<p>SecOC_MainFunction</p>
+<p>, an API like </p>
+<p>Cry_XXX_DataFlashReadStart_Callout</p>
+<p> would be used. </p>
+<p>With the API </p>
+<p>Cry_XXX_DataFlashReadStart_Callout</p>
+<p>, the read permission is checked by the </p>
+<p>Cry driver: this shall be denied in case the Fls is busy. </p>
+<p>The </p>
+<p>SecOC_MainFunction</p>
+<p> will retry with the next cyclic call, if the parameter </p>
+<p>SecOCAuthenticationBuildAttempts</p>
+<p> in SecOC is set accordingly. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The API </p>
+<p>Cry_XXX_DataFlashReadStart_Callout</p>
+<p> is not defined by AUTOSAR and </p>
+<p>might not be available for your hardware. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Optimized Execution Prevention </b></p>
+<p>The API </p>
+<p>Fls_GetStatus</p>
+<p> returns the status of the Fls driver. Whereas this is implementation-specific, </p>
+<p>it might be only updated in context of </p>
+<p>Fls_MainFunction</p>
+<p>. Therefore it would report still “busy”, </p>
+<p>whereas the operation in the Fls hardware might be already finished. </p>
+<p>It is assumed an API like </p>
+<p>Fls_GetHWStatus</p>
+<p> is available, which reads the status of the Fls hardware </p>
+<p>itself. An optimized version of methods in chapter 3.1 and chapter 3.2 can be applied in this case: </p>
+<p><b>&gt; </b></p>
+<p>In task scheduling, </p>
+<p>SecOC_MainFunction</p>
+<p> is executed immediately before </p>
+<p>Fls_MainFunction</p>
+<p>. Therefore the Fls operation from the previous </p>
+<p>Fls_MainFunction</p>
+<p> might </p>
+<p>be already completed. </p>
+<p><b>&gt; </b></p>
+<p>The API </p>
+<p>Fls_GetHWStatus</p>
+<p> is used instead of </p>
+<p>Fls_GetStatus</p>
+<p> </p>
+<p> </p>
+<p>Fls</p>
+<p>Cry</p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>Check Fls_GetStatus</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>cycle time</i></p>
+<p><i>Fls HW busy</i></p>
+<p><i>Cry HW busy</i></p>
+<p><i>no Fls HW </i></p>
+<p><i>access in </i></p>
+<p><i>this call </i></p>
+<p><i>cycle</i></p>
+<p><i>asynchronous handling of Fls HW</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>6 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 4 - Optimized Execution Prevention </p>
+<p>With this approach, Cry handling is only skipped if the Fls needs a long processing time. </p>
+<p><b>3.4 </b></p>
+<p><b>Interrupt Fls Operation </b></p>
+<p>Some Fls drivers have a possibility to suspend and resume the current Fls operation. Such </p>
+<p>functionality is used for this approach: </p>
+<p><b>&gt; </b></p>
+<p>In task scheduling, </p>
+<p>SecOC_MainFunction</p>
+<p> is executed immediately before </p>
+<p>Fls_MainFunction</p>
+<p>. Therefore the Fls operation from the previous </p>
+<p>Fls_MainFunction</p>
+<p> might </p>
+<p>be already completed. </p>
+<p><b>&gt; </b></p>
+<p>In case Fls is busy: Fls operation is suspended before </p>
+<p>SecOC_MainFunction</p>
+<p> is called </p>
+<p><b>&gt; </b></p>
+<p>If Fls operation was suspended: resume Fls operation after </p>
+<p>SecOC_MainFunction</p>
+<p> is completed </p>
+<p> </p>
+<p>Figure 5 - Interrupt Fls Operation </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The </p>
+<p>Fls_Suspend/Fls_Resume</p>
+<p> operation itself might need considerable time. This can </p>
+<p>lead to issues, if a high call frequency of </p>
+<p>SecOC_MainFunction</p>
+<p> of </p>
+<p>Fls_MainFunction</p>
+<p> </p>
+<p>is needed. </p>
+<p> </p>
+<p> </p>
+<p>Fls</p>
+<p>Cry</p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>Check Fls_GetHWStatus</i></p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>cycle time</i></p>
+<p><i>Fls HW busy</i></p>
+<p><i>Cry HW busy</i></p>
+<p><i>asynchronous handling of Fls HW</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>Fls HW busy</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p>Fls</p>
+<p>Cry</p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>cycle time</i></p>
+<p><i>Fls busy</i></p>
+<p><i>Cry busy</i></p>
+<p><i>Fls_MainFunction</i></p>
+<p><i>Fls busy</i></p>
+<p><i>Fls_Suspend</i></p>
+<p><i>Fls_Resume</i></p>
+<p><i>Fls suspended</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>7 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>3.5 </b></p>
+<p><b>Asynchronous Operation of SecOC </b></p>
+<p>In case </p>
+<p>Fls_Suspend/Fls_Resume</p>
+<p> needs a long processing time, a full-preemptive operating </p>
+<p>system might be used during waiting time. </p>
+<p> </p>
+<p>Figure 6 - Asynchronous Operation of SecOC </p>
+<p>SecOC_MainFunction</p>
+<p> is called by a separated extended OS task. Following example code </p>
+<p>illustrates the concept. </p>
+<p><b>SecOC_Task: </b></p>
+<p>While(TRUE){ </p>
+<p>  WaitEvent(Event_TriggerSecOC);   </p>
+<p>  If(FLS busy) { </p>
+<p>    Fls_Suspend(); </p>
+<p>    suspended=true; </p>
+<p>    WaitEvent(Event_SuspendFinished); </p>
+<p>    ClearEvent(Event_SuspendFinished); </p>
+<p>  } </p>
+<p>  ClearEvent(Event_TriggerSecOC); //clear trigger </p>
+<p>  SecOC_MainfunctionRx(); </p>
+<p>  SecOC_MainfunctionRx(); // call a 2nd time for verification retry </p>
+<p>  SecOC_MainfunctionTx(); </p>
+<p>  If(suspended){ </p>
+<p>    Fls_Resume(); </p>
+<p>    WaitEvent(Event_ResumeFinished); </p>
+<p>    ClearEvent(Event_ResumeFinished); </p>
+<p>    suspended=false; </p>
+<p> }} </p>
+<p>The Fls must inform the </p>
+<p>SecOC_Task</p>
+<p> when </p>
+<p>Fls_Suspend/Fls_Resume</p>
+<p> is finished. </p>
+<p><b>Suspend_Finished: </b></p>
+<p>SetEvent(Event_SuspendFinished); </p>
+<p><b>Resume_Finished: </b></p>
+<p>SetEvent(Event_ResumeFinished); </p>
+<p>Cry</p>
+<p><i>SecOC_MainFunction</i></p>
+<p><i>Fls_Suspend</i></p>
+<p>Appl</p>
+<p><i>Trigger SecOC processing</i></p>
+<p><i>Trigger: Suspend finished</i></p>
+<p><i>Fls_Resume</i></p>
+<p><i>Trigger: Resume finished</i></p>
+<p><i>Processing finished</i></p>
+<p><i>Task active</i></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Synchronization between AUTOSAR Cry and Fls</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>8 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p>The application can trigger </p>
+<p>SecOC_Task</p>
+<p> either cyclic, or only if SecOC processing is needed.  </p>
+<p>The transmission trigger can be obtained in following way. </p>
+<p><b>ComIPduCallout: </b></p>
+<p>//get transmission condition – added for all secured messages in Com</p>
+<p><b> </b></p>
+<p>SecOC_TxFlag=TRUE; </p>
+<p><b>After call to Com_MainFunction: </b></p>
+<p>Com_MainFunction(); </p>
+<p>if(SecOC_TxFlag){ // call this after Com_MainFunction </p>
+<p>  SecOC_TxFlag=FALSE; </p>
+<p>  SetEvent(Event_TriggerSecOC); //data of SecOC was prepared in Com  </p>
+<p>} </p>
+<p>The reception trigger can be obtained in following way. Please make sure the CAN driver is operated </p>
+<p>in interrupt mode. </p>
+<p><b>CanGenericPrecopy: // enable “CanGenericPrecopy” feature in CAN driver </b></p>
+<p>If(CANID=SecOCMessage CANID){ </p>
+<p>  SetEvent(Event_TriggerSecOC);  </p>
+<p>} </p>
+<p>The OS Event is set before the message data is transferred to SecOC. But the </p>
+<p>SecOC_Task</p>
+<p> is </p>
+<p>activated only after the CAN ISR processing is finished due to OS priority handling. </p>
+<p><b>4 </b></p>
+<p><b>Synchronization Method for Key Management </b></p>
+<p>Synchronization between SecOC and Key Management is not needed, as both utilize the same Cry </p>
+<p>driver. Therefore the Cry driver should take care of this synchronization. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>It is assumed that Fls_MainFunction cannot interrupt KM_MainFunction. E.g. </p>
+<p>Fls_MainFunction is mapped to the same or a lower priority OS task as </p>
+<p>KM_MainFunction. </p>
+<p> </p>
+<p> </p>
+<p>Synchronization of Key Management and Fls is less time critical than the synchronization between </p>
+<p>SecOC and Fls. Therefore simpler methods as described in chapter 3.1 and chapter 3.2 can be </p>
+<p>applied. </p>
+<p>If chapter 3.2 is applied, a callback form Cry driver which queries the write permission should be used. </p>
+<p>Such an API </p>
+<p>Cry_XXX_DataFlashWriteStart_Callout</p>
+<p> is implemented as an AUTOSAR </p>
+<p>extension for some Cry drivers developed by Vector. </p>
+<p><b>5 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

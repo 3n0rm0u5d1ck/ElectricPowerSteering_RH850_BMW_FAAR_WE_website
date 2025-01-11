@@ -1,0 +1,1808 @@
+---
+layout: default
+title: AN-ISC-8-1213_Compliance Documentation MISRA-C_2004
+nav_order: 48
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Compliance Documentation MISRA-C:2004 </b></p>
+<p>Version 3.0 </p>
+<p>2017-10-09 </p>
+<p>Application Note AN-ISC-8-1213 </p>
+<p><b>Author </b></p>
+<p>Andreas Raisch </p>
+<p><b>Restrictions </b></p>
+<p>Customer Confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>This document explains the MISRA-C and HIS Metric compliance enforcement. It also </p>
+<p>contains the project specific MISRA and code metric deviations including their </p>
+<p>justifications. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ........................................................................................................................................ 3</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose, goal ....................................................................................................................... 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Enforcing MISRA-C Compliance .................................................................................................. 4</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Software Engineering Context ............................................................................................. 4</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Programming Language and Coding Context ..................................................................... 4</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Project specific MISRA Subset ............................................................................................ 4</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>MISRA Compliance Matrix ................................................................................................... 4</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Hints on Compiler Selection ................................................................................................. 6</p>
+<p> </p>
+<p>2.5.1</p>
+<p> </p>
+<p>Deactivated QA-C Rules for MICROSAR Product Analysis ................................................ 7</p>
+<p> </p>
+<p>2.6</p>
+<p> </p>
+<p>Deviation Procedure ............................................................................................................ 7</p>
+<p> </p>
+<p>2.7</p>
+<p> </p>
+<p>Usage of C99 Features ........................................................................................................ 8</p>
+<p> </p>
+<p>2.7.1</p>
+<p> </p>
+<p>Usage of Inline Functions .................................................................................................... 8</p>
+<p> </p>
+<p>2.7.2</p>
+<p> </p>
+<p>Usage of C99 Data Types .................................................................................................... 9</p>
+<p> </p>
+<p>2.7.3</p>
+<p> </p>
+<p>No Usage of “//” Comments ................................................................................................. 9</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Enforcing Code Metric Compliance ..........................................................................................10</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>HIS Metric Compliance Matrix ...........................................................................................10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Appendix ......................................................................................................................................13</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>MISRA Justification for “Project Deviations” ......................................................................13</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Code Metric Justification for “Product Deviations” .............................................................23</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Additional Resources .................................................................................................................26</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Contacts .......................................................................................................................................26</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Revision List </b></p>
+<p>Version </p>
+<p>Editor </p>
+<p>Date </p>
+<p>Section </p>
+<p>Changes, Comments </p>
+<p>0.1.0 </p>
+<p>virTsd </p>
+<p>2009-03-31 </p>
+<p>all </p>
+<p>Initial version </p>
+<p>1.0.0 </p>
+<p>visRa </p>
+<p>2011-04-26 </p>
+<p>Reference</p>
+<p>s </p>
+<p>References changed to new locations on server </p>
+<p>1.1.0 </p>
+<p>visRa </p>
+<p>2012-02-17 </p>
+<p>Deviations </p>
+<p>New project deviations added: MD_MSR_1.1_810, </p>
+<p>MD_MSR_1.1_828, MD_MSR_1.1_857 </p>
+<p>2.0.0 </p>
+<p>visRa </p>
+<p>2013-04-22 </p>
+<p>all </p>
+<p>Document renamed due to new target “claiming </p>
+<p>compliance”. Completely reworked; new chapters </p>
+<p>“Enforcing MISRA-C Compliance” and “Enforcing </p>
+<p>Code Metric” added. MISRA product deviations </p>
+<p>moved in appendix; code metric deviations added. </p>
+<p>2.1.0 </p>
+<p>visRa </p>
+<p>2013-12-16 </p>
+<p> </p>
+<p>Chapter “Hints on Compiler Selection” added; new </p>
+<p>standard deviations added in “MISRA Justification </p>
+<p>for “Project Deviations”: MD_MSR_1.1_639, </p>
+<p>MD_MSR_5.1_777, MD_MSR_19.13_0342 </p>
+<p>2.2.0 </p>
+<p>visRa </p>
+<p>2014-03-19 </p>
+<p> </p>
+<p>Chapter “Hints on Compiler Selection” extended; </p>
+<p>new standard deviations added in “MISRA </p>
+<p>Justification for “Project Deviations”: </p>
+<p>MD_MSR_1.1_715 and MD_MSR_5.1_779 </p>
+<p>2.3.0 </p>
+<p>visRa </p>
+<p>2015-02-18 </p>
+<p> </p>
+<p>New standard deviation MD_MSR_14.2 added </p>
+<p>New standard deviation MD_MSR_5.7 added </p>
+<p>QA-C rule 850 deactivation added to chapter 2.4 </p>
+<p>MISRA Compliance Matrix </p>
+<p>2.4.0 </p>
+<p>visRa </p>
+<p>2016-04-08 </p>
+<p> </p>
+<p>Chapter 2.7 Usage of C99 Features added </p>
+<p>2.5.0 </p>
+<p>visRa </p>
+<p>2016-10-13 </p>
+<p> </p>
+<p>New standard deviation MD_MSR_16.7 added </p>
+<p>Mapping to [MISRA-P1] added </p>
+<p>2.6.0 </p>
+<p>visRa </p>
+<p>2017-02-03 </p>
+<p> </p>
+<p>New standard deviation MD_MSR_5.6 added </p>
+<p>3.0.0 </p>
+<p>visRa </p>
+<p>2017-10-06 </p>
+<p> </p>
+<p>Migration to “application note” format </p>
+<p>Usage and justification rule 14.7 adapted to Vector </p>
+<p>SafeBSW “process 3”. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p><b>1.1 </b></p>
+<p><b>Purpose, goal </b></p>
+<p>The purpose of this document is to explain the process executed and limitations known to claim </p>
+<p>compliance of the product MICROSAR to “MISRA-C:2004 guidelines for the use of the C language in </p>
+<p>critical systems” [MISRA-C] and to HIS source code metrics [HIS-CODE]. </p>
+<p>In addition, the document also describes the handling of code metrics. </p>
+<p>The products are developed in a product-line approach, so the wording “project” in [MISRA-C] is </p>
+<p>mapped to “product” in this context, too. Product-line approach means that a large set of reusable </p>
+<p>software-components are developed and maintained to fulfill the functional needs of different OEMs </p>
+<p>and TIER1s for any ECU in any vehicle. </p>
+<p> </p>
+<p> </p>
+<p>Figure 1-1 </p>
+<p>Overall MISRA process: MISRA standard – code style guides – code – compliance matrix - … </p>
+<p> </p>
+<p> </p>
+<p>Own </p>
+<p>rules</p>
+<p>List of </p>
+<p>project-</p>
+<p>specific </p>
+<p>deviations</p>
+<p>Req</p>
+<p>Adv</p>
+<p>CodeStyle Guide</p>
+<p>Compliance Matrix</p>
+<p>Code </p>
+<p>Verification</p>
+<p>by <b>tool</b></p>
+<p>Verification</p>
+<p>by <b>review</b></p>
+<p>rules</p>
+<p>Req</p>
+<p>Code </p>
+<p>Template</p>
+<p>(+QA-C markers)</p>
+<p><b>(+Specific </b></p>
+<p><b>deviation </b></p>
+<p><b>justification)</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>4 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>2 </b></p>
+<p><b>Enforcing MISRA-C Compliance </b></p>
+<p><b>2.1 </b></p>
+<p><b>Software Engineering Context </b></p>
+<p>If not otherwise stated, the product is developed according AUTOMOTIVE SPICE, level 3. </p>
+<p><b>2.2 </b></p>
+<p><b>Programming Language and Coding Context </b></p>
+<p>Used programing languages are  </p>
+<p><b>&gt; </b></p>
+<p>C99 but using C90 subset only (see chapter <i>2.7 Usage of C99</i>) </p>
+<p><b>&gt; </b></p>
+<p>ASM (rarely used, only for µC-specific codes like ISR, register access, ...) </p>
+<p>Code is developed based on a code style guide and by applying code and header templates. </p>
+<p>Selected code metrics are measured, documented and deviations are justified. </p>
+<p>Runtime test coverage is measured, documented and deviations are justified. </p>
+<p><b>2.3 </b></p>
+<p><b>Project specific MISRA Subset </b></p>
+<p>[HIS-MISRA] defines all rules to be “required”, so no rule is “advisory”. </p>
+<p>All 141 rules in [MISRA-C] are analyzed for product relevance. If a rule is judged to be not relevant, it </p>
+<p>is justified in chapter <i>2.4 MISRA Compliance Matrix</i>. </p>
+<p><b>2.4 </b></p>
+<p><b>MISRA Compliance Matrix </b></p>
+<p>The compliance matrix for the product is: </p>
+<p><b>&gt; </b></p>
+<p>All rules not explicitly listed in <i>Table 2-1 </i>are checked by the tool QA-C (125 rules) </p>
+<p><b>&gt; </b></p>
+<p>Rules listed in <i>Table 2-1 </i>and marked “Code inspection” are manually checked (8 rules) </p>
+<p><b>&gt; </b></p>
+<p>Rules listed in <i>Table 2-1 </i>and marked “Not applicable” are not checked (8 rules); the justification is </p>
+<p>added within the table. </p>
+<p><b>Rule </b></p>
+<p><b>Description </b></p>
+<p><b>Enforcement Strategy </b></p>
+<p>1.3  </p>
+<p>(req) </p>
+<p> </p>
+<p>Multiple compilers and/or languages shall only be </p>
+<p>used if there is a common defined interface standard </p>
+<p>for object code to which the </p>
+<p>languages/compilers/assemblers conform. </p>
+<p>Not applicable </p>
+<p>Justification: Multiple compilers or </p>
+<p>languages are not used in embedded </p>
+<p>software components developed at </p>
+<p>PES. The only exception is the usage </p>
+<p>of assembler code. Here however the </p>
+<p>assembler which belongs to the </p>
+<p>compiler is used so there is no issue </p>
+<p>with the object code interface. </p>
+<p>1.4  </p>
+<p>(req) </p>
+<p> </p>
+<p>The compiler/linker shall be checked to ensure that </p>
+<p>31 character significance and case sensitivity are </p>
+<p>supported for external identifiers. </p>
+<p>Not applicable </p>
+<p>Justification: Since we use the </p>
+<p>compiler which is prescribed by our </p>
+<p>customer, we are not free in the </p>
+<p>compiler selection. There are still </p>
+<p>compilers which support only 6 </p>
+<p>characters, so the software has to </p>
+<p>support this. Since especially during </p>
+<p>implementation of higher layers the </p>
+<p>used compiler is not known it is not </p>
+<p>possible to check this in the </p>
+<p>development phase. This is verified </p>
+<p>during delivery test with the </p>
+<p>prescribed compiler. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>5 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Rule </b></p>
+<p><b>Description </b></p>
+<p><b>Enforcement Strategy </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>[MISRA-P1] addresses </p>
+<p>this topic in </p>
+<p>Permit/MISRA/C:2004/5.1</p>
+<p>.A.1. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.5 </p>
+<p>(adv) </p>
+<p> </p>
+<p>Floating-point implementations should comply with a </p>
+<p>defined floating-point standard. </p>
+<p>Not applicable </p>
+<p>Justification: Floating point operations </p>
+<p>are not used in embedded software </p>
+<p>components developed at PES.  </p>
+<p>2.4 </p>
+<p>(adv) </p>
+<p> </p>
+<p>Sections of code should not be ‘commented out’. </p>
+<p>Code inspection </p>
+<p>3.2  </p>
+<p>(req) </p>
+<p> </p>
+<p>The character set and the corresponding encoding </p>
+<p>shall be documented. </p>
+<p>Not applicable </p>
+<p>Justification: Character strings are not </p>
+<p>used in embedded software </p>
+<p>components developed at PES. </p>
+<p>3.3 </p>
+<p>(adv) </p>
+<p> </p>
+<p>The implementation of integer division in the chosen </p>
+<p>compiler should be determined, documented and </p>
+<p>taken into account. </p>
+<p>Comment: There is a potential issue in case of the </p>
+<p>division of negative signed integers because the </p>
+<p>compiler behavior is not standardized. </p>
+<p>Not applicable </p>
+<p>Justification: Division of negative </p>
+<p>signed integers is not used in </p>
+<p>embedded software components </p>
+<p>developed at PES. </p>
+<p>3.5  </p>
+<p>(req) </p>
+<p> </p>
+<p>If it is being relied upon, the implementation-defined </p>
+<p>behavior and packing of bit-fields shall be </p>
+<p>documented. </p>
+<p>Not applicable </p>
+<p>Justification: In the embedded </p>
+<p>environment the handling of bit-fields </p>
+<p>is documented for each compiler and </p>
+<p>hardware in the compilers’ user </p>
+<p>manual. Beyond this, tests minimize </p>
+<p>the risk indicated by this rule. </p>
+<p>3.6  </p>
+<p>(req) </p>
+<p> </p>
+<p>All libraries used in production code shall be written </p>
+<p>to comply with the provisions of this document, and </p>
+<p>shall have been subject to appropriate validation. </p>
+<p>Not applicable </p>
+<p>Justification: The C standard library or </p>
+<p>other libraries are not used in </p>
+<p>embedded software components </p>
+<p>developed at PES. </p>
+<p>5.7 </p>
+<p>(adv) </p>
+<p> </p>
+<p>No identifier name should be reused. </p>
+<p>Comment: the term “system” in [MISRA-C] relates to </p>
+<p>the unit on which the MISRA analysis is applied, i.e. </p>
+<p>a software component. </p>
+<p>See MD_MSR_5.7 for deviations to this rule. </p>
+<p>Code inspection </p>
+<p>10.5. </p>
+<p>(req) </p>
+<p> </p>
+<p>If the bitwise operators ~ and &lt;&lt; are applied to an </p>
+<p>operand of underlying type unsigned char or </p>
+<p>unsigned short, the result shall be immediately cast </p>
+<p>to the underlying type of the operand </p>
+<p>Code inspection </p>
+<p> </p>
+<p>17.1 </p>
+<p>(req) </p>
+<p> </p>
+<p>Pointer arithmetic shall only be applied to pointers </p>
+<p>that address an array or array element. </p>
+<p>Code inspection </p>
+<p>17.2. </p>
+<p>(req) </p>
+<p> </p>
+<p>Pointer subtraction shall only be applied to pointers </p>
+<p>that address elements of the same array </p>
+<p>Code inspection </p>
+<p>17.3 </p>
+<p>(req) </p>
+<p>&gt;, &gt;=, &lt;, &lt;= shall not be applied to pointer types </p>
+<p>except where they point to the same array. </p>
+<p>Code inspection </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>6 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Rule </b></p>
+<p><b>Description </b></p>
+<p><b>Enforcement Strategy </b></p>
+<p> </p>
+<p>18.2  </p>
+<p>(req) </p>
+<p> </p>
+<p>An object shall not be assigned to an overlapping </p>
+<p>object. </p>
+<p>Comment: This is related to use the same memory </p>
+<p>by different objects (variables) at the same time </p>
+<p>without using unions. </p>
+<p>Code inspection </p>
+<p>18.3  </p>
+<p>(req) </p>
+<p> </p>
+<p>An area of memory shall not be reused for unrelated </p>
+<p>purposes. </p>
+<p>Comment: This is related to use the same memory </p>
+<p>for different purposes at different points of time </p>
+<p>(example: dynamic memory management) without </p>
+<p>using unions. </p>
+<p>Code inspection </p>
+<p>20.3  </p>
+<p>(req) </p>
+<p> </p>
+<p>The validity of values passed to library functions </p>
+<p>shall be checked. </p>
+<p>Not applicable </p>
+<p>Justification: The C standard library is </p>
+<p>not used in embedded software </p>
+<p>components developed at PES. Our </p>
+<p>own libraries provide sufficient internal </p>
+<p>checking in contrast to the C standard </p>
+<p>library. </p>
+<p>Partly </p>
+<p>19.8 </p>
+<p>(req) </p>
+<p>(QA-C </p>
+<p>rule </p>
+<p>850) </p>
+<p>QA-C rule 850 “Macro argument is empty”, mapped </p>
+<p>to MISRA-C:2004 rule 19.8 “A function-like macro </p>
+<p>shall not be invoked without all of its arguments”. </p>
+<p>Rule deactivated because of bug in used QA-C </p>
+<p>version (CR 12354, Message 0850 was sometimes </p>
+<p>generated incorrectly when performing macro </p>
+<p>substitution with a macro defined with an empty </p>
+<p>replacement list) </p>
+<p>Code inspection </p>
+<p>Table 2-1 Rules not checked by MISRA analysis tool PRQA- QA-C </p>
+<p><b>2.5 </b></p>
+<p><b>Hints on Compiler Selection </b></p>
+<p>The complexity of an [AUTOSAR] based software system exceeds typically the maximum numbers of </p>
+<p>structs, unions, includes and nested #if levels defined for C90. These C90 limits originate in early C </p>
+<p>compiler implementations with limited RAM to store definitions. Nearly all current compilers support </p>
+<p>sufficient support for huge numbers of structs, unions, include and nested #if levels.  </p>
+<p>Such compilers also support more than 31 characters to identify internal and external identifiers. </p>
+<p>Vector implements AUTOSAR compliant to the AUTOSAR SWS with focus to stay within the given </p>
+<p>limits. Nevertheless, combining the different BSW modules to a stack, this will result in exceeding C90 </p>
+<p>limits. Because overstepping the limits depends on the concrete project and the used databases no </p>
+<p>value forecast can be given</p>
+<p>1</p>
+<p>. </p>
+<p>We strongly recommend that the ECU project validates the used compiler against its limits concerning </p>
+<p>maximum numbers of structs, unions, includes and nested #if levels and significant characters for </p>
+<p>internal and external identifiers. </p>
+<p>Additionally we strongly recommend that the ECU project configures its static code checker tool in a </p>
+<p>way that the concrete compiler limits are part of the ECU project verification activities. </p>
+<p> </p>
+<p> </p>
+<p>                                                </p>
+<p>1</p>
+<p> A typical reason for exceeding the number of 1024 macros is using the COM macro API. Enabling the macro API is </p>
+<p>a decision done by the ECU integrator to improve runtime and memory consumption. Negative effects are e.g. </p>
+<p>multiple MISRA deviations. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>7 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1 and in </p>
+<p>Permit/MISRA/C:2004/5.1.A.1. </p>
+<p> </p>
+<p> </p>
+<p><b>2.5.1 </b></p>
+<p><b>Deactivated QA-C Rules for MICROSAR Product Analysis </b></p>
+<p>As explained in chapter <i>2.5</i>, integrated AUTOSAR BSW typically exceeds the C90 limits.  </p>
+<p>Vector explicitly excludes the following rules for MISRA analysis on integrated BSW stacks from </p>
+<p>justification:  </p>
+<p><b>MISRA </b></p>
+<p><b>Rule </b></p>
+<p><b>QA-C </b></p>
+<p><b>Rule </b></p>
+<p><b>Description </b></p>
+<p>1.1 </p>
+<p>612 </p>
+<p>Size of object exceeds 32767 bytes - program is non-conforming. </p>
+<p>1.1 </p>
+<p>639 </p>
+<p>Number of members in 'struct' or 'union' exceeds 127 - program is non-conforming. </p>
+<p>1.1 </p>
+<p>715 </p>
+<p>Nesting of control structures (statements) exceeds 15 - program is non-conforming. </p>
+<p>5.1 </p>
+<p>777 </p>
+<p>External identifier does not differ from other identifier(s) within the specified number of </p>
+<p>significant characters. </p>
+<p>5.1 </p>
+<p>779 </p>
+<p>Internal identifier does not differ from other identifier(s) within the specified number of </p>
+<p>significant characters. </p>
+<p>1.1 </p>
+<p>810 </p>
+<p>'#include &quot;xxxx&quot;' causes nesting to exceed 8 levels - program is non-conforming. </p>
+<p>1.1 </p>
+<p>828 </p>
+<p>Maximum '#if...' nesting exceeds 8 levels - program is non-conforming. </p>
+<p>1.1 </p>
+<p>857 </p>
+<p>Number of macro definitions exceeds 1024 - program is non-conforming. </p>
+<p>Table 2-2 Rules not checked by Vector on integrated BSW </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>On BSW module level, we have these rules enabled for module release verification </p>
+<p>activities. If such a rule is deviated on BSW component verification level, it is justified </p>
+<p>according chapter 4.1</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.6 </b></p>
+<p><b>Deviation Procedure </b></p>
+<p>Table 2-3 describes the priority of the rules to be applied within the product. </p>
+<p><b>Priority </b></p>
+<p><b>Rule </b></p>
+<p><b>Rationale </b></p>
+<p>1 </p>
+<p>Product’s embedded software shall be fully </p>
+<p>MISRA compliant. Thus deviation from </p>
+<p>MISRA rules shall be prevented wherever </p>
+<p>possible. </p>
+<p> </p>
+<p>2 </p>
+<p>If a MISRA deviation is detected, the code </p>
+<p>shall be analyzed and, if reasonable, be </p>
+<p>changed/extended to become MISRA </p>
+<p>compliant. </p>
+<p> </p>
+<p>3 </p>
+<p>If fixing the deviation is not a solution, the </p>
+<p>deviations shall be marked as known and a </p>
+<p>justification has to be added into the code </p>
+<p>either as a Product Deviation or a Specific </p>
+<p>Deviation. </p>
+<p>Justification: Depending on the context, there </p>
+<p>might be more important requirements than </p>
+<p>“MISRA compliance” e.g. stick to standards </p>
+<p>(ISO, AUTOSAR, OEM specification, …), </p>
+<p>preventing inefficiency (RAM/ROM footprint, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>8 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Priority </b></p>
+<p><b>Rule </b></p>
+<p><b>Rationale </b></p>
+<p>runtime, …), product-line code maintainability, </p>
+<p>… </p>
+<p>Table 2-3 Priority of measures to prevent MISRA deviations </p>
+<p>This document addresses a product-line approach, therefore chapter <i>4.1 MISRA Justification for </i></p>
+<p><i>“</i>Project Deviations”  list the <b>Product Deviations</b>. The maintenance of the Product Deviation list is part </p>
+<p>of the product-line development process. </p>
+<p>If a part of the product has a <b>Specific Deviation</b>, the justification is done locally. The Specific </p>
+<p>Deviation is documented within the code and verified in the code inspection process, too. </p>
+<p>Each deviation is marked as shown in <i>Figure 2-1</i>. The justification is either a link on a Product </p>
+<p>Deviation (chapter <i>4.1 MISRA Justification for “</i>Project Deviations”  within this document) or a link to a </p>
+<p>Specific Deviation justified within the source code itself. </p>
+<p>The justification in the source code is based on this template: </p>
+<p>/* Justification for module-specific MISRA deviations: </p>
+<p><b>MD_&lt;CompName&gt;_&lt;RuleNo&gt;</b>: MISRA rule xx.y </p>
+<p> <b>Reason: <i></b>Explanation of reason for deviation on &lt;RuleNo&gt; </i></p>
+<p> <b>Risk:   <i></b>Explanation of risk for &lt;RuleNo&gt;  </i></p>
+<p> <b>Prevention: <i></b>Explanation how to prevent risk occurrence </i></p>
+<p>*/</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-1 Style for justifying a deviation in code </p>
+<p> </p>
+<p><b>2.7 </b></p>
+<p><b>Usage of C99 Features </b></p>
+<p>The product uses the C90 language subset plus the here listed C99 features. </p>
+<p><b>2.7.1 </b></p>
+<p><b>Usage of Inline Functions </b></p>
+<p>The product uses <i>inline functions </i>to reduce complexity and improve the readability and testability of </p>
+<p>the code. </p>
+<p>The code style guide requires the use of the [AUTOSAR] compiler abstraction concept </p>
+<p>LOCAL_INLINE when using <i>inline functions</i>. This approach provides means to define a compiler </p>
+<p>specific static storage class definition as required by e.g. MISRA_C:2012, “rule 8.10 An <i>inline function </i></p>
+<p>shall be declared with the static storage class”. </p>
+<p><b>TASK(TaskInit)</b></p>
+<p><b>{</b></p>
+<p><b>/../</b></p>
+<p><b>}</b></p>
+<p><b>/* PRQA S 1503 */</b></p>
+<p><b>/* MD_MSR_14.1 */</b></p>
+<p><i><b>Code</b></i></p>
+<p><i><b>Known Deviation</b></i></p>
+<p><i><b>Justification</b></i></p>
+<p><i><b>Deviation</b></i></p>
+<p>Analyze</p>
+<p>Justify</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>9 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Not all (C90) compilers support “static inline”. Therefore the mapping can be adapted to </p>
+<p>the supported compiler and usage from “static inline” to “inline” or to “” (i.e. explicit </p>
+<p>function call instead of compilation time inline). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Compiler.h delivered with the product is adapted to the ordered compiler. When using a </p>
+<p>different Compiler.h (e.g. from MCAL package), please verify correct LOCAL_INLINE </p>
+<p>assignment. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.C.1. </p>
+<p> </p>
+<p> </p>
+<p><b>2.7.2 </b></p>
+<p><b>Usage of C99 Data Types </b></p>
+<p>The code style guide requires the use of the [AUTOSAR] platform abstraction concept to declare and </p>
+<p>define variables. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Not all (C90) compilers support types to define 64 bit data types. Such a compiler cannot </p>
+<p>be used to compile the product in case it contains components requiring 64 bit data types. </p>
+<p>Therefore use of 64 bit data types is restricted to (1) components with typical usage on at </p>
+<p>least 32bit  µC (e.g. ethernet stack) and (2) when explicitly defined by AUTOSAR (e.g. as </p>
+<p>data type in interface). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Platform_Types.h delivered with the product is adapted to the ordered platform. When </p>
+<p>using a different Platform_Types.h (e.g. from MCAL package), please verify correct type </p>
+<p>definition. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Components developed for a specific platform and compiler (e.g. MCAL or OS) may use </p>
+<p>the 64 bit data types directly. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.A.1. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.7.3 </b></p>
+<p><b>No Usage of “//” Comments </b></p>
+<p>Usage of “//” comments is not allowed for the product. </p>
+<p>This is covered by MISRA-C:2004, rule 2.2 “Source code shall only use C-style comments.” </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>10 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>3 </b></p>
+<p><b>Enforcing Code Metric Compliance </b></p>
+<p><b>3.1 </b></p>
+<p><b>HIS Metric Compliance Matrix </b></p>
+<p>The code for the product shall comply with HIS source code metrics [HIS-MISRA]. </p>
+<p>Analysis of the HIS source code metrics in the product context has shown that only few of the metrics </p>
+<p>are helpful to measure and vote the products quality.  </p>
+<p>The product has a high configurability, so metric deviations may occur in all or in just a few, specific </p>
+<p>setups. The components of the product are thus analyzed for a set of defined use-cases and metric </p>
+<p>deviations are analyzed. If the analysis result is “accept metric deviation”, a justification is added to the </p>
+<p>code. </p>
+<p><b>HIS Metric </b></p>
+<p><b>(QA-C metric) </b></p>
+<p><b>Rationale and Enforcement Strategy </b></p>
+<p>Comment Density </p>
+<p>(COMF) </p>
+<p>HIS: COMF &gt; 0.2  </p>
+<p>This metric is measured but deviations are not justified.  </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Product consists out of static and generated code files, some very small, </p>
+<p>some large, some with just tables and defines, some with many complex </p>
+<p>code structures. Comments shall be applied where necessary to improve </p>
+<p>the readability, not to satisfy a metric. </p>
+<p><b>&gt; </b></p>
+<p>Adding MISRA justifications comments in the code results (in relevant </p>
+<p>files) in more than 20% </p>
+<p></p>
+<p> metric target is typically fulfilled but not the </p>
+<p>intended improvement in maintainability. </p>
+<p><b>&gt; </b></p>
+<p>Vector focuses on the outcome of code inspection to improve also </p>
+<p>maintainability concerning good and helpful comments. </p>
+<p>Estimated static </p>
+<p>path count (STPTH) </p>
+<p>HIS: 1..80 </p>
+<p>This metric is measured and justified per deviation or class of deviations. </p>
+<p>Cyclomatic </p>
+<p>Complexity </p>
+<p>(STCYC) </p>
+<p>HIS: 1..10 </p>
+<p>This metric is measured and justified per deviation or class of deviations. </p>
+<p>Number of GOTOs </p>
+<p>(STGTO) </p>
+<p>HIS: 0 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Use of GOTO is allowed in Vector code for limited use-cases. </p>
+<p><b>&gt; </b></p>
+<p>Use of GOTO has to be already justified as MISRA deviation per use. </p>
+<p><b>&gt; </b></p>
+<p>Mandatory metric STBAK is applied to check for illegal use of GOTO </p>
+<p>Number of functions </p>
+<p>calling this function </p>
+<p>(STM29) </p>
+<p>HIS: 0..5 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>The metric is aimed to detect “up to now unknown” functions in a “black-</p>
+<p>box system” which were critical due to be called by many other functions </p>
+<p>and shall thus be under specific focus. </p>
+<p><b>&gt; </b></p>
+<p>By contrast, the product is designed to provide functionality to an (ECU) </p>
+<p>project based on defined standards (ISO, AUTOSAR, …). Thus the usage </p>
+<p>of APIs is known, predefined and not in our control. Justifying the usage </p>
+<p>will indicate only the usage in e.g. our test-projects but not that in the </p>
+<p>concrete final project. </p>
+<p>Number of distinct </p>
+<p>function calls </p>
+<p>(STCAL) </p>
+<p>HIS: 1..7 </p>
+<p>This metric is measured and justified per deviation or class of deviations. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>11 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>HIS Metric </b></p>
+<p><b>(QA-C metric) </b></p>
+<p><b>Rationale and Enforcement Strategy </b></p>
+<p>Number of function </p>
+<p>parameters </p>
+<p>(STPAR) </p>
+<p>HIS: 0..5 </p>
+<p>This metric is measured and justified per deviation or class of deviations. </p>
+<p>Number of </p>
+<p>statements in </p>
+<p>function (STST3) </p>
+<p>HIS: 1..50 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Project analysis has shown that if STST3 is out of limit and the function is </p>
+<p>complex, also STCYC and STPATH are out of limits. So we focus on </p>
+<p>STCYC and STPATH for analysis. </p>
+<p>Maximum nesting of </p>
+<p>control structures </p>
+<p>(STMIF) </p>
+<p>HIS: 0..4 </p>
+<p>This metric is measured and justified per deviation or class of deviations. </p>
+<p>Number of exit </p>
+<p>points (STM19) </p>
+<p>HIS: 0..1 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Safe programming requires runtime checks. Due to runtime efficiency, the </p>
+<p>checks have to be disabled for production code. Thus the DET checks are </p>
+<p>typically macros and are added to the begin of a function. To keep code </p>
+<p>structure simple, additional returns are allowed here, too. </p>
+<p><b>&gt; </b></p>
+<p>Use of return statement has to be already justified as MISRA deviation per </p>
+<p>use. </p>
+<p><b>&gt; </b></p>
+<p>Vector focuses on the outcome of code inspection to check for correct </p>
+<p>usage of return statements. </p>
+<p>Language set </p>
+<p>(VOCF) </p>
+<p>HIS: 0..4 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>(Metric calculation done according PRQA specification) </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Value for very complex components has been found in HIS range (= ok), </p>
+<p>but nearly empty components have been reported as dramatically out of </p>
+<p>range (e.g. &gt;2500). </p>
+<p><b>&gt; </b></p>
+<p>Summary is, that analysis of metric values in the product context has not </p>
+<p>shown any significant hint on improving code maintainability or other </p>
+<p>benefits. </p>
+<p>Number of </p>
+<p>recursions across </p>
+<p>project (STNRA) </p>
+<p>HIS: 0 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Vector coding guidelines forbid the use of recursions to implement </p>
+<p>functional behavior. </p>
+<p><b>&gt; </b></p>
+<p>Vector develops standard software according e.g. AUTOSAR, so API </p>
+<p>usage definition is mainly out of our scope </p>
+<p><b>&gt; </b></p>
+<p>Vector code is just a part of a “final” ECU code, so recursions caused by </p>
+<p>customer-project specific API or configuration data use cannot be </p>
+<p>detected in our selected product test use-cases. Measurement is done to </p>
+<p>be aware of potential recursions. </p>
+<p><b>&gt; </b></p>
+<p>(The tool QAC has no reliable capability to detect the absence of </p>
+<p>recursions due to insufficient pointer analysis)  </p>
+<p>Number of MISRA </p>
+<p>subset violations </p>
+<p>(NOMV) </p>
+<p>HIS: 0 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>MISRA deviations are already justified per occurrence during the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>12 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>HIS Metric </b></p>
+<p><b>(QA-C metric) </b></p>
+<p><b>Rationale and Enforcement Strategy </b></p>
+<p>development process of each component.  </p>
+<p><b>&gt; </b></p>
+<p>The components are assembled to a large number of different projects </p>
+<p>with different configurations resulting in different number of MISRA </p>
+<p>deviations. Due to the product-line approach and the component-local </p>
+<p>handling, creating justification above the component level is not </p>
+<p>reasonable. </p>
+<p>Number of MISRA </p>
+<p>subset violations per </p>
+<p>rule (NOMVRP) </p>
+<p>HIS: 0 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Same justification as for NOMV </p>
+<p>Stability Index „S</p>
+<p>i</p>
+<p> “ </p>
+<p> </p>
+<p>HIS: &lt;=1 </p>
+<p>This metric is measured but deviations are not justified. </p>
+<p>Justification: </p>
+<p><b>&gt; </b></p>
+<p>Basic idea of this metric is to show that the code has less changes from </p>
+<p>release to release. This is typically true for a concrete ECU project in its </p>
+<p>given timeline. The time-boxed product-line development has features of </p>
+<p>different products developed at the same time and each release is </p>
+<p>typically “production”. In addition, the code consists on a static part and a </p>
+<p>generated part. The generated part depends on the used configuration </p>
+<p>database. The reference database is updated with each time-box, too. </p>
+<p>Due to those effects creating justifications for the product is not </p>
+<p>reasonable. </p>
+<p>Table 3-1 HIS code metric compliance matrix </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>13 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>4 </b></p>
+<p><b>Appendix </b></p>
+<p><b>4.1 </b></p>
+<p><b>MISRA Justification for “Project Deviations” </b></p>
+<p>This chapter contains the list of the agreed and released MISRA (Project) Product Deviations. </p>
+<p>MISRA test reports references the Deviation ID, if applicable. If a deviation does not match the </p>
+<p>description in this chapter, it is handled similar to a Specific Deviation with a local justification. </p>
+<p>MISRA has released [MISRA-P1] in 04/2016 with permits to some MISRA-C:2004 rules. Some of </p>
+<p>these permits are similar of the product deviations described in this document. If there is a dedicated </p>
+<p>MISRA permit, a link is added. [MISRA-P1] contains additional permits not contained in this chapter. </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.E.1. </p>
+<p>Reason </p>
+<p>To access directly to hardware which is required to develop operating </p>
+<p>systems, drivers and flash boot loaders the usage of special compiler features </p>
+<p>such as qualifiers and pragmas is usually required. Further such concepts are </p>
+<p>sometimes required for memory mapping. </p>
+<p>Potential risks </p>
+<p>The used language extension may not have been fully understood or used </p>
+<p>incorrectly. This can lead to wrong behavior of hardware dependent software </p>
+<p>parts. </p>
+<p>Prevention of risks </p>
+<p>During the code inspection hardware dependent software parts are checked. </p>
+<p>Each delivery is integrated and tested on the real target system where such </p>
+<p>extensions are used. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>Declaration of interrupt service routine: </p>
+<p>__interrupt void CanTxInterrupt(void); </p>
+<p>allocate constant data to CONST segment: </p>
+<p>#pragma memory=constseg(CONST_DATA) :far</p>
+<p> </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1_639 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0639 checks if the maximum number of members in a struct or </p>
+<p>union exceeds 127. This check is due to some older compilers do not support </p>
+<p>more than 127 members. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, the </p>
+<p>maximum of 127 is not sufficient to model the necessary structures. </p>
+<p>Potential risks </p>
+<p>A compiler might not correctly translate the software what might result in </p>
+<p>incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>14 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1_715 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0715 checks if the maximum number of control structures </p>
+<p>exceeds 15. This check is due to some older compilers do not support more </p>
+<p>than 15 nesting levels. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, the </p>
+<p>maximum of 15 is in some cases not sufficient to model the necessary </p>
+<p>structures. </p>
+<p>Potential risks </p>
+<p>A compiler might not correctly translate the software what might result in </p>
+<p>incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1_810 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0810 checks if the maximum #include nesting level exceeds 8 </p>
+<p>levels. This check is due to some older preprocessors do not support more </p>
+<p>than 8 #include levels. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, the </p>
+<p>maximum of 8 #include level is not sufficient to model the necessary </p>
+<p>structures.  </p>
+<p>Potential risks </p>
+<p>A preprocessor might not correctly pre-process the software what might result </p>
+<p>in incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>15 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1_828 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0828 checks if the maximum #if nesting level exceeds 8 levels. </p>
+<p>This check is due to some older preprocessors do not support more than 8 #if </p>
+<p>levels. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, the </p>
+<p>maximum of 8 #if level is not sufficient to model the necessary structures.  </p>
+<p>Potential risks </p>
+<p>A preprocessor might not correctly pre-process the software what might result </p>
+<p>in incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_1.1_857 </b></p>
+<p>Violated rule </p>
+<p>1.1 (ISO C standard compliance) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/1.1.D.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0857 checks if the maximum number of defined macros </p>
+<p>exceeds 1024. This check is due to some older preprocessors do not support </p>
+<p>more than 1024 macros. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, the </p>
+<p>maximum of 1024 macros per compilation unit is not sufficient to model the </p>
+<p>necessary structures. </p>
+<p>Potential risks </p>
+<p>A preprocessor might not correctly pre-process the software what might result </p>
+<p>in incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>16 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_3.4 </b></p>
+<p>Violated rule </p>
+<p>3.4 (Usage of #pragma directives) </p>
+<p>Reason </p>
+<p>The concept of AUTOSAR’s Memory Mapping SWS introduces #pragma </p>
+<p>directives to create an optimized layout of the target platform’s memory. The </p>
+<p>#pragma directives are therefore not localized to specific fragments in the </p>
+<p>code, but transferred to the file MemMap.h. Instead of specifying the #pragma </p>
+<p>directives at the appropriate position in the code, MemMap.h is included. </p>
+<p>Potential risks </p>
+<p>The used language extension may not have been fully understood or used </p>
+<p>incorrectly. This can lead to wrong behavior of hardware dependent software </p>
+<p>parts. </p>
+<p>Prevention of risks </p>
+<p>During code inspection the Memory Mapping markers (so to say “logical </p>
+<p>sections”) before each “</p>
+<p>#include &lt;MemMap.h&gt;</p>
+<p>” are verified and checked </p>
+<p>against the memory qualifier defined in the Compiler Abstraction file </p>
+<p>Compiler_Cfg.h. Each delivery is integrated and tested on the real target </p>
+<p>system where such extensions are used. </p>
+<p>The user documentation contains a table displaying which logical section of </p>
+<p>the Memory Mapping is addressed by which Compiler Abstraction memory </p>
+<p>qualifier. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>allocate constant data to CONST segment: </p>
+<p>#pragma memory=constseg(CONST_DATA) :far</p>
+<p> </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_5.1_777 </b></p>
+<p>Violated rule </p>
+<p>5.1 (Identifiers (internal and external) shall not rely on the significance of more </p>
+<p>than 31 characters) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/5.1.A.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0777 checks if all external identifiers are different within the </p>
+<p>first 31 characters. This check is due to some older preprocessors compare </p>
+<p>just the first 31 characters. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, </p>
+<p>naming rules to prefix the identifiers are allocating a significant number of </p>
+<p>characters. Many of the identifiers are generated based on their elements in </p>
+<p>the OEM-defined configuration files. Combining these two effects, the first 31 </p>
+<p>characters are not always unique. </p>
+<p>Potential risks </p>
+<p>A compiler might not correctly pre-process the software what might result in </p>
+<p>incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>17 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_5.1_779 </b></p>
+<p>Violated rule </p>
+<p>5.1 (Identifiers (internal and external) shall not rely on the significance of more </p>
+<p>than 31 characters) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/5.1.A.1. </p>
+<p>Reason </p>
+<p>The QA-C rule 0779 checks if all internal identifiers are different within the first </p>
+<p>31 characters. This check is due to some older preprocessors compare just </p>
+<p>the first 31 characters. </p>
+<p>In complex software architectures like the AUTOSAR based MICROSAR, </p>
+<p>naming rules to prefix the identifiers are allocating a significant number of </p>
+<p>characters. Many of the identifiers are generated based on their elements in </p>
+<p>the OEM-defined configuration files. Combining these two effects, the first 31 </p>
+<p>characters are not always unique. </p>
+<p>Potential risks </p>
+<p>A compiler might not correctly pre-process the software what might result in </p>
+<p>incorrect code. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. In addition, </p>
+<p>preprocessors and compilers used in current MICROSAR projects are not </p>
+<p>expected to suffer from this (historic) limitation. </p>
+<p>Compiler selection and validation is done by ECU supplier. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_5.6 </b></p>
+<p>Violated rule </p>
+<p>5.6 (No identifier in one name space should have the same spelling as an </p>
+<p>identifier in another name space, with the exception of structure and union </p>
+<p>member names.) </p>
+<p>Reason </p>
+<p>This MISRA rule addresses potential misunderstandings by using the very </p>
+<p>same identifier multiple times in a different context. </p>
+<p> </p>
+<p>MICROSAR deviates partly from rule 5.6 by allowing deviations in case </p>
+<p>„Standards“ like AUTOSAR, ISO/ASAM/… and OEM specifications require the </p>
+<p>same identifier names in different name spaces. Note, that this use case is the </p>
+<p>only accepted application of this deviation. </p>
+<p>Potential risks </p>
+<p>Readability of the code is reduced by such ambiguities.  </p>
+<p>Prevention of risks </p>
+<p>Code inspection and test. </p>
+<p>Examples </p>
+<p>The identifier names “length” and “data” specified by AUTOSAR both for </p>
+<p>structure members and functions parameters lead to a violation of rule 5.6 if </p>
+<p>the related header files of these two modules are included. </p>
+<p> </p>
+<p>[SWS_SoAd_00681]: </p>
+<p>Std_ReturnType SoAd_ReadDhcpHostNameOption(  </p>
+<p>    SoAd_SoConIdType SoConId,  </p>
+<p>    uint8* length,  </p>
+<p>    uint8* data  </p>
+<p>) </p>
+<p> </p>
+<p>[SWS_Csm_00076] </p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  uint32 length; </p>
+<p>  Csm_AsymPublicKeyArrayType data; </p>
+<p>} Csm_AsymPublicKeyType; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>18 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_5.7</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>5.7 (No identifier name should be reused) </p>
+<p>Reason </p>
+<p>This MISRA rule addresses potential misunderstandings by using the very </p>
+<p>same name multiple times with different meanings in different context. </p>
+<p>In general, this is addressed by naming conventions for external and globally </p>
+<p>visible identifiers like typedef, functions, global data and similar and explicitly </p>
+<p>addressed by rules 5.2 to 5.6. </p>
+<p> </p>
+<p>MICROSAR deviates partly to rule 5.7 by allowing the reuse of  </p>
+<p>parameter names  </p>
+<p>function-local variable names </p>
+<p> </p>
+<p><b>These specific MISRA deviations are not annotated in the code </b>because </p>
+<p>the rule is checked by review and it can on module level not decided, if any </p>
+<p>other module in the later project may use the same parameter name or not. A </p>
+<p>general deviation for each API and local function reduces the code readability </p>
+<p>on important topics. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note 1 </b></p>
+<p>Complex software architectures like AUTOSAR define the </p>
+<p>function prototypes including the name of the parameter. The </p>
+<p>name of the API is compliant to rule 5.7 but the used parameter </p>
+<p>name is often the same for different APIs. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note 2 </b></p>
+<p>Enforcing a unique parameter and function-local variable name </p>
+<p>code style rule implies that the function name has to be part of the </p>
+<p>resulting identifier name. As the function’s name has already been </p>
+<p>build based on e.g. a module-prefix and other constraints, the </p>
+<p>resulting identifier name will be very long and thus unreadable </p>
+<p>and error-prone. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note 3 </b></p>
+<p>This procedure follows the spirit of MISRA-C:2012 where this rule </p>
+<p>has been relaxed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Potential risks </p>
+<p>MISRA addresses an absolute unique definition of all identifiers in a software </p>
+<p>system to reduce the risk of erroneous usage. This risk is sufficiently </p>
+<p>addressed by applying rule 5.7 to global and external identifiers and keep </p>
+<p>local identifiers “readable”.  </p>
+<p>Prevention of risks </p>
+<p>Compliance to rules 5.2 – 5.6 and AUTOSAR naming convention prevents that </p>
+<p>a variable is unexpectedly misused. </p>
+<p>Applying a strict development process with independent module tests shows </p>
+<p>that each module is complete and independent to each other, so unexpected </p>
+<p>misuse by e.g. writing error of a parameter or local variable name is </p>
+<p>detectable. </p>
+<p>Examples </p>
+<p>void &lt;BSW_NAME_1&gt;_GetVersionInfo(Std_VersionInfoType* <b>versioninfo </b>) </p>
+<p>{ </p>
+<p>  for(uint8 <b>i</b>=0; i&lt;10; i++) { </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p>void &lt;BSW_NAME_2&gt;_GetVersionInfo(Std_VersionInfoType* <b>versioninfo </b>) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>19 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_5.7</b></p>
+<p><b> </b></p>
+<p>{ </p>
+<p>  for(uint8 <b>i</b>=0; i&lt;10; i++) { </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_8.10</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>8.10 (global symbol only referenced in one translation unit) </p>
+<p>Reason </p>
+<p>Since the actual usage of the software component by the customer is not </p>
+<p>known some of the provided interfaces may not be used. Also during MISRA </p>
+<p>analysis there may be some provided APIs which are not in use. </p>
+<p>If there is only one configuration it is possible to reference such symbols in a </p>
+<p>test module. In case of large test suites with many configurations this is not </p>
+<p>feasible. </p>
+<p>Potential risks </p>
+<p>Functions or global variables which are superfluous in a specific configuration </p>
+<p>may remain undetected which leads to a small resource overhead. </p>
+<p>Other software parts in the application could access symbols which should </p>
+<p>only be used internally. </p>
+<p>Prevention of risks </p>
+<p>By code inspection of the different variants.  </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_14.1</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>14.1 (unreachable code - API function not used in project) </p>
+<p> </p>
+<p>[MISRA-P1] addresses this topic in Permit/MISRA/C:2004/14.1.A.1. </p>
+<p>Reason </p>
+<p>Since the actual usage of the software component by the customer is not </p>
+<p>known some of the provided interfaces may not be used. Also during MISRA </p>
+<p>analysis there may be some provided APIs which are not in use.  </p>
+<p>If there is only one configuration it is possible to reference such symbols in a </p>
+<p>test module. In case of large test suites with many configurations this is not </p>
+<p>feasible. </p>
+<p>Potential risks </p>
+<p>Functions or global variables which are superfluous in a specific configuration </p>
+<p>may remain undetected which leads to a small resource overhead. </p>
+<p>Other software parts in the application could access symbols which should </p>
+<p>only be used internally. </p>
+<p>Prevention of risks </p>
+<p>By code inspection of the different variants.  </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>20 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_14.2</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>14.2 (All non-null statements shall either (i) have at least one side-effect </p>
+<p>however executed, or (ii) cause control flow to change) </p>
+<p>Reason </p>
+<p>To support different kinds of dummy statements, a dummy statement is </p>
+<p>encapsulated in a macro like MSN_DUMMY_STATEMENT(x). </p>
+<p>If no dummy statement is required, the macro is empty and only a null-</p>
+<p>statement remains. </p>
+<p>Potential risks </p>
+<p>None, because in case of a dummy statement it is expected that there is no </p>
+<p>side effect. </p>
+<p>Prevention of risks </p>
+<p>Template based usage restricted to dummy statements. </p>
+<p>Examples </p>
+<p>MSN_DUMMY_STATEMENT(errorId); </p>
+<p>/* PRQA S 3112, 3199 */ /* MD_MSR_14.2 */  </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_14.3</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>14.3 (empty statement must appear on a line on its own) </p>
+<p>Reason </p>
+<p>If macros are used in different code variants it may happen that after resolving </p>
+<p>the macro only a null statement remains. This happens typically if assertions </p>
+<p>are implemented by macros. </p>
+<p>Potential risks </p>
+<p>Wrong macro implementations could remain undetected. </p>
+<p>Prevention of risks </p>
+<p>Code inspection of the macros and test of different source code variants by </p>
+<p>the component test suites. </p>
+<p>Examples </p>
+<p>Assertions: </p>
+<p>#if defined( IL_ENABLE_SYS_TESTDEBUG ) </p>
+<p>  #define IlAssert(p,e) if ((p)==0) {(ApplIlFatalError((e)));} </p>
+<p>#else </p>
+<p>   #define IlAssert(a,b) </p>
+<p>#endif </p>
+<p>/* if assertions are disabled the following line leads to a </p>
+<p>„;“ after preprocessing but there are other characters in the </p>
+<p>source line */ </p>
+<p>IlAssert(idx &lt;= 0x80, ILERR_ILLTIMERMASK);</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>21 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_14.7</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>14.7 (single point of exit at end of function) </p>
+<p>Reason </p>
+<p>Note: Vector development “Process 3” compliant software has to comply to </p>
+<p>rule 14.7. </p>
+<p> </p>
+<p>A single exit point may lead to an inefficient or more difficult to understand </p>
+<p>code because the structure of the function can become more complex. </p>
+<p>Therefore it may be necessary to violate this rule for runtime and maintenance </p>
+<p>efficiency reasons. </p>
+<p>Potential risks </p>
+<p>Function may e.g. terminate with locked interrupts. Control and data flow have </p>
+<p>multiple paths </p>
+<p></p>
+<p> increased risk of adding errors during maintenance activities. </p>
+<p>Prevention of risks </p>
+<p>Product design defines two &quot;blocks&quot; in each function, one block is </p>
+<p>&quot;checking/validity action like DET checks&quot;, and another block is &quot;functional </p>
+<p>behavior&quot;. &quot;Checking/validity actions&quot; are allowed to terminate immediately </p>
+<p>resulting in more than one exit in the function. &quot;Functional behavior&quot; checks </p>
+<p>are expected to terminate at the end of the function in one single exit. </p>
+<p>Based on this design rule, a justification is necessary for each deviating </p>
+<p>function. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_16.7</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>16.7 (A pointer parameter in a function prototype should be declared as </p>
+<p>pointer to const if the pointer is not used to modify the addressed object) </p>
+<p>Reason </p>
+<p>Many standards like AUTOSAR, ISO, but also OEM specifications … specify </p>
+<p>the function prototypes without const statement. We have to comply with these </p>
+<p>standards. </p>
+<p>Potential risks </p>
+<p>Less precision in describing access rights on interface level may lead to </p>
+<p>incorrect use of the parameters. </p>
+<p>Prevention of risks </p>
+<p>Standards describe allowed parameter use and code style guide describes </p>
+<p>how to document parameter usage in the code to reduce risk of wrong usage. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_18.4</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>18.4 (packing and unpacking of data, variant records) </p>
+<p>Reason </p>
+<p>For an efficient implementation of protocols the usage of unions is required. </p>
+<p>This is covered by the two acceptable deviations described in [MISRA-C] </p>
+<p>Potential risks </p>
+<p>Union data may be misinterpreted by mixing up the different variants. </p>
+<p>Prevention of risks </p>
+<p>Code inspection and test of the different variants in the component test. </p>
+<p>Examples </p>
+<p>s. [MISRA-C] rule 18.4 packing and unpacking and variant record examples </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>22 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.1</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.1 (#include statements preceded) </p>
+<p>Reason </p>
+<p>AUTOSAR SWS Memory Mapping requires inclusion of MemMap.h multiple </p>
+<p>times in a file in order to select appropriate #pragma directives. </p>
+<p>Potential risks </p>
+<p>MemMap.h is provided by the ECU software integrator, hence many risks may </p>
+<p>occur, caused by wrong implementation of this file. </p>
+<p>Prevention of risks </p>
+<p>The ECU software integrator strictly has to adhere to the definitions of the </p>
+<p>AUTOSAR SWS Memory Mapping. Extensions to the file not described in the </p>
+<p>SWS may not be put into MemMap.h. This has to be verified by code </p>
+<p>inspection. </p>
+<p>Examples </p>
+<p>#define ECUM_STOP_SEC_CODE </p>
+<p>#include &quot;MemMap.h&quot;</p>
+<p> </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.4</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.4 (reserved C keywords or braces / parentheses in macro) </p>
+<p>Reason </p>
+<p>Since efficiency is a primary implementation target it is necessary to use </p>
+<p>macros. </p>
+<p>Note that the proposed do-while-zero construct in [MISRA-C] leads to “useless </p>
+<p>statement” warnings with many compilers. </p>
+<p>Potential risks </p>
+<p>Resulting code is difficult to understand or may not work as expected. </p>
+<p>Prevention of risks </p>
+<p>Code inspection and test of the different variants in the component test. </p>
+<p>Examples </p>
+<p>#define FRNM_CHECK_INIT(ApiId) \ </p>
+<p>  { \ </p>
+<p>    if( FrNm_NmState[FRNM_CHANNEL_IDX] == NM_STATE_UNINIT ) \ </p>
+<p>    { \ </p>
+<p>      (void)Det_ReportError(FRNM_MODULE_ID, FRNM_INSTANCE_ID,   </p>
+<p>                            (ApiId), FRNM_E_UNINIT ); </p>
+<p>    } \ </p>
+<p>  } </p>
+<p>#endif</p>
+<p> </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.6</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.6 (#undef shall not be used) </p>
+<p>Reason </p>
+<p>AUTOSAR SWS Memory Mapping requires #undef statements in order to </p>
+<p>implement the #pragma selection mechanism in MemMap.h </p>
+<p>Potential risks </p>
+<p>MemMap.h is provided by the integrator; hence many risks may occur, caused </p>
+<p>by wrong implementation of this file. </p>
+<p>Prevention of risks </p>
+<p>The integrator strictly has to adhere to the definitions of the AUTOSAR SWS </p>
+<p>Memory Mapping. Extensions to the file not described in the SWS may not be </p>
+<p>put into MemMap.h. This has to be verified by code inspection. </p>
+<p>Examples </p>
+<p>#ifdef START_SEC_CONST_32BIT </p>
+<p>  #pragma<b> </b>section MyConst32BitSection </p>
+<p>  #undef START_SEC_CONST_32BIT </p>
+<p>  #undef MEMMAP_ERROR </p>
+<p>#endif</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>23 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.7</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.7 (function should be used instead of macro) </p>
+<p>Reason </p>
+<p>Since efficiency is a primary implementation target it is necessary to use </p>
+<p>macros. </p>
+<p>Potential risks </p>
+<p>Resulting code is difficult to understand or may not work as expected. </p>
+<p>Prevention of risks </p>
+<p>Code inspection and test of the different variants in the component test. </p>
+<p>Examples </p>
+<p>#define Com_IsDirectOfTxModeTrue(Index) </p>
+<p>   (COMDIRECTOFTXMODETRUE_MASK ==   </p>
+<p>   (Com_GetMaskedBitsOfTxModeTrue(Index) &amp;  </p>
+<p>   COMDIRECTOFTXMODETRUE_MASK))</p>
+<p>  </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.8</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.8 (A function-like macro shall not be invoked without all of its arguments) </p>
+<p>Reason </p>
+<p>AUTOSAR SWS Compiler Abstraction allows configuration of standard </p>
+<p>addressing mode by #define’ing an empty compiler abstraction qualifier in </p>
+<p>Compiler_Cfg.h. </p>
+<p>Potential risks </p>
+<p>None. </p>
+<p>Prevention of risks </p>
+<p>None. </p>
+<p>Examples </p>
+<p>In Compiler_Cfg.h: </p>
+<p>#define EEP_CONST </p>
+<p> </p>
+<p>In Eep.c (implementation of component): </p>
+<p>CONST(uint8, EEP_CONST) Eep_Status; </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_19.13_0342</b></p>
+<p><b> </b></p>
+<p>Violated rule </p>
+<p>19.13 (The # and ## preprocessor operators should not be used) </p>
+<p>Reason </p>
+<p>“Rule 0342: K&amp;R compilers do not support the ISO glue operator '##'.” </p>
+<p>AUTOSAR requires C90 and C90 supports ## operators.  </p>
+<p>Potential risks </p>
+<p>None. </p>
+<p>Prevention of risks </p>
+<p>None. </p>
+<p>Examples </p>
+<p>- </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Code Metric Justification for “Product Deviations” </b></p>
+<p>This chapter contains the list of the agreed and released code metric Product Deviations. </p>
+<p>Test reports references the Deviation ID, if applicable. If a deviation does not match the description in </p>
+<p>this chapter, it is handled similar to a Specific Deviation with a local justification. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The QA-C error codes are defined by Vector and are no standard QA-C error codes. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>24 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_STPTH </b></p>
+<p>Violated metric </p>
+<p>Estimated static path count defined by HIS shall be in range 1..80 </p>
+<p>QA-C error code </p>
+<p>6010 </p>
+<p>Reason </p>
+<p>No separation of functionality into sub-functions due to higher voted </p>
+<p>requirements for minimized stack and runtime usage applied on the code. </p>
+<p>Potential risks </p>
+<p>Understandability and testability might become too complex. </p>
+<p>Prevention of risks </p>
+<p>Design and code review + clearly structured and commented code. </p>
+<p>Comments </p>
+<p>Metric calculates the upper bound of possible (non-cyclic) paths in function’s </p>
+<p>control flow. Metric addresses the TESTABILITY of a function – the higher the </p>
+<p>more test cases might be necessary. </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_STCYC </b></p>
+<p>Violated metric </p>
+<p>Cyclomatic complexity defined by HIS shall be in range 1..10 </p>
+<p>QA-C error code </p>
+<p>6030 </p>
+<p>Reason </p>
+<p>No separation of functionality into sub-functions due to higher voted </p>
+<p>requirements for minimized stack and runtime usage applied on the code. </p>
+<p>Potential risks </p>
+<p>Understandability and testability might become too complex. </p>
+<p>Prevention of risks </p>
+<p>Design and code review + clearly structured and commented code. </p>
+<p>Comments </p>
+<p>Metric indicates potentially inadequate modularization or too much logic in one </p>
+<p>function if the value is high, the function may tend to have complexity related </p>
+<p>issues. Metric addresses a HOTSPOT in the code. </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_STCAL </b></p>
+<p>Violated metric </p>
+<p>Number of distinct function calls defined by HIS shall be in range 0..7 </p>
+<p>QA-C error code </p>
+<p>6050 </p>
+<p>Reason </p>
+<p>Software structure is defined by AUTOSAR standard. Standard compliance is </p>
+<p>voted higher than metric threshold. In addition, a typical approach to reduce </p>
+<p>STCAL is deeper nesting of functions,  this increases call stack usage and </p>
+<p>runtime. </p>
+<p>Potential risks </p>
+<p>Understandability and testability might become too complex due to fan-out to </p>
+<p>many functions. </p>
+<p>Prevention of risks </p>
+<p>Design and code review + clearly structured and commented code. </p>
+<p>Comments </p>
+<p>Metric indicates fan-out of a function, i.e. how many different functions are </p>
+<p>called. Metric addresses a HOTSPOT in the code. </p>
+<p>The fan-out depends on a mix of component-local design and on global </p>
+<p>design (AUTOSAR). Only component-local design could be adopted. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>25 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_STPAR </b></p>
+<p>Violated metric </p>
+<p>Number of function parameters defined by HIS shall be in range 0..5 </p>
+<p>QA-C error code </p>
+<p>6060 </p>
+<p>Reason </p>
+<p>API is defined by AUTOSAR standard. Standard compliance is voted higher </p>
+<p>than metric threshold. </p>
+<p>Potential risks </p>
+<p>Stack usage and runtime too high for target uC. </p>
+<p>Prevention of risks </p>
+<p>Test of resulting code on target uC, user has to check stack usage in project </p>
+<p>context. </p>
+<p>Comments </p>
+<p>Metric counts number of declared parameters in the function argument list </p>
+<p>what have impact on runtime and call stack usage. </p>
+<p>Vector is aware of such environmental conditions and applies larger numbers </p>
+<p>of function parameters only, if explicitly required by standards like AUTOSAR, </p>
+<p>ISO, customer, … specs. </p>
+<p> </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_MSR_STMIF </b></p>
+<p>Violated metric </p>
+<p>Number maximum nesting of control structures defined by HIS shall be in </p>
+<p>range 0..4 </p>
+<p>QA-C error code </p>
+<p>6080 </p>
+<p>Reason </p>
+<p>Function handles specific task in the overall component behavior; task has </p>
+<p>different scenarios to cover depending on local conditions – this results in </p>
+<p>deep nesting of control structures. Due to there is more common than different </p>
+<p>code, higher nesting level is accepted to keep code footprint small. </p>
+<p>Potential risks </p>
+<p>Code is difficult to maintain. </p>
+<p>Prevention of risks </p>
+<p>Design and code review + clearly structured and commented code. </p>
+<p>Comments </p>
+<p>Metric addresses the MAINTAINABILITY of the code. Expectation is, that deep </p>
+<p>nesting of control structures increases the effort to understand a function. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compliance Documentation MISRA-C:2004</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>26 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>5 </b></p>
+<p><b>Additional Resources </b></p>
+<p><b>No. </b></p>
+<p><b>Document </b></p>
+<p>[MISRA-C] </p>
+<p>MISRA-C:2004 Guidelines for the use of the C language in critical systems (October 2004)  </p>
+<p>[MISRA-P1] </p>
+<p>MISRA C 2004 Permits (First Edition).pdf (April 2016) </p>
+<p>[HIS-MISRA] </p>
+<p>Gemeinsames Subset der MISRA C Guidelines (Version 2.0, not public available) </p>
+<p>[HIS-CODE] </p>
+<p>HIS Source Code Metriken (Version 1.3.1, not public available) </p>
+<p>[AUTOSAR] </p>
+<p>http://www.autosar.org/ </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

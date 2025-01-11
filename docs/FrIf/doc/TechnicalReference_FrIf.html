@@ -1,0 +1,6207 @@
+---
+layout: default
+title: TechnicalReference_FrIf
+nav_order: 3
+parent: FlexRay Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR FlexRay Interface </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Version 4.01.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Oliver Reineke, Anthony Thomas </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>2 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Anthony Thomas </p>
+<p>2016-04-24 </p>
+<p>4.00.00 </p>
+<p>First SafeBSW release. </p>
+<p>Anthony Thomas </p>
+<p>2016-07-13 </p>
+<p>4.00.01 </p>
+<p>Added deviation related to the job list </p>
+<p>resynchronization. </p>
+<p>Anthony thomas </p>
+<p>2017-03-24 </p>
+<p>4.01.00 </p>
+<p>Support 2 FlexRay Clusters </p>
+<p> </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1]</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_FlexRayInterface.pdf </p>
+<p>V3.2.0 </p>
+<p>[2]</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>V2.2.0 </p>
+<p>[3]</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_SWS_DEM.pdf </p>
+<p>V2.2.1 </p>
+<p>[4]</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>V1.0.0 </p>
+<p>[5]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_Fr.pdf </p>
+<p>V1.14 or </p>
+<p>later </p>
+<p>[6]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_FrTrcv_Tja1080.pdf </p>
+<p>V.1.08 or </p>
+<p>later </p>
+<p>[7]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_FrNm.pdf </p>
+<p>V1.3.0 or </p>
+<p>later </p>
+<p>[8]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_EcuM.pdf </p>
+<p>V2.1.0 or </p>
+<p>later </p>
+<p>[9]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_Com.pdf </p>
+<p>V2.6.0 or </p>
+<p>later </p>
+<p>[10]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_PduR.pdf </p>
+<p>V3.4.0 or </p>
+<p>later </p>
+<p>[11]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_Asr_SchM.pdf </p>
+<p>V2.3.0 or </p>
+<p>later </p>
+<p>[12]</p>
+<p> </p>
+<p> </p>
+<p> AN-ISC-8-1118_MICROSAR_BSW_Compatibility_Check.pdf </p>
+<p>V1.0 </p>
+<p>[13]</p>
+<p> </p>
+<p> </p>
+<p>TechnicalReference_IdentityManager.pdf </p>
+<p>V1.1.7 or </p>
+<p>later </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>3 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Scope of the Document  </b></p>
+<p>This technical reference describes the general use of the FlexRay Interface basic software.  </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the questionnaire. </p>
+<p>Whereas the programs do support other configurations than the one specified in your </p>
+<p>questionnaire, Vector´s release of the programs delivered to your company is expressly </p>
+<p>restricted to the configuration you have specified in the questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>4 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History</b></p>
+<p><b> ......................................................................................................... 11 </b></p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction</b></p>
+<p><b> ...................................................................................................................... 12 </b></p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview</p>
+<p> ................................................................................................. 13 </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description</b></p>
+<p><b> ................................................................................................... 15 </b></p>
+<p>3.1</p>
+<p> </p>
+<p>Features</p>
+<p> ......................................................................................................................... 15 </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations</p>
+<p> .................................................................................................... 16 </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions</p>
+<p> ................................................................................ 17 </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization</p>
+<p> .................................................................................................................... 17 </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Configuration Variants 1 and 2 (Pre-Compile and Link-Time </p>
+<p>Configuration)</p>
+<p> ............................................................................................. 17 </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Configuration Variant 3 (Post-build Configuration)</p>
+<p> ............................... 18 </p>
+<p>3.3</p>
+<p> </p>
+<p>States</p>
+<p> ............................................................................................................................. 18 </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions</p>
+<p> ............................................................................................................. 18 </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Cyclic function</p>
+<p> ............................................................................................. 18 </p>
+<p>3.4.2</p>
+<p> </p>
+<p>Job List Execution</p>
+<p> ...................................................................................... 18 </p>
+<p>3.4.2.1</p>
+<p> </p>
+<p>Job List Execution in Interrupt Context</p>
+<p>............................... 19 </p>
+<p>3.4.2.2</p>
+<p> </p>
+<p>Job List Execution in Task Context</p>
+<p> ..................................... 20 </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling</p>
+<p> ............................................................................................................... 20 </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting</p>
+<p> ................................................................... 20 </p>
+<p>3.5.1.1</p>
+<p> </p>
+<p>Parameter Checking</p>
+<p>.............................................................. 23 </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting</p>
+<p> ............................................................ 26 </p>
+<p>3.6</p>
+<p> </p>
+<p>Transmission</p>
+<p> ................................................................................................................. 28 </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Decoupled Transmission</p>
+<p> ........................................................................... 28 </p>
+<p>3.6.2</p>
+<p> </p>
+<p>Immediate Transmission</p>
+<p> ........................................................................... 28 </p>
+<p>3.7</p>
+<p> </p>
+<p>Reception</p>
+<p> ...................................................................................................................... 29 </p>
+<p>3.8</p>
+<p> </p>
+<p>Timer Handling</p>
+<p> ............................................................................................................. 29 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>5 </p>
+<p>based on template version 4.11.3 </p>
+<p>3.9</p>
+<p> </p>
+<p>Buffer Reconfiguration</p>
+<p> ................................................................................................. 29 </p>
+<p>3.10</p>
+<p> </p>
+<p>L-PDU Reconfiguration</p>
+<p> ............................................................................................... 29 </p>
+<p>3.11</p>
+<p> </p>
+<p>Dual Channel Redundancy Support</p>
+<p> .......................................................................... 30 </p>
+<p>3.12</p>
+<p> </p>
+<p>Dynamic Payload</p>
+<p> ......................................................................................................... 32 </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration</b></p>
+<p><b> ........................................................................................................................ 33 </b></p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery</p>
+<p> ......................................................................................................... 33 </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files</p>
+<p> ................................................................................................... 33 </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files</p>
+<p> ............................................................................................. 33 </p>
+<p>4.2</p>
+<p> </p>
+<p>Include Structure</p>
+<p> .......................................................................................................... 34 </p>
+<p>4.3</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping</p>
+<p> ............................................................ 35 </p>
+<p>4.4</p>
+<p> </p>
+<p>Critical Sections and Exclusive Areas</p>
+<p> ....................................................................... 35 </p>
+<p>4.4.1</p>
+<p> </p>
+<p>FRIF_EXCLUSIVE_AREA_0</p>
+<p> ................................................................... 35 </p>
+<p>4.4.2</p>
+<p> </p>
+<p>FRIF_EXCLUSIVE_AREA_1</p>
+<p> ................................................................... 36 </p>
+<p>4.4.3</p>
+<p> </p>
+<p>FRIF_EXCLUSIVE_AREA_2</p>
+<p> ................................................................... 36 </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description</b></p>
+<p><b> ................................................................................................................ 37 </b></p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions</p>
+<p> ............................................................................................................ 37 </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by FrIf</p>
+<p> ............................................................................................ 37 </p>
+<p>5.2.1</p>
+<p> </p>
+<p>FrIf_AbortCommunication</p>
+<p> ......................................................................... 37 </p>
+<p>5.2.2</p>
+<p> </p>
+<p>FrIf_AckAbsoluteTimerIRQ</p>
+<p> ....................................................................... 38 </p>
+<p>5.2.3</p>
+<p> </p>
+<p>FrIf_AckRelativeTimerIRQ</p>
+<p> ........................................................................ 39 </p>
+<p>5.2.4</p>
+<p> </p>
+<p>FrIf_AllowColdstart</p>
+<p> ..................................................................................... 39 </p>
+<p>5.2.5</p>
+<p> </p>
+<p>FrIf_AllSlots</p>
+<p> ................................................................................................. 39 </p>
+<p>5.2.6</p>
+<p> </p>
+<p>FrIf_CancelAbsoluteTimer</p>
+<p> ........................................................................ 40 </p>
+<p>5.2.7</p>
+<p> </p>
+<p>FrIf_CancelRelativeTimer (optional)</p>
+<p>........................................................ 41 </p>
+<p>5.2.8</p>
+<p> </p>
+<p>FrIf_CancelTransmit (optional)</p>
+<p> ................................................................. 41 </p>
+<p>5.2.9</p>
+<p> </p>
+<p>FrIf_CheckWakeupByTransceiver</p>
+<p> ........................................................... 42 </p>
+<p>5.2.10</p>
+<p> </p>
+<p>FrIf_ClearTransceiverWakeup</p>
+<p> ................................................................. 42 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>6 </p>
+<p>based on template version 4.11.3 </p>
+<p>5.2.11</p>
+<p> </p>
+<p>FrIf_ControllerInit</p>
+<p> ........................................................................................ 43 </p>
+<p>5.2.12</p>
+<p> </p>
+<p>FrIf_DisableLPdu (optional)</p>
+<p> ...................................................................... 44 </p>
+<p>5.2.13</p>
+<p> </p>
+<p>FrIf_DisableAbsoluteTimerIRQ</p>
+<p> ................................................................ 45 </p>
+<p>5.2.14</p>
+<p> </p>
+<p>FrIf_DisableRelativeTimerIRQ</p>
+<p> ................................................................. 46 </p>
+<p>5.2.15</p>
+<p> </p>
+<p>FrIf_DisableTransceiverBranch</p>
+<p>................................................................ 46 </p>
+<p>5.2.16</p>
+<p> </p>
+<p>FrIf_EnableAbsoluteTimerIRQ</p>
+<p> ................................................................. 47 </p>
+<p>5.2.17</p>
+<p> </p>
+<p>FrIf_EnableRelativeTimerIRQ</p>
+<p> .................................................................. 47 </p>
+<p>5.2.18</p>
+<p> </p>
+<p>FrIf_EnableTransceiverBranch</p>
+<p> ................................................................ 47 </p>
+<p>5.2.19</p>
+<p> </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus</p>
+<p> ............................................................ 48 </p>
+<p>5.2.20</p>
+<p> </p>
+<p>FrIf_GetChannelStatus (optional)</p>
+<p> ............................................................ 49 </p>
+<p>5.2.21</p>
+<p> </p>
+<p>FrIf_GetClockCorrection (optional)</p>
+<p> .......................................................... 50 </p>
+<p>5.2.22</p>
+<p> </p>
+<p>FrIf_GetCycleLength</p>
+<p> .................................................................................. 51 </p>
+<p>5.2.23</p>
+<p> </p>
+<p>FrIf_GetGlobalTime</p>
+<p> ................................................................................... 51 </p>
+<p>5.2.24</p>
+<p> </p>
+<p>FrIf_GetMacrotickDuration</p>
+<p> ........................................................................ 52 </p>
+<p>5.2.25</p>
+<p> </p>
+<p>FrIf_GetMacroticksPerCycle</p>
+<p> ..................................................................... 53 </p>
+<p>5.2.26</p>
+<p> </p>
+<p>FrIf_GetNmVector</p>
+<p> ...................................................................................... 53 </p>
+<p>5.2.27</p>
+<p> </p>
+<p>FrIf_GetNumOfStartupFrames</p>
+<p> ................................................................. 54 </p>
+<p>5.2.28</p>
+<p> </p>
+<p>FrIf_GetPOCStatus</p>
+<p> .................................................................................... 55 </p>
+<p>5.2.29</p>
+<p> </p>
+<p>FrIf_GetRelativeTimerIRQStatus</p>
+<p> ............................................................. 56 </p>
+<p>5.2.30</p>
+<p> </p>
+<p>FrIf_GetState</p>
+<p>............................................................................................... 56 </p>
+<p>5.2.31</p>
+<p> </p>
+<p>FrIf_GetSyncFrameList (optional)</p>
+<p> ........................................................... 56 </p>
+<p>5.2.32</p>
+<p> </p>
+<p>FrIf_GetTransceiverError</p>
+<p> .......................................................................... 58 </p>
+<p>5.2.33</p>
+<p> </p>
+<p>FrIf_GetTransceiverMode</p>
+<p> ......................................................................... 59 </p>
+<p>5.2.34</p>
+<p> </p>
+<p>FrIf_GetTransceiverWUReason</p>
+<p> ............................................................... 59 </p>
+<p>5.2.35</p>
+<p> </p>
+<p>FrIf_GetWakeupRxStatus</p>
+<p> ......................................................................... 60 </p>
+<p>5.2.36</p>
+<p> </p>
+<p>FrIf_HaltCommunication</p>
+<p> ........................................................................... 61 </p>
+<p>5.2.37</p>
+<p> </p>
+<p>FrIf_Init</p>
+<p> ......................................................................................................... 62 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>7 </p>
+<p>based on template version 4.11.3 </p>
+<p>5.2.38</p>
+<p> </p>
+<p>FrIf_InitMemory</p>
+<p>........................................................................................... 62 </p>
+<p>5.2.39</p>
+<p> </p>
+<p>FrIf_JobListExec_&lt;ClstIdx&gt;</p>
+<p> ...................................................................... 63 </p>
+<p>5.2.40</p>
+<p> </p>
+<p>FrIf_MainFunction_&lt;ClstIdx&gt;</p>
+<p> ................................................................... 63 </p>
+<p>5.2.41</p>
+<p> </p>
+<p>FrIf_ReadCCConfig (optional)</p>
+<p> .................................................................. 64 </p>
+<p>5.2.42</p>
+<p> </p>
+<p>FrIf_ReconfigLPdu (optional)</p>
+<p> ................................................................... 65 </p>
+<p>5.2.43</p>
+<p> </p>
+<p>FrIf_SendWUP</p>
+<p> ............................................................................................ 66 </p>
+<p>5.2.44</p>
+<p> </p>
+<p>FrIf_SetAbsoluteTimer</p>
+<p> ............................................................................... 67 </p>
+<p>5.2.45</p>
+<p> </p>
+<p>FrIf_SetState</p>
+<p> ............................................................................................... 68 </p>
+<p>5.2.46</p>
+<p> </p>
+<p>FrIf_SetTransceiverMode</p>
+<p> ......................................................................... 69 </p>
+<p>5.2.47</p>
+<p> </p>
+<p>FrIf_SetWakeupChannel</p>
+<p> ........................................................................... 69 </p>
+<p>5.2.48</p>
+<p> </p>
+<p>FrIf_StartCommunication</p>
+<p> .......................................................................... 70 </p>
+<p>5.2.49</p>
+<p> </p>
+<p>FrIf_Transmit</p>
+<p> ............................................................................................... 71 </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by FrIf</p>
+<p> ................................................................................................... 73 </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions</p>
+<p> ....................................................................................................... 74 </p>
+<p>5.5</p>
+<p> </p>
+<p>Configurable Interfaces</p>
+<p> ............................................................................................... 75 </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Notifications</p>
+<p> ................................................................................................. 75 </p>
+<p>5.5.2</p>
+<p> </p>
+<p>Callout Functions</p>
+<p> ........................................................................................ 75 </p>
+<p>5.5.2.1</p>
+<p> </p>
+<p>&lt;UL&gt;_TriggerTransmit</p>
+<p> .......................................................... 75 </p>
+<p>5.5.2.2</p>
+<p> </p>
+<p>&lt;UL&gt;_TxConfirmation</p>
+<p> ........................................................... 76 </p>
+<p>5.5.2.3</p>
+<p> </p>
+<p>&lt;UL&gt;_RxIndication</p>
+<p> ................................................................ 77 </p>
+<p>5.5.2.4</p>
+<p> </p>
+<p>Rx Voting Function (optional for Dual Channel </p>
+<p>Redundancy Support)</p>
+<p> ........................................................... 77 </p>
+<p>5.5.3</p>
+<p> </p>
+<p>Complex Device Driver Callout Functions</p>
+<p> .............................................. 78 </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations</b></p>
+<p><b> .......................................................................................... 79 </b></p>
+<p>6.1</p>
+<p> </p>
+<p>Glossary</p>
+<p> ......................................................................................................................... 79 </p>
+<p>6.2</p>
+<p> </p>
+<p>Abbreviations</p>
+<p> ................................................................................................................ 79 </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact</b></p>
+<p><b> ............................................................................................................................. 81 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>8 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR architecture</p>
+<p> ....................................................................................... 13 </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the <b>FrIf</b></p>
+<p> ....................................................... 14 </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>FrIf’s state machine.</p>
+<p> ............................................................................................ 18 </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Behaviour of FrIf for replicated transmission</p>
+<p> ................................................... 30 </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Behaviour of FrIf for replicated reception</p>
+<p> ......................................................... 31 </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Include structure</p>
+<p> ................................................................................................... 34 </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history</p>
+<p> ............................................................................................... 11 </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features</p>
+<p> .......................................... 16 </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features</p>
+<p> ................................... 17 </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard</p>
+<p> ...................................... 17 </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Initialization example for the FlexRay Interface</p>
+<p> .............................................. 17 </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>The FrIf_JobListExec_0() function is directly called in the call-back </p>
+<p>function for FlexRay timer 0.</p>
+<p> .............................................................................. 19 </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>The FrIf_JobListExec_0() function is called inside a task that is activated </p>
+<p>in the call-back function for FlexRay timer 0.</p>
+<p> ................................................... 20 </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Mapping of service IDs to services</p>
+<p> ................................................................... 22 </p>
+<p>Table 3-8 </p>
+<p> </p>
+<p>Errors reported to DET</p>
+<p> ........................................................................................ 23 </p>
+<p>Table 3-9 </p>
+<p> </p>
+<p>Development Error Reporting: Assignment of checks to services</p>
+<p> ............... 26 </p>
+<p>Table 3-10 </p>
+<p> </p>
+<p>Errors reported to DEM</p>
+<p> ....................................................................................... 28 </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files</p>
+<p> .............................................................................................................. 33 </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files</p>
+<p> ..................................................................................................... 33 </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Compiler abstraction and memory mapping</p>
+<p> .................................................... 35 </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions</p>
+<p> .................................................................................................... 37 </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>FrIf_AbortCommunication</p>
+<p> ................................................................................... 38 </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>FrIf_AckAbsoluteTimerIRQ</p>
+<p>................................................................................. 39 </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>FrIf_AckRelativeTimerIRQ</p>
+<p> .................................................................................. 39 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>9 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>FrIf_AllowColdstart</p>
+<p>............................................................................................... 39 </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>FrIf_AllSlots</p>
+<p> ........................................................................................................... 40 </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>FrIf_CancelAbsoluteTimer</p>
+<p> .................................................................................. 41 </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>FrIf_CancelRelativeTimer</p>
+<p> ................................................................................... 41 </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>FrIf_CancelTransmit (optional)</p>
+<p> .......................................................................... 42 </p>
+<p>Table 5-10</p>
+<p> </p>
+<p>FrIf_CheckWakupByTransceiver</p>
+<p> ....................................................................... 42 </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>FrIf_ClearTransceiverWakeup</p>
+<p> ........................................................................... 43 </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>FrIf_ControllerInit</p>
+<p> ................................................................................................. 44 </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>FrIf_DisableLPdu</p>
+<p> ................................................................................................. 45 </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>FrIf_DisableAbsoluteTimerIRQ</p>
+<p> .......................................................................... 46 </p>
+<p>Table 5-15</p>
+<p> </p>
+<p>FrIf_DisableTransceiverBranch</p>
+<p> ......................................................................... 46 </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>FrIf_EnableAbsoluteTimerIRQ</p>
+<p> ........................................................................... 47 </p>
+<p>Table 5-17</p>
+<p> </p>
+<p>FrIf_EnableTransceiverBranch</p>
+<p> .......................................................................... 48 </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus</p>
+<p> ..................................................................... 49 </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>FrIf_GetChannelStatus (optional)</p>
+<p> ...................................................................... 50 </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>FrIf_GetClockCorrection (optional)</p>
+<p> ................................................................... 51 </p>
+<p>Table 5-21 FrIf_GetCycleLength</p>
+<p> ...................................................................................................... 51 </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>FrIf_GetGlobalTime</p>
+<p> ............................................................................................. 52 </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>FrIf_GetMacrotickDuration</p>
+<p> ................................................................................. 53 </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>FrIf_GetMacrotickDuration</p>
+<p> ................................................................................. 53 </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>FrIf_GetNmVector</p>
+<p> ................................................................................................ 54 </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>FrIf_GetNumOfStartupFrames</p>
+<p> ........................................................................... 55 </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>FrIf_GetPOCStatus</p>
+<p> .............................................................................................. 55 </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>FrIf_GetRelativeTimerIRQStatus</p>
+<p> ....................................................................... 56 </p>
+<p>Table 5-29 </p>
+<p> </p>
+<p>FrIf_GetState</p>
+<p> ........................................................................................................ 56 </p>
+<p>Table 5-30 </p>
+<p> </p>
+<p>FrIf_GetSyncFrameList (optional)</p>
+<p> ..................................................................... 58 </p>
+<p>Table 5-31 </p>
+<p> </p>
+<p>FrIf_GetTransceiverError</p>
+<p> .................................................................................... 58 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>10 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-32 </p>
+<p> </p>
+<p>FrIf_GetTransceiverMode</p>
+<p> ................................................................................... 59 </p>
+<p>Table 5-33 </p>
+<p> </p>
+<p>FrIf_GetTransceiverWUReason</p>
+<p> ........................................................................ 60 </p>
+<p>Table 5-34 </p>
+<p> </p>
+<p>FrIf_GetWakeupRxStatus</p>
+<p> ................................................................................... 61 </p>
+<p>Table 5-35 </p>
+<p> </p>
+<p>FrIf_HaltCommunication</p>
+<p> ..................................................................................... 62 </p>
+<p>Table 5-36 </p>
+<p> </p>
+<p>FrIf_Init</p>
+<p> ................................................................................................................... 62 </p>
+<p>Table 5-37 </p>
+<p> </p>
+<p>FrIf_InitMemory</p>
+<p> .................................................................................................... 63 </p>
+<p>Table 5-38 </p>
+<p> </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> .................................................................. 63 </p>
+<p>Table 5-39 </p>
+<p> </p>
+<p>FrIf_MainFunction_&lt;ClstIdx&gt;</p>
+<p> ............................................................................. 64 </p>
+<p>Table 5-40 </p>
+<p> </p>
+<p>FrIf_ReadCCConfig (optional)</p>
+<p> ........................................................................... 65 </p>
+<p>Table 5-41 </p>
+<p> </p>
+<p>FrIf_ReconfigLPdu (optional)</p>
+<p> ............................................................................. 66 </p>
+<p>Table 5-42 </p>
+<p> </p>
+<p>FrIf_SendWUP</p>
+<p> ..................................................................................................... 67 </p>
+<p>Table 5-43 </p>
+<p> </p>
+<p>FrIf_SetAbsoluteTimer</p>
+<p> ........................................................................................ 68 </p>
+<p>Table 5-44 </p>
+<p> </p>
+<p>FrIf_SetState</p>
+<p> ......................................................................................................... 68 </p>
+<p>Table 5-45 </p>
+<p> </p>
+<p>FrIf_SetTransceiverMode</p>
+<p> ................................................................................... 69 </p>
+<p>Table 5-46 </p>
+<p> </p>
+<p>FrIf_SetWakeupChannel</p>
+<p>..................................................................................... 70 </p>
+<p>Table 5-47 </p>
+<p> </p>
+<p>FrIf_StartCommunication</p>
+<p> .................................................................................... 71 </p>
+<p>Table 5-48 </p>
+<p> </p>
+<p>FrIf_Transmit</p>
+<p> ........................................................................................................ 71 </p>
+<p>Table 5-49 </p>
+<p> </p>
+<p>Services used by the <b>FrIf</b></p>
+<p> .................................................................................... 74 </p>
+<p>Table 5-50 </p>
+<p> </p>
+<p>&lt;UL&gt;_TriggerTransmit (“Use Pdu Info Type” enabled)</p>
+<p> ................................. 76 </p>
+<p>Table 5-51 </p>
+<p> </p>
+<p>&lt;UL&gt;_TxConfirmation</p>
+<p> ......................................................................................... 76 </p>
+<p>Table 5-52 </p>
+<p> </p>
+<p>&lt;UL&gt;_RxIndication (“Use Pdu Info Type” enabled)</p>
+<p>........................................ 77 </p>
+<p>Table 5-53 </p>
+<p> </p>
+<p>&lt;FrIfRxVotingFunction&gt;</p>
+<p> ...................................................................................... 78 </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Glossary</p>
+<p> ................................................................................................................ 79 </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Abbreviations</p>
+<p> ........................................................................................................ 80 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>11 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>1</b></p>
+<p><b> </b></p>
+<p><b>Component History </b></p>
+<p><b>Component </b></p>
+<p><b>Version </b></p>
+<p><b>New Features </b></p>
+<p>3.00.00 </p>
+<p>Adaptation to AUTOSAR Release 3 </p>
+<p>3.01.00 </p>
+<p>Added CRC check of configuration data </p>
+<p>3.02.00 </p>
+<p>Support of configuration variant 2 (Link-Time) </p>
+<p>Added Direct Buffer Access </p>
+<p>Added Job Concatenation </p>
+<p>Rework of Buffer Reconfiguration </p>
+<p>3.03.00 </p>
+<p>Added AUTOSAR 4.0 FIFO support  </p>
+<p>Added API optimizations </p>
+<p>3.04.00 </p>
+<p>Added additional code-size optimizations </p>
+<p>3.05.00 </p>
+<p>Added FreeOp Callback Support </p>
+<p>3.06.00 </p>
+<p>Added AUTOSAR 4.0 Get Sync Frame List Support </p>
+<p>Added AUTOSAR 4.0 Reconfig L-PDU Support </p>
+<p>Added Bugzilla 30176 Read CC Config Support </p>
+<p>Added support for multiple CDDs as upper layer software module </p>
+<p>Added support for delayed Tx Confirmation handling </p>
+<p>3.07.00 </p>
+<p>Added Dual Channel Redundancy Support (Bugzilla 42025) </p>
+<p>Added Support for PduInfoType in TriggerTransmit and RxIndication according to </p>
+<p>AUTOSAR 3.1.5 </p>
+<p>Configurable Communication Operation assignment for TxConfirmation </p>
+<p>3.10.00 </p>
+<p>Added support for AUTOSAR4 API services </p>
+<p>4.02.00 </p>
+<p>Added post-build selectable support </p>
+<p>Added FrTSyn upper layer module support </p>
+<p>Added extended module initialization support </p>
+<p>6.00.02 </p>
+<p>SafeBSW </p>
+<p>6.01.00 </p>
+<p>Support 2 FlexRay Clusters </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>12 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>2</b></p>
+<p><b> </b></p>
+<p><b>Introduction </b></p>
+<p>This  document  describes  the  functionality,  API  and  configuration  of  the  AUTOSAR  BSW  module <b> FrIf </b> as </p>
+<p>specified in </p>
+<p>467H</p>
+<p>[1].  </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile, link-time, post-build </p>
+<p><b>Vendor ID: </b></p>
+<p>FrIf_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>FrIf_MODULE_ID   </p>
+<p>61 decimal </p>
+<p>(according to ref. </p>
+<p>468H</p>
+<p>[4]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p>The main purpose of the FlexRay Interface is to provide a PDU based API that can be used asynchronously </p>
+<p>to the FlexRay global time by upper software layer modules. The FlexRay Interface assembles PDUs of the </p>
+<p>upper software layers into frames and vice versa. E.g. multiple bus-independent PDUs with a length of 8 </p>
+<p>bytes can be assembled into a frame with a length of up to 254 bytes. Thus bus-independent modules can </p>
+<p>take advantage of the large payload that is possible with FlexRay. </p>
+<p>Another </p>
+<p>task </p>
+<p>of </p>
+<p>the </p>
+<p>FlexRay </p>
+<p>Interface </p>
+<p>is </p>
+<p>to </p>
+<p>abstract </p>
+<p>the </p>
+<p>usage </p>
+<p>of </p>
+<p>multiple </p>
+<p>FlexRay </p>
+<p>Communication </p>
+<p>Controllers and multiple Transceiver Drivers within an ECU. As the Vector FlexRay-Stack currently supports </p>
+<p>only one FlexRay Communication Controller per ECU, this feature is not relevant for the current version. </p>
+<p>The behaviour of the FlexRay Interface can be summarized as follows: </p>
+<p></p>
+<p> </p>
+<p>The FlexRay Interface does not have any RAM buffers to store the content of PDUs, e.g. for periodic </p>
+<p>transmission. </p>
+<p></p>
+<p> </p>
+<p>The FlexRay Interface cannot be polled for received data. When a frame is received, the reception of the </p>
+<p>PDUs that are contained in the frame is actively indicated by the FlexRay Interface. </p>
+<p></p>
+<p> </p>
+<p>The FlexRay Interface provides the possibility to actively indicate the transmission of PDUs when the </p>
+<p>frame that contains the PDUs is actually transmitted. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>13 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>2.1</b></p>
+<p><b> </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the <b>FrIf </b>is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 AUTOSAR architecture </p>
+<p>The next figure shows the interfaces to adjacent modules of the <b>FrIf</b>. This interfaces are explained in section </p>
+<p>5.2</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>14 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the <b>FrIf </b></p>
+<p> </p>
+<p><b> class Module Structure</b></p>
+<p>Driver Abstraction</p>
+<p>Module</p>
+<p>Service User</p>
+<p><b>FRIF</b></p>
+<p>«EmbeddedInterface»</p>
+<p><b>PDU Handling</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_CancelTransmit()</p>
+<p>+ </p>
+<p>FrIf_JobListExec_0()</p>
+<p>+ </p>
+<p>FrIf_JobListExec_1()</p>
+<p>+ </p>
+<p>FrIf_Transmit()</p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrIf_ExecCurrentJob()</p>
+<p>+ </p>
+<p>FrIf_JobListExec()</p>
+<p>Module</p>
+<p>Fr</p>
+<p>Module</p>
+<p>FrArTp</p>
+<p>Module</p>
+<p>FrXcp</p>
+<p>Module</p>
+<p>PduR</p>
+<p>Module</p>
+<p>FrNm</p>
+<p>Module</p>
+<p>FrTp</p>
+<p>Module</p>
+<p>FrTrcv</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Transceiv er Abstraction</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_CheckWakeupByTransceiver()</p>
+<p>+ </p>
+<p>FrIf_ClearTransceiverWakeup()</p>
+<p>+ </p>
+<p>FrIf_DisableTransceiverBranch()</p>
+<p>+ </p>
+<p>FrIf_EnableTransceiverBranch()</p>
+<p>+ </p>
+<p>FrIf_GetTransceiverError()</p>
+<p>+ </p>
+<p>FrIf_GetTransceiverMode()</p>
+<p>+ </p>
+<p>FrIf_GetTransceiverWUReason()</p>
+<p>+ </p>
+<p>FrIf_SetTransceiverMode()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Generic</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrIf_CheckChannelStatus()</p>
+<p>+ </p>
+<p>FrIf_DiffT ime()</p>
+<p>+ </p>
+<p>FrIf_InitializeT ransmission()</p>
+<p>+ </p>
+<p>FrIf_JobListOutOfSync()</p>
+<p>+ </p>
+<p>FrIf_MainFunction()</p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_GetCycleLength()</p>
+<p>+ </p>
+<p>FrIf_GetMacrotickDuration()</p>
+<p>+ </p>
+<p>FrIf_GetMacroticksPerCycle()</p>
+<p>+ </p>
+<p>FrIf_GetVersionInfo()</p>
+<p>+ </p>
+<p>FrIf_Ini t()</p>
+<p>+ </p>
+<p>FrIf_InitMemory()</p>
+<p>+ </p>
+<p>FrIf_MainFunction_0()</p>
+<p>+ </p>
+<p>FrIf_MainFunction_1()</p>
+<p>Module</p>
+<p>FrSM</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Absolute Timer Handling</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_AckAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>FrIf_CancelAbsoluteTimer()</p>
+<p>+ </p>
+<p>FrIf_DisableAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>FrIf_EnableAbsoluteTimerIRQ()</p>
+<p>+ </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus()</p>
+<p>+ </p>
+<p>FrIf_SetAbsoluteTimer()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Controller Status</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_GetChannelStatus()</p>
+<p>+ </p>
+<p>FrIf_GetClockCorrection()</p>
+<p>+ </p>
+<p>FrIf_GetGlobalTime()</p>
+<p>+ </p>
+<p>FrIf_GetNmVector()</p>
+<p>+ </p>
+<p>FrIf_GetSyncFrameList()</p>
+<p>+ </p>
+<p>FrIf_ReadCCConfig()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Wakeup Handling</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_GetWakeupRxStatus()</p>
+<p>+ </p>
+<p>FrIf_SendWUP()</p>
+<p>+ </p>
+<p>FrIf_SetWakeupChannel()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Communication Control</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_AbortCommunication()</p>
+<p>+ </p>
+<p>FrIf_AllowColdstart()</p>
+<p>+ </p>
+<p>FrIf_AllSlots()</p>
+<p>+ </p>
+<p>FrIf_ControllerInit()</p>
+<p>+ </p>
+<p>FrIf_GetNumOfStartupFrames()</p>
+<p>+ </p>
+<p>FrIf_GetPOCStatus()</p>
+<p>+ </p>
+<p>FrIf_HaltCommunication()</p>
+<p>+ </p>
+<p>FrIf_StartCommunication()</p>
+<p>«EmbeddedInterfa...</p>
+<p><b>Frame Reconfiguration</b></p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_DisableLPdu()</p>
+<p>+ </p>
+<p>FrIf_ReconfigLPdu()</p>
+<p>Module</p>
+<p>FrTSyn</p>
+<p>Module</p>
+<p>EcuM</p>
+<p>Module</p>
+<p>Cdd</p>
+<p>Module</p>
+<p>PDU Upper Layer</p>
+<p>«EmbeddedInterface»</p>
+<p><b>State Handling</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrIf_DisableJobListExecution()</p>
+<p>+ </p>
+<p>FrIf_EnableJobListExecution()</p>
+<p>«ServiceFunction»</p>
+<p>+ </p>
+<p>FrIf_GetState()</p>
+<p>+ </p>
+<p>FrIf_SetState()</p>
+<p>Module</p>
+<p>Application</p>
+<p>Module</p>
+<p>Dcm</p>
+<p>Module</p>
+<p>Dem</p>
+<p>Module</p>
+<p>Det</p>
+<p>Module</p>
+<p>BswM</p>
+<p>«EmbeddedInterface»</p>
+<p><b>RX</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrIf_FillRedundantRxPduInfo()</p>
+<p>+ </p>
+<p>FrIf_HandleRedundantFrame()</p>
+<p>+ </p>
+<p>FrIf_Receive()</p>
+<p>+ </p>
+<p>FrIf_RxIndicationFunctions()</p>
+<p>+ </p>
+<p>FrIf_RxTask()</p>
+<p>«EmbeddedInterface»</p>
+<p><b>TX</b></p>
+<p>«LocalFunction»</p>
+<p>+ </p>
+<p>FrIf_IncrementTxReqCounter()</p>
+<p>+ </p>
+<p>FrIf_PrepareFrameBuffer()</p>
+<p>+ </p>
+<p>FrIf_PrepareTxPdus()</p>
+<p>+ </p>
+<p>FrIf_TriggerTransmitFunctions()</p>
+<p>+ </p>
+<p>FrIf_TxConfirmation()</p>
+<p>+ </p>
+<p>FrIf_TxConfirmationFunctions()</p>
+<p>+ </p>
+<p>FrIf_TxConfTask()</p>
+<p>+ </p>
+<p>FrIf_TxRollback()</p>
+<p>+ </p>
+<p>FrIf_TxTask()</p>
+<p><b>FrIf</b></p>
+<p>Module</p>
+<p>Rtm</p>
+<p>Hardware</p>
+<p>CC</p>
+<p>Hardware</p>
+<p>Tranceiver Device</p>
+<p>PDU Handling</p>
+<p>Service Handling</p>
+<p>Communication Control</p>
+<p>ECU Startup</p>
+<p><b>Legend</b></p>
+<p>Module</p>
+<p>FBL Callouts</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«access»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«access»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<p>«use»</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>3</b></p>
+<p><b> </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1</b></p>
+<p><b> </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the FrIf. </p>
+<p>The AUTOSAR standard functionality is specified in [1], the corresponding features are listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector  Informatik  provides  further  FrIf  functionality  beyond  the  AUTOSAR  standard.  The  corresponding </p>
+<p>features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>PDU Reception: </p>
+<p></p>
+<p> </p>
+<p>Reception Indication </p>
+<p></p>
+<p> </p>
+<p>FIFO Support </p>
+<p>PDU Transmission: </p>
+<p></p>
+<p> </p>
+<p>Transmission Request </p>
+<p></p>
+<p> </p>
+<p>Transmission Confirmation </p>
+<p></p>
+<p> </p>
+<p>Transmit Request Queuing </p>
+<p></p>
+<p> </p>
+<p>PDU-based Continuous Transmission </p>
+<p></p>
+<p> </p>
+<p>Frame-based Continuous Transmission </p>
+<p></p>
+<p> </p>
+<p>Transmit Cancellation </p>
+<p>Frame Assembly and Disassembly: </p>
+<p></p>
+<p> </p>
+<p>Update-bit Handling </p>
+<p></p>
+<p> </p>
+<p>Frame Layout and PDU owner handling (for FrTp, FrArTp, FrTSyn, FrNm, FrXcp, CDD, PduR) </p>
+<p></p>
+<p> </p>
+<p>Cycle Multiplexing </p>
+<p>Hardware Abstraction: </p>
+<p></p>
+<p> </p>
+<p>FR Driver API Abstraction </p>
+<p></p>
+<p> </p>
+<p>FRTRCV Driver API Abstraction </p>
+<p>Configuration Variants: </p>
+<p></p>
+<p> </p>
+<p>Precompile </p>
+<p></p>
+<p> </p>
+<p>Linktime </p>
+<p></p>
+<p> </p>
+<p>Post-build Selectable </p>
+<p></p>
+<p> </p>
+<p>Post-build Loadable </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>16 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Error Detection and Handling: </p>
+<p></p>
+<p> </p>
+<p>Dev Error Reporting </p>
+<p></p>
+<p> </p>
+<p>Channel Status Checks with DEM reporting </p>
+<p></p>
+<p> </p>
+<p>Job list monitoring </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1</b></p>
+<p><b> </b></p>
+<p><b>Deviations </b></p>
+<p>The following features specified in [1] are not or only partly supported: </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>ASR </b></p>
+<p><b>Version </b></p>
+<p>Functional </p>
+<p>7.2 Indexing Scheme: The following features are partly supported: </p>
+<p></p>
+<p> </p>
+<p>Multiple FlexRay Drivers: a single FlexRay Driver is currently supported. </p>
+<p></p>
+<p> </p>
+<p>Multiple FlexRay Clusters: a maximum of two FlexRay Clusters is </p>
+<p>currently supported. </p>
+<p></p>
+<p> </p>
+<p>Multiple FlexRay Communication Controllers: a single FlexRay </p>
+<p>Communication Controller per cluster is currently supported. </p>
+<p>4.0.3 </p>
+<p>Functional </p>
+<p>7.6.3 Communication Operations: The following Communication Operations </p>
+<p>are not supported:  </p>
+<p></p>
+<p> </p>
+<p>RECEIVE_AND_STORE  </p>
+<p></p>
+<p> </p>
+<p>RX_INDICATION  </p>
+<p></p>
+<p> </p>
+<p>PREPARE_LPDU </p>
+<p></p>
+<p> </p>
+<p>FREE_OP_A </p>
+<p></p>
+<p> </p>
+<p>FREE_OP_B </p>
+<p>4.0.3 </p>
+<p>Functional </p>
+<p>7.6.1 PDU Packing, PDU update bits, and Frame Construction Plans: Received </p>
+<p>frames that are shorter than the configured length are not padded, even if the </p>
+<p>FrIfUnusedBitValue exists. </p>
+<p>4.0.3 </p>
+<p>Functional </p>
+<p>7.3.1 FlexRay Interface Main Function and 7.6.2.2 FlexRay Job List Execution </p>
+<p>Function: Pending transmissions and transmission confirmations are cleared </p>
+<p>and forgotten during the resynchronization of the job list. </p>
+<p>4.0.3 </p>
+<p>API </p>
+<p>FrIf_CancelTransmit: The request counters of the PDUs sharing a frame with a </p>
+<p>cancelled PDU are not increased after cancelling the transmission of the frame. </p>
+<p>4.0.3 </p>
+<p>Config  </p>
+<p>FrIfByteOrder: Only little endian is currently supported. </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>FrIfCounterLimit: Can only be configured to 1 or 255. </p>
+<p>4.0.3 </p>
+<p>Config </p>
+<p>FrIfDisableTransceiverBranchSupport and </p>
+<p>FrIfEnableTransceiverBranchSupport: </p>
+<p>The functions FrIf_DisableTransceiverBranch and FrIf_EnableTransceiverBranch </p>
+<p>4.0.3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>17 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Category </b></p>
+<p><b>Description </b></p>
+<p><b>ASR </b></p>
+<p><b>Version </b></p>
+<p>will be available as long as a </p>
+<p>FrIf/FrIfConfig/FrIfCluster/FrIfController/FrIfTransceiver container exists. </p>
+<p>Config </p>
+<p>FrIfRxComOpMaxLoop: A limit when emptying a FIFO can’t be configured. </p>
+<p>4.0.3 </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2</b></p>
+<p><b> </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>Dual channel redundancy support </p>
+<p>AMD runtime measurement </p>
+<p>BSW debug parameters </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2</b></p>
+<p><b> </b></p>
+<p><b>Initialization </b></p>
+<p>The FlexRay Interface gets initialized by call of </p>
+<p>474H</p>
+<p><b>FrIf_InitMemory</b></p>
+<p> and then </p>
+<p>475H</p>
+<p><b>FrIf_Init</b></p>
+<p> out of EcuM. </p>
+<p>If EcuM is not used the application has to call </p>
+<p>476H</p>
+<p><b>FrIf_InitMemory</b></p>
+<p> and then </p>
+<p>477H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>482H</p>
+<p><b>FrIf_Init</b>(&amp;FrIf_Config); </p>
+<p><b> </b></p>
+<p>Figure 3-4 </p>
+<p>Initialization example for the FlexRay Interface </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Starting with AUTOSAR Release 3 the FlexRay Interface is no longer responsible for initializing </p>
+<p>the FlexRay Driver and the FlexRay Transceiver Driver. </p>
+<p><b> </b></p>
+<p>Depending  on  the  configuration  variant  the </p>
+<p>FrIf_Config</p>
+<p>  parameter  of </p>
+<p>478H</p>
+<p><b>FrIf_Init</b></p>
+<p>  has  different </p>
+<p>meaning: </p>
+<p><b>3.2.1</b></p>
+<p><b> </b></p>
+<p><b>Configuration Variants 1 and 2 (Pre-Compile and Link-Time Configuration) </b></p>
+<p>At  Variant  1  (Pre-compile  Configuration)  and  Variant  2  (Link-Time  Configuration)  the  pointer  given  to </p>
+<p>479H</p>
+<p><b>FrIf_Init</b></p>
+<p> is ignored. At these configuration variants the FlexRay interface is configured at compile or </p>
+<p>link  time  and  has  direct  access  to  all  configuration  data  which  is  stored  in  the  files </p>
+<p>480H</p>
+<p>FrIf_Cfg.h  and </p>
+<p>481H</p>
+<p>FrIf_LCfg.c. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>18 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.2.2</b></p>
+<p><b> </b></p>
+<p><b>Configuration Variant 3 (Post-build Configuration) </b></p>
+<p>In this configuration variant, the FlexRay interface has to be initialized using the </p>
+<p>483H</p>
+<p><b>FrIf_Init</b></p>
+<p> function with </p>
+<p>the  address  of  the  post-build  configuration  data  passed  as  parameter.  The  declaration  of  the  post-build </p>
+<p>configuration data is contained in the files </p>
+<p>484H</p>
+<p>FrIf_PBcfg.h and </p>
+<p>485H</p>
+<p>FrIf_PBcfg.c. </p>
+<p><b>3.3</b></p>
+<p><b> </b></p>
+<p><b>States </b></p>
+<p>The FlexRay Interface is shown in Figure 3-1 FrIf’s state machine. and comprises the following states: </p>
+<p><b>State Name </b></p>
+<p><b>Description </b></p>
+<p>487H</p>
+<p>FRIF_STATE_OFFLINE</p>
+<p> </p>
+<p>The job list of the FlexRay Interface is not executed. </p>
+<p>488H</p>
+<p>FRIF_STATE_ONLINE</p>
+<p> </p>
+<p>The job list of the FlexRay Interface is executed. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>FrIf’s state machine. </p>
+<p> </p>
+<p>The state of the state machine can be changed using the </p>
+<p>489H</p>
+<p><b>FrIf_SetState</b></p>
+<p> function, see section </p>
+<p>490H</p>
+<p>5.2.45. </p>
+<p><b>3.4</b></p>
+<p><b> </b></p>
+<p><b>Main Functions </b></p>
+<p><b>3.4.1</b></p>
+<p><b> </b></p>
+<p><b>Cyclic function </b></p>
+<p>The </p>
+<p>491H</p>
+<p><b>FrIf_MainFunction_&lt;ClstIdx&gt;</b></p>
+<p>  monitors  the  job  execution.  This  function  should  be  called </p>
+<p>cyclically with a cycle time that is equal to or smaller than the FlexRay cycle length.  </p>
+<p>There is no need to synchronize t his function to the FlexRay global time. This function can be called even </p>
+<p>when the FlexRay communication has not been started. </p>
+<p><b>3.4.2</b></p>
+<p><b> </b></p>
+<p><b>Job List Execution </b></p>
+<p>The communication via FlexRay is executed by a FlexRay communication controller that provides a number </p>
+<p>of </p>
+<p>transmit- </p>
+<p>and </p>
+<p>receive-buffers. </p>
+<p>These </p>
+<p>buffers </p>
+<p>are </p>
+<p>accessed </p>
+<p>by </p>
+<p>both </p>
+<p>the </p>
+<p>FlexRay-Stack </p>
+<p>and </p>
+<p>the </p>
+<p>communication  controller.  As  some  controllers  prohibit  concurrent  access,  the  FlexRay-Stack  may  only </p>
+<p>access the buffers when they are not busy. This is ensured by using a time-triggered access that is defined </p>
+<p>by means of a job list. Each entry of the job list defines at which point in time (in terms of cycle and macro </p>
+<p>tick  offset)  which  receive  buffer  has  to  be  read  or  which  transmit  buffer  has  to  be  filled  with  data  or </p>
+<p>checked for transmission success. </p>
+<p><b> stm FrIf State Machine</b></p>
+<p><b>FRIF_STATE_ONLINE</b></p>
+<p><b>FRIF_STATE_OFFLINE</b></p>
+<p>Ini ti al</p>
+<p>FRIF_GOTO_OFFLINE</p>
+<p>FRIF_GOTO_ONLINE</p>
+<p>FrIf_Ini t</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>19 </p>
+<p>based on template version 4.11.3 </p>
+<p>The MICROSAR FlexRay Interface has a number of so called Rx- and Tx- jobs that execute the job list. An Rx </p>
+<p>job executes the job list entries for reception; a Tx-job executes those for transmission. The numbers of Rx- </p>
+<p>and Tx-job are independent, but usually at least 2 Rx- and 2 Tx-Job must be defined. The Rx- and Tx-jobs are </p>
+<p>activated  by  using  one  absolute  timer  of  the  FlexRay  communication  controller  (see  section </p>
+<p>495H</p>
+<p>3.8).  As </p>
+<p>described in the following two chapters the job list can be activated in the interrupt context of the FlexRay </p>
+<p>timer </p>
+<p>interrupt </p>
+<p>or </p>
+<p>in </p>
+<p>the </p>
+<p>context </p>
+<p>of </p>
+<p>an </p>
+<p>OS </p>
+<p>task. </p>
+<p>As </p>
+<p>the </p>
+<p><b>&lt;UL&gt;_TriggerTransmit</b></p>
+<p> </p>
+<p>and </p>
+<p><b>&lt;UL&gt;_RxIndication</b></p>
+<p>  call-back  functions  are  called  during  the </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p>routine, these functions can also be executed in interrupt context. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>You can use the </p>
+<p>“Job Concatenation Enable”</p>
+<p> feature, to reduce the interrupt load of the </p>
+<p>FlexRay Interface to a minimum of two timer interrupts per cycle, even if 2 Rx and 2 Tx jobs are </p>
+<p>defined. If this feature is enabled, two FrIf jobs with the same configured </p>
+<p>“Macrotick”</p>
+<p> </p>
+<p>parameter will be executed by one call of the </p>
+<p>500H</p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> function. </p>
+<p> </p>
+<p><b>3.4.2.1</b></p>
+<p><b> </b></p>
+<p><b>Job List Execution in Interrupt Context </b></p>
+<p>The job list execution is activated by a FlexRay timer interrupt. The </p>
+<p>502H</p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p>function can be directly called in the call-back function of the FlexRay timer interrupt that is provided by </p>
+<p>the FlexRay Driver. An example for the Vector FlexRay Driver is depicted in the following figure. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>void ApplFr_ISR_Timer0(void) </p>
+<p>{ </p>
+<p>  FrIf_JobListExec_0(); </p>
+<p>} </p>
+<p><b> </b></p>
+<p>Figure 3-5 </p>
+<p>The FrIf_JobListExec_0() function is directly called in the call-back function for FlexRay timer 0. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>20 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.4.2.2</b></p>
+<p><b> </b></p>
+<p><b>Job List Execution in Task Context </b></p>
+<p>Depending  on  the  platform  being  used,  the  execution  of  the  job  list  can  take  up  to  several  hundred </p>
+<p>microseconds.  Thus  it  is  not  always  advisable  to  execute  the  job  list  in  the  context of  the  FlexRay  timer </p>
+<p>interrupt.  </p>
+<p>An example for the job list execution in the context of an OS task is depicted in the following figure. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>void ApplFr_ISR_Timer0(void) </p>
+<p>{ </p>
+<p>   ActivateTask(FrIfJobExecTask); </p>
+<p>} </p>
+<p> </p>
+<p>TASK(FrIfJobExecTask) </p>
+<p>{ </p>
+<p>  FrIf_JobListExec_0(); </p>
+<p>  (void)TerminateTask(); </p>
+<p>} </p>
+<p><b> </b></p>
+<p>Figure 3-6 </p>
+<p>The FrIf_JobListExec_0() function is called inside a task that is activated in the call-back function for FlexRay timer 0. </p>
+<p><b>3.5</b></p>
+<p><b> </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1</b></p>
+<p><b> </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>Development errors are reported to </p>
+<p>505H</p>
+<p>DET using the service </p>
+<p>506H</p>
+<p>Det_ReportError(), (specified in </p>
+<p>507H</p>
+<p>[2]), if the pre-</p>
+<p>compile option </p>
+<p>“Dev Error Detect”</p>
+<p> is set. </p>
+<p>The reported <b>FrIf </b>ID is 61. </p>
+<p>The service IDs from the following table identify the services which are described in section 5.2. </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>21 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>FrIf_ReconfigLPdu </p>
+<p>0x00 </p>
+<p>FrIf_GetVersionInfo </p>
+<p>0x01 </p>
+<p>FrIf_Init </p>
+<p>0x02 </p>
+<p>FrIf_ControllerInit </p>
+<p>0x03 </p>
+<p>FrIf_StartCommunication </p>
+<p>0x04 </p>
+<p>FrIf_HaltCommunication </p>
+<p>0x05 </p>
+<p>FrIf_AbortCommunication </p>
+<p>0x06 </p>
+<p>FrIf_GetState </p>
+<p>0x07 </p>
+<p>FrIf_SetState </p>
+<p>0x08 </p>
+<p>FrIf_SetWakeupChannel </p>
+<p>0x09 </p>
+<p>FrIf_SendWUP </p>
+<p>0x0A </p>
+<p>FrIf_GetPOCStatus </p>
+<p>0x0D </p>
+<p>FrIf_GetGlobalTime </p>
+<p>0x0E </p>
+<p>FrIf_GetNmVector </p>
+<p>0x0F </p>
+<p>FrIf_AllowColdstart </p>
+<p>0x10 </p>
+<p>FrIf_AllSlots </p>
+<p>0x33 </p>
+<p>FrIf_GetNumOfStartupFrames </p>
+<p>0x34 </p>
+<p>FrIf_GetMacroticksPerCycle </p>
+<p>0x11 </p>
+<p>FrIf_GetWakeupRxStatus </p>
+<p>0x2B </p>
+<p>FrIf_Transmit </p>
+<p>0x30 </p>
+<p>FrIf_SetTransceiverMode </p>
+<p>0x13 </p>
+<p>FrIf_GetTransceiverMode </p>
+<p>0x14 </p>
+<p>FrIf_GetTransceiverWUReason </p>
+<p>0x15 </p>
+<p>FrIf_EnableTransceiverWakeup </p>
+<p>0x36 </p>
+<p>FrIf_DisableTransceiverWakeup </p>
+<p>0x37 </p>
+<p>FrIf_ClearTransceiverWakeup </p>
+<p>0x18 </p>
+<p>FrIf_EnableTransceiverBranch </p>
+<p>0x36 </p>
+<p>FrIf_DisableTransceiverBranch </p>
+<p>0x37 </p>
+<p>FrIf_GetTransceiverError </p>
+<p>0x35 </p>
+<p>FrIf_CheckWakeupByTransceiver </p>
+<p>0x39 </p>
+<p>FrIf_SetAbsoluteTimer </p>
+<p>0x19 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>22 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>FrIf_CancelAbsoluteTimer </p>
+<p>0x1B </p>
+<p>FrIf_EnableAbsoluteTimerIRQ </p>
+<p>0x1D </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus </p>
+<p>0x1F </p>
+<p>FrIf_AckAbsoluteTimerIRQ </p>
+<p>0x21 </p>
+<p>FrIf_DisableAbsoluteTimerIRQ </p>
+<p>0x23 </p>
+<p>FrIf_Cbk_WakeupByTransceiver </p>
+<p>0x39 </p>
+<p>FrIf_GetChannelStatus (optional) </p>
+<p>0x26 </p>
+<p>FrIf_MainFunction_&lt;ClstIdx&gt; </p>
+<p>0x27 </p>
+<p>FrIf_DisableLPdu (optional) </p>
+<p>0x28 </p>
+<p>FrIf_GetClockCorrection (optional) </p>
+<p>0x29 </p>
+<p>FrIf_GetCycleLength </p>
+<p>0x3A </p>
+<p>FrIf_GetSyncFrameList (optional) </p>
+<p>0x2A </p>
+<p>FrIf_GetMacrotickDuration </p>
+<p>0x31 </p>
+<p>FrIf_JobListExec_&lt;ClstIdx&gt; </p>
+<p>0x32 </p>
+<p>FrIf_CancelTransmit (optional) </p>
+<p>0x30 </p>
+<p>FrIf_ReadCCConfig (optional) </p>
+<p>0x3B </p>
+<p>FrIf_ExecCurrentJob </p>
+<p>0x40 </p>
+<p>FrIf_TriggerTransmitFunctions </p>
+<p>0x41 </p>
+<p>Table 3-7  </p>
+<p>Mapping of service IDs to services </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>23 </p>
+<p>based on template version 4.11.3 </p>
+<p>The errors reported to </p>
+<p>510H</p>
+<p>DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>FRIF_E_INV_POINTER </p>
+<p>Invalid pointer  </p>
+<p>0x02 </p>
+<p>FRIF_E_INV_CTRL_IDX </p>
+<p>Invalid Controller index  </p>
+<p>0x03 </p>
+<p>FRIF_E_INV_CLST_IDX </p>
+<p>Invalid Cluster index  </p>
+<p>0x04 </p>
+<p>FRIF_E_INV_CHNL_IDX </p>
+<p>Invalid Channel index  </p>
+<p>0x05 </p>
+<p>FRIF_E_INV_TIMER_IDX </p>
+<p>Invalid timer index  </p>
+<p>0x06 </p>
+<p>FRIF_E_INV_TXPDUID </p>
+<p>Invalid FrIf_TxPdu Index  </p>
+<p>0x08 </p>
+<p>FRIF_E_NOT_INITIALIZED </p>
+<p>FrIf not initialized  </p>
+<p>0x0A </p>
+<p>FRIF_E_INV_LPDU_IDX </p>
+<p>Invalid L-PDU Index </p>
+<p>0x0B </p>
+<p>FRIF_E_INV_FRAME_ID </p>
+<p>Invalid Frame Index </p>
+<p>0x26 </p>
+<p>FRIF_E_TXTASK_RET_E_NOT_OK </p>
+<p>FrIf_TxTask_0 returned E_NOT_OK </p>
+<p>0x27 </p>
+<p>FRIF_E_INVALID_PDU_OWNER </p>
+<p>Invalid Pdu Owner </p>
+<p>0x09 </p>
+<p>FRIF_E_JLE_SYNC </p>
+<p>Job  List  Execution  lost  synchronization  to  the </p>
+<p>FlexRay Global Time  </p>
+<p>Table 3-8  </p>
+<p>Errors reported to DET </p>
+<p><b>3.5.1.1</b></p>
+<p><b> </b></p>
+<p><b>Parameter Checking </b></p>
+<p>The following table shows which parameter checks are performed on which services: </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>Note that the </p>
+<p>512H</p>
+<p>FRIF_E_INV_CTRL_IDX error is only reported to </p>
+<p>513H</p>
+<p>DET by the FlexRay Interface if </p>
+<p>the </p>
+<p>“Single Channel API”</p>
+<p> feature is disabled.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>24 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Check </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>515H</p>
+<p>FRIF_E_INV_POINTER </p>
+<p>516H</p>
+<p>FRIF_E_INV_CTRL_IDX </p>
+<p>517H</p>
+<p>FRIF_E_INV_CLST_IDX </p>
+<p>518H</p>
+<p>FRIF_E_INV_CHNL_IDX </p>
+<p>519H</p>
+<p>FRIF_E_INV_TIMER_IDX </p>
+<p>520H</p>
+<p>FRIF_E_INV_TXPDUID </p>
+<p>521H</p>
+<p>FRIF_E_NOT_INITIALIZED </p>
+<p>525H</p>
+<p>FRIF_E_TXTASK_RET_E_NOT_OK </p>
+<p>526H</p>
+<p>FRIF_E_INVALID_PDU_OWNER </p>
+<p>FRIF_E_INV_LPDU_IDX</p>
+<p> </p>
+<p>FRIF_E_INV_FRAME_ID</p>
+<p> </p>
+<p>FrIf_ReconfigLPdu </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>FrIf_GetVersionInfo </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_Init </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_ControllerInit </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_StartCommunication </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_HaltCommunication </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_AbortCommunication </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetState </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_SetState </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_SetWakeupChannel </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_SendWUP </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetPOCStatus </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetGlobalTime </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetNmVector </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_AllowColdstart </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetMacrotickDuration </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_Transmit </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_SetTransceiverMode </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetTransceiverMode </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetTransceiverWUReason </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>25 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Check </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>515H</p>
+<p>FRIF_E_INV_POINTER </p>
+<p>516H</p>
+<p>FRIF_E_INV_CTRL_IDX </p>
+<p>517H</p>
+<p>FRIF_E_INV_CLST_IDX </p>
+<p>518H</p>
+<p>FRIF_E_INV_CHNL_IDX </p>
+<p>519H</p>
+<p>FRIF_E_INV_TIMER_IDX </p>
+<p>520H</p>
+<p>FRIF_E_INV_TXPDUID </p>
+<p>521H</p>
+<p>FRIF_E_NOT_INITIALIZED </p>
+<p>525H</p>
+<p>FRIF_E_TXTASK_RET_E_NOT_OK </p>
+<p>526H</p>
+<p>FRIF_E_INVALID_PDU_OWNER </p>
+<p>FRIF_E_INV_LPDU_IDX</p>
+<p> </p>
+<p>FRIF_E_INV_FRAME_ID</p>
+<p> </p>
+<p>FrIf_ClearTransceiverWakeup </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_SetAbsoluteTimer </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_CancelAbsoluteTimer </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_EnableAbsoluteTimerIRQ </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_AckAbsoluteTimerIRQ </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_DisableAbsoluteTimerIRQ </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetChannelStatus </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_MainFunction_&lt;ClstIdx&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_DisableLPdu </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetClockCorrection </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetSyncFrameList </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetMacrotickDuration </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_JobListExec_&lt;ClstIdx&gt; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_CancelTransmit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_ReadCCConfig </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_ExecCurrentJob_0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetCycleLength </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                                           </p>
+<p>1</p>
+<p> Note: this DET error is not reported when using a multiple configuration ECUC. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>26 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Check </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>515H</p>
+<p>FRIF_E_INV_POINTER </p>
+<p>516H</p>
+<p>FRIF_E_INV_CTRL_IDX </p>
+<p>517H</p>
+<p>FRIF_E_INV_CLST_IDX </p>
+<p>518H</p>
+<p>FRIF_E_INV_CHNL_IDX </p>
+<p>519H</p>
+<p>FRIF_E_INV_TIMER_IDX </p>
+<p>520H</p>
+<p>FRIF_E_INV_TXPDUID </p>
+<p>521H</p>
+<p>FRIF_E_NOT_INITIALIZED </p>
+<p>525H</p>
+<p>FRIF_E_TXTASK_RET_E_NOT_OK </p>
+<p>526H</p>
+<p>FRIF_E_INVALID_PDU_OWNER </p>
+<p>FRIF_E_INV_LPDU_IDX</p>
+<p> </p>
+<p>FRIF_E_INV_FRAME_ID</p>
+<p> </p>
+<p>FrIf_TriggerTransmitFunctions </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_TxConfirmationFunctions </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_RxIndicationFunctions </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_AllSlots </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetMacroticksPerCycle </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetNumOfStartupFrames </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetWakeupRxStatus </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_EnableTransceiverBranch </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_DisableTransceiverBranch </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_GetTransceiverError </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FrIf_CheckWakeupByTransceiver </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 3-9  </p>
+<p>Development Error Reporting: Assignment of checks to services </p>
+<p><b>3.5.2</b></p>
+<p><b> </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>Production code related errors are reported to </p>
+<p>527H</p>
+<p>DEM using the service </p>
+<p>528H</p>
+<p>Dem_ReportErrorStatus() (specified </p>
+<p>in </p>
+<p>529H</p>
+<p>[3]), if the pre-compile parameter</p>
+<p> </p>
+<p>“Prod Error Detect”</p>
+<p> option is enabled. </p>
+<p>The errors reported to </p>
+<p>531H</p>
+<p>DEM are described in the following table: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>27 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>FRIF_E_NIT_CH_A </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the NIT on channel A are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus.  </p>
+<p>FRIF_E_NIT_CH_B </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the NIT on channel B are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus. </p>
+<p>FRIF_E_SW_CH_A </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the SW on channel A are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus. </p>
+<p>FRIF_E_SW_CH_B </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the SW on channel B are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus.  </p>
+<p>FRIF_E_ACS_CH_A </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the ACS on channel A are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>28 </p>
+<p>based on template version 4.11.3 </p>
+<p>FRIF_E_ACS_CH_B </p>
+<p>DEM_EVENT_STATUS_FAILED: is reported when </p>
+<p>error bits for the ACS on channel B are set in the </p>
+<p>return value of Fr_GetChannelStatus. </p>
+<p> </p>
+<p>DEM_EVENT_STATUS_PASSED: is reported when </p>
+<p>no error bits are set in the return value of </p>
+<p>Fr_GetChannelStatus.  </p>
+<p>Table 3-10  </p>
+<p>Errors reported to DEM </p>
+<p><b>3.6</b></p>
+<p><b> </b></p>
+<p><b>Transmission </b></p>
+<p><b>3.6.1</b></p>
+<p><b> </b></p>
+<p><b>Decoupled Transmission </b></p>
+<p>Usually  the  Decoupled  Transmission  is  used  for  the  transmission  of  PDUs.  Decoupled  Transmission  is </p>
+<p>mandatory in case a frame contains multiple PDUs. </p>
+<p>When an upper layer software module calls the </p>
+<p>538H</p>
+<p><b>FrIf_Transmit</b></p>
+<p> method of the FlexRay Interface, the </p>
+<p>parameter that holds the pointer to the PDU content is not evaluated. It is just stored that the given PDU </p>
+<p>shall be transmitted. When the frame that contains the PDU is assembled, the FlexRay Interface calls the </p>
+<p>call-back function </p>
+<p><b>&lt;UL&gt;_TriggerTransmit</b></p>
+<p> where </p>
+<p><b>&lt;UL&gt;</b></p>
+<p> is the name of the upper layer module. The </p>
+<p>upper layer module then copies the PDU content to the memory location that is given as a parameter of </p>
+<p>the call-back function. </p>
+<p>A frame that contains multiple PDUs will be transmitted, if the </p>
+<p>540H</p>
+<p><b>FrIf_Transmit</b></p>
+<p> function was called for </p>
+<p>at </p>
+<p>least </p>
+<p>one </p>
+<p>of </p>
+<p>its </p>
+<p>PDUs. </p>
+<p>The </p>
+<p>FlexRay </p>
+<p>Interface </p>
+<p>does </p>
+<p>not </p>
+<p>buffer </p>
+<p>any </p>
+<p>PDU </p>
+<p>content. </p>
+<p>The </p>
+<p><b>&lt;UL&gt;_TriggerTransmit</b></p>
+<p>  function  is  only  called  for  those  PDUs  for  which </p>
+<p>542H</p>
+<p><b>FrIf_Transmit</b></p>
+<p>  was </p>
+<p>called.  </p>
+<p>When a frame is transmitted and </p>
+<p>543H</p>
+<p><b>FrIf_Transmit</b></p>
+<p> has not been called for each PDU contained in the </p>
+<p>frame, the FlexRay Interface cannot transmit the previous value of those PDUs that have not been updated. </p>
+<p>Instead, the FlexRay Interface uses update-bits to indicate which PDUs of a frame are valid. </p>
+<p><b>3.6.2</b></p>
+<p><b> </b></p>
+<p><b>Immediate Transmission </b></p>
+<p>If a PDU is configured for immediate transmission, the </p>
+<p>544H</p>
+<p><b>FrIf_Transmit</b></p>
+<p> will immediately copy the PDU </p>
+<p>content to the FlexRay Driver, i.e. the </p>
+<p><b>&lt;UL&gt;_TriggerTransmit</b></p>
+<p> call-back will not be used. </p>
+<p>However, the following constraints have to hold true: </p>
+<p></p>
+<p> </p>
+<p>Immediate Transmission cannot be used, if there are multiple PDUs in a frame. I.e. a PDU that is </p>
+<p>configured for immediate transmission must be the only PDU of the frame. </p>
+<p></p>
+<p> </p>
+<p>The upper layer software module must not call the </p>
+<p>546H</p>
+<p><b>FrIf_Transmit</b></p>
+<p> function when the transmit </p>
+<p>buffer of the FlexRay communication controller is transmitting data. I.e. the upper layer software </p>
+<p>module must be synchronized to the FlexRay global time. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>29 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.7</b></p>
+<p><b> </b></p>
+<p><b>Reception </b></p>
+<p>The FlexRay Interface cannot be polled for received data. When a frame is received, the reception of the </p>
+<p>PDUs </p>
+<p>that </p>
+<p>are </p>
+<p>contained </p>
+<p>in </p>
+<p>the </p>
+<p>frame </p>
+<p>is </p>
+<p>actively </p>
+<p>indicated </p>
+<p>by </p>
+<p>the </p>
+<p>FlexRay </p>
+<p>Interface </p>
+<p>using </p>
+<p>the </p>
+<p>&lt;UL&gt;_RxIndication call-back function. </p>
+<p><b>3.8</b></p>
+<p><b> </b></p>
+<p><b>Timer Handling </b></p>
+<p>The FlexRay Interface uses one absolute timer of the FlexRay communication controller for the execution of </p>
+<p>the  job  list.  Therefore  the  application  can  only  use  one  FlexRay  timer  if  the  communication  controller </p>
+<p>provides at least two timers.  </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The values of the new payload shall be smaller or equal as the payload value that was defined </p>
+<p>within FIBEX or EcuC.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>The FlexRay protocol standard only requires one absolute timer. Many FlexRay communication </p>
+<p>controllers provide two timers, but there are controllers that only have one timer. </p>
+<p><b> </b></p>
+<p>The  FlexRay  Interface  uses  timer  0  of  the  FlexRay  communication  controller.  Thus  the  application  can </p>
+<p>only use timer 1, provided that it is available. </p>
+<p><b>3.9</b></p>
+<p><b> </b></p>
+<p><b>Buffer Reconfiguration  </b></p>
+<p>The  FlexRay  Communication  Controllers  (CC)  that  are  currently  available,  only  offer  a  limited  amount  of </p>
+<p>message buffers. A FlexRay Schedule with a large number of frames might exceed the number of available </p>
+<p>message buffers. </p>
+<p>The buffer reconfiguration feature reduces the amount of message buffers that are used by the FlexRay </p>
+<p>Driver. The MICROSAR FlexRay Driver triggers the buffer reconfiguration automatically (the FrIf does not </p>
+<p>need  to  call  the </p>
+<p><b>Fr_PrepareLPdu</b></p>
+<p>  function).  For  a  detailed  description  of  the  buffer  reconfiguration </p>
+<p>feature of the MICROSAR FlexRay Driver refer to </p>
+<p>548H</p>
+<p>[5]. </p>
+<p><b>3.10</b></p>
+<p><b> </b></p>
+<p><b>L-PDU Reconfiguration  </b></p>
+<p>The  MICROSAR  FlexRay  Interface  supports  the  AUTOSAR  4.0  L-PDU  reconfiguration  feature.  This  feature </p>
+<p>allows  the  FlexRay  Interface  to  reconfigure  the  frame  ID,  channel,  cycle  repetition,  cycle  offset,  payload </p>
+<p>length and the header CRC at runtime for a given L-PDU. </p>
+<p>The  L-PDU  reconfiguration  can  be  enabled  with  the  attribute </p>
+<p>“Reconfig LPdu Support”</p>
+<p>  within  the <b> FrIf </b></p>
+<p>module  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>30 </p>
+<p>based on template version 4.11.3 </p>
+<p>Only FrIf PDUs with the </p>
+<p>“Reconfigurable”</p>
+<p> option enabled can be reconfigured/disabled by using the API </p>
+<p>services </p>
+<p><b>FrIf_ReconfigLPdu</b></p>
+<p> and </p>
+<p><b>FrIf_DisableLPdu</b></p>
+<p>.  </p>
+<p> </p>
+<p><b>Info </b></p>
+<p>Note that if L-PDU reconfiguration is enabled for a specific L-PDU, this L-PDU is not sent after </p>
+<p><b>FrIf_ControllerInit</b></p>
+<p> but has to be enabled with </p>
+<p><b>FrIf_ReconfigLPdu</b></p>
+<p>. Therewith it </p>
+<p>is not allowed to set the </p>
+<p>“Reconfigurable”</p>
+<p> flag for a sync frame. </p>
+<p> </p>
+<p><b>3.11</b></p>
+<p><b> </b></p>
+<p><b>Dual Channel Redundancy Support </b></p>
+<p>The MICROSAR FlexRay Interface supports optional feature for the replicated reception and transmission </p>
+<p>on a FlexRay dual channel (or single channel) cluster according to Bugzillla 42025. This feature allows the </p>
+<p>FlexRay Interface to transmit a L-PDU in different slots either on one channel or on both channels with the </p>
+<p>same payload. </p>
+<p>If two Tx frames (i.e. frame1 and frame2 of Figure 3-2) are configured to be redundant to each other the </p>
+<p>FlexRay Interface assembles the frame only once for both frames in order to ensure that the identical frame </p>
+<p>content is transmitted. </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Behaviour of FrIf for replicated transmission </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>31 </p>
+<p>based on template version 4.11.3 </p>
+<p>Additionally this feature allows the application above the FlexRay Interface to use a payload comparison </p>
+<p>between the received PDUs of two redundant Rx frames as depicted in Figure 3-3. This payload comparison </p>
+<p>can be used to check whether a I-PDU was received on both channels or not. </p>
+<p>For a detailed API description of the voting function refer to section 5.5.2.4. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Behaviour of FrIf for replicated reception </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>32 </p>
+<p>based on template version 4.11.3 </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>Only frames that have frame triggerings with the same base cycle, cycle repetition, LSdu length </p>
+<p>and the same frame layout can be configured to be redundant to each other. </p>
+<p>The frame layout of two frames is identical if both frames use the same number of PDUs and </p>
+<p>the redundant PDUs within the frames have the same: </p>
+<p></p>
+<p> </p>
+<p>PDU length, PDU offset and PDU owner </p>
+<p></p>
+<p> </p>
+<p>PDU update bit configuration  </p>
+<p>The Tx PDUs for replicated transmission may not have the </p>
+<p>“Immediate”</p>
+<p> flag enabled. </p>
+<p>Redundant reception and FIFOs are mutually exclusive, so no redundant frames are allowed </p>
+<p>within the slot range of FIFOs. </p>
+<p><b>3.12</b></p>
+<p><b> </b></p>
+<p><b>Dynamic Payload </b></p>
+<p>The </p>
+<p>dynamic </p>
+<p>payload </p>
+<p>feature </p>
+<p>allows </p>
+<p>the </p>
+<p><b>FrIf </b></p>
+<p>to </p>
+<p>pass </p>
+<p>only </p>
+<p>the </p>
+<p>actual </p>
+<p>used </p>
+<p>L-PDU </p>
+<p>length </p>
+<p>via </p>
+<p>551H</p>
+<p><b>FrIf_Transmit</b></p>
+<p>() to the driver (</p>
+<p>552H</p>
+<p>Fr_TransmitTxLPdu()). If the feature is enabled, the </p>
+<p>553H</p>
+<p>FR module updates </p>
+<p>the buffer configuration with the new payload and new calculated header CRC at runtime. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The values of the new payload shall be smaller or equal as the payload value that was defined </p>
+<p>within FIBEX or EcuC.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info </b></p>
+<p>The calculation of the header CRC is done at the runtime. Note that this feature uses more </p>
+<p>processor resources </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>33 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>4</b></p>
+<p><b> </b></p>
+<p><b>Integration </b></p>
+<p>This  chapter  gives  necessary  information  for  the  integration  of  the  MICROSAR <b> FrIf </b> into  an  application </p>
+<p>environment of an ECU. </p>
+<p><b>4.1</b></p>
+<p><b> </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the <b>FrIf </b>contains the files which are described in the chapters </p>
+<p>556H</p>
+<p>4.1.1 and </p>
+<p>557H</p>
+<p>4.1.2: </p>
+<p><b>4.1.1</b></p>
+<p><b> </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>FrIf.c </p>
+<p>Static source for FlexRay Interface core. </p>
+<p>FrIf.h </p>
+<p>Static header file for FlexRay Interface API. </p>
+<p>FrIf_Cbk.h </p>
+<p>Static header file for callbacks. </p>
+<p>FrIf_LCfg.h </p>
+<p>Static header file for link time configuration data. </p>
+<p>FrIf_AbsTimer.c </p>
+<p>Static source for absolute time handling. </p>
+<p>FrIf_Priv.h </p>
+<p>Static header file for private prototypes and macros. </p>
+<p>FrIf_Ext.c </p>
+<p>Static source for external synchronization API. </p>
+<p>FrIf_Rx.c </p>
+<p>Static source for reception handling. </p>
+<p>FrIf_Time.c </p>
+<p>Static source for time services. </p>
+<p>FrIf_Trcv.c </p>
+<p>Static source for transceiver handling. </p>
+<p>FrIf_Tx.c </p>
+<p>Static source for transmission handling. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2</b></p>
+<p><b> </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool </p>
+<p>. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>FrIf_Cfg.h </p>
+<p>Generated header file for pre-compile time configuration data. </p>
+<p>FrIf_LCfg.c </p>
+<p>Generated source for link time configuration data. </p>
+<p>FrIf_PBcfg.c </p>
+<p>Generated source for post-build time configuration data. </p>
+<p>FrIf_PBcfg.h </p>
+<p>Generated header file for post-build time configuration data. </p>
+<p>FrIf_Types.h </p>
+<p>Generated header file for FlexRay Interface type definitions. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>34 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p><b>4.2</b></p>
+<p><b> </b></p>
+<p><b>Include Structure </b></p>
+<p>  </p>
+<p>Figure 4-1 </p>
+<p>Include structure </p>
+<p> </p>
+<p> </p>
+<p><b>object Header File Structure</b></p>
+<p><b>FrIf.c</b></p>
+<p><b>dem.h</b></p>
+<p><b>det.h</b></p>
+<p><b>FrIf.h</b></p>
+<p><b>FrIf_cfg.h</b></p>
+<p><b>Fr.h</b></p>
+<p><b>FrIf_PBcfg.h</b></p>
+<p><b>FrIf_Types.h</b></p>
+<p><b>FrTrcv .h</b></p>
+<p><b>FrIf_Lcfg.h</b></p>
+<p><b>Fr_GeneralTypes.h</b></p>
+<p><b>SchM_FrIf.h</b></p>
+<p><b>ComStack_Types.h</b></p>
+<p><b>Memmap.h</b></p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>35 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>4.3</b></p>
+<p><b> </b></p>
+<p><b>Compiler Abstraction and Memory Mapping  </b></p>
+<p>The  objects  (e.g.  variables,  functions,  constants)  are  declared  by  compiler  independent  definitions  –  the </p>
+<p>compiler abstraction definitions. Each compiler abstraction definition is assigned to a memory section. </p>
+<p>The following table contains the memory section names and the compiler abstraction definitions defined </p>
+<p>for the <b>FrIf </b>and illustrates their assignment among each other. </p>
+<p> </p>
+<p><b>Compiler Abstraction </b></p>
+<p><b>Definitions </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Memory Mapping </b></p>
+<p><b>Sections </b></p>
+<p>FRIF_VAR_NOINIT </p>
+<p>FRIF_CONST </p>
+<p>FRIF_PBCFG </p>
+<p>FRIF_CODE </p>
+<p>FRIF_APPL_DATA </p>
+<p>FRIF_START_SEC_CODE </p>
+<p>FRIF_STOP_SEC_CODE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>FRIF_START_SEC_PBCFG </p>
+<p>FRIF_STOP_SEC_PBCFG </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRIF_START_SEC_CONST_32BIT </p>
+<p>FRIF_STOP_SEC_CONST_32BIT </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRIF_START_SEC_CONST_UNSPECIFIED </p>
+<p>FRIF_STOP_SEC_CONST_UNSPECIFIED </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FRIF_START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>FRIF_STOP_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 4-3  </p>
+<p>Compiler abstraction and memory mapping </p>
+<p>The Compiler Abstraction Definition </p>
+<p>FRIF_APPL_DATA</p>
+<p> is used to address code, variables and constants </p>
+<p>which are declared by other modules and used by the FlexRay Interface. </p>
+<p><b>4.4</b></p>
+<p><b> </b></p>
+<p><b>Critical Sections and Exclusive Areas </b></p>
+<p><b>4.4.1</b></p>
+<p><b> </b></p>
+<p><b>FRIF_EXCLUSIVE_AREA_0 </b></p>
+<p>This </p>
+<p>exclusive </p>
+<p>area </p>
+<p>is </p>
+<p>used </p>
+<p>to </p>
+<p>avoid </p>
+<p>modifications </p>
+<p>to </p>
+<p>the </p>
+<p>FrIf_TxPduDirtyBits </p>
+<p>and/or </p>
+<p>FrIf_TxPduTxRequestCounters </p>
+<p>arrays </p>
+<p>from </p>
+<p>different </p>
+<p>contexts, </p>
+<p>by </p>
+<p>preventing </p>
+<p>that </p>
+<p>the </p>
+<p>functions </p>
+<p><b>FrIf_Transmit</b></p>
+<p>, </p>
+<p><b>FrIf_CancelTransmit</b></p>
+<p> </p>
+<p>and</p>
+<p> </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p>interrupt </p>
+<p>themselves. It can be ommited if the 2 following conditions are fulfilled: </p>
+<p><b>&gt; </b></p>
+<p>The parameter FrIfPduDirtyByteUsage is set to true. </p>
+<p><b>&gt; </b></p>
+<p>The parameter FrIfCounterLimitDisable is set to true. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>36 </p>
+<p>based on template version 4.11.3 </p>
+<p>A  global  interrupt  lock  is  recommended,  since  the  3  functions  could  be  called  from  different  interrupt </p>
+<p>contexts if they have different priorities (e.g., in a routing scenario </p>
+<p><b>FrIf_Transmit</b></p>
+<p> </p>
+<p>could be called from </p>
+<p>an CAN RxIndication interrupt while the  </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p>  is being executed or vice </p>
+<p>versa). </p>
+<p>This  exclusive  area  has  a  medium  duration  if  the  flags  and  counters  of  all  the  PDUs  in  a  frame  must  be </p>
+<p>rolled back. However, under normal conditions the whole processing shouldn’t take long. </p>
+<p><b>4.4.2</b></p>
+<p><b> </b></p>
+<p><b>FRIF_EXCLUSIVE_AREA_1 </b></p>
+<p>This exclusive area is used to protect the time-critical estimation and setting of the timer for the next job </p>
+<p>list </p>
+<p>execution </p>
+<p>that </p>
+<p>takes </p>
+<p>place </p>
+<p>within </p>
+<p>the </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p>, </p>
+<p><b>FrIf_MainFunction_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p>and</p>
+<p> </p>
+<p><b>FrIf_SetState</b></p>
+<p><b> </b></p>
+<p>functions.  </p>
+<p>Any  tasks  or  interrupts  of  higher  priority  must  be  blocked,  since  the  estimation  and  setting  of  the  next </p>
+<p>timer interrupt shall not be interrupted. </p>
+<p>It’s not possible to tell the exact duration of this exclusive area, since the functions Fr_GetGlobalTime and </p>
+<p>Fr_SetAbsoluteTimer  from  the  Fr  are  called.  However,  if  no  errors  take  place  within  these  functions  the </p>
+<p>whole processing shouldn't take long. </p>
+<p> </p>
+<p><b>4.4.3</b></p>
+<p><b> </b></p>
+<p><b>FRIF_EXCLUSIVE_AREA_2 </b></p>
+<p>This  exclusive  area  is  used  to  ensure  the  required  atomicity  during  initialization,  by  preventing  that  the </p>
+<p>function </p>
+<p><b>FrIf_SetState</b></p>
+<p> gets interrupted by the</p>
+<p> </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p>.</p>
+<p> </p>
+<p>At </p>
+<p>least </p>
+<p>the </p>
+<p>FlexRay </p>
+<p>timer </p>
+<p>interrupt </p>
+<p>must </p>
+<p>be </p>
+<p>blocked </p>
+<p>within </p>
+<p>this </p>
+<p>exclusive </p>
+<p>area, </p>
+<p>since </p>
+<p>the </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p>is usually executed within that interrupt context. </p>
+<p>It’s not possible to tell the exact duration of this exclusive area, since the functions Fr_GetGlobalTime and </p>
+<p>Fr_SetAbsoluteTimer  from  the  Fr  are  called.  However,  if  no  errors  take  place  within  these  functions  the </p>
+<p>whole processing shouldn't take long. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>37 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5</b></p>
+<p><b> </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1</b></p>
+<p><b> </b></p>
+<p><b>Type Definitions </b></p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>FrIf_StateType </p>
+<p>Enum </p>
+<p>Representation of the FrIf job </p>
+<p>list execution status </p>
+<p>FRIF_STATE_OFFLINE </p>
+<p>Job list is not executed  </p>
+<p>FRIF_STATE_ONLINE </p>
+<p>Job list is executed</p>
+<p> </p>
+<p>FrIf_StateTransitio</p>
+<p>nType </p>
+<p>Enum </p>
+<p>Start or stop the the FrIf job </p>
+<p>list execution </p>
+<p>FRIF_GOTO_OFFLINE </p>
+<p>Stop the job list execution. </p>
+<p>FRIF_GOTO_ONLINE </p>
+<p>Start the job list is execution.</p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p><b>5.2</b></p>
+<p><b> </b></p>
+<p><b>Services provided by FrIf </b></p>
+<p>The <b>FrIf </b>API consists of services, which are realized by function calls. </p>
+<p><b>5.2.1</b></p>
+<p><b> </b></p>
+<p><b>FrIf_AbortCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_AbortCommunication</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_AbortCommunication shall be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AbortCommunication() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AbortCommunication() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_AbortCommunication of the FlexRay Driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>38 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>558H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if </p>
+<p>“AbortCommunication Disable”</p>
+<p> has not been set for FlexRay </p>
+<p>Interface. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-2  </p>
+<p>FrIf_AbortCommunication </p>
+<p><b>5.2.2</b></p>
+<p><b> </b></p>
+<p><b>FrIf_AckAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_AckAbsoluteTimerIRQ</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AckAbsoluteTimerIRQ() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AckAbsoluteTimerIRQ() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_AckAbsoluteTimerIRQ function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>559H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter FrIf/FrIfGeneral/FrIfAbsTimerIdx is set to 0. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>39 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p>This function must be called by the application or integration code in the context of the timer interrupt </p>
+<p>service routine. </p>
+<p>Table 5-3  </p>
+<p>FrIf_AckAbsoluteTimerIRQ </p>
+<p><b>5.2.3</b></p>
+<p><b> </b></p>
+<p><b>FrIf_AckRelativeTimerIRQ </b></p>
+<p>Table 5-4  </p>
+<p>FrIf_AckRelativeTimerIRQ </p>
+<p><b>5.2.4</b></p>
+<p><b> </b></p>
+<p><b>FrIf_AllowColdstart </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_AllowColdstart</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_AllowColdstart </p>
+<p>shall be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AllowColdstart() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AllowColdstart() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_AllowColdstart of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>561H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-5  </p>
+<p>FrIf_AllowColdstart </p>
+<p><b>5.2.5</b></p>
+<p><b> </b></p>
+<p><b>FrIf_AllSlots </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_AllSlots</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>40 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_AllSlots shall </p>
+<p>be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AllSlots() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_AllSlots() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_AllSlots of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>587H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“All Slots Support”</p>
+<p> has been enabled for FlexRay Interface. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-6  </p>
+<p>FrIf_AllSlots </p>
+<p><b>5.2.6</b></p>
+<p><b> </b></p>
+<p><b>FrIf_CancelAbsoluteTimer </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_CancelAbsoluteTimer</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_CancelAbsoluteTimer() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_CancelAbsoluteTimer() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>41 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_CancelAbsoluteTimer function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>562H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter FrIf/FrIfGeneral/FrIfAbsTimerIdx is set to 0. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>As one FlexRay timer is used by the FlexRay Interface this function must not be used for timer 0. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-7  </p>
+<p>FrIf_CancelAbsoluteTimer </p>
+<p><b>5.2.7</b></p>
+<p><b> </b></p>
+<p><b>FrIf_CancelRelativeTimer (optional) </b></p>
+<p>Table 5-8  </p>
+<p>FrIf_CancelRelativeTimer </p>
+<p><b>5.2.8</b></p>
+<p><b> </b></p>
+<p><b>FrIf_CancelTransmit (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_CancelTransmit</b>(PduIdType FrIf_TxPduId)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_TxPduId </p>
+<p>FrIf-ID of the PDU to be cancelled. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The cancelation request has been accepted. </p>
+<p>E_NOT_OK </p>
+<p>The cancelation request has been rejected, or an error has been detected if </p>
+<p>development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function cancels the transmission of a PDU by clearing the number of indications of ready PDU data. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>609H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Cancel Transmit Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this function temporarily disables all interrupts. </p>
+<p>Expected Caller Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>42 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-9  </p>
+<p>FrIf_CancelTransmit (optional) </p>
+<p><b>5.2.9</b></p>
+<p><b> </b></p>
+<p><b>FrIf_CheckWakeupByTransceiver </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_CheckWakeupByTransceiver</b>(uint8 FrIf_CtrlIdx, Fr_ChannelType </p>
+<p>FrIf_ChnlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_CheckWakeupByTransceiver() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_CheckWakeupByTransceiver() has returned E_NOT_OK, or an error </p>
+<p>has been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_CheckWakeupByTransceiver function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>564H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-10 </p>
+<p>FrIf_CheckWakupByTransceiver </p>
+<p><b>5.2.10</b></p>
+<p><b> </b></p>
+<p><b>FrIf_ClearTransceiverWakeup </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_ClearTransceiverWakeup</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>43 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_ClearTransceiverWakeup() has returned BUSTRCV_E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_ClearTransceiverWakeup() has returned BUSTRCV_E_ERROR, or an </p>
+<p>error has been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_ClearTransceiverWakeup function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>565H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-11  </p>
+<p>FrIf_ClearTransceiverWakeup </p>
+<p> </p>
+<p><b>5.2.11</b></p>
+<p><b> </b></p>
+<p><b>FrIf_ControllerInit </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_ControllerInit</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller to be initialized. Only 0 is </p>
+<p>allowed. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ControllerInit() has returned </p>
+<p>E_OK. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>44 </p>
+<p>based on template version 4.11.3 </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ControllerInit() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function initializes one FlexRay communication controller by calling Fr_ControllerInit of the FlexRay </p>
+<p>Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>566H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>If this function is called during active communication, the communication of all FlexRay </p>
+<p>communication controllers will be terminated. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the</p>
+<p> “Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-12  </p>
+<p>FrIf_ControllerInit </p>
+<p><b>5.2.12</b></p>
+<p><b> </b></p>
+<p><b>FrIf_DisableLPdu (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_DisableLPdu</b>(uint8 FrIf_CtrlIdx, int16 FrIf_LPduIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_DisableLPdu </p>
+<p>shall be called. </p>
+<p>FrIf_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_DisableLPdu() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_DisableLPdu() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>According to AUTOSAR 4.0 this function wraps the Fr_DisableLPdu of the FlexRay Driver to disable the </p>
+<p>message buffer of the given L-PDU. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>45 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>595H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter </p>
+<p>FrIf/FrIfGeneral/FrIfDisableLPduSupport is set to true.</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Only the L-PDUs with the </p>
+<p>“Reconfigurable”</p>
+<p> flag enabled can be disabled by this API. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-13  </p>
+<p>FrIf_DisableLPdu </p>
+<p><b>5.2.13</b></p>
+<p><b> </b></p>
+<p><b>FrIf_DisableAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_DisableAbsoluteTimerIRQ</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_DisableAbsoluteTimerIRQ() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_DisableAbsoluteTimerIRQ() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_DisableAbsoluteTimerIRQ function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>569H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter FrIf/FrIfGeneral/FrIfAbsTimerIdx is set to 0. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>46 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-14  </p>
+<p>FrIf_DisableAbsoluteTimerIRQ </p>
+<p><b>5.2.14</b></p>
+<p><b> </b></p>
+<p><b>FrIf_DisableRelativeTimerIRQ </b></p>
+<p> </p>
+<p><b>5.2.15</b></p>
+<p><b> </b></p>
+<p><b>FrIf_DisableTransceiverBranch </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_DisableTransceiverWakeup</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, uint8 FrIf_BranchIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_BranchIdx </p>
+<p>This zero based index identifies the branch of the (active star)  transceiver to </p>
+<p>which the API call has to be applied. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_DisableTransceiverBranch() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_DisableTransceiverBranch() has returned E_NOT_OK, or an error has </p>
+<p>been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_DisableTransceiverBranch function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>571H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the</p>
+<p> “Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-15 </p>
+<p>FrIf_DisableTransceiverBranch </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>47 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.16</b></p>
+<p><b> </b></p>
+<p><b>FrIf_EnableAbsoluteTimerIRQ </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_EnableAbsoluteTimerIRQ</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_EnableAbsoluteTimerIRQ() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_EnableAbsoluteTimerIRQ() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_EnableAbsoluteTimerIRQ function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>572H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter FrIf/FrIfGeneral/FrIfAbsTimerIdx is set to 0. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-16  </p>
+<p>FrIf_EnableAbsoluteTimerIRQ </p>
+<p><b>5.2.17</b></p>
+<p><b> </b></p>
+<p><b>FrIf_EnableRelativeTimerIRQ </b></p>
+<p> </p>
+<p><b>5.2.18</b></p>
+<p><b> </b></p>
+<p><b>FrIf_EnableTransceiverBranch </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_EnableTransceiverBranch</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, uint8 FrIf_BranchIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>48 </p>
+<p>based on template version 4.11.3 </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_BranchIdx </p>
+<p>This zero based index identifies the branch of the (active star) transceiver to </p>
+<p>which the API call has to be applied. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_EnableTransceiverBranch() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_EnableTransceiverBranch() has returned E_NOT_OK, or an error has </p>
+<p>been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_EnableTransceiverBranch function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>574H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-17 </p>
+<p>FrIf_EnableTransceiverBranch </p>
+<p><b>5.2.19</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetAbsoluteTimerIRQStatus </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetAbsoluteTimerIRQStatus</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetAbsoluteTimerIRQStatus() </p>
+<p>has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetAbsoluteTimerIRQStatus() </p>
+<p>has returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>49 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_GetAbsoluteTimerIRQStatus function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>575H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This function is not available if the parameter FrIf/FrIfGeneral/FrIfAbsTimerIdx is set to 0. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro” </p>
+<p>option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-18  </p>
+<p>FrIf_GetAbsoluteTimerIRQStatus </p>
+<p><b>5.2.20</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetChannelStatus (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetChannelStatus</b>(uint8 FrIf_CtrlIdx, uint16* </p>
+<p>FrIf_ChannelAStatusPtr, uint16* FrIf_ChannelBStatusPtr</p>
+<p>)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_GetGlobalTime </p>
+<p>shall be called. </p>
+<p>FrIf_ChannelAStatusPtr </p>
+<p>Address where the bitcoded channel A status information shall be stored </p>
+<p>FrIf_ChannelBStatusPtr </p>
+<p>Address where the bitcoded channel B status information shall be stored </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetChannelStatus() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetChannelStatus() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_GetChannelStatus of the FlexRay Driver according to AUTOSAR 4.0. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>50 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>576H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get Channel Status Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-19  </p>
+<p>FrIf_GetChannelStatus (optional) </p>
+<p><b>5.2.21</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetClockCorrection (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetClockCorrection</b>(uint8 FrIf_CtrlIdx, sint16* </p>
+<p>FrIf_RateCorrectionPtr, sint32* FrIf_OffsetCorrectionPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_GetGlobalTime </p>
+<p>shall be called. </p>
+<p>FrIf_RateCorrectionPtr </p>
+<p>Address where the current rate correction value shall be stored. </p>
+<p>FrIf_OffsetCorrectionPtr </p>
+<p>Address where the current offset correction value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetClockCorrection() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetClockCorrection() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_GetClockCorrection of the FlexRay Driver according to AUTOSAR 4.0.. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>577H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get Clock Correction Support”</p>
+<p> has been enabled for </p>
+<p>FlexRay Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>51 </p>
+<p>based on template version 4.11.3 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-20  </p>
+<p>FrIf_GetClockCorrection (optional) </p>
+<p><b>5.2.22</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetCycleLength </b></p>
+<p><b>Prototype </b></p>
+<p>uint32 <b>FrIf_GetCycleLength</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay CC to address. </p>
+<p><b>Return code </b></p>
+<p>uint32 </p>
+<p> </p>
+<p>Time in unit of nanoseconds. </p>
+<p><b>Functional Description </b></p>
+<p>This API returns the configured time of the configuration parameter &quot;GdCycle&quot; in nanoseconds for the </p>
+<p>FlexRay controller with index FrIf_CtrlIdx. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>578H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-21 FrIf_GetCycleLength </p>
+<p><b>5.2.23</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetGlobalTime </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetGlobalTime</b>(uint8 FrIf_CtrlIdx, uint8* </p>
+<p>FrIf_CyclePtr, uint16* FrIf_MacroTickPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_GetGlobalTime </p>
+<p>shall be called. </p>
+<p>FrIf_CyclePtr </p>
+<p>Reference to the memory location the current FlexRay communication cycle </p>
+<p>will be stored at. </p>
+<p>FrIf_MacroTickPtr </p>
+<p>Reference to the memory location the current macrotick value will be stored </p>
+<p>at. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>52 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetGlobalTime() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetGlobalTime() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_GetGlobalTime of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>578H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>The FlexRay global time is only defined if the FlexRay bus is synchronized. If this function is called while </p>
+<p>the communication controller is not in POC state normal active, it will return E_NOT_OK. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-22  </p>
+<p>FrIf_GetGlobalTime </p>
+<p><b>5.2.24</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetMacrotickDuration </b></p>
+<p><b>Prototype </b></p>
+<p>uint16 <b>FrIf_GetMacrotickDuration</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay controller for which the macro tick duration shall be </p>
+<p>determined. </p>
+<p><b>Return code </b></p>
+<p>uint16 </p>
+<p>The duration of a macro tick in nanoseconds. </p>
+<p><b>Functional Description </b></p>
+<p>This function returns the duration of a macro tick. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>579H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>53 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-23  </p>
+<p>FrIf_GetMacrotickDuration </p>
+<p><b>5.2.25</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetMacroticksPerCycle </b></p>
+<p><b>Prototype </b></p>
+<p>uint16 <b>FrIf_GetMacroticksPerCycle </b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay controller for which the number of macro ticks per cycle </p>
+<p>shall be determined. </p>
+<p><b>Return code </b></p>
+<p>uint16 </p>
+<p>The number of macro ticks per cycle. </p>
+<p><b>Functional Description </b></p>
+<p>This function returns the number of macro ticks per cycle. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>579H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-24  </p>
+<p>FrIf_GetMacrotickDuration </p>
+<p><b>5.2.26</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetNmVector </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetNmVector</b>(uint8 FrIf_CtrlIdx, uint8* </p>
+<p>FrIf_NmVectorPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_GetNmVector </p>
+<p>shall be called. </p>
+<p>FrIf_NmVectorPtr </p>
+<p>Pointer to a memory location where the NM vector will be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetNmVector() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetNmVector() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>54 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_GetNmVector of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>581H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get NM Vector Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro” </p>
+<p>option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-25  </p>
+<p>FrIf_GetNmVector </p>
+<p><b>5.2.27</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetNumOfStartupFrames </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetNumOfStartupFrames</b>(uint8 FrIf_CtrlIdx, uint8* </p>
+<p>FrIf_NumOfStartupFramesPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_GetNumOfStartupFrames() shall be called. </p>
+<p>FrIf_NumOfStartupFramesPtr </p>
+<p>Address where the number of startup frames seen within the last even/odd </p>
+<p>cycle pair shall be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetNumOfStartupFrames() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetNumOfStartupFrames() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_GetNumOfStartupFrames of the FlexRay Driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>55 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>587H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get Num Of Startup Frames Support”</p>
+<p> has been enabled for </p>
+<p>FlexRay Interface. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-26  </p>
+<p>FrIf_GetNumOfStartupFrames </p>
+<p><b>5.2.28</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetPOCStatus </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetPOCStatus</b>(uint8 FrIf_CtrlIdx, Fr_POCStatusType* </p>
+<p>FrIf_POCStatusPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_GetPOCStatus </p>
+<p>shall be called. </p>
+<p>FrIf_POCStatusPtr </p>
+<p>Pointer to a memory location where the output value will be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetPOCStatus() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetPOCStatus() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_GetPOCStatus of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>582H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the “</p>
+<p>Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-27  </p>
+<p>FrIf_GetPOCStatus </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>56 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.29</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetRelativeTimerIRQStatus </b></p>
+<p>Table 5-28  </p>
+<p>FrIf_GetRelativeTimerIRQStatus </p>
+<p><b>5.2.30</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetState </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetState</b>(uint8 FrIf_ClstIdx, FrIf_StateType </p>
+<p>*FrIf_StatePtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_ClstIdx </p>
+<p>Index of the FlexRay cluster for which the state of the FlexRay Interface shall </p>
+<p>be determined. </p>
+<p>FrIf_StatePtr </p>
+<p>Pointer to a memory location where the retrieved FrIf_State will be stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Function was successfully executed. </p>
+<p>E_NOT_OK </p>
+<p>Function execution failed due to detected errors. </p>
+<p><b>Functional Description </b></p>
+<p>Determine the state of the FlexRay Interface for the given cluster which can be either </p>
+<p>584H</p>
+<p>FRIF_STATE_OFFLINE</p>
+<p> or </p>
+<p>585H</p>
+<p>FRIF_STATE_ONLINE</p>
+<p>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>586H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_ClstIdx only the value 0 is allowed. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-29  </p>
+<p>FrIf_GetState </p>
+<p> </p>
+<p><b>5.2.31</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetSyncFrameList (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetSyncFrameList</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_ListSize, uint16* FrIf_ChannelAEvenListPtr, int16* </p>
+<p>FrIf_ChannelBEvenListPtr, int16* FrIf_ChannelAOddListPtr, uint16* </p>
+<p>FrIf_ChannelBOddListPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_GetSyncFrameList shall be called. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>57 </p>
+<p>based on template version 4.11.3 </p>
+<p>FrIf_ListSize </p>
+<p>Size of the arrays passed via parameters:  </p>
+<p> - FrIf_ChannelAEvenListPtr FrIf_ChannelBEvenListPtr </p>
+<p> - FrIf_ChannelAOddListPtr FrIf_ChannelBOddListPtr. </p>
+<p>The service must ensure to not write more entries into those arrays than </p>
+<p>granted by this parameter. </p>
+<p>FrIf_ChannelAEvenListPtr </p>
+<p>Address the list of sync frames on channel A within the even communication </p>
+<p>cycle is written to. The exact number of elements written to the list is limited </p>
+<p>by parameter FrIf_ListSize. Unused list elements are filled with the value '0' </p>
+<p>to indicate that no more sync frame has been seen. </p>
+<p>FrIf_ChannelBEvenListPtr </p>
+<p>Address the list of sync frames on channel B within the even communication </p>
+<p>cycle is written to. The exact number of elements written to the list is limited </p>
+<p>by parameter FrIf_ListSize. Unused list elements are filled with the value '0' </p>
+<p>to indicate that no more sync frame has been seen. </p>
+<p>FrIf_ChannelAOddListPtr </p>
+<p>Address the list of sync frames on channel A within the odd communication </p>
+<p>cycle is written to. The exact number of elements written to the list is limited </p>
+<p>by parameter FrIf_ListSize. Unused list elements are filled with the value '0' </p>
+<p>to indicate that no more sync frame has been seen. </p>
+<p>FrIf_ChannelBOddListPtr </p>
+<p>Address the list of sync frames on channel B within the odd communication </p>
+<p>cycle is written to. The exact number of elements written to the list is limited </p>
+<p>by parameter FrIf_ListSize. Unused list elements are filled with the value '0' </p>
+<p>to indicate that no more sync frame has been seen. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetSyncFrameList() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetSyncFrameList() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>According to AUTOSAR 4.0 this function wraps the Fr_GetSyncFrameList() of the FlexRay Driver to read </p>
+<p>the list of sync frames received in the last two communication cycles and write it to the given arrays. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>587H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get Sync Frame List Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>The FrIf_ListSize parameter is limited to a maximum of 15 by the FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>58 </p>
+<p>based on template version 4.11.3 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-30  </p>
+<p>FrIf_GetSyncFrameList (optional) </p>
+<p><b>5.2.32</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetTransceiverError </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetTransceiverMode</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, uint8 FrIf_BranchIdx, uint32* </p>
+<p>FrIf_BusErrorState)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_BranchIdx </p>
+<p>This zero based index identifies the branch of the (active star) transceiver to </p>
+<p>which the API call has to be applied. </p>
+<p>FrIf_BusErrorState </p>
+<p>Address where the transceiver error state is stored. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverError() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverError() has returned E_NOT_OK, or an error has been </p>
+<p>detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_GetTransceiverError() function of the FlexRay Transceiver Driver. </p>
+<p>The enum value &quot;FR_CHANNEL_AB&quot; shall not be used. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>588H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if </p>
+<p>the</p>
+<p> “Wrapper APIs As Macro” </p>
+<p>option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-31  </p>
+<p>FrIf_GetTransceiverError </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>59 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.33</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetTransceiverMode </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetTransceiverMode</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, FrTrcv_TrcvModeType* FrIf_TrcvModePtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_TrcvModePtr </p>
+<p>The memory location to which the mode shall be written. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverMode() has returned BUSTRCV_E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverMode() has returned BUSTRCV_E_ERROR, or an error </p>
+<p>has been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_GetTransceiverMode function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>588H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if </p>
+<p>the</p>
+<p> “Wrapper APIs As Macro” </p>
+<p>option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-32  </p>
+<p>FrIf_GetTransceiverMode </p>
+<p><b>5.2.34</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetTransceiverWUReason </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetTransceiverWUReason</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, FrTrcv_TrcvWUReasonType* </p>
+<p>FrIf_TrcvWUReasonPtr)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>60 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_TrcvWUReasonPtr </p>
+<p>The memory location to which the wake-up reason shall be written. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverWUReason() has returned BUSTRCV_E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_GetTransceiverWUReason() has returned BUSTRCV_E_ERROR, or an </p>
+<p>error has been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_GetTransceiverWUReason function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>589H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-33  </p>
+<p>FrIf_GetTransceiverWUReason </p>
+<p><b>5.2.35</b></p>
+<p><b> </b></p>
+<p><b>FrIf_GetWakeupRxStatus </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_GetWakeupRxStatus</b>(uint8 FrIf_CtrlIdx, uint8* </p>
+<p>FrIf_WakeupRxStatusPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_GetWakeupRxStatus shall be called. </p>
+<p>FrIf_WakeupRxStatusPtr </p>
+<p>Address where bitcoded wakeup reception status shall be stored.  </p>
+<p></p>
+<p> </p>
+<p>Bit 0: Wakeup received on channel A indicator  </p>
+<p></p>
+<p> </p>
+<p>Bit 1: Wakeup received on channel B indicator </p>
+<p></p>
+<p> </p>
+<p>Bit 2-7: Unused </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>61 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetWakeupRxStatus () has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_GetWakeupRxStatus () has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_GetWakeupRxStatus of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>587H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Get Wakeup Rx Status Support”</p>
+<p> has been enabled for </p>
+<p>FlexRay Interface. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-34  </p>
+<p>FrIf_GetWakeupRxStatus </p>
+<p><b>5.2.36</b></p>
+<p><b> </b></p>
+<p><b>FrIf_HaltCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_HaltCommunication</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_HaltCommunication shall be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_HaltCommunication() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_HaltCommunication() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_HaltCommunication of the FlexRay Driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>62 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>590H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-35  </p>
+<p>FrIf_HaltCommunication </p>
+<p><b>5.2.37</b></p>
+<p><b> </b></p>
+<p><b>FrIf_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_Init</b>(const FrIf_ConfigType *FrIf_ConfigPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_ConfigPtr </p>
+<p>Pointer to the post-build configuration data structure of the FlexRay </p>
+<p>Interface. If the configuration variant pre-compile is used, the pointer given </p>
+<p>to </p>
+<p>591H</p>
+<p><b>FrIf_Init</b></p>
+<p> is ignored. </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is used to initialize the FlexRay Interface. The configuration data that shall be used by the </p>
+<p>FlexRay Interface is passed as parameter. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If this function is called during active communication, the communication of all FlexRay </p>
+<p>communication controllers will be terminated. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-36  </p>
+<p>FrIf_Init </p>
+<p><b>5.2.38</b></p>
+<p><b> </b></p>
+<p><b>FrIf_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_InitMemory</b>(void)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Void </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>63 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is used to initialize the global variables of the FlexRay Interface at startup. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function shall be called at startup before </p>
+<p>592H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-37  </p>
+<p>FrIf_InitMemory </p>
+<p><b>5.2.39</b></p>
+<p><b> </b></p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_JobListExec_&lt;ClstIdx&gt; </b>(void)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This is the common call-back function for the activation of the Rx- or Tx-tasks (job execution) of the </p>
+<p>FlexRay Interface. Depending on the current FlexRay global time and the configured start times of the Rx- </p>
+<p>and Tx-tasks, the FlexRay Interface will either execute the Rx- or Tx-task of the corresponding FlexRay </p>
+<p>Cluster. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>593H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this function temporarily disables all interrupts. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function must be called by the application or integration code either directly in the context of the </p>
+<p>timer interrupt or in the context of an OS task that is activated in the context of the timer interrupt. </p>
+<p>Table 5-38  </p>
+<p><b>FrIf_JobListExec_&lt;ClstIdx&gt;</b></p>
+<p> </p>
+<p><b>5.2.40</b></p>
+<p><b> </b></p>
+<p><b>FrIf_MainFunction_&lt;ClstIdx&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>FrIf_MainFunction_&lt;ClstIdx&gt;</b>(void)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>64 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Parameter </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function checks whether the job execution of its related FlexRay Cluster is synchronized. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>594H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function is called cyclically by the BSW Scheduler. </p>
+<p>Table 5-39  </p>
+<p>FrIf_MainFunction_&lt;ClstIdx&gt; </p>
+<p><b>5.2.41</b></p>
+<p><b> </b></p>
+<p><b>FrIf_ReadCCConfig (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_ReadCCConfig</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_CCLLParamIndex, uint32* FrIf_CCLLParamValue)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_SendWUP shall </p>
+<p>be called. </p>
+<p>FrIf_CCLLParamIndex </p>
+<p>This index selects the low level parameter value that shall be copied. Refer to </p>
+<p>Fr_GeneralTypes.h for the list of supported low level parameters. </p>
+<p>FrIf_CCLLParamValue </p>
+<p>Value of the read parameter. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ReadCCConfig() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ReadCCConfig() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_ReadCCConfig of the FlexRay Driver to read the CC configuration registers. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>65 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>595H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Read CC Config Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-40  </p>
+<p>FrIf_ReadCCConfig (optional) </p>
+<p><b>5.2.42</b></p>
+<p><b> </b></p>
+<p><b>FrIf_ReconfigLPdu (optional) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_ReconfigLPdu</b>(uint8 FrIf_CtrlIdx, int16 </p>
+<p>FrIf_LPduIdx, int16 FrIf_FrameId, Fr_ChannelType FrIf_ChnlIdx, int8 </p>
+<p>FrIf_CycleRepetition, int8 FrIf_CycleOffset, uint8 FrIf_PayloadLength, </p>
+<p>int16 FrIf_HeaderCRC )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_ReconfigLPdu </p>
+<p>shall be called. </p>
+<p>FrIf_LPduIdx </p>
+<p>This index is used to uniquely identify a FlexRay frame. </p>
+<p>FrIf_FrameId </p>
+<p>FlexRay Frame ID the FrIf_LPdu shall be configured to. </p>
+<p>FrIf_ChnlIdx </p>
+<p>FlexRay Channel the FrIf_LPdu shall be configured to. </p>
+<p>FrIf_CycleRepetition </p>
+<p>Cycle Repetition part of the cycle filter mechanism FrIf_LPdu shall be </p>
+<p>configured to. </p>
+<p>FrIf_CycleOffset </p>
+<p>Cycle Offset part of the cycle filter mechanism FrIf_LPdu shall be configured </p>
+<p>to. </p>
+<p>FrIf_PayloadLength </p>
+<p>Payloadlength in units of bytes the FrIf_LPduIdx shall be configured to. </p>
+<p>FrIf_HeaderCRC </p>
+<p>Header CRC the FrIf_LPdu shall be configured to. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ReconfigLPdu() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_ReconfigLPdu() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>66 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Functional Description </b></p>
+<p>According to AUTOSAR 4.0 this function wraps the Fr_ReconfigLPdu of the FlexRay Driver to reconfigure </p>
+<p>the corresponding HW buffer according the given parameters during runtime. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>595H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the </p>
+<p>“Reconfig LPdu Support”</p>
+<p> has been enabled for FlexRay </p>
+<p>Interface and FlexRay Driver. </p>
+<p><b>&gt; </b></p>
+<p>Only the L-PDUs with the </p>
+<p>“Reconfigurable”</p>
+<p> flag enabled can be reconfigured by this API. </p>
+<p><b>&gt; </b></p>
+<p>If L-PDU reconfiguration is enabled for a specific L-PDU, this L-PDU is not sent after FrIf_ControllerInit </p>
+<p>but has to be enabled with this function. Therewith it is not allowed to set the </p>
+<p>“Reconfigurable”</p>
+<p> flag </p>
+<p>for a sync frame. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-41  </p>
+<p>FrIf_ReconfigLPdu (optional) </p>
+<p><b>5.2.43</b></p>
+<p><b> </b></p>
+<p><b>FrIf_SendWUP </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_SendWUP</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which Fr_SendWUP shall </p>
+<p>be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SendWUP() has returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SendWUP() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_SendWUP of the FlexRay Driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>67 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>595H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-42  </p>
+<p>FrIf_SendWUP </p>
+<p><b>5.2.44</b></p>
+<p><b> </b></p>
+<p><b>FrIf_SetAbsoluteTimer </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_SetAbsoluteTimer</b>(uint8 FrIf_CtrlIdx, uint8 </p>
+<p>FrIf_AbsTimerIdx, uint8 FrIf_Cycle, uint16 FrIf_Offset) </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay Communication Controller. </p>
+<p>FrIf_AbsTimerIdx </p>
+<p>Index of the absolute timer to be used for setting the alarm time. </p>
+<p>FrIf_Cycle </p>
+<p>Cycle in which the timer shall expire. </p>
+<p>FrIf_Offset </p>
+<p>Offset to the cycle start in macro ticks. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SetAbsoluteTimer() has returned </p>
+<p>E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SetAbsoluteTimer() has returned </p>
+<p>E_NOT_OK, or an error has been detected if development error detection is </p>
+<p>enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the Fr_SetAbsoluteTimer function of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>596H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>As one FlexRay timer is used by the FlexRay Interface this function must not be used for timer 0. </p>
+<p><b>&gt; </b></p>
+<p>The FlexRay global time is only defined if the FlexRay bus is synchronized. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro” </p>
+<p>option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>68 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-43  </p>
+<p>FrIf_SetAbsoluteTimer </p>
+<p> </p>
+<p> </p>
+<p><b>5.2.45</b></p>
+<p><b> </b></p>
+<p><b>FrIf_SetState </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_SetState</b>(uint8 FrIf_ClstIdx, </p>
+<p>FrIf_StateTransitionType FrIf_StateTransition )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_ClstIdx </p>
+<p>Index of the FlexRay cluster for which the state of the FlexRay Interface shall </p>
+<p>be determined. </p>
+<p>FrIf_StateTransition </p>
+<p>Requested state transition, i.e. either </p>
+<p>599H</p>
+<p>FRIF_GOTO_OFFLINE</p>
+<p> or </p>
+<p>600H</p>
+<p>FRIF_GOTO_ONLINE</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Function was successfully executed. </p>
+<p>E_NOT_OK </p>
+<p>Function execution failed due to detected errors. </p>
+<p><b>Functional Description </b></p>
+<p>Change the state of the FlexRay Interface for the given cluster. </p>
+<p><b>&gt; </b></p>
+<p>601H</p>
+<p>FRIF_GOTO_ONLINE</p>
+<p> will start the FrIf job list execution. </p>
+<p></p>
+<p> </p>
+<p>602H</p>
+<p>FRIF_GOTO_OFFLINE</p>
+<p> will stop the FrIf job list execution. </p>
+<p>Note that the state of the FlexRay communication controller is not influenced by this function. I.e. the </p>
+<p>function </p>
+<p>603H</p>
+<p><b>FrIf_HaltCommunication</b></p>
+<p> has to be used to actually stop the FlexRay communication. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>604H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_ClstIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>The FlexRay Interface can only be set to </p>
+<p>605H</p>
+<p>FRIF_STATE_ONLINE</p>
+<p> after synchronization of the FlexRay </p>
+<p>bus has been achieved. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-44  </p>
+<p>FrIf_SetState </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>69 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.46</b></p>
+<p><b> </b></p>
+<p><b>FrIf_SetTransceiverMode </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_SetTransceiverMode</b>(uint8 FrIf_CtrlIdx, </p>
+<p>Fr_ChannelType FrIf_ChnlIdx, FrTrcv_TrcvModeType FrIf_TrcvMode)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>The index of the FlexRay communication controller to which the transceiver </p>
+<p>is connected. </p>
+<p>FrIf_ChnlIdx </p>
+<p>The index of the FlexRay channel to which the transceiver is connected. </p>
+<p>FrIf_TrcvMode </p>
+<p>The mode that shall be set. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_SetTransceiverMode() has returned BUSTRCV_E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Transceiver Driver API service </p>
+<p>FrTrcv_SetTransceiverMode() has returned BUSTRCV_E_ERROR, or an error </p>
+<p>has been detected if development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function wraps the FrTrcv_SetTransceiverMode function of the FlexRay Transceiver Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>606H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if the MICROSAR FlexRay Transceiver component is enabled in the </p>
+<p>configuration tool. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-45  </p>
+<p>FrIf_SetTransceiverMode </p>
+<p><b>5.2.47</b></p>
+<p><b> </b></p>
+<p><b>FrIf_SetWakeupChannel </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_SetWakeupChannel</b>(uint8 FrIf_CtrlIdx, Fr_ChannelType </p>
+<p>FrIf_ChnlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_SetWakeupChannel shall be called. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>70 </p>
+<p>based on template version 4.11.3 </p>
+<p>FrIf_ChnlIdx </p>
+<p>Index of the FlexRay channel. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SetWakeupChannel() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_SetWakeupChannel() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_SetWakeupChannel of the FlexRay Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>607H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>This API function is only available if </p>
+<p>“SetWakeupChannel Disable”</p>
+<p> has not been disabled for FlexRay </p>
+<p>Interface. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-46  </p>
+<p>FrIf_SetWakeupChannel </p>
+<p> </p>
+<p><b>5.2.48</b></p>
+<p><b> </b></p>
+<p><b>FrIf_StartCommunication </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_StartCommunication</b>(uint8 FrIf_CtrlIdx)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_CtrlIdx </p>
+<p>Index of the FlexRay communication controller for which </p>
+<p>Fr_StartCommunication shall be called. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the FlexRay Driver API service Fr_StartCommunication() has </p>
+<p>returned E_OK. </p>
+<p>E_NOT_OK </p>
+<p>The call of the FlexRay Driver API service Fr_StartCommunication() has </p>
+<p>returned E_NOT_OK, or an error has been detected if development error </p>
+<p>detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>Call the function Fr_StartCommunication of the FlexRay Driver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>71 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>608H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>For the parameter FrIf_CtrlIdx only the value 0 is allowed. </p>
+<p><b>&gt; </b></p>
+<p>This function is implemented as macro to reduce code size if the </p>
+<p>“Wrapper APIs As Macro”</p>
+<p> option is </p>
+<p>enabled for the FlexRay Interface. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-47  </p>
+<p>FrIf_StartCommunication </p>
+<p><b>5.2.49</b></p>
+<p><b> </b></p>
+<p><b>FrIf_Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>FrIf_Transmit</b>(PduIdType FrIf_TxPduId, const PduInfoType </p>
+<p>* FrIf_PduInfoPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>FrIf_TxPduId </p>
+<p>FrIf-ID of the PDU to be transmitted. </p>
+<p>PduInfoPtr </p>
+<p>Pointer to a structure with FlexRay PDU related data. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The immediate transmission request has been accepted. </p>
+<p>E_NOT_OK </p>
+<p>The transmission request has been rejected, or an error has been detected if </p>
+<p>development error detection is enabled. </p>
+<p><b>Functional Description </b></p>
+<p>This function initiates the transmission of a PDU. </p>
+<p>If the PDU is configured for Decoupled Transmission, the PDU is marked as dirty. When a frame that </p>
+<p>contains the PDU shall be transmitted, the &lt;UL&gt;_TriggerTransmit call-back function of the upper-layer </p>
+<p>component will be called in order to get the PDU content. </p>
+<p>If the PDU is configured for Immediate Transmission the PDU content is directly given to the FlexRay </p>
+<p>Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Precondition: The FlexRay Interface has to be initialized with a call of </p>
+<p>609H</p>
+<p><b>FrIf_Init</b></p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p>During its runtime this function temporarily disables all interrupts. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This function can be called in any context. </p>
+<p>Table 5-48  </p>
+<p>FrIf_Transmit </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>72 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>73 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.3</b></p>
+<p><b> </b></p>
+<p><b>Services used by FrIf </b></p>
+<p>In  the  following  table  services  provided  by other  components,  which  are  used  by  the <b> FrIf </b> are  listed.  For </p>
+<p>details about prototype and functionality refer to the documentation of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>212H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_AbortCommunication </p>
+<p>213H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_AckAbsoluteTimerIRQ </p>
+<p>215H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_AllowColdstart </p>
+<p>216H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_CancelAbsoluteTimer </p>
+<p>218H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_CheckTxLPduStatus </p>
+<p>219H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_ControllerInit </p>
+<p>231H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_DisableLPdu </p>
+<p>220H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_DisableAbsoluteTimerIRQ </p>
+<p>222H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_EnableAbsoluteTimerIRQ </p>
+<p>224H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetAbsoluteTimerIRQStatus </p>
+<p>225H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetChannelStatus </p>
+<p>226H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetClockCorrection </p>
+<p>227H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetGlobalTime </p>
+<p>228H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetNmVector </p>
+<p>229H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetPOCStatus </p>
+<p>231H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetSyncFrameList </p>
+<p>232H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_HaltCommunication </p>
+<p>233H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_PrepareLPdu </p>
+<p>231H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_ReadCCConfig </p>
+<p>234H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_ReceiveRxLPdu </p>
+<p>231H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_ReconfigLPdu </p>
+<p>235H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_SendWUP </p>
+<p>235H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_AllSlots </p>
+<p>235H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetNumOfStartupFrames </p>
+<p>235H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_GetWakeupRxStatus </p>
+<p>236H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_SetAbsoluteTimer </p>
+<p>239H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_SetWakeupChannel </p>
+<p>240H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_StartCommunication </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>74 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>241H</p>
+<p>Fr</p>
+<p> </p>
+<p>Fr_TransmitTxLPdu </p>
+<p>242H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_ClearTransceiverWakeup </p>
+<p>245H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_GetTransceiverMode </p>
+<p>245H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_DisableTransceiverBranch </p>
+<p>245H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_EnableTransceiverBranch </p>
+<p>245H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_CheckWakeupByTransceiver </p>
+<p>245H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_GetTransceiverError </p>
+<p>246H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_GetTransceiverWUReason </p>
+<p>247H</p>
+<p>FrTrcv</p>
+<p> </p>
+<p>FrTrcv_SetTransceiverMode </p>
+<p>248H</p>
+<p>Det</p>
+<p> </p>
+<p>Det_ReportError </p>
+<p>249H</p>
+<p>Dem</p>
+<p> </p>
+<p>Dem_ReportErrorStatus </p>
+<p>Table 5-49  </p>
+<p>Services used by the <b>FrIf </b></p>
+<p><b>5.4</b></p>
+<p><b> </b></p>
+<p><b>Callback Functions </b></p>
+<p>The FlexRay Interface does not provide any callback function. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>75 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.5</b></p>
+<p><b> </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p>At  its  configurable  interfaces  the <b> FrIf </b> defines  notifications  that  can  be  mapped  to  callback  functions </p>
+<p>provided by other modules. The mapping is not statically defined by the BSW module but can be performed </p>
+<p>at configuration time. The function prototypes that can be used for the configuration have to match the </p>
+<p>appropriate function prototype signatures, which are described in the following tables.  </p>
+<p><b>5.5.1</b></p>
+<p><b> </b></p>
+<p><b>Notifications </b></p>
+<p>The MICROSAR <b>FrIf </b>does not use any notifications </p>
+<p><b>5.5.2</b></p>
+<p><b> </b></p>
+<p><b>Callout Functions </b></p>
+<p><b>5.5.2.1</b></p>
+<p><b> </b></p>
+<p><b>&lt;UL&gt;_TriggerTransmit </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>&lt;UL&gt;_TriggerTransmit</b>(PduIdType TxPduId, PduInfoType* </p>
+<p>PduInfoPtr) </p>
+<p><b>Parameter </b></p>
+<p>TxPduId (in) </p>
+<p>PDU-ID of FlexRay PDU that shall be copied to the FrIf </p>
+<p>PduInfoPtr (inout) </p>
+<p>Contains a pointer to a buffer (SduDataPtr) to where the SDU shall be  </p>
+<p>copied to. On return, the service will indicate the length of the copied  </p>
+<p>SDU data in SduLength. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>SDU has been copied and SduLength indicates the number of copied bytes.   </p>
+<p>E_NOT_OK </p>
+<p>No SDU has been copied. PduInfoPtr must not be used since it may contain a </p>
+<p>NULL pointer or point to invalid data. </p>
+<p><b>Functional Description </b></p>
+<p>The FlexRay Interface calls this function to request the PDU content from the upper layer software </p>
+<p>module. For the different upper layer software module, the following function names are used: </p>
+<p></p>
+<p> </p>
+<p>FrNm_TriggerTransmit </p>
+<p></p>
+<p> </p>
+<p>FrTp_TriggerTransmit </p>
+<p></p>
+<p> </p>
+<p>PduR_FrIfTriggerTransmit </p>
+<p></p>
+<p> </p>
+<p>Xcp_FrIfTriggerTransmit </p>
+<p></p>
+<p> </p>
+<p>FrTSyn_TriggerTransmit </p>
+<p></p>
+<p> </p>
+<p>FrArTp_TriggerTransmit</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p>Call Context </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>76 </p>
+<p>based on template version 4.11.3 </p>
+<p></p>
+<p> </p>
+<p>Depending on how the FrIf job list function is activated (see section </p>
+<p>610H</p>
+<p>3.4.2) this function can be called </p>
+<p>in interrupt context. </p>
+<p>Table 5-50  </p>
+<p>&lt;UL&gt;_TriggerTransmit (</p>
+<p>“Use Pdu Info Type”</p>
+<p> enabled) </p>
+<p><b>5.5.2.2</b></p>
+<p><b> </b></p>
+<p><b>&lt;UL&gt;_TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>&lt;UL&gt;_TxConfirmation</b>( PduIdType TxPduId) </p>
+<p><b>Parameter </b></p>
+<p>TxPduId </p>
+<p>The ID of the PDU in the upper layer software module. </p>
+<p><b>Return code </b></p>
+<p>Void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The FlexRay Interface calls this function to confirm the transmission of a PDU. For the different upper </p>
+<p>layer software module, the following function names are used: </p>
+<p></p>
+<p> </p>
+<p>FrNm_TxConfirmation </p>
+<p></p>
+<p> </p>
+<p>FrTp_TxConfirmation </p>
+<p></p>
+<p> </p>
+<p>PduR_FrIfTxConfirmation </p>
+<p></p>
+<p> </p>
+<p>Xcp_FrIfTxConfirmation </p>
+<p></p>
+<p> </p>
+<p>FrArTp_TxConfirmation</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call Context </p>
+<p></p>
+<p> </p>
+<p>Depending on how the FrIf job list function is activated (see section </p>
+<p>611H</p>
+<p>3.4.2) this function can be called </p>
+<p>in interrupt context. </p>
+<p>Table 5-51  </p>
+<p>&lt;UL&gt;_TxConfirmation </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>77 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.5.2.3</b></p>
+<p><b> </b></p>
+<p><b>&lt;UL&gt;_RxIndication </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>void <b>&lt;UL&gt;_RxIndication</b>(PduIdType RxPduId, const PduInfoType* </p>
+<p>PduInfoPtr) </p>
+<p><b>Parameter </b></p>
+<p>RxPduId (in) </p>
+<p>PDU-ID of FlexRay PDU that has been received </p>
+<p>PduInfoPtr (in) </p>
+<p>Contains the length (SduLength) of the received I-PDU and a pointer to a </p>
+<p>buffer (SduDataPtr) containing the I-PDU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>The FlexRay Interface calls this function to indicate the reception of a PDU. For the different upper layer </p>
+<p>software module, the following function names are used: </p>
+<p></p>
+<p> </p>
+<p>FrNm_RxIndication </p>
+<p></p>
+<p> </p>
+<p>FrTp_RxIndication </p>
+<p></p>
+<p> </p>
+<p>PduR_FrIfRxIndication </p>
+<p></p>
+<p> </p>
+<p>Xcp_FrIfRxIndication </p>
+<p></p>
+<p> </p>
+<p>FrTSyn_RxIndication </p>
+<p></p>
+<p> </p>
+<p>FrArTp_RxIndication</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p>Call Context </p>
+<p></p>
+<p> </p>
+<p>Depending on how the FrIf job list function is activated (see section </p>
+<p>612H</p>
+<p>3.4.2) this function can be called </p>
+<p>in interrupt context. </p>
+<p>Table 5-52  </p>
+<p>&lt;UL&gt;_RxIndication (</p>
+<p>“Use Pdu Info Type”</p>
+<p> enabled) </p>
+<p><b>5.5.2.4</b></p>
+<p><b> </b></p>
+<p><b>Rx Voting Function (optional for Dual Channel Redundancy Support) </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> <b>&lt;FrIfRxVotingFunction&gt;</b>(</p>
+<p>P2CONST(P2VAR(PduInfoType, AUTOMATIC, </p>
+<p>FRIF_VAR_NOINIT), AUTOMATIC, FRIF_DATA) PduInfo, CONST(uint8, FRIF_CONST) </p>
+<p>NumberOfPdus, P2VAR(uint8, AUTOMATIC, FRIF_DATA) SelectedPduIndex)</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>78 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Parameter </b></p>
+<p>PduInfo</p>
+<p> </p>
+<p>PduInfo array holds a list of received PDU instances for one PDU of a </p>
+<p>redundant frame </p>
+<p>NumberOfPdus </p>
+<p>NumberOfPdus indicates the size of the PduInfo array </p>
+<p>SelectedPduIndex </p>
+<p>SelectedPduIndex is set by application in order to select the PDU instance </p>
+<p>that shall be indicated to the upper layer. </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>The call of the service &lt;FrIfRxVotingFunction&gt; returns E_OK if the application </p>
+<p>was able to select a valid PDU that shall be indicated. </p>
+<p>E_NOT_OK </p>
+<p>The call of the service &lt;FrIfRxVotingFunction&gt; returns E_NOT_OK if the </p>
+<p>application was not able to select a valid PDU that shall be indicated (e.g. </p>
+<p>NumberOfPdus is zero) </p>
+<p><b>Functional Description </b></p>
+<p>Voting function for dual channel redundancy. The FlexRay Interface calls this function to indicate the </p>
+<p>reception of redundant PDUs. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This API function is only used by the FlexRay Interface if the </p>
+<p>“Dual Channel Redundancy Support“</p>
+<p> is </p>
+<p>enabled and at least one pair of redundant reception frames is configured (refer to </p>
+<p>“Redundant </p>
+<p>Frame Triggering Ref”</p>
+<p> attribute). </p>
+<p><b>&gt; </b></p>
+<p>If the </p>
+<p>“Dual Channel Redundancy Support“</p>
+<p> is enabled the name of this API service can be </p>
+<p>configured by setting the </p>
+<p>“Rx Voting Function”</p>
+<p> attribute. For the declaration of this voting function </p>
+<p>the FlexRay interface includes the configured </p>
+<p>“Rx Voting Function Header File”</p>
+<p>. </p>
+<p>Call Context </p>
+<p></p>
+<p> </p>
+<p>Depending on how the FrIf job list function is activated (see section </p>
+<p>612H</p>
+<p>3.4.2) this function can be called </p>
+<p>in interrupt context. </p>
+<p>Table 5-53  </p>
+<p>&lt;FrIfRxVotingFunction&gt; </p>
+<p><b>5.5.3</b></p>
+<p><b> </b></p>
+<p><b>Complex Device Driver Callout Functions </b></p>
+<p>Instead of calling the &lt;UL&gt;_TriggerTransmit, &lt;UL&gt;_TxConfirmation and &lt;UL&gt;_RxIndication functions of the </p>
+<p>upperlayer modules FrNm, FrTp, FrXcp or PduR, the MICROSAR FlexRay Interface can call any user defined </p>
+<p>application callout function for all PDUs which </p>
+<p>“Pdu Owner” </p>
+<p>is </p>
+<p>CDD</p>
+<p>.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>79 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6</b></p>
+<p><b> </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>6.1</b></p>
+<p><b> </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>GENy </p>
+<p>Generation tool for CANbedded and MICROSAR components </p>
+<p>CFG5 </p>
+<p>Generation tool for MICROSAR4 components </p>
+<p>If_AsrIfFr </p>
+<p>Vector Informatik component name of the MICROSAR FlexRay Interface module </p>
+<p>Table 6-1  </p>
+<p>Glossary </p>
+<p><b>6.2</b></p>
+<p><b> </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CDD </p>
+<p>Complex Device Driver </p>
+<p>CRC </p>
+<p>Cyclic Redundancy Check </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>ECUC </p>
+<p>ECU Configuration </p>
+<p>ECUM </p>
+<p>ECU Manager </p>
+<p>ESCANXXXXXXXX </p>
+<p>Vector PES Clearquest Database ID. Replace XXXXXXXX by the </p>
+<p>numeric identifier. </p>
+<p>FIBEX </p>
+<p>Field Bus Exchange </p>
+<p>FR </p>
+<p>FlexRay Driver </p>
+<p>FRIF </p>
+<p>FlexRay Interface </p>
+<p>FRNM </p>
+<p>FlexRay Network Management </p>
+<p>FRSM </p>
+<p>FlexRay State Manager </p>
+<p>FRTRCV </p>
+<p>FlexRay Transceiver Driver </p>
+<p>FRTP </p>
+<p>FlexRay Transport Protocol </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>80 </p>
+<p>based on template version 4.11.3 </p>
+<p>FlexRay L-PDU </p>
+<p>Synonym - „FlexRay Frame“: A structure used by the communication system to exchange </p>
+<p>information within the system. A FlexRay Frame consists of a header segment, a payload </p>
+<p>segment and a trailer segment. The payload segment is used to convey application data. </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR solution) </p>
+<p>OEM </p>
+<p>Original Equipment Manufacturer </p>
+<p>OS </p>
+<p>Operating System </p>
+<p>PDU </p>
+<p>Protocol Data Unit </p>
+<p>PDUR </p>
+<p>PDU Router </p>
+<p>SCHM </p>
+<p>Basic Software Scheduler </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>TP </p>
+<p>Transport Protocol </p>
+<p>UL </p>
+<p>Upper layer component of the FlexRay Interface (FrNm, FrTp, FrXcp, PduR or CDD) </p>
+<p>Table 6-2  </p>
+<p>Abbreviations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR FlexRay Interface </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 4.01.00 </p>
+<p>81 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>7</b></p>
+<p><b> </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p><b>&gt;</b></p>
+<p>   News </p>
+<p><b>&gt;</b></p>
+<p>   Products </p>
+<p><b>&gt;</b></p>
+<p>   Demo software </p>
+<p><b>&gt;</b></p>
+<p>   Support </p>
+<p><b>&gt;</b></p>
+<p>   Training data </p>
+<p><b>&gt;</b></p>
+<p>   Addresses </p>
+<p> </p>
+<p>254H</p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

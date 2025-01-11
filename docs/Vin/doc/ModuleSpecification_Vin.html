@@ -1,0 +1,2000 @@
+---
+layout: default
+title: ModuleSpecification_Vin
+nav_order: 2
+parent: Vin
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Specification of Module Vin</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-02-23</p>
+<p>Version</p>
+<p>3.5.0</p>
+<p>Status</p>
+<p>Released</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>3.5.0</p>
+<p>2017-02-23</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.2</p>
+<p>2016-10-27</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.1</p>
+<p>2016-08-25</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.0</p>
+<p>2016-03-17</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added SWS IDs starting with SWS_Vin_0121,</p>
+<p>changed SWS_Vin_0120</p>
+<p>3.3.0</p>
+<p>2015-12-11</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.2.0</p>
+<p>2015-07-10</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added SI adapter, added SWS IDs from</p>
+<p>SWS_Vin_0109 on</p>
+<p>3.1.0</p>
+<p>2015-03-13</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added SSV functionality from Fscsm, added SWS IDs</p>
+<p>from SWS_Vin_0034 on</p>
+<p>3.0.0</p>
+<p>2014-10-29</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Initial Release for SP2018.</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 1 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction and functional overview</b></p>
+<p><b>4</b></p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>4</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p>3.1</p>
+<p>BMW Specifications</p>
+<p>5</p>
+<p>3.2</p>
+<p>AUTOSAR Specifications</p>
+<p>5</p>
+<p><b>4</b></p>
+<p><b>Constraints and assumptions</b></p>
+<p><b>6</b></p>
+<p><b>5</b></p>
+<p><b>Dependencies to other Modules</b></p>
+<p><b>7</b></p>
+<p>5.1</p>
+<p>Dlog</p>
+<p>7</p>
+<p>5.2</p>
+<p>Fscsm</p>
+<p>7</p>
+<p>5.3</p>
+<p>RTE</p>
+<p>7</p>
+<p><b>6</b></p>
+<p><b>Requirements traceability</b></p>
+<p><b>8</b></p>
+<p><b>7</b></p>
+<p><b>Functional specification</b></p>
+<p><b>9</b></p>
+<p>7.1</p>
+<p>Functional behavior</p>
+<p>9</p>
+<p>7.2</p>
+<p>SSV</p>
+<p>12</p>
+<p>7.2.1</p>
+<p>Secure environment</p>
+<p>13</p>
+<p>7.2.2</p>
+<p>Challenge/response and CounterBase</p>
+<p>13</p>
+<p>7.2.3</p>
+<p>Request/verify secure signal</p>
+<p>14</p>
+<p>7.2.4</p>
+<p>SSV ports and interfaces</p>
+<p>16</p>
+<p>7.2.5</p>
+<p>Message format</p>
+<p>17</p>
+<p>7.3</p>
+<p>Error classification</p>
+<p>18</p>
+<p>7.4</p>
+<p>Error detection</p>
+<p>18</p>
+<p>7.5</p>
+<p>Error notification</p>
+<p>18</p>
+<p><b>8</b></p>
+<p><b>API Specification</b></p>
+<p><b>19</b></p>
+<p>8.1</p>
+<p>Imported types</p>
+<p>19</p>
+<p>8.2</p>
+<p>Type definitions</p>
+<p>19</p>
+<p>8.3</p>
+<p>Function definitions</p>
+<p>19</p>
+<p>8.3.1</p>
+<p>Vin_Main</p>
+<p>19</p>
+<p>8.3.2</p>
+<p>Vin_LifeCycleModeRequest</p>
+<p>19</p>
+<p>8.3.3</p>
+<p>Vin_SsvOnVkEstablished</p>
+<p>20</p>
+<p>8.3.4</p>
+<p>Vin_SsvReceiveResponseFromSss</p>
+<p>20</p>
+<p>8.3.5</p>
+<p>Vin_SsvReceiveMac</p>
+<p>20</p>
+<p>8.3.6</p>
+<p>Vin_SsvStateGet</p>
+<p>21</p>
+<p>8.3.7</p>
+<p>Modes, Types and Mappings</p>
+<p>21</p>
+<p>8.3.8</p>
+<p>Provided Interfaces</p>
+<p>24</p>
+<p>8.3.9</p>
+<p>Expected Interfaces</p>
+<p>26</p>
+<p>8.3.10</p>
+<p>Service Definition</p>
+<p>28</p>
+<p>8.3.11</p>
+<p>Runnables and Entry Points</p>
+<p>29</p>
+<p>8.3.12</p>
+<p>Runnables and Entry Points</p>
+<p>30</p>
+<p><b>9</b></p>
+<p><b>Sequence Diagrams</b></p>
+<p><b>31</b></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 2 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>10 Configuration</b></p>
+<p><b>32</b></p>
+<p>10.1</p>
+<p>How to read this chapter</p>
+<p>32</p>
+<p>10.1.1</p>
+<p>Configuration and configuration parameters</p>
+<p>32</p>
+<p>10.1.2</p>
+<p>Variants</p>
+<p>32</p>
+<p>10.1.3</p>
+<p>Containers</p>
+<p>32</p>
+<p>10.2</p>
+<p>Containers and configuration parameters</p>
+<p>33</p>
+<p>10.2.1</p>
+<p>CommonPublishedInformation</p>
+<p>33</p>
+<p>10.2.2</p>
+<p>VinGeneral</p>
+<p>34</p>
+<p>10.2.3</p>
+<p>SecureVin</p>
+<p>36</p>
+<p>10.2.4</p>
+<p>MultiConfig</p>
+<p>38</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 3 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction and functional overview</b></p>
+<p>The Vin module is used to request the VIN over the bus, set the qualifier and hand it over to application</p>
+<p>software components.</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>API</p>
+<p>Application Programming Interface</p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>BNDB</p>
+<p>Bordnetzdatenbank BNE ist der aktuelle Begriff; BNDB ist veraltet, wird aber</p>
+<p>gelegentlich noch gebraucht.</p>
+<p>BNE</p>
+<p>Bord Netz Engineer</p>
+<p>CAN</p>
+<p>Controller Area Network</p>
+<p>DTC</p>
+<p>Diagnostic Trouble Code -&gt; Fehlercode des Fehlerspeichereintrages</p>
+<p>ECU</p>
+<p>Electronic Control Unit</p>
+<p>EFS</p>
+<p>LH Eigenschafts- / Funktions- / Systemlastenheft</p>
+<p>FAT</p>
+<p>Flash-Absicherungs-Tool</p>
+<p>FZG</p>
+<p>Fahrzeug</p>
+<p>GMT</p>
+<p>Greenwich Mean Time</p>
+<p>HW</p>
+<p>Hardware</p>
+<p>IEEE</p>
+<p>Institute of</p>
+<p>Electrical</p>
+<p>and Electronics Engineers Technisches Normungs-</p>
+<p>gremium</p>
+<p>IETF</p>
+<p>Internet Engineering Task Force Normungsgremium für Internet-Standards</p>
+<p>IP</p>
+<p>Internet Protocol Netzwerkebene des TCP/IP Protokolls</p>
+<p>ISO/OSI</p>
+<p>Schichtenmodell der Kommunikationsprotokolle</p>
+<p>OS</p>
+<p>Operating System</p>
+<p>PTP</p>
+<p>Precision Time Protocol</p>
+<p>PWF</p>
+<p>Parken Wohnen Fahren Energie-Management Konzept bei BMW.</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>SG</p>
+<p>Steuergerät</p>
+<p>SGID</p>
+<p>Steuergeräte-ID, Diagnoseadresse, Steuergeräte-Adresse</p>
+<p>SID</p>
+<p>Service Identifier</p>
+<p>SW</p>
+<p>Software</p>
+<p>SW-C</p>
+<p>Software Component</p>
+<p>UDS</p>
+<p>Universal Diagnostic Services</p>
+<p>VIN</p>
+<p>Vehicle Identification Number</p>
+<p>All abbreviations used throughout this document -- except the ones listed here -- can be found in the</p>
+<p>official AUTOSAR glossary [5].</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 4 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>3.1</b></p>
+<p><b>BMW Specifications</b></p>
+<p>[1]</p>
+<p>Specification of Module DataLogistic</p>
+<p>ModuleSpecification_Dlog.pdf</p>
+<p>[2]</p>
+<p>Specification of Module FSCSM</p>
+<p>ModuleSpecification_Fscsm.pdf</p>
+<p>[3]</p>
+<p>LH FP Teil 4 Codierung</p>
+<p>SAP: 10001491-000-13</p>
+<p>[4]</p>
+<p>Fahrzeug Security Client Security Module</p>
+<p>SAP: 1000109600011</p>
+<p><b>3.2</b></p>
+<p><b>AUTOSAR Specifications</b></p>
+<p>[5]</p>
+<p>Glossary</p>
+<p>AUTOSAR_TR_Glossary</p>
+<p>[6]</p>
+<p>Specification of RTE Software</p>
+<p>AUTOSAR_SWS_RTE</p>
+<p>[7]</p>
+<p>Layered Software Architecture</p>
+<p>AUTOSAR_EXP_LayeredSoftwareArchitecture</p>
+<p>[8]</p>
+<p>Specification of ECU Configuration</p>
+<p>AUTOSAR_TPS_ECUConfiguration</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 5 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Constraints and assumptions</b></p>
+<p><b>[SWS_Vin_0001]<i></b> d</i>There shall be only one Vin module available per ECU.<i> c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 6 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Dependencies to other Modules</b></p>
+<p><b>5.1</b></p>
+<p><b>Dlog</b></p>
+<p>The Dlog module [1] is used to get the internal VIN.</p>
+<p><b>5.2</b></p>
+<p><b>Fscsm</b></p>
+<p>The Fscsm module [2] is needed for receiving the secure VIN.</p>
+<p><b>5.3</b></p>
+<p><b>RTE</b></p>
+<p>The module Vin is realized as a software component and is using RTE services [6] for client/server as well</p>
+<p>as sender/receiver communication to communicate with other SWCs.</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 7 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Requirements traceability</b></p>
+<p>The Requirements are taken from [3] and [4].</p>
+<p><b>Requirement</b></p>
+<p><b>Description</b></p>
+<p><b>Satisfied by</b></p>
+<p><b>[FP4_6292]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0002]</p>
+<p><b>[FsCSM_1496]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_1497]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_1707]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0039]</p>
+<p><b>[FsCSM_1708]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0039]</p>
+<p><b>[FsCSM_1709]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0041]</p>
+<p><b>[FsCSM_1710]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0039]</p>
+<p><b>[FsCSM_391]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0078]</p>
+<p><b>[FsCSM_4320]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_4336]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0049]</p>
+<p><b>[FsCSM_4338]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0050]</p>
+<p><b>[FsCSM_4418]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0056]</p>
+<p><b>[FsCSM_4450]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0068]</p>
+<p><b>[FsCSM_4451]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0069]</p>
+<p><b>[FsCSM_4469]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0055]</p>
+<p><b>[FsCSM_848]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_859]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_937]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p><b>[FsCSM_956]</b></p>
+<p>No description</p>
+<p>[SWS_Vin_0048]</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 8 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>7</b></p>
+<p><b>Functional specification</b></p>
+<p><b>7.1</b></p>
+<p><b>Functional behavior</b></p>
+<p><b>[SWS_Vin_0002]<i></b> d</i>The VIN shall be requested according to FP4_6292 [3].<i> c</i>(FP4_6292)</p>
+<p><b>[SWS_Vin_0003]<i></b> d</i>The Vin Qualifier shall be set according to Figure 7.1, ``Vin Qualifier State''.<i> c</i>()</p>
+<p><b>stm Vin Qualifier State</b></p>
+<p>No Fscsm</p>
+<p>Init, VIN not received</p>
+<p><b>VIN receiv ed, Sig. not </b></p>
+<p><b>receiv ed, int. VIN </b></p>
+<p><b>equal, unsafe env</b></p>
+<p><b>VIN receiv ed, Sig. not </b></p>
+<p><b>receiv ed, int. VIN not </b></p>
+<p><b>equal, unsafe env</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>pending, int. VIN equal</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>pending, int. VIN not </b></p>
+<p><b>equal</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>receiv ed, Sig. not </b></p>
+<p><b>v alid, int. VIN equal</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>receiv ed, Sig. not </b></p>
+<p><b>v alid, int. VIN not equal</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>receiv ed, Sig. v alid, </b></p>
+<p><b>int. VIN equal</b></p>
+<p><b>VIN receiv ed, Sig. </b></p>
+<p><b>receiv ed, Sig. v alid, </b></p>
+<p><b>int. VIN not equal</b></p>
+<p>Only with WriteVin (Swt)</p>
+<p><b>Figure 7.1: Vin Qualifier State</b></p>
+<p><b>[SWS_Vin_0034]<i></b> d</i>The general workflow is shall be done according to Figure 7.2, ``SSV State</p>
+<p>Machine''.<i> c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 9 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>stm SSVState</b></p>
+<p>Ini ti al</p>
+<p><b>ReadNVM</b></p>
+<p><b>WaitForF50</b></p>
+<p><b>Error</b></p>
+<p><b>WaitForVin</b></p>
+<p><b>RequestVin</b></p>
+<p><b>VinReceiv ed</b></p>
+<p><b>(set Vin and Qualifier)</b></p>
+<p><b>CheckVin</b></p>
+<p><b>(set Vin and Qualifier)</b></p>
+<p>Final</p>
+<p><b>GetCounterbase</b></p>
+<p><b>GetMac</b></p>
+<p>Timeout</p>
+<p>NotifyJobFinished</p>
+<p>[NOT_OK]</p>
+<p>VK_Established</p>
+<p>Timeout</p>
+<p>ReceiveVin</p>
+<p>ReceiveVin</p>
+<p><b>Figure 7.2: SSV State Machine</b></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 10 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>stm GetCounterbase</b></p>
+<p><b>RequestCounterbase</b></p>
+<p><b>VerifyCounterbase</b></p>
+<p><b>CheckErrorLimit</b></p>
+<p>EntryPoint</p>
+<p>ExitPoint</p>
+<p>CounterbaseOk</p>
+<p>CounterbaseNotOk</p>
+<p>ErrorLimitReached</p>
+<p>CounterbaseNotReceived</p>
+<p>CounterbaseReceived</p>
+<p>Timeout</p>
+<p>CounterbaseReceived</p>
+<p><b>Figure 7.3: Get Counterbase, SSV State Machine</b></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 11 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>stm GetMac</b></p>
+<p><b>RequestMac</b></p>
+<p>EntryPoint</p>
+<p>ExitPoint</p>
+<p><b>Error</b></p>
+<p>MacNotYetReceived</p>
+<p>MacReceived</p>
+<p>Timeout</p>
+<p>MacReceived</p>
+<p><b>Figure 7.4: Get Mac, SSV State Machine</b></p>
+<p><b>7.2</b></p>
+<p><b>SSV</b></p>
+<p>SSV is the receiver of the secure signal that shall be verified. It shall recognize that the transmitted signal</p>
+<p>was not manipulated or transmitted by an untrustworthy sender. The key necessary for SSV functionality</p>
+<p>are transmitted by the MSM with the functionality F50 of the Fscsm module, see [2] for details.</p>
+<p><b>[SWS_Vin_0035]<i></b> d</i>A secure signal always consists of the actual (unprotected) signal and a Message</p>
+<p>Authentication Code (MAC), which is sent in a separate signal. A receiver can only classify a secure signal</p>
+<p>as secure when it has checked the MAC against the unprotected signal.<i> c</i>()</p>
+<p><b>[SWS_Vin_0036]<i></b> d</i>The signal source (sender) does not know whether the signal is transferred securely.</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 12 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>SSV receives both signal and MAC</p>
+<p>SSV always passes the actual signal and qualifier on to Application</p>
+<p>Task of SSV is to generate a correct qualifier for data</p>
+<p>ECU</p>
+<p>2</p>
+<p>ECU</p>
+<p>1</p>
+<p>Sender</p>
+<p>Signal</p>
+<p>SSV</p>
+<p>Receiver</p>
+<p>SSS</p>
+<p>MAC</p>
+<p>Signal</p>
+<p>Qualifier</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0037]<i></b> d</i>An SSV receives exactly one signed message and has a unique SSV-ID.<i> c</i>()</p>
+<p><b>[SWS_Vin_0038]<i></b> d</i>The Fscsm only supports one SSV for the VIN.<i> c</i>()</p>
+<p><b>7.2.1</b></p>
+<p><b>Secure environment</b></p>
+<p><b>[SWS_Vin_0039]<i></b> d</i>The SSV can be found in a secure or unsecured environment with regard to the</p>
+<p>signal it receives. SSV saves this state in a non-volatile flag. Initial value of the flag is SecEnv = false.</p>
+<p><i>c</i>(FsCSM_1707, FsCSM_1708, FsCSM_1710)</p>
+<p><b>[SWS_Vin_0040]<i></b> d</i>An SSV only then goes into the secure environment when it has received the secure</p>
+<p>signal successfully once, i.e. the SSV has the qualifier SecEnv_VerificationSuccess as a result after</p>
+<p>evaluation.<i> c</i>()</p>
+<p><b>[SWS_Vin_0041]<i></b> d</i>Once a SSV is in a secure environment, it cannot be reset to an unsecured</p>
+<p>environment, even by programming the control unit again.<i> c</i>(FsCSM_1709)</p>
+<p><b>7.2.2</b></p>
+<p><b>Challenge/response and CounterBase</b></p>
+<p><b>[SWS_Vin_0042]<i></b> d</i>For challenge/response, a common CounterBase is used between a SSS and its</p>
+<p>SSVs. CounterBase is defined in SSS.<i> c</i>()</p>
+<p><b>[SWS_Vin_0043]<i></b> d</i>A CounterBase has a size of 24 bits.<i> c</i>()</p>
+<p><b>[SWS_Vin_0044]<i></b> d</i>If the SSV cannot verify a signal, it shall request the current CounterBase with</p>
+<p>challenge/response process immediately.<i> c</i>()</p>
+<p><b>[SWS_Vin_0045]<i></b> d</i>If F50 was not successfully executed, the SSV does not execute the</p>
+<p>ChallengeResponse protocol.<i> c</i>()</p>
+<p><b>[SWS_Vin_0046]<i></b> d</i>Challenge/response protocol is only needed by an SSV in a secure environment.<i> c</i>()</p>
+<p><b>[SWS_Vin_0047]<i></b> d</i>Challenge/response process is done with N15.1 and N15.2.</p>
+<p>SSV</p>
+<p>SSS</p>
+<p>Challenge (N15.1)</p>
+<p>Response (N15.2)</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 13 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0048]<i></b> d</i>The messages for updating the counter base between a SSV and a SSS are</p>
+<p>described in [FsCSM_937], ff.<i> c</i>(FsCSM_937, FsCSM_4320, FsCSM_956, FsCSM_848, FsCSM_1496,</p>
+<p>FsCSM_859, FsCSM_1497)</p>
+<p><b>[SWS_Vin_0049]<i></b> d</i>Operating sequence of challenge/response is described by [FsCSM_4336]:</p>
+<p><i>c</i>(FsCSM_4336)</p>
+<p><b>[SWS_Vin_0050]<i></b> d</i>If an SSV receives a response after a challenge is sent, it shall calculate the MAC and</p>
+<p>compares this with the received MAC. The counter base may only be considered valid and saved after</p>
+<p>successful verification.<i> c</i>(FsCSM_4338)</p>
+<p><b>[SWS_Vin_0051]<i></b> d</i>If N15.1 message is sent and SSV receives no response after configured</p>
+<p>TimeoutCounterbase (see [SWS_Vin_0105]) or if verification of the received MAC fails, an error counter</p>
+<p>is incremented.<i> c</i>()</p>
+<p><b>[SWS_Vin_0053]<i></b> d</i>The challenge/response mechanism shall be repeated until it has been executed</p>
+<p>successfully or the error counter has exceeded the configured value ErrorlimitCounterbase (see</p>
+<p>[SWS_Vin_0106]). In this case, an error memory entry with the error</p>
+<p>ERC_FSCSM_SSV_ERROR_STATE</p>
+<p>shall be set.<i> c</i>()</p>
+<p><b>[SWS_Vin_0055]<i></b> d</i>Error counter is stored volatile. Initial value is 0.<i> c</i>(FsCSM_4469)</p>
+<p><b>7.2.3</b></p>
+<p><b>Request/verify secure signal</b></p>
+<p><b>[SWS_Vin_0056]<i></b> d</i>If functionality F50 is not successfully executed (flag VK_Established not set), SSV</p>
+<p>only requests the signal but not the MAC. In the other case it requests signal and MAC.<i> c</i>(FsCSM_4418)</p>
+<p><b>[SWS_Vin_0057]<i></b> d</i>If SSV requires a MAC for a signal, it sends a request message N12.1 to SSS.<i> c</i>()</p>
+<p><b>[SWS_Vin_0058]<i></b> d</i>If SSV in a secured environment requests a MAC and does not receive it after</p>
+<p>configured time (TimeoutMac), the SSV shall make an error memory entry with the error code</p>
+<p>ERC_FSCSM_SSV_MESSAGE_TIMEOUT_REQ</p>
+<p>.<i> c</i>()</p>
+<p><b>[SWS_Vin_0059]<i></b> d</i>As long as an SSV has received neither a signal nor an MAC in a life cycle, signal</p>
+<p>qualifier shall be set to</p>
+<p>FSCSM_SAFE_ENV_SSV_NOT_INITIALIZED</p>
+<p>.<i> c</i>()</p>
+<p><b>[SWS_Vin_0060]<i></b> d</i>In all cases, SSV passes the received signal to application. Meta information, which</p>
+<p>qualifies the signal (qualifier), shall be added. It is task of receiving application to use or not use the signal.</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 14 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>receivedSignal</p>
+<p>MACisInitialValue</p>
+<p>MAChasBeenUpdated</p>
+<p>InThisPowerCycle</p>
+<p>receivedMAC</p>
+<p>SignalHasBeenUpated</p>
+<p>InThisPowerCycle</p>
+<p>SignalIsInitialValue</p>
+<p>Evaluate/Signal/MAC</p>
+<p>SecEnv=True</p>
+<p>MACisInitialValue</p>
+<p>MACHasBeenUpated</p>
+<p>InThisPowerCycle</p>
+<p>MACEvalSuccess</p>
+<p>MACEvalNoSuccess</p>
+<p>set/Qualifier</p>
+<p>3</p>
+<p>transition/to/idle</p>
+<p>external/event/received</p>
+<p>Evaluate/Signal/MAC</p>
+<p>MACEvalSuccess</p>
+<p>MacEvalNoSuccess</p>
+<p>SecEnv=True</p>
+<p>SecEnv=False</p>
+<p>SecEnv=False</p>
+<p>set/Qualifier</p>
+<p>1</p>
+<p>Set/NVM/</p>
+<p>SecEnv=True</p>
+<p>set/Qualifier</p>
+<p>2</p>
+<p>set/Qualifier</p>
+<p>4</p>
+<p>set/Qualifier</p>
+<p>6</p>
+<p>5 Evaluate/Signal/MAC</p>
+<p>5 set/Qualifier</p>
+<p>5</p>
+<p>set/Qualifier</p>
+<p>7</p>
+<p>idle</p>
+<p>SecEnv=</p>
+<p>False</p>
+<p>SecEnv=True</p>
+<p>gültigVbeiVsetQualifier</p>
+<p>x</p>
+<p><b>Qualifier</b></p>
+<p><b>Wert</b></p>
+<p><b>1</b></p>
+<p><b>2</b></p>
+<p><b>3</b></p>
+<p><b>4</b></p>
+<p><b>5</b></p>
+<p><b>6</b></p>
+<p><b>7</b></p>
+<p>NotInitialized</p>
+<p>0x00</p>
+<p>X</p>
+<p>UnsecEnv</p>
+<p>0x01</p>
+<p>X</p>
+<p>X</p>
+<p>SecEnv_Untrusted</p>
+<p>0x02</p>
+<p>X</p>
+<p>SecEnv_VerificationSuccess</p>
+<p>0x03</p>
+<p>X</p>
+<p>X</p>
+<p>SecEnv_VerificationFailed</p>
+<p>0x04</p>
+<p>X</p>
+<p>X</p>
+<p>SecEnv_Error</p>
+<p>0x05</p>
+<p>X</p>
+<p>X</p>
+<p><b>Figure 7.5: Evaluation of a secure signal by the SSV</b></p>
+<p><b>[SWS_Vin_0061]<i></b> d</i>If SSV receives a plain signal and F50 was not executed yet, signal qualifier shall be</p>
+<p>set to</p>
+<p>FSCSM_UNSAFE_ENV_MESSAGE_PLAIN</p>
+<p>in an unsecure environment.<i> c</i>()</p>
+<p><b>[SWS_Vin_0062]<i></b> d</i>If SSV receives a plain signal but no MAC and F50 was executed, signal qualifier</p>
+<p>shall be set to</p>
+<p>FSCSM_SAFE_ENV_MESSAGE_PLAIN</p>
+<p>in a secure enviroment.<i> c</i>()</p>
+<p><b>[SWS_Vin_0063]<i></b> d</i>If SSV receives a plain signal and a correct MAC and F50 was executed, signal</p>
+<p>qualifier shall be set to</p>
+<p>FSCSM_SAFE_ENV_MESSAGE_VERIFIED</p>
+<p>in a secure enviroment.<i> c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 15 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0064]<i></b> d</i>If SSV receives a plain signal and an incorrect MAC and F50 was executed, signal</p>
+<p>qualifier shall be set to</p>
+<p>FSCSM_SAFE_ENV_MESSAGE_NOT_VERIFIED</p>
+<p>in a secure enviroment.<i> c</i>()</p>
+<p><b>[SWS_Vin_0065]<i></b> d</i>If an error occurs while writing to NvM, signal qualifier shall be set to</p>
+<p>FSCSM_SAFE_ENV_ERROR_STATE</p>
+<p>in a secure enviroment.<i> c</i>()</p>
+<p><b>[SWS_Vin_0066]<i></b> d</i>If an SSV receives a MAC and has not yet received an associated signal. nothing is</p>
+<p>sent to application.<i> c</i>()</p>
+<p><b>[SWS_Vin_0067]<i></b> d</i>If an SSV receives a MAC and has yet received an associated signal. a verification</p>
+<p>shall be done.<i> c</i>()</p>
+<p><b>[SWS_Vin_0068]<i></b> d</i>If the verification produces a negative result or if the SSV has not yet received a</p>
+<p>counter base, a new counter base shall be requested.<i> c</i>(FsCSM_4450)</p>
+<p><b>[SWS_Vin_0069]<i></b> d</i>If the request for a new counter base produces a positive result, the signal</p>
+<p>verification against the MAC is started again.<i> c</i>(FsCSM_4451)</p>
+<p><b>7.2.4</b></p>
+<p><b>SSV ports and interfaces</b></p>
+<p>u</p>
+<p>ECU1u</p>
+<p>Application</p>
+<p>S</p>
+<p>WCu</p>
+<p>Vin</p>
+<p>u</p>
+<p>SSVu</p>
+<p>S/Ruinterfaces:uTransmissionuofutheuMAC</p>
+<p>u</p>
+<p>S/Ruinterfaceutoutransmitumassageuandusignaluqualifieru</p>
+<p>S/Ruinterfaces:uTransmissionuofutheuplainumessageu</p>
+<p>u</p>
+<p>S/RuinterfaceutoutransmituauChallengeu</p>
+<p>S/RuinterfaceutoutransmituauResponseu</p>
+<p>u</p>
+<p>u</p>
+<p>RTEu</p>
+<p><b>Figure 7.6: Overview of interfaces provided by SSV</b></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 16 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Figure 7.6, ``Overview of interfaces provided by SSV'' shows the interfaces provided by Fscsm</p>
+<p>functionality SSV:</p>
+<p>port to receive an unsigned message</p>
+<p>port to receive the corresponding signed message</p>
+<p>port to send message and qualifier to the Application SWC</p>
+<p>port to send a Challenge</p>
+<p>port to receive a Response</p>
+<p><b>7.2.5</b></p>
+<p><b>Message format</b></p>
+<p><b>[SWS_Vin_0070]<i></b> d</i>AES and the vehicle key VK together with a CBC-MAC scheme are used for signing</p>
+<p>a message.<i> c</i>()</p>
+<p><b>[SWS_Vin_0071]<i></b> d</i>If (Information &lt;= 64 bit), the following block is encrypted with AES and a CBC-MAC</p>
+<p>scheme</p>
+<p>Block:</p>
+<p><b>Information (padded with zeros)</b></p>
+<p><b>CounterBase</b></p>
+<p><b>Delta (padded with zeros)</b></p>
+<p>64-Bit</p>
+<p>24-Bit</p>
+<p>40-Bit</p>
+<p>Signature = MSB(AES-CBC-MAC(VK,IV,Block)<i> |</i> Length of Signature in bits). IV = 0.<i> c</i>()</p>
+<p><b>[SWS_Vin_0072]<i></b> d</i>If (Information &gt; 64 bit), the following block is encrypted with AES and a CBC-MAC</p>
+<p>scheme. The block length is a multiple of 128 bits. Block length = (128-Bit)*n, n&gt;=2, n=</p>
+<p>ceil((Len(Information)-64)/128)) + 1.</p>
+<p>Block:</p>
+<p><b>Information (padded with zeros)</b></p>
+<p><b>CounterBase</b></p>
+<p><b>Delta (padded with zeros)</b></p>
+<p>(n-1)*128-Bit + 64-Bit</p>
+<p>24-Bit</p>
+<p>40-Bit</p>
+<p>Signature = MSB(AES-CBC-MAC(VK,IV,Block)<i> |</i> Length of Signature in bits). IV = 0. The most significant</p>
+<p>bits are taken from the last 128-bit block which was encrypted with AES and the CBC-MAC scheme.<i> c</i>()</p>
+<p><b>[SWS_Vin_0073]<i></b> d</i>The byte order of Information, CounterBase and Delta is big endian.<i> c</i>()</p>
+<p><b>[SWS_Vin_0074]<i></b> d</i>When padding Delta the most significant bits are filled with zeros.</p>
+<p>0 </p>
+<p>0 </p>
+<p> </p>
+<p>0 </p>
+<p>....................... </p>
+<p>MSB(PaddedDelta) </p>
+<p>Dn </p>
+<p>0 </p>
+<p>0 </p>
+<p>MSB(Delta) </p>
+<p>Dn-1 </p>
+<p>D0</p>
+<p> </p>
+<p>D1</p>
+<p> </p>
+<p>D2</p>
+<p> </p>
+<p>LSB(Delta) </p>
+<p>...... </p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0075]<i></b> d</i>Information has to be padded by filling the least significant bits with zeros.</p>
+<p>Info</p>
+<p>n-1</p>
+<p> </p>
+<p>Info</p>
+<p>n</p>
+<p> </p>
+<p>..............</p>
+<p> </p>
+<p>Info</p>
+<p>1</p>
+<p> </p>
+<p>0 </p>
+<p>0 </p>
+<p>0 </p>
+<p>...... </p>
+<p>MSB(Information) </p>
+<p>LSB(Information) </p>
+<p>Info</p>
+<p>0</p>
+<p> </p>
+<p>LSB(PaddedInformation) </p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 17 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0076]<i></b> d</i>Each SSS uses a counter to sign message. The counter is incremented by 1 after a</p>
+<p>message was signed.<i> c</i>()</p>
+<p><b>[SWS_Vin_0077]<i></b> d</i>Each SSV must ensure that the counter is increased by one with each received</p>
+<p>signed message. If this is not the case, the FSCSM considers the message verification as failed.<i> c</i>()</p>
+<p><b>7.3</b></p>
+<p><b>Error classification</b></p>
+<p><b>[SWS_Vin_0078]<i></b> d</i>The Vin module shall provide the following errors.</p>
+<p><b>Type of error</b></p>
+<p><b>Relevance</b></p>
+<p><b>Related error code</b></p>
+<p><b>Value</b></p>
+<p><b>[hex]</b></p>
+<p>Fscsm Error</p>
+<p>Production</p>
+<p>FSCSM_ERROR</p>
+<p>0x800000</p>
+<p>+ 0x100 *</p>
+<p>SGID +</p>
+<p>0x30</p>
+<p><i>c</i>(FsCSM_391)</p>
+<p><b>7.4</b></p>
+<p><b>Error detection</b></p>
+<p><b>[SWS_Vin_0079]<i></b> d</i>The detection of production code errors cannot be switched off.<i> c</i>()</p>
+<p><b>7.5</b></p>
+<p><b>Error notification</b></p>
+<p><b>[SWS_Vin_0080]<i></b> d</i>Production errors shall be reported to the Diagnostic Event Manager.<i> c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 18 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>8</b></p>
+<p><b>API Specification</b></p>
+<p><b>8.1</b></p>
+<p><b>Imported types</b></p>
+<p><b>Header File</b></p>
+<p><b>Imported Type</b></p>
+<p>Std_Types.h</p>
+<p>Std_ReturnType</p>
+<p><b>8.2</b></p>
+<p><b>Type definitions</b></p>
+<p>No type definitions required.</p>
+<p><b>8.3</b></p>
+<p><b>Function definitions</b></p>
+<p><b>8.3.1</b></p>
+<p><b>Vin_Main</b></p>
+<p><b>[SWS_Vin_0004]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_Main</p>
+<p><b>Syntax</b></p>
+<p>void Vin_Main(</p>
+<p>void</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Description</b></p>
+<p>Main function.</p>
+<p><i>c</i>()</p>
+<p><b>Note:</b> This function is cyclically triggered every 0.1s, when life cycle mode is running and VIN</p>
+<p>communication mode is on.</p>
+<p><b>8.3.2</b></p>
+<p><b>Vin_LifeCycleModeRequest</b></p>
+<p><b>[SWS_Vin_0005]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_LifeCycleModeRequest</p>
+<p><b>Syntax</b></p>
+<p>void Vin_LifeCycleModeRequest(</p>
+<p>void</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Description</b></p>
+<p>Evaluates the requested mode and switches accordingly.</p>
+<p><i>c</i>()</p>
+<p><b>Note:</b> This is a RTE runnable which runs inside the exclusive area VinState.</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 19 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>8.3.3</b></p>
+<p><b>Vin_SsvOnVkEstablished</b></p>
+<p><b>[SWS_Vin_0081]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_SsvOnVkEstablished</p>
+<p><b>Syntax</b></p>
+<p>void Vin_SsvOnVkEstablished(</p>
+<p>void</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Description</b></p>
+<p>Called, when a new VKEstablished flag is available.</p>
+<p><i>c</i>()</p>
+<p><b>Note:</b> This is a RTE runnable which runs inside the exclusive area VinState.</p>
+<p><b>8.3.4</b></p>
+<p><b>Vin_SsvReceiveResponseFromSss</b></p>
+<p><b>[SWS_Vin_0082]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_SsvReceiveResponseFromSss</p>
+<p><b>Syntax</b></p>
+<p>void Vin_SsvReceiveResponseFromSss(</p>
+<p>void</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Description</b></p>
+<p>Called on a data received event when the response has been received from the SSS.</p>
+<p><i>c</i>()</p>
+<p><b>8.3.5</b></p>
+<p><b>Vin_SsvReceiveMac</b></p>
+<p><b>[SWS_Vin_0083]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_SsvReceiveMac</p>
+<p><b>Syntax</b></p>
+<p>void Vin_SsvReceiveMac(</p>
+<p>void</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Description</b></p>
+<p>Called on a data received event when the MAC has been received.</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 20 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>8.3.6</b></p>
+<p><b>Vin_SsvStateGet</b></p>
+<p><b>[SWS_Vin_0084]<i></b> d</i></p>
+<p><b>Service name</b></p>
+<p>Vin_SsvStateGet</p>
+<p><b>Syntax</b></p>
+<p>Std_ReturnType Vin_SsvStateGet(</p>
+<p>uint8</p>
+<p>*</p>
+<p>mac,</p>
+<p>uint8</p>
+<p>*</p>
+<p>errorCounter,</p>
+<p>uint32</p>
+<p>*</p>
+<p>counterbase</p>
+<p>)</p>
+<p><b>Service ID[HEX]</b></p>
+<p>-</p>
+<p><b>Sync/Async</b></p>
+<p>Synchronous</p>
+<p><b>Reentrancy</b></p>
+<p>Non Reentrant</p>
+<p><b>Parameters (out)</b></p>
+<p>mac</p>
+<p>current MAC</p>
+<p>errorCounter</p>
+<p>current error counter</p>
+<p>counterbase</p>
+<p>current counterbase</p>
+<p><b>Description</b></p>
+<p>Returns the current SSV state.</p>
+<p><i>c</i>()</p>
+<p><b>Note:</b> This function is needed by the Fscsm module for the FAT test</p>
+<p><b>8.3.7</b></p>
+<p><b>Modes, Types and Mappings</b></p>
+<p><b>[SWS_Vin_0006]<i></b> d</i></p>
+<p>CompuMethod CM_LifeCycleRequest {</p>
+<p>Category: TEXTTABLE</p>
+<p>VIN_INITIALIZED = 0</p>
+<p>VIN_RUNNING = 1</p>
+<p>VIN_STOPPED = 2</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0008]<i></b> d</i></p>
+<p>CompuMethod CM_VinQualifier {</p>
+<p>Category: TEXTTABLE</p>
+<p>VIN_QUAL_INIT = 0</p>
+<p>VIN_QUAL_RECEIVED = 1</p>
+<p>VIN_QUAL_EQ_INTERNAL = 2</p>
+<p>VIN_QUAL_SECURE_PENDING = 4</p>
+<p>VIN_QUAL_SECURE_FINISHED = 8</p>
+<p>VIN_QUAL_SECURE_OK = 16</p>
+<p>VIN_QUAL_SECURE_MASK = 28</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0009]<i></b> d</i></p>
+<p>ImplementationDataType VinArrayType {</p>
+<p>Category: ARRAY uint8[7]</p>
+<p>SizeSemantics: FIXED-SIZE</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 21 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0085]<i></b> d</i></p>
+<p>ImplementationDataType Vin_ChallengeArrayType {</p>
+<p>Category: ARRAY uint8[5]</p>
+<p>SizeSemantics: FIXED-SIZE</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0086]<i></b> d</i></p>
+<p>ImplementationDataType Vin_ChallengeRecordType {</p>
+<p>Category: STRUCTURE</p>
+<p>Elements:</p>
+<p>{</p>
+<p>TYPE_REFERENCE uint8 SssId;</p>
+<p>TYPE_REFERENCE uint8 SsvId;</p>
+<p>TYPE_REFERENCE Vin_ChallengeArrayType Challenge;</p>
+<p>}</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0010]<i></b> d</i></p>
+<p>ImplementationDataType Vin_ComVinType {</p>
+<p>Category: STRUCTURE</p>
+<p>Elements:</p>
+<p>{</p>
+<p>TYPE_REFERENCE uint8 Vin1;</p>
+<p>TYPE_REFERENCE uint8 Vin2;</p>
+<p>TYPE_REFERENCE uint8 Vin3;</p>
+<p>TYPE_REFERENCE uint8 Vin4;</p>
+<p>TYPE_REFERENCE uint8 Vin5;</p>
+<p>TYPE_REFERENCE uint8 Vin6;</p>
+<p>TYPE_REFERENCE uint8 Vin7;</p>
+<p>}</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0109]<i></b> d</i></p>
+<p>ImplementationDataType Vin_CounterBaseArrayType {</p>
+<p>Category: ARRAY uint8[3]</p>
+<p>SizeSemantics: FIXED-SIZE</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0011]<i></b> d</i></p>
+<p>ImplementationDataType Vin_LifeCycleRequestType {</p>
+<p>implementationDataType = uint8</p>
+<p>compuMethod = CM_LifeCycleRequest</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0012]<i></b> d</i></p>
+<p>ImplementationDataType Vin_QualifierType {</p>
+<p>implementationDataType = uint8</p>
+<p>compuMethod = CM_VinQualifier</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 22 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0087]<i></b> d</i></p>
+<p>ImplementationDataType Vin_ResponseRecordType {</p>
+<p>Category: STRUCTURE</p>
+<p>Elements:</p>
+<p>{</p>
+<p>TYPE_REFERENCE uint8 SsvId;</p>
+<p>TYPE_REFERENCE uint32 CounterBase;</p>
+<p>TYPE_REFERENCE uint32 Signature;</p>
+<p>}</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0088]<i></b> d</i></p>
+<p>ImplementationDataType Vin_SSVMACArrayType {</p>
+<p>Category: ARRAY uint8[8]</p>
+<p>SizeSemantics: FIXED-SIZE</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0089]<i></b> d</i></p>
+<p>ImplementationDataType Vin_SSVMACRecordType {</p>
+<p>Category: STRUCTURE</p>
+<p>Elements:</p>
+<p>{</p>
+<p>TYPE_REFERENCE Vin_SSVMACArrayType Mac;</p>
+<p>}</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0014]<i></b> d</i></p>
+<p>ImplementationDataType Vin_VinType {</p>
+<p>Category: STRUCTURE</p>
+<p>Elements:</p>
+<p>{</p>
+<p>TYPE_REFERENCE VinArrayType Vin;</p>
+<p>TYPE_REFERENCE Vin_QualifierType Qualifier;</p>
+<p>}</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0015]<i></b> d</i></p>
+<p>ModeDeclarationGroup Vin_ChangeIndicator {</p>
+<p>{</p>
+<p>VIN_CI_INIT = 0,</p>
+<p>VIN_CI_NOCHANGE = 1,</p>
+<p>VIN_CI_CHANGED = 2</p>
+<p>}</p>
+<p>initialMode = VIN_CI_INIT</p>
+<p>}</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 23 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0016]<i></b> d</i></p>
+<p>ModeDeclarationGroup Vin_LifeCycle {</p>
+<p>{</p>
+<p>VIN_INITIALIZED = 0,</p>
+<p>VIN_RUNNING = 1,</p>
+<p>VIN_STOPPED = 2</p>
+<p>}</p>
+<p>initialMode = VIN_STOPPED</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0017]<i></b> d</i></p>
+<p>ModeDeclarationGroup Vin_VinComMode {</p>
+<p>{</p>
+<p>VIN_VINCOMON = 0,</p>
+<p>VIN_VINCOMOFF = 1</p>
+<p>}</p>
+<p>initialMode = VIN_VINCOMOFF</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>8.3.8</b></p>
+<p><b>Provided Interfaces</b></p>
+<p><b>[SWS_Vin_0110]<i></b> d</i></p>
+<p>ClientServerInterface ChassisNumberAuthentication {</p>
+<p>PossibleErrors {</p>
+<p>}</p>
+<p>generateAuthenticationCode(</p>
+<p>IN uint8 secureSignalVerifierId,</p>
+<p>IN Vin_ChallengeArrayType challenge,</p>
+<p>OUT Vin_CounterBaseArrayType counterBase,</p>
+<p>OUT Vin_CounterBaseArrayType authCodeCounterBase,</p>
+<p>OUT Vin_SSVMACArrayType authCodeVIN,</p>
+<p>ERR{}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0121]<i></b> d</i></p>
+<p>ClientServerInterface FieldGetterSetterChassisNumber {</p>
+<p>PossibleErrors {</p>
+<p>}</p>
+<p>FieldGetterChassisNumber(</p>
+<p>OUT Vin_ComVinType Getter,</p>
+<p>ERR{}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0093]<i></b> d</i></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 24 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>ClientServerInterface SSVState {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>Get(</p>
+<p>OUT Vin_SSVMACArrayType mac,</p>
+<p>OUT uint8 errorCounter,</p>
+<p>OUT uint32 counterbase,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0090]<i></b> d</i></p>
+<p>SenderReceiverInterface Challenge {</p>
+<p>Vin_ChallengeRecordType Challenge;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0018]<i></b> d</i></p>
+<p>SenderReceiverInterface ComVin {</p>
+<p>Vin_ComVinType ComVin;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0020]<i></b> d</i></p>
+<p>SenderReceiverInterface ILifeCycleRequest {</p>
+<p>Vin_LifeCycleRequestType requestMode;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0091]<i></b> d</i></p>
+<p>SenderReceiverInterface Response {</p>
+<p>Vin_ResponseRecordType Response;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0092]<i></b> d</i></p>
+<p>SenderReceiverInterface SSVErrorCode {</p>
+<p>uint8 ErrorCode;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0094]<i></b> d</i></p>
+<p>SenderReceiverInterface SSVVinMac {</p>
+<p>Vin_SSVMACRecordType Mac;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0021]<i></b> d</i></p>
+<p>SenderReceiverInterface Vin {</p>
+<p>Vin_VinType Vin;</p>
+<p>}</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 25 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0023]<i></b> d</i></p>
+<p>SenderReceiverInterface VinRequest {</p>
+<p>uint16 RequestMessageIdentifier;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0112]<i></b> d</i></p>
+<p>SenderReceiverInterface Vin_InternalCheckVinTrigger {</p>
+<p>uint8 Trigger;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0019]<i></b> d</i></p>
+<p>ModeSwitchInterface ILifeCycle {</p>
+<p>Vin_LifeCycle Mode;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0111]<i></b> d</i></p>
+<p>ModeSwitchInterface IVinChangeIndicator {</p>
+<p>Vin_ChangeIndicator ChangeIndicator;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0022]<i></b> d</i></p>
+<p>ModeSwitchInterface VinCom {</p>
+<p>Vin_VinComMode Mode;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>8.3.9</b></p>
+<p><b>Expected Interfaces</b></p>
+<p><b>[SWS_Vin_0095]<i></b> d</i></p>
+<p>ClientServerInterface Vin_DiagnosticMonitor {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>SetEventStatus(</p>
+<p>IN Dem_EventStatusType EventStatus,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0096]<i></b> d</i></p>
+<p>ClientServerInterface DETService {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 26 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>ReportError(</p>
+<p>IN uint8 InstanceId,</p>
+<p>IN uint8 ApiId,</p>
+<p>IN uint8 ErrorId,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0024]<i></b> d</i></p>
+<p>ClientServerInterface EcuInfo {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>GetEcuId(</p>
+<p>OUT uint8 ecuId,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>GetVin(</p>
+<p>OUT Dlog_VinArrayType Vin,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0098]<i></b> d</i></p>
+<p>ClientServerInterface FscsmApplSwcInterface {</p>
+<p>PossibleErrors {</p>
+<p>FSCSM_E_NOT_OK = 1,</p>
+<p>FSCSM_E_MISSING_KEYS = 2,</p>
+<p>FSCSM_E_NOT_VERIFIED = 3,</p>
+<p>FSCSM_E_DOES_NOT_DECRYPT = 4,</p>
+<p>FSCSM_E_DOES_NOT_ENCRYPT = 5,</p>
+<p>FSCSM_E_NOT_EXPORTABLE = 6</p>
+<p>}</p>
+<p>VerifyMessage(</p>
+<p>IN Fscsm_MessageArrayType messageToVerify,</p>
+<p>IN uint16 messageLength,</p>
+<p>IN Fscsm_MessageArrayType macToVerify,</p>
+<p>IN uint16 macLength,</p>
+<p>ERR{FSCSM_E_NOT_OK,FSCSM_E_NOT_VERIFIED,FSCSM_E_MISSING_KEYS}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0099]<i></b> d</i></p>
+<p>ClientServerInterface RandomNumberGenerator {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>GenerateRandomNumber(</p>
+<p>OUT Fscsm_MessageArrayType buffer,</p>
+<p>IN uint32 length,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 27 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0100]<i></b> d</i></p>
+<p>SenderReceiverInterface VK_Established {</p>
+<p>boolean Flag;</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0101]<i></b> d</i></p>
+<p>ClientServerInterface Vin_NvMNotifyJobFinished {</p>
+<p>PossibleErrors {</p>
+<p>E_OK = 0</p>
+<p>}</p>
+<p>JobFinished(</p>
+<p>IN uint8 ServiceId,</p>
+<p>IN NvM_RequestResultType JobResult,</p>
+<p>ERR{E_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0102]<i></b> d</i></p>
+<p>ClientServerInterface Vin_NvMService {</p>
+<p>PossibleErrors {</p>
+<p>E_NOT_OK = 1</p>
+<p>}</p>
+<p>GetErrorStatus(</p>
+<p>OUT NvM_RequestResultType RequestResultPtr,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>ReadBlock(</p>
+<p>IN NvM_DstPtrType DstPtr,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>WriteBlock(</p>
+<p>IN NvM_SrcPtrType SrcPtr,</p>
+<p>ERR{E_NOT_OK}</p>
+<p>);</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>8.3.10</b></p>
+<p><b>Service Definition</b></p>
+<p><b>[SWS_Vin_0026]<i></b> d</i></p>
+<p>Service Vin</p>
+<p>{</p>
+<p>ProvidePort</p>
+<p>Vin_NvMNotifyJobFinished NvMNotifyJobFinished_Vin</p>
+<p>ProvidePort</p>
+<p>Challenge SSVChallengeToSSS</p>
+<p>ProvidePort</p>
+<p>SSVErrorCode SSVErrorCode</p>
+<p>ProvidePort</p>
+<p>SSVState SSVState</p>
+<p>ProvidePort</p>
+<p>Vin Vin</p>
+<p>ProvidePort</p>
+<p>IVinChangeIndicator VinChangeIndicator</p>
+<p>ProvidePort</p>
+<p>VinRequest VinRequest</p>
+<p>RequirePort</p>
+<p>ComVin ComVin</p>
+<p>RequirePort</p>
+<p>DETService DETService_Vin</p>
+<p>RequirePort</p>
+<p>Vin_DiagnosticMonitor DiagnosticMonitor_FscsmErrorEvent</p>
+<p>RequirePort</p>
+<p>EcuInfo DlogEcuInfo</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 28 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p>RequirePort</p>
+<p>FscsmApplSwcInterface FscsmCryptographicFunctions</p>
+<p>RequirePort</p>
+<p>VK_Established FscsmVK_Established</p>
+<p>RequirePort</p>
+<p>ILifeCycleRequest LifeCycleRequest</p>
+<p>RequirePort</p>
+<p>Vin_NvMService NvMService_Vin</p>
+<p>RequirePort</p>
+<p>RandomNumberGenerator RandomNumberGenerator</p>
+<p>RequirePort</p>
+<p>Response SSVResponseFromSSS</p>
+<p>RequirePort</p>
+<p>SSVVinMac SSVVinMacFromSSS</p>
+<p>RequirePort</p>
+<p>VinCom VinCom</p>
+<p>ProvideRequirePort</p>
+<p>Vin_InternalCheckVinTrigger InternalCheckVinTrigger</p>
+<p>ProvideRequirePort</p>
+<p>ILifeCycle LifeCycle</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>8.3.11</b></p>
+<p><b>Runnables and Entry Points</b></p>
+<p><b>[SWS_Vin_0027]<i></b> d</i></p>
+<p>Internal behavior of Vin</p>
+<p>{</p>
+<p>RunnableEntity Vin_LifeCycleModeRequest</p>
+<p>Symbol &quot;Vin_LifeCycleModeRequest&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_Main</p>
+<p>Symbol &quot;Vin_Main&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_NvmJobFinished</p>
+<p>Symbol &quot;Vin_NvmJobFinished&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_OnComOff</p>
+<p>Symbol &quot;Vin_OnComOff&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_OnComOn</p>
+<p>Symbol &quot;Vin_OnComOn&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_OnVinChangeIndicatorAck</p>
+<p>Symbol &quot;Vin_OnVinChangeIndicatorAck&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_ReceiveFromCom</p>
+<p>Symbol &quot;Vin_ReceiveFromCom&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SsvCheckVin</p>
+<p>Symbol &quot;Vin_SsvCheckVin&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SsvOnVkEstablished</p>
+<p>Symbol &quot;Vin_SsvOnVkEstablished&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SsvReceiveMac</p>
+<p>Symbol &quot;Vin_SsvReceiveMac&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SsvReceiveResponseFromSss</p>
+<p>Symbol &quot;Vin_SsvReceiveResponseFromSss&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SsvStateGet</p>
+<p>Symbol &quot;Vin_SsvStateGet&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 29 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>[SWS_Vin_0113]<i></b> d</i></p>
+<p>Service VinSIAdapter</p>
+<p>{</p>
+<p>ProvidePort</p>
+<p>ComVin ComVin</p>
+<p>ProvidePort</p>
+<p>Response SSVResponseFromSSS</p>
+<p>ProvidePort</p>
+<p>SSVVinMac SSVVinMacFromSSS</p>
+<p>RequirePort</p>
+<p>Challenge Challenge</p>
+<p>RequirePort</p>
+<p>FieldGetterSetterChassisNumber ChassisNumber</p>
+<p>RequirePort</p>
+<p>ChassisNumberAuthentication ChassisNumberAuthentication</p>
+<p>RequirePort</p>
+<p>ComVin ChassisNumberNotifier</p>
+<p>RequirePort</p>
+<p>VinRequest VinRequest</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p><b>8.3.12</b></p>
+<p><b>Runnables and Entry Points</b></p>
+<p><b>[SWS_Vin_0114]<i></b> d</i></p>
+<p>Internal behavior of VinSIAdapter</p>
+<p>{</p>
+<p>RunnableEntity Vin_SIAChallenge</p>
+<p>Symbol &quot;Vin_SIAChallenge&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SIAGetterChassisNumberReturn</p>
+<p>Symbol &quot;Vin_SIAGetterChassisNumberReturn&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SIANotifyChassisNumber</p>
+<p>Symbol &quot;Vin_SIANotifyChassisNumber&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>RunnableEntity Vin_SIARequest</p>
+<p>Symbol &quot;Vin_SIARequest&quot;</p>
+<p>canbeInvokedConcurrently = false</p>
+<p>}</p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 30 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>9</b></p>
+<p><b>Sequence Diagrams</b></p>
+<p>None</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 31 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>10</b></p>
+<p><b>Configuration</b></p>
+<p>In general, this chapter defines configuration parameters and their clustering into containers. In order to</p>
+<p>support the specification Chapter 10.1 describes fundamentals. It also specifies a template (table) you</p>
+<p>shall use for the parameter specification. We intend to leave Chapter 10.1 in the specification to guarantee</p>
+<p>comprehension. Chapter 10.2 specifies the structure (containers) and the parameters of the module Vin.</p>
+<p><b>10.1</b></p>
+<p><b>How to read this chapter</b></p>
+<p>In addition to this section, it is highly recommended to read the document</p>
+<p>AUTOSAR Layered Software Architecture [7]</p>
+<p>AUTOSAR ECU Configuration Specification [8]</p>
+<p>This document describes the AUTOSAR configuration methodology and the AUTOSAR configuration</p>
+<p>metamodel in detail.</p>
+<p>The following is only a short survey of the topic and it will not replace the ECU Configuration Specification</p>
+<p>document.</p>
+<p><b>10.1.1</b></p>
+<p><b>Configuration and configuration parameters</b></p>
+<p>Configuration parameters define the variability of the generic part(s) of an implementation of a module.</p>
+<p>This means that only generic or configurable module implementation can be adapted to the environment</p>
+<p>(software/hardware) in use during system and/or ECU configuration.</p>
+<p>The configuration of parameters can be achieved at different times during the software process: before</p>
+<p>compile time, before link time or after build time. In the following, the term &quot;Configuration class&quot; (of a</p>
+<p>parameter) shall be used in order to refer to a specific configuration point in time.</p>
+<p><b>10.1.2</b></p>
+<p><b>Variants</b></p>
+<p>The SWT module has the following variants:</p>
+<p><b>[SWS_StbP_0008]<i></b> d</i>VARIANT-PRE-COMPILE: Only parameters with &quot;Pre-compile time&quot; configuration</p>
+<p>are allowed.<i> c</i>()</p>
+<p><b>10.1.3</b></p>
+<p><b>Containers</b></p>
+<p>Containers structure the set of configuration parameters. This means:</p>
+<p>all configuration parameters are kept in containers.</p>
+<p>(sub-) containers can reference (sub-) containers. It is possible to assign a multiplicity to these</p>
+<p>references. The multiplicity then defines the possible number of instances of the contained parameters.</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 32 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>10.2</b></p>
+<p><b>Containers and configuration parameters</b></p>
+<p><b>Module Name</b></p>
+<p>Vin</p>
+<p><b>Module Description</b></p>
+<p>Vin Module</p>
+<p><b>Included Containers</b></p>
+<p><b>Container Name</b></p>
+<p><b>Multiplicity</b></p>
+<p><b>Scope / Dependency</b></p>
+<p>CommonPublishedInformation</p>
+<p>1</p>
+<p>Common container, aggregated by all modules. It contains</p>
+<p>published information about vendor and versions.</p>
+<p>VinGeneral</p>
+<p>1</p>
+<p>This container contains the configuration (parameters) of the</p>
+<p>Vin module.</p>
+<p>SecureVin</p>
+<p>0..1</p>
+<p>MultiConfig</p>
+<p>1</p>
+<p><b>10.2.1</b></p>
+<p><b>CommonPublishedInformation</b></p>
+<p><b>SWS Item</b></p>
+<p>SWS_Vin_0115</p>
+<p><b>Container Name</b></p>
+<p>CommonPublishedInformation</p>
+<p><b>Description</b></p>
+<p>Common container, aggregated by all modules. It contains published information</p>
+<p>about vendor and versions.</p>
+<p><b>Configuration Parameters</b></p>
+<p><b>[SWS_Vin_0116]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>SwMajorVersion</p>
+<p><b>Description</b></p>
+<p>Major version number of the vendor specific implementation of the module.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Default Value</b></p>
+<p>3</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>--</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0117]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>SwMinorVersion</p>
+<p><b>Description</b></p>
+<p>Minor version number of the vendor specific implementation of the module. The</p>
+<p>numbering is vendor specific.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Default Value</b></p>
+<p>4</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>--</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0118]<i></b> d</i></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 33 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Name</b></p>
+<p>SwPatchVersion</p>
+<p><b>Description</b></p>
+<p>Patch level version number of the vendor specific implementation of the module.</p>
+<p>The numbering is vendor specific.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Default Value</b></p>
+<p>1</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>--</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>10.2.2</b></p>
+<p><b>VinGeneral</b></p>
+<p><b>SWS Item</b></p>
+<p>SWS_Vin_0028</p>
+<p><b>Container Name</b></p>
+<p>VinGeneral</p>
+<p><b>Description</b></p>
+<p>This container contains the configuration (parameters) of the Vin module.</p>
+<p><b>Configuration Parameters</b></p>
+<p><b>[SWS_Vin_0029]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>VinDevErrorDetect</p>
+<p><b>Description</b></p>
+<p>Activate/Deactivate the Development Error Detection and Notification.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucBooleanParamDef</p>
+<p><b>Default Value</b></p>
+<p>false</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0031]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>VinRequestMessageIdentifier</p>
+<p><b>Description</b></p>
+<p>Defines the ID which must use to request the VIN signal.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>0..65535</p>
+<p><b>Default Value</b></p>
+<p>32771</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0032]<i></b> d</i></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 34 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Name</b></p>
+<p>TimeoutInitialVinRequest</p>
+<p><b>Description</b></p>
+<p>Timeout between init an first VIN request in s.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucFloatParamDef</p>
+<p><b>Range</b></p>
+<p>0.0..25.0</p>
+<p><b>Default Value</b></p>
+<p>0.3</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0033]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>TimeoutSubsequentVinRequests</p>
+<p><b>Description</b></p>
+<p>Timeout between a request and the next request in s.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucFloatParamDef</p>
+<p><b>Range</b></p>
+<p>0.1..25.0</p>
+<p><b>Default Value</b></p>
+<p>1.0</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0119]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>MaxNumberVinRequests</p>
+<p><b>Description</b></p>
+<p>Maximum number of VIN requests.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>1..255</p>
+<p><b>Default Value</b></p>
+<p>4</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0120]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>EnableSIAdapter</p>
+<p><b>Description</b></p>
+<p>Enables the Service Interface Adapter. This is needed for Ethernet</p>
+<p>communication.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucBooleanParamDef</p>
+<p><b>Default Value</b></p>
+<p>0</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 35 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>10.2.3</b></p>
+<p><b>SecureVin</b></p>
+<p><b>SWS Item</b></p>
+<p>SWS_Vin_0030</p>
+<p><b>Container Name</b></p>
+<p>SecureVin</p>
+<p><b>Description</b></p>
+<p><b>Configuration Parameters</b></p>
+<p><b>[SWS_Vin_0103]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>SecureVinRequestMessageIdentifier</p>
+<p><b>Description</b></p>
+<p>The parameter defines the ID which the SSV must use to request a signed VIN</p>
+<p>from its connected SSS.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>0..65535</p>
+<p><b>Default Value</b></p>
+<p>57857</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0104]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>TimeoutMac</p>
+<p><b>Description</b></p>
+<p>This parameter defines the time span in seconds in which the SSV expects to</p>
+<p>receive the MAC message for the VIN from the SSS after requesting it.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucFloatParamDef</p>
+<p><b>Range</b></p>
+<p>0.1..3</p>
+<p><b>Default Value</b></p>
+<p>1.0</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>PRECONFIGURED-</p>
+<p>CONFIGURATION</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0105]<i></b> d</i></p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 36 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Name</b></p>
+<p>TimeoutCounterbase</p>
+<p><b>Description</b></p>
+<p>This parameter defines the time span in seconds in which the SSV expects to</p>
+<p>receive an answer from a SSS after sending a challenge to the SSS.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucFloatParamDef</p>
+<p><b>Range</b></p>
+<p>0.1..3</p>
+<p><b>Default Value</b></p>
+<p>1.0</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>PRECONFIGURED-</p>
+<p>CONFIGURATION</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0106]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>ErrorlimitCounterbase</p>
+<p><b>Description</b></p>
+<p>This parameter defines the maximum number of times the CounterBase of an</p>
+<p>SSS can be requested by an SSV. If the SSV could not obtain a valid</p>
+<p>CounterBase within FscsmSSVChallengeFailedLimit times, the SSV enters an</p>
+<p>error state.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>1..10</p>
+<p><b>Default Value</b></p>
+<p>3</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>PRECONFIGURED-</p>
+<p>CONFIGURATION</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p><b>[SWS_Vin_0108]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>RemoteSSSId</p>
+<p><b>Description</b></p>
+<p>This parameter defines the ID of the SSS to which this SSV is connected. This</p>
+<p>information is needed to be able to perform the ChallengeResponse protocol</p>
+<p>correctly.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>0..255</p>
+<p><b>Default Value</b></p>
+<p>0</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>X</p>
+<p>VARIANT-PRE-COMPILE</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>--</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 37 of 38</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>10.2.4</b></p>
+<p><b>MultiConfig</b></p>
+<p><b>SWS Item</b></p>
+<p><b>Container Name</b></p>
+<p>MultiConfig</p>
+<p><b>Description</b></p>
+<p><b>Configuration Parameters</b></p>
+<p><b>[SWS_Vin_0107]<i></b> d</i></p>
+<p><b>Name</b></p>
+<p>SSVId</p>
+<p><b>Description</b></p>
+<p>The unique ID of the SSV. Only relevant, if SecureVin is configured.</p>
+<p><b>Multiplicity</b></p>
+<p>1</p>
+<p><b>Type</b></p>
+<p>EcucIntegerParamDef</p>
+<p><b>Range</b></p>
+<p>0..255</p>
+<p><b>Default Value</b></p>
+<p>0</p>
+<p><b>Configuration Class</b></p>
+<p><b>Pre-compile time</b></p>
+<p>--</p>
+<p><b>Link time</b></p>
+<p>--</p>
+<p><b>Post-build time</b></p>
+<p>X</p>
+<p>VARIANT-POST-BUILD</p>
+<p><b>Scope / Dependency</b></p>
+<p><i>c</i>()</p>
+<p>ModuleSpecification_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 38 of 38</p>
+</body>
+</html>
+{% endraw %}

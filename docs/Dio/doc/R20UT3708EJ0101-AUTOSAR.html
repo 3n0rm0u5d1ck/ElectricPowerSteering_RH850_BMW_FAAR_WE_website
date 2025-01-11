@@ -1,0 +1,4750 @@
+---
+layout: default
+title: R20UT3708EJ0101-AUTOSAR
+nav_order: 3
+parent: DIO Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO Driver Component Ver.1.0.10 </p>
+<p>Embedded User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev 1.01 Feb 2017</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>3 </p>
+<p> </p>
+<p>N</p>
+<p>oti</p>
+<p>ce </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses and </p>
+<p>damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical information </p>
+<p>described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas Electronics </p>
+<p>disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, modification, copy or </p>
+<p>otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and undersea </p>
+<p>repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics disclaims any </p>
+<p>and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics product for which the </p>
+<p>product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the ranges </p>
+<p>specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation characteristics, </p>
+<p>installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of the use of Renesas </p>
+<p>Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your products/system. </p>
+<p>Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the final products or </p>
+<p>systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each Renesas </p>
+<p>Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, including </p>
+<p>without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all these applicable </p>
+<p>laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your noncompliance with </p>
+<p>applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or sale </p>
+<p>is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or technologies for (1) </p>
+<p>any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, such as nuclear weapons, </p>
+<p>chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering such weapons, (2) any purpose </p>
+<p>relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of disturbing international peace and </p>
+<p>security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or technologies to any third party whether directly </p>
+<p>or indirectly with knowledge or reason to know that the third party or any other party will engage in the activities described above. When </p>
+<p>exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall comply with any applicable export control laws and </p>
+<p>regulations promulgated and administered by the governments of the countries asserting jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from your </p>
+<p>resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>5 </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>ADC </p>
+<p>Analog Digital Converter</p>
+<p> </p>
+<p>ANSI </p>
+<p>American National Standards Institute </p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>ARXML/arxml </p>
+<p>AutosaR eXtensible Mark-up Language </p>
+<p>AUTOSAR </p>
+<p>AUTomotive Open System ARchitecture </p>
+<p>BSW </p>
+<p>Basic SoftWare </p>
+<p>CAN </p>
+<p>Controller Area Network </p>
+<p>CCU </p>
+<p>Center Control Unit </p>
+<p>DEM/Dem </p>
+<p>Diagnostic Event Manager </p>
+<p>DET/Det </p>
+<p>Development Error Tracer </p>
+<p>DIO </p>
+<p>Digital Input Output </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>EEPROM </p>
+<p>Electrical Erasable Programmable Read Only Memory </p>
+<p>GNU </p>
+<p>GNU’s Not Unix </p>
+<p>GPT </p>
+<p>General Purpose Timer </p>
+<p>HW </p>
+<p>HardWare </p>
+<p>ID/Id </p>
+<p>Identifier </p>
+<p>ICU </p>
+<p>Input Capture Unit</p>
+<p> </p>
+<p>I/O </p>
+<p>Input/Output </p>
+<p>LIN </p>
+<p>Local Interconnect Network </p>
+<p>MCAL </p>
+<p>MicroController Abstraction Layer </p>
+<p>MCU </p>
+<p>MicroController Unit </p>
+<p>MHz </p>
+<p>Mega Hertz </p>
+<p>NA </p>
+<p>Not Applicable </p>
+<p>PDF </p>
+<p>Parameter Definition File </p>
+<p>PWM </p>
+<p>Pulse Width Modulation </p>
+<p>R/W/RW </p>
+<p>Read/Write/Read and Write </p>
+<p>RAM/Ram </p>
+<p>Random Access Memory </p>
+<p>Rev </p>
+<p>Revision </p>
+<p>ROM </p>
+<p>Read Only Memory </p>
+<p>RTE/Rte </p>
+<p>Run Time Environment </p>
+<p>RUCG </p>
+<p>Renesas Unified Code Generator </p>
+<p>SCHM/SchM </p>
+<p>Scheduler Manager </p>
+<p>SCI </p>
+<p>Serial Communication Interface </p>
+<p>SPI </p>
+<p>Serial Peripheral Interface </p>
+<p>SWS </p>
+<p>Software Requirements Specification </p>
+<p>WDT </p>
+<p>WatchDog Timer </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Term</b></p>
+<p> </p>
+<p><b>Represented by</b></p>
+<p> </p>
+<p>Port</p>
+<p> </p>
+<p>Represents a whole configurable port on a microcontroller device.</p>
+<p> </p>
+<p>Port Pin</p>
+<p> </p>
+<p>Represents a single configurable input or output pin on a </p>
+<p>microcontroller device.</p>
+<p> </p>
+<p>Sl. No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>7 </p>
+<p><b>Table of Contents </b></p>
+<p><b> </b></p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ..................................................................... 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ........................................................................................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference Documents..................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Integration and Build Process ........................................ 17</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>DIO Driver Component Makefile ........................................................................................ 17</b></p>
+<p> </p>
+<p>3.1.1.</p>
+<p> </p>
+<p>Folder Structure.................................................................................................... 17</p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Forethoughts ................................................................... 19</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>General ................................................................................................................................. 19</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Preconditions ...................................................................................................................... 19</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>Data Consistency ................................................................................................................ 20</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>Deviation List ...................................................................................................................... 21</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>User mode and supervisor mode ...................................................................................... 21</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Architecture Details ......................................................... 23</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Register Details ............................................................... 27</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>Interaction between the User and DIO  Driver </b></p>
+<p><b>Component .......................................................................................... 29</b></p>
+<p> </p>
+<p><b>7.1.   Services Provided By DIO Driver Component To The ........................................................... 29</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>DIO Driver Component Header and Source File </b></p>
+<p><b>Description .......................................................................................... 31</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Generation Tool Guide .................................................... 33</b></p>
+<p> </p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>Application Programming Interface ............................... 35</b></p>
+<p> </p>
+<p><b>10.1.</b></p>
+<p> </p>
+<p><b>Imported Types ................................................................................................................... 35</b></p>
+<p> </p>
+<p>10.1.1.</p>
+<p> </p>
+<p>Standard Types .................................................................................................... 35</p>
+<p> </p>
+<p>10.1.2.</p>
+<p> </p>
+<p>Other Module Types ............................................................................................. 35</p>
+<p> </p>
+<p><b>10.2.</b></p>
+<p> </p>
+<p><b>Type Defintions ................................................................................................................... 35</b></p>
+<p> </p>
+<p>10.2.1.</p>
+<p> </p>
+<p>Dio_ChannelType ................................................................................................ 35</p>
+<p> </p>
+<p>10.2.2.</p>
+<p> </p>
+<p>Dio_PortType ....................................................................................................... 36</p>
+<p> </p>
+<p>10.2.3.</p>
+<p> </p>
+<p>Dio_PortLevelType ............................................................................................... 36</p>
+<p> </p>
+<p>10.2.4.</p>
+<p> </p>
+<p>Dio_ConfigType ................................................................................................... 36</p>
+<p> </p>
+<p><b>10.3.</b></p>
+<p> </p>
+<p><b>Function Definitions ........................................................................................................... 37</b></p>
+<p> </p>
+<p>10.3.1.</p>
+<p> </p>
+<p>Dio_Init ................................................................................................................. 37</p>
+<p> </p>
+<p>10.3.2.</p>
+<p> </p>
+<p>Dio_ReadPort ....................................................................................................... 38</p>
+<p> </p>
+<p>10.3.3.</p>
+<p> </p>
+<p>Dio_WritePort ....................................................................................................... 38</p>
+<p> </p>
+<p>10.3.4.</p>
+<p> </p>
+<p>Dio_ReadChannel ................................................................................................ 39</p>
+<p> </p>
+<p>10.3.5.</p>
+<p> </p>
+<p>Dio_WriteChannel ................................................................................................ 39</p>
+<p> </p>
+<p>10.3.6.</p>
+<p> </p>
+<p>Dio_ReadChannelGroup ...................................................................................... 40</p>
+<p> </p>
+<p>10.3.7.</p>
+<p> </p>
+<p>Dio_WriteChannelGroup ...................................................................................... 40</p>
+<p> </p>
+<p>10.3.8.</p>
+<p> </p>
+<p>Dio_MaskedWritePort .......................................................................................... 41</p>
+<p> </p>
+<p>10.3.9.</p>
+<p> </p>
+<p>Dio_FlipChannel ................................................................................................... 41</p>
+<p> </p>
+<p>10.3.10.</p>
+<p> </p>
+<p>Dio_GetVersionInfo .............................................................................................. 42</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>8 </p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Development and Production Errors ............................. 43</b></p>
+<p> </p>
+<p><b>11.1.</b></p>
+<p> </p>
+<p><b>DIO Driver Component Development Errors ................................................................... 43</b></p>
+<p> </p>
+<p><b>11.2.</b></p>
+<p> </p>
+<p><b>DIO Driver Component Production Errors ....................................................................... 44</b></p>
+<p> </p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Memory Organization ...................................................... 45</b></p>
+<p> </p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p><b>P1M Specific Information ................................................ 47</b></p>
+<p> </p>
+<p><b>13.1.</b></p>
+<p> </p>
+<p><b>Interaction between the User and DIO Driver .................................................................. 47</b></p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>Translation Header File ........................................................................................ 47</p>
+<p> </p>
+<p>13.1.2.</p>
+<p> </p>
+<p>Parameter Definition File ...................................................................................... 48</p>
+<p> </p>
+<p><b>13.2.</b></p>
+<p> </p>
+<p><b>Sample Application............................................................................................................. 48</b></p>
+<p> </p>
+<p>13.2.1</p>
+<p> </p>
+<p>Sample Application Structure ............................................................................... 48</p>
+<p> </p>
+<p>13.2.2</p>
+<p> </p>
+<p>Building Sample Application ................................................................................. 50</p>
+<p> </p>
+<p>13.2.2.1</p>
+<p> </p>
+<p>Configuration Example ..................................................................... 50</p>
+<p> </p>
+<p>13.2.2.2</p>
+<p> </p>
+<p>Debugging the Sample Application .................................................. 50</p>
+<p> </p>
+<p><b>13.3.</b></p>
+<p> </p>
+<p><b>Memory and Throughput ................................................................................................... 51</b></p>
+<p> </p>
+<p>13.3.1.</p>
+<p> </p>
+<p>ROM/RAM Usage ................................................................................................ 51</p>
+<p> </p>
+<p>13.3.2.</p>
+<p> </p>
+<p>Stack Depth .......................................................................................................... 52</p>
+<p> </p>
+<p>13.3.3.</p>
+<p> </p>
+<p>Throughput Details ............................................................................................... 53</p>
+<p> </p>
+<p><b>Chapter 14</b></p>
+<p> </p>
+<p><b>Release Details ................................................................ 55</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>9 </p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>System Overview of AUTOSAR Architecture ...................................................... 11</p>
+<p> </p>
+<p>Figure 1-2</p>
+<p> </p>
+<p>System Overview of the DIO Driver in AUTOSAR MCAL Layer .......................... 12</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>DIO Driver Architecture ........................................................................................ 23</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>DIO Driver Services ............................................................................................. 24</p>
+<p> </p>
+<p>Figure 12-1</p>
+<p> </p>
+<p>DIO Driver Component Memory Organization ..................................................... 45</p>
+<p> </p>
+<p>Figure 13-1              Overview of DIO Driver Sample Application ........................................................ 48</p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 4-1</p>
+<p> </p>
+<p>DIO Driver protected Resources List ................................................................... 20</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>Driver Deviation List of DIO module ..................................................................... 21</p>
+<p> </p>
+<p>Table 4-3</p>
+<p> </p>
+<p>User mode and Supervisor mode details ............................................................. 21</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p>Register Details .................................................................................................... 27</p>
+<p> </p>
+<p>Table 8-1</p>
+<p> </p>
+<p>Description of the DIO Driver Component Files ................................................... 32</p>
+<p> </p>
+<p>Table10-1</p>
+<p> </p>
+<p>DIO Driver Component’s API list. ......................................................................... 37</p>
+<p> </p>
+<p>Table11-1</p>
+<p> </p>
+<p>DET Errors of DIO Driver Component ................................................................. 43</p>
+<p> </p>
+<p>Table11-2                DEM Errors of DIO Driver Component ................................................................. 44</p>
+<p> </p>
+<p>Table13-1</p>
+<p> </p>
+<p>PDF information for P1M ...................................................................................... 48</p>
+<p> </p>
+<p>Table13-2 </p>
+<p> </p>
+<p>ROM/RAM Details with DET ................................................................................ 52</p>
+<p> </p>
+<p>Table13-3</p>
+<p> </p>
+<p>ROM/RAM Details without DET ........................................................................... 52</p>
+<p> </p>
+<p>Table13-4 </p>
+<p> </p>
+<p>Throughput Details of the APIs ............................................................................ 53</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>11 </p>
+<p><b>Chapter 1  Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The purpose of this document is to describe the information related to DIO </p>
+<p>Driver Component for Renesas P1x microcontrollers. </p>
+<p> </p>
+<p> </p>
+<p>This document shall be used as reference by the users of DIO Driver </p>
+<p>Component. The system overview of complete AUTOSAR architecture is </p>
+<p>shown in the below Figure: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Application Layer</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR RTE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>System  Services</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On board Device Abstraction</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>DI O Dr</b></p>
+<p><b>i</b></p>
+<p><b>ve r</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 1-1 </b></p>
+<p><b>System Overview of AUTOSAR Architecture </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>The DIO Driver is part of the MCAL, the lowest layer of Basic Software in the </p>
+<p>AUTOSAR environment. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                             Introduction                                                                                                                     </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>12 </p>
+<p>inter nal Flash Driver </p>
+<p>exter nal Fl ash Driver </p>
+<p>RA M Test </p>
+<p>Core Test </p>
+<p>MCU Driver </p>
+<p>Watchdog Driver </p>
+<p>GPT Driver </p>
+<p>PORT Driver </p>
+<p>DIO </p>
+<p>DIO Driver </p>
+<p>ADC </p>
+<p>ADC Driver </p>
+<p>PWM </p>
+<p>PWM Driver </p>
+<p>CCU </p>
+<p>ICU Driver </p>
+<p>FlexRay Driver </p>
+<p>CAN </p>
+<p>CAN Driver </p>
+<p>LIN o r </p>
+<p>SCI </p>
+<p>LIN Driver </p>
+<p>SPIHandlerDriver  </p>
+<p>SPI </p>
+<p>EEPRO </p>
+<p>M </p>
+<p>internal EEPROM Driver </p>
+<p>FLAS H </p>
+<p>Ext. BUS </p>
+<p>MCU </p>
+<p>Power &amp; </p>
+<p>Clock </p>
+<p>Unit </p>
+<p>WDT </p>
+<p> </p>
+<p>GPT </p>
+<p> </p>
+<p>The Figure in the following page depicts the DIO Driver as part of layered </p>
+<p>AUTOSAR MCAL Layer: </p>
+<p> </p>
+<p> </p>
+<p>Micro control ler Drivers </p>
+<p>Memory Dri vers </p>
+<p>Communication Drivers </p>
+<p>I/O Drivers </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Micro- </b></p>
+<p><b>Controller </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-2 </b></p>
+<p><b>System Overview of the DIO Driver in AUTOSAR MCAL Layer </b></p>
+<p> </p>
+<p>The DIO Driver Component provides the service for reading and writing to </p>
+<p>Channels, ChannelGroups and Ports. </p>
+<p> </p>
+<p> </p>
+<p>The DIO Driver Component comprises of two sections, that is, Embedded </p>
+<p>Software and the Configuration Tool to achieve scalability and configurability. </p>
+<p>The DIO Driver Component Code Generation Tool is a command line tool that </p>
+<p>accepts ECU configuration description file(s) as input and generates source </p>
+<p>and header file(s) Dio_PBcfg.c and Dio_Cfg.h respectively. The ECU </p>
+<p>configuration description is an XML file that contains information about the </p>
+<p>configuration for Port Pins.</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction                                                                                                                             Chapter 1 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>13 </p>
+<p> </p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides the user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>This section provides an introduction and overview of DIO Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 2 (Reference Documents)</p>
+<p> </p>
+<p>This section lists the documents referred for developing this document.</p>
+<p> </p>
+<p>Section 3 (Integration and Build </p>
+<p>Process)</p>
+<p> </p>
+<p>This section explains the folder structure, Makefile structure for DIO </p>
+<p>Driver Component. This section also explains about the Makefile </p>
+<p>descriptions, Integration of DIO Driver Component with other </p>
+<p>components, building the DIO Driver Component along with a sample </p>
+<p>application.</p>
+<p> </p>
+<p>Section 4 (Forethoughts)</p>
+<p> </p>
+<p>This section provides brief information about the DIO Driver Component, </p>
+<p>the preconditions that should be known to the user before it is used, data </p>
+<p>consistency details and deviation list.</p>
+<p> </p>
+<p>Section 5 (Architecture Details)</p>
+<p> </p>
+<p>This section describes the layered architectural details of the DIO Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 6 (Register Details)</p>
+<p> </p>
+<p>This section describes the register details of DIO Driver Component.</p>
+<p> </p>
+<p>Section 7 (Interaction Between </p>
+<p>User And DIO Driver Component)</p>
+<p> </p>
+<p>This section describes interaction of the DIO Driver Component with the </p>
+<p>upper layers.</p>
+<p> </p>
+<p>Section 8 (DIO Driver Component </p>
+<p>Header And Source File </p>
+<p>Description)</p>
+<p> </p>
+<p>This section provides information about the DIO Driver Component </p>
+<p>source files. This section also contains the brief note on the tool </p>
+<p>generated output file.</p>
+<p> </p>
+<p>Section 9 (Generation Tool Guide)</p>
+<p> </p>
+<p>This section provides information on the DIO Driver Component </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 10 (Application </p>
+<p>Programming Interface)</p>
+<p> </p>
+<p>This section explains all the APIs provided by the DIO Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 11 (Development And </p>
+<p>Production Errors)</p>
+<p> </p>
+<p>This section lists the DET and DEM errors.</p>
+<p> </p>
+<p>Section 12 (Memory </p>
+<p>Organization)</p>
+<p> </p>
+<p>This section provides the typical memory organization, which must be </p>
+<p>met for proper functioning of component.</p>
+<p> </p>
+<p>Section 13 (P1M Specific </p>
+<p>Information)</p>
+<p> </p>
+<p>This section provides the P1M Specific Information.</p>
+<p> </p>
+<p>Section 14 (Release Details)</p>
+<p> </p>
+<p>This section provides release details with version name and base </p>
+<p>version.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                             Introduction                                                                                                                     </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>14 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference Documents </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p>15 </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 2  Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>AUTOSAR_SWS_DIODriver.pdf</p>
+<p> </p>
+<p> 2.5.0 </p>
+<p>2.</p>
+<p> </p>
+<p> r01uh0436ej0130-rh850p1x.pdf</p>
+<p> </p>
+<p> 1.30 </p>
+<p> 3. </p>
+<p> AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>  3.2.0 </p>
+<p> 4. </p>
+<p> AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>  1.4.0 </p>
+<p> 5. </p>
+<p> AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p>  2.5.0 </p>
+<p> 6. </p>
+<p> AUTOSAR_BSW_MakefileInterface.pdf </p>
+<p>  0.3 </p>
+<p> 7. </p>
+<p>AUTOSAR BUGZILLA (http://www.autosar.org/bugzilla) </p>
+<p>Note: AUTOSAR BUGZILLA is a database, which contains concerns raised </p>
+<p>against information present in AUTOSAR Specifications. </p>
+<p>    - </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2                                                                                                           Reference Documents</b></p>
+<p> </p>
+<p> </p>
+<p>16 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Integration and Build Process </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p>17 </p>
+<p> </p>
+<p><b>Chapter 3  Integration and Build Process </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the folder structure of the DIO Driver Component is explained. </p>
+<p>Description of the makefiles along with samples is provided in this section. </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The details about the C Source and Header files that are generated by the </p>
+<p>DIO Driver Generation Tool are mentioned in the “R20UT3709EJ0101-</p>
+<p>AUTOSAR.pdf”. </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>DIO Driver Component Makefile </b></p>
+<p> </p>
+<p> </p>
+<p>The Makefile provided with the DIO Driver Component consists of the GNU </p>
+<p>Make compatible script to build the DIO Driver Component in case of any </p>
+<p>change in the configuration. This can be used in the upper level Makefile (of </p>
+<p>the application) to link and build the final application executable. </p>
+<p> </p>
+<p> </p>
+<p><b>3.1.1.  Folder Structure </b></p>
+<p> </p>
+<p>The files are organized in the following folders: </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Trailing slash ‘\’ at the end indicates a folder </p>
+<p> </p>
+<p> </p>
+<p>X1X\common_platform\modules\dio\src\Dio.c </p>
+<p>                                                                                                       \Dio_Version.c </p>
+<p>                                                                                                       \Dio_Ram.c </p>
+<p> </p>
+<p> </p>
+<p>X1X\common_platform\modules\dio\include\Dio.h </p>
+<p>\Dio_Debug.h </p>
+<p>\Dio_PBTypes.h </p>
+<p>\Dio_Ram.h </p>
+<p>\Dio_RegWrite.h </p>
+<p>\Dio_Version.h </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\dio\sample_application\&lt;SubVariant&gt;\make\ghs </p>
+<p>                                                                          \App_DIO_P1M_Sample.mak</p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\dio\sample_application\ &lt;SubVariant&gt;           </p>
+<p>                                                                    \obj\&lt;Compiler&gt; </p>
+<p>X1X\P1x\modules\dio\generator </p>
+<p>                                         \R403_DIO_P1x_BSWMDT.arxml </p>
+<p>X1X\common_platform\modules\dio\generator\Dio_X1x.dll  </p>
+<p> </p>
+<p>tools\RUCG\RUCG.exe </p>
+<p>X1X\P1x\common_family\generator\P1x_translation.h </p>
+<p>                                           \Sample_Applications_P1x.trxml    </p>
+<p>                                            \Global_Application_P1x.trxml     </p>
+<p>                           </p>
+<p>X1X\P1x\modules\dio\user_manual </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    Chapter 3                                                                                                             Integration and Build Process</b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>18 </p>
+<p>(User manuals will be available in this folder). </p>
+<p> </p>
+<p>Note:</p>
+<p>  </p>
+<p>1. &lt;AUTOSAR_version&gt; should be 4.0.3 </p>
+<p>2. &lt;SubVariant&gt; can be P1M </p>
+<p>3. &lt;Device_name&gt; can be 701304, 701305, 701310,  </p>
+<p>  701311, 701312, 701313, 701314, 701315, 701318, </p>
+<p>  701319, 701320, 701321, 701322 and 701323. </p>
+<p> </p>
+<p>4. &lt;Compiler&gt; can be ghs</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts                                                                                                                                             Chapter 4   </b></p>
+<p> </p>
+<p>19 </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Forethoughts </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b> General </b></p>
+<p> </p>
+<p> </p>
+<p>Following information will aid the user to use the DIO Driver Component </p>
+<p>software efficiently. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The DIO Driver does not enable or disable the ECU or Microcontroller </p>
+<p>power supply. The upper layer should handle this operation. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Start-up code is not implemented by the DIO Driver. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>DIO Driver does not implement any callback notification functions. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>DIO Driver does not implement any scheduled functions. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>DIO Driver supports the Readback feature. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The DIO Driver Component is Postbuild time configurable for R4.0.3. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The file Interrupt_VectorTable.c provided is just a Demo and not all </p>
+<p>interrupts will be mapped in this file. So the user has to update the </p>
+<p>Interrupt_VectorTable.c as per his configuration. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To access the Hardware Registers, The MCAL user should use the Low </p>
+<p>Level driver Layer. The MCAL user does not write or read any data directly </p>
+<p>from any register, but uses the AUTOSAR standard APIs provided by the </p>
+<p>MCAL Layer. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>When the channel is configured as Output, then the PPR register will </p>
+<p>reflect the Hardware pin level only when the Port Bi-Direction Control </p>
+<p>Register(PBDC) is enabled. Or else only the Port register value will be </p>
+<p>updated in the PPR register for the Output configured channels. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>DIO Driver at initialisation, does not initialise or write on any registers. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Integrator should ensure that usage of DIO and PORT from two different </p>
+<p>OS tasks are avoided and PORT configured as high priority task. </p>
+<p><b>4.2. </b></p>
+<p><b>Preconditions </b></p>
+<p> </p>
+<p> </p>
+<p>Following preconditions have to be adhered by the user, for proper </p>
+<p>functioning of the DIO Driver Component: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The Dio_Cfg.h and Dio_PBcfg.c files generated by the DIO Driver </p>
+<p>Component Code Generation Tool have to be linked along with DIO </p>
+<p>Driver Component source files. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>File Dio_PBcfg.c generated by DIO Driver Component </p>
+<p>Generation Tool can be compiled and linked independently. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The application has to be rebuilt, if there is any change in the Dio_Cfg.h </p>
+<p>and Dio_PBcfg.c file generated by the DIO Driver Component Generation </p>
+<p>Tool. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Ram.c and Dio_Ram.h are used only for Autosar release 4.0.3. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The DIO Driver Component needs to be initialized before accepting any API </p>
+<p>requests. Dio_Init should be called to initialize DIO Driver Component. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 4                                                                                                                                            Forethoughts        </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>20 </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The authorization of the user for calling the software triggering of a </p>
+<p>hardware reset is not checked in the DIO Driver. This will be the </p>
+<p>responsibility of the upper layer. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The user should ensure that DIO Driver Component API requests </p>
+<p>are invoked with correct input arguments. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Input parameters are validated only when the static configuration </p>
+<p>parameter DioDevErrorDetect is enabled. Application should ensure that </p>
+<p>the right parameters are passed while invoking the APIs when </p>
+<p>DioDevErrorDetect is disabled. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>A mismatch in the version numbers of header and the source files will </p>
+<p>result in a compilation error. User should ensure that the correct versions </p>
+<p>of the header and the source files are used. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>User/Integrator should ensure that same Ports/Pins are configured for </p>
+<p>DIO Driver component. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The DIO functions shall be called only after PORT Driver </p>
+<p>initialization, otherwise DIO functions will exhibit undefined </p>
+<p>behavior. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Safety features related to Write-Verify are only available if </p>
+<p>‘DioWriteVerify’ is enabled. </p>
+<p> </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>Data Consistency </b></p>
+<p> </p>
+<p>To support the re-entrance services, the AUTOSAR DIO module will ensure the </p>
+<p>data consistency while accessing its own RAM storage or hardware registers. </p>
+<p>The </p>
+<p>DIO </p>
+<p>module </p>
+<p>will </p>
+<p>use </p>
+<p>SchM_Enter_Dio_&lt;Exclusive </p>
+<p>Area&gt; </p>
+<p>and </p>
+<p>SchM_Exit_Dio_&lt;Exclusive </p>
+<p>Area&gt; </p>
+<p>functions. </p>
+<p>The </p>
+<p>SchM_Enter_Dio_&lt;Exclusive Area&gt; function is called before the data needs to </p>
+<p>be protected and SchM_Exit_Dio_&lt;Exclusive Area&gt; function is called after the </p>
+<p>data is accessed. </p>
+<p>The following exclusive area along with scheduler services is used to provide </p>
+<p>data integrity for shared resource: </p>
+<p>•</p>
+<p>       </p>
+<p>DIO_REGISTER_PROTECTION</p>
+<p> </p>
+<p>The </p>
+<p>functions </p>
+<p>SchM_Enter_Dio_&lt;Exclusive </p>
+<p>Area&gt; </p>
+<p>and </p>
+<p>SchM_Exit_Dio_&lt;Exclusive </p>
+<p>Area&gt; </p>
+<p>can </p>
+<p>be </p>
+<p>disabled </p>
+<p>by </p>
+<p>disabling </p>
+<p>the </p>
+<p>configuration parameter “DioCriticalSectionProtection”. </p>
+<p><b>                  Table 4-1 </b></p>
+<p><b>DIO Driver protected Resources List </b></p>
+<p><b>API Name </b></p>
+<p><b>Exclusive Area Type </b></p>
+<p><b>Protected </b></p>
+<p><b>Resources </b></p>
+<p>Dio_WritePort </p>
+<p>DIO_REGISTER_PROTECTION </p>
+<p>HW Registers: </p>
+<p>PMSR </p>
+<p>Dio_WriteChannel </p>
+<p>DIO_REGISTER_PROTECTION </p>
+<p>HW Registers: </p>
+<p>PMSR </p>
+<p>Dio_FlipChannel </p>
+<p>DIO_REGISTER_PROTECTION </p>
+<p>HW Registers: </p>
+<p>PMSR </p>
+<p>PNOT </p>
+<p>Dio_WriteChannel</p>
+<p>DIO_REGISTER_PROTECTION </p>
+<p>HW Registers: </p>
+<p>PMSR </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Forethoughts                                                                                                                                             Chapter 4   </b></p>
+<p> </p>
+<p>21 </p>
+<p>Group </p>
+<p>Dio_MaskedWriteP</p>
+<p>ort </p>
+<p>DIO_REGISTER_PROTECTION </p>
+<p>HW Registers: </p>
+<p>PMSR </p>
+<p><b>Note</b>: The worst case critical section value is 0.850 microseconds measured for            </p>
+<p>Dio_WriteChannelGroup API. </p>
+<p> </p>
+<p><b>4.4. </b></p>
+<p><b>Deviation List </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table 4-2 </b></p>
+<p><b>Driver Deviation List of DIO module </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description AUTOSAR</b></p>
+<p> </p>
+<p><b>Bugzilla </b></p>
+<p> </p>
+<p>1. </p>
+<p>The API Dio_MaskedWritePort which is available in R3.2.2 is also </p>
+<p>added to R4.0.3 release. </p>
+<p>- </p>
+<p>2. </p>
+<p>In case of Multiple configuration sets used, configuring different short </p>
+<p>name for the containers 'DioPort', 'DioChannel' and </p>
+<p>'DioChannelGroup' across the configuration set shall result in </p>
+<p>generation error. </p>
+<p>- </p>
+<p>3. </p>
+<p>In case of Multiple configuration sets used, configuring different </p>
+<p>number of ‘DioPort’ or 'DioChannel' or 'DioChannelGroup' containers </p>
+<p>across the configuration set shall result in generation error. </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>User mode and supervisor mode  </b></p>
+<p> </p>
+<p>The below table specifies the APIs which can run in user mode, supervisor </p>
+<p>mode or both modes. </p>
+<p> </p>
+<p><b>Table 4-3 </b></p>
+<p><b>User mode and Supervisor mode details </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl.No. </b></p>
+<p><b>List of API’S </b></p>
+<p><b>User Mode </b></p>
+<p><b>Supervisor Mode </b></p>
+<p><b>Known limitation </b></p>
+<p><b>in User mode </b></p>
+<p>1. </p>
+<p>Dio_Init </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>2. </p>
+<p>Dio_ReadPort </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>3. </p>
+<p>Dio_WritePort </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>4. </p>
+<p>Dio_ReadChannel </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>5. </p>
+<p>Dio_WriteChannel </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>6. </p>
+<p>Dio_FlipChannel </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>7. </p>
+<p>Dio_ReadChannelGroup </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>8. </p>
+<p>Dio_WriteChannelGroup </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>9. </p>
+<p>Dio_MaskedWritePort </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 4                                                                                                                                            Forethoughts        </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>22 </p>
+<p> </p>
+<p>10. </p>
+<p>Dio_GetVersionInfo </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p>                       </p>
+<p><b>Note: </b>Implementation of Critical Section is not dependent on MCAL. Hence Critical Section is not </p>
+<p>considered to the entries for User mode in the above table. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Architecture Details </b></p>
+<p><b>Chapter 5 </b></p>
+<p> </p>
+<p>23 </p>
+<p>    </p>
+<p><b>Chapter 5 </b></p>
+<p><b>Architecture Details </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The overview of the AUTOSAR DIO software architecture is given in the </p>
+<p>following figure. The DIO Driver Component access the hardware features </p>
+<p>directly. The upper layers call the functionalities provided by DIO Driver </p>
+<p>Component: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>I/O Hardware Abstraction Software </p>
+<p> </p>
+<p>I/O Hardware Abstraction</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>WritePort </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>WriteChannelGroup </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>WriteChannel</p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>ReadPort </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>ReadChannelGroup </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DIO</p>
+<p>_</p>
+<p>ReadChannel </p>
+<p> </p>
+<p>                                                     Dio_MaskedWritePort </p>
+<p> </p>
+<p>                     </p>
+<p> DIO_Init </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>DIO Driver</b></p>
+<p> </p>
+<p>DIO_FlipChannel </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On</p>
+<p>- </p>
+<p>Chip Registers</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On</p>
+<p>- </p>
+<p>Chip Hardware</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 5-1 </b></p>
+<p><b>DIO Driver Architecture </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                        Architecture Details </b></p>
+<p> </p>
+<p>24 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>DIO Driver Component: </b></p>
+<p> </p>
+<p>The following figure shows the various functionalities as offered by the DIO </p>
+<p>Driver. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 5-2 </b></p>
+<p><b>DIO Driver Services </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The DIO Driver Component is divided into the following sub modules based </p>
+<p>on the functionality required: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Port Read and Port Write </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Channel Read and Channel Write </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>ChannelGroup Read and ChannelGroup Write </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Read Port </b></p>
+<p> </p>
+<p>The levels of all channels of a DIO Port will be read. A bit value '0' indicates </p>
+<p>the individual channels of the Port to physical STD_LOW, a bit value '1' </p>
+<p>indicates the individual channels of the port to physical STD_HIGH. The level </p>
+<p>of all channels of Port are read simultaneously. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Read Channel </b></p>
+<p> </p>
+<p>The level of a single DIO Channel will be read as either STD_LOW or </p>
+<p>STD_HIGH. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Read ChannelGroup </b></p>
+<p> </p>
+<p>The levels of all channels of a DIO Channel Group will be read. A bit value '0' </p>
+<p>indicates the corresponding pin to physical STD_LOW, a bit value '1' indicates </p>
+<p>the corresponding channel to physical STD_HIGH. </p>
+<p>    Read </p>
+<p>     Write </p>
+<p>  Write and Read </p>
+<p> Channel Group </p>
+<p>    Channel </p>
+<p>    Port </p>
+<p>Channel Group </p>
+<p>oup </p>
+<p>   Channel </p>
+<p>    Port </p>
+<p>     Channel </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Architecture Details </b></p>
+<p><b>Chapter 5 </b></p>
+<p>25 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>DIO Write Port </b></p>
+<p> </p>
+<p>The levels of all channels of a Port will be set simultaneously without affecting </p>
+<p>the functionality of the input channels. A bit value '0' sets the corresponding </p>
+<p>channel to physical STD_LOW, a bit value '1' sets the corresponding channel </p>
+<p>to physical STD_HIGH. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Write Channel </b></p>
+<p> </p>
+<p>The level of a single DIO Channel is set STD_HIGH or STD_LOW. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Write ChannelGroup </b></p>
+<p> </p>
+<p>All adjoining subset of DIO channels of a port are set simultaneously. A bit </p>
+<p>value '0' sets the corresponding channel to physical STD_LOW, a bit value '1' </p>
+<p>sets the corresponding channel to physical STD_HIGH. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Initialization </b></p>
+<p> </p>
+<p>All the global variables of the DIO modules will be initialized. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO Flip Channel </b></p>
+<p> </p>
+<p>The level of a single DIO channel will be set with compliment of current level </p>
+<p>that is, if current value is STD_HIGH then STD_LOW will be set and vice </p>
+<p>versa and then the level of a single DIO Channel will be read. </p>
+<p> </p>
+<p><b>DIO GetVersionInfo </b></p>
+<p> </p>
+<p>The Dio_GetVersionInfo function shall return the version information of this </p>
+<p>module.The version information includes module ID, Vendor ID and Vendor </p>
+<p>specific version numbers. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO MaskedWrite Port </b></p>
+<p> </p>
+<p>The Dio_MaskedWritePort function shall set the specified value for the </p>
+<p>channels in the specified port if the corresponding bit in Mask is ‘1’. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                        Architecture Details </b></p>
+<p> </p>
+<p>26 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Register Details </b></p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p> </p>
+<p>27 </p>
+<p> </p>
+<p><b>Chapter 6 </b></p>
+<p><b>Register Details </b></p>
+<p> </p>
+<p> </p>
+<p>This section describes the register details of DIO Driver Component. </p>
+<p> </p>
+<p><b>Table 6-1 </b></p>
+<p><b>Register Details </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Registers</b></p>
+<p> </p>
+<p><b>Config Parameter</b></p>
+<p> </p>
+<p><b>Register Access </b></p>
+<p><b>R/W/RW </b></p>
+<p><b>Macro/Variable</b></p>
+<p> </p>
+<p>Dio_Init </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Dio_ReadPort </p>
+<p>PPRn </p>
+<p>- </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>JPPRn </p>
+<p>- </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>Dio_WritePort </p>
+<p>PSRn </p>
+<p>- </p>
+<p>R/W </p>
+<p>Level </p>
+<p>JPSRn </p>
+<p>- </p>
+<p>R/W </p>
+<p>Level </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>JPMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>Dio_ReadChannel </p>
+<p>PPRn </p>
+<p>DioChannelBitPosition </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>JPPRn </p>
+<p>DioChannelBitPosition </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>Dio_WriteChannel </p>
+<p>PSRn </p>
+<p>DioChannelBitPosition </p>
+<p>R/W </p>
+<p>LunPSRContent.ulLongWord </p>
+<p>JPSRn </p>
+<p>DioChannelBitPosition </p>
+<p>R/W </p>
+<p>LunPSRContent.ulLongWord </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>JPMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>Dio_FlipChannel </p>
+<p>PNOTn </p>
+<p>DioChannelBitPosition </p>
+<p>W </p>
+<p>- </p>
+<p>JPNOTn </p>
+<p>DioChannelBitPosition </p>
+<p>W </p>
+<p>- </p>
+<p>PPRn </p>
+<p>DioChannelBitPosition </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>JPPRn </p>
+<p>DioChannelBitPosition </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>JPMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>Dio_ReadChannelGroup </p>
+<p>PPRn </p>
+<p>DioPortMask and  </p>
+<p>DioPortOffset </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>JPPRn </p>
+<p>DioPortMask and  </p>
+<p>DioPortOffset </p>
+<p>R </p>
+<p>LddPortLevel </p>
+<p>Dio_WriteChannelGroup </p>
+<p>PSRn </p>
+<p>DioPortMask and  </p>
+<p>DioPortOffset </p>
+<p>R/W </p>
+<p>LunPSRContent.ulLongWord </p>
+<p>JPSRn </p>
+<p>DioPortMask and  </p>
+<p>DioPortOffset </p>
+<p>R/W </p>
+<p>LunPSRContent.ulLongWord </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>JPMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>Dio_GetVersionInfo </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Dio_MaskedWritePort </p>
+<p>PSRn </p>
+<p>- </p>
+<p>R/W </p>
+<p>- </p>
+<p>JPSRn </p>
+<p>- </p>
+<p>R/W </p>
+<p>- </p>
+<p>PMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p>JPMSRn </p>
+<p>- </p>
+<p>R </p>
+<p>LulPortModeLevel </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> Chapter 6                                                                                                                      Register Details</b></p>
+<p> </p>
+<p> </p>
+<p>28 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Interaction between the User and DIO Driver Component </b></p>
+<p><b>Chapter 7 </b></p>
+<p> </p>
+<p>29 </p>
+<p> </p>
+<p><b>Chapter 7 </b></p>
+<p><b>Interaction between the User and DIO </b></p>
+<p><b> </b></p>
+<p><b>Driver Component </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>The details of the services supported by the DIO Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>7.1.   Services Provided By DIO Driver Component To The </b></p>
+<p><b>User </b></p>
+<p><b> </b></p>
+<p>The DIO Driver Component provides the following functionalities to the upper </p>
+<p>layers or users: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To initialize the DIO module. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To read the physical level value from DIO Port. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To write specified value into given DIO Port. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To read physical level value from DIO Channel. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To write a specified value into the given DIO Channel. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To read physical level value from DIO ChannelGroup. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To write specified value into DIO ChannelGroup. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To read the DIO Driver Component version information. </p>
+<p>  </p>
+<p>•</p>
+<p> </p>
+<p>To write specified value with a specified mask into given DIO Port. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>To flip the level of a channel and return the level of the channel after flip. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7                                               Interaction between the User and DIO Driver Component</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>30 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>DIO Driver Component Header and Source File Description </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p>31 </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>DIO Driver Component Header and</b></p>
+<p><b> </b></p>
+<p><b>Source File Description </b></p>
+<p> </p>
+<p>This section explains the DIO Driver Component’s source and header files. </p>
+<p>These files have to be included in the project application while integrating with </p>
+<p>other modules. </p>
+<p> </p>
+<p>The C header file generated by DIO Driver Component Code Generation </p>
+<p>Tool: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Cfg.h </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Cbk.h </p>
+<p> </p>
+<p> </p>
+<p>The C source file generated by DIO Driver Component Code Generation </p>
+<p> </p>
+<p>                                         Tool: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_PBcfg.c </p>
+<p> </p>
+<p> </p>
+<p>The DIO Driver Component C header files: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Debug.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_PBTypes.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Ram.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Version.h </p>
+<p>•</p>
+<p> </p>
+<p>Dio_RegWrite.h</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The DIO Driver Component C source files: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio.c </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Ram.c </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Dio_Version.c </p>
+<p> </p>
+<p>The Stub C header files: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Compiler.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Compiler_Cfg.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>MemMap.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Platform_Types.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Det.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>Rte.h </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>SchM_Dio.h </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                              DIO Driver Component Header and Source File Description </b></p>
+<p> </p>
+<p>32 </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Dem.h </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Std_Types.h </p>
+<p> </p>
+<p> </p>
+<p>The description of the DIO Driver Component files is provided in the table below: </p>
+<p> </p>
+<p> </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Description of the DIO Driver Component Files </b></p>
+<p> </p>
+<p><b>File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Dio_Cfg.h</p>
+<p> </p>
+<p>This file is generated by the DIO Driver Component Code Generation Tool for DIO </p>
+<p>Driver Component pre-compile time parameters. This file contains macro definitions </p>
+<p>for the configuration elements. The macros and the parameters generated will vary </p>
+<p>with respect to the configuration in the input ARXML file.</p>
+<p> </p>
+<p>Dio_Cbk.h </p>
+<p>This file contains declarations of notification functions to be used by the application. </p>
+<p>The notification function name can be configured. </p>
+<p>Dio_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build configuration data. The structures related to DIO </p>
+<p>Initialization are provided in this file. Data structures will vary with respect to </p>
+<p>parameters configured.</p>
+<p> </p>
+<p>Dio.h</p>
+<p> </p>
+<p>This file provides extern declarations for all the DIO Driver Component APIs. This file </p>
+<p>provides service Ids of APIs, DET Error codes and Global Data Types for DIO Driver </p>
+<p>component. This header file shall be included in other modules to use the features of </p>
+<p>DIO Driver Component.</p>
+<p> </p>
+<p>Dio_Debug.h</p>
+<p> </p>
+<p>This file provides Provision of global variables for debugging purpose.</p>
+<p> </p>
+<p>Dio_RegWrite.h</p>
+<p> </p>
+<p>This file is to have macro definitions for the registers write and verification.</p>
+<p> </p>
+<p>Dio_PBTypes.h</p>
+<p> </p>
+<p>This file contains the macros used internally by the DIO Driver Component code and </p>
+<p>the structure declarations related to hardware unit registers, HARDWARE unit, </p>
+<p>Channel configuration, Group configuration, Group RAM data and HARDWARE unit </p>
+<p>RAM data.</p>
+<p> </p>
+<p>Dio_Ram.h</p>
+<p> </p>
+<p>This file contains the extern declarations for the global variables that are defined in </p>
+<p>Dio_Ram.c file and the version information of the file.</p>
+<p> </p>
+<p>Dio_Version.h</p>
+<p> </p>
+<p>This file contains the macros of AUTOSAR version numbers of all modules that are </p>
+<p>interfaced to DIO.</p>
+<p> </p>
+<p>Dio.c</p>
+<p> </p>
+<p>This file contains the implementation of all DIO Driver Component APIs.</p>
+<p> </p>
+<p>Dio_Version.c</p>
+<p> </p>
+<p>This file contains the code for checking version of all modules that are interfaced to </p>
+<p>DIO.</p>
+<p> </p>
+<p>Dio_Ram.c</p>
+<p> </p>
+<p>This file contains the global variables used by DIO Driver Component.</p>
+<p> </p>
+<p>Compiler.h</p>
+<p> </p>
+<p>Provides compiler specific (non-ANSI) keywords. All mappings of keywords, which </p>
+<p>are not standardized, and/or compiler specific are placed and organized in this </p>
+<p>compiler specific header.</p>
+<p> </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>This file contains the memory and pointer classes.</p>
+<p> </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>This file allows to map variables, constants and code of modules to individual </p>
+<p>memory sections. Memory mapping can be modified as per ECU specific needs.</p>
+<p> </p>
+<p>Platform_Types.h</p>
+<p> </p>
+<p>This file provides provision for defining platform and compiler dependent types.</p>
+<p> </p>
+<p>Det.h </p>
+<p>This file is a stub for DET Component. </p>
+<p>Rte.h </p>
+<p>This file is a stub for Rte Component. </p>
+<p>Std_Types.h </p>
+<p>This file is a stub file which contains the standard type definitions. </p>
+<p>SchM_Dio.h </p>
+<p>This file provide a stub for SchM component. </p>
+<p>Dem.h </p>
+<p>This file provides a stub for Dem component. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Generation Tool Guide </b></p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p> </p>
+<p>33 </p>
+<p> </p>
+<p><b>Chapter 9 </b></p>
+<p><b>Generation Tool Guide </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>For more information on the Dio Driver Component Generation Tool, please </p>
+<p>refer “R20UT3709EJ0101-AUTOSAR.pdf” document. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 9                                                                                                            Generation Tool Guide </b></p>
+<p> </p>
+<p>34 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p>35 </p>
+<p><b>Chapter 10  Application Programming Interface </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the Data types and APIs provided by the DIO Driver </p>
+<p>Component to the Upper layers. </p>
+<p> </p>
+<p> </p>
+<p><b>10.1. </b></p>
+<p><b>Imported Types </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the Data types imported by the DIO Driver Component </p>
+<p>and lists its dependency on other modules. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.1.1. Standard Types </b></p>
+<p> </p>
+<p>In this section all types included from the Std_Types.h are listed: </p>
+<p>Std_VersionInfoType </p>
+<p> </p>
+<p> </p>
+<p><b>10.1.2. Other Module Types </b></p>
+<p> </p>
+<p>DIO Driver Component module does not depend on other modules. Hence no </p>
+<p>types from other modules are imported. </p>
+<p> </p>
+<p> </p>
+<p><b>10.2. </b></p>
+<p><b>Type Defintions </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the type definitions of DIO Driver Component according </p>
+<p>to AUTOSAR Specification. </p>
+<p> </p>
+<p>Refer “AUTOSAR_SWS_DIODriver.pdf” for more type definitions </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.2.1. </b></p>
+<p><b>Dio_ChannelType </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Dio_ChannelType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Dio_ChannelType used by Dio_ReadChannel and Dio_WriteChannel</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                    Application Programming Interface                                                                    </b></p>
+<p> </p>
+<p>36 </p>
+<p> </p>
+<p><b>10.2.2. </b></p>
+<p><b>Dio_PortType </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Dio_PortType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Dio_PortType used by Dio_ReadPort and Dio_WritePort.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.2.3. </b></p>
+<p><b>Dio_PortLevelType </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Dio_PortLevelType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint16</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 65535</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Dio_PortLevelType used by Dio_ReadPort, Dio_WritePort, </p>
+<p>Dio_ReadChannelGroup and Dio_WriteChannelGroup.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.2.4. </b></p>
+<p><b>Dio_ConfigType </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Dio_ConfigType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Structure</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>Implementation specific.</p>
+<p> </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This structure contains all post-build configurable parameters of the DIO driver. </p>
+<p>A pointer to this structure is passed to the DIO driver initialization function for </p>
+<p>configuration.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p> </p>
+<p>37 </p>
+<p><b>10.3. </b></p>
+<p><b>Function Definitions </b></p>
+<p> </p>
+<p> </p>
+<p><b>Table10-1 </b></p>
+<p><b>DIO Driver Component’s API list</b></p>
+<p><b>. </b></p>
+<p>    </p>
+<p> </p>
+<p><b>Sl no</b></p>
+<p> </p>
+<p><b>API’s of R4.0.3 </b></p>
+<p>1.</p>
+<p> </p>
+<p>  Dio_Init</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Dio_ReadPort</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>Dio_WritePort</p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>Dio_ReadChannel</p>
+<p> </p>
+<p>5.</p>
+<p> </p>
+<p>Dio_WriteChannel</p>
+<p> </p>
+<p>6.</p>
+<p> </p>
+<p>  Dio_FlipChannel</p>
+<p> </p>
+<p>7.</p>
+<p> </p>
+<p>Dio_ReadChannelGroup</p>
+<p> </p>
+<p>8.</p>
+<p> </p>
+<p>Dio_WriteChannelGroup</p>
+<p> </p>
+<p>9.</p>
+<p> </p>
+<p>Dio_MaskedWritePort</p>
+<p> </p>
+<p>10.</p>
+<p> </p>
+<p>Dio_GetVersionInfo</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.1. </b></p>
+<p><b>Dio_Init </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_Init </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC (void, DIO_PUBLIC_CODE) Dio_Init </p>
+<p>(P2CONST(Dio_ConfigType, DIO_VAR, DIO_APPL_CONST) ConfigPtr) </p>
+<p><b>Service ID: </b></p>
+<p>0x10 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Non-Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ConfigType </p>
+<p>ConfigPtr </p>
+<p>NA </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>Initializes the Dio module. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>None </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                    Application Programming Interface                                                                    </b></p>
+<p> </p>
+<p>38 </p>
+<p> </p>
+<p><b>10.3.2. </b></p>
+<p><b>Dio_ReadPort </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_ReadPort </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p> </p>
+<p>FUNC(Dio_PortLevelType, DIO_PUBLIC_CODE) Dio_ReadPort(Dio_PortType PortId) </p>
+<p><b>Service ID: </b></p>
+<p>0x02 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_PortType </p>
+<p>PortId </p>
+<p>0 . . . 255 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>Dio_PortLevelType </p>
+<p>0 to 65535 </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>This service returns the level of all channels of given port. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized </p>
+<p> </p>
+<p><b>10.3.3. </b></p>
+<p><b>Dio_WritePort </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_WritePort </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(void, DIO_PUBLIC_CODE) Dio_WritePort (Dio_PortType PortId, </p>
+<p>Dio_PortLevelType Level) </p>
+<p><b>Service ID: </b></p>
+<p>0x03 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>  Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_PortType </p>
+<p>PortId </p>
+<p>0 . . . 255 </p>
+<p>Dio_PortLevelType </p>
+<p>Level </p>
+<p>  0x00 / 0x01 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>This service writes the specified level to all the channels in given Port. </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p> </p>
+<p>39 </p>
+<p><b>10.3.4. </b></p>
+<p><b>Dio_ReadChannel </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_ReadChannel </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(Dio_LevelType, DIO_PUBLIC_CODE) Dio_ReadChannel(Dio_ChannelType </p>
+<p>ChannelId) </p>
+<p><b>Service ID: </b></p>
+<p>0x00 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ChannelType </p>
+<p>ChannelId </p>
+<p>0 . . . 255 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>Dio_LevelType </p>
+<p> 0x00 / 0x01 </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>This service returns the value of the specified DIO channel. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>This service returns the value of the specified DIO channel. </p>
+<p> </p>
+<p><b>10.3.5. </b></p>
+<p><b>Dio_WriteChannel </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_WriteChannel </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(void, DIO_PUBLIC_CODE) Dio_WriteChannel </p>
+<p>(Dio_ChannelType ChannelId, Dio_LevelType Level) </p>
+<p><b>Service ID: </b></p>
+<p>0x01 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ChannelType </p>
+<p>Channel Id </p>
+<p>0 . . .255 </p>
+<p>Dio_PortLevelType </p>
+<p>Level </p>
+<p>0x00 / 0x01 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>This service writes the value of the level into specified channel of given port. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                    Application Programming Interface                                                                    </b></p>
+<p> </p>
+<p>40 </p>
+<p> </p>
+<p><b>10.3.6. </b></p>
+<p><b>Dio_ReadChannelGroup </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_ReadChannelGroup </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(Dio_PortLevelType, DIO_PUBLIC_CODE) Dio_ReadChannelGroup </p>
+<p>(P2CONST(Dio_ChannelGroupType, DIO_VAR, DIO_CONFIG_CONST) </p>
+<p>ChannelGroupIdPtr) </p>
+<p><b>Service ID: </b></p>
+<p>0x04 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ChannelGroupType </p>
+<p>ChannelGroupIdPtr </p>
+<p>NA </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p><b> </b></p>
+<p>Dio_PortLevelType </p>
+<p> </p>
+<p>0 to 65535</p>
+<p> </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>This Service reads a subset of the adjoining bits of a port.  </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<p><b>10.3.7. </b></p>
+<p><b>Dio_WriteChannelGroup </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_WriteChannelGroup </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(void, DIO_PUBLIC_CODE) Dio_WriteChannelGroup </p>
+<p>(P2CONST(Dio_ChannelGroupType, DIO_VAR, DIO_CONFIG_CONST) </p>
+<p>ChannelGroupIdPtr, Dio_PortLevelType Level) </p>
+<p><b>Service ID: </b></p>
+<p>0x05 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ChannelGroupType </p>
+<p>ChannelGroupIdPtr </p>
+<p>NA </p>
+<p>Dio_PortLevelType </p>
+<p>Level </p>
+<p>0x00 / 0x01 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>Service to set a subset of the adjoining bits of a port to a specified level. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>None </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Application Programming Interface                                                                                    Chapter 10 </b></p>
+<p> </p>
+<p> </p>
+<p>41 </p>
+<p> </p>
+<p><b>10.3.8. </b></p>
+<p><b>Dio_MaskedWritePort </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_MaskedWritePort </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(void, DIO_PUBLIC_CODE) Dio_MaskedWritePort </p>
+<p>(Dio_PortType PortId, Dio_PortLevelType Level,Dio_PortLevelType  Mask) </p>
+<p><b>Service ID: </b></p>
+<p>0x13 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_PortType </p>
+<p>PortId </p>
+<p>0. . . . 255 </p>
+<p>Dio_PortLevelType </p>
+<p>Level </p>
+<p>0x00 / 0x01 </p>
+<p>Dio_PortLevelType </p>
+<p>Mask </p>
+<p>0. . . . 65535 </p>
+<p> </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>Service to set the value of a given port with required mask.  </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>Parameter DioMaskedWritePortApi should be configured as TRUE  </p>
+<p> </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<p><b>10.3.9. </b></p>
+<p><b>Dio_FlipChannel </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_FlipChannel </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(Dio_LevelType, DIO_PUBLIC_CODE) Dio_FlipChannel(Dio_ChannelType </p>
+<p>ChannelId) </p>
+<p><b>Service ID: </b></p>
+<p>0x11 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>Dio_ChannelType </p>
+<p>Channel Id </p>
+<p>0 . . . 255 </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>Dio_LevelType </p>
+<p> 0x00 / 0x01 </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>Service to flip (change from 1 to 0 or from 0 to 1) the level of a channel and return the </p>
+<p>level of the channel after flip. </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>Parameter DioFlipChannelApi should be configured as TRUE  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 10                                                                                    Application Programming Interface                                                                    </b></p>
+<p> </p>
+<p>42 </p>
+<p> </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<p><b>10.3.10. </b></p>
+<p><b>Dio_GetVersionInfo </b></p>
+<p> </p>
+<p><b>Name: </b></p>
+<p>Dio_GetVersionInfo </p>
+<p><b> </b></p>
+<p><b>Prototype: </b></p>
+<p>FUNC(void, DIO_PUBLIC_CODE) Dio_GetVersionInfo </p>
+<p>(P2VAR(Std_VersionInfoType, AUTOMATIC, DIO_APPL_DATA)versioninfo) </p>
+<p><b>Service ID: </b></p>
+<p>0x12 </p>
+<p><b>Sync/Async: </b></p>
+<p>Synchronous </p>
+<p><b>Reentrancy: </b></p>
+<p>Reentrant </p>
+<p><b> </b></p>
+<p><b>Parameters In: </b></p>
+<p>Type </p>
+<p>Parameter </p>
+<p>Value/Range </p>
+<p>None </p>
+<p>None </p>
+<p>NA </p>
+<p><b>Parameters InOut: </b></p>
+<p>None </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters out: </b></p>
+<p>Std_VersionInfoType  </p>
+<p> </p>
+<p>Versioninfo </p>
+<p>NA </p>
+<p><b> </b></p>
+<p><b>Return Value: </b></p>
+<p>Type </p>
+<p>Possible Return Values </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description: </b></p>
+<p>Service to get the version information of dio module.  </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency: </b></p>
+<p>Parameter DioVersionInfoApi should be configured as TRUE  </p>
+<p> </p>
+<p><b>Preconditions: </b></p>
+<p>DIO Driver must be initialized. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Development and Production Errors </b></p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p> </p>
+<p>43 </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 11 </b></p>
+<p><b>Development and Production Errors </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the development errors that are reported by the DIO Driver </p>
+<p>Component are tabulated. The development errors will be reported only when </p>
+<p>the pre compiler option DIO_DEV_ERROR_DETECT is enabled in the </p>
+<p>configuration. The DIO Driver Component does not support any production </p>
+<p>errors. </p>
+<p> </p>
+<p><b>11.1. </b></p>
+<p><b>DIO Driver Component Development Errors </b></p>
+<p> </p>
+<p> </p>
+<p>The following contains the DET errors that are reported by DIO Driver </p>
+<p>Component. These errors are reported to Development Error Tracer Module </p>
+<p>when the DIO Driver Component APIs are invoked with wrong input </p>
+<p>parameters or without initialization of the driver. </p>
+<p><b> </b></p>
+<p><b>Table11-1 </b></p>
+<p><b>DET Errors of DIO Driver Component  </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_PARAM_INVALID_CHANNEL_ID</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_ReadChannel , Dio_WriteChannel and Dio_FlipChannel</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned APIs are invoked with invalid Channel ID</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_PARAM_CONFIG</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned API is invoked with NULL parameter.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_PARAM_INVALID_PORT_ID</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_ReadPort, Dio_WritePort ,</p>
+<p> </p>
+<p>Dio_WriteChannel, Dio_FlipChannel, </p>
+<p>Dio_WriteChannelGroup and Dio_MaskedWritePort</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned APIs are invoked with invalid Port ID</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_PARAM_INVALID_GROUP</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_ReadChannelGroup and Dio_WriteChannelGroup</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned APIs are invoked with invalid ChannelGroup ID</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_INVALID_DATABASE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned API is called without a database or invalid database</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 11                                                                                   Development and Production Errors </b></p>
+<p> </p>
+<p>44 </p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_UNINIT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_ReadChannel, Dio_WriteChannel, Dio_ReadPort, Dio_WritePort, </p>
+<p>Dio_ReadChannelGroup , Dio_WriteChannelGroup and </p>
+<p>Dio_FlipChannel, Dio_MaskedWritePort</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the above mentioned APIs are invoked without module initialization.</p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>7 </b></p>
+<p>Error Code </p>
+<p>DIO_E_PARAM_POINTER </p>
+<p>Related API(s) </p>
+<p>Dio_ReadChannelGroup , Dio_WriteChannelGroup and Dio_GetVersionInfo </p>
+<p>Source of Error </p>
+<p>When the above mentioned APIs are invoked with NULL pointer </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>11.2. </b></p>
+<p><b>DIO Driver Component Production Errors </b></p>
+<p> </p>
+<p>In this section the DEM errors identified in the DIO Driver component are </p>
+<p>listed. DIO Driver component reports these errors to DEM by invoking </p>
+<p>Dem_ReportErrorStatus API. This API is invoked, when the processing of </p>
+<p>the given API request fails. </p>
+<p> </p>
+<p><b>Table11-2      DEM Errors of DIO Driver Component </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>  1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>DIO_E_REG_WRITE_VERIFY</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Dio_WritePort, Dio_WriteChannel, Dio_FlipChannel, Dio_WriteChannelGroup, </p>
+<p>Dio_MaskedWritePort</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When register write-verify fails.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Memory Organization </b></p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p> </p>
+<p>45 </p>
+<p> </p>
+<p><b>Chapter 12  Memory Organization </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Following picture depicts a typical memory organization, which must be met </p>
+<p>for proper functioning of DIO Driver Component software. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 12-1 </b></p>
+<p><b>DIO Driver Component Memory Organization </b></p>
+<p> </p>
+<p> </p>
+<p>Global 16- bit RAM to be initialized by start- up </p>
+<p>code. </p>
+<p>Segment Name: </p>
+<p><b>NO_INIT_RAM_16BIT: </b></p>
+<p>Global 1- bit RAM to be initialized by start- up </p>
+<p>code. </p>
+<p>Segment Name: </p>
+<p><b>RAM_1BIT: </b></p>
+<p><b>RAM Section</b></p>
+<p> </p>
+<p><b>ROM Section</b></p>
+<p> </p>
+<p><b>DIO Driver Component </b></p>
+<p><b>Library / Object Files</b></p>
+<p> </p>
+<p>Global RAM of unspecific size required for DIO </p>
+<p>Driver functioning. </p>
+<p>Segment Name: </p>
+<p><b>NO_INIT_RAM_UNSPECIFIED </b></p>
+<p>DIO Driver code related to AP Is are </p>
+<p>placed in this memory. </p>
+<p>Segment Name : </p>
+<p><b>DIO_PUBLIC _CODE_ROM </b></p>
+<p><b>Y1 </b></p>
+<p><b>Y2 </b></p>
+<p><b>Y3 </b></p>
+<p><b>X1 </b></p>
+<p><b>Tool Generated File </b></p>
+<p>The const section (other than D IO Configuration </p>
+<p>structure) in the file Dio_PBcfg.c is placed in this </p>
+<p>memory </p>
+<p>Segment Name:  </p>
+<p><b>DIO_CFG_DATA_UNSPECIFIED </b></p>
+<p>X2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 12                                                                                                            Memory Organization </b></p>
+<p> </p>
+<p>46 </p>
+<p> </p>
+<p><b>DIO_PUBLIC_CODE_ROM (X1): </b>API(s) of DIO Driver Component, which </p>
+<p>can be located in code memory. </p>
+<p> </p>
+<p> </p>
+<p><b>DIO_CFG_DATA_UNSPECIFIED (X2): </b>This section consists of DIO </p>
+<p>Driver Component constant configuration structures. This can be located in </p>
+<p>code memory. </p>
+<p> </p>
+<p> </p>
+<p><b>RAM Section (Y1, and Y2): </b></p>
+<p> </p>
+<p> </p>
+<p><b>NO_INIT_RAM_UNSPECIFIED (Y1): </b>This section consists of the global RAM </p>
+<p>pointer variables that are used internally by DIO Driver Component. This can </p>
+<p>be located in data memory. </p>
+<p> </p>
+<p><b>RAM_1BIT (Y2): </b>This section consists of the global RAM variables of 1-bit </p>
+<p>size that are used internally by DIO Driver Component. This can be located in </p>
+<p>data memory. </p>
+<p> </p>
+<p><b>NO_INIT_RAM_16BIT (Y3): </b>This section consists of the global RAM </p>
+<p>variables of 16-bit size that are used internally by DIO Driver Component and </p>
+<p>other software components. The specific sections of respective software </p>
+<p>components will be merged into this RAM section accordingly. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Notes: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>X1, Y1, and Y2 pertain to only DIO Driver Component and do not include </p>
+<p>memory occupied by Dio_PBcfg.c files generated by DIO Driver </p>
+<p>Component Generation Tool. </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>User must ensure that none of the memory areas overlap with each other. </p>
+<p>Even ‘debug’ information should not overlap. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information </b></p>
+<p><b>Chapter 13 </b></p>
+<p> </p>
+<p>47 </p>
+<p><b>Chapter 13  P1M Specific Information </b></p>
+<p> </p>
+<p>P1M supports following devices: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323 </p>
+<p> </p>
+<p> </p>
+<p><b>13.1. </b></p>
+<p><b>Interaction between the User and DIO Driver </b></p>
+<p> </p>
+<p><b>Component </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>13.1.1. </b></p>
+<p><b>Translation Header File </b></p>
+<p><b> </b></p>
+<p>The P1x_translation.h file supports following devices: </p>
+<p>•</p>
+<p> </p>
+<p>R7F701304 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701305 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701310 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>R7F701313 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701314 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701315 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701318 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701319 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701320 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701321 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701322 </p>
+<p>•</p>
+<p> </p>
+<p>R7F701323 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                      P1M Specific Information </b></p>
+<p><b> </b></p>
+<p>48 </p>
+<p> </p>
+<p>STUB </p>
+<p>Det </p>
+<p>Dem </p>
+<p> </p>
+<p> </p>
+<p><b>13.1.2. </b></p>
+<p><b>Parameter Definition File </b></p>
+<p>Parameter definition files support information for P1M </p>
+<p><b> </b></p>
+<p><b>Table13-1 </b></p>
+<p><b>PDF information for P1M </b></p>
+<p><b>PDF Files</b></p>
+<p> </p>
+<p><b>Devices Supported</b></p>
+<p> </p>
+<p>R403_DIO_P1M_04_05_12_13_20_21.</p>
+<p>arxml</p>
+<p> </p>
+<p>701304, 701305, 701312, 701313, 701320, </p>
+<p>701321</p>
+<p> </p>
+<p>R403_DIO_P1M_10_11_14_15_18_19</p>
+<p>_22_23.arxml</p>
+<p> </p>
+<p>701310, 701311, 701314, 701315, 701318, </p>
+<p>701319, 701322, 701323</p>
+<p> </p>
+<p> </p>
+<p><b>13.2. </b></p>
+<p><b>Sample Application </b></p>
+<p> </p>
+<p> </p>
+<p><b>13.2.1 Sample Application Structure </b></p>
+<p> </p>
+<p>The Sample Application is provided as reference to the user to understand the </p>
+<p>method in which the DIO APIs can be invoked from the application. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Generic</b></p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR TYPES </p>
+<p>COMPILER </p>
+<p> </p>
+<p>rh850 </p>
+<p> </p>
+<p> </p>
+<p>TYPES</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Devices</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                                                               P1x </p>
+<p> </p>
+<p>DIO  </p>
+<p>Sample  </p>
+<p>Application </p>
+<p>   </p>
+<p><b>       Figure 13-1              Overview of DIO Driver Sample Application </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information                                                                                                      </b></p>
+<p> </p>
+<p><b>Chapter 13  </b></p>
+<p> </p>
+<p>49 </p>
+<p> The Sample Application of the P1M is available in the path </p>
+<p>X1X/</p>
+<p>P1x</p>
+<p>/modules/dio/sample_application </p>
+<p> </p>
+<p>The Sample Application consists of the following folder structure </p>
+<p>X1X/P1x/modules/dio/definition/&lt;Subvariant&gt;/R403_DIO_P1M_04_05_12_13_</p>
+<p>20_21.arxml </p>
+<p>X1X/P1x/modules/dio/definition/&lt;Subvariant&gt;/R403_DIO_P1M_10_11_14_15_</p>
+<p>18_19_22_23.arxml </p>
+<p> </p>
+<p>X1X/</p>
+<p>P1x</p>
+<p>/modules/dio/sample_application/&lt;Subvariant&gt; /&lt;AUTOSAR_version&gt; </p>
+<p>                                                                                    /src/Dio_PBcfg.c </p>
+<p>                                                                                    /inc/Dio_Cfg.h </p>
+<p>                                                                                    /inc/Dio_Cbk.h </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701304_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701305_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701310_Sample.arxml </p>
+<p>                                                                                  </p>
+<p>                                                                                    /config/App_DIO_P1M_701311_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701312_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701313_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701314_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701315_Sample.arxml </p>
+<p>                                                                                   </p>
+<p>                                                                                    /config/App_DIO_P1M_701318_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701319_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701320_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701321_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701322_Sample.arxml </p>
+<p> </p>
+<p>                                                                                    /config/App_DIO_P1M_701323_Sample.arxml </p>
+<p>                                          </p>
+<p>                                           </p>
+<p>In the Sample Application all the DIO APIs are invoked in the following </p>
+<p>sequence: </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_GetVersionInfo is invoked to get the version of the DIO </p>
+<p>Driver module with a variable of Std_VersionInfoType, after the call of </p>
+<p>this API the passed parameter will get updated with the DIO Driver </p>
+<p>version details. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_Init is invoked with a valid database address for the </p>
+<p>proper initialization of the DIO Driver, all the DIO Driver control </p>
+<p>registers and RAM variables will get initialized after this API is called. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_WriteChannel is invoked to set the required level of a </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                     P1M Specific Information </b></p>
+<p><b> </b></p>
+<p>50 </p>
+<p> </p>
+<p>particular channel. It sets the output level of the channel if that particular </p>
+<p>channel is configured in output mode. If channel is configured for input </p>
+<p>mode, Dio_WriteChannel has no effect. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_ReadChannel reads the actual physical level of the </p>
+<p>required channel. The level read for the input channel is actual </p>
+<p>physical level of that channel if input buffer for that channel is </p>
+<p>enabled. The level read for the output channel is actual physical level </p>
+<p>of that channel if bidirectional control for that channel is enabled. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_WritePort is invoked to simultaneously set the required </p>
+<p>levels to all channels of a port. It sets the output level of the channels </p>
+<p>which are configured in output mode, for the channels which are </p>
+<p>configured in input mode, Dio_WritePort has no effect. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_ReadPort reads the actual physical level of all the port </p>
+<p>pins of a required port. The level read for the input port pin is actual </p>
+<p>physical level of that port pin if input buffer for that port pin is enabled. </p>
+<p>The level read for the output port pin is actual physical level of that port </p>
+<p>pin if bidirectional control for that port pin is enabled. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_WriteChannelGroup is invoked to simultaneously set the </p>
+<p>required levels to group of channels of a port. It sets the output level of </p>
+<p>the channels which are configured in output mode, for the channels </p>
+<p>which are configured in input mode, Dio_WriteChannelGroup has no </p>
+<p>effect. </p>
+<p>•</p>
+<p> </p>
+<p>The  API  Dio_ReadChannelGroup  reads  the  actual  physical  level  of </p>
+<p>channel  group  of  a  required  port.  The  level  read  for  the  input  channel </p>
+<p>group is actual physical level of that channel group if input buffer for that </p>
+<p>channel group is enabled. The level read for the output channel group is </p>
+<p>actual physical level of that channel group if bidirectional control for that </p>
+<p>channel group is enabled. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_MaskedWritePort provides service to set value of given port </p>
+<p>with required mask.The Dio_MaskedWritePort function shall set the </p>
+<p>specified value for the channel in specified port if the corresponding bit in </p>
+<p>mask is ‘1’. </p>
+<p>•</p>
+<p> </p>
+<p>The API Dio_FlipChannel reads the level of the channel and invert it, </p>
+<p>then write the inverted level to the channel if the channel is configured as </p>
+<p>output channel and the function shall have no influence on the physical </p>
+<p>output if the channel is configured as input channel. </p>
+<p> </p>
+<p> </p>
+<p><b>13.2.2 Building Sample Application </b></p>
+<p> </p>
+<p><b>13.2.2.1 </b></p>
+<p><b>Configuration Example </b></p>
+<p>This section contains the typical configuration which is used for measuring </p>
+<p>RAM/ROM consumption, stack depth and throughput details. </p>
+<p><b>Configuration Details: </b></p>
+<p>Name of the configuration file: </p>
+<p>App_DIO_&lt;SubVariant&gt;_&lt;Device_Name&gt;_Sample.arxml </p>
+<p> </p>
+<p><b>13.2.2.2 </b></p>
+<p><b>Debugging the Sample Application </b></p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>GNU Make utility version 3.81 or above must be installed and available in the </p>
+<p>path as defined by the environment user variable “GNUMAKE” to complete </p>
+<p>the build process using the delivered sample files. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information                                                                                                      </b></p>
+<p> </p>
+<p><b>Chapter 13  </b></p>
+<p> </p>
+<p>51 </p>
+<p>•</p>
+<p> </p>
+<p>Open a Command window and change the current working directory </p>
+<p>to “make” directory present as mentioned in below path: </p>
+<p>“X1X\P1x\common_family\make\&lt;Compiler&gt;” </p>
+<p> </p>
+<p>Now execute batch file SampleApp.bat with following parameters: </p>
+<p> </p>
+<p>SampleApp.bat dio 4.0.3 &lt;Device_name&gt; </p>
+<p> </p>
+<p>&lt;Device_name&gt; can be 701304, 701305, 701310, 701311, 701312,  </p>
+<p>701313, 701314, 701315, 701318, 701319, </p>
+<p>701320, 701321, 701322 and 701323. </p>
+<p>  </p>
+<p>After this, the tool output files will be generated with the configuration as </p>
+<p>mentioned in App_DIO_P1M_&lt;Device_name&gt;_Sample.arxml file </p>
+<p>available in the path: </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>“X1X\P1x\modules\dio\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_versi</p>
+<p>on&gt; \config” </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>After this, all the object files, map file and the executable file Sample.out </p>
+<p>will be available in the output folder </p>
+<p>(“X1X\P1x\modules\dio\sample_application\&lt;SubVariant&gt;\obj\&lt;Compiler&gt;” </p>
+<p>in this case). </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>The executable can be loaded into the debugger and the sample </p>
+<p>application can be executed. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Executable files with ‘*.out’ extension can be downloaded into the target </p>
+<p>hardware with the help of Green Hills debugger. </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>If any configuration changes (only post-build) are made to the </p>
+<p>ECU Configuration Description files   </p>
+<p></p>
+<p> </p>
+<p>“X1X\P1x\modules\dio\sample_application\&lt; SubVariant &gt;     </p>
+<p>                  </p>
+<p> </p>
+<p>      \&lt;AUTOSAR_version&gt;config \ App_DIO_P1M_701318_Sample.arxml” </p>
+<p> </p>
+<p>The database alone can be generated by using the following commands. </p>
+<p> </p>
+<p>make –f App_DIO_P1M_Sample.mak generate_dio_config </p>
+<p>make –f App_DIO_P1M_Sample.mak App_Dio_P1M_Sample.s37 </p>
+<p> </p>
+<p>After this, a flashable Motorola S-Record file App_Dio_P1M_Sample.s37 is </p>
+<p>available in the output folder. </p>
+<p> </p>
+<p> </p>
+<p><b>13.3. </b></p>
+<p><b>Memory and Throughput </b></p>
+<p> </p>
+<p><b>13.3.1. </b></p>
+<p><b>ROM/RAM Usage </b></p>
+<p> </p>
+<p>The details of memory usage for the typical configuration provided in Section </p>
+<p> </p>
+<p>13.2.2.1 <i>Configuration Example </i>are provided in this section. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                     P1M Specific Information </b></p>
+<p><b> </b></p>
+<p>52 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table13-2   ROM/RAM Details with DET              </b></p>
+<p><b>           </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. </b></p>
+<p><b>No. </b></p>
+<p><b>ROM/</b></p>
+<p><b>RAM </b></p>
+<p><b>Segment Name </b></p>
+<p><b>Size in bytes for </b></p>
+<p><b>144 pin device </b></p>
+<p><b>R7F701318 </b></p>
+<p>1.</p>
+<p> </p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>DIO_PUBLIC_CODE_ROM </p>
+<p>DIO_PRIVATE_CODE_ROM </p>
+<p>CONST_ROM_UNSPECIFIED  </p>
+<p>DIO_CFG_DATA_UNSPECIFIED  </p>
+<p> </p>
+<p> </p>
+<p> 1530 </p>
+<p>0 </p>
+<p>0 </p>
+<p> 72 </p>
+<p>2.</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>NO_INIT_RAM_16BIT </p>
+<p> </p>
+<p> NO_INIT_RAM_UNSPECIFIED </p>
+<p> </p>
+<p> DIO_CFG_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>2 </p>
+<p>8 </p>
+<p>0 </p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET enabled </p>
+<p>and all other configurations as provided in 13.2.2.1 <i>Configuration Example </i>are </p>
+<p>provided in this section. </p>
+<p> </p>
+<p> </p>
+<p><b>   </b></p>
+<p><b>Table13-3 </b></p>
+<p><b>ROM/RAM Details without DET </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl. </b></p>
+<p><b>No. </b></p>
+<p><b>ROM/</b></p>
+<p><b>RAM </b></p>
+<p><b>Segment Name </b></p>
+<p><b>Size in bytes for </b></p>
+<p><b>144 pin device </b></p>
+<p><b>R7F701318 </b></p>
+<p>1.</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>DIO_PUBLIC_CODE_ROM </p>
+<p>DIO_PRIVATE_CODE_ROM </p>
+<p>CONST_ROM_UNSPECIFIED  </p>
+<p>DIO_CFG_DATA_UNSPECIFIED  </p>
+<p> </p>
+<p> </p>
+<p> 836 </p>
+<p>0 </p>
+<p>0 </p>
+<p> 72 </p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p> NO_INIT_RAM_16BIT  </p>
+<p> </p>
+<p> NO_INIT_RAM_UNSPECIFIED </p>
+<p> </p>
+<p>DIO_CFG_RAM_UNSPECIFIED</p>
+<p> </p>
+<p>2 </p>
+<p>8 </p>
+<p> 0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.3.2. </b></p>
+<p><b>Stack Depth </b></p>
+<p> </p>
+<p>The worst-case stack depth for DIO Driver Component for the typical  </p>
+<p>Configuration provided in Section 13.2.2.1 is 24 bytes. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>P1M Specific Information                                                                                                      </b></p>
+<p> </p>
+<p><b>Chapter 13  </b></p>
+<p> </p>
+<p>53 </p>
+<p> </p>
+<p><b>13.3.3. </b></p>
+<p><b>Throughput Details </b></p>
+<p> </p>
+<p> The throughput details of the APIs for the configuration mentioned in the </p>
+<p> Section13.2.2.1 Configuration Example. </p>
+<p> The clock frequency used to measure the throughput is 80 MHz for all   APIs. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table13-4   Throughput Details of the APIs </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microseconds for </b></p>
+<p><b>R7F701318</b></p>
+<p> </p>
+<p> </p>
+<p><b>Remarks</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Dio_Init</p>
+<p> </p>
+<p> 0.3 </p>
+<p>- </p>
+<p>2.</p>
+<p> </p>
+<p>Dio_WriteChannel</p>
+<p> </p>
+<p> 1.275 </p>
+<p>- </p>
+<p> 3.</p>
+<p> </p>
+<p>Dio_ReadChannel</p>
+<p> </p>
+<p> 0.475 </p>
+<p>- </p>
+<p> 4.</p>
+<p> </p>
+<p>Dio_WritePort</p>
+<p> </p>
+<p> 1.112 </p>
+<p>- </p>
+<p> 5.</p>
+<p> </p>
+<p>Dio_ReadPort</p>
+<p> </p>
+<p> 0.325 </p>
+<p>- </p>
+<p> 6.</p>
+<p> </p>
+<p>Dio_WriteChannelGroup</p>
+<p> </p>
+<p> 1.287 </p>
+<p>- </p>
+<p> 7.</p>
+<p> </p>
+<p>Dio_ReadChannelGroup</p>
+<p> </p>
+<p> 0.5 </p>
+<p>- </p>
+<p> 8.</p>
+<p> </p>
+<p>Dio_MaskedWritePort</p>
+<p> </p>
+<p> 1.1 </p>
+<p>- </p>
+<p> 9.</p>
+<p> </p>
+<p>Dio_FlipChannel</p>
+<p> </p>
+<p> 1.375 </p>
+<p>- </p>
+<p>10.</p>
+<p> </p>
+<p>Dio_GetVersionInfo</p>
+<p> </p>
+<p> 0.137 </p>
+<p>- </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 13                                                                                                     P1M Specific Information </b></p>
+<p><b> </b></p>
+<p>54 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Release Details                                                                                                                        Chapter 14  </b></p>
+<p> </p>
+<p>55 </p>
+<p> </p>
+<p><b>Chapter 14 </b></p>
+<p><b>Release Details </b></p>
+<p> </p>
+<p> </p>
+<p><b>DIO Driver Software </b></p>
+<p> </p>
+<p>Version: 1.0.12 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 14                                                                                                                        Release Details </b></p>
+<p><b> </b></p>
+<p>56 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>57 </p>
+<p> </p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>30-Sep-2013</p>
+<p> </p>
+<p>2 </p>
+<p>Updated for 100 pins and 144 pins device for P1x E4.02 </p>
+<p>1.0.1 </p>
+<p>27-Jan-2014 </p>
+<p> </p>
+<p> </p>
+<p>3 </p>
+<p>Following change is made: </p>
+<p></p>
+<p> </p>
+<p>In page no 40, Header is changed. </p>
+<p></p>
+<p> </p>
+<p>In section 13.3.2.1,</p>
+<p> </p>
+<p>configuration file mentioned changed. </p>
+<p></p>
+<p> </p>
+<p>In page no 54, Header is added. </p>
+<p> </p>
+<p>1.0.2 </p>
+<p>13-Mar-2014 </p>
+<p>4. </p>
+<p>Following change is made: </p>
+<p></p>
+<p> </p>
+<p>In section 13.4 RAM/ROM details and throughput details </p>
+<p>are updated. </p>
+<p></p>
+<p> </p>
+<p>Section 13.1.2 is added. </p>
+<p></p>
+<p> </p>
+<p>Section 13.2 is updated for compile and Linker and </p>
+<p>Assembler options. </p>
+<p>1.0.3 </p>
+<p>25-Aug-2014 </p>
+<p>5. </p>
+<p>Following changes are made: </p>
+<p></p>
+<p> </p>
+<p>Table 11-1 is updated. </p>
+<p></p>
+<p> </p>
+<p>Repeated DIO_CFG_DBTOC_UNSPECIFIED is removed </p>
+<p>from RAM section from table 13-5 and from table 13-6. </p>
+<p></p>
+<p> </p>
+<p>DIO_E_PARAM_POINTER is removed from DET Error </p>
+<p>codes. </p>
+<p>1.0.4 </p>
+<p>04-Sep-2014 </p>
+<p>6. </p>
+<p>Following changes are made: </p>
+<p></p>
+<p> </p>
+<p>User manual is updated as per Template. </p>
+<p></p>
+<p> </p>
+<p>Dio_MaskedWritePort information is provided in section 5 </p>
+<p>and section 7. </p>
+<p></p>
+<p> </p>
+<p>Throughput Details are updated in section 13.4.3 </p>
+<p>1.0.5 </p>
+<p>18-Nov-2014 </p>
+<p>7. </p>
+<p>Following changes are made: </p>
+<p></p>
+<p> </p>
+<p>Chapter 2 reference documents section is updated. </p>
+<p></p>
+<p> </p>
+<p>Chapter 3 section 3.1.1 is updated for new devices. </p>
+<p></p>
+<p> </p>
+<p>Chapter 4 section 4.1 General is updated and a note is </p>
+<p>added regarding interrupt vector (.c) file </p>
+<p></p>
+<p> </p>
+<p>Chapter 4 section 4.4 Deviation list is updated. </p>
+<p></p>
+<p> </p>
+<p>Chapter 13 Section for compiler, linker, and assembler </p>
+<p>details is removed. </p>
+<p></p>
+<p> </p>
+<p>Chapter 13  </p>
+<p>13.1.1 Translation header files section is updated as per </p>
+<p>new devices. </p>
+<p>13.1.2 PDF section is updated as per new devices. </p>
+<p>13.2.1 Sample application structure is updated for new </p>
+<p>devices </p>
+<p>13.2.2 Building sample application section is updated </p>
+<p>13.3 Memory and throughput details are updated for 144 </p>
+<p>pin devices. </p>
+<p> </p>
+<p>1.0.6 </p>
+<p>27-May-2015 </p>
+<p>8. </p>
+<p>Following changes are made, </p>
+<p>1. In section 13.2, the description details for the APIs are updated. </p>
+<p>2. In Chapter 14,DIO Driver </p>
+<p>Software</p>
+<p> version is updated </p>
+<p>3. In Chapter 4, section General is updated. </p>
+<p>4. Chapter 2 is updated for related documents. </p>
+<p>5. Chapter 3 is updated for RUCG details. </p>
+<p>6. Chapter 9 is updated for R-Number version of TUM. </p>
+<p>7. Chapter 12 ‘Memory Organization’ has been updated to remove </p>
+<p>the sections DIO_CFG_DBTOC_UNSPECIFIED and RAM_1BIT and </p>
+<p>added NOINIT_RAM_16BIT. </p>
+<p>8. Chapter 13.3 ‘Memory and Throughput’ is updated. </p>
+<p>9. Section 4.3 Data Consistency is updated for </p>
+<p>exclusive areas.</p>
+<p> </p>
+<p>1.0.7 </p>
+<p>28-Mar-2016 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b> </b></p>
+<p>58 </p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>9 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Following changes are made, </p>
+<p>1. Updated section 4.4 Deviation list </p>
+<p>2. Updated section 13.3. Memory and throughput details. </p>
+<p>3. Added a ‘Note’ below the table 'Supervisor mode and User  </p>
+<p>   mode details'. </p>
+<p>4. Updated section 13.2, removed reference to .one and .html files </p>
+<p>5. Updated Chapter 6 ‘Register Details’. </p>
+<p>6. Updated section 4.3 Data consistency by adding Table 4-1 </p>
+<p>    Dio driver protected resources list. </p>
+<p>7. R Number updated. </p>
+<p>8. Updated Chapter 14 ‘Release Details’. </p>
+<p>9.Updated Chapter 12 ‘Memory Organization’. </p>
+<p>10.Chapter 8 is updated for Dio_RegWrite.h in C Header files </p>
+<p>     and Std_Types.h added to Stub files. </p>
+<p>11.Clock frequency mentioned in section 13.3.3 is changed  </p>
+<p>     to 80Mhz. </p>
+<p> </p>
+<p>1.0.8 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>04-Aug-2016 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>10 </p>
+<p>Following changes are made, </p>
+<p>1. Updated Chapter 6 ‘Register Details’. </p>
+<p>2. Updated section 13.3 Memory and Throughput. </p>
+<p>3. Updated section 4.2 Preconditions. </p>
+<p>4. Updated section 3.1.1 Folder Structure. </p>
+<p> </p>
+<p>1.0.9 </p>
+<p> </p>
+<p>21-Oct-2016 </p>
+<p>11 </p>
+<p>Following changes are made: </p>
+<p>1. Section 10.3 Function Definitions updated. </p>
+<p>2. Updated Chapter 11 Development and Production Errors. </p>
+<p>3. Abbreviations and Acronyms updated. </p>
+<p>4. Chapter 2 ‘Reference section’ updated. </p>
+<p>5. R Number updated. </p>
+<p>6. Updated Driver Version Details in Chapter 14 ‘Release Details’. </p>
+<p>7. Updated section 13.3 ‘Memory and Throughput’.  </p>
+<p>8. Updated chapter 4 ‘Forethoughts’. </p>
+<p>9. Updated notice and copyright information. </p>
+<p>10. Modified Figure 5-2 in chapter 5.  </p>
+<p> </p>
+<p> </p>
+<p>        1.0.10 </p>
+<p> </p>
+<p>16-Feb-2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>59 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>     AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>     DIO Driver Component Ver.1.0.10 </b></p>
+<p><b>     Embedded User’s Manual </b></p>
+<p> </p>
+<p>      Publication Date: Rev.1.01, February 16, 2017 </p>
+<p> </p>
+<p>      Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 4.1 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3708EJ0101 </p>
+</body>
+</html>
+{% endraw %}

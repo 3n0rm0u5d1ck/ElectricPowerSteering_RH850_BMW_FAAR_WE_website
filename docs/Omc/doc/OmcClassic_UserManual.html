@@ -1,0 +1,268 @@
+---
+layout: default
+title: OmcClassic_UserManual
+nav_order: 4
+parent: Omc
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Omc Classic User Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>Version Update</p>
+<p>5.1.1</p>
+<p>2017-10-12</p>
+<p>Version Update</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>Version Update</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>Initial version for SP2021</p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>Purpose</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>4</b></p>
+<p><b>3</b></p>
+<p><b>API</b></p>
+<p><b>5</b></p>
+<p>3.1</p>
+<p>Datatypes</p>
+<p>5</p>
+<p>3.1.1</p>
+<p>Omc_OperatingModeType</p>
+<p>5</p>
+<p>3.1.2</p>
+<p>Omc_ExtendedOperatingModeType</p>
+<p>5</p>
+<p>3.2</p>
+<p>Interfaces</p>
+<p>6</p>
+<p>3.2.1</p>
+<p>Provided</p>
+<p>6</p>
+<p>3.2.1.1</p>
+<p>OmcOperatingMode</p>
+<p>6</p>
+<p>3.2.1.2</p>
+<p>OmcExtendedOperatingMode</p>
+<p>6</p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p>This User Manual describes the basis functionality, API and the configuration and integration of the BMW</p>
+<p>System Function Omc.</p>
+<p><b>Purpose</b></p>
+<p>The main objective of the Omc functionality is to maintain the current Operating Mode of an ECU.</p>
+<p>This means:</p>
+<p>Allowing the change of the current Operating Mode via diagnostic request</p>
+<p>Saving the current Operating Mode to Non Volatile RAM (NVRAM)</p>
+<p>Enabling/disabling Dem (more concrete: Setting/Unsetting a enable condition)</p>
+<p>Providing the current Operating Mode to other software components.</p>
+<p>The Omc module distinguishes the following vehicle operating modes:</p>
+<p>NORMAL</p>
+<p>ASSEMBLY</p>
+<p>TRANSPORT</p>
+<p>FLASH</p>
+<p>Note that in different documents these modes are sometimes called &quot;energy modes&quot; sometimes called</p>
+<p>&quot;operating modes&quot;. Although both terms are equivalent, we strictly use the term operating mode.</p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>API</b></p>
+<p><b>Datatypes</b></p>
+<p><b>Omc_OperatingModeType</b></p>
+<p>This type is used to represent the Operating Mode.</p>
+<p><b>Type name</b></p>
+<p>Omc_OperatingModeType</p>
+<p><b>Type</b></p>
+<p>uint8</p>
+<p><b>Values</b></p>
+<p>0x00</p>
+<p>OMC_MODE_NORMAL</p>
+<p>Normal Mode</p>
+<p>0x01</p>
+<p>OMC_MODE_ASSEMBLY</p>
+<p>Assembly Mode</p>
+<p>0x02</p>
+<p>OMC_MODE_TRANSPORT</p>
+<p>Transport Mode</p>
+<p>0x03</p>
+<p>OMC_MODE_FLASH</p>
+<p>Flash Mode</p>
+<p><b>Description</b></p>
+<p>Represents the operation mode.</p>
+<p><b>Omc_ExtendedOperatingModeType</b></p>
+<p>This type is used to represent the Extended Operating Mode.</p>
+<p><b>Type name</b></p>
+<p>Omc_ExtendedOperatingModeType</p>
+<p><b>Type</b></p>
+<p>uint8</p>
+<p><b>Values</b></p>
+<p>0x00</p>
+<p>OMC_MODE_EXTENSION_NORMAL</p>
+<p>Normal Extended Mode</p>
+<p>0x01</p>
+<p>OMC_MODE_EXTENSION_1</p>
+<p>Extended Mode 1</p>
+<p>0x02</p>
+<p>OMC_MODE_EXTENSION_2</p>
+<p>Extended Mode 2</p>
+<p>0x03</p>
+<p>OMC_MODE_EXTENSION_3</p>
+<p>Extended Mode 3</p>
+<p>0x04</p>
+<p>OMC_MODE_EXTENSION_4</p>
+<p>Extended Mode 4</p>
+<p>0x05</p>
+<p>OMC_MODE_EXTENSION_5</p>
+<p>Extended Mode 5</p>
+<p>0x06</p>
+<p>OMC_MODE_EXTENSION_6</p>
+<p>Extended Mode 6</p>
+<p>0x07</p>
+<p>OMC_MODE_EXTENSION_7</p>
+<p>Extended Mode 7</p>
+<p>0x08</p>
+<p>OMC_MODE_EXTENSION_8</p>
+<p>Extended Mode 8</p>
+<p>0x09</p>
+<p>OMC_MODE_EXTENSION_9</p>
+<p>Extended Mode 9</p>
+<p>0x0A</p>
+<p>OMC_MODE_EXTENSION_10</p>
+<p>Extended Mode 10</p>
+<p>0x0B</p>
+<p>OMC_MODE_EXTENSION_11</p>
+<p>Extended Mode 11</p>
+<p>0x0C</p>
+<p>OMC_MODE_EXTENSION_12</p>
+<p>Extended Mode 12</p>
+<p>0x0D</p>
+<p>OMC_MODE_EXTENSION_13</p>
+<p>Extended Mode 13</p>
+<p>0x0E</p>
+<p>OMC_MODE_EXTENSION_14</p>
+<p>Extended Mode 14</p>
+<p>0x0F</p>
+<p>OMC_MODE_EXTENSION_15</p>
+<p>Extended Mode 15</p>
+<p>0xFF</p>
+<p>OMC_MODE_EXTENSION_INVALID</p>
+<p>Invalid Extended Mode</p>
+<p><b>Description</b></p>
+<p>Represents the extended operation mode.</p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Interfaces</b></p>
+<p><b>Provided</b></p>
+<p>Omc provides two Mode interfaces to the user to be able to detect the current Operating Mode and</p>
+<p>Extended Operating Mode. The interface Mode interface, so the user can also trigger able runnable</p>
+<p>on-entry, on-change or on-exit of a mode.</p>
+<p><b>OmcOperatingMode</b></p>
+<p>ModeDeclarationGroup OmcOperatingMode {</p>
+<p>{</p>
+<p>OMC_MODE_ASSEMBLY,</p>
+<p>OMC_MODE_BMW_FLASH,</p>
+<p>OMC_MODE_NORMAL,</p>
+<p>OMC_MODE_TRANSPORT</p>
+<p>}</p>
+<p>initialMode = OMC_MODE_NORMAL</p>
+<p>}</p>
+<p><b>OmcExtendedOperatingMode</b></p>
+<p>ModeDeclarationGroup OmcExtendedOperatingMode {</p>
+<p>{</p>
+<p>OMC_MODE_EXTENSION_1,</p>
+<p>OMC_MODE_EXTENSION_10,</p>
+<p>OMC_MODE_EXTENSION_11,</p>
+<p>OMC_MODE_EXTENSION_12,</p>
+<p>OMC_MODE_EXTENSION_13,</p>
+<p>OMC_MODE_EXTENSION_14,</p>
+<p>OMC_MODE_EXTENSION_2,</p>
+<p>OMC_MODE_EXTENSION_3,</p>
+<p>OMC_MODE_EXTENSION_4,</p>
+<p>OMC_MODE_EXTENSION_5,</p>
+<p>OMC_MODE_EXTENSION_6,</p>
+<p>OMC_MODE_EXTENSION_7,</p>
+<p>OMC_MODE_EXTENSION_8,</p>
+<p>OMC_MODE_EXTENSION_9,</p>
+<p>OMC_MODE_EXTENSION_INVALID,</p>
+<p>OMC_MODE_EXTENSION_NORMAL,</p>
+<p>OMC_MODE_EXTENSION_SAVE_ENERGY</p>
+<p>}</p>
+<p>initialMode = OMC_MODE_EXTENSION_NORMAL</p>
+<p>}</p>
+<p>OmcClassic_UserManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 6 of 6</p>
+</body>
+</html>
+{% endraw %}

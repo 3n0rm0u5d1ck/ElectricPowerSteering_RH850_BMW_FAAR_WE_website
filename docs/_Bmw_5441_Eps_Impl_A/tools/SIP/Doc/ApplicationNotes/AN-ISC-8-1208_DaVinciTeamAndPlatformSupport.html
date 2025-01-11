@@ -1,0 +1,872 @@
+---
+layout: default
+title: AN-ISC-8-1208_DaVinciTeamAndPlatformSupport
+nav_order: 46
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p><b>DaVinci Team and Platform Support </b></p>
+<p>Version 1.0.1 </p>
+<p>2017-09-06 </p>
+<p>Application Note AN-ISC-8-1208 </p>
+<p><b>Author </b></p>
+<p>Wernicke, Matthias </p>
+<p><b>Restrictions </b></p>
+<p>Customer Confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>This application note describes how to organize DaVinci projects optimally for </p>
+<p>development with large teams. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ........................................................................................................................................ 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Abbreviations ....................................................................................................................... 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Background ................................................................................................................................... 2</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Collaboration (multi-user) ..................................................................................................... 2</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Product Line Approach ........................................................................................................ 3</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Diff and Merge ............................................................................................................................... 4</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Concepts .............................................................................................................................. 4</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Project Merge ....................................................................................................................... 5</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Merge Approaches (2-way, 3-way) ...................................................................................... 5</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Object Identification ............................................................................................................. 7</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Project Merge in a Multi-User Development Process .......................................................... 7</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Platform Functions ........................................................................................................................ 9</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Concepts .............................................................................................................................. 9</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Definition of Platform Functions .........................................................................................10</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Function Assignment .........................................................................................................11</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Selective Merge based on Platform Functions ..................................................................11</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Tips and tricks ....................................................................................................................12</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Library Mechanisms....................................................................................................................13</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Concepts ............................................................................................................................13</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Sharing BSW Module Configurations ................................................................................13</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Sharing SWCs between DaVinci projects ..........................................................................14</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Sharing SWCs from a third-party tool ................................................................................14</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration Management ........................................................................................................15</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Concepts ............................................................................................................................15</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>DaVinci project files in CM repository ................................................................................15</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Working Copy .....................................................................................................................16</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>File Granularity ...................................................................................................................16</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Branches and Synchronization Points ...............................................................................18</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contacts .......................................................................................................................................19</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>This application note describes how to organize DaVinci projects and how to use the DaVinci tool </p>
+<p>features optimally to </p>
+<p><b>&gt; </b></p>
+<p>Enable collaborative development of a project with a team of developers </p>
+<p><b>&gt; </b></p>
+<p>Enable a product line approach </p>
+<p>It covers aspects of </p>
+<p><b>&gt; </b></p>
+<p>Configuration management </p>
+<p><b>&gt; </b></p>
+<p>Management of libraries of AUTOSAR models (SWCs, EcuC) </p>
+<p><b>&gt; </b></p>
+<p>Diff and merge of AUTOSAR models </p>
+<p><b>&gt; </b></p>
+<p>Platform development support </p>
+<p>Required tool versions: </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Configurator Pro 5.16 or later </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Developer 4.1 or later </p>
+<p><b>1.1 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Term </b></p>
+<p><b>Meaning </b></p>
+<p>CM </p>
+<p>Configuration Management </p>
+<p>DEV </p>
+<p>DaVinci Developer </p>
+<p>CFG PRO </p>
+<p>DaVinci Configurator Pro </p>
+<p>SDG </p>
+<p>Special Data Group </p>
+<p>UUID </p>
+<p>Universally Unique Identifier </p>
+<p>ARXML </p>
+<p>AUTOSAR XML </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>ECUC </p>
+<p>ECU Configuration </p>
+<p>DCF </p>
+<p>DaVinci Configuration File </p>
+<p>SIP </p>
+<p>Software Integration Package </p>
+<p>SVN </p>
+<p>Subversion </p>
+<p> </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Background </b></p>
+<p>AUTOSAR ECU SW is typically developed by a project team of several, sometimes dozens of team </p>
+<p>members. To organize the work, following approaches are typically used </p>
+<p><b>&gt; </b></p>
+<p>Collaboration </p>
+<p><b>&gt; </b></p>
+<p>Product Line Approach </p>
+<p>These approaches also have to be applied to the DaVinci projects. </p>
+<p><b>2.1 </b></p>
+<p><b>Collaboration (multi-user) </b></p>
+<p>Several project members work on the same SWC or the same BSW module. Parallel working must be </p>
+<p>possible. <b>Reserved </b>editing of the DaVinci project by one user is normally not accepted since it blocks </p>
+<p>the other users. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 1 - Collaboration </p>
+<p>The DaVinci tools support collaboration with following concepts </p>
+<p><b>&gt; </b></p>
+<p>Diff and Merge, see section 3 </p>
+<p><b>&gt; </b></p>
+<p>Configuration management, see section 6 </p>
+<p><b>2.2 </b></p>
+<p><b>Product Line Approach </b></p>
+<p>A TIER1 typically offers an ECU product to several OEMs. The common parts for all OEM projects are </p>
+<p>developmed within a platform project. The OEM-specific projects are derived from this platform </p>
+<p>project. </p>
+<p>Furthermore, several ECU products may share a common library of AUTOSAR artifacts, e.g. standard </p>
+<p>data types, compu methods, etc. </p>
+<p>  </p>
+<p> </p>
+<p>Figure 2 – Product Line Approach </p>
+<p>Over the time, the SW functionality of the ECU is developed as shown in Figure 3:   </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>4 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 3 – Development process with a platform and several projects </p>
+<p>A platform team is mainly responsible for developing the central ECU functions F1, F2, F3 that make </p>
+<p>the product and are relevant for all OEMs. The goal is to provide a common set of integrated functions </p>
+<p>consisting of SWCs and matching BSW configuration.  </p>
+<p>With an independent time schedule, individual OEM project teams derive their project from the </p>
+<p>platform, and may develop OEM-specific functions <i>F4 (OEM A) </i>and <i>F5 (OEM B)</i>. To benefit from the </p>
+<p>development of the platform team, the OEM projects are later on updated to the latest version of the </p>
+<p>platform. This update process shall happen under control of the project team. It shall only affect those </p>
+<p>functions, which have been taken over from the platform. The OEM-specific functions shall not be </p>
+<p>touched. </p>
+<p>The DaVinci tools support the product line approach with following concepts </p>
+<p><b>&gt; </b></p>
+<p>Platform functions, see section 4 </p>
+<p><b>&gt; </b></p>
+<p>Library mechanisms, see section 5 </p>
+<p>Note: We assume that the BSW configuration cannot be completely derived from the SWCs, even if </p>
+<p>they are equipped with service needs. There is always an authoring step required to complete the </p>
+<p>BSW configuration. Therefore, it is not sufficient to just take over the SWCs and assume that the BSW </p>
+<p>configuration can be automatically completed in a deterministic way. </p>
+<p><b>3 </b></p>
+<p><b>Diff and Merge </b></p>
+<p><b>3.1 </b></p>
+<p><b>Concepts </b></p>
+<p>A <b>simple </b>solution for team collaboration would be the attempt to place the DaVinci project folder on a </p>
+<p>shared drive, where several persons remotely access the same project folder. This will lead to race </p>
+<p>conditions and uncontrolled changes with a high risk of inconsistencies or even data corruption. </p>
+<p>Instead, each user should have its own <b>private copy </b>of the DaVinci project. If several users modify </p>
+<p>the same AUTOSAR object in parallel in their respective working copy, a subsequent merge step is </p>
+<p>required to bring the modifications together. In contrast to e.g. C- or C-Files, a textual merge of </p>
+<p>ARXML files is not recommended. The preferred approach is a <b>model merge</b>, which is supported by </p>
+<p>the DaVinci tools.  </p>
+<p>The DaVinci tools support the diff and merge of AUTOSAR models on SWC level (with DEV) and </p>
+<p>ECUC level (with CFG PRO).  </p>
+<p>Note:  </p>
+<p><b>&gt; </b></p>
+<p>In general, the diff and merge features of the DaVinci tools support split-file projects as well as </p>
+<p>single-file projects </p>
+<p><b>&gt; </b></p>
+<p>It is also supported to diff and merge projects that are based on different SIPs </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>5 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>3.2 </b></p>
+<p><b>Project Merge </b></p>
+<p>The merge of a DaVinci project is controlled via an according project merge function of CFG PRO </p>
+<p><b>&gt; </b></p>
+<p>Load the <b>MINE </b>project </p>
+<p><b>&gt; </b></p>
+<p>Select the <b>OTHER  </b>project </p>
+<p>The AUTOSAR model inside this project will not be changed. </p>
+<p><b>&gt; </b></p>
+<p>Optional: Select the <b>BASE </b>project </p>
+<p>The AUTOSAR model inside this project will not be changed. </p>
+<p><b>&gt; </b></p>
+<p>Launch DEV to merge the SWCs inside the DCF workspace. </p>
+<p>Save the DCF workspace when done. After saving, CFG PRO will automatically resynch. </p>
+<p><b>&gt; </b></p>
+<p>Continue with CFG PRO to merge the ECUC </p>
+<p>Save the project when done. </p>
+<p> </p>
+<p> </p>
+<p>Figure 4 - Project Merge Workflow </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Do not try to merge service SWCs with DEV – like BswM, Dem etc. or other SWCs </p>
+<p>generated by CFG PRO. This happens indirectly by merging according module </p>
+<p>configuration with CFG PRO. </p>
+<p> </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Merge Approaches (2-way, 3-way) </b></p>
+<p>The <b>two-way merge </b>is applied when importing any ARXML files or when merging two DaVinci </p>
+<p>projects that have no common ancestor. The loaded project (<b>MINE</b>) is compared to the imported </p>
+<p>model (<b>OTHER</b>). Differences are displayed like from the perspective of <b>MINE</b>: </p>
+<p><b>&gt; </b></p>
+<p>Added (exists in <b>OTHER </b>but not in <b>MINE</b>) </p>
+<p><b>&gt; </b></p>
+<p>Removed (exists in <b>MINE </b>but not in <b>OTHER</b>) </p>
+<p><b>&gt; </b></p>
+<p>Modified (exists in both <b>MINE </b>and <b>OTHER</b>, but is not identical) </p>
+<p>Merge decisions have to be met by the user. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>6 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 5 - Two-way Merge </p>
+<p>In the example in Figure 5 the differences are </p>
+<p><b>&gt; </b></p>
+<p>Modified: size of <b>DataType1 </b></p>
+<p><b>&gt; </b></p>
+<p>Removed: <b>SWC2 </b></p>
+<p>The <b>three-way merge </b>is applied when merging two DaVinci projects that have a common ancestor. </p>
+<p>The loaded project (<b>MINE</b>) is compared to the imported model (<b>OTHER</b>) and the common ancestor </p>
+<p>(<b>BASE</b>). Differences are displayed like </p>
+<p><b>&gt; </b></p>
+<p>Removed in MINE </p>
+<p><b>&gt; </b></p>
+<p>Added in MINE </p>
+<p><b>&gt; </b></p>
+<p>Changed in MINE </p>
+<p><b>&gt; </b></p>
+<p>Removed in OTHER </p>
+<p><b>&gt; </b></p>
+<p>Added in OTHER </p>
+<p><b>&gt; </b></p>
+<p>Changed in OTHER </p>
+<p><b>&gt; </b></p>
+<p>Changed in MINE and OTHER (conflict) </p>
+<p>Merge decisions can be made automatically. Only in case of conflict, the user has to decide. </p>
+<p> </p>
+<p>Figure 6 - Three-way Merge </p>
+<p>In the example in Figure 6 the differences are </p>
+<p><b>&gt; </b></p>
+<p>Changed in OTHER: size of <b>DataType1 </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>7 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>&gt; </b></p>
+<p>Added in MINE: <b>SWC2 </b></p>
+<p>Auto-merge is possible. </p>
+<p>Limitation: DaVinci DEV 4.1 only supports the two-way merge. Three-way merge is not yet supported. </p>
+<p>DaVinci CFG PRO supports both merge approaches. Please refer to the online help for details.  </p>
+<p><b>3.4 </b></p>
+<p><b>Object Identification </b></p>
+<p>A special topic when merging AUTOSAR models is the identification of objects. There are two ways </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR path </p>
+<p>Objects are identified based on the AUTOSAR path consisting of the parent packages and the </p>
+<p>short name. If the short name or package is changed, the object will be considered as a different </p>
+<p>object. </p>
+<p><b>&gt; </b></p>
+<p>UUID </p>
+<p>Objects are identified based on their UUID independently of their short name or package. </p>
+<p>CFG PRO can identify objects during project merge based on their UUID. If UUIDs are missing, it uses </p>
+<p>the AUTOSAR path instead. By using an according option you may disable the usage of UUIDs and </p>
+<p>enforce the usage of the AUTOSAR path for object identification. </p>
+<p>Tip: The UUID mechanism only works if the two branches to merge have been created/copied out of </p>
+<p>the same basis. Only in this case, an object will have the same UUID in both branches <b>MINE </b>and </p>
+<p><b>OTHER</b>. If you would e.g. create a new ECUC container with same short name separately in both </p>
+<p>branches, the containers will have a different UUID. You should disable the UUID usage in this case.  </p>
+<p>Limitation: DEV 4.1 does not yet support UUIDs during project merge. The tool identifies objects by </p>
+<p>their AUTOSAR path. </p>
+<p><b>3.5 </b></p>
+<p><b>Project Merge in a Multi-User Development Process </b></p>
+<p>The merge function of the DaVinci tools is not able to change those parts of the configuration, which </p>
+<p>are read-only (derived parameters, preconfigured parameters ...). Consequently, if you try to merge </p>
+<p>two projects that are based on differing input files, many differences may exist that cannot be merged. </p>
+<p>This situation can be avoided by an appropriate development process. </p>
+<p>Let’s assume that a DaVinci project is being developed by an integrator and two domain experts (one </p>
+<p>for diagnostics, one for communication). There are two strategies: </p>
+<p><b>Strategy “Central project update by integrator” </b></p>
+<p>The integrator runs the project update function with the new version <b>V2 </b>of the diagnostic and </p>
+<p>communication input files. Note that the project will be up-to-date with respect to the input files now, </p>
+<p>but most likely not error free.  </p>
+<p>The domain experts work now in parallel to fix the issues and complete the integration. They mainly </p>
+<p>take care about their own domain, but might need to make changes in the other domain as well as far </p>
+<p>as required to <b>get their own domain running</b>. </p>
+<p>Finally, the integrator merges the projects of the domain experts one-by-one. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>8 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 7 – Development Process with Central Project Update by Integrator </p>
+<p>This strategy requires only one project update step, but may increase the effort of the domain experts </p>
+<p>since they cannot fully focus on their own domain.  </p>
+<p><b>Strategy “Partial update by domain experts” </b></p>
+<p>Basis for all is the integrated project based on a version <b>V1 </b>of the diagnostic and communication input </p>
+<p>files.  </p>
+<p>The diagnostic domain expert runs the project update with the new version <b>V2 </b>of the diagnostic input </p>
+<p>file and the old version <b>V1 </b>of the communication input file. After that, the diagnostic expert completes </p>
+<p>the integration, focusing on the diagnostic functionality. </p>
+<p>Vice versa, the communication domain expert runs the project update with the new version of the </p>
+<p>communication input file and the old version of the diagnostic input file. Both work in parallel. </p>
+<p>Before merging the projects of the domain experts, the integrator runs the project update to the new </p>
+<p>version <b>V2 </b>of both input files. Note that the project will be up-to-date with respect to the input files now, </p>
+<p>but most likely not error free. The integrator merges now selectively the modifications done by the </p>
+<p>domain experts. When merging the project of the communication domain expert, any differences in the </p>
+<p>diagnostic part can be ignored. Vice versa, when merging the project of the diagnostic domain expert, </p>
+<p>any differences in the communication part can be ignored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>9 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 8 – Development Process with Partial Project Update by Domain Experts </p>
+<p>This strategy requires more project update steps, but may reduce the effort of the domain experts </p>
+<p>since they can focus on their own domain. </p>
+<p>Please see also section 6.5 for further information how to run such development processes in </p>
+<p>combination with a CM system. </p>
+<p><b>4 </b></p>
+<p><b>Platform Functions </b></p>
+<p><b>4.1 </b></p>
+<p><b>Concepts </b></p>
+<p>A platform function can be defined as a logical partition of the ECU SW, which includes parts of the </p>
+<p>SWCs and the BSW configuration. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>10 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 9 – Platform Functions </p>
+<p>In the example shown in Figure 9, the project consists of 3 platform functions F1, F2, F3. The platform </p>
+<p>function F1 e.g. consists of a SWC plus all related BSW configuration parts like the task mapping in </p>
+<p>the RTE configuration, the NV memory blocks in the NvM configuration and the OS alarms that finally </p>
+<p>trigger the runnable entities of the SWC. The platform function F3 is only represented by certain </p>
+<p>configuration of the BSW like standard OS tasks – no SWCs involved. <b>Integration </b>represents the </p>
+<p>project-specific part that will never be taken-over to other projects. </p>
+<p>A platform function is mainly defined by a name, plus an additional description. Based on the name, </p>
+<p>the user is supposed to be able to identify the platform function. The user makes the initial decision </p>
+<p>about which objects belong to a particular function (explicit assignment). The DaVinci tools are able to </p>
+<p>find other related objects that would also belong to the same function (implicit assignment). This </p>
+<p>mechanism saves effort since the user does not have to make the assignment for each and every </p>
+<p>object or configuration parameter. </p>
+<p>The logical partitioning may bring benefits during diff and merge of DaVinci projects: instead of </p>
+<p>merging the whole project in one step, the user may decide to merge the individual functions one-by-</p>
+<p>one. This makes merge decisions much easier. </p>
+<p><b>4.2 </b></p>
+<p><b>Definition of Platform Functions </b></p>
+<p>Platform functions can be defined with the Project Settings Editor of CFG PRO. They are defined with </p>
+<p>a name and description. An UUID is automatically given. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>11 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 10 – Definition of Platform Functions </p>
+<p><b>4.3 </b></p>
+<p><b>Function Assignment </b></p>
+<p>AUTOSAR objects on SWC-T level (e.g. SWC types, port interfaces ...) and on ECU-C level (container </p>
+<p>values, parameter values, and reference values) may be assigned to functions. </p>
+<p>There are two kinds of function assignment: </p>
+<p><b>&gt; </b></p>
+<p>Explicit assignment </p>
+<p>An object may be explicitly assigned to one of the platform functions. The explicit assignment </p>
+<p>is done by the user. Explicit assignment to more than one platform function is not supported. </p>
+<p><b>&gt; </b></p>
+<p>Implicit assignment </p>
+<p>If an object has no explicit assignment, it may be implicitly assigned to one or more platform </p>
+<p>functions. The implicit assignment is automatically calculated by the DaVinci tools. Please </p>
+<p>refer to the Technical Reference DaVinci Platform Functions.  </p>
+<p>DEV and CFG PRO provide according features to select the platform function of an object. Please </p>
+<p>refer to the online help for details. </p>
+<p><b>4.4 </b></p>
+<p><b>Selective Merge based on Platform Functions </b></p>
+<p>When starting the project merge with CFG PRO you have the option to merge either all objects, or </p>
+<p>only those objects which belong to certain platform functions. </p>
+<p>Following sequence gives an example: </p>
+<p>Initially, a platform project exists, partitioned into three functions F1, F2 and F3. A new customer </p>
+<p>project for OEM A is being setup. Note that the customer project may base on a different SIP than the </p>
+<p>platform project. The customer project is being updated to the OEM-specific system description. </p>
+<p> </p>
+<p>Figure 11 – Setup a New Customer Project </p>
+<p>After setting-up the customer project, the platform functions F1, F2 and F3 are added. This happens </p>
+<p>via selective project merge, where only the platform functions are imported and the integration part is </p>
+<p>ignored. Note that the function definitions as well as the function assignment are automatically </p>
+<p>imported. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>12 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p>Figure 12 – Derive from Platform </p>
+<p>In the next phase, the projects are developed independently. The customer project is extended by </p>
+<p>completing the integration part. Also F3 had to be changed inside the customer project. Meanwhile, </p>
+<p>the platform functions F1, F2 and F3 are extended inside the platform project.  </p>
+<p> </p>
+<p>Figure 13 – Independent Development </p>
+<p>Finally, the customer project is updated to the new version of the platform functions. Again, this </p>
+<p>happens via a selective project merge. It may happen either in one step by selecting all three platform </p>
+<p>functions, or step-by-step by first merging F1, then F2, then F3. Knowing that F1 and F2 have not </p>
+<p>been changed inside the customer project, the merge decision is easy: take-over all modifications. </p>
+<p>Only for F3 an individual review/merge decision is required. </p>
+<p> </p>
+<p>Figure 14 – Update the Platform Functions </p>
+<p>The selective merge approach brings following benefits </p>
+<p><b>&gt; </b></p>
+<p>Less differences </p>
+<p>Since only a subset of the data is being diffed, the number of differences is smaller and easier </p>
+<p>to handle </p>
+<p><b>&gt; </b></p>
+<p>Easier merge decisions </p>
+<p>If only individual platform functions are selected for merge, it may be easier to make merge </p>
+<p>decisions as mass operation </p>
+<p><b>4.5 </b></p>
+<p><b>Tips and tricks </b></p>
+<p>Here are some tips about using the platform function concept </p>
+<p><b>&gt; </b></p>
+<p>Number of platform functions </p>
+<p>The number of function definitions is not limited. However, a balance must be found between </p>
+<p>the effort for making the function assignment and the expected saved effort during project </p>
+<p>merge. A reasonable number of platform functions may be 2-20. In some cases, it may be </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>13 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p>even helpful to just have one single function <b>Design </b>to mark those parts of a project, which </p>
+<p>should be reused. </p>
+<p><b>&gt; </b></p>
+<p>Do not create the same function definition in several projects manually </p>
+<p>The function definitions are automatically imported. You don’t need to define/copy them </p>
+<p>manually in several projects. This will even lead to problems: each function definition you </p>
+<p>create will get an own UUID, which is used for identification. The DaVinci tools will warn you if </p>
+<p>you try to merge two projects, where a function definition has the same name but different </p>
+<p>UUID. </p>
+<p><b>&gt; </b></p>
+<p>Use case: take over a SWC including their task mapping </p>
+<p>This can be achieved by explicitly assigning the SWC type to a function via DEV. The </p>
+<p>associated <b>Rte/RteSwComponentInstance </b>containers, which contain the task mapping, will </p>
+<p>be implicitly assigned. </p>
+<p><b>&gt; </b></p>
+<p>Use case: take over parts of the BswM configuration </p>
+<p>This can be achieved by explicitly assigning the mode rules via the BSW Management Editor </p>
+<p>of CFG PRO. The related mode request ports, expressions, actions etc. will be implicitly </p>
+<p>assigned. </p>
+<p> </p>
+<p><b>5 </b></p>
+<p><b>Library Mechanisms </b></p>
+<p><b>5.1 </b></p>
+<p><b>Concepts </b></p>
+<p>A library in terms of the DaVinci tools is a set of ARXML files, which contribute read-only model parts </p>
+<p>to the DaVinci project. By using according tool features of CFG PRO and DEV you are guaranteed </p>
+<p>that the content is displayed read-only and that the files remain unchanged when saving the project. </p>
+<p><b>5.2 </b></p>
+<p><b>Sharing BSW Module Configurations </b></p>
+<p>The ECUC File Reference mechanism of CFG PRO enables the definition of module configurations </p>
+<p>that can be shared by other projects. The master project, which has to be configured as split-file </p>
+<p>project, is used for editing this module configuration. A slave project references individual ECUC split </p>
+<p>files of the master project. The content of these files are loaded with the project and displayed read-</p>
+<p>only. As a result, the module configurations in these files appear in the slave project and are part of </p>
+<p>the validation and generation process like any other <b>local </b>module configuration. </p>
+<p>In the example in Figure 15 the MCU module configuration has to be identical in Project1 and </p>
+<p>Project2. Project1 is used for editing the MCU configuration, so it has the role of the master project. </p>
+<p>Project2 references the split-file with the MCU configuration. </p>
+<p> </p>
+<p>Figure 15 – ECUC File Reference in CFG PRO </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>14 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>5.3 </b></p>
+<p><b>Sharing SWCs between DaVinci projects </b></p>
+<p>A DCF workspace may be built-up hierarchically by including other DCF workspaces. DaVinci DEV </p>
+<p>recursively loads the content of all included DCFs. This content will always be display read-only. </p>
+<p>To support a product line approach, the DCFs could be e.g. organized as shown in Figure 16: </p>
+<p><b>&gt; </b></p>
+<p>A DCF workspace contains those design elements, which are very stable and shared by </p>
+<p>several product lines (company standards). This may include a harmonized set of data types </p>
+<p>or compu methods. </p>
+<p><b>&gt; </b></p>
+<p>For each product line, a specific DCF workspace exists that includes the company standards </p>
+<p>DCF workspace. The product line DCF contains e.g. SWCs that are common for all projects </p>
+<p>belonging to that product line. </p>
+<p><b>&gt; </b></p>
+<p>For each project, a specific DCF workspace exists that includes one of the product line DCF </p>
+<p>workspaces. The project DCF contains e.g. the ECU composition SWC and other integration-</p>
+<p>specific SWCs. </p>
+<p>Only the project DCF is directly part of a DPA project. </p>
+<p> </p>
+<p>Figure 16 – Library DCFs </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The concept of library DCFs can be used in combination with the other concepts </p>
+<p>mentioned in this document. </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Configuration management </p>
+<p>Depending on the features of the CM tool, the hierarchical DCF structure can be represented </p>
+<p>by an according folder structure, or as packages/components in terms of the CM system. </p>
+<p><b>&gt; </b></p>
+<p>Diff and merge </p>
+<p>When using the project merge function for a DCF that includes library DCFs, the diff results </p>
+<p>will also cover diffs in the included DCFs. Please be aware that the content of an included </p>
+<p>DCF is read-only, so you will not be able to apply merge decisions. </p>
+<p>To merge an included DCF you have to open the according DCF directly and start the </p>
+<p>diff/merge.  </p>
+<p><b>&gt; </b></p>
+<p>Platform Functions </p>
+<p>The usage of platform functions is only possible within the project DCF. The included DCFs </p>
+<p>are not directly linked to a DPA project and therefore have no access to the platform function </p>
+<p>definitions. This limitation may be overcome with a future version of DaVinci DEV. </p>
+<p><b>5.4 </b></p>
+<p><b>Sharing SWCs from a third-party tool </b></p>
+<p>CFG PRO can be used in combination with a third-party SWC tool with following approach: </p>
+<p><b>&gt; </b></p>
+<p>The Application Components folder contains the SWC files created by the third-party SWC </p>
+<p>tool. CFG PRO loads the content of these files read-only. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>15 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>&gt; </b></p>
+<p>The Service Components folder contains the SWCs created by CFG PRO (indirectly created </p>
+<p>by the module code generators). The third party tool may load the content of this folder but </p>
+<p>must not change the files. </p>
+<p> </p>
+<p>Figure 17 – Sharing SWCs Between a Third Party Tool and CFG PRO </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Configuration Management </b></p>
+<p><b>6.1 </b></p>
+<p><b>Concepts </b></p>
+<p>As soon as several team members are involved or several projects have to be handled, the usage of a </p>
+<p>CM system is recommended. The DaVinci tools provide no own CM capabilities. Instead, they </p>
+<p>cooperate with third party CM tools based on a file interface. The CM operations are managed outside </p>
+<p>of the DaVinci tools via according features of the CM tool. </p>
+<p>It is essential to use the right strategy of branches and synchronization points to reduce the merge </p>
+<p>effort.  </p>
+<p><b>6.2 </b></p>
+<p><b>DaVinci project files in CM repository </b></p>
+<p>When committing a DaVinci project to the CM repository, following files may be excluded because </p>
+<p>they are generated: </p>
+<p><b>&gt; </b></p>
+<p>Module files folder (default: <b>.\Appl\GenData</b>) </p>
+<p><b>&gt; </b></p>
+<p>VTT module files folder (default: <b>.\Appl\GenDataVip</b>) </p>
+<p><b>&gt; </b></p>
+<p>Backup files (<b>.\Backups</b>) </p>
+<p><b>&gt; </b></p>
+<p>Measurement and Calibration Files folder (default: <b>.\Config\McData</b>) </p>
+<p>Note: Only the Master.a2l file, which is authored by the user, should be stored on CM </p>
+<p><b>&gt; </b></p>
+<p>BSW Internal Behavior Files (default <b>.\Config\InternalBehavior</b>)  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Only those files should be stored, which are defined or adapted by the user. The files of </p>
+<p>the MICROSAR modules are normally generated and need not to be stored in CM. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>16 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p>Furthermore, the file <b>&lt;Project name&gt;.&lt;User name&gt;.silent.dcuser </b>parallel to the </p>
+<p>.dpa</p>
+<p> file needs not </p>
+<p>to be committed. It contains user specific preferences like window sizes etc. </p>
+<p><b>6.3 </b></p>
+<p><b>Working Copy </b></p>
+<p>The DaVinci tools have no direct interface to the CM repository. Instead, each user should work on a </p>
+<p>private working copy of the DaVinci project. The DaVinci tools load/save the files from this working </p>
+<p>copy. </p>
+<p> </p>
+<p>Figure 18 – Working Copy of the Repository </p>
+<p>For performance reason it is recommended to have the working copy in the local file system. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>When working with several branches or revisions of the same project (see also section </p>
+<p>6.5), a separate working copy for each branch should be used. This allows you to e.g. </p>
+<p>open one branch of the project with the DaVinci tools, and select other branches or </p>
+<p>revisions for diff/merge. </p>
+<p> </p>
+<p> </p>
+<p><b>6.4 </b></p>
+<p><b>File Granularity </b></p>
+<p>The DaVinci tools support the AUTOSAR split-file concept, where the overall AUTOSAR model is </p>
+<p>distributed over several ARXML files. </p>
+<p><b>&gt; </b></p>
+<p>DEV supports the storage of a workspace in several split-files, e.g. one file per SWC type. </p>
+<p><b>&gt; </b></p>
+<p>CFG PRO supports the storage of an ECU configuration either as monolithic file, or split into </p>
+<p>one file per BSW module. </p>
+<p>Using the CM tool’s features you may control the access mode of the individual files (read-only vs. </p>
+<p>read-write). Following central files are most likely changed by all users. So they have to be r/w to </p>
+<p>enable changes: </p>
+<p><b>&gt; </b></p>
+<p>FlatExtract and FlatMap in the System folder </p>
+<p><b>&gt; </b></p>
+<p>InitialEcuC in the ECUC folder </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>17 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p> </p>
+<p> </p>
+<p>Figure 19 - Split-file Project </p>
+<p>It is recommended to keep the file granularity stable over the lifetime of the project. This avoids rework </p>
+<p>of the CM repository structure. </p>
+<p>The file status of the ARXML files in the DaVinci project is reflected in the GUI of the DaVinci tools. </p>
+<p> </p>
+<p>Figure 20 – File Status Reflected in the DaVinci Tools </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Project merge works with any file granularity. Project merge is supported with monolithic </p>
+<p>files as well as split files. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>18 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>6.5 </b></p>
+<p><b>Branches and Synchronization Points </b></p>
+<p>We use following terms  </p>
+<p><b>&gt; </b></p>
+<p>Synch-Merge </p>
+<p>The synch-merge is a process where a branch is being prepared for being integrated into the </p>
+<p>trunk. The synch-merge consists of three parts: </p>
+<p><b>&gt; </b></p>
+<p>Merge of the AUTOSAR model performed by the DaVinci tools using the three-way-merge </p>
+<p>approach, see section 3. </p>
+<p><b>&gt; </b></p>
+<p>Registration of the merge by means of the CM system, without performing an actual merge on </p>
+<p>file level (this is done by the DaVinci tool instead). </p>
+<p>In SVN: Use <b>merge to head revision </b>with option <b>only record  the merge </b></p>
+<p><b>&gt; </b></p>
+<p>Commit the modified files to the branch </p>
+<p><b>&gt; </b></p>
+<p>Commit-Merge </p>
+<p>The commit-merge is a process where a branch is integrated into the trunk. The commit-merge </p>
+<p>consists of two parts: </p>
+<p><b>&gt; </b></p>
+<p>Registration of the merge by means of the CM system, without performing an actual merge on </p>
+<p>file level. </p>
+<p><b>&gt; </b></p>
+<p>Commit the files to the trunk </p>
+<p>Following diagrams show the possible branch/merge strategies. Legend: </p>
+<p><b>&gt; </b></p>
+<p>Light grey dot: version/revision of the project without change of input files </p>
+<p><b>&gt; </b></p>
+<p>Dark grey dot: version/revision of the project including change of input files (project update) </p>
+<p><b>&gt; </b></p>
+<p>Dot with <b>S</b>: synch-merged version/revision of the project </p>
+<p><b>&gt; </b></p>
+<p>Dot with <b>C</b>: commit-merged version/revision of the project </p>
+<p><b>Strategy “Central Update on Trunk</b>”: </p>
+<p>Project updates are only performed in the trunk. After the project update, a branch for each user is </p>
+<p>created. Each user works in his branch and may create revisions. After finishing the development of </p>
+<p>the user branches, the branches are merged one-by-one: synch-merge, then commit-merge, then </p>
+<p>terminate the branch. After merging all branches, the next project update may be executed on the </p>
+<p>trunk. After the project update, new user branches are created. </p>
+<p>This strategy reduces the number of project updates, but blocks the users while their branches are </p>
+<p>“dead” during merge and project update on the trunk. </p>
+<p> </p>
+<p>Figure 21 - Strategy <b>Central Update on Trunk </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Team and Platform Support</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>19 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>Strategy “Update Each Branch</b>”: </p>
+<p>Project updates are performed on the trunk <b>and </b>on each user branch. Each user works in his branch </p>
+<p>and may create revisions. After finishing the development for a particular release, the user branch is </p>
+<p>merged: synch-merge, then commit-merge. The user branch can “live one”. Immediately after making </p>
+<p>the commit-merge, the branch is ready for development for the next release, starting with the project </p>
+<p>update. Special care has to be taken: synch-merges and commit-merges are only allowed with </p>
+<p>branches on the same release level.  </p>
+<p>Example: User1 has only minor modifications for R1. He commits his changes early and starts with R2 </p>
+<p>development with the project update on his branch. After that point, User1 must not make any synch-</p>
+<p>merges since the trunk is still on R1. The other users continue working on R1. Later on, User2 makes </p>
+<p>a synch-merge to get the modification of User1, and the commit-merge. Finally User3 makes the </p>
+<p>synch-merge to get modifications of User1 and User2, and the commit-merge. Now, the R1 is being </p>
+<p>released. User2 may decide to make another synch-merge after that to get the modifications of User3 </p>
+<p>for R1 before he starts with R2 development. The trunk is being updated to R2 meanwhile. After that </p>
+<p>point, User1 is allowed to make synch-merges and commit-merges to the trunk again. </p>
+<p>This strategy does not block the users during the merge phase, but it may lead to more workload since </p>
+<p>the project update has to be repeated on the trunk and on each branch separately. Furthermore, more </p>
+<p>synch-merges may be required. </p>
+<p> </p>
+<p> </p>
+<p>Figure 22 - Strategy <b>Update Each Branch </b></p>
+<p><b>7 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,2425 @@
+---
+layout: default
+title: TechnicalReference_Crypto_30_CryWrapper
+nav_order: 85
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR CRYPTO </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>CRYPTO CRYWRAPPER </p>
+<p>Version 2.1.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Tobias Finke </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Tobias Finke </p>
+<p>2016-12-21 </p>
+<p>1.00.00 </p>
+<p>Initial creation </p>
+<p>Tobias Finke </p>
+<p>2017-10-06 </p>
+<p>2.01.00 </p>
+<p>Release of component </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_CryptoDriver.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>4.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>4.3.0 </p>
+<p>[4] </p>
+<p> HIS </p>
+<p>2009-04-01 SHE Functional Specification v1.1 (rev439) </p>
+<p>1.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 9</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations .......................................................................................... 9</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ......................................................................... 9</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Limitations ........................................................................................ 10</p>
+<p> </p>
+<p>3.1.3.1</p>
+<p> </p>
+<p>Cryptographic Algorithms and Modes ............................ 10</p>
+<p> </p>
+<p>3.1.3.2</p>
+<p> </p>
+<p>Certificate Handling........................................................ 10</p>
+<p> </p>
+<p>3.1.3.3</p>
+<p> </p>
+<p>Key Generation .............................................................. 10</p>
+<p> </p>
+<p>3.1.3.4</p>
+<p> </p>
+<p>AEAD Det Checks ......................................................... 10</p>
+<p> </p>
+<p>3.1.3.5</p>
+<p> </p>
+<p>Asynchronous CRY ........................................................ 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>SHE Key Update Protocol ................................................................................ 10</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Preconditions ................................................................................... 10</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 11</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 11</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Key Management ............................................................................................. 12</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Custom Key Elements ...................................................................... 12</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>Import Keys ...................................................................................... 13</p>
+<p> </p>
+<p>3.6.3</p>
+<p> </p>
+<p>Export Keys ..................................................................................... 14</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Algorithm Parameter Overview ........................................................................ 14</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Crypto Driver Configuration .............................................................................. 15</p>
+<p> </p>
+<p>3.8.1</p>
+<p> </p>
+<p>General Configuration ...................................................................... 15</p>
+<p> </p>
+<p>3.8.2</p>
+<p> </p>
+<p>Configuration of Keys ....................................................................... 15</p>
+<p> </p>
+<p>3.8.2.1</p>
+<p> </p>
+<p>Key Elements................................................................. 15</p>
+<p> </p>
+<p>3.8.2.2</p>
+<p> </p>
+<p>Key Types ...................................................................... 16</p>
+<p> </p>
+<p>3.8.2.3</p>
+<p> </p>
+<p>Keys .............................................................................. 16</p>
+<p> </p>
+<p>3.8.3</p>
+<p> </p>
+<p>Wrapping of CRY ............................................................................. 17</p>
+<p> </p>
+<p>3.8.3.1</p>
+<p> </p>
+<p>Configuration of the underlying CRY .............................. 17</p>
+<p> </p>
+<p>3.8.3.2</p>
+<p> </p>
+<p>Algorithms ...................................................................... 17</p>
+<p> </p>
+<p>3.8.3.3</p>
+<p> </p>
+<p>Key Functions ................................................................ 19</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 20</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 20</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 20</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 20</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 21</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 22</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Services provided by CRYPTO ........................................................................ 22</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_Init ............................................................. 22</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_InitMemory ................................................ 22</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_GetVersionInfo .......................................... 23</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_ProcessJob ............................................... 23</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CancelJob ................................................. 24</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Key Management Functions ............................................................................ 25</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyCopy ................................................... 25</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementCopy ...................................... 25</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementIdsGet .................................... 26</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementSet ......................................... 27</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyValidSet .............................................. 28</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementGet ......................................... 28</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_RandomSeed ............................................ 29</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyGenerate ............................................. 30</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyDerive ................................................. 31</p>
+<p> </p>
+<p>5.2.10</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcPubVal ......................... 31</p>
+<p> </p>
+<p>5.2.11</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcSecret .......................... 32</p>
+<p> </p>
+<p>5.2.12</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CertificateParse ........................................ 33</p>
+<p> </p>
+<p>5.2.13</p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CertificateVerify ......................................... 34</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by CRYPTO .............................................................................. 34</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 36</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 36</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 37</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 37</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 37</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 38</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p>Illustrations </p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.2 Architecture Overview ......................................................... 7</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the CRYPTO .......................................... 8</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Example SymKeyExtract Configuration for Vector CRY ............................ 18</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Example SymKeyExtract configuration for third party CRY ....................... 19</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 9</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ................................. 9</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................... 9</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 11</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 12</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>Supported data format for key import ........................................................ 13</p>
+<p> </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Supported data format for key export ........................................................ 14</p>
+<p> </p>
+<p>Table 3-8 </p>
+<p> </p>
+<p>Overview of the required algorithm parameter .......................................... 15</p>
+<p> </p>
+<p>Table 3-9 </p>
+<p> </p>
+<p>Description of preconfigured key elements ............................................... 16</p>
+<p> </p>
+<p>Table 3-10 </p>
+<p> </p>
+<p>Description of preconfigured key types ..................................................... 16</p>
+<p> </p>
+<p>Table 3-11 </p>
+<p> </p>
+<p>Description of pre-configured keys ............................................................ 17</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 20</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 20</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_Init ..................................................................... 22</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_InitMemory ......................................................... 23</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_GetVersionInfo ................................................... 23</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_ProcessJob ........................................................ 24</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CancelJob ......................................................... 25</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyCopy ............................................................ 25</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementCopy ............................................... 26</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementIdsGet ............................................. 27</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementSet .................................................. 28</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyValidSet ....................................................... 28</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyElementGet ................................................. 29</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_RandomSeed .................................................... 30</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyGenerate ..................................................... 30</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyDerive .......................................................... 31</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcPubVal .................................. 32</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcSecret ................................... 33</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CertificateParse ................................................. 34</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_CertificateVerify ................................................. 34</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>Services used by the CRYPTO ................................................................. 34</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 37</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 37</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>Initial beta release </p>
+<p>2.00.00 </p>
+<p>Redesign of component </p>
+<p>2.01.00 </p>
+<p>Safe Bsw Release of Component </p>
+<p>Added several configurations options to support Cry implementations of </p>
+<p>different vendors  </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module CRYPTO as specified in [1].  </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.3 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>CRYPTO_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>CRYPTO_MODULE_ID   </p>
+<p>114 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The Crypto Driver (CRYPTO) is called by the Crypto Interface (CRYIF) and performs the </p>
+<p>specific  cryptographic  functionality.  The  CRYPTO  specification  [1]  offers  a  superset  of </p>
+<p>algorithms  which  can  be  extended  by  ‘custom  algorithms’.  This  software-based  Crypto </p>
+<p>Driver offers a subset of algorithms and features which is described in 3.1. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the CRYPTO is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.2 Architecture Overview  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p>The  next  figure </p>
+<p>shows  the  interfaces  to  adjacent </p>
+<p>modules  of  the </p>
+<p>CRYPTO.  These </p>
+<p>interfaces are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the CRYPTO </p>
+<p><b> cmp Architecture</b></p>
+<p><b>Crypto</b></p>
+<p><b>CryIf</b></p>
+<p><b>BswM</b></p>
+<p><b>Det</b></p>
+<p><b>RTE</b></p>
+<p>Crypto_CancelJob</p>
+<p>Det_ReportError</p>
+<p>«optional»</p>
+<p>Crypto_&lt;KeyManagement&gt;</p>
+<p>Crypto_ProcessJob</p>
+<p>CryIf_CallbackNotification</p>
+<p>«optional»</p>
+<p>Crypto_MainFunction</p>
+<p>Crypto_Init</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>CRYPTO. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further CRYPTO functionality beyond the AUTOSAR standard. </p>
+<p>The corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Encrypt/Decrypt: AES-128 ECB/CBC </p>
+<p>MAC: AES CMAC </p>
+<p>RNG: TRNG </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Certificate handling </p>
+<p>All algorithms not stated in Table 3-1 </p>
+<p>The Read/Write Access for Key Elements are not checked when they are not located inside the </p>
+<p>SHE. </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>Storage of Keys into the SHE with the SymKeyExtract-API provided by the underlying CRY by </p>
+<p>using the ‘SHE Key Update Protocol’ [4] </p>
+<p>Export of Keys from the SHE with the SymKeyWrapSym-API provided by the underlying CRY by </p>
+<p>using the ‘SHE Key Update Protocol’ [4] </p>
+<p>Forwarding and converting service requests to the ASR4.2 CRY APIs. </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>3.1.3 </b></p>
+<p><b>Limitations </b></p>
+<p><b>3.1.3.1 </b></p>
+<p><b>Cryptographic Algorithms and Modes </b></p>
+<p>Only a subset of the stated algorithms and modes in the AUTOSAR SWS [1] are currently </p>
+<p>supported. The list of algorithms is described in Table 3-1. </p>
+<p><b>3.1.3.2 </b></p>
+<p><b>Certificate Handling </b></p>
+<p>Currently there is no implementation to parse and verify certificates. However  the API is </p>
+<p>still available for compatibility reasons. </p>
+<p><b>3.1.3.3 </b></p>
+<p><b>Key Generation </b></p>
+<p>Currently there is no implementation to generate keys. However the API is still available for </p>
+<p>compatibility reasons. </p>
+<p><b>3.1.3.4 </b></p>
+<p><b>AEAD Det Checks </b></p>
+<p>The Det checks for AEAD differ from the table in [1]. There is a different handling required </p>
+<p>for the AEAD implementation. The parameter check is described in Table 3-8. </p>
+<p><b>3.1.3.5 </b></p>
+<p><b>Asynchronous CRY </b></p>
+<p>Handling of a CRY which is configured asynchronous is not supported. </p>
+<p> </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Before  any  other  functionality  of  the  CRYPTO  module  can  be  called  the  initialization </p>
+<p>function </p>
+<p>Crypto_30_CryWrapper_Init()</p>
+<p> has to be called by the BSWM. </p>
+<p>For </p>
+<p>manual </p>
+<p>null </p>
+<p>initialization </p>
+<p>of </p>
+<p>RAM </p>
+<p>variables </p>
+<p>the </p>
+<p>CRYPTO </p>
+<p>offers </p>
+<p>the </p>
+<p>function </p>
+<p>Crypto_30_CryWrapper_InitMemory() </p>
+<p>which </p>
+<p>can </p>
+<p>be </p>
+<p>called </p>
+<p>before </p>
+<p>the </p>
+<p>Crypto_30_CryWrapper_Init()</p>
+<p>. </p>
+<p><b>3.3 </b></p>
+<p><b>Main Functions </b></p>
+<p>The  CRYPTO  module  implementation  provides  one  main  function.  When  the  usage  of </p>
+<p>asynchronous job processing is enabled, this main function has to be called cyclically on </p>
+<p>task level. The main function is responsible to start processing of the job. </p>
+<p><b>3.4 </b></p>
+<p><b>SHE Key Update Protocol </b></p>
+<p>The MICROSAR CRYPTO has the ability to update a key in the SHE hardware by using </p>
+<p>the SHE Key Update Protocol [4]. </p>
+<p> </p>
+<p><b>3.4.1 </b></p>
+<p><b>Preconditions </b></p>
+<p>When a key shall be updated using the SHE Key Update Protocol the   </p>
+<p><b>&gt; </b></p>
+<p>Write Access has to be Encrypted  </p>
+<p><b>&gt; </b></p>
+<p>Key material must be a 64 byte long concatenated M1|M2|M3 message  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>If M4 and M5 are needed the “proof” key element must be available and has to be of </p>
+<p>size 48 bytes  </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>CRYPTO_DEV_ERROR_REPORT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported CRYPTO ID is 114. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.1. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>Crypto_30_CryWrapper_Init()  </p>
+<p>0x01 </p>
+<p>Crypto_30_CryWrapper_GetVersionInfo()  </p>
+<p>0x03 </p>
+<p>Crypto_30_CryWrapper_ProcessJob()  </p>
+<p>0x0E </p>
+<p>Crypto_30_CryWrapper_CancelJob()  </p>
+<p>0x04 </p>
+<p>Crypto_30_CryWrapper_KeyElementSet()  </p>
+<p>0x05 </p>
+<p>Crypto_30_CryWrapper_KeyValidSet()  </p>
+<p>0x06 </p>
+<p>Crypto_30_CryWrapper_KeyElementGet()  </p>
+<p>0x0F </p>
+<p>Crypto_30_CryWrapper_KeyElementCopy()  </p>
+<p>0x10 </p>
+<p>Crypto_30_CryWrapper_KeyCopy()  </p>
+<p>0x11 </p>
+<p>Crypto_30_CryWrapper_KeyElementIdsGet()  </p>
+<p>0x0D </p>
+<p>Crypto_30_CryWrapper_RandomSeed()  </p>
+<p>0x07 </p>
+<p>Crypto_30_CryWrapper_KeyGenerate()  </p>
+<p>0x08 </p>
+<p>Crypto_30_CryWrapper_KeyDerive()  </p>
+<p>0x09 </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcPubVal()  </p>
+<p>0x0A </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcSecret()  </p>
+<p>0x0B </p>
+<p>Crypto_30_CryWrapper_CertificateParse()  </p>
+<p>0x12 </p>
+<p>Crypto_30_CryWrapper_CertificateVerify()  </p>
+<p>0x0C </p>
+<p>Crypto_30_CryWrapper_MainFunction() </p>
+<p>Table 3-4  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x00 </p>
+<p>CRYPTO_E_UNINIT         </p>
+<p>0x01 </p>
+<p>CRYPTO_E_INIT_FAILED    </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x02 </p>
+<p>CRYPTO_E_PARAM_POINTER  </p>
+<p>0x04 </p>
+<p>CRYPTO_E_PARAM_HANDLE  </p>
+<p>0x05 </p>
+<p>CRYPTO_E_PARAM_VALUE   </p>
+<p>Table 3-5  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p><b>3.6 </b></p>
+<p><b>Key Management </b></p>
+<p>This </p>
+<p>hardware </p>
+<p>driver </p>
+<p>has </p>
+<p>some </p>
+<p>special </p>
+<p>features </p>
+<p>regarding </p>
+<p>the </p>
+<p>key </p>
+<p>management </p>
+<p>functionalities. These features are described in the following. </p>
+<p><b>3.6.1 </b></p>
+<p><b>Custom Key Elements </b></p>
+<p>The crypto driver does not use any custom key elements. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6.2 </b></p>
+<p><b>Import Keys </b></p>
+<p>For  storing  keys  inside  the  SHE,  the  API  Crypto_30_CryWrapper_KeyElementSet()  is </p>
+<p>used. Table 3-6 shows which input length and key group mapping is necessary to import a </p>
+<p>specific type of key.  </p>
+<p>Input </p>
+<p>Length </p>
+<p>Key Ids </p>
+<p><b>Plaintext Key </b></p>
+<p>The key data consists of the plaintext key (16 bytes). </p>
+<p> </p>
+<p>16 </p>
+<p>Key_Ram (0x0E) </p>
+<p>or any other user created key </p>
+<p>with 16 bytes of length and </p>
+<p>the correct flags (e.g. </p>
+<p>WA_ALLOWED). </p>
+<p> </p>
+<p><b>SHE Key as M1-M3 </b></p>
+<p>The key data consists of the concatenation of </p>
+<p>M1|M2|M3. </p>
+<p>64 </p>
+<p>All preconfigured keys (e.g. </p>
+<p>Key_1) with the correct flags </p>
+<p>(e.g. WA_ENCRYPTED). </p>
+<p>Table 3-6  </p>
+<p>Supported data format for key import </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.6.3 </b></p>
+<p><b>Export Keys </b></p>
+<p>For  exporting  keys  from  the  HSM,  the API  Crypto_30_CryWrapper_KeyElementGet()  is </p>
+<p>used.  Table  3-7  shows  which  length  and  key  group  mapping  is  necessary  to  export  a </p>
+<p>specific type of key.  </p>
+<p> </p>
+<p>Output </p>
+<p>Length </p>
+<p>Key Id </p>
+<p><b>SHE RAM Key as M1-M5 </b></p>
+<p>The key data consists of the concatenation of </p>
+<p>M1|M2|M3|M4|M5. </p>
+<p>112 </p>
+<p>Key_Ram (0x0E) </p>
+<p> </p>
+<p>Table 3-7  </p>
+<p>Supported data format for key export </p>
+<p> </p>
+<p><b>3.7 </b></p>
+<p><b>Algorithm Parameter Overview </b></p>
+<p>The  required  algorithm  parameters  are  described  in  the  following  table.  The  required </p>
+<p>parameter differs from the table in [1]. </p>
+<p> </p>
+<p><b>Member  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Service </b></p>
+<p>inputPtr</p>
+<p> </p>
+<p>inputLength</p>
+<p> </p>
+<p>secondaryInputPtr</p>
+<p> </p>
+<p>secondaryInputLength</p>
+<p> </p>
+<p>tertiaryInputPtr</p>
+<p> </p>
+<p>tertiaryInputLength</p>
+<p> </p>
+<p>outputPtr</p>
+<p> </p>
+<p>outputLengthPtr</p>
+<p> </p>
+<p>secondaryOutputPtr</p>
+<p> </p>
+<p>secondaryOutputLengthPtr</p>
+<p> </p>
+<p>verifyPtr</p>
+<p> </p>
+<p>output64Ptr</p>
+<p> </p>
+<p>mode</p>
+<p> </p>
+<p>HASH</p>
+<p> </p>
+<p>U</p>
+<p> </p>
+<p>U</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF</p>
+<p> </p>
+<p>MACGENERATE</p>
+<p> </p>
+<p>U</p>
+<p> </p>
+<p>U</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF</p>
+<p> </p>
+<p>MACVERIFY </p>
+<p>U </p>
+<p>U </p>
+<p>F</p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p>SUF </p>
+<p>ENCRYPT </p>
+<p>U </p>
+<p>U </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>UF </p>
+<p>UF </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF </p>
+<p>DECRYPT </p>
+<p>U </p>
+<p>U </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>UF </p>
+<p>UF </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF </p>
+<p>AEADENCRYPT </p>
+<p>U </p>
+<p>U </p>
+<p>V </p>
+<p>U~ </p>
+<p> </p>
+<p> </p>
+<p>UF </p>
+<p>UF </p>
+<p>F</p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF </p>
+<p>AEADDECRYPT </p>
+<p>U </p>
+<p>U </p>
+<p>V </p>
+<p>U~ </p>
+<p>F</p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p>UF </p>
+<p>UF </p>
+<p> </p>
+<p> </p>
+<p>F </p>
+<p> </p>
+<p>SUF </p>
+<p>SIGNATUREGENERATE </p>
+<p>UF </p>
+<p>U F~ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F </p>
+<p>F </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SUF </p>
+<p>SIGNATUREVERIFY </p>
+<p>UF </p>
+<p>U F~ </p>
+<p>F </p>
+<p>F </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F </p>
+<p> </p>
+<p>SUF </p>
+<p>SECCOUNTERINCREMENT </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SECCOUNTERREAD </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F</p>
+<p> </p>
+<p> </p>
+<p>RANDOMGENERATE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>F </p>
+<p>F </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p>S: member required in Start mode.  </p>
+<p>U: member required in Update mode.  </p>
+<p>V: member optional in Update mode.  </p>
+<p>F: member required in Finish mode.  </p>
+<p>~: no Det check required / 0 is a valid value. </p>
+<p>Table 3-8  </p>
+<p>Overview of the required algorithm parameter </p>
+<p><b>3.8 </b></p>
+<p><b>Crypto Driver Configuration </b></p>
+<p>The Crypto Driver comes with pre-configured and recommended settings which define the </p>
+<p>supported algorithm primitives and its key with the associated key elements. </p>
+<p><b>3.8.1 </b></p>
+<p><b>General Configuration </b></p>
+<p>In  the  CryptoWrapperGeneral  configuration  section,  the  specifics  of  the  underlying  CRY </p>
+<p>can  be  defined.  Refer  to  the  description  in  the  online  help  of  the  DaVinci  CFG5  for  the </p>
+<p>parameter </p>
+<p>descriptions </p>
+<p>and </p>
+<p>their </p>
+<p>values </p>
+<p>for </p>
+<p>different </p>
+<p>driver </p>
+<p>vendors.</p>
+<p> </p>
+<p><b>3.8.2 </b></p>
+<p><b>Configuration of Keys </b></p>
+<p>The  main  configuration  part  for the  keys  is provided  by  the  pre-configuration  and  is not </p>
+<p>editable by the user. </p>
+<p><b>3.8.2.1 </b></p>
+<p><b>Key Elements </b></p>
+<p>There five basic key elements which are needed regarding the HW CRYs. </p>
+<p> </p>
+<p><b>Key Element </b></p>
+<p><b>Description </b></p>
+<p>Crypto_30_CryWrapper_AesIV </p>
+<p>This Key element is used to store the init </p>
+<p>vector of an AES operation. The IV is only </p>
+<p>needed if the block mode of AES is CBC. </p>
+<p>It is 16 Bytes long and can be modified with </p>
+<p>the Csm_KeyElementSet() and </p>
+<p>Csm_KeyElementGet(). </p>
+<p> </p>
+<p>Crypto_30_CryWrapper_SheNvmKey </p>
+<p> </p>
+<p>This key element is used as placeholder for </p>
+<p>a nonvolatile key slot in the SHE. </p>
+<p>It has a size of 64 Bytes which will be used </p>
+<p>for the concatenation of M1, M2 and M3. </p>
+<p>It </p>
+<p>can </p>
+<p>only </p>
+<p>be </p>
+<p>written </p>
+<p>with </p>
+<p>the </p>
+<p>function </p>
+<p>Csm_KeyElementSet(). </p>
+<p>Crypto_30_CryWrapper_SheProof </p>
+<p> </p>
+<p>This key element is used to store the Proof </p>
+<p>(M4|M5) </p>
+<p>after </p>
+<p>a </p>
+<p>successful </p>
+<p>Key </p>
+<p>Update </p>
+<p>protocol of the SHE. </p>
+<p>It has a size of 48 Bytes which will be used </p>
+<p>for the concatenation of M4 and M5. </p>
+<p>It can be read with Csm_KeyElementGet(). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p>Crypto_30_CryWrapper_SheRamKey </p>
+<p> </p>
+<p>This key element is used as placeholder for </p>
+<p>the RAM key slot of the SHE. It can be set </p>
+<p>with Csm_KeyElementSet(). </p>
+<p>Crypto_30_CryWrapper_CryptoKey </p>
+<p>This key element is used to store a key in </p>
+<p>the key storage of the crypto driver. When </p>
+<p>an algorithm uses this key element, the key </p>
+<p>material is automatically stored to the RAM </p>
+<p>key slot of the SHE. It is 16 Bytes long and </p>
+<p>can be modified (even partially) with </p>
+<p>Csm_KeyElementSet() and </p>
+<p>Csm_KeyElementGet(). </p>
+<p> </p>
+<p>Table 3-9  </p>
+<p>Description of preconfigured key elements </p>
+<p><b>3.8.2.2 </b></p>
+<p><b>Key Types </b></p>
+<p> </p>
+<p><b>Key Type </b></p>
+<p><b>Description </b></p>
+<p>SheNvmKey </p>
+<p>A key of this type represents a nonvolatile SHE </p>
+<p>keyslot (e.g. KEY_1) without the ability to </p>
+<p>compute AES CBC or store the result of the key </p>
+<p>update protocol. </p>
+<p>SheRamKey </p>
+<p>A key of this type represents a SHE RAM </p>
+<p>keyslot (KEY_RAM) without the ability to </p>
+<p>compute AES CBC or store the result of the key </p>
+<p>update protocol. </p>
+<p>&lt;…&gt;IV </p>
+<p>The key of this type has the ability to store the </p>
+<p>IV which is needed for AES in CBC mode. </p>
+<p>&lt;…&gt;Proof&lt;…&gt; </p>
+<p>The key of this type has the ability to store the </p>
+<p>M4 and M5 which is generated when a key is </p>
+<p>successfully updated. M4 and M5 can be used </p>
+<p>to verify the key update process. </p>
+<p>CryptoKey </p>
+<p>A key of this key type is stored in the key </p>
+<p>storage of the CRYPTO and loaded into the </p>
+<p>SHE RAM-Keyslot when it is needed. </p>
+<p>Table 3-10  </p>
+<p>Description of preconfigured key types </p>
+<p> </p>
+<p><b>3.8.2.3 </b></p>
+<p><b>Keys </b></p>
+<p>The following keys represent the keys which are available in a SHE. </p>
+<p>They only have recommended types. This way, the user can define if for example the key </p>
+<p>has to hold an IV. In this case, reference a key type which includes the IV key element. </p>
+<p>The Ids of the keys match the keyId of the SHE specification. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Key </b></p>
+<p><b>Description </b></p>
+<p>SecretKey </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It is only used when exporting the </p>
+<p>Key_Ram as AuthId. </p>
+<p>MasterEcuKey </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol. </p>
+<p>BootMac </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol.  </p>
+<p>BootMacKey </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol. </p>
+<p>Key_1 </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol. </p>
+<p>Key_&lt;…&gt; </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol. </p>
+<p>Key_20 </p>
+<p>NVM key which is stored inside the SHE </p>
+<p>hardware. It can be set by using the SHE key </p>
+<p>update protocol. </p>
+<p>Key_Ram </p>
+<p>RAM key which is stored inside the SHE </p>
+<p>hardware. It can be set as plaintext key and can </p>
+<p>be exported as M1M2M3M4M5 </p>
+<p>CryptoKey </p>
+<p>Key located in the unsecure key storage on the </p>
+<p>application core (RAM). When the key is used </p>
+<p>by a job, it will be loaded automatically into </p>
+<p>Key_Ram. </p>
+<p>Table 3-11  </p>
+<p>Description of pre-configured keys </p>
+<p> </p>
+<p><b>3.8.3 </b></p>
+<p><b>Wrapping of CRY </b></p>
+<p><b>3.8.3.1 </b></p>
+<p><b>Configuration of the underlying CRY </b></p>
+<p>- </p>
+<p>All services of the underlying CRY have to match the mapping which is configured </p>
+<p>in the general configuration of the CRYPTO. </p>
+<p>- </p>
+<p>The underlying CRY has to be configured synchronous </p>
+<p><b>3.8.3.2 </b></p>
+<p><b>Algorithms </b></p>
+<p>CRY services which are seen as algorithms are: </p>
+<p>- </p>
+<p>MacGenerate </p>
+<p>- </p>
+<p>MacVerify </p>
+<p>- </p>
+<p>SymEncrypt </p>
+<p>- </p>
+<p>SymDecrypt </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p>- </p>
+<p>RandomGenerate </p>
+<p> </p>
+<p>To add a CRY service to the wrapper there are two possibilities. Either by manually adding </p>
+<p>the  include file,  primitive  name  and  init  configuration  structure, or by  referencing  a  CRY </p>
+<p>service which is present in the current configuration. The referencing functionality is only </p>
+<p>available for CRYs which can be configured in CFG5. </p>
+<p>In Figure 3-1 it can be seen, how the necessary options are automatically filled out, when </p>
+<p>a CRY service is referenced. </p>
+<p>Additionally, the CSM Jobs have to be referenced, which shall be used in conjunction with </p>
+<p>this CRY service. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Pay special attention to the fact, that the job primitive configured in the CSM has to </p>
+<p>match the connected CRY service. There is currently no validation available, if the </p>
+<p>settings are matching together (e.g. if AES mode is set to CBC in both the CSM-Job </p>
+<p>and the CRY service) </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Example SymKeyExtract Configuration for Vector CRY </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.8.3.3 </b></p>
+<p><b>Key Functions </b></p>
+<p>To store and export keys and feed the random number generator with a seed, different Cry </p>
+<p>interfaces are used. </p>
+<p>For the RAM key export and the random seed functionalities, the depending CRY services </p>
+<p>have to be selected. </p>
+<p>Only the interface for storing keys into the SHE differs slightly between vendors. </p>
+<p>In  case  of  a  Vector  CRY,  just  reference  a  CRY  SymKeyExtract  Service  and  select </p>
+<p>CRYPTO_ALL_KEYS. </p>
+<p>If you have a CRY from a third party vendor, e.g. SHE+ for AURIX, see Figure 3-2 for an </p>
+<p>example. </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Example SymKeyExtract configuration for third party CRY </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR CRYPTO </p>
+<p>into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the CRYPTO contains the files which are described in the chapters 4.1.1 </p>
+<p>and 4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Crypto_30_CryWrapper.c </p>
+<p>This is the main source file of the CRYPTO </p>
+<p>Crypto_30_CryWrapper.h </p>
+<p>This is the source file of the CRYPTO </p>
+<p>Crypto_30_CryWrapper_Cipher.c </p>
+<p>This source file contains cipher algorithms </p>
+<p>Crypto_30_CryWrapper_KeyManagement.c </p>
+<p>This source file contains the CRYPTO´s key </p>
+<p>management functions </p>
+<p>Crypto_30_CryWrapper_KeyManagement.h </p>
+<p>This header file contains the CRYPTO´s key </p>
+<p>management functions </p>
+<p>Crypto_30_CryWrapper_Mac.c </p>
+<p>This source file contains MAC algorithms </p>
+<p>Crypto_30_CryWrapper_Random.c </p>
+<p>This source file contains PRNG algorithms </p>
+<p>Crypto_30_CryWrapper_Services.h </p>
+<p>This header file is used for the internal dispatcher </p>
+<p>Crypto_30_CryWrapper_Hw.c </p>
+<p>This source file contains the hardware dependent </p>
+<p>parts of the driver. </p>
+<p>Crypto_30_CryWrapper_Hw.h </p>
+<p>This header file contains the hardware dependent </p>
+<p>parts of the driver. </p>
+<p>Crypto_30_CryWrapper_Generated_Types.h </p>
+<p>This header file contains necessary definitions and </p>
+<p>types which must be present in the CSM. This file </p>
+<p>can be added to the CSM as an additional include. </p>
+<p>Crypto_30_CryWrapper_Custom.h </p>
+<p>This header file contains definitions for custom key </p>
+<p>elements. This file can be added to the CSM as an </p>
+<p>additional include. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator 5 Pro. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Crypto_30_CryWrapper_Cfg</p>
+<p>.c </p>
+<p>This is configuration source file. </p>
+<p>Crypto_30_CryWrapper_Cfg</p>
+<p>.h </p>
+<p>This is configuration header file. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p> Crypto uses the following critical sections: </p>
+<p><b>&gt; </b></p>
+<p>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_0 </p>
+<p>This critical section protects workspace locking resources and so this section should </p>
+<p>never be interrupted by any other API of the Crypto module. </p>
+<p><b>&gt; </b></p>
+<p>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_1 </p>
+<p>This critical section protects 32 Bit accesses and is only necessary in case of HW </p>
+<p>doesn't offer an atomic access. </p>
+<p><b>&gt; </b></p>
+<p>CRYPTO_30_CRYWRAPPER_EXCLUSIVE_AREA_2 </p>
+<p>This critical section protects the reading key access against a parallel key </p>
+<p>manipulation. The critical section should never be interrupted by any key manipulation </p>
+<p>method. So, most of the time, it is sufficient to prevent the current task to be </p>
+<p>interrupted by another task which could execute a Key Setting Method. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Services provided by CRYPTO </b></p>
+<p> </p>
+<p><b>5.1.1 </b></p>
+<p><b>Crypto_30_CryWrapper_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Crypto_30_CryWrapper_Init </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the Crypto Driver. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Specification of module initialization </p>
+<p>&gt; </p>
+<p>Interrupts are disabled. Module is uninitialized. </p>
+<p>This function initializes the module Crypto_30_CryWrapper. It initializes all variables and sets the module </p>
+<p>state to initialized.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-1  </p>
+<p>Crypto_30_CryWrapper_Init </p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>Crypto_30_CryWrapper_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Crypto_30_CryWrapper_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>The function initializes variables, which cannot be initialized with the startup code. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Module is uninitialized. </p>
+<p>Initialize component variables at power up.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-2  </p>
+<p>Crypto_30_CryWrapper_InitMemory </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>Crypto_30_CryWrapper_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Crypto_30_CryWrapper_GetVersionInfo </b>(Std_VersionInfoType *versioninfo) </p>
+<p><b>Parameter </b></p>
+<p>versioninfo [out] </p>
+<p>Pointer to where to store the version information. Parameter must not be </p>
+<p>NULL. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Crypto_30_CryWrapper_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID </p>
+<p>of the component.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK|ISR </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-3  </p>
+<p>Crypto_30_CryWrapper_GetVersionInfo </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>Crypto_30_CryWrapper_ProcessJob </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_ProcessJob </b>(uint32 objectId, Crypto_JobType </p>
+<p>*job) </p>
+<p><b>Parameter </b></p>
+<p>objectId [in] </p>
+<p>Holds the identifier of the Crypto Driver Object. </p>
+<p>job [in,out] </p>
+<p>Pointer to the configuration of the job. Contains structures with job and </p>
+<p>primitive relevant information but also pointer to result buffers. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_NOT_VALID Request failed, the key is not valid. </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Process the received job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Performs the crypto primitive that is configured in the job parameter.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-4  </p>
+<p>Crypto_30_CryWrapper_ProcessJob </p>
+<p> </p>
+<p><b>5.1.5 </b></p>
+<p><b>Crypto_30_CryWrapper_CancelJob </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_CancelJob </b>(uint32 objectId, Crypto_JobType </p>
+<p>*job) </p>
+<p><b>Parameter </b></p>
+<p>objectId [in] </p>
+<p>Holds the identifier of the Crypto Driver Object. </p>
+<p>job [in,out] </p>
+<p>Pointer to the configuration of the job. Contains structures with user and </p>
+<p>primitive relevant information. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful, job has been removed. </p>
+<p>Std_ReturnType </p>
+<p>E_NOT_OK Request failed, job could not be removed. </p>
+<p><b>Functional Description </b></p>
+<p>Cancels the received job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This interface removes the provided job from the queue and cancels the processing of the job if possible.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p>Table 5-5  </p>
+<p>Crypto_30_CryWrapper_CancelJob </p>
+<p><b>5.2 </b></p>
+<p><b>Key Management Functions </b></p>
+<p> </p>
+<p><b>5.2.1 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyCopy </b>(uint32 cryptoKeyId, uint32 </p>
+<p>targetCryptoKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<p>targetCryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element sizes </p>
+<p>are not compatible. </p>
+<p><b>Functional Description </b></p>
+<p>Copy the key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Copies a key with all its elements to another key in the same crypto driver.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-6  </p>
+<p>Crypto_30_CryWrapper_KeyCopy </p>
+<p> </p>
+<p><b>5.2.2 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyElementCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyElementCopy </b>(uint32 cryptoKeyId, uint32 </p>
+<p>keyElementId, uint32 targetCryptoKeyId, uint32 targetKeyElementId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the source for the copy </p>
+<p>operation. </p>
+<p>targetCryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p>targetKeyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the destination for the </p>
+<p>copy operation. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_EXTRACT_DENIED Request failed, not allowed to extract </p>
+<p>key material. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element sizes </p>
+<p>are not compatible. </p>
+<p><b>Functional Description </b></p>
+<p>Copy key element. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Copies a key element to another key element in the same crypto driver.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-7  </p>
+<p>Crypto_30_CryWrapper_KeyElementCopy </p>
+<p> </p>
+<p><b>5.2.3 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyElementIdsGet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyElementIdsGet </b>(uint32 cryptoKeyId, </p>
+<p>uint32 *keyElementIdsPtr, uint32 *keyElementIdsLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose available element ids shall be exported. </p>
+<p>keyElementIdsLengthPtr </p>
+<p>[in] </p>
+<p>Holds a pointer to the memory location in which the number of key element in </p>
+<p>the given key is stored. On calling this function, this parameter shall contain </p>
+<p>the size of the buffer provided by keyElementIdsPtr. When the request has </p>
+<p>finished, the actual number of key elements is stored. </p>
+<p>keyElementIdsPtr [out] </p>
+<p>Contains the pointer to the array where the ids of the key elements shall be </p>
+<p>stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Used to retrieve information which key elements are available in a given key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-8  </p>
+<p>Crypto_30_CryWrapper_KeyElementIdsGet </p>
+<p> </p>
+<p><b>5.2.4 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyElementSet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyElementSet </b>(uint32 cryptoKeyId, uint32 </p>
+<p>keyElementId, const uint8 *keyPtr, uint32 keyLength) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be set. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be set. </p>
+<p>keyPtr [in] </p>
+<p>Holds the pointer to the key data which shall be set as key element. </p>
+<p>keyLength [in] </p>
+<p>Contains the length of the key element in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element size </p>
+<p>does not match size of provided data. </p>
+<p><b>Functional Description </b></p>
+<p>Sets a key element. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Sets the given key element bytes to the key identified by cryptoKeyId. .  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-9  </p>
+<p>Crypto_30_CryWrapper_KeyElementSet </p>
+<p> </p>
+<p><b>5.2.5 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyValidSet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyValidSet </b>(uint32 cryptoKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key elements shall be set to valid. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Sets the key to valid. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Sets the key state of the key identified by cryptoKeyId to valid.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-10  </p>
+<p>Crypto_30_CryWrapper_KeyValidSet </p>
+<p> </p>
+<p><b>5.2.6 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyElementGet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyElementGet </b>(uint32 cryptoKeyId, uint32 </p>
+<p>keyElementId, uint8 *resultPtr, uint32 *resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be set. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be set. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p>resultPtr [in] </p>
+<p>Holds the pointer to the key data which shall be set as key element. </p>
+<p>resultLengthPtr [in] </p>
+<p>Contains the length of the key element in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the provided buffer is too </p>
+<p>small to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to get a key element of the key identified by the cryptoKeyId and store the key </p>
+<p>element in the memory location pointed by the result pointer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-11  </p>
+<p>Crypto_30_CryWrapper_KeyElementGet </p>
+<p> </p>
+<p><b>5.2.7 </b></p>
+<p><b>Crypto_30_CryWrapper_RandomSeed </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_RandomSeed </b>(uint32 cryptoKeyId, const uint8 </p>
+<p>*entropyPtr, uint32 entropyLength) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key for which a new seed shall be generated. </p>
+<p>entropyPtr [in] </p>
+<p>Holds a pointer to the memory location which contains the data to feed the </p>
+<p>entropy. </p>
+<p>entropyLength [in] </p>
+<p>Contains the length of the entropy in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Initialize the seed. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function generates the internal seed state using the provided entropy source. Furthermore, this </p>
+<p>function can be used to update the seed state with new entropy. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-12  </p>
+<p>Crypto_30_CryWrapper_RandomSeed </p>
+<p> </p>
+<p><b>5.2.8 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyGenerate </b>(uint32 cryptoKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key which is to be updated with the generated value. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Generates a key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-13  </p>
+<p>Crypto_30_CryWrapper_KeyGenerate </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.9 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyDerive </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyDerive </b>(uint32 cryptoKeyId, uint32 </p>
+<p>targetCryptoKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key which is used for key derivation. </p>
+<p>targetCryptoKeyId [in] </p>
+<p>Holds the identifier of the key which is used to store the derived key. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Derives a key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-14  </p>
+<p>Crypto_30_CryWrapper_KeyDerive </p>
+<p> </p>
+<p><b>5.2.10 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyExchangeCalcPubVal </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyExchangeCalcPubVal </b>(uint32 cryptoKeyId, </p>
+<p>uint8 *publicValuePtr, uint32 *publicValueLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used for the key exchange </p>
+<p>protocol. </p>
+<p>publicValuePtr [out] </p>
+<p>Contains the pointer to the data where the public value shall be stored. </p>
+<p>publicValueLengthPtr </p>
+<p>[in,out] </p>
+<p>Holds a pointer to the memory location in which the public value length </p>
+<p>information is stored. On calling this function, this parameter shall contain the </p>
+<p>size of the buffer provided by publicValuePtr. When the request has finished, </p>
+<p>the actual length of the returned value shall be stored. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Calculation of the public value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-15  </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcPubVal </p>
+<p> </p>
+<p><b>5.2.11 </b></p>
+<p><b>Crypto_30_CryWrapper_KeyExchangeCalcSecret </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_KeyExchangeCalcSecret </b>(uint32 cryptoKeyId, </p>
+<p>const uint8 *partnerPublicValuePtr, uint32 partnerPublicValueLength) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used for the key exchange </p>
+<p>protocol. </p>
+<p>partnerPublicValuePtr [in] </p>
+<p>Holds the pointer to the memory location which contains the partners public </p>
+<p>value. </p>
+<p>partnerPublicValueLength </p>
+<p>[in] </p>
+<p>Contains the length of the partners public value in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Calculation of the secret. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-16  </p>
+<p>Crypto_30_CryWrapper_KeyExchangeCalcSecret </p>
+<p> </p>
+<p><b>5.2.12 </b></p>
+<p><b>Crypto_30_CryWrapper_CertificateParse </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_CertificateParse </b>(uint32 cryptoKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key slot in which the certificate has been stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Parse stored certificate. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-17  </p>
+<p>Crypto_30_CryWrapper_CertificateParse </p>
+<p> </p>
+<p><b>5.2.13 </b></p>
+<p><b>Crypto_30_CryWrapper_CertificateVerify </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>Crypto_30_CryWrapper_CertificateVerify </b>(uint32 cryptoKeyId, </p>
+<p>uint32 verifyCryptoKeyId, Crypto_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryptoKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used to validate the certificate. </p>
+<p>verifyCryptoKeyId [in] </p>
+<p>Holds the identifier of the key containing the certificate, which shall be verified. </p>
+<p>verifyPtr [out] </p>
+<p>Holds a pointer to the memory location which will contain the result of the </p>
+<p>certificate verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Certificate verification. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This API does not offer any functionality and is only available for compatibility </p>
+<p>reasons. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-18  </p>
+<p>Crypto_30_CryWrapper_CertificateVerify </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by CRYPTO </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>CRYPTO </p>
+<p>are </p>
+<p>listed. </p>
+<p>For </p>
+<p>details </p>
+<p>about </p>
+<p>prototype </p>
+<p>and </p>
+<p>functionality </p>
+<p>refer </p>
+<p>to </p>
+<p>the </p>
+<p>documentation of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>Table 5-19  </p>
+<p>Services used by the CRYPTO </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the CRYPTO the attributes can be configured according to/ with the following methods/ </p>
+<p>tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator 5 Pro </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The CRYPTO supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The </p>
+<p>configuration </p>
+<p>classes </p>
+<p>of </p>
+<p>the </p>
+<p>CRYPTO </p>
+<p>parameters </p>
+<p>depend </p>
+<p>on </p>
+<p>the </p>
+<p>supported </p>
+<p>configuration </p>
+<p>variants. </p>
+<p>For </p>
+<p>their </p>
+<p>definitions </p>
+<p>please </p>
+<p>see </p>
+<p>the </p>
+<p>Crypto_30_CryWrapper_bswmd.arxml file. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>37 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>CSM </p>
+<p>Crypto Service Manager </p>
+<p>CRYIF </p>
+<p>Crypto Interface </p>
+<p>CRYPTO </p>
+<p>Crypto Driver </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>SHE </p>
+<p>Secure Hardware Extension </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRYPTO </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.1.0 </p>
+<p>38 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

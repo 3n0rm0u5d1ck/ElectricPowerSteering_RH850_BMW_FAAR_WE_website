@@ -1,0 +1,433 @@
+---
+layout: default
+title: OmcClassic_IntegrationManual
+nav_order: 2
+parent: Omc
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Omc Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>BAC-6565: document callback mechanism to establish intrinsic safety</p>
+<p>(AllowModeChange and OmcOperatingModeCallout)</p>
+<p>5.1.1</p>
+<p>2017-10-12</p>
+<p>Version Update</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>Version Update</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>Initial version for SP2021</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>4</b></p>
+<p>1.1</p>
+<p>Functional overview</p>
+<p>4</p>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p><b>6</b></p>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>4.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>4.1.1</p>
+<p>RTE</p>
+<p>7</p>
+<p>4.1.2</p>
+<p>Det</p>
+<p>7</p>
+<p>4.1.3</p>
+<p>Dcm</p>
+<p>7</p>
+<p>4.1.4</p>
+<p>Dem</p>
+<p>7</p>
+<p>4.1.5</p>
+<p>Nvm</p>
+<p>7</p>
+<p>4.2</p>
+<p>Dependencies to other modules</p>
+<p>7</p>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>8</b></p>
+<p>5.1</p>
+<p>Configuration of other Modules</p>
+<p>8</p>
+<p>5.1.1</p>
+<p>Dcm</p>
+<p>8</p>
+<p>5.1.1.1</p>
+<p>Read Data By Identifer</p>
+<p>8</p>
+<p>5.1.1.2</p>
+<p>Routine Control</p>
+<p>8</p>
+<p>5.1.2</p>
+<p>NvM</p>
+<p>8</p>
+<p>5.1.3</p>
+<p>Dem</p>
+<p>9</p>
+<p>5.1.3.1</p>
+<p>Enable Condition</p>
+<p>9</p>
+<p>5.1.3.2</p>
+<p>Event</p>
+<p>9</p>
+<p>5.1.4</p>
+<p>BswM</p>
+<p>9</p>
+<p>5.1.5</p>
+<p>Det</p>
+<p>9</p>
+<p>5.2</p>
+<p>Provided Interfaces</p>
+<p>10</p>
+<p>5.2.1</p>
+<p>OmcOperatingMode and OmcExtendedOperatingMode</p>
+<p>10</p>
+<p>5.2.2</p>
+<p>OmcModesCalloutsResult</p>
+<p>10</p>
+<p>5.3</p>
+<p>Required Interfaces</p>
+<p>10</p>
+<p>5.3.1</p>
+<p>OmcModesCallouts</p>
+<p>10</p>
+<p>5.4</p>
+<p>Configuration</p>
+<p>10</p>
+<p>5.4.1</p>
+<p>OmcGeneral</p>
+<p>10</p>
+<p>5.4.1.1</p>
+<p>OmcDevErrorDetect</p>
+<p>10</p>
+<p>5.4.1.2</p>
+<p>OmcOperatingModeCallout</p>
+<p>11</p>
+<p>5.5</p>
+<p>Configuration of the RTE</p>
+<p>11</p>
+<p>5.5.1</p>
+<p>Event Mapping</p>
+<p>11</p>
+<p>5.5.2</p>
+<p>Data Mapping</p>
+<p>11</p>
+<p>5.5.2.1</p>
+<p>Dcm</p>
+<p>11</p>
+<p>5.5.2.2</p>
+<p>Det</p>
+<p>11</p>
+<p>5.5.3</p>
+<p>Dem</p>
+<p>11</p>
+<p>5.5.4</p>
+<p>NvM</p>
+<p>11</p>
+<p>5.5.5</p>
+<p>BswM</p>
+<p>11</p>
+<p>5.5.6</p>
+<p>Exclusive Areas</p>
+<p>12</p>
+<p>5.6</p>
+<p>Software Integration</p>
+<p>12</p>
+<p>5.6.1</p>
+<p>Startup/Initialization</p>
+<p>12</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5.6.2</p>
+<p>Normal Operation</p>
+<p>12</p>
+<p>5.6.3</p>
+<p>Shutdown/Deactivation</p>
+<p>12</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>This Integration Manual describes the basis functionality, API and the configuration and integration of the</p>
+<p>BMW System Function Omc.</p>
+<p><b>Functional overview</b></p>
+<p>The main objective of the Omc functionality is to maintain the current Operating Mode of an ECU.</p>
+<p>This means:</p>
+<p>Allowing the change of the current Operating Mode via diagnostic request</p>
+<p>Saving the current Operating Mode to Non Volatile RAM (NVRAM)</p>
+<p>Enabling/disabling Dem (more concrete: Setting/Unsetting a enable condition)</p>
+<p>Providing the current Operating Mode to other software components.</p>
+<p>The Omc module distinguishes the following vehicle operating modes:</p>
+<p>NORMAL</p>
+<p>ASSEMBLY</p>
+<p>TRANSPORT</p>
+<p>FLASH</p>
+<p>Note that in different documents these modes are sometimes called &quot;energy modes&quot; sometimes called</p>
+<p>&quot;operating modes&quot;. Although both terms are equivalent, we strictly use the term operating mode.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p>No limitations are known.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 6 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p>The current version of the Module Omc depends on the following BSW modules:</p>
+<p><b>RTE</b></p>
+<p>As a software component, the Omc module uses Rte client/server communication to communicate with</p>
+<p>other SWCs and BSW. Additionally the scheduling is done by the Rte.</p>
+<p><b>Det</b></p>
+<p>In case Det usage is enabled in the Omc configuration, Omc will report development errors by using the</p>
+<p>Det functionality.</p>
+<p><b>Dcm</b></p>
+<p>The Dcm will call functionality of the Omc module when a RDBI for the operating mode or the extended</p>
+<p>operating mode has been received. The corresponding R-ports of the Dcm for these two identifiers must</p>
+<p>be connected with the corresponding P-ports of the Omc.</p>
+<p><b>Dem</b></p>
+<p>The Omc use the operation SetEventStatus of the CSI DiagnosticMonitor to set an Event via Rte. It also</p>
+<p>uses the ClientServer Interface of service EnableCondition.</p>
+<p><b>Nvm</b></p>
+<p>The Omc relies on services provided by the Nvm to store its persistent data regarding the current</p>
+<p>operating mode and current extended operating mode.</p>
+<p><b>Dependencies to other modules</b></p>
+<p>Omc does not have dependencies to other modules.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 7 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before this module can be generated, compiled and linked.</p>
+<p><b>Dcm</b></p>
+<p><b>Read Data By Identifer</b></p>
+<p><b>[]<i></b> d</i>Two Read Data By Identifier commands shall be configured within Dcm (22 10 0A and 22 10 0E).</p>
+<p><i>c</i>(DK_T3_736, DK_T3_762, FZM_SC_SYS_PA_335, DK_T3_1255)</p>
+<p>DcmDspDataSize shall be set to 8</p>
+<p>DcmDspDataUsePort shall be set to USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>DID shall be configured to be read in all sessions and security levels</p>
+<p><b>Routine Control</b></p>
+<p><b>[]<i></b> d</i>Two Routine Control commands shall be configured within Dcm (31 01 0F 0C and 31 01 10 03).</p>
+<p><i>c</i>(DK_T3_720, DK_T3_725, DK_T3_727, DK_T3_729, DK_T3_751, FZM_SC_SYS_PA_334,</p>
+<p>FZM_SC_SYS_PA_334)</p>
+<p>DcmDspRoutineFixedLength shall be true</p>
+<p>DcmDspRoutineUsePort shall be true</p>
+<p>Only DcmDspStartRoutineIn shall be configured</p>
+<p>DcmDspRoutineSignalLength shall be set to 8</p>
+<p>DcmDspRoutineSignalPos shall be set to 0</p>
+<p><b>NvM</b></p>
+<p>The Omc needs a Nvm block to store the operating mode:</p>
+<p><b>[]<i></b> d</i></p>
+<p>block size shall be set to 2 bytes</p>
+<p>Ram block address shall be set to Omc_NvData</p>
+<p>Rom block address shall be set to Omc_DefaultNvData</p>
+<p>NvmBlockManagementType shall be set to NVM_BLOCK_NATIVE</p>
+<p>NvmBlockUseCrc shall be disabled</p>
+<p>NvmSelectBlockForReadall shall be set to true</p>
+<p><i>c</i>(DK_T3_743, FZM_SC_SYS_PA_169, FZM_SC_SYS_PA_329, FZM_SC_SYS_PA_171,</p>
+<p>FZM_SC_SYS_PA_331)</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 8 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Dem</b></p>
+<p><b>Enable Condition</b></p>
+<p>A EnableCondition for Omc shall be configured wihtin Dem.</p>
+<p>This EnableCondition shall be referenced by all EnableConditionGroups in the system, that depend on</p>
+<p>this EnableCondition.</p>
+<p>Example: At BMW the permission to report communication error relevant Dem events depends on the</p>
+<p>state of different sources (operating mode, diagnostic state and Stm centralErrorLock). Each of these</p>
+<p>sources is connected to its own EnableCondition and all these conditions are combined in one</p>
+<p>EnableConditionGroup.</p>
+<p>At the end, all Dem Events that represent communication errors shall reference this EnableGroup via their</p>
+<p>DemEnableConditionGroupRef parameter.</p>
+<p><b>Event</b></p>
+<p>An Dem event shall be configured for Omc.</p>
+<p><b>[]<i></b> d</i></p>
+<p>DTC vale shall be set to 0x020000 + 0x100 * ECU_Address</p>
+<p>Event destination: primary origin</p>
+<p>Event kind: DEM_EVENT_KIND_SWC</p>
+<p>A Clear Event Allowed port shall be configured via Rte</p>
+<p>Operation Cycle: this event shall reference an operation cycle which is started before OmcMode is INIT</p>
+<p>and stays in this state until OmcMode is STOP.</p>
+<p><i>c</i>(DK_T3_711)</p>
+<p><b>BswM</b></p>
+<p>The BswM controls the states of the Omc module.</p>
+<p>BswMModeRequestPort for the Omc operation mode</p>
+<p>BswMRules to switch the Omc operation mode</p>
+<p>BswMRteSwitch actions for the Omc operation mode</p>
+<p><b>Det</b></p>
+<p>A Omc entry shall be added to the Software Component List from Det.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 9 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Provided Interfaces</b></p>
+<p><b>OmcOperatingMode and OmcExtendedOperatingMode</b></p>
+<p>The Omc provides two RTE Modes which indicate the operating and extended operating mode which are</p>
+<p>currently active.</p>
+<p><b>OmcModesCalloutsResult</b></p>
+<p>This interface may be used by the user if OmcOperatingModeCallout is set to true when the interfaces</p>
+<p>AllowOpModeSwitch or OpModeSwitchCancelled returns RUNNING.</p>
+<p>The user may indicate over this interface using the following operations:</p>
+<p>OpModeSwitchAllowedResult: shall be called if AllowOpModeSwitch returned</p>
+<p>E</p>
+<p><i>R</i></p>
+<p><i>U N N IN Gtoinf ormtheOmcif amodeorextendedmodeswitchisallowedornot.OpM odeSwitchCancelledAck</i> :</p>
+<p><i>shallbecalledif OpM odeSwitchCancelledreturnedE</i></p>
+<p><i>R</i></p>
+<p><i>U N N IN Gtoinf ormtheOmcthatthemodeorextendedmodeswitchhasbeencancelled.</i></p>
+<p><b>Required Interfaces</b></p>
+<p><b>OmcModesCallouts</b></p>
+<p>The user has to provide this this interface if the parameter OmcOperatingModeCallout is set to true.</p>
+<p>The following two opereations shall be implemented:</p>
+<p>AllowOpModeSwitch: is called by Omc during a diagnose request to change the operating or extended</p>
+<p>operating mode. The user will be able to accept or deny this request.</p>
+<p>OpModeSwitchCancelled: if the interface AllowOpModeSwitch has been called and the operating or</p>
+<p>extended operating mode change is not performed the user is informed over this interface that the</p>
+<p>change has been cancelled. This may happens e.g. if an error occurs while trying to store the new</p>
+<p>operating mode in non volatile memory.</p>
+<p><b>Configuration</b></p>
+<p><b>OmcGeneral</b></p>
+<p>This container contains the configuration parameters of the Omc</p>
+<p><b>OmcDevErrorDetect</b></p>
+<p>Activate/Deactivate the Development Error Detection and Notification.</p>
+<p>If set to true: Development Error Detection and Notification activated. If set to false: Development Error</p>
+<p>Detection and Notification deactivated.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 10 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>OmcOperatingModeCallout</b></p>
+<p>Activate/Deactivate an user callback to be able to accept or deny a mode or extended mode change. If</p>
+<p>set to true: The application provides one or more instances of the service AllowModeChange. The user</p>
+<p>may control over this interface if mode or extended mode change is allowed or not. The user is only</p>
+<p>called to allow or not a mode or extended mode change only if the mode change has already be</p>
+<p>accepted by StdDiag. If set to false: Omc decides with StdDiag if a mode or extended mode change</p>
+<p>allowed is or not.</p>
+<p><b>Configuration of the RTE</b></p>
+<p><b>Event Mapping</b></p>
+<p>The followings runnable entities shall be mapped:</p>
+<p>Init</p>
+<p>RollbackModeChange</p>
+<p><b>Data Mapping</b></p>
+<p><b>Dcm</b></p>
+<p>The port ControlEnergySavingState shall be connected to the Dcm generated</p>
+<p>RoutineServices_&lt;xxx&gt; see 6.1 Dcm, Routine Control.</p>
+<p>The port ControlExtendedEnergySavingState shall be connected to the Dcm generated</p>
+<p>RoutineServices_&lt;xxx&gt; see 6.1 Dcm, Routine Control.</p>
+<p>The port EnergySavingState shall be connected to the Dcm generated DataServices_&lt;xxx&gt; see 6.1</p>
+<p>Dcm, Read Data By Identifier</p>
+<p>The port ExtendedEnergySavingState shall be connected to the Dcm generated</p>
+<p>DataServices_&lt;xxx&gt; see 6.1 Dcm, Read Data By Identifier.</p>
+<p><b>Det</b></p>
+<p>The port DETServicePort shall be connected to the Det generated service port see 6.1 Dem, Det.</p>
+<p><b>Dem</b></p>
+<p>The port ClearEventAllowedPort shall be connected to the Dem generated clear event allowed port</p>
+<p>see 6.1 Dem, Event.</p>
+<p>The port operatingModeEvent shall be connected to the Dem generated Diagnostic Monitor port</p>
+<p>see 6.1 Dem, Event.</p>
+<p><b>NvM</b></p>
+<p>The port NvMServicePort shall be connected to the NvM generated service port see 6.1. NvM.</p>
+<p><b>BswM</b></p>
+<p>The port notificationOMCModePort shall be connected to the BswM generated mode switch port</p>
+<p>see 6.1 BswM.</p>
+<p>The prot requestOmcModePort shall be connected to the BswM generated mode request port see</p>
+<p>6.1. BswM.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 11 of 12</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Exclusive Areas</b></p>
+<p>Omc uses one Exclusive Area called Mode.</p>
+<p><b>Software Integration</b></p>
+<p><b>Startup/Initialization</b></p>
+<p>The NvM ReadAll shall be complete before the Omc mode OMC_INITIALIZED is requested. The</p>
+<p>initialization is complete when the mode switch to OMC_INITIALIZED (triggered by Omc) is completed.</p>
+<p>While in OMC_INITIALIZED the integrator shall decide the best moment to BswM to request</p>
+<p>OMC_RUNNING. After requesting OMC_RUNNING Omc will switch the mode to OMC_RUNNING.</p>
+<p>When the switch is completed the Omc will be running.</p>
+<p>To request a specific state the user shall use the port LifeCycleRequest.</p>
+<p><b>Normal Operation</b></p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>The BswM shall request the Omc Mode to OMC_STOPPED to stop the Omc SW-C. The module is</p>
+<p>stopped when the mode switch to OMC_STOPPED (triggered by Omc) is completed.</p>
+<p>OmcClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 12 of 12</p>
+</body>
+</html>
+{% endraw %}

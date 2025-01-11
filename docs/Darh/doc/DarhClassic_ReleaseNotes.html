@@ -1,0 +1,169 @@
+---
+layout: default
+title: DarhClassic_ReleaseNotes
+nav_order: 3
+parent: Darh
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes DarhClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.1.0</p>
+<p>2017-12-14</p>
+<p>BAC-6651</p>
+<p>5.0.2</p>
+<p>2017-11-09</p>
+<p>BAC-6506</p>
+<p>5.0.1</p>
+<p>2017-10-12</p>
+<p>BAC-6345, BAC-6196</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_DarhClassic, Version 5.1.0, Software Platforms</p>
+<p>Page 1 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The main objective of the Darh functionality is to send errors that occurred locally in the ECU and are</p>
+<p>reported to the Dem to a central master over the system bus. The idea is to collect errors of the individual</p>
+<p>ECUs in the vehicle in one central place to allow later analysis of error correlations between the different</p>
+<p>ECUs.</p>
+<p>For this purpose, errors are sent to the master containing timestamp information. This allows deducing</p>
+<p>the order in which errors occurred in the complete system and helps to find out the original reason of a</p>
+<p>complex causal loop.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6651</p>
+<p>CR Headline:</p>
+<p>Darh: only 1 DTC shall be transmitted at a time</p>
+<p>Description of Issues:</p>
+<p>Darh transmit one DTC each time.</p>
+<p>Description of Changes:</p>
+<p>Due to an update on the LH and the BNE the Darh will transmit</p>
+<p>only one DTC and timestamp each time.</p>
+<p>Changed Files:</p>
+<p>doc/DarhClassic_IntegrationManual.pdf</p>
+<p>src/Darh_ApplAdapter.c</p>
+<p>generate/meta/Darh_ext_interfaces.arxml.pgen</p>
+<p>generate/meta/Darh_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.2 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6506</p>
+<p>CR Headline:</p>
+<p>Adapt pgen templates to PAGe v1.1.0</p>
+<p>Description of Issues:</p>
+<p>Adapt pgen files to PAGe v1.1.0.</p>
+<p>Description of Changes:</p>
+<p>Adapted pgen files to PAGe v1.1.0.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Darh_ext_interfaces.arxml.pgen</p>
+<p>generate/include/DarhClassic_Cfg.h.pgen</p>
+<p>generate/meta/Darh_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6345</p>
+<p>CR Headline:</p>
+<p>Darh: Dem_EventIdType has to be uint16</p>
+<p>ReleaseNotes_DarhClassic, Version 5.1.0, Software Platforms</p>
+<p>Page 2 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Dem_EventIdType is defined in AUTOSAR as uint16 and not</p>
+<p>uint32.</p>
+<p>Description of Changes:</p>
+<p>Dem_EventIdType has been changed to uint16.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Darh_ext_interfaces.arxml.pgen</p>
+<p>src/Darh_ApplAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6196</p>
+<p>CR Headline:</p>
+<p>Darh: Implementation of Darh_SetRoeSuspendedHandler()</p>
+<p>missing</p>
+<p>Description of Issues:</p>
+<p>The runnable SetRoeSuspended was not implemented in code.</p>
+<p>Description of Changes:</p>
+<p>The runnable SetRoeSuspended with the Symbol</p>
+<p>Darh_SetRoeSuspendedHandler has been implemented.</p>
+<p>Changed Files:</p>
+<p>src/Darh_ApplAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_DarhClassic, Version 5.1.0, Software Platforms</p>
+<p>Page 3 of 3</p>
+</body>
+</html>
+{% endraw %}

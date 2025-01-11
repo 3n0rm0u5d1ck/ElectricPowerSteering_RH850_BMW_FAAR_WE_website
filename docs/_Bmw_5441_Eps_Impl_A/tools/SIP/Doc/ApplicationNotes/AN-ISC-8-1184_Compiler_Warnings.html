@@ -1,0 +1,453 @@
+---
+layout: default
+title: AN-ISC-8-1184_Compiler_Warnings
+nav_order: 43
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p><b>Compiler Warnings </b></p>
+<p>Version 1.0 </p>
+<p>2015-11-02 </p>
+<p>Application Note AN-ISC-8-1184 </p>
+<p><b>Author </b></p>
+<p>Andreas Raisch </p>
+<p><b>Restrictions </b></p>
+<p>Customer confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>Warning free code is an important quality goal for embedded software. Nevertheless, </p>
+<p>compiler warnings can occur for highly configurable software. Typical compiler </p>
+<p>warnings are listed and justified within this document. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ........................................................................................................................................ 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Deviation Procedure ............................................................................................................ 3</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Default BSW Delivery Process ............................................................................................ 3</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Accepted Deviations ..................................................................................................................... 3</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Unused/unreferenced parameter/argument ......................................................................... 4</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Unused/unreferenced define, enum value ........................................................................... 4</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Unused/unreferenced variable ............................................................................................. 4</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>Unused/unreferenced function ............................................................................................. 5</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Condition evaluates always to true/false ............................................................................. 5</p>
+<p> </p>
+<p>2.6</p>
+<p> </p>
+<p>Unreachable code/statement ............................................................................................... 6</p>
+<p> </p>
+<p>2.7</p>
+<p> </p>
+<p>Dead assignment / variable set but not used ....................................................................... 6</p>
+<p> </p>
+<p>2.8</p>
+<p> </p>
+<p>ASM statements used .......................................................................................................... 6</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Additional Resources ................................................................................................................... 7</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Contacts ......................................................................................................................................... 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>MICROSAR BasicSoftware (BSW) is developed in a product line approach, independent from specific </p>
+<p>ECU projects or compilers. MICROSAR BSW supports the AUTOSAR MemoryAbstraction and </p>
+<p>CompilerAbstraction concepts and supports a huge range of different compiler vendors, versions and </p>
+<p>options. </p>
+<p>MICROSAR BSW is delivered as static source code and code generators to support the ECU project </p>
+<p>specific adaption and optimization of the BSW behavior and feature set based on AUTOSAR </p>
+<p>configuration files and user defined selections. </p>
+<p>Additionally, MICROSAR BSW supports compile time configuration, link time configuration and post-</p>
+<p>build configuration. </p>
+<p> </p>
+<p>Figure 1 MICROSAR BSW Component </p>
+<p>A general quality goal for MICROSAR BSW is “warning free code”. The coding style guide for </p>
+<p>MICROSAR BSW is based on MISRA-C:2004. Checks for MISRA compliance are an essential part of </p>
+<p>our development process. Based on “HIS Gemeinsames Subset der MISRA C Guidelines v2.0“ </p>
+<p>(http://www.automotive-his.de) all rules are active. </p>
+<p>Nevertheless, we accept deviations to the “warning free code” goal based on the here defined list of </p>
+<p>exceptions. Known and accepted deviations are reported within the delivery as ESCAN type “Warning </p>
+<p>in released product”. </p>
+<p>Document [2] explains the relationship between user-selected code generation (optimization) options </p>
+<p>and compiler warnings. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1.1 </b></p>
+<p><b>Deviation Procedure </b></p>
+<p><b>Priority </b></p>
+<p><b>Rule </b></p>
+<p><b>Rationale </b></p>
+<p>1 </p>
+<p>MICROSAR BSW shall be compiler </p>
+<p>warning free. Thus, compiler warnings </p>
+<p>shall be prevented wherever possible. </p>
+<p>Detection of compiler warning either during </p>
+<p>component development or more frequently </p>
+<p>when applying the customer specific </p>
+<p>compiler/options/BSW configuration during </p>
+<p>the delivery tests. </p>
+<p>2 </p>
+<p>If a compiler warning is detected, the code </p>
+<p>shall be analyzed and, if reasonable, be </p>
+<p>changed/extended to become warning </p>
+<p>free. </p>
+<p>We want to prevent to deliver defect code to </p>
+<p>our customers. We also need to take into </p>
+<p>account e.g. runtime efficiency, maintainability </p>
+<p>and standardized code for many use-cases. </p>
+<p>3 </p>
+<p>If fixing the compiler warning is not a </p>
+<p>solution, an ESCAN of type “Warning in </p>
+<p>released product” shall be created to </p>
+<p>document the accepted deviation also in </p>
+<p>the report of known issues of deliveries. </p>
+<p>See list of accepted deviations in this </p>
+<p>document. </p>
+<p>Table 1 Priority of measures to prevent compiler warnings </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>Default BSW Delivery Process </b></p>
+<p>The configuration and compilation and linkage during the delivery test activities yield most of the </p>
+<p>compiler warnings, because the development tool chain and settings specified by you are used. </p>
+<p>The process in short is: </p>
+<p><b>&gt; </b></p>
+<p>Customer specifies the compiler brand, version and options (via Questionnaire) and provides </p>
+<p>more information on the expected use-case </p>
+<p><b>&gt; </b></p>
+<p>Delivery engineer creates example configurations of the BSW and compiles and links the outcome </p>
+<p><b>&gt; </b></p>
+<p>Compiler warnings are analyzed and either documented as ESCAN of type “Warning in released </p>
+<p>product” or reported to the development teams to trigger a fix. </p>
+<p><b>&gt; </b></p>
+<p>ESCANs of type “Issue in released product” and “Warning in released product” are reported within </p>
+<p>the delivery documentation as “known issues” </p>
+<p> </p>
+<p><b>2 </b></p>
+<p><b>Accepted Deviations  </b></p>
+<p>Deviations in this chapter are typically accepted as “Warning in released product” when  </p>
+<p><b>&gt; </b></p>
+<p>it has been checked that no incorrect behavior at ECU runtime occurs </p>
+<p><b>&gt; </b></p>
+<p>no simple remedy exists </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Information </b></p>
+<p>If a compiler warning has passed the analyzing steps according <i>Table 1 Priority of </i></p>
+<p><i>measures to prevent compiler warnings </i>and the result is still “accepted deviation”, the </p>
+<p>compiler warning will not be fixed in the product.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>4 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>2.1 </b></p>
+<p><b>Unused/unreferenced parameter/argument </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_001 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„Unreferenced formal parameters“, „parameter is never used“, „has no-used </p>
+<p>argument“ </p>
+<p><b>Reason </b></p>
+<p>BSW provides APIs as described by standards. Not all parameters are </p>
+<p>necessary and used within the function in all possible usage scenarios. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The function contains unused code. </p>
+<p><b>Prevention of risk </b></p>
+<p>Code inspection has to check that the unused code is not critical concerning </p>
+<p>the expected behavior. Small increase of ROM footprint is accepted. </p>
+<p><b>Note </b></p>
+<p>Workarounds for suppressing such compiler warnings often conflict with </p>
+<p>MISRA-C:2004, rule 14.2 (See MISRA Compliance Documentation, Deviation </p>
+<p>ID MD_MSR_14.2) </p>
+<p>Table 2 CW_001 </p>
+<p><b>2.2 </b></p>
+<p><b>Unused/unreferenced define, enum value </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_002 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„Unused enumeration values“, „Unused define value“ </p>
+<p><b>Reason </b></p>
+<p>Encapsulation of defines, enum-values and similar items for multiple complex </p>
+<p>configuration data sets (via #ifdef) reduces readability and maintainability. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>Defined but never used enums or defines may decrease readability and </p>
+<p>maintainability. </p>
+<p><b>Prevention of risk </b></p>
+<p>Execution of runtime tests with different configuration variants. </p>
+<p><b>Note </b></p>
+<p>- </p>
+<p>Table 3 CW_002 </p>
+<p><b>2.3 </b></p>
+<p><b>Unused/unreferenced variable </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_003 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„unreferenced local variable within abc.c“, „variable &quot;abc&quot; was declared but </p>
+<p>never referenced“, „Variables related to message supervision are set but </p>
+<p>never used“ </p>
+<p><b>Reason </b></p>
+<p>Because of goal &quot;minimize RAM footprint&quot;, unused variables shall be disabled </p>
+<p>via #ifdef based on configuration data sets.  </p>
+<p>Nevertheless, warning can occur for rare cases where encapsulation for </p>
+<p>multiple complex configuration data sets (via #ifdef) reduces readability and </p>
+<p>maintainability. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The function contains unused code. </p>
+<p><b>Prevention of risk </b></p>
+<p>Code inspection has to check that the unused variable is not critical </p>
+<p>concerning the expected behavior. Small increase of RAM footprint is </p>
+<p>accepted. </p>
+<p><b>Note </b></p>
+<p>- </p>
+<p>Table 4 CW_003 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>5 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>2.4 </b></p>
+<p><b>Unused/unreferenced function </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_004 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„Declared but unused function abc“, „unused static function abc“ </p>
+<p><b>Reason </b></p>
+<p>BSW provides APIs as described by standard. </p>
+<p>Because of goal &quot;minimize ROM footprint&quot;, unused functions shall be </p>
+<p>disabled via #ifdef based on configuration data sets.  </p>
+<p>Not all provided functions might be used in the concrete ECU project </p>
+<p>(configuration and usage dependent). Encapsulation for multiple complex </p>
+<p>configuration data sets (via #ifdef) reduces readability and maintainability and </p>
+<p>is thus not provided on a per-function base for all APIs. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The project contains unused code. </p>
+<p><b>Prevention of risk </b></p>
+<p>See “Reason” </p>
+<p><b>Note </b></p>
+<p>Partly addressed by MISRA-C:2004, rule 8.10 (See MISRA Compliance </p>
+<p>Documentation, Deviation ID MD_MSR_8.10) </p>
+<p>Table 5 CW_004 </p>
+<p><b>2.5 </b></p>
+<p><b>Condition evaluates always to true/false </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_005 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„conditional expression is constant“, „conditional expression or part of it is </p>
+<p>always true/false / statement not reached“, „condition is always true/false“, </p>
+<p>„compare out of range / condition is always true/false“, „The result of this </p>
+<p>logical operation is always 'false' or ‘true’“ </p>
+<p><b>Reason </b></p>
+<p>Typically caused by an if-statement applied on external configuration data. </p>
+<p>Configuration data is const for the given compilation context but might be </p>
+<p>changed at link-time or post-build time. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The function contains useless conditions with possibly dead code. </p>
+<p><b>Prevention of risk </b></p>
+<p>The code inspection is in charge to distinguish between useless conditions </p>
+<p>with possibly dead code and correct code as described in “reason”. </p>
+<p><b>Note </b></p>
+<p>- </p>
+<p>Table 6 CW_005 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>6 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>2.6 </b></p>
+<p><b>Unreachable code/statement </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_006 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>„conditional expression or part of it is always true/false / statement not </p>
+<p>reached“, „statement will never be executed“, „this switch default label is </p>
+<p>unreachable“ </p>
+<p><b>Reason </b></p>
+<p>Because of goal &quot;minimize ROM footprint&quot;, unreachable code shall be </p>
+<p>disabled via #ifdef based on configuration data sets. </p>
+<p>Nevertheless, warning might occur as secondary effect on e.g. &quot;condition </p>
+<p>evaluates to true/false&quot; </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The function contains unused code. </p>
+<p><b>Prevention of risk </b></p>
+<p>Code inspection has to check that the unused code is not critical concerning </p>
+<p>the expected behavior. Small increase of ROM footprint is accepted. </p>
+<p><b>Note </b></p>
+<p>Addressed by MISRA-C:2004, rule 14.1 (See MISRA Compliance </p>
+<p>Documentation, Deviation ID MD_MSR_14.1) </p>
+<p>Table 7 CW_006 </p>
+<p><b>2.7 </b></p>
+<p><b>Dead assignment / variable set but not used </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_007 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>“Variable 'abc' was set but never used“, „&quot;local variable is initialized but not </p>
+<p>referenced&quot;, „dead assignment to &quot;abc&quot; eliminated“, „Dead assignment </p>
+<p>(subtraction with zero)“, „Removed dead assignment“ </p>
+<p><b>Reason </b></p>
+<p>Variable shall be always assigned a valid value. Overwriting the value before </p>
+<p>use can therefore happen based on the assumed execution path. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>Yes </p>
+<p><b>Potential risk </b></p>
+<p>The function contains unused code and variables. </p>
+<p><b>Prevention of risk </b></p>
+<p>Code inspection has to check that the unused code is not critical concerning </p>
+<p>the expected behavior. Small increase of ROM/RAM footprint is accepted. </p>
+<p><b>Note </b></p>
+<p>- </p>
+<p>Table 8 CW_007 </p>
+<p><b>2.8 </b></p>
+<p><b>ASM statements used </b></p>
+<p><b>Deviation ID </b></p>
+<p>CW_008 </p>
+<p><b>Example compiler </b></p>
+<p><b>warning strings </b></p>
+<p>“asm statements used“ </p>
+<p><b>Reason </b></p>
+<p>MICROSAR is written in C but might use compiler specific ASM statements in </p>
+<p>rare cases. Usage of ASM is strictly limited by coding style guide. </p>
+<p><b>Configuration </b></p>
+<p><b>dependent </b></p>
+<p>No </p>
+<p><b>Potential risk </b></p>
+<p>ASM syntax is compiler and compiler version dependent. </p>
+<p><b>Prevention of risk </b></p>
+<p>Component release test and delivery test shows correct behavior. </p>
+<p><b>Note </b></p>
+<p>- </p>
+<p>Table 9 CW_008 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>7 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>3 </b></p>
+<p><b>Additional Resources </b></p>
+<p><b>No </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p>Vector </p>
+<p>Compliance Documentation MISRA-C:2004 / </p>
+<p>MICROSAR </p>
+<p>2.3.0 or later </p>
+<p>[2] </p>
+<p>Vector </p>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>2.0.0 or later </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compiler Warnings </p>
+<p> </p>
+<p>Copyright © 2015 - Vector Informatik GmbH </p>
+<p>8 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>4 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>   </p>
+</body>
+</html>
+{% endraw %}

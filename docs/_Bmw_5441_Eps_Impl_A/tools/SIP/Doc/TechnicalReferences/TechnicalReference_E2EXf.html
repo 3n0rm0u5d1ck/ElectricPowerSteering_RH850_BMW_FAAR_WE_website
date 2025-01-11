@@ -1,0 +1,1196 @@
+---
+layout: default
+title: TechnicalReference_E2EXf
+nav_order: 91
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR E2E Transformer </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.3.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Stephanie Schaaf </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Stephanie Schaaf </p>
+<p>2016-10-21 </p>
+<p>1.0.0 </p>
+<p>Initial version </p>
+<p>Stephanie Schaaf </p>
+<p>2017-03-21 </p>
+<p>1.1.0 </p>
+<p>Support for E2E profile 7 </p>
+<p>Bernd Sigle </p>
+<p>2017-06-06 </p>
+<p>1.2.0 </p>
+<p>Minor improvements </p>
+<p>Philipp Niethammer </p>
+<p>2017-08-15 </p>
+<p>1.3.0 </p>
+<p>Updated to match Autosar 4.3.0 </p>
+<p><b>Reference Documents </b></p>
+<p><b> </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_E2ETransformer.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>4.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DefaultErrorTracer.pdf </p>
+<p>4.3.0 </p>
+<p>[4] </p>
+<p>A </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_SWS_E2ELibrary.pdf </p>
+<p>4.3.0 </p>
+<p><b>Scope of the Document </b></p>
+<p>This technical reference describes the general use of the E2E Transformer. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 9</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations .......................................................................................... 9</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ......................................................................... 9</p>
+<p> </p>
+<p>3.1.2.1</p>
+<p> </p>
+<p>Memory Initialization ........................................................ 9</p>
+<p> </p>
+<p>3.1.3</p>
+<p> </p>
+<p>Limitations ........................................................................................ 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 10</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 10</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 10</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 11</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 12</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 12</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 12</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 12</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 13</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 13</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by E2EXf ............................................................................. 13</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>E2EXf_GetVersionInfo ..................................................................... 13</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>E2EXf_InitMemory ........................................................................... 14</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>E2EXf_Init ........................................................................................ 15</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>E2EXf_DeInit ................................................................................... 16</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>E2EXf_&lt;transformerId&gt; ................................................................... 17</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>E2EXf_Inv_&lt;transformerId&gt; ............................................................. 18</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by E2EXf ................................................................................... 20</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 21</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 21</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration of EndToEndTransformationComSpecProps .............................. 21</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 22</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 22</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 22</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 23</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR Architecture Overview ............................................................... 7</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the E2EXf .............................................. 8</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Configuration of EndToEndTransformationComSpecProps ....................... 21</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 9</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ................................. 9</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................... 9</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 10</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 11</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 12</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 12</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>E2EXf_ConfigType ................................................................................... 13</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>E2EXf_GetVersionInfo .............................................................................. 13</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>E2EXf_InitMemory .................................................................................... 14</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>E2EXf_Init ................................................................................................ 15</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>E2EXf_DeInit ............................................................................................ 16</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>E2EXf_&lt;transformerId&gt; ............................................................................ 17</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>E2EXf_Inv_&lt;transformerId&gt; ..................................................................... 19</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Services used by the E2EXf ..................................................................... 20</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 22</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 22</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.0.0 </p>
+<p>Initial creation</p>
+<p>  </p>
+<p>1.1.0 </p>
+<p>Support for E2E profile 7 </p>
+<p>1.2.0 </p>
+<p>Minor improvements </p>
+<p>1.3.0 </p>
+<p>Minor improvements </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module E2EXf as specified in [1]. </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>E2EXf_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>E2EXf_MODULE_ID   </p>
+<p>176 decimal </p>
+<p>(according to ref. [2]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The E2EXf module provides the functionality to ensure a correct communication. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the E2EXf is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR Architecture Overview   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p>The next figure shows the interfaces to adjacent modules of the E2EXf. These interfaces </p>
+<p>are described in chapter 5. </p>
+<p>  </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the E2EXf</p>
+<p> </p>
+<p><b> class Architecture</b></p>
+<p><b>Det</b></p>
+<p><b>E2ELib</b></p>
+<p><b>E2EXf</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>E2EXf. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further E2EXf functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Protect safety-related data elements </p>
+<p>Check safety-related data elements </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations</b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Post-build-selectable variant </p>
+<p>E2E profile 11 and 22 </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>Memory Initialization </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.1.2.1 </b></p>
+<p><b>Memory Initialization </b></p>
+<p>AUTOSAR  expects  the  startup  code  to  automatically  initialize  RAM.  Not  every  startup </p>
+<p>code of embedded targets reinitializes all variables correctly. It is possible that the state of </p>
+<p>a variable may not be initialized as expected. To avoid this problem the Vector AUTOSAR </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p>E2EXf provides an additional function to initialize the relevant variables of the E2EXf. See </p>
+<p>also chapters 3.2 and 5.2.2 for details. </p>
+<p><b>3.1.3 </b></p>
+<p><b>Limitations </b></p>
+<p>There are no known limitations. </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>The  E2E Transformer  is  initialized  by  calling </p>
+<p>E2EXf_Init()</p>
+<p>. This  is  done  by  the  ECU </p>
+<p>State Manager (EcuM). </p>
+<p>On platforms in which the Random Access Memory (RAM) is not initialized to zero by the </p>
+<p>startup  code  the  function </p>
+<p>E2EXf_InitMemory</p>
+<p>  has  to  be  called  first  and  then  a  call  to </p>
+<p>E2EXf_Init</p>
+<p> can be realized. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The E2EXf has no internal state machine, it is operational after initialization. </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>No main function exists because all functionality is performed within the called API. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [3],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>E2EXf_DEV_ERROR_DETECT == STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported E2EXf ID is 176. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>E2EXf_GetVersionInfo </p>
+<p>0x01 </p>
+<p>E2EXf_Init </p>
+<p>0x02 </p>
+<p>E2EXf_DeInit </p>
+<p>0x03 </p>
+<p>E2EXf_&lt;transformerId&gt; </p>
+<p>0x04 </p>
+<p>E2EXf_Inv_&lt;transformerId&gt; </p>
+<p>Table 3-4  </p>
+<p>Service IDs </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>API service used without module initialization </p>
+<p>0x02 </p>
+<p>Invalid configuration set was selected </p>
+<p>0x03 </p>
+<p>API service called with wrong parameter </p>
+<p>0x04 </p>
+<p>API service called with invalid pointer </p>
+<p>Table 3-5  </p>
+<p>Errors reported to DET </p>
+<p><b>3.5.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>No production errors are speciﬁed for E2EXf. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR E2EXf into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the E2EXf contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>E2EXf.c </p>
+<p>Main implementation file of the E2EXf. </p>
+<p>E2EXf.h </p>
+<p>Main header file of the E2EXf. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>E2EXf_LCfg.c </p>
+<p>Definitions of all structures in link-time variant. </p>
+<p>E2EXf_LCfg.h </p>
+<p>Declarations of all structures in link-time variant. </p>
+<p>E2EXf_MemMap.h </p>
+<p>Template contains E2EXf specific part of the memory mapping. </p>
+<p>E2EXf_Compiler_Cfg.h </p>
+<p>Template contains E2EXf specific part of the compiler abstraction. </p>
+<p>E2EXf_rules.mak, </p>
+<p>E2EXf_defs.mak, </p>
+<p>E2EXf_check.mak, </p>
+<p>E2EXf_cfg.mak </p>
+<p>Make files according to the AUTOSAR make environment proposal are </p>
+<p>generated into the mak subdirectory. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the E2EXf are described in this chapter. </p>
+<p><b> E2EXf_ConfigType </b></p>
+<p>This structure contains the configuration for the E2E Transformer. Currently it only contains </p>
+<p>a dummy element since the post-build selectable variant is not yet supported. </p>
+<p><b>Struct Element Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>E2EXf_dummy </p>
+<p>uint8 </p>
+<p>dummy element </p>
+<p>-</p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>E2EXf_ConfigType </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by E2EXf </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>E2EXf_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>E2EXf_GetVersionInfo</b></p>
+<p> </p>
+<p>( Std_VersionInfoType *versioninfo )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>versioninfo </p>
+<p>Pointer to the memory location holding the version information of the E2EXf. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This API can be used to get the version information of the E2EXf. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This API is only available if enabled by the configuration parameter </p>
+<p>E2EXf_VersionInfoApi</p>
+<p>. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p>Table 5-2  </p>
+<p>E2EXf_GetVersionInfo </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.2 </b></p>
+<p><b>E2EXf_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>E2EXf_InitMemory</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the global variables in case an initializing startup code is not used. This function sets the E2EXf </p>
+<p>into an uninitialized state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>If this function is used it shall be called before any other E2EXf function after startup. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task context </p>
+<p>Table 5-3  </p>
+<p>E2EXf_InitMemory </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.3 </b></p>
+<p><b>E2EXf_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>E2EXf_Init</b></p>
+<p> </p>
+<p>( E2EXf_ConfigType *config )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>config </p>
+<p>Pointer to a selected configuration structure, in the post-build-selectable </p>
+<p>variant. NULL in link-time variant. </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the state of the E2E Transformer. The main part of it is the initialization of the E2E library state </p>
+<p>structures, which is done by calling all init-functions from E2E library. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This API should be called by the ECU State Manger during the startup phase.  </p>
+<p><b>&gt; </b></p>
+<p>This function has to be called before any other E2EXf service function is called   </p>
+<p>(except </p>
+<p>E2EXf_InitMemory()</p>
+<p>). </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task context </p>
+<p>Table 5-4  </p>
+<p>E2EXf_Init </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.4 </b></p>
+<p><b>E2EXf_DeInit </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>E2EXf_DeInit</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Deinitializes the E2E transformer. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This function shall be called only when the E2E transformer is initialized. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task context </p>
+<p>Table 5-5  </p>
+<p>E2EXf_DeInit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.5 </b></p>
+<p><b>E2EXf_&lt;transformerId&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>E2EXf_&lt;transformerId&gt;</b></p>
+<p> </p>
+<p>( uint8 *buffer, uint16 *bufferLength,  </p>
+<p>                           const uint8 *inputBuffer, uint16 inputBufferLength )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>buffer </p>
+<p>This is the buffer allocated by the RTE, where the E2E transformer places its </p>
+<p>output data. </p>
+<p>If the E2E transformer is configured for in-place transformation, it also </p>
+<p>contains its input data. </p>
+<p>bufferLength </p>
+<p>Used length of the output buffer. </p>
+<p>inputBuffer </p>
+<p>If the E2E transformer is configured for out-of-place transformation, this buffer </p>
+<p>holds the input data for the transformer. </p>
+<p>If executeDespiteDataUnavailability is set to true and the transformer is </p>
+<p>executed without valid input data, RTE will hand over a NULL pointer to the </p>
+<p>transformer. </p>
+<p>inputBufferLength </p>
+<p>This argument holds the length of the E2E transformer’s input data (in the </p>
+<p>inputBuffer argument). </p>
+<p>If executeDespiteDataUnavailability is set to true and the transformer is </p>
+<p>executed without valid input data, the length will be equal to 0. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>0x00 (E_OK): Function performed successfully. </p>
+<p>0x77 (E_SAFETY_SOFT_RUNTIMEERROR): </p>
+<p>A runtime error occurred, safety properties could not be checked (state or </p>
+<p>status cannot be determined) but non-protected output data could be </p>
+<p>produced nonetheless. </p>
+<p>0xFF (E_SAFETY_HARD_RUNTIMEERROR):  </p>
+<p>A runtime error occurred, safety properties could not be checked and no </p>
+<p>output data could be produced. </p>
+<p><b>Functional Description </b></p>
+<p>Protects the data to be transmitted. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task or ISR2 context </p>
+<p>Table 5-6  </p>
+<p>E2EXf_&lt;transformerId&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.2.6 </b></p>
+<p><b>E2EXf_Inv_&lt;transformerId&gt; </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>E2EXf_Inv_&lt;transformerId&gt;</b></p>
+<p> </p>
+<p>( uint8 *buffer, uint16 *bufferLength,  </p>
+<p>                           const uint8 *inputBuffer, uint16 inputBufferLength )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>buffer </p>
+<p>This is the buffer allocated by the RTE, where the E2E transformer places its </p>
+<p>output data. </p>
+<p>If the E2E transformer is configured for in-place transformation, it also </p>
+<p>contains its input data. </p>
+<p>bufferLength </p>
+<p>Used length of the output buffer. </p>
+<p>inputBuffer </p>
+<p>If the E2E transformer is configured for out-of-place transformation, this buffer </p>
+<p>holds the input data for the transformer. </p>
+<p>If executeDespiteDataUnavailability is set to true and the transformer is </p>
+<p>executed without valid input data, RTE will hand over a NULL pointer to the </p>
+<p>transformer. </p>
+<p>inputBufferLength </p>
+<p>This argument holds the length of the E2E transformer’s input data (in the </p>
+<p>inputBuffer argument). </p>
+<p>If executeDespiteDataUnavailability is set to true and the transformer is </p>
+<p>executed without valid input data, the length will be equal to 0. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>The high nibble represents the state of the E2E state machine, </p>
+<p>the low nibble represents the status of the last E2E check. </p>
+<p>0x00 (E_OK): The communication is safe. </p>
+<p>0x01 (E_SAFETY_VALID_REP): </p>
+<p>The data are valid according to safety, although data with a repeated counter </p>
+<p>were received. </p>
+<p>0x02 (E_SAFETY_VALID_SEQ): </p>
+<p>The data are valid according to safety, although a counter jump occurred. </p>
+<p>0x03 (E_SAFETY_VALID_ERR): </p>
+<p>The data are valid according to safety, although the check itself failed. </p>
+<p>0x20 (E_SAFETY_NODATA_OK): </p>
+<p>No data are available since initialization of transformer. </p>
+<p>0x21 (E_SAFETY_NODATA_REP): </p>
+<p>No data are available since initialization of transformer because a repeated </p>
+<p>counter was received. </p>
+<p>0x22 (E_SAFETY_NODATA_SEQ): </p>
+<p>No data are available since initialization of transformer and a counter jump </p>
+<p>occurred. </p>
+<p>0x23 (E_SAFETY_NODATA_ERR): </p>
+<p>No data are available since initialization of transformer. Therefore the check </p>
+<p>failed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p>0x30 (E_SAFETY_INIT_OK): </p>
+<p>Not enough data were received to use them. </p>
+<p>0x31 (E_SAFETY_INIT_REP): </p>
+<p>Not enough data were received to use them but some with a repeated counter </p>
+<p>were received. </p>
+<p>0x32 (E_SAFETY_INIT_SEQ): </p>
+<p>Not enough data were received to use them, additionally a counter jump </p>
+<p>occurred. </p>
+<p>0x33 (E_SAFETY_INIT_ERR): </p>
+<p>Not enough data were received to use them, additionally a check failed. </p>
+<p>0x40 (E_SAFETY_INVALID_OK): </p>
+<p>The data are invalid and cannot be used. </p>
+<p>0x41 (E_SAFETY_INVALID_REP): </p>
+<p>The data are invalid and cannot be used because a repeated counter was </p>
+<p>received. </p>
+<p>0x42 (E_SAFETY_INVALID_SEQ): </p>
+<p>The data are invalid and cannot be used due to a counter jump. </p>
+<p>0x43 (E_SAFETY_INVALID_ERR): </p>
+<p>The data are invalid and cannot be used because a check failed. </p>
+<p>0x77 (E_SAFETY_SOFT_RUNTIMEERROR): </p>
+<p>A runtime error occurred, safety properties could not be checked (state or </p>
+<p>status cannot be determined) but non-protected output data could be </p>
+<p>produced nonetheless. </p>
+<p>0xFF (E_SAFETY_HARD_RUNTIMEERROR): </p>
+<p>A runtime error occurred, safety properties could not be checked and no </p>
+<p>output data could be produced. </p>
+<p><b>Functional Description </b></p>
+<p>Checks the received data. If the data can be used by the caller, then the function returns E_OK. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Task or ISR2 context </p>
+<p>Table 5-7  </p>
+<p>E2EXf_Inv_&lt;transformerId&gt; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by E2EXf </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>E2EXf are listed. For details about prototype and functionality refer to the documentation </p>
+<p>of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET ([3]) </p>
+<p>Det_ReportError </p>
+<p>E2ELibrary ([4]) </p>
+<p>E2E_PXXCheck </p>
+<p>E2E_PXXCheckInit </p>
+<p>E2E_PXXMapStatusToSM </p>
+<p>E2E_PXXProtect </p>
+<p>E2E_PXXProtectInit </p>
+<p>E2E_SMCheck </p>
+<p>E2E_SMCheckInit </p>
+<p>Table 5-8  </p>
+<p>Services used by the E2EXf </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the E2EXf the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator </p>
+<p>Currently, only the GetVersionInfo API and development error reporting can be </p>
+<p>enabled/disabled in the E2EXf Ecu configuration. </p>
+<p>The remaining configuration of the E2E transformer is based on the </p>
+<p>EndToEndTransformationDescription</p>
+<p>, </p>
+<p>EndToEndTransformationISignalProps</p>
+<p> and </p>
+<p>EndToEndTransformationComSpecProps</p>
+<p> in the system description. </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The E2EXf supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-LINK-TIME </p>
+<p>The configuration classes of the E2EXf parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the </p>
+<p>E2EXf_bswmd.arxml</p>
+<p> file. </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration of EndToEndTransformationComSpecProps </b></p>
+<p>The </p>
+<p>EndToEndTransformationComSpecProps</p>
+<p> </p>
+<p>can </p>
+<p>be </p>
+<p>used </p>
+<p>to </p>
+<p>configure </p>
+<p>adjusted/special  configuration  values  valid  for  the  port  to  which  the  Receiver  ComSpec </p>
+<p>belongs. </p>
+<p>These options can be configured in the Receiver ComSpec of the port properties dialog in </p>
+<p>the DaVinci Developer (see following Figure). </p>
+<p> </p>
+<p>Figure 6-1 </p>
+<p>Configuration of EndToEndTransformationComSpecProps </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci Configurator </p>
+<p>Configuration and generation tool for MICROSAR components </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR E2E Transformer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

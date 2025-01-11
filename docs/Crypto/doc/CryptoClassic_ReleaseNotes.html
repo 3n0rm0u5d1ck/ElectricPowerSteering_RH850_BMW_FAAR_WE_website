@@ -1,0 +1,166 @@
+---
+layout: default
+title: CryptoClassic_ReleaseNotes
+nav_order: 3
+parent: Crypto Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes CryptoClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>BAC-6668, BAC-6671</p>
+<p>5.1.0</p>
+<p>2017-11-09</p>
+<p>BAC-6508, BAC-6451</p>
+<p>5.0.0</p>
+<p>2017-10-12</p>
+<p>ReleaseNotes_CryptoClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The Crypto module provides access to a Cryptographic library and can be used as an AUTOSAR Crypto</p>
+<p>driver.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6668</p>
+<p>CR Headline:</p>
+<p>Incorrect name of Integration Manual</p>
+<p>Description of Issues:</p>
+<p>Integration Manual is incorrectly named.</p>
+<p>Description of Changes:</p>
+<p>Integration Manual habeen correctly named.</p>
+<p>Changed Files:</p>
+<p>doc/CryptoClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6671</p>
+<p>CR Headline:</p>
+<p>Add functionalities for RSA Verifiy (PKCS1 V2)</p>
+<p>Description of Issues:</p>
+<p>RSA verification feature (PKCS1 V2) needs to be implemented</p>
+<p>Description of Changes:</p>
+<p>RSA verification feature is implemented. The corresponding</p>
+<p>interface has been added to the jumptable and the corresponding</p>
+<p>parameters are now present in the paramconf</p>
+<p>Changed Files:</p>
+<p>cfgdesc/CryptoClassic_paramdef.arxml</p>
+<p>generate/src/Crypto_JumpTable.c.pgen</p>
+<p>generate/include/Crypto_JumpTable.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6508</p>
+<p>CR Headline:</p>
+<p>Update jumptable generation to new Page version</p>
+<p>Description of Issues:</p>
+<p>Pgen files used to generate Crypto jumptable don't work with the</p>
+<p>new version of page.</p>
+<p>Description of Changes:</p>
+<p>Updated the files so the jumptable can be generated again.</p>
+<p>Changed Files:</p>
+<p>src/Crypto_CertificateManagement.c</p>
+<p>generate/include/Crypto_CertificateManagement.h.pgen</p>
+<p>generate/src/Crypto_CertificateManagement.c.pgen</p>
+<p>CMakeLists.txt</p>
+<p>generate/src/Crypto_JumpTable.c.pgen</p>
+<p>generate/include/Crypto_JumpTable.h.pgen</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_CryptoClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 3</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6451</p>
+<p>CR Headline:</p>
+<p>Add functionalities Hashes SHA 384 and SHA512</p>
+<p>Description of Issues:</p>
+<p>The hashes SHA 384 and SHA 512 are missing from the BMW</p>
+<p>Crypto library.</p>
+<p>Description of Changes:</p>
+<p>Functionalities have been added to the generic part. Jumptables</p>
+<p>have been adapted with new functions to allow access to said</p>
+<p>functionalities.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/CryptoClassic_paramdef.arxml</p>
+<p>template/include/Crypto_MemMap.h.sample</p>
+<p>generate/include/Crypto_JumpTable.h.pgen</p>
+<p>generate/src/Crypto_JumpTable.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_CryptoClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 3</p>
+</body>
+</html>
+{% endraw %}

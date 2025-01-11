@@ -1,0 +1,266 @@
+---
+layout: default
+title: OmcClassic_ReleaseNotes
+nav_order: 3
+parent: Omc
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes OmcClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>BAC-5455, BAC-6565, BAC-6717, BAC-6460</p>
+<p>5.1.1</p>
+<p>2017-10-12</p>
+<p>BAC-6397, BAC-6041</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>BAC-6210, BAC-6163, BAC-4161</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_OmcClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The main objective of the OMC functionality is to maintain the current Operation Mode of an ECU.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5455</p>
+<p>CR Headline:</p>
+<p>Adapt code to be MISRA and improve code coverage</p>
+<p>Description of Issues:</p>
+<p>Improve code to be MISRA conform. Improve unit test code</p>
+<p>coverage.</p>
+<p>Description of Changes:</p>
+<p>Improve code to be MISRA conform. Improve unit test code</p>
+<p>coverage.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Omc_internal.arxml.pgen</p>
+<p>src/Omc_ApplAdapter.c</p>
+<p>src/Omc_StdDiagAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6565</p>
+<p>CR Headline:</p>
+<p>Provide callback mechanism to establish intrinsic safety.</p>
+<p>Description of Issues:</p>
+<p>Provide a callback mechanism for StdDiag and the Application to</p>
+<p>accept a mode change, and also to be informed if the mode</p>
+<p>change is not completed.</p>
+<p>Description of Changes:</p>
+<p>Improve the callback mechanismus to StdDiag and the Application.</p>
+<p>Providing an extra interface to allow or disallow a mode change</p>
+<p>using a callback. Also provide a callback to confirm a rollback if a</p>
+<p>mode change is not completed.</p>
+<p>Changed Files:</p>
+<p>doc/OmcClassic_IntegrationManual.pdf</p>
+<p>generate/meta/Omc_internal.arxml.pgen</p>
+<p>src/Omc_ApplAdapter.c</p>
+<p>src/Omc_StdDiagAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6717</p>
+<p>CR Headline:</p>
+<p>Improve requirement tracing</p>
+<p>Description of Issues:</p>
+<p>Improve requirement tracing table.</p>
+<p>Description of Changes:</p>
+<p>Improve requirement tracing table.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Omc_interfaces.arxml.pgen</p>
+<p>doc/OmcClassic_IntegrationManual.pdf</p>
+<p>doc/OmcClassic_RequirementsTable.pdf</p>
+<p>ReleaseNotes_OmcClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6460</p>
+<p>CR Headline:</p>
+<p>Provide callback mechanism to establish intrinsic safety</p>
+<p>Description of Issues:</p>
+<p>Provide a callback mechanism for StdDiag and the Application to</p>
+<p>accept a mode change, and also to be informed if the mode</p>
+<p>change is not completed.</p>
+<p>Description of Changes:</p>
+<p>Improve the callback mechanismus to StdDiag and the Application.</p>
+<p>Providing an extra interface to allow or disallow a mode change</p>
+<p>using a callback. Also provide a callback to confirm a rollback if a</p>
+<p>mode change is not completed.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Omc_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6397</p>
+<p>CR Headline:</p>
+<p>OmcClassic: Omc_NvM.h may lead to multiple RTE Application</p>
+<p>header file inclusions</p>
+<p>Description of Issues:</p>
+<p>Omc_NvM.h needs to be included by the NvM as many others</p>
+<p>includes files of differents SWCs, if each one includes</p>
+<p>Rte_&lt;SWCName&gt;.h the NvM code can not be compiled. Only one</p>
+<p>Rte_&lt;SWC&gt;.h can be included from a file.</p>
+<p>Description of Changes:</p>
+<p>Omc_NvM.h inclusion of Rte_Omc.h has been replaced by</p>
+<p>Rte_Omc_Type.h.</p>
+<p>Changed Files:</p>
+<p>include/Omc_NvM.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6041</p>
+<p>CR Headline:</p>
+<p>Omc: SERVER-ARGUMENT-IMPL-POLICY should be set to</p>
+<p>USE-ARRAY-BASE-TYPE</p>
+<p>Description of Issues:</p>
+<p>Arrays shall set SERVER-ARGUMENT-IMPL-POLICY to</p>
+<p>USE-ARRAY-BASE-TYPE.</p>
+<p>Description of Changes:</p>
+<p>Change the SERVER-ARGUMENT-IMPL-POLICY of</p>
+<p>CS-Operation &quot;ReadData&quot; of CS-Interfaces</p>
+<p>&quot;DataServices_ExtendedOperatingMode&quot; and</p>
+<p>&quot;DataServices_OperatingMode&quot; to USE-ARRAY-BASE-TYPE.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Omc_ext_interfaces.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>ReleaseNotes_OmcClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>CR ID:</p>
+<p>BAC-6210</p>
+<p>CR Headline:</p>
+<p>Improve Requirements Traceability</p>
+<p>Description of Issues:</p>
+<p>Add requirements from IntegrationManual to RequirementsTable.</p>
+<p>Description of Changes:</p>
+<p>Added requirements from IntegrationManual to</p>
+<p>RequirementsTable.</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6163</p>
+<p>CR Headline:</p>
+<p>Omc: Version header for classic adapter is missing</p>
+<p>Description of Issues:</p>
+<p>Omc Classic Adapter does not provide a version header file.</p>
+<p>Description of Changes:</p>
+<p>Added version header file for classic adapter.</p>
+<p>Changed Files:</p>
+<p>src/OmcClassic_Version.h</p>
+<p>include/OmcClassic_Version.h</p>
+<p>include/Omc_NvM.h</p>
+<p>src/Omc_ErrMemAdapter.c</p>
+<p>src/Omc_ConcAdapter.c</p>
+<p>src/Omc_ApplAdapter.c</p>
+<p>src/Omc_MgmtAdapter.c</p>
+<p>include/Omc_Assert.h</p>
+<p>src/Omc_NvMAdapter.c</p>
+<p>src/Omc_StdDiagAdapter.c</p>
+<p>src/Omc_UDSAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-4161</p>
+<p>CR Headline:</p>
+<p>Omc: Remove R-Port &quot;LifeCycleLoopback&quot;, change P-Port</p>
+<p>&quot;LifeCycle&quot; to PR-Port</p>
+<p>Description of Issues:</p>
+<p>Remove R-Port &quot;LifeCycleLoopback&quot;, change P-Port &quot;LifeCycle&quot;</p>
+<p>to PR-Port.</p>
+<p>Description of Changes:</p>
+<p>Removed R-Port &quot;LifeCycleLoopback&quot; and changed P-Port</p>
+<p>&quot;LifeCycle&quot; to PR-Port.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Omc_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>ReleaseNotes_OmcClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Compatibility:</p>
+<p>ReleaseNotes_OmcClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 5</p>
+</body>
+</html>
+{% endraw %}

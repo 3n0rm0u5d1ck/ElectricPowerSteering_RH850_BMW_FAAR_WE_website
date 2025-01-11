@@ -1,0 +1,4782 @@
+---
+layout: default
+title: TechnicalReference_Cry_30_Rh850Icus
+nav_order: 83
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR CRY DRIVER </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>DrvCry_Rh850Icus </p>
+<p>Version 1.06.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Tobias Finke </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>2 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Tobias Finke </p>
+<p>2015-05-22 </p>
+<p>1.00.00 </p>
+<p>Initial Version of MICROSAR CRY DRIVER </p>
+<p>Tobias Finke </p>
+<p>2015-07-28 </p>
+<p>1.01.00 </p>
+<p>- Added Sym Key Wrapping Service. </p>
+<p>- Added prerequisites for the Initialization. </p>
+<p>- Added Limitation for multiple calls of </p>
+<p>some Cry_&lt;Primitive&gt;Update() functions. </p>
+<p>Tobias Finke </p>
+<p>2015-08-20 </p>
+<p>1.02.00 </p>
+<p>- Added Limitation: Different Services can’t </p>
+<p>be accessed in parallel. </p>
+<p>- Added description for aborting services. </p>
+<p>- Changed include structure. </p>
+<p>Tobias Finke </p>
+<p>2016-01-11 </p>
+<p>1.02.01 </p>
+<p>- Cry_ShePrngGenerate accepts a </p>
+<p>resultLength smaller than 16 byte. </p>
+<p>Tobias Finke </p>
+<p>2016-06-17 </p>
+<p>1.03.00 </p>
+<p>- Config option if length of mac in </p>
+<p>MacVerify is interpreted as bits. </p>
+<p>- Config option how keyIds are mapped. </p>
+<p>- Config option for ICUS base address. </p>
+<p>- Change in the way how M4 and M5 are </p>
+<p>returned after key provisioning. </p>
+<p>Tobias Finke </p>
+<p>2016-08-01 </p>
+<p>1.03.01 </p>
+<p>- Added Timeout-API </p>
+<p>- Changed default mapping in the mapped </p>
+<p>Use-Case for RAM_KEY from 0xEE to </p>
+<p>0x00. </p>
+<p>Tobias Finke </p>
+<p>2016-11-24 </p>
+<p>1.04.00 </p>
+<p>- Added Configuration with DaVinci </p>
+<p>Configurator 5 </p>
+<p>- Removed </p>
+<p>SymKeyWrapForkeyProvisioning </p>
+<p>Tobias Finke </p>
+<p>2017-04-06 </p>
+<p>1.05.00 </p>
+<p>- Updated  function descriptions </p>
+<p>- Config option for FHVE support </p>
+<p>- Config option for hardware error code </p>
+<p>callout </p>
+<p>- Config option for data flash control </p>
+<p>callouts </p>
+<p>- Config option for data flash </p>
+<p>synchronization callouts. </p>
+<p>- Description of exclusive areas </p>
+<p>Tobias Finke </p>
+<p>2017-04-13 </p>
+<p>1.05.01 </p>
+<p>- Fixed formatting and spelling </p>
+<p>Tobias Finke </p>
+<p>2017-07.14 </p>
+<p>1.05.02 </p>
+<p>- Adaption to base component </p>
+<p>Tobias Finke </p>
+<p>2017-10-12 </p>
+<p>1.06.00 </p>
+<p>- Added Self Test </p>
+<p>- SafeBsw Release </p>
+<p>Tobias Finke </p>
+<p>2017-10-19 </p>
+<p>1.06.01 </p>
+<p>- Changed include structure </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>3 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CryptoServiceManager.pdf </p>
+<p>1.2.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>1.6.0 </p>
+<p>[3] </p>
+<p> HIS </p>
+<p>SHE - Functional Specification </p>
+<p>1.1 </p>
+<p>[4] </p>
+<p> RENESAS </p>
+<p>User’s Manual: RH850/F1L ICUSB </p>
+<p>1.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>This symbol calls your attention to warnings. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>4 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 9</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................. 11</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ...................................................................................... 12</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 14</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 14</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 14</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 15</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 16</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Asynchronous Handling ................................................................................... 16</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Key Handling ................................................................................................... 17</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Key Mapping .................................................................................................... 17</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Key Update ...................................................................................................... 18</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>General procedure of service execution ........................................................... 18</p>
+<p> </p>
+<p>3.10</p>
+<p> </p>
+<p>Timeout Handling ............................................................................................. 21</p>
+<p> </p>
+<p>3.11</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 23</p>
+<p> </p>
+<p>3.11.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 23</p>
+<p> </p>
+<p>3.11.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 23</p>
+<p> </p>
+<p>3.12</p>
+<p> </p>
+<p>Self Test ........................................................................................................... 23</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 24</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 24</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 24</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 25</p>
+<p> </p>
+<p>4.1.3</p>
+<p> </p>
+<p>Callout Files ..................................................................................... 25</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 26</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Include Structure .............................................................................................. 27</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping ..................................................... 28</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 29</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Interfaces Overview ......................................................................................... 29</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 29</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Structures ........................................................................................................ 30</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Configuration structures ................................................................... 30</p>
+<p> </p>
+<p>5.3.1.1</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128ConfigType ............ 30</p>
+<p> </p>
+<p>5.3.1.2</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType ............ 31</p>
+<p> </p>
+<p>5.3.1.3</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType ........ 31</p>
+<p> </p>
+<p>5.3.1.4</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType .......... 32</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>5 </p>
+<p>Based on template version 5.2.0 </p>
+<p>5.3.1.5</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType ................... 32</p>
+<p> </p>
+<p>5.3.1.6</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType ............... 33</p>
+<p> </p>
+<p>5.3.1.7</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngConfigType .............................. 33</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Services provided by CRY_30_RH850ICUS .................................................... 34</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_Init .................................................................... 34</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_InitMemory ....................................................... 34</p>
+<p> </p>
+<p>5.4.3</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_GetVersionInfo ................................................. 35</p>
+<p> </p>
+<p>5.4.4</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start ......................................... 36</p>
+<p> </p>
+<p>5.4.5</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Update ..................................... 37</p>
+<p> </p>
+<p>5.4.6</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Finish ....................................... 39</p>
+<p> </p>
+<p>5.4.7</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128MainFunction ........................... 40</p>
+<p> </p>
+<p>5.4.8</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start ......................................... 41</p>
+<p> </p>
+<p>5.4.9</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Update ..................................... 42</p>
+<p> </p>
+<p>5.4.10</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Finish ....................................... 44</p>
+<p> </p>
+<p>5.4.11</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128MainFunction ........................... 45</p>
+<p> </p>
+<p>5.4.12</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart ..................................... 46</p>
+<p> </p>
+<p>5.4.13</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenUpdate ................................. 47</p>
+<p> </p>
+<p>5.4.14</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenFinish ................................... 48</p>
+<p> </p>
+<p>5.4.15</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenMainFunction ....................... 50</p>
+<p> </p>
+<p>5.4.16</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart ...................................... 51</p>
+<p> </p>
+<p>5.4.17</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerUpdate................................... 52</p>
+<p> </p>
+<p>5.4.18</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerFinish .................................... 54</p>
+<p> </p>
+<p>5.4.19</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerMainFunction ......................... 55</p>
+<p> </p>
+<p>5.4.20</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart ................................................ 56</p>
+<p> </p>
+<p>5.4.21</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate ............................................ 57</p>
+<p> </p>
+<p>5.4.22</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractFinish .............................................. 59</p>
+<p> </p>
+<p>5.4.23</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractMainFunction .................................. 60</p>
+<p> </p>
+<p>5.4.24</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart ........................................... 61</p>
+<p> </p>
+<p>5.4.25</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymUpdate ....................................... 62</p>
+<p> </p>
+<p>5.4.26</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymFinish ......................................... 63</p>
+<p> </p>
+<p>5.4.27</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymMainFunction .............................. 64</p>
+<p> </p>
+<p>5.4.28</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedStart .................................................. 65</p>
+<p> </p>
+<p>5.4.29</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate .............................................. 66</p>
+<p> </p>
+<p>5.4.30</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedFinish ................................................ 67</p>
+<p> </p>
+<p>5.4.31</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedMainFunction .................................... 68</p>
+<p> </p>
+<p>5.4.32</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngGenerate ................................................... 69</p>
+<p> </p>
+<p>5.4.33</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngGenerateMainFunction .............................. 70</p>
+<p> </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_SelfTest ............................................................ 71</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 71</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 71</p>
+<p> </p>
+<p>5.5.1.1</p>
+<p> </p>
+<p>Timeout-API Location Callout ......................................... 72</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>6 </p>
+<p>Based on template version 5.2.0 </p>
+<p>5.5.1.2</p>
+<p> </p>
+<p>Timeout-API Loop Callout .............................................. 73</p>
+<p> </p>
+<p>5.5.1.3</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_HardwareErrorCode_Callout .......... 73</p>
+<p> </p>
+<p>5.5.1.4</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashReadStart_Callout ......... 74</p>
+<p> </p>
+<p>5.5.1.5</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashReadEnd_Callout .......... 74</p>
+<p> </p>
+<p>5.5.1.6</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteStart_Callout .......... 75</p>
+<p> </p>
+<p>5.5.1.7</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteEnd_Callout ........... 75</p>
+<p> </p>
+<p>5.5.1.8</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashSetReadMode_Callout ... 76</p>
+<p> </p>
+<p>5.5.1.9</p>
+<p>Cry_30_Rh850Icus_DataFlashReturnFromCommandLockedState_Callout 76</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Services used by CRY_30_RH850ICUS .......................................................... 77</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 77</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 78</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 78</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Deviations ........................................................................................................ 78</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................................... 78</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Timeout handling .............................................................................. 78</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Hardware error callout ...................................................................... 78</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>Data flash synchronization ............................................................... 78</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Limitations........................................................................................................ 78</p>
+<p> </p>
+<p>6.4.1</p>
+<p> </p>
+<p>Support of Cryptographic Services ................................................... 78</p>
+<p> </p>
+<p>6.4.2</p>
+<p> </p>
+<p>Parallel Access to Services .............................................................. 79</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 80</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 80</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 80</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 81</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>7 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ....................................................... 12</p>
+<p> </p>
+<p>Figure 2-2: Interfaces to adjacent modules of the CRY_30_RH850ICUS ............................. 13</p>
+<p> </p>
+<p>Figure 3-1: State chart of the global service state ................................................................ 15</p>
+<p> </p>
+<p>Figure 3-2: Sequence chart to show an example of the synchronous processing of the </p>
+<p>hardware CRY .......................................................................................... 20</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Example Sequence for Timeout-API callouts during MAC Generation ...... 22</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Include structure ....................................................................................... 27</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history.................................................................................... 10</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 14</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Mapping of KeyId to SHE Keyslots ........................................................... 18</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 25</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 25</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 25</p>
+<p> </p>
+<p>Table 4-4 </p>
+<p> </p>
+<p>Compiler abstraction and memory mapping .............................................. 28</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 29</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_ AesEncrypt128ConfigType ...................................... 30</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType ....................................... 31</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType ................................... 31</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType ..................................... 32</p>
+<p> </p>
+<p>Table 5-6</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType .............................................. 32</p>
+<p> </p>
+<p>Table 5-7</p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType .......................................... 33</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngConfigType ......................................................... 33</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_Init ............................................................................ 34</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_InitMemory................................................................ 34</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_GetVersionInfo .......................................................... 35</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start .................................................. 36</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Update .............................................. 38</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Finish ................................................ 39</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128MainFunction .................................... 40</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start ................................................. 41</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Update ............................................. 43</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Finish ............................................... 44</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128MainFunction .................................... 45</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart .............................................. 46</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenUpdate .......................................... 47</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenFinish ............................................ 49</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenMainFunction ................................ 50</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart ............................................... 51</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerUpdate ........................................... 53</p>
+<p> </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerFinish ............................................. 55</p>
+<p> </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerMainFunction ................................. 55</p>
+<p> </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart ........................................................ 56</p>
+<p> </p>
+<p>Table 5-29 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate..................................................... 58</p>
+<p> </p>
+<p>Table 5-30 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractFinish ...................................................... 59</p>
+<p> </p>
+<p>Table 5-31 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyExtractMainFunction ........................................... 60</p>
+<p> </p>
+<p>Table 5-32 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart .................................................... 61</p>
+<p> </p>
+<p>Table 5-33 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymUpdate ................................................ 62</p>
+<p> </p>
+<p>Table 5-34 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymFinish .................................................. 63</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>8 </p>
+<p>Based on template version 5.2.0 </p>
+<p>Table 5-35 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymMainFunction ...................................... 64</p>
+<p> </p>
+<p>Table 5-36 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedStart ........................................................... 65</p>
+<p> </p>
+<p>Table 5-37 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate ....................................................... 66</p>
+<p> </p>
+<p>Table 5-38 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedFinish ......................................................... 67</p>
+<p> </p>
+<p>Table 5-39 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngSeedMainFunction ............................................. 68</p>
+<p> </p>
+<p>Table 5-40 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngGenerate ............................................................ 69</p>
+<p> </p>
+<p>Table 5-41 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_RngGenerateMainFunction ....................................... 70</p>
+<p> </p>
+<p>Table 5-42 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_SelfTest .................................................................... 71</p>
+<p> </p>
+<p>Table 5-43 </p>
+<p> </p>
+<p>[Timeout-API location callout] ................................................................... 72</p>
+<p> </p>
+<p>Table 5-44 </p>
+<p> </p>
+<p>[Timeout-API Loop Callout] ....................................................................... 73</p>
+<p> </p>
+<p>Table 5-45 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_HardwareErrorCode_Callout .................................... 74</p>
+<p> </p>
+<p>Table 5-46 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashReadStart_Callout .................................... 74</p>
+<p> </p>
+<p>Table 5-47 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashReadEnd_Callout ..................................... 75</p>
+<p> </p>
+<p>Table 5-48 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteStart_Callout .................................... 75</p>
+<p> </p>
+<p>Table 5-49 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteEnd_Callout...................................... 76</p>
+<p> </p>
+<p>Table 5-50 </p>
+<p> </p>
+<p>Cry_30_Rh850Icus_DataFlashSetReadMode_Callout ............................. 76</p>
+<p> </p>
+<p>Table 5-51 </p>
+<p> . </p>
+<p>Cry_30_Rh850Icus_DataFlashReturnFromCommandLockedState_Callout 76</p>
+<p> </p>
+<p>Table 5-52 </p>
+<p> </p>
+<p>Services used by the CRY_30_RH850ICUS ............................................. 77</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 78</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 80</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 80</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>9 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>- Initial version – BETA </p>
+<p>1.00.01 </p>
+<p>- Fixed miscellaneous warnings </p>
+<p>1.01.00 </p>
+<p>- Fixed AES enc/dec and CMAC gen/ver when using a key slot. </p>
+<p>- Fixed wrong byte order when reading and writing from/to ICU. </p>
+<p>1.02.00 </p>
+<p>- Changed SFR access from bit-fields to mask operations </p>
+<p>- MISRA compliance and improved robustness. </p>
+<p>- Fixed compiler errors in asynchronous configuration. </p>
+<p>- Added state machine for SHE Services. </p>
+<p>- Added additional checks for KeyExtract when provisioning is enabled </p>
+<p>1.02.01 </p>
+<p>- Added check before issuing cancel command to prevent blocking of </p>
+<p>ECU </p>
+<p>- Fixed missing defines for CRY state machine </p>
+<p>- Fixed wrong handling of MAC truncation in CmacAes128Gen and </p>
+<p>CmacAes128VGen </p>
+<p>1.02.02 </p>
+<p>- Fixed issue with request for random numbers smaller than 16 bytes </p>
+<p>1.03.00 </p>
+<p>- Fixed Support for 20 key slots in ICUSD and ICUSE </p>
+<p>- Config option for variable base address of ICUS </p>
+<p>- Configurable interpretation of the KeyId </p>
+<p>- Use CMD_MAC_VERIFY instead of CMD_MAC_GENERATE in mac </p>
+<p>verification  primitive </p>
+<p>-  Added support for mac length in bit for MacVerify </p>
+<p>1.03.01 </p>
+<p>- Fixed buffer overflow in Cry_30_Rh850Icus_KeyExtract when </p>
+<p>CsmSymKeyExtractMaxKeySize is smaller than 48 bytes and </p>
+<p>CRY_30_RH850ICUS_KEYWRAPSYM_FOR_PROVISION is STD_OFF </p>
+<p>1.03.02 </p>
+<p>Added Timeout-API </p>
+<p>2.00.00 </p>
+<p>- FEAT-1995: Support CRY(HW) and CRY(SW) in the same SIP </p>
+<p>- Fixed ECC-Error on P1M because variable located in wrong memory </p>
+<p>section </p>
+<p>-  MacVerification causes the ECU to block on P1M derivatives </p>
+<p>2.00.01 </p>
+<p>- Added support for FHVE on derivatives like P1M </p>
+<p>- Fixed wrong software check for correct AuthId </p>
+<p>2.01.00 </p>
+<p>- Added Callouts for Data Flash Synchronization </p>
+<p>- Added Callouts to handle FACI interface commands </p>
+<p>- Added Callouts to provide internal ICUS errors to the application </p>
+<p>- Fixed state handling of random generate in async configuration </p>
+<p>2.01.01 </p>
+<p>- Removed unnecessary includes </p>
+<p>- Descriptions for SafeBsw are missing </p>
+<p>- Disable not used helper functions </p>
+<p>2.02.00 </p>
+<p>- Adaption to base component </p>
+<p>- Fixed Second keyslot not usable in RAW configuration </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>10 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>- Timeout location callout provides wrong information </p>
+<p>2.02.01 </p>
+<p>- Fixed Compiler Error: Wrong define for memclass in FUNC() macro of </p>
+<p>Cry_30_Rh850Icus_RngSeedFinishInternal </p>
+<p>2.03.00 </p>
+<p>- Added Self Test </p>
+<p>- SafeBsw Release </p>
+<p>2.03.01 </p>
+<p>- Changed include structure </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>11 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This  document  describes  the  functionality,  API  and  configuration  of  the </p>
+<p>MICROSAR </p>
+<p>module CRY_30_RH850ICUS as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>Pre-Compile </p>
+<p><b>Vendor ID: </b></p>
+<p>CRY_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>CRY_MODULE_ID   </p>
+<p>255 decimal </p>
+<p>(according to ref. [2]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p> </p>
+<p>This  document  describes  the  functionality  and  API  of  the  CRY  module  as  a  hardware </p>
+<p>dependent module. </p>
+<p> </p>
+<p>The Cryptographic library module (CRY) offers cryptographic primitives. The CRY module </p>
+<p>is used by the Crypto Service Manager (CSM).  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>12 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows  where the CRY_30_RH850ICUS is located in the AUTOSAR </p>
+<p>architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview   </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>13 </p>
+<p>Based on template version 5.2.0 </p>
+<p>The  next  figure  shows  the  interfaces  to  adjacent  modules  of  the  CRY_30_RH850ICUS. </p>
+<p>These interfaces are described in chapter 5. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-2: Interfaces to adjacent modules of the CRY_30_RH850ICUS </p>
+<p><b> cmp Architecture ov erv iew</b></p>
+<p><b>BswM</b></p>
+<p><b>Csm</b></p>
+<p><b>Cry</b></p>
+<p><b>SHE</b></p>
+<p>Cry_&lt;Primitve&gt;MainFunction</p>
+<p>Csm_&lt;Service&gt;CallbackNotification</p>
+<p>«optional»</p>
+<p>Csm_&lt;Service&gt;ServiceFinishNotification</p>
+<p>«optional»</p>
+<p>Cry_&lt;Primitive&gt;Start</p>
+<p>Cry_&lt;Primitive&gt;Update</p>
+<p>Cry_&lt;Primitive&gt;Finish</p>
+<p>Cry_Init</p>
+<p>Provided Service</p>
+<p>APIs</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>14 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>CRY_30_RH850ICUS. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Synchronous job processing </p>
+<p>Asynchronous job processing </p>
+<p>Service for Symmetrical Interface (AES128) </p>
+<p>Service for MAC Interface (CMAC) </p>
+<p>Service for Random Interface (PRNG) </p>
+<p>Service for Symmetrical Key Extract Interface </p>
+<p>Service for Symmetrical Key Wrapping Interface </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Before </p>
+<p>calling </p>
+<p>any </p>
+<p>other </p>
+<p>functionality </p>
+<p>of </p>
+<p>the </p>
+<p>CRY </p>
+<p>module </p>
+<p>the </p>
+<p>initialization </p>
+<p>function </p>
+<p>Cry_30_Rh850Icus_Init()</p>
+<p>has to be called at startup, e.g. by BswM or EcuM. </p>
+<p>For API details refer to chapter 5.4.1, ‘Cry_30_Rh850Icus_Init’. </p>
+<p>The CRY module assumes that some variables are initialized with certain values at start-</p>
+<p>up. As not all embedded targets support the initialization of RAM within the start-up code </p>
+<p>the </p>
+<p>CRY </p>
+<p>module </p>
+<p>provides </p>
+<p>the  function </p>
+<p>Cry_30_Rh850Icus_InitMemory(). </p>
+<p>This </p>
+<p>function  has  to  be  called  during  start-up  and  before </p>
+<p>Cry_30_Rh850Icus_Init() </p>
+<p>is </p>
+<p>called.  </p>
+<p>For API details refer to chapter 5.4.2 ‘Cry_30_Rh850Icus_InitMemory’.  </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The Renesas Data Flash Access Library must be initialized before any usage of the </p>
+<p>key storage in the SHE. This is mandatory for enabling the SHE to store keys in the </p>
+<p>key slots which are located in the data flash. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>15 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>Due to the hardware limitations of the SHE, only one service can be handled to the same </p>
+<p>time. Therefore, a service can only be started, if no other service is already running.  </p>
+<p>To </p>
+<p>provide </p>
+<p>this </p>
+<p>behavior, </p>
+<p>the </p>
+<p>CRY </p>
+<p>module </p>
+<p>stores </p>
+<p>a </p>
+<p>global </p>
+<p>state </p>
+<p>(</p>
+<p>Cry_30_Rh850Icus_ServiceState_Type</p>
+<p>) which is used in all provided services.  </p>
+<p> </p>
+<p>Figure 3-1: State chart of the global service state </p>
+<p> </p>
+<p> </p>
+<p>The global state exists of an IDLE state and a specific START and UPDATE state for each </p>
+<p>service. This means for example, that there exists an AESDECRYPT128_START state and </p>
+<p>also an AESENCRYPT128_START state. </p>
+<p>The  global  state  machine  is  initialized  by  the  IDLE  state  after  a  successful  call  of </p>
+<p>Cry_30_Rh850Icus_Init()</p>
+<p>.  </p>
+<p>A  call  of  a  service  specific  Start-Function  with  the  return  value  CSM_E_OK  results  in  a </p>
+<p>transition from the IDLE state to the service specific START state. An additional call of a </p>
+<p>Start-Function of any service is rejected by the CRY module, because another service is </p>
+<p>already started. </p>
+<p><b> stm Global Serv ice State Management</b></p>
+<p><b>IDLE</b></p>
+<p><b>&lt;PRIMITIVE&gt;START</b></p>
+<p><b>&lt;PRIMITIVE&gt;UPDATE</b></p>
+<p>EntryPoint</p>
+<p>Cry_Init() [any service enabled by configuration]</p>
+<p>Cry_&lt;Primitive&gt;Start(..) [retVal == CSM_E_OK]</p>
+<p>Cry_&lt;Primitive&gt;Update(..) [retVal == CSM_E_OK]</p>
+<p>Cry_&lt;Primitive&gt;Start(..) [ELSE]</p>
+<p>Cry_&lt;Primitive&gt;Finish(..)</p>
+<p>/Cry_CancelCommand()</p>
+<p>Cry_&lt;Primitive&gt;Update(..) [ELSE]</p>
+<p>Cry_&lt;Primitive&gt;Finish(..) [Cry_CancelCommand()]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>16 </p>
+<p>Based on template version 5.2.0 </p>
+<p>If any service is started successfully, a Start-, Update-, or Finish-function call of any other </p>
+<p>service is always rejected until the global state is reverted to IDLE by the Finish-function of </p>
+<p>the already started service. </p>
+<p>The successful started service can call the service specific Update-Function to pass input </p>
+<p>data to the service. The function call is only accepted, if the corresponding service  was </p>
+<p>started before successful.  </p>
+<p>If  the  Update-Function  is  called  successful,  the  state  machine  switches  to  the  service </p>
+<p>specific  UPDATE  state.  If  the  Update-Function  is  called  and  returned  with  an  error,  the </p>
+<p>state is not changing. </p>
+<p>If the Finish-Function from an already started service is called, the global state switches </p>
+<p>back to IDLE and enables other services to start. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The Update-Function of a service can only be called once due to hardware limitations </p>
+<p>of the SHE.  If the Update-Function is accepted once by the return value CSM_E_OK, </p>
+<p>there must be no repetition of another Update-call. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If a service is started, the Finish-Function of this service needs to be called, in order to </p>
+<p>enable other services to run.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Please refer to chapter 3.9 for more information about the general procedure for a service </p>
+<p>execution. </p>
+<p> </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>The CRY module implementation provides one main function for each service. When the </p>
+<p>usage  of  synchronous  job  processing  is  disabled,  this  main  function  has  to  be  called </p>
+<p>cyclically from the CSM main-function context if the corresponding service is active. </p>
+<p>For </p>
+<p>API </p>
+<p>details </p>
+<p>refer </p>
+<p>e.g. </p>
+<p>to </p>
+<p>chapter </p>
+<p>5.4.7 </p>
+<p>‘Cry_30_Rh850Icus_AesEncrypt128MainFunction’. </p>
+<p> </p>
+<p><b>3.5 </b></p>
+<p><b>Asynchronous Handling </b></p>
+<p>There  are  some  differences  in  the  handling  between  asynchronous  and  synchronous </p>
+<p>mode. When calling a service specific Start, Update or Finish-function, the function stores </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>17 </p>
+<p>Based on template version 5.2.0 </p>
+<p>the parameters in a local buffer and marks the function with an additional state machine for </p>
+<p>asynchronous function handling in the next main-loop of the corresponding service.  </p>
+<p>The  processing  of  the  data  is  triggered </p>
+<p>by  the  service  specific  Main-Function.  The </p>
+<p>configured  user  callback  function  indicates  that  the  processing  is  finished  carrying  the </p>
+<p>result of the operation. Depending on the result, the next operation can be performed, e.g. </p>
+<p>a call to the Update-Function. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>All input and output data have to be valid during the whole processing of a service </p>
+<p>execution. This needs to be guaranteed by the caller of the asynchronous functions.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.6 </b></p>
+<p><b>Key Handling </b></p>
+<p>The  symmetrical  keys  used  by  the  Cry  module  are  in  the  format  of </p>
+<p>Csm_SymKeyType</p>
+<p>. </p>
+<p>This struct consists of a data pointer and length. If the length equals 1, the first aligntype of </p>
+<p>data represents a keyId which is used to select the key slot of the SHE depending on the </p>
+<p>configuration parameter </p>
+<p>keyIdType</p>
+<p>. Otherwise, if the length is 16, the data located at the </p>
+<p>pointer  is  loaded  as  a  128  bit  key  into  the  RAM  key  slot  of  the  SHE.  This  behavior  is </p>
+<p>handled in the specific start function. </p>
+<p><b>3.7 </b></p>
+<p><b>Key Mapping </b></p>
+<p>Depending  on  the  configuration  option  CryKeyIdType,  the  keyId  is  interpreted  in  two </p>
+<p>different ways. </p>
+<p><b> </b></p>
+<p><b>CRY_KEYIDTYPE_RAW </b></p>
+<p><b>CRY_KEYIDTYPE_MAPPED </b></p>
+<p><b>KeyId </b></p>
+<p><b>SHE-Keyslot </b></p>
+<p>0x00 </p>
+<p>SECRET_KEY </p>
+<p>KEY_RAM </p>
+<p>0x01 </p>
+<p>MASTER_ECU_KEY </p>
+<p>KEY_1 </p>
+<p>0x02 </p>
+<p>BOOT_MAC_KEY </p>
+<p>KEY_2 </p>
+<p>0x03 </p>
+<p>BOOT_MAC </p>
+<p>KEY_3 </p>
+<p>0x04 </p>
+<p>KEY_1 </p>
+<p>KEY_4 </p>
+<p>0x05 </p>
+<p>KEY_2 </p>
+<p>KEY_5 </p>
+<p>0x06 </p>
+<p>KEY_3 </p>
+<p>KEY_6 </p>
+<p>0x07 </p>
+<p>KEY_4 </p>
+<p>KEY_7 </p>
+<p>0x08 </p>
+<p>KEY_5 </p>
+<p>KEY_8 </p>
+<p>0x09 </p>
+<p>KEY_6 </p>
+<p>KEY_9 </p>
+<p>0x0A </p>
+<p>KEY_7 </p>
+<p>KEY_10 </p>
+<p>0x0B </p>
+<p>KEY_8 </p>
+<p>KEY_11 </p>
+<p>0x0C </p>
+<p>KEY_9 </p>
+<p>KEY_12 </p>
+<p>0x0D </p>
+<p>KEY_10 </p>
+<p>KEY_13 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>18 </p>
+<p>Based on template version 5.2.0 </p>
+<p>0x0E </p>
+<p>KEY_RAM </p>
+<p>KEY_14 </p>
+<p>0x0F </p>
+<p>KEY_11 </p>
+<p>KEY_15 </p>
+<p>0x10 </p>
+<p>KEY_12 </p>
+<p>KEY_16 </p>
+<p>0x11 </p>
+<p>KEY_13 </p>
+<p>KEY_17 </p>
+<p>0x12 </p>
+<p>KEY_14 </p>
+<p>KEY_18 </p>
+<p>0x13 </p>
+<p>KEY_15 </p>
+<p>KEY_19 </p>
+<p>0x14 </p>
+<p>KEY_16 </p>
+<p>KEY_20 </p>
+<p>0x15 </p>
+<p>KEY_17 </p>
+<p>MASTER_ECU_KEY </p>
+<p>0x16 </p>
+<p>KEY_18 </p>
+<p>- </p>
+<p>0x17 </p>
+<p>KEY_19 </p>
+<p>- </p>
+<p>0x18 </p>
+<p>KEY_20 </p>
+<p>- </p>
+<p>Table 3-2  </p>
+<p>Mapping of KeyId to SHE Keyslots </p>
+<p><b>3.8 </b></p>
+<p><b>Key Update </b></p>
+<p>For </p>
+<p>updating </p>
+<p>a </p>
+<p>key </p>
+<p>slot </p>
+<p>of </p>
+<p>the </p>
+<p>SHE </p>
+<p>as </p>
+<p>specified </p>
+<p>in </p>
+<p>[3] </p>
+<p>and </p>
+<p>[4], </p>
+<p>the </p>
+<p>Cry_30_Rh850Icus_KeyExtract</p>
+<p> service is used.  </p>
+<p>The </p>
+<p>dataPtr</p>
+<p> in </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate()</p>
+<p> points to an array which </p>
+<p>consists of the concatenation of a keyId (1 byte) and the three messages M1 (16 byte), M2 </p>
+<p>(32 byte) and M3 (16 byte). If </p>
+<p>dataLength</p>
+<p> is 65, these three messages are written to the </p>
+<p>SHE. The  SHE  updates  the  key  slot  with  the  key  data.  Information  like  Slot  ID  and  the </p>
+<p>plaintext key data are encoded in the messages M1 to M3. </p>
+<p>After writing M1, M2 and M3 to the SHE, the SHE generates M4 and M5 which  can be </p>
+<p>used  to  verify  the  key  update  procedure.  In  order  to  retrieve  M4  and  M5,  the  keyPtr  of </p>
+<p>Cry_30_Rh850Icus_KeyExtractFinish()</p>
+<p>  is  used  to  store  the  48  bytes  of  data. </p>
+<p>Ensure that </p>
+<p>CsmSymKeyExtractMaxKeySize </p>
+<p>in the CSM configuration is set to at least </p>
+<p>48 Bytes. </p>
+<p><b>3.9 </b></p>
+<p><b>General procedure of service execution </b></p>
+<p>A </p>
+<p>service/primitive </p>
+<p>provides </p>
+<p>in </p>
+<p>general </p>
+<p>three </p>
+<p>interface </p>
+<p>functions </p>
+<p>(Note: </p>
+<p>Signature </p>
+<p>of </p>
+<p>functions differs depending on the service). </p>
+<p><b>&gt; </b></p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Start()</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Update()</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Finish()</p>
+<p> </p>
+<p>To execute a service completely, the interface functions for the services needs to be called </p>
+<p>as illustrated above. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>19 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution  </b></p>
+<p>Following rules for the call hierarchy of the interface functions must be fulfilled: </p>
+<p><b> </b></p>
+<p>1. </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Update() </p>
+<p>must only be called, if </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Start() </p>
+<p>was called before with the </p>
+<p>return value CSM_E_OK. </p>
+<p>2. </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Finish() </p>
+<p>must only be called, if </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Start() </p>
+<p>was called before with the </p>
+<p>return value CSM_E_OK. A call of </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Update() </p>
+<p>in between is allowed. </p>
+<p>3. </p>
+<p>If </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Start() </p>
+<p>is called successful </p>
+<p>(CSM_E_OK), a </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Finish() </p>
+<p>must follow. </p>
+<p>4. </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Finish() </p>
+<p>must be called only once </p>
+<p>after a Start- or Update-Call. Even if the result of the Finish-Call is </p>
+<p>CSM_E_NOT_OK it must not be repeated. </p>
+<p> </p>
+<p><i>Note: These rules are mandatory for each service of the CRY module. </i></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Figure 3-2 shows in a sequence chart as example the synchronous procedure of the </p>
+<p>hardware CRY. It focuses on the illustration of the rules mentioned above.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>20 </p>
+<p>Based on template version 5.2.0 </p>
+<p> </p>
+<p>Figure 3-2: Sequence chart to show an example of the synchronous processing of the hardware CRY </p>
+<p> </p>
+<p><b> sd General Processing (streaming approach, sync mode)</b></p>
+<p>hardware CRY</p>
+<p>CRY caller, here:</p>
+<p>CSM</p>
+<p><b>Synchronous processing of the hardware CRY</b></p>
+<p><b>opt </b></p>
+<p><b>neg </b></p>
+<p><b>neg </b></p>
+<p><b>opt </b></p>
+<p><b>neg </b></p>
+<p>If any service is started successful, the CRY is </p>
+<p>preventing to start any other or the same </p>
+<p>service again. This behaviour is implemented</p>
+<p>by the hardware CRY due to the hardware </p>
+<p>limitation, that only one service can run on </p>
+<p>the SHE to the same time.</p>
+<p>Rule 1 and 2:</p>
+<p>It is forbidden, to call a Update or Finish </p>
+<p>method of a service, if the same service was not </p>
+<p>started before successfull.</p>
+<p>This behaviour needs to be implemented by the</p>
+<p>caller of the hardware CRY (here: by the used </p>
+<p>CSM).</p>
+<p>Info:</p>
+<p>Multiple update calls are not supported </p>
+<p>by the hardware CRY. If a update call </p>
+<p>returns with CSM_E_OK, a repetition of </p>
+<p>an update call will return with </p>
+<p>CSM_E_NOT_OK. </p>
+<p>Rule 3:</p>
+<p>After a successful call of a start </p>
+<p>method of a service, a finish call is </p>
+<p>mandatory in order to enable other </p>
+<p>services to start a</p>
+<p>Rule 4:</p>
+<p>It is forbidden to call the finish function of a service </p>
+<p>multiple times, even if the Csm_ReturnType is not </p>
+<p>CSM_E_OK. This behaviour needs to be ensured by the </p>
+<p>caller, upper layer, here: CSM.</p>
+<p>Cry_&lt;Service1&gt;Start(..) :Csm_ReturnType</p>
+<p>:CSM_E_OK</p>
+<p>Cry_&lt;Service2&gt;Start(..) :CsmReturnValue</p>
+<p>::CSM_E_BUSY or CSM_E_NOT_OK</p>
+<p>Cry_&lt;Service2&gt;Update(..) :Csm_ReturnType</p>
+<p>Cry_&lt;Service2&gt;Finish(..) :Csm_ReturnType</p>
+<p>Csm_&lt;Service1&gt;Update(..) :Csm_ReturnType</p>
+<p>:CSM_E_OK</p>
+<p>Csm_&lt;Service1&gt;Update(..) :Csm_ReturnType</p>
+<p>:CSM_E_NOT_OK</p>
+<p>Csm_&lt;Service1&gt;Finish(..) :Csm_ReturnType</p>
+<p>Csm_&lt;Service1&gt;Finish(..) :Csm_ReturnType</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>21 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>3.10 </b></p>
+<p><b>Timeout Handling </b></p>
+<p>The Timeout  Handling  can  be  done  by  implementing  the  two  callouts  mentioned  below. </p>
+<p>One callout described as LocationCallout is responsible to provide information about the </p>
+<p>location from where the callout is called. This callout can be used to start a timeout timer in </p>
+<p>the  application.  The  second  callout  described  as  LoopCallout  can  be  used  to  cancel  a </p>
+<p>running command when it has consumed too much time. </p>
+<p>By returning CSM_E_NOT_OK at the LoopCallout, the command CMD_CANCEL will be </p>
+<p>sent </p>
+<p>to  the </p>
+<p>SHE </p>
+<p>to  stop  the  currently  executed  command. </p>
+<p>Pay  attention  to  return </p>
+<p>CSM_E_NOT_OK  at  all  following  calls  of  the  LoopCallout  with  this  specific  canceled </p>
+<p>service until it is started again by getting a call of the LocationCallout with the parameter </p>
+<p>section equal to the value CRY_SHE_TO_SECTION_START_SERVICE. Refer to  </p>
+<p>Figure 3-3 for an example call sequence of the callouts. </p>
+<p>Timeout  Handling  can  be  enabled  in  the  configurator.  If  enabled,  the  names  of  the  two </p>
+<p>callout functions have to be defined. Refer to 5.5.1.1 ‘Timeout-API Location Callout’ and </p>
+<p>5.5.1.2 ‘Timeout-API Loop Callout’ for more details about the callouts. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>22 </p>
+<p>Based on template version 5.2.0 </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Example Sequence for Timeout-API callouts during MAC Generation</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>23 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>3.11 Error Handling </b></p>
+<p><b>3.11.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>The  current  implementation  of  the  CRY_30_RH850ICUS  module  does  not  report  any </p>
+<p>development errors. </p>
+<p>However, the current implementation provides development error detection. Therefore, the </p>
+<p>pre-processor </p>
+<p>switch </p>
+<p>needs </p>
+<p>to </p>
+<p>be </p>
+<p>enabled </p>
+<p>(CRY_30_RH850ICUS_DEV_ERROR_DETECT  ==  STD_ON).  If  the  switch  is  enabled, </p>
+<p>the  interface  functions  execute  some  plausibility  checks  of  the  input  parameters  (e.g. </p>
+<p>range  check,  NULL_PTR  check,).  This  switch  should  be  enabled  by  default  for  safety </p>
+<p>reasons. </p>
+<p> </p>
+<p><b>3.11.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>The  current  implementation  of  the  CRY_30_RH850ICUS  module  does  not  report  any </p>
+<p>production errors. </p>
+<p><b>3.12 Self Test </b></p>
+<p>The  Driver  provides  the  functionality  to  perform  a  self-test  of  the  CMAC  verification </p>
+<p>functionality. </p>
+<p>Test vectors will be used to do a failed and passed verification. </p>
+<p>If the self-test fails, the CRY will not succeed to initialize itself. </p>
+<p>The </p>
+<p>self-test </p>
+<p>can </p>
+<p>be </p>
+<p>cyclically </p>
+<p>called </p>
+<p>be </p>
+<p>the </p>
+<p>user. </p>
+<p>If </p>
+<p>the </p>
+<p>self-test </p>
+<p>fails </p>
+<p>with </p>
+<p>CSM_E_NOT_OK, the user must take apropriate measures. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>24 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This </p>
+<p>chapter </p>
+<p>gives </p>
+<p>necessary </p>
+<p>information </p>
+<p>for </p>
+<p>the </p>
+<p>integration </p>
+<p>of </p>
+<p>the </p>
+<p>MICROSAR </p>
+<p>CRY_30_RH850ICUS into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The  delivery  of  the  CRY_30_RH850ICUS  contains  the  files  which  are  described  in  the </p>
+<p>chapters 4.1.1 and 4.1.2. </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Source </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Library </b></p>
+<p><b>Delivery </b></p>
+<p><b>Description </b></p>
+<p>Cry_30_Rh850Icus.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the </p>
+<p>Cry_30_Rh850Icus. </p>
+<p>Cry_30_Rh850Icus.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the </p>
+<p>Cry_30_Rh850Icus. </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_AesDec</p>
+<p>rypt128. </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_AesDec</p>
+<p>rypt128. </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_AesEnc</p>
+<p>rypt128. </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_AesEnc</p>
+<p>rypt128. </p>
+<p>Cry_30_Rh850Icus_Rng.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_Rng. </p>
+<p>Cry_30_Rh850Icus_Rng.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_Rng. </p>
+<p>Cry_30_Rh850Icus_CmacAes128Gen.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_CmacA</p>
+<p>es128Gen. </p>
+<p>Cry_30_Rh850Icus_CmacAes128Gen.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the </p>
+<p>Cry_30_Rh850Icus_CmacA</p>
+<p>es128Gen. </p>
+<p>Cry_30_Rh850Icus_CmacAes128Ver.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_CmacA</p>
+<p>es128Ver. </p>
+<p>Cry_30_Rh850Icus_CmacAes128Ver.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_CmacA</p>
+<p>es128Ver. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>25 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>File Name </b></p>
+<p><b>Source </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Library </b></p>
+<p><b>Delivery </b></p>
+<p><b>Description </b></p>
+<p>Cry_30_Rh850Icus_KeyExtract.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_KeyExtr</p>
+<p>act. </p>
+<p>Cry_30_Rh850Icus_KeyExtract.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_KeyExtr</p>
+<p>act. </p>
+<p>Cry_30_Rh850Icus_KeyWrapSym.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Source file of the service </p>
+<p>Cry_30_Rh850Icus_KeyWra</p>
+<p>pSym. </p>
+<p>Cry_30_Rh850Icus_KeyWrapSym.h </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Header file of the service </p>
+<p>Cry_30_Rh850Icus_KeyWra</p>
+<p>pSym. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated with the help of Cfg5. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Cry_30_Rh850Icus_Cfg.h </p>
+<p>Contains the configuration of the Cry_30_Rh850Icus. </p>
+<p>Cry_30_Rh850Icus_Cfg.c </p>
+<p>Contains the generated configuration data of the </p>
+<p>Cry_30_Rh850Icus. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p><b>4.1.3 </b></p>
+<p><b>Callout Files </b></p>
+<p>The  component  provides  a  template for the callout  functions. The implementation  is not </p>
+<p>fulfilled and needs to be adapted by the user corresponding to his requirements. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>_Cry_30_Rh850Icus_Callouts.h </p>
+<p>Contains the declaration of the callout functions which can be </p>
+<p>activated by pre-processor switches. </p>
+<p>_Cry_30_Rh850Icus_Callouts.c </p>
+<p>Contains the implementation of the callout functions which </p>
+<p>can be activated by pre-processor switches. The </p>
+<p>implementation is not finished. It’s just a template with an </p>
+<p>incomplete example implementation which needs to be </p>
+<p>adapted. </p>
+<p>Table 4-3  </p>
+<p>Generated files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>26 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Edit </b></p>
+<p>Files of chapter 4.1.3 are only templates and must be edited and renamed by the user, </p>
+<p>if the corresponding configuration switch is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The CRY module calls the following function when entering a critical section: </p>
+<p><b>&gt; </b></p>
+<p>void SchM_Enter_Cry_30_Rh850Icus_CRY_30_RH850ICUS </p>
+<p>_EXCLUSIVE_AREA(void) </p>
+<p>When the critical section is left the following function is called by the CRY module: </p>
+<p><b>&gt; </b></p>
+<p>void SchM_Exit_Cry_30_Rh850Icus_CRY_30_RH850ICUS </p>
+<p>_EXCLUSIVE_AREA(void) </p>
+<p> </p>
+<p>These calls are necessary to avoid race conditions of the internal state machines for the </p>
+<p>synchronous and asynchronous function handling of the different services. </p>
+<p>Each call of a Cry_30_Rh850Icus_&lt;Primitive&gt;Start(...) function verifies at the start, if there </p>
+<p>is no other service is running right now (see Figure 3-1). If no other service is running, the </p>
+<p>state machine switches to START. From then, it is not possible for other services to start </p>
+<p>also, </p>
+<p>because </p>
+<p>their </p>
+<p>verification </p>
+<p>of </p>
+<p>the </p>
+<p>IDLE </p>
+<p>state </p>
+<p>in </p>
+<p>the </p>
+<p>Cry_30_Rh850Icus_&lt;Primitive&gt;Start(…) </p>
+<p>function </p>
+<p>fails. </p>
+<p>The </p>
+<p>critical </p>
+<p>section </p>
+<p>is </p>
+<p>needed </p>
+<p>between the verification of the IDLE state and setting the state to START to exclude the </p>
+<p>risk,  that two  services  verify  the  state one by  one  (e.g.  in  the  context  of a  task  switch), </p>
+<p>before setting it to START. </p>
+<p>The length and runtime of the critical section (between Enter and Exit) is short, because it </p>
+<p>covers the comparison of a state and the setting of a few variables. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>27 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>4.3 </b></p>
+<p><b>Include Structure </b></p>
+<p>Figure 4-1 shows the include structure of the Cry. All files starting with the Prefix ‘Cry’ are </p>
+<p>mapped to files named Cry_30_Rh850Icus. All files which include the word &lt;Primitive&gt; are </p>
+<p>mapped to n service files. Each service has its own source and header file.  </p>
+<p>The different primitives are listed in chapter 4.1.1. </p>
+<p><i>Example: </i></p>
+<p><i>Cry_&lt;Primitive&gt;.c </i></p>
+<p><i>is </i></p>
+<p><i>mapped </i></p>
+<p><i>to </i></p>
+<p><i>Cry_30_Rh850Icus_AesDecrypt128.c, </i></p>
+<p><i>Cry_30_Rh850Icus_AesEncrypt128.c and so on. </i></p>
+<p> </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Include structure </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>28 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>4.4 </b></p>
+<p><b>Compiler Abstraction and Memory Mapping  </b></p>
+<p>The  objects  (e.g.  variables,  functions,  constants)  are  declared  by  compiler  independent </p>
+<p>definitions  –  the  compiler  abstraction  definitions.  Each  compiler  abstraction  definition  is </p>
+<p>assigned to a memory section. </p>
+<p>The  following  table  (Table  4-4)  contains  the  memory  section  names  and  the  compiler </p>
+<p>abstraction definitions of the CRY_30_RH850ICUS and illustrates their assignment among </p>
+<p>each other. </p>
+<p><b>Compiler Abstraction </b></p>
+<p><b>Definitions </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Memory Mapping </b></p>
+<p><b>Sections </b></p>
+<p>CRY_30_RH850ICUS_CODE </p>
+<p>CRY_30_RH850ICUS_VAR_NOINIT </p>
+<p>CRY_30_RH850ICUS_VAR_ZERO_I</p>
+<p>NIT </p>
+<p>CRY_30_RH850ICUS_APPL_VAR </p>
+<p>CRY_30_RH850ICUS_START_SEC_CODE </p>
+<p>CRY_30_RH850ICUS_STOP_SEC_CODE </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>CRY_30_RH850ICUS_START_SEC_VAR_NOINIT_8BI</p>
+<p>T </p>
+<p>CRY_30_RH850ICUS_STOP_SEC_VAR_NOINIT_8BI</p>
+<p>T </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CRY_30_RH850ICUS_START_SEC_VAR_NOINIT_32</p>
+<p>BIT </p>
+<p>CRY_30_RH850ICUS_STOP_SEC_VAR_NOINIT_32BI</p>
+<p>T </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CRY_30_RH850ICUS_START_SEC_VAR_NOINIT_UN</p>
+<p>SPECIFIED </p>
+<p>CRY_30_RH850ICUS_STOP_SEC_VAR_NOINIT_UN</p>
+<p>SPECIFIED </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CRY_30_RH850ICUS_START_SEC_VAR_INIT_UNSP</p>
+<p>ECIFIED </p>
+<p>CRY_30_RH850ICUS_STOP_SEC_VAR_INIT_UNSPE</p>
+<p>CIFIED </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Table 4-4  </p>
+<p>Compiler abstraction and memory mapping </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>29 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Interfaces Overview </b></p>
+<p>For  an  interfaces  overview  please  see  Figure  2-2  ‘Figure  2-2:  Interfaces  to  adjacent </p>
+<p>modules of the CRY_30_RH850ICUS’. </p>
+<p><b>5.2 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the CRY_30_RH850ICUS are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>Cry_SheTime</p>
+<p>outApiSection</p>
+<p>Type </p>
+<p>enum </p>
+<p>Values used </p>
+<p>for the </p>
+<p>parameter </p>
+<p>service of the </p>
+<p>location </p>
+<p>callout </p>
+<p>CRY_SHE_TO_SECTION_START_SERVICE </p>
+<p>Start function of a service</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_UPDATE_SERVICE </p>
+<p>Update function of a service</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_START_LOOP </p>
+<p>Before entering a while loop which waits for a </p>
+<p>response from the SHE</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_STOP_LOOP </p>
+<p>After leaving a while loop which waited for a </p>
+<p>response from the SHE</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_FINISH_SERVICE </p>
+<p>Finish function of a service</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_SINGLE_CALL_SERVICE </p>
+<p>Function of a service which consists of only </p>
+<p>one function (e.g. </p>
+<p>Cry_30_Rh850Icus_</p>
+<p>RngGenerate).</p>
+<p> </p>
+<p>CRY_SHE_TO_SECTION_INIT_SERVICE </p>
+<p>Init function of a service (e.g. </p>
+<p>Cry_30_Rh850Icus_R</p>
+<p>ngInit)</p>
+<p> </p>
+<p>Cry_SheTime</p>
+<p>outApiService</p>
+<p>Type </p>
+<p>enum </p>
+<p>Values used </p>
+<p>for the </p>
+<p>parameter </p>
+<p>section of the </p>
+<p>location </p>
+<p>callout </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_VERIFY </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_AES_DECRYPT </p>
+<p>CRY_SHE_TO_SERVICE_AES_ENCRYPT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_EXTRACT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_WRAP </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_SEED </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_CANCEL </p>
+<p>CRY_SHE_TO_SERVICE_UNDEFINED </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>30 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.3 </b></p>
+<p><b>Structures </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Configuration structures </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>These structures and their content are generated and filled automatically by the </p>
+<p>configurator. It is not recommended to fill the structure manually. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>5.3.1.1 </b></p>
+<p><b>Cry_30_Rh850Icus_AesEncrypt128ConfigType </b></p>
+<p>This  structure  represents  the  configuration  for  the  Cry_30_Rh850Icus_AesEncrypt128 </p>
+<p>service. </p>
+<p><b>Struct Element Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>BlockModeOfAesEncrypt128Con</p>
+<p>fig </p>
+<p>uint32 </p>
+<p>Block mode. </p>
+<p>CRY_BLOCKMODE_ECB,</p>
+<p> </p>
+<p>CRY_BLOCKMODE_CBC</p>
+<p> </p>
+<p>KeyIdTypeOfAesEncrypt128Conf</p>
+<p>ig </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>AesEncrypt128WorkSpaceIdxOf</p>
+<p>AesDecrypt128Config </p>
+<p>uint8 </p>
+<p>Index of the </p>
+<p>workspace. The </p>
+<p>corresponding </p>
+<p>workspace is used as </p>
+<p>data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-2  </p>
+<p>Cry_30_Rh850Icus_ AesEncrypt128ConfigType </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>31 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.3.1.2 </b></p>
+<p><b>Cry_30_Rh850Icus_AesDecrypt128ConfigType </b></p>
+<p>This  structure  represents  the  configuration  for  the  Cry_30_Rh850Icus_AesDecrypt128 </p>
+<p>service. </p>
+<p><b>Struct Element Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>BlockModeOfAesDecrypt128Con</p>
+<p>fig </p>
+<p>uint32 </p>
+<p>Block mode. </p>
+<p>CRY_BLOCKMODE_ECB,</p>
+<p> </p>
+<p>CRY_BLOCKMODE_CBC</p>
+<p> </p>
+<p>KeyIdTypeOfAesDecrypt128Conf</p>
+<p>ig </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId. </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>AesDecrypt128WorkSpaceIdxOf</p>
+<p>AesDecrypt128Config </p>
+<p>uint8 </p>
+<p>Index of the </p>
+<p>workspace. The </p>
+<p>corresponding </p>
+<p>workspace is used </p>
+<p>as data storage for </p>
+<p>the primitives. </p>
+<p> </p>
+<p>Table 5-3  </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType </p>
+<p> </p>
+<p> </p>
+<p><b>5.3.1.3 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128GenConfigType </b></p>
+<p>This  structure  represents  the  configuration  for  the  Cry_30_Rh850Icus_CmacAes128Gen </p>
+<p>service. </p>
+<p><b>Struct Element </b></p>
+<p><b>Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>KeyIdTypeOfC</p>
+<p>macAes128Ge</p>
+<p>nConfig </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId. </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>CmacAes128G</p>
+<p>enWorkSpaceI</p>
+<p>dxOfCmacAes1</p>
+<p>28GenConfig </p>
+<p>uint8 </p>
+<p>Index of the workspace. </p>
+<p>The corresponding </p>
+<p>workspace is used as </p>
+<p>data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-4  </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>32 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.3.1.4 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128VerConfigType </b></p>
+<p>This  structure  represents  the  configuration  for  the  Cry_30_Rh850Icus_CmacAes128Ver </p>
+<p>service. </p>
+<p><b>Struct Element </b></p>
+<p><b>Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>KeyIdTypeOfC</p>
+<p>macAes128Ver</p>
+<p>Config </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId. </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>lengthInBytes </p>
+<p>boolean </p>
+<p>Defines if Mac Length is </p>
+<p>interpreted in bytes or </p>
+<p>bits. </p>
+<p>CRY_MAC_LENGTH_IN_BYTES, </p>
+<p>CRY_MAC_LENGTH_IN_BITS </p>
+<p>CmacAes128V</p>
+<p>erWorkSpaceId</p>
+<p>xOfCmacAes12</p>
+<p>8GenConfig </p>
+<p>uint8 </p>
+<p>Index of the workspace. </p>
+<p>The corresponding </p>
+<p>workspace is used as </p>
+<p>data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-5  </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType </p>
+<p><b>5.3.1.5 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyExtractConfigType </b></p>
+<p>This structure represents the configuration for the Cry_30_Rh850Icus_KeyExtract service. </p>
+<p><b>Struct Element </b></p>
+<p><b>Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>KeyIdTypeOfKe</p>
+<p>yExtractConfig </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>KeyExtractWor</p>
+<p>kSpaceIdxOfKe</p>
+<p>yExtractConfig </p>
+<p>uint8 </p>
+<p>Index of the workspace. </p>
+<p>The corresponding </p>
+<p>workspace is used as </p>
+<p>data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-6 </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>33 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.3.1.6 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyWrapSymConfigType </b></p>
+<p>This </p>
+<p>structure </p>
+<p>represents </p>
+<p>the </p>
+<p>configuration </p>
+<p>for </p>
+<p>the </p>
+<p>Cry_30_Rh850Icus_KeyWrapSym </p>
+<p>service. </p>
+<p><b>Struct Element </b></p>
+<p><b>Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>KeyIdTypeOfKe</p>
+<p>yWrapSymConf</p>
+<p>ig </p>
+<p>uint32 </p>
+<p>Defines the </p>
+<p>interpretation of the </p>
+<p>keyId </p>
+<p>CRY_KEYIDTYPE_MAPPED, </p>
+<p>CRY_KEYIDTYPE_RAW </p>
+<p>KeyWrapSymW</p>
+<p>orkSpaceIdxOf</p>
+<p>KeyWrapSymC</p>
+<p>onfig </p>
+<p>uint8 </p>
+<p>Index of the workspace. </p>
+<p>The corresponding </p>
+<p>workspace is used as </p>
+<p>data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-7 </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType </p>
+<p> </p>
+<p><b>5.3.1.7 </b></p>
+<p><b>Cry_30_Rh850Icus_RngConfigType </b></p>
+<p>This structure represents the configuration for the Cry_30_Rh850Icus_Rng service. </p>
+<p><b>Struct Element </b></p>
+<p><b>Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>RngWorkSpaceIdxOf</p>
+<p>RngConfig </p>
+<p>uint8 </p>
+<p>Index of the workspace. The </p>
+<p>corresponding workspace is </p>
+<p>used as data storage for the </p>
+<p>primitives. </p>
+<p> </p>
+<p>Table 5-8  </p>
+<p>Cry_30_Rh850Icus_RngConfigType </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>34 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4 </b></p>
+<p><b>Services provided by CRY_30_RH850ICUS </b></p>
+<p><b>5.4.1 </b></p>
+<p><b>Cry_30_Rh850Icus_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_Init </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the Cry. </p>
+<p>Initialize the enabled services and set the global service state to idle. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called during start-up. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from interrupt level or from task level. </p>
+<p>Table 5-9  </p>
+<p>Cry_30_Rh850Icus_Init </p>
+<p> </p>
+<p><b>5.4.2 </b></p>
+<p><b>Cry_30_Rh850Icus_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Service to initialize module global variables at power up. This function initializes the variables in *_INIT_* </p>
+<p>sections. Used in case they are not initialized by the startup code. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-10  </p>
+<p>Cry_30_Rh850Icus_InitMemory </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>35 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.3 </b></p>
+<p><b>Cry_30_Rh850Icus_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_GetVersionInfo </b>(Std_VersionInfoType </p>
+<p>*cryVerInfoPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryVerInfoPtr</p>
+<p> </p>
+<p>Pointer where to store the version information of this module. Parameter must </p>
+<p>not be NULL. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>This function retrieves the version information of the Cry module. </p>
+<p>It stores the version information, i.e. Module Id, Vendor Id, Vendor specific version numbers to structure </p>
+<p>pointed by cryVerInfoPtr. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_VERSION_INFO_API. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-11  </p>
+<p>Cry_30_Rh850Icus_GetVersionInfo </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>36 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.4 </b></p>
+<p><b>Cry_30_Rh850Icus_AesEncrypt128Start </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesEncrypt128Start </b>(const void *cfgPtr, </p>
+<p>const Csm_SymKeyType *keyPtr, const uint8 *InitVectorPtr, uint32 </p>
+<p>InitVectorLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128ConfigType for more information. </p>
+<p>keyPtr </p>
+<p>Holds a pointer to the key which has to be used during the symmetrical </p>
+<p>encryption. The keyPtr can either contain a plaintext key (keyPtr.length = 16) </p>
+<p>or a keyId (keyPtr.length = 1). </p>
+<p>InitVectorPtr </p>
+<p>Holds a pointer to initialization vector which has to be used during the </p>
+<p>symmetrical encryption. </p>
+<p>InitVectorLength </p>
+<p>Holds the length of the initialization vector in bytes. Only the value 16 (for CBC </p>
+<p>mode) and 0 (for ECB) is allowed.  </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the symmetrical encryption service of the module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. The keyId is stored and if the keyPtr contains a plaintext, the key is loaded </p>
+<p>to the RAM key slot. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Finish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Update between them is allowed. Attention: If the </p>
+<p>Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESENCRYPT128CONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-12  </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>37 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.5 </b></p>
+<p><b>Cry_30_Rh850Icus_AesEncrypt128Update </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesEncrypt128Update </b>(Const void </p>
+<p>*cfgPtr, const uint8 *plainTextPtr, uint32 plainTextLength, uint8 </p>
+<p>*cipherTextPtr, uint32 *cipherTextLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128ConfigType for more information. </p>
+<p>plainTextPtr </p>
+<p>Holds a pointer to the data for which an encrypted text shall be computed. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>plainTextLength </p>
+<p>Contains the number of bytes for which the encrypted text shall be computed. </p>
+<p>Only values which are the same or a multiple of the block size (16 bytes) are </p>
+<p>allowed. </p>
+<p>cipherTextPtr </p>
+<p>Holds a pointer to the memory location which will hold the encrypted text. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>cipherTextLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>provided buffer. The buffer size must have at least the size of the </p>
+<p>plainTextLength. When the request has finished successful, the length of the </p>
+<p>returned encrypted is stored. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_SMALL_BUFFER </p>
+<p>The provided buffer is too small to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes input data to the symmetrical encryption service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The command to encrypt the plaintext is send to the SHE. If no error </p>
+<p>occurred, the cipherTextLengthPtr gets updated with the length of the encrypted text. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>38 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It’s not possible to call Cry_30_Rh850Icus_AesEncrypt128Update multiple times in </p>
+<p>order to feed the symmetrical encryption service with separate input data chunks.  </p>
+<p>Therefore plainTextLength must be set to the length of the complete input data. </p>
+<p>The data has to be padded to the length of the block size (16 bytes) or a multiple of it </p>
+<p>before calling this function. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start with return value CSM_E_OK). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESENCRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-13  </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Update </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>39 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.6 </b></p>
+<p><b>Cry_30_Rh850Icus_AesEncrypt128Finish </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesEncrypt128Finish </b>(Const void </p>
+<p>*cfgPtr, uint8 *cipherTextPtr, uint32 *cipherTextLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128ConfigType for more information. </p>
+<p>cipherTextPtr </p>
+<p>Holds a pointer to the memory location which will hold the encrypted text. </p>
+<p>cipherTextLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>provided buffer. When the request has finished successful, the length of the </p>
+<p>returned encrypted text is stored. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_SMALL_BUFFER </p>
+<p>The provided buffer is too small to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the symmetrical encryption service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start with return value CSM_E_OK). A function call </p>
+<p>of Cry_30_Rh850Icus_AesEncrypt128Update between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Start. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESENCRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-14  </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Finish </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>40 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.7 </b></p>
+<p><b>Cry_30_Rh850Icus_AesEncrypt128MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_AesEncrypt128MainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESENCRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-15  </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128MainFunction </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>41 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.8 </b></p>
+<p><b>Cry_30_Rh850Icus_AesDecrypt128Start </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesDecrypt128Start </b>(Const void *cfgPtr, </p>
+<p>const Csm_SymKeyType *keyPtr, const uint8 *InitVectorPtr, uint32 </p>
+<p>InitVectorLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType for more information. </p>
+<p>keyPtr </p>
+<p>Holds a pointer to the key which has to be used during the symmetrical </p>
+<p>decryption. The keyPtr can either contain a plaintext key (keyPtr.length = 16) </p>
+<p>or a keyId (keyPtr.length = 1). </p>
+<p>InitVectorPtr </p>
+<p>Holds a pointer to initialization vector which has to be used during the </p>
+<p>symmetrical decryption. </p>
+<p>InitVectorLength </p>
+<p>Holds the length of the initialization vector in bytes. Only the value 16 (for CBC </p>
+<p>mode) and 0 (for ECB) is allowed.  </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the symmetrical decryption service of the module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. The keyId is stored and if the keyPtr contains a plaintext, the key is loaded </p>
+<p>to the RAM key slot. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Finish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_AesEncrypt128Update between them is allowed. Attention: If the </p>
+<p>Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESDECRYPT128CONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-16  </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>42 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.9 </b></p>
+<p><b>Cry_30_Rh850Icus_AesDecrypt128Update </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesDecrypt128Update </b>(Const void </p>
+<p>*cfgPtr, const uint8 *cipherTextPtr, uint32 cipherTextLength, uint8 </p>
+<p>*plainTextPtr, uint32 *plainTextLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType for more information. </p>
+<p>cipherTextPtr </p>
+<p>Holds a pointer to the data for which a decrypted text shall be computed. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>cipherTextLength </p>
+<p>Contains the number of bytes for which the decrypted text shall be computed. </p>
+<p>Only values which are the same or a multiple of the block size (16 bytes) are </p>
+<p>allowed. </p>
+<p>plainTextPtr </p>
+<p>Holds a pointer to the memory location which will hold the encrypted text. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>plainTextLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>provided buffer. The buffer size must have at least the size of the </p>
+<p>cipherTextLength. When the request has finished successful, the length of the </p>
+<p>returned decrypted is stored. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_SMALL_BUFFER </p>
+<p>The provided buffer is too small to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes input data to the symmetrical decryption service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The command to decrypt the ciphertext is send to the SHE. If no error </p>
+<p>occurred, the plainTextLengthPtr gets updated with the length of the decrypted text. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>43 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It’s not possible to call Cry_30_Rh850Icus_AesDecrypt128Update multiple times in </p>
+<p>order to feed the symmetrical encryption service with separate input data chunks.  </p>
+<p>Therefore cipherTextLength must be set to the length of the complete input data. </p>
+<p>The data has to be padded to the length of the block size (16 bytes) or a multiple of it </p>
+<p>before calling this function. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start with return value CSM_E_OK). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESENCRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-17  </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Update </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>44 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.10 </b></p>
+<p><b>Cry_30_Rh850Icus_AesDecrypt128Finish </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_AesDecrypt128Finish </b>(Const void </p>
+<p>*cfgPtr, uint8 *plainTextPtr, uint32 *plainTextLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128ConfigType for more information. </p>
+<p>plainTextPtr </p>
+<p>Holds a pointer to the memory location which will hold the decrypted text. </p>
+<p>plainTextLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>provided buffer. When the request has finished successful, the length of the </p>
+<p>returned decrypted text is stored. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_SMALL_BUFFER </p>
+<p>The provided buffer is too small to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the symmetrical decryption service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start with return value CSM_E_OK). A function call </p>
+<p>of call Cry_30_Rh850Icus_AesDecrypt128Update between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Start. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESDECRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-18  </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128Finish </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>45 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.11 </b></p>
+<p><b>Cry_30_Rh850Icus_AesDecrypt128MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_AesDecrypt128MainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_AESDECRYPT128CONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-19  </p>
+<p>Cry_30_Rh850Icus_AesDecrypt128MainFunction </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>46 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.12 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128GenStart </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128GenStart </b>(Const void *cfgPtr, </p>
+<p>const Csm_SymKeyType *keyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType for more information. </p>
+<p>keyPtr </p>
+<p>Holds a pointer to the key which has to be used for the CMAC generation. The </p>
+<p>keyPtr can either contain a plaintext key (keyPtr.length = 16) or a keyId </p>
+<p>(keyPtr.length = 1). </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the CMAC generation service of this module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. The keyId is stored and if the keyPtr contains a plaintext, the key is loaded </p>
+<p>to the RAM key slot. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenFinish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenUpdate between them is allowed. Attention: If </p>
+<p>the Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128GENCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-20  </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>47 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.13 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128GenUpdate </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128GenUpdate </b>(Const void </p>
+<p>*cfgPtr, const uint8 *dataPtr, uint32 dataLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType for more information. </p>
+<p>dataPtr </p>
+<p>Holds a pointer to the data for which a CMAC shall be computed. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>dataLength </p>
+<p>Contains the number of bytes for which the MAC shall be computed. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes input data for the CMAC generation. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The command to generate the CMAC is send to the SHE. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Due to limitations in the API of the SHE, it’s not possible to call </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenUpdate multiple times in order to feed the CMAC </p>
+<p>generation with separate input data chunks.  </p>
+<p>Therefore dataLength must be set to the length of the complete input data. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart with return value CSM_E_OK). </p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128GENCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-21  </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenUpdate </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>48 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.14 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128GenFinish </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128GenFinish </b>(Const void </p>
+<p>*cfgPtr, const uint8 *resultPtr, uint32* resultLengthPtr, boolean </p>
+<p>truncationIsAllowed) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenConfigType for more information. </p>
+<p>resultPtr </p>
+<p>Holds a pointer to the memory location which will hold the result of the CMAC </p>
+<p>generation. If the result does not fit into the given buffer, and truncation is </p>
+<p>allowed, the result shall be truncated </p>
+<p>resultLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>buffer provided by resultPtr. When the request has finished successful, the </p>
+<p>length of the returned MAC shall be stored. </p>
+<p>truncationIsAllowed </p>
+<p>This parameter states whether a truncation of the result is allowed or not.  </p>
+<p>TRUE: truncation is allowed.  </p>
+<p>FALSE: truncation is not allowed. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed </p>
+<p>CSM_E_SMALL_BUFFER </p>
+<p> </p>
+<p>The provided buffer is too small to store the result, and truncation was not </p>
+<p>allowed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the SHE-CMAC generation service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p>If no error occurred, the CMAC is written to the resultPtr and the resultLengthPtr gets updated with the </p>
+<p>length of the CMAC. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>49 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart with return value CSM_E_OK). A function </p>
+<p>call of call Cry_30_Rh850Icus_CmacAes128GenUpdate between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenStart. It is not allowed to call this function </p>
+<p>multiple times, even if the return value is not CSM_E_OK. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128GENCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-22  </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenFinish </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>50 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.15 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128GenMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_CmacAes128GenMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128GENCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-23  </p>
+<p>Cry_30_Rh850Icus_CmacAes128GenMainFunction </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>51 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.16 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128VerStart </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128VerStart </b>(Const void *cfgPtr, </p>
+<p>const Csm_SymKeyType *keyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType for more information. </p>
+<p>keyPtr </p>
+<p>Holds a pointer to the key which has to be used for the CMAC verification. The </p>
+<p>keyPtr can either contain a plaintext key (keyPtr.length = 16) or a keyId </p>
+<p>(keyPtr.length = 1). </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the CMAC verification service of this module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. The keyId is stored and if the keyPtr contains a plaintext, the key is loaded </p>
+<p>to the RAM key slot. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerFinish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerUpdate between them is allowed. Attention: If the </p>
+<p>Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128VERCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-24  </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>52 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.17 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128VerUpdate </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128VerUpdate </b>(Const void </p>
+<p>*cfgPtr, const uint8 *dataPtr, uint32 dataLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType for more information. </p>
+<p>dataPtr </p>
+<p>Holds a pointer to the data for which a CMAC shall be verified. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>See important note for this parameter below. </p>
+<p>dataLength </p>
+<p>Contains the number of bytes for which the CMAC shall be verified. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes the input data to the CMAC verification service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The dataLength and dataPtr are stored internal for the finish call. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Due to limitations in the API of the SHE, it’s not possible to call </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerUpdate multiple times in order to feed the CMAC </p>
+<p>verification with separate input data chunks.  </p>
+<p>Therefore dataLength must be set to the length of the complete input data. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart with return value CSM_E_OK). </p>
+<p> </p>
+<p>The function stores only the address of the dataPtr and not the content the pointer </p>
+<p>references. The content of the dataPtr is valid until </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerFinish has called and executed. </p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128VERCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>53 </p>
+<p>Based on template version 5.2.0 </p>
+<p>Table 5-25  </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerUpdate </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>54 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.18 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128VerFinish </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_CmacAes128VerFinish </b>(Const void </p>
+<p>*cfgPtr, const uint8 *MacPtr, uint32 MacLength, Csm_VerifyResultType </p>
+<p>*resultPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerConfigType for more information. </p>
+<p>MacPtr </p>
+<p>Holds a pointer to the memory location which will hold the CMAC to verify. </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>MacLength </p>
+<p>Holds the length of the MAC to be verified.  </p>
+<p>Depending on the configuration, this value is interpreted as number of bits or </p>
+<p>number of bytes to verify. The maximum supported length is 16 Byte, </p>
+<p>respectively 128 Bit. </p>
+<p>resultPtr </p>
+<p>Holds a pointer to the memory location which will hold the CMAC. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the CMAC verification. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p>The command to verify the CMAC is send to the SHE. The result of the verification is written to the </p>
+<p>resultPtr. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart with return value CSM_E_OK). A function </p>
+<p>call of Cry_30_Rh850Icus_CmacAes128VerUpdate between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerStart. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p> </p>
+<p>The caller of this function needs to ensure, that the dataPtr and its data which was </p>
+<p>passed in the update function is still valid. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128VERCONFIG. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>55 </p>
+<p>Based on template version 5.2.0 </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-26  </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerFinish </p>
+<p> </p>
+<p><b>5.4.19 </b></p>
+<p><b>Cry_30_Rh850Icus_CmacAes128VerMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_CmacAes128VerMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_CMACAES128GENCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-27  </p>
+<p>Cry_30_Rh850Icus_CmacAes128VerMainFunction </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>56 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.20 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyExtractStart </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyExtractStart </b>(Csm_ConfigIdType cfgId) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType for more information. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p> </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the KeyExtract service of the module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_KeyExtractFinish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate between them is allowed. Attention: If the </p>
+<p>Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYEXTRACTCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-28  </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>57 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.21 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyExtractUpdate </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyExtractUpdate </b>(Csm_ConfigIdType cfgId, const </p>
+<p>uint8* dataPtr, uint32 dataLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType for more information. </p>
+<p>dataPtr </p>
+<p>Holds a pointer to the data which contains either </p>
+<p>- </p>
+<p>a plaintext key (Length is 16) </p>
+<p>- </p>
+<p>Messages M1, M2, and M3 with an optional prepending KeyId to </p>
+<p>update a keyslot in the SHE. (Length is 64 or 65 Bytes) </p>
+<p>- </p>
+<p>a KeyId (Length is 1) </p>
+<p>dataLength </p>
+<p>Holds the length of the data in bytes. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes input data to the key extraction service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. This function provides different possibilities to store keys. </p>
+<p>1. </p>
+<p>Input data with the length of 16 Byte are stored in the KEY_RAM. </p>
+<p>2. </p>
+<p>Input data with the length of 64 Byte are interpreted as M1-M3 for the key update protocol as </p>
+<p>specified in the SHE spec. </p>
+<p>3. </p>
+<p>Input data with the length of 65 Byte are interpreted as M1-M3 for the key update protocol as </p>
+<p>specified in the SHE spec including a KeyId in the first byte of the input data. </p>
+<p>4. </p>
+<p>Input data with the length of 1 Byte are used as the data in key which is returned in the Finish-</p>
+<p>Function. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The driver does not support multiple valid calls of </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart with return value CSM_E_OK). </p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYEXTRACTCONFIG. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>58 </p>
+<p>Based on template version 5.2.0 </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-29  </p>
+<p>Cry_30_Rh850Icus_KeyExtractUpdate </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>59 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.22 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyExtractFinish </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyExtractFinish </b>(Csm_ConfigIdType cfgId, </p>
+<p>Csm_SymKeyType* keyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyExtractConfigType for more information. </p>
+<p>keyPtr </p>
+<p>Holds a pointer to a structure where the result (e.g. the symmetrical key) is </p>
+<p>stored in. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the key extract service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p>If a key is updated in the NVM, they key.data will contain the M4-M5 of the SHE key update protocol. If the </p>
+<p>KEY_RAM has been updated, the key.data will contain the corresponding keyId for that slot which can be </p>
+<p>used as input for e.g. AES encrypt. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart with return value CSM_E_OK). A function call of </p>
+<p>call Cry_30_Rh850Icus_KeyExtractUpdate between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_KeyExtractStart. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYEXTRACTCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-30  </p>
+<p>Cry_30_Rh850Icus_KeyExtractFinish </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>60 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.23 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyExtractMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyExtractMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYEXTRACTCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-31  </p>
+<p>Cry_30_Rh850Icus_KeyExtractMainFunction </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>61 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.24 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyWrapSymStart </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyWrapSymStart </b>(Csm_ConfigIdType cfgId, const </p>
+<p>Csm_SymKeyType * keyPtr, const Csm_SymKeyType * wrappingKeyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType for more information. </p>
+<p>keyPtr</p>
+<p> </p>
+<p>Holds a pointer to the symmetric key to be wrapped. </p>
+<p>wrappingKeyPtr</p>
+<p> </p>
+<p>Holds a pointer to the key used for wrapping. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the symmetrical key wrapping service of the module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymFinish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymUpdate between them is allowed. Attention: If the </p>
+<p>Finish-function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYWRAPSYMCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-32  </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>62 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.25 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyWrapSymUpdate </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyWrapSymUpdate </b>(Csm_ConfigIdType cfgId, const </p>
+<p>uint8* dataPtr, uint32 * dataLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType for more information. </p>
+<p>dataPtr </p>
+<p>Holds a pointer to the memory location which will hold the result of the key </p>
+<p>wrapping. The address of the pointer needs to be aligned on 32-bit. </p>
+<p>dataLengthPtr </p>
+<p>Holds a pointer to the memory location in which the length information is </p>
+<p>stored. On calling this function this parameter shall contain the size of the </p>
+<p>buffer provided by dataPtr. When the request has finished successful, the </p>
+<p>length of the computed value is be stored. </p>
+<p>The only supported valid value for this parameter is 112. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to retrieve the result of the key wrapping operation. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The command to export the RAM key is send to the SHE. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The driver does not support multiple valid calls of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymUpdate. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart with return value CSM_E_OK). </p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYWRAPSYMCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-33  </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymUpdate </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>63 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.26 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyWrapSymFinish </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyWrapSymFinish </b>(Csm_ConfigIdType cfgId) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymConfigType for more information. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the symmetrical key wrapping service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart with return value CSM_E_OK). A function call </p>
+<p>of call Cry_30_Rh850Icus_KeyWrapSymUpdate between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYWRAPSYMCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-34  </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymFinish </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>64 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.27 </b></p>
+<p><b>Cry_30_Rh850Icus_KeyWrapSymMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_KeyWrapSymMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_KEYWRAPSYMCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-35  </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymMainFunction </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>65 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.28 </b></p>
+<p><b>Cry_30_Rh850Icus_RngSeedStart </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_RngSeedStart </b>(Const void *cfgPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_RngConfigType for more information. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the random number generator seed service of the module. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function starts the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If this function is called successful (CSM_E_OK), the caller must call </p>
+<p>Cry_30_Rh850Icus_RngSeedFinish hereafter. A call of </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate between them is allowed. Attention: If the Finish-</p>
+<p>function is never called, the SHE is blocked for all other services.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-36  </p>
+<p>Cry_30_Rh850Icus_RngSeedStart </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>66 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.29 </b></p>
+<p><b>Cry_30_Rh850Icus_RngSeedUpdate </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_RngSeedUpdate </b>(Const void *cfgPtr, </p>
+<p>const uint8 *seedPtr, uint32 seedLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_RngConfigType for more information. </p>
+<p>seedPtr </p>
+<p>Holds a pointer to the seed for the random number generator.  </p>
+<p>The address of the pointer needs to be aligned on 32-bit. </p>
+<p>seedLength </p>
+<p>Contains the length of the seed in bytes. Only the value 16 is supported. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface passes a seed to the random number generator seed service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function updates the service. The command to extend the seed with the given seedPtr is send to the </p>
+<p>hardware. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be updated in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The driver does not support multiple valid calls of </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_RngSeedStart with return value CSM_E_OK). </p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-37  </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>67 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.30 </b></p>
+<p><b>Cry_30_Rh850Icus_RngSeedFinish </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_RngSeedFinish </b>(Const void *cfgPtr) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_RngConfigType for more information. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to finish the random number generator seed service. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The function finishes the service. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be finished in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The function must only be called, if the service was started before successful (call of </p>
+<p>Cry_30_Rh850Icus_RngSeedStart with return value CSM_E_OK). A function call of call </p>
+<p>Cry_30_Rh850Icus_RngSeedUpdate between them is allowed. </p>
+<p>This function must only be called once after a successful call of </p>
+<p>Cry_30_Rh850Icus_KeyWrapSymStart. It is not allowed to call this function multiple </p>
+<p>times, even if the return value is not CSM_E_OK. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-38  </p>
+<p>Cry_30_Rh850Icus_RngSeedFinish </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>68 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.31 </b></p>
+<p><b>Cry_30_Rh850Icus_RngSeedMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p>Cry_30_Rh850Icus_</p>
+<p><b>RngSeedMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-39  </p>
+<p>Cry_30_Rh850Icus_RngSeedMainFunction </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>69 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.32 </b></p>
+<p><b>Cry_30_Rh850Icus_RngGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_RngGenerate </b>(Const void *cfgPtr, uint8 </p>
+<p>*resultPtr, uint32 resultLength) </p>
+<p><b>Parameter </b></p>
+<p>cfgPtr </p>
+<p>Holds a pointer to the configuration of this service. See </p>
+<p>Cry_30_Rh850Icus_RngConfigType for more information. </p>
+<p>resultPtr </p>
+<p>Holds a pointer to the memory location which will hold the result of the random </p>
+<p>number generation. The memory location must have at least the size </p>
+<p>&quot;resultLength&quot;. </p>
+<p>resultLength </p>
+<p>Holds the amount of random bytes which should be generated. The maximum </p>
+<p>supported size is 16 Byte. </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Request successful. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Request failed. </p>
+<p>CSM_E_BUSY </p>
+<p>Request failed, service is still busy. </p>
+<p><b>Functional Description </b></p>
+<p>This interface shall be used to initialize the random number generator according to the SHE specification. </p>
+<p><b>Synchronous configuration: </b></p>
+<p>The command to generate a random number is send to the SHE. </p>
+<p>The generated random number is written to the resultPtr. </p>
+<p><b>Asynchronous configuration: </b></p>
+<p>The parameters are stored in a buffer, and the service gets marked to be started in the next main-function </p>
+<p>call. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function can be synchronous or asynchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function is called by the CSM. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>&gt; </p>
+<p>Precondition: Service is idle. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-40  </p>
+<p>Cry_30_Rh850Icus_RngGenerate </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>70 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.4.33 </b></p>
+<p><b>Cry_30_Rh850Icus_RngGenerateMainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Cry_30_Rh850Icus_RngGenerateMainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to be called cyclically to process the requested service. </p>
+<p>This function needs to be called for asynchronous function handling in order to process the service. If a </p>
+<p>service is processed, the function sends a callback notification. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is empty if ‘Use Sync Job Processing’ is enabled. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>This function has to be called by CSM. </p>
+<p>&gt; </p>
+<p>This function must not be called by the application. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on CRY_30_RH850ICUS_RNGCONFIG. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-41  </p>
+<p>Cry_30_Rh850Icus_RngGenerateMainFunction </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>71 </p>
+<p>Based on template version 5.2.0 </p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_SelfTest </b></p>
+<p><b>Prototype </b></p>
+<p>Csm_ReturnType <b>Cry_30_Rh850Icus_SelfTest </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>CSM_E_OK </p>
+<p>Self test was successful. </p>
+<p>CSM_E_BUSY </p>
+<p>Self test has not been performed, because the hardware was busy. </p>
+<p>CSM_E_NOT_OK </p>
+<p>Self test has failed </p>
+<p><b>Functional Description </b></p>
+<p>Implements the API to perform a self check of the CMAC verifyication function. This is done by checking </p>
+<p>predefined test vectors. The self check is done once in the init function of the CRY. The user can perfom </p>
+<p>more self checks cyclically once the CRY is initialized. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is not reentrant. </p>
+<p>&gt; </p>
+<p>The availability of this service depends on  CRY_30_RH850ICUS_SELF_TEST. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task level only. </p>
+<p>Table 5-42  </p>
+<p>Cry_30_Rh850Icus_SelfTest </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>Callout Functions </b></p>
+<p>At  its  configurable  interfaces  the  CRY  defines  callout  functions. The  declarations  of  the </p>
+<p>callout functions are provided by the BSW module, i.e. the CRY. It is the integrator's task to </p>
+<p>provide  the  corresponding  function  definitions.  The  definitions  of  the  callouts  can  be </p>
+<p>adjusted  to  the  system's  needs.  Additionally,  some  callouts  can  be  enabled  with  the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>72 </p>
+<p>Based on template version 5.2.0 </p>
+<p>configuration.  An  example  implementation  is  provided  in  the  template  files.  The  CRY </p>
+<p>callout function declarations are described in the following tables: </p>
+<p><b>5.5.1.1 </b></p>
+<p><b>Timeout-API Location Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>[Location Callout Function Name]</b></p>
+<p> </p>
+<p>(Cry_SheTimeoutApiServiceType </p>
+<p>service, Cry_SheTimeoutApiSectionType section) </p>
+<p><b>Parameter </b></p>
+<p>service </p>
+<p>This parameter provides information from which service the callout is called. </p>
+<p> </p>
+<p>The following services can be the source of the callout: </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_VERIFY </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_AES_DECRYPT </p>
+<p>CRY_SHE_TO_SERVICE_AES_ENCRYPT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_EXTRACT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_WRAP </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_SEED </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_CANCEL </p>
+<p>CRY_SHE_TO_SERVICE_UNDEFINED</p>
+<p> </p>
+<p>section </p>
+<p>This parameter provides information where exactly in the service, the callout is </p>
+<p>called. </p>
+<p> </p>
+<p>The following services can be the source of the callout: </p>
+<p>CRY_SHE_TO_SECTION_START_SERVICE </p>
+<p>CRY_SHE_TO_SECTION_UPDATE_SERVICE, </p>
+<p>CRY_SHE_TO_SECTION_START_LOOP, </p>
+<p>CRY_SHE_TO_SECTION_STOP_LOOP, </p>
+<p>CRY_SHE_TO_SECTION_FINISH_SERVICE, </p>
+<p>CRY_SHE_TO_SECTION_SINGLE_CALL_SERVICE </p>
+<p>CRY_SHE_TO_SECTION_INIT_SERVICE</p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>The function provides information about the service which is currently processed and at which location the </p>
+<p>callout is called. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when the timeout API is enabled. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-43  </p>
+<p>[Timeout-API location callout] </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>73 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.5.1.2 </b></p>
+<p><b>Timeout-API Loop Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>[Loop Callout Function Name]</b></p>
+<p> </p>
+<p>(Cry_SheTimeoutApiServiceType </p>
+<p>service) </p>
+<p><b>Parameter </b></p>
+<p>service </p>
+<p>This parameter provides information from which service the callout is called. </p>
+<p> </p>
+<p>The following services can be the source of the callout: </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_VERIFY </p>
+<p>CRY_SHE_TO_SERVICE_CMAC_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_AES_DECRYPT </p>
+<p>CRY_SHE_TO_SERVICE_AES_ENCRYPT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_EXTRACT </p>
+<p>CRY_SHE_TO_SERVICE_KEY_WRAP </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_SEED </p>
+<p>CRY_SHE_TO_SERVICE_PRNG_GENERATE </p>
+<p>CRY_SHE_TO_SERVICE_CANCEL </p>
+<p>CRY_SHE_TO_SERVICE_UNDEFINED</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>Csm_ReturnType </p>
+<p>To indicate that no timeout has occurred, return </p>
+<p>CSM_E_OK</p>
+<p>. </p>
+<p>If a timeout has occurred, return </p>
+<p>CSM_E_NOT_OK</p>
+<p>. </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function is called in all loops which wait for a response from the SHE. </p>
+<p>When a timeout occurs (return code equals </p>
+<p>CSM_E_NOT_OK</p>
+<p>), the loop will be left and the command </p>
+<p>CMD_CANCEL</p>
+<p> will be sent to the SHE to stop the currently executing command on the SHE. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when the timeout API is enabled.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-44  </p>
+<p>[Timeout-API Loop Callout] </p>
+<p><b>5.5.1.3 </b></p>
+<p><b>Cry_30_Rh850Icus_HardwareErrorCode_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_HardwareErrorCode_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>error </p>
+<p>Error code of the Hardware </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>74 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Functional Description </b></p>
+<p>This function gets the error code of the hardware. This error code can for example be passed to the mode </p>
+<p>management. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_HARDWARE_ERROR_CODE is </p>
+<p>STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-45  </p>
+<p>Cry_30_Rh850Icus_HardwareErrorCode_Callout </p>
+<p> </p>
+<p><b>5.5.1.4 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashReadStart_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>boolean</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashReadStart_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>boolean </p>
+<p>TRUE if a read access to the data flash is granted, otherwise false. </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function shall try to get a read lock for the data flash. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_SYNCHRONISATION is </p>
+<p>STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-46  </p>
+<p>Cry_30_Rh850Icus_DataFlashReadStart_Callout </p>
+<p><b>5.5.1.5 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashReadEnd_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashReadEnd_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function shall try to release the read lock for the data flash. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>75 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_SYNCHRONISATION is </p>
+<p>STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-47  </p>
+<p>Cry_30_Rh850Icus_DataFlashReadEnd_Callout </p>
+<p><b>5.5.1.6 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashWriteStart_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>boolean</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashWriteStart_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>boolean </p>
+<p>TRUE if a write access to the data flash is granted, otherwise false. </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function shall try to get a write lock for the data flash. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_SYNCHRONISATION is </p>
+<p>STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-48  </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteStart_Callout </p>
+<p><b>5.5.1.7 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashWriteEnd_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashWriteEnd_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>This function shall try to release the write lock for the data flash. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_SYNCHRONISATION is </p>
+<p>STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>76 </p>
+<p>Based on template version 5.2.0 </p>
+<p>Table 5-49  </p>
+<p>Cry_30_Rh850Icus_DataFlashWriteEnd_Callout </p>
+<p><b>5.5.1.8 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashSetReadMode_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashSetReadMode_Callout </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>If a command has been cancelled while it was updating a key, it may be necessary to switch the mode of </p>
+<p>the FACI Interface back to the read mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_CONTROL is STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-50  </p>
+<p>Cry_30_Rh850Icus_DataFlashSetReadMode_Callout </p>
+<p><b>5.5.1.9 </b></p>
+<p><b>Cry_30_Rh850Icus_DataFlashReturnFromCommandLockedState_Callout </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Cry_30_Rh850Icus_DataFlashReturnFromCommandLockedState_Callout </b></p>
+<p>(void) </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Check if the Data lash is in the command locked state. If yes, bring it to a normal mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Function is only called when CRY_30_RH850ICUS_DATA_FLASH_CONTROL is STD_ON.  </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>This function is called from task level only. </p>
+<p>Table 5-51  </p>
+<p>Cry_30_Rh850Icus_DataFlashReturnFromCommandLockedState_Callout </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>77 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>5.6 </b></p>
+<p><b>Services used by CRY_30_RH850ICUS </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>CRY_30_RH850ICUS are listed. For details about prototype and functionality refer to the </p>
+<p>documentation of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>CSM </p>
+<p>Csm_&lt;Service&gt;CallbackNotification </p>
+<p>Csm_&lt;Service&gt;ServiceFinishNotification </p>
+<p>Table 5-52  </p>
+<p>Services used by the CRY_30_RH850ICUS </p>
+<p><b>5.7 </b></p>
+<p><b>Service Ports </b></p>
+<p>The current implementation of the CRY does not support Service Ports. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>78 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the CRY_30_RH850ICUS the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator 5 </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The CRY_30_RH850ICUS supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p><b>6.2 </b></p>
+<p><b>Deviations </b></p>
+<p>The current implementation does not have any deviations. </p>
+<p><b>6.3 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p><b>6.3.1 </b></p>
+<p><b>Timeout handling </b></p>
+<p>The driver offers the possibility, to cancel a running command when it has consumed too </p>
+<p>much time. More information regarding this feature can be found in chapter 3.10. </p>
+<p> </p>
+<p><b>6.3.2 </b></p>
+<p><b>Hardware error callout </b></p>
+<p>The  driver  offers  the  possibility  to  send  the  hardware  errors  to  a  callout  function.  The </p>
+<p>callout function has to be implemented by the user (e.g. forwarding the error code). The </p>
+<p>API is described in chapter 5.5.1.3. </p>
+<p> </p>
+<p><b>6.3.3 </b></p>
+<p><b>Data flash synchronization </b></p>
+<p>If  the  data  flash  ressource  is  shared  between  the  crypto  hardware  and  the  application </p>
+<p>core, </p>
+<p>a </p>
+<p>synchronization </p>
+<p>may </p>
+<p>be </p>
+<p>necessary </p>
+<p>to </p>
+<p>prevent </p>
+<p>race </p>
+<p>conditions. </p>
+<p>Therefore, the driver provides the feature to invoke callouts to request access to the data </p>
+<p>flash.  The API is described in the chapter 5.5.1.4 - 5.5.1.7. </p>
+<p><b>6.4 </b></p>
+<p><b>Limitations </b></p>
+<p><b>6.4.1 </b></p>
+<p><b>Support of Cryptographic Services </b></p>
+<p>The current cryptographic services are supported: </p>
+<p></p>
+<p> SHE-AES128-Service for Symmetrical Interface </p>
+<p></p>
+<p> SHE-PRNG-Service for Random Interface </p>
+<p></p>
+<p> SHE-CMAC-Service for MAC Interface </p>
+<p></p>
+<p> Service for Symmetrical Key Extract Interface<b> </b></p>
+<p></p>
+<p> Service for Symmetrical Key Wrapping Interface </p>
+<p>Table 6-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>79 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>6.4.2 </b></p>
+<p><b>Parallel Access to Services </b></p>
+<p>Due to limitations in the SHE, it’s not possible to process more than one service at once. </p>
+<p>An  error  (CSM_E_BUSY)  is  generated  when  a  service  is  already  running  and  another </p>
+<p>service tries to start at the same time. </p>
+<p>Therefore parallel access to services which are dependent on the SHE is not allowed. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>80 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>Cryptographic </p>
+<p>Primitive </p>
+<p>An underlying cryptographic module or library </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CRY </p>
+<p>Cryptographic library module </p>
+<p>CSM </p>
+<p>Crypto Service Manager </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SchM </p>
+<p>Schedule Manager </p>
+<p>SHE </p>
+<p>Secure Hardware Extension </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRY DRIVER </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.06.01 </p>
+<p>81 </p>
+<p>Based on template version 5.2.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+</body>
+</html>
+{% endraw %}

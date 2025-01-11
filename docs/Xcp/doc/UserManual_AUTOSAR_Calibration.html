@@ -1,0 +1,4167 @@
+---
+layout: default
+title: UserManual_AUTOSAR_Calibration
+nav_order: 2
+parent: Universal Measurement and Calibration Protocol (XCP)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>User Manual </b></p>
+<p><b>AUTOSAR Calibration </b></p>
+<p>Measuring and Calibrating of AUTOSAR </p>
+<p>Applications with XCP and CANape </p>
+<p><b>Version 1.0 </b></p>
+<p><b>English</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Imprint </b></p>
+<p> </p>
+<p>Vector Informatik GmbH </p>
+<p>Ingersheimer Straße 24 </p>
+<p>D-70499 Stuttgart </p>
+<p> </p>
+<p>Vector reserves the right to modify any information and/or data in this user documentation without notice. This documentation nor any of </p>
+<p>its parts may be reproduced in any form or by any means without the prior written consent of Vector. To the maximum extent permitted </p>
+<p>under law, all technical data, texts, graphics, images and their design are protected by copyright law, various international treaties and </p>
+<p>other applicable law. Any unauthorized use may violate copyright and other applicable laws or regulations. </p>
+<p></p>
+<p> Copyright 2013, Vector Informatik GmbH. Printed in Germany. </p>
+<p>All rights reserved. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Contents </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- I - </p>
+<p>Contents </p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction </b></p>
+<p><b>3</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose of the AUTOSAR Calibration User Manual </p>
+<p>4</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>About This User Manual </p>
+<p>5</p>
+<p> </p>
+<p>1.2.1</p>
+<p> </p>
+<p>Certification </p>
+<p>6</p>
+<p> </p>
+<p>1.2.2</p>
+<p> </p>
+<p>Warranty </p>
+<p>6</p>
+<p> </p>
+<p>1.2.3</p>
+<p> </p>
+<p>Support </p>
+<p>6</p>
+<p> </p>
+<p>1.2.4</p>
+<p> </p>
+<p>Trademarks </p>
+<p>6</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction to AUTOSAR </b></p>
+<p><b>7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Background </p>
+<p>8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Approach </p>
+<p>9</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Basic Concept </p>
+<p>10</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>Architecture </p>
+<p>11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Measuring and Calibrating of ECU Software </b></p>
+<p><b>13</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Basics </p>
+<p>14</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>XCP Driver </p>
+<p>15</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Measurement Modes </p>
+<p>17</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Autoselection and Software Version Check of the A2L File </p>
+<p>18</p>
+<p> </p>
+<p>3.2.3</p>
+<p> </p>
+<p>Online Calibration </p>
+<p>19</p>
+<p> </p>
+<p>3.2.4</p>
+<p> </p>
+<p>Page Switching </p>
+<p>19</p>
+<p> </p>
+<p>3.2.5</p>
+<p> </p>
+<p>Bypassing </p>
+<p>20</p>
+<p> </p>
+<p>3.2.6</p>
+<p> </p>
+<p>Resume Mode </p>
+<p>21</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>A2L File </p>
+<p>22</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Structure </p>
+<p>23</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Mode of Functioning </p>
+<p>32</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>OEM </b></p>
+<p><b>33</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Objective </p>
+<p>34</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Content of the Performance Specifications </p>
+<p>34</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Measurement Task </p>
+<p>34</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Calibration Task </p>
+<p>35</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>XCP Features </p>
+<p>35</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Supplier </b></p>
+<p><b>36</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Preface </p>
+<p>37</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Requirements </p>
+<p>37</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Definition of Measurement and Calibration Parameters </p>
+<p>37</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Measuring and Calibrating of AUTOSAR Software Components </p>
+<p>38</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Measuring of Ports and Variables </p>
+<p>38</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>XCP Events </p>
+<p>39</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>Software Component with Calibration Parameters </p>
+<p>40</p>
+<p> </p>
+<p>5.3.5</p>
+<p> </p>
+<p>Calibration Parameters for Multiple Software Components </p>
+<p>40</p>
+<p> </p>
+<p>5.3.6</p>
+<p> </p>
+<p>Configuration of the RTE (Runtime Environment) </p>
+<p>41</p>
+<p> </p>
+<p>5.3.7</p>
+<p> </p>
+<p>Measuring and Calibrating Without the Support of the RTE </p>
+<p>41</p>
+<p> </p>
+<p>5.3.8</p>
+<p> </p>
+<p>Debugging of the BSW (Basic Software) </p>
+<p>42</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration </p>
+<p>Contents </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- II - </p>
+<p>5.4</p>
+<p> </p>
+<p>Configuration of the XCP Module </p>
+<p>42</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>DAQ List Configuration </p>
+<p>43</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>Tool-Driven DAQ Timestamp Option </p>
+<p>44</p>
+<p> </p>
+<p>5.4.3</p>
+<p> </p>
+<p>XCP Event Information </p>
+<p>44</p>
+<p> </p>
+<p>5.4.4</p>
+<p> </p>
+<p>Software Version Check </p>
+<p>44</p>
+<p> </p>
+<p>5.4.5</p>
+<p> </p>
+<p>Use of the XCP Component in the Implementation </p>
+<p>46</p>
+<p> </p>
+<p>5.4.6</p>
+<p> </p>
+<p>Recommendations for the Configuration of the XCP Module </p>
+<p>46</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configuration of the Driver Modules </p>
+<p>48</p>
+<p> </p>
+<p>5.5.1</p>
+<p> </p>
+<p>CAN Module MICROSAR XCP </p>
+<p>48</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Configuration of the Memory Management </p>
+<p>48</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Configuration for Resume Mode </p>
+<p>48</p>
+<p> </p>
+<p>5.7</p>
+<p> </p>
+<p>Creating an A2L File </p>
+<p>49</p>
+<p> </p>
+<p>5.7.1</p>
+<p> </p>
+<p>Creation of a Master A2L File </p>
+<p>49</p>
+<p> </p>
+<p>5.7.2</p>
+<p> </p>
+<p>Expansion of the Master A2L File </p>
+<p>51</p>
+<p> </p>
+<p>5.7.3</p>
+<p> </p>
+<p>Working with ASAP2 Tool-Set </p>
+<p>52</p>
+<p> </p>
+<p>5.7.4</p>
+<p> </p>
+<p>Working with CANape and the ASAP2 Editor </p>
+<p>54</p>
+<p> </p>
+<p>5.8</p>
+<p> </p>
+<p>Fast Access to the ECU Via the VX Module </p>
+<p>55</p>
+<p> </p>
+<p>5.9</p>
+<p> </p>
+<p>Additional Topics </p>
+<p>56</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Delivery Test/Quick Start </b></p>
+<p><b>57</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>CANape Introduction </b></p>
+<p><b>58</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Creation of a Project </p>
+<p>59</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Device Configuration </p>
+<p>60</p>
+<p> </p>
+<p>7.2.1</p>
+<p> </p>
+<p>Devices </p>
+<p>61</p>
+<p> </p>
+<p>7.2.2</p>
+<p> </p>
+<p>Networks </p>
+<p>62</p>
+<p> </p>
+<p>7.2.3</p>
+<p> </p>
+<p>Vector Hardware </p>
+<p>62</p>
+<p> </p>
+<p>7.2.4</p>
+<p> </p>
+<p>XCP Features in CANape </p>
+<p>63</p>
+<p> </p>
+<p>7.3</p>
+<p> </p>
+<p>Online Measurement Configuration </p>
+<p>64</p>
+<p> </p>
+<p>7.3.1</p>
+<p> </p>
+<p>Measurement Options </p>
+<p>64</p>
+<p> </p>
+<p>7.3.2</p>
+<p> </p>
+<p>Measurement Signals </p>
+<p>65</p>
+<p> </p>
+<p>7.3.3</p>
+<p> </p>
+<p>Recorder List </p>
+<p>67</p>
+<p> </p>
+<p>7.3.4</p>
+<p> </p>
+<p>Event List </p>
+<p>69</p>
+<p> </p>
+<p>7.4</p>
+<p> </p>
+<p>Working with Parameter Set Files </p>
+<p>69</p>
+<p> </p>
+<p>7.5</p>
+<p> </p>
+<p>Dataset Management </p>
+<p>70</p>
+<p> </p>
+<p>7.5.1</p>
+<p> </p>
+<p>Tool-Based in CANape 11.0 and Higher </p>
+<p>70</p>
+<p> </p>
+<p>7.6</p>
+<p> </p>
+<p>Offline Evaluation </p>
+<p>72</p>
+<p> </p>
+<p>7.7</p>
+<p> </p>
+<p>Flashing </p>
+<p>74</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Addresses </b></p>
+<p><b>75</b></p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Abbreviations </b></p>
+<p><b>76</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 3 - </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p><b>In this chapter you will find the following information: </b></p>
+<p>1.1 </p>
+<p>Purpose of the AUTOSAR Calibration User Manual </p>
+<p> page 4 </p>
+<p>1.2 </p>
+<p>About This User Manual </p>
+<p> page 5 </p>
+<p> </p>
+<p>Certification </p>
+<p> </p>
+<p>Warranty </p>
+<p> </p>
+<p>Support </p>
+<p> </p>
+<p>Trademarks </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 4 - </p>
+<p><b>1.1 </b></p>
+<p><b>Purpose of the AUTOSAR Calibration User Manual </b></p>
+<p>AUTOSAR Standard </p>
+<p>The AUTOSAR Standard describes methods that enable standardized development </p>
+<p>of reusable and replaceable software components within vehicles. This approach </p>
+<p>minimizes the development effort for electronic control unit (ECU) software. The </p>
+<p>software is then optimized using CANape. </p>
+<p>Calibration and </p>
+<p>measurement </p>
+<p>parameters </p>
+<p>Since the software developer cannot yet optimize the parameters for a control </p>
+<p>algorithm of the ECU at the time of implementation, these parameters are defined in </p>
+<p>the software as calibration parameters. The calibration parameters are ultimately </p>
+<p>variables in the source code that reside in RAM memory and remain unchanged by </p>
+<p>the algorithm itself. They can then be calibrated using CANape. To record the effects </p>
+<p>of the calibration process, additional measurement parameters are defined in the </p>
+<p>software. These parameters are also variables in the source code and reside in RAM </p>
+<p>memory. In contrast to calibration parameters, however, measurement parameters </p>
+<p>are continually changed by the ECU algorithm and reflect the current value. This </p>
+<p>makes the effects of the calibration process visible and allows the behavior of the </p>
+<p>ECU to be optimized. For example, the wheel speed (calibration parameter) of a </p>
+<p>driving dynamics control system is changed and the measuring equipment measures </p>
+<p>the corresponding sensor values (measurement parameters) in order to acquire the </p>
+<p>change in behavior of the algorithm. </p>
+<p>CCP/XCP protocols </p>
+<p>with A2L file </p>
+<p>In order to access the ECU-internal measurement and calibration parameters during </p>
+<p>runtime, the CCP and XCP protocols are used. A fundamental component of these </p>
+<p>address-oriented protocols is an A2L file. This file facilitates data handling, since it </p>
+<p>enables the symbolic selection of data objects independent from their memory </p>
+<p>addresses in the ECU. Thus, it is possible to access ECU-internal parameters using </p>
+<p>symbolic names. The measurement, calibration, and diagnostics system (CANape) </p>
+<p>maintains the link between the ECU-internal addresses and the associated symbolic </p>
+<p>names. For this, a separate A2L file is required for each ECU. Figure 1-1 shows the </p>
+<p>integration of the A2L file in the MCD system. </p>
+<p><i>Figure 1-1: Integration </i></p>
+<p><i>of the A2L file in the </i></p>
+<p><i>MCD system </i></p>
+<p> </p>
+<p>ECU-independent </p>
+<p>concept </p>
+<p>An ECU-independent concept for measuring and calibrating AUTOSAR applications </p>
+<p>is needed for the development of ECUs based on the AUTOSAR Standard. The </p>
+<p>AUTOSAR Calibration user manual describes a standardized procedure for </p>
+<p>implementing and calibrating an ECU according to AUTOSAR. </p>
+<p>Structure of this </p>
+<p>document </p>
+<p>The document begins with a brief introduction of the AUTOSAR Standard. Aspects of </p>
+<p>Measuring and Calibrating of ECU Software are then explained. </p>
+<p> </p>
+<p>The OEM chapter serves as a checklist for OEMs when creating performance </p>
+<p>specifications. It briefly explains the details that must be communicated to the supplier </p>
+<p>in order to realize the desired measurement task. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 5 - </p>
+<p> </p>
+<p>The Supplier chapter describes the procedure on the part of the supplier. It describes </p>
+<p>details for configuring MICROSAR XCP and the software components of AUTOSAR. </p>
+<p>It also explains the process of generating the A2L file. </p>
+<p> </p>
+<p>The Delivery Test/Quick Start chapter then explains how CANape can be used to </p>
+<p>perform a simple delivery test of the A2L file. This can additionally be used as a </p>
+<p>CANape Quick Start for the OEM. </p>
+<p> </p>
+<p>The final CANape Introduction chapter describes the path from project creation to </p>
+<p>flashing of optimized parameters in CANape. </p>
+<p><b>1.2 </b></p>
+<p><b>About This User Manual </b></p>
+<p>To Find information </p>
+<p>quickly </p>
+<p>This user manual provides you with the following access help: </p>
+<p><b>&gt; </b></p>
+<p>At the beginning of each chapter you will find a summary of the contents. </p>
+<p><b>&gt; </b></p>
+<p>The header shows in which chapter of the manual you are. </p>
+<p><b>&gt; </b></p>
+<p>The footer shows the version of the manual. </p>
+<p><b>&gt; </b></p>
+<p>At the end of the user manual you will find a list of abbreviations to look-up used </p>
+<p>abbreviations. </p>
+<p>  </p>
+<p>Conventions </p>
+<p>In the two tables below you will find the notation and icon conventions used </p>
+<p>throughout the manual. </p>
+<p>  </p>
+<p> </p>
+<p><b>Style </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p><b>bold </b></p>
+<p>Fields/blocks, user/surface interface elements, window- and </p>
+<p>dialog names of the software, special emphasis of terms. </p>
+<p><b>[OK] </b></p>
+<p> </p>
+<p>Push buttons in square brackets </p>
+<p><b>File</b>|<b>Save </b></p>
+<p>Notation for menus and menu entries </p>
+<p> </p>
+<p>MICROSAR </p>
+<p>Legally protected proper names and marginal notes. </p>
+<p> </p>
+<p>Source Code </p>
+<p>File and directory names, source code, class and object </p>
+<p>names, object attributes and values </p>
+<p> </p>
+<p>Hyperlink </p>
+<p>Hyperlinks and references. </p>
+<p> </p>
+<p>&lt;Ctrl&gt;+&lt;S&gt; </p>
+<p>Notation for shortcuts. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 6 - </p>
+<p>  </p>
+<p> </p>
+<p><b>Symbol </b></p>
+<p><b>Utilization </b></p>
+<p> </p>
+<p> </p>
+<p>This icon indicates notes and tips that facilitate your work. </p>
+<p> </p>
+<p> </p>
+<p>This icon warns of dangers that could lead to damage. </p>
+<p> </p>
+<p> </p>
+<p>This icon indicates more detailed information. </p>
+<p> </p>
+<p> </p>
+<p>This icon indicates examples. </p>
+<p> </p>
+<p> </p>
+<p>This icon indicates step-by-step instructions. </p>
+<p>  </p>
+<p><b>1.2.1 </b></p>
+<p><b>Certification </b></p>
+<p>Quality </p>
+<p>management system </p>
+<p>Vector Informatik GmbH has ISO 9001:2008 certification. The ISO standard is a </p>
+<p>globally recognized standard. </p>
+<p>  </p>
+<p><b>1.2.2 </b></p>
+<p><b>Warranty </b></p>
+<p>Restriction of </p>
+<p>warranty </p>
+<p>We reserve the right to modify the contents of the documentation or the software </p>
+<p>without notice. Vector disclaims all liabilities for the completeness or correctness of </p>
+<p>the contents and for damages which may result from the use of this documentation. </p>
+<p>  </p>
+<p><b>1.2.3 </b></p>
+<p><b>Support </b></p>
+<p>  </p>
+<p>Need support? </p>
+<p>You can get through to our hotline by calling </p>
+<p>+49 (0)711 80670-200 </p>
+<p>or you can send a problem report to canape-support@vector.com. </p>
+<p>  </p>
+<p><b>1.2.4 </b></p>
+<p><b>Trademarks </b></p>
+<p>Protected </p>
+<p>trademarks </p>
+<p>All brand names in this documentation are either registered or non-registered </p>
+<p>trademarks of their respective owners. </p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 7 - </p>
+<p><b>2 </b></p>
+<p><b>Introduction to AUTOSAR </b></p>
+<p><b>In This Chapter You Will Find the Following Information: </b></p>
+<p>2.1 </p>
+<p>Background </p>
+<p> page 8 </p>
+<p>2.2 </p>
+<p>Approach </p>
+<p> page 9 </p>
+<p>2.3 </p>
+<p>Basic Concept </p>
+<p> page 10 </p>
+<p>2.4 </p>
+<p>Architecture </p>
+<p> page 11 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 8 - </p>
+<p><b>2.1 </b></p>
+<p><b>Background </b></p>
+<p>AUTOSAR </p>
+<p>AUTOSAR (<b>AUT</b>omotive <b>O</b>pen <b>S</b>ystem <b>AR</b>chitecture) is a working group of </p>
+<p>automobile manufacturers and suppliers whose objective is to establish a joint </p>
+<p>industry standard for automotive E/E (electrics/electronics) architectures. </p>
+<p>Main objectives </p>
+<p>The main objectives of this effort are: </p>
+<p><b>&gt; </b></p>
+<p>Management of the increasing E/E complexity </p>
+<p><b>&gt; </b></p>
+<p>Improved flexibility for updates and modifications </p>
+<p><b>&gt; </b></p>
+<p>Scalability to different vehicle and platform variants </p>
+<p><b>&gt; </b></p>
+<p>Improved reliability and quality of E/E systems </p>
+<p><b>&gt; </b></p>
+<p>Ability to identify errors in early phases of development </p>
+<p><b>&gt; </b></p>
+<p>Reusability of functions irrespective of the supplier </p>
+<p><b>&gt; </b></p>
+<p>Standardized model tools and code generators </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 9 - </p>
+<p><b>2.2 </b></p>
+<p><b>Approach </b></p>
+<p>AUTOSAR elements </p>
+<p>Figure 2-1 shows the AUTOSAR approach. The individual elements are explained in </p>
+<p>more detail below. </p>
+<p><i>Figure 2-1: Concept of </i></p>
+<p><i>AUTOSAR</i></p>
+<p><i>1</i></p>
+<p><i> </i></p>
+<p> </p>
+<p><b>AUTOSAR SW-C </b></p>
+<p>The AUTOSAR software components form the framework of an application that runs </p>
+<p>on the AUTOSAR infrastructure. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> The interfaces of the AUTOSAR software components are described in </p>
+<p>more detail on http://www.autosar.org/index.php?p=1&amp;up=2&amp;uup=1&amp;uuup=0. </p>
+<p>  </p>
+<p><b>SW-C Description </b></p>
+<p>The software component description is provided by AUTOSAR, for example, for </p>
+<p>defining interfaces. </p>
+<p><b>Virtual Functional </b></p>
+<p><b>Bus (VFB) </b></p>
+<p>The VFB describes all communication mechanisms of AUTOSAR at an abstract level. </p>
+<p>                                                      </p>
+<p>1 </p>
+<p>Source of figure: AUTOSAR Technical Overview V2.2.2 R3.2 Rev 1</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 10 - </p>
+<p><b>System Constraint </b></p>
+<p><b>and ECU </b></p>
+<p><b>Descriptions </b></p>
+<p>In order to integrate software components into a network of an ECU, AUTOSAR </p>
+<p>provides descriptions for entire systems or for configurations and signals of individual </p>
+<p>ECUs. </p>
+<p><b>Runtime </b></p>
+<p><b>Environment (RTE) </b></p>
+<p>The RTE implements the functionality of the VFB of a particular ECU. However, it can </p>
+<p>delegate a portion to the basic software. </p>
+<p><b>Basic Software </b></p>
+<p><b>(BSW) </b></p>
+<p>The basic software provides the infrastructural functionality of the ECU. </p>
+<p>  </p>
+<p><b>2.3 </b></p>
+<p><b>Basic Concept </b></p>
+<p>Communication via </p>
+<p>VFB </p>
+<p>The communication between the individual components takes place via the Virtual </p>
+<p>Functional Bus (VFB). At this stage, there is not yet any memory management of the </p>
+<p>ECUs. The VFB is used both within the ECU and across ECUs and has no </p>
+<p>knowledge of the bus technology used. This enables replacement of the application </p>
+<p>software, regardless of the bus technology used. Figure 2-2 shows the </p>
+<p>communication flow of the Virtual Functional Bus. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 2-2: Communication flow of the VFB </i></p>
+<p>  </p>
+<p>Running of the </p>
+<p>components </p>
+<p>As soon as all relevant objects have been defined, they are mapped to the ECU. The </p>
+<p>VFB is implemented using an ECU-specific Runtime Environment (RTE) and, </p>
+<p>together with the operating system, takes over the running of the components. </p>
+<p>Consistence of </p>
+<p>software components </p>
+<p>Software components, here e.g., <b>Left Door </b>and <b>Right Door</b>, consist of: </p>
+<p><b>&gt; </b></p>
+<p><b>Ports: </b>These serve as the interface for communication with other software </p>
+<p>components. They can act either as sender/receiver or client/server. The ports </p>
+<p>are interconnected using <b>connectors</b>. </p>
+<p><b>&gt; </b></p>
+<p><b>Runnables: </b>Each atomic SW-C contains one or more runnables. These </p>
+<p>represent the runnable portion of the software component and reference functions </p>
+<p>and procedures. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 11 - </p>
+<p><b>2.4 </b></p>
+<p><b>Architecture </b></p>
+<p>Layers </p>
+<p>The AUTOSAR architecture essentially has seven different layers (see Figure 2-3). </p>
+<p>The top and bottom layers are not explained in detail here as they do not belong to </p>
+<p>the basic software. </p>
+<p><i>Figure 2-3: Overview of </i></p>
+<p><i>AUTOSAR layers </i></p>
+<p> </p>
+<p><b>Microcontroller </b></p>
+<p><b>Abstraction Layer </b></p>
+<p>The Microcontroller Abstraction Layer is the lowest software layer of the basic </p>
+<p>software architecture and provides the upper layers their independence from the </p>
+<p>actual microcontroller. </p>
+<p><b>ECU Abstraction </b></p>
+<p><b>Layer </b></p>
+<p>The purpose of the ECU Abstraction Layer is to ensure the independence of higher </p>
+<p>layers from the actual ECU. </p>
+<p><b>Service Layer </b></p>
+<p>The Service Layer is the highest layer of the basic software. It contains the operating </p>
+<p>system and assumes functions such as the network and NVRAM management and </p>
+<p>diagnostic services. </p>
+<p><b>Complex Device </b></p>
+<p><b>Drivers </b></p>
+<p>The device driver layer controls special sensors and actuators via direct access to the </p>
+<p>microcontroller. This involves sensors with special time conditions, for example, that </p>
+<p>supply fuel injection to paths. </p>
+<p><b>Runtime </b></p>
+<p><b>Environment </b></p>
+<p>As middleware, the Runtime Environment (RTE) integrates different applications with </p>
+<p>the basic software. It organizes the communication and data exchange between the </p>
+<p>two layers and manages the running of the runnables. Because all layers are </p>
+<p>described exactly, the application software can be implemented independent of the </p>
+<p>hardware and without knowledge of how the other layers behave. The communication </p>
+<p>between the layers takes place via ports defined beforehand. </p>
+<p> </p>
+<p>The following Figure 2-4 shows the complete AUTOSAR ECU software architecture. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Introduction to AUTOSAR </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 12 - </p>
+<p> </p>
+<p><i>Figure 2-4: AUTOSAR software architecture</i></p>
+<p><i>2</i></p>
+<p><i> </i></p>
+<p>                                                      </p>
+<p>2</p>
+<p> </p>
+<p>Source of figure: AUTOSAR Technical Overview V2.2.2 R3.2 Rev 1</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 13 - </p>
+<p><b>3 </b></p>
+<p><b>Measuring and Calibrating of ECU Software </b></p>
+<p><b>In This Chapter You Will Find the Following Information: </b></p>
+<p>3.1 </p>
+<p>Basics </p>
+<p> page 14 </p>
+<p>3.2 </p>
+<p>XCP Driver </p>
+<p> page 15 </p>
+<p> </p>
+<p>Measurement Modes </p>
+<p> </p>
+<p>Autoselection and Software Version Check of the A2L File </p>
+<p> </p>
+<p>Online Calibration </p>
+<p> </p>
+<p>Page Switching </p>
+<p> </p>
+<p>Bypassing </p>
+<p> </p>
+<p>Resume Mode </p>
+<p>3.3 </p>
+<p>A2L File </p>
+<p> page 22 </p>
+<p> </p>
+<p>Structure </p>
+<p> </p>
+<p>Mode of Functioning </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 14 - </p>
+<p><b>3.1 </b></p>
+<p><b>Basics </b></p>
+<p>Challenge </p>
+<p>Variables in the source code are implemented as measurement and calibration </p>
+<p>parameters in the ECU software. The task of the calibration engineer is to measure </p>
+<p>and calibrate these parameters so that the behavior of the ECU is optimized. To </p>
+<p>make the calibration process convenient, calibration tools such as the MCD tool </p>
+<p>(<b>M</b>easurement, <b>C</b>alibration, <b>D</b>iagnostics) CANape are used. This type of tool requires </p>
+<p>an XCP driver and an A2L file for communicating with the ECU. The XCP driver </p>
+<p>enables the access to ECU-internal parameters during runtime. The A2L file, in turn, </p>
+<p>links the symbolic name of a measurement or calibration parameter with its memory </p>
+<p>address. In this way, the calibration engineer can calibrate individual calibration </p>
+<p>parameters with CANape without having to know the memory address of the </p>
+<p>parameter. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 3-1: Measurement and calibration process </i></p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 15 - </p>
+<p><b>3.2 </b></p>
+<p><b>XCP Driver </b></p>
+<p>Protocol </p>
+<p>The XCP driver – such as MICROSAR XCP – is a further development of the CCP </p>
+<p>driver and can be used universally for different bus systems. It involves a protocol </p>
+<p>based on the single master/multi-slave principle. An XCP master, such as CANape, is </p>
+<p>able to communicate simultaneously with various XCP slaves. These include, for </p>
+<p>example, the ECU or HIL/SIL systems. Figure 3-2 shows the slave connection via </p>
+<p>XCP. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 3-2: Communication possibilities of an XCP master such as CANape </i></p>
+<p>  </p>
+<p>Communication via </p>
+<p>A2L file </p>
+<p>CANape communicates with the ECU via the XCP driver. The A2L file is an important </p>
+<p>component of this communication. From this file, the XCP master reads all </p>
+<p>information that is important for the communication setup and sequence. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 16 - </p>
+<p> </p>
+<p><i>Figure 3-3: Single master/multi-slave concept </i></p>
+<p>  </p>
+<p>Transfer objects </p>
+<p>In the XCP protocol, a distinction is made between &quot;Command Transfer Objects </p>
+<p>(CTO)&quot; and &quot;Data Transfer Objects (DTO)&quot; (see Figure 3-3). The Object Description </p>
+<p>Table (ODT) describes the mapping of the DTOs and memory of the slave. The </p>
+<p>reception of a CTO signals the slave to run a certain service. The transmission of a </p>
+<p>DTO is used for event-triggered reading and writing of objects from the memory of the </p>
+<p>XCP slave. For this, DAQ (Data Acquisition) lists are created from multiple ODTs in </p>
+<p>order to send the measurement values to the master at the same time that an event </p>
+<p>occurs. The events are defined using event channels and take over, with the help of </p>
+<p>defined time bases, the timing for task-synchronous transmission of measurement </p>
+<p>data. </p>
+<p>Dynamic </p>
+<p>configuration of DAQ </p>
+<p>lists </p>
+<p>With XCP it is possible to configure the DAQ lists both statically as well as </p>
+<p>dynamically. In the case of static configuration, the maximum number of DAQ lists, </p>
+<p>ODT tables, and ODT entries per DAQ list is fixed at compile time. With dynamic </p>
+<p>DAQ lists, on the other hand, only the maximum memory size is specified at compile </p>
+<p>time. This enables more efficient memory utilization since the size of the DAQ lists is </p>
+<p>defined individually. If necessary, it also allows more measurement signals to be </p>
+<p>measured compared to the static configuration. In addition, implementation in the </p>
+<p>XCP driver is significantly easier because specifications such as the maximum </p>
+<p>number of ODTs is eliminated. The dynamic configuration is therefore the only mode </p>
+<p>supported. </p>
+<p>XCP features </p>
+<p>The XCP protocol also enables use of some optional XCP features. These must be </p>
+<p>explicitly implemented and therefore be known to the supplier. The rest of this section </p>
+<p>presents the following XCP features in more detail: Measurement Modes, </p>
+<p>Autoselection and Software Version Check of the A2L File, Online Calibration, Page </p>
+<p>Switching, Bypassing and Resume Mode. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 17 - </p>
+<p><b>3.2.1 </b></p>
+<p><b>Measurement Modes </b></p>
+<p>Measurement modes </p>
+<p>The XCP protocol enables two different measurement modes: <b>Polling </b>and <b>DAQ </b></p>
+<p>measurement. Both variants are briefly explained here. </p>
+<p>  </p>
+<p><b>Polling </b></p>
+<p><b>Polling </b>is the simplest measurement mode of the XCP protocol. In this mode, the </p>
+<p>XCP master uses an XCP command (</p>
+<p>SHORT_UPLOAD</p>
+<p>) to poll the measurement </p>
+<p>values in a uniform time base. The measurement data are not equidistant in this </p>
+<p>mode. If there is a high bus load, the measurement parameter may be transferred </p>
+<p>with a time lag. Figure 3-4 shows the communication sequence for the polling </p>
+<p>measurement mode. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 3-4: Communication sequence for the <b>polling </b>measurement mode </i></p>
+<p>  </p>
+<p><b>DAQ </b></p>
+<p>The <b>DAQ </b>measurement mode uses an optimized method in order to access ECU-</p>
+<p>internal values. In <b>DAQ </b>measurement mode, the XCP master groups the </p>
+<p>measurement and calibration parameters to be measured in ODTs and assigns these </p>
+<p>to the corresponding DAQ events before the start of the measurement. During the </p>
+<p>measurement, the XCP slave transmits the measurement values when the cyclic </p>
+<p>DAQ event or asynchronous DAQ event occurs without further requests to the master </p>
+<p>(see also the XCP Driver section). </p>
+<p> </p>
+<p>In the <b>DAQ </b>measurement mode, a distinction is also made between the <b>Consistency </b></p>
+<p><b>ODT </b>and <b>Consistency DAQ </b>modes. In the first case, the measurement data of an </p>
+<p>ODT are consistent. In the second case, the DAQ list as a whole is consistent, but not </p>
+<p>every ODT as a single entity. The measurement data can therefore be split between </p>
+<p>two ODTs. Figure 3-5 presents the communication sequence of the <b>DAQ </b></p>
+<p>measurement mode in a trace. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> Only the <b>Consistency ODT </b>is currently supported by MICROSAR. </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 18 - </p>
+<p> </p>
+<p><i>Figure 3-5: Communication sequence for the <b>DAQ </b>measurement mode </i></p>
+<p>  </p>
+<p>Timestamps </p>
+<p>If there are stringent requirements for time accuracy of the measurement values, </p>
+<p>generation of the timestamp directly in the ECU is recommended. In the DAQ </p>
+<p>measurement mode, the XCP driver also transfers the timestamp for each occurring </p>
+<p>event so that the measurement is not falsified by the running time of the transfer to </p>
+<p>the MCD tool. However, the throughput of measurement values is meanwhile </p>
+<p>reduced. Because the timestamps represent an additional load on the bus, their </p>
+<p>generation can also be controlled via the MCD tool. </p>
+<p> </p>
+<p>With a CAN bus, for example, it should be possible to disable the timestamp. With </p>
+<p>Ethernet, the timestamp is of little importance. </p>
+<p> </p>
+<p>Timestamps are mandatory on FlexRay when a cycle time is used that is faster than </p>
+<p>the FlexRay bus cycle. </p>
+<p>  </p>
+<p><b>3.2.2 </b></p>
+<p><b>Autoselection and Software Version Check of the A2L File </b></p>
+<p>Software version </p>
+<p>check </p>
+<p>CANape provides the option of checking the software version. This means that a </p>
+<p>check is made based on certain information to determine whether die A2L file </p>
+<p>integrated in CANape corresponds to the current software version of the connected </p>
+<p>ECU. The option also exists to select the A2L file automatically using an XCP protocol </p>
+<p>command. </p>
+<p> </p>
+<p>CANape can use the following information for the software version check: </p>
+<p><b>&gt; </b></p>
+<p>XCP Station Identifier (protocol command </p>
+<p>GET_ID</p>
+<p>) </p>
+<p><b>&gt; </b></p>
+<p>EPK check </p>
+<p><b>&gt; </b></p>
+<p>Checksum of code segments in the ECU (CANape 11.0 and higher) </p>
+<p>XCP station identifier </p>
+<p>The &quot;XCP Station Identifier&quot; (</p>
+<p>GET_ID</p>
+<p>) represents the name of the A2L file during the </p>
+<p>software version check. This describes the software version in a meaningful way </p>
+<p>(e.g., </p>
+<p>EcuName_V1-2-0.a2l</p>
+<p>). CANape can use this identifier to check whether the </p>
+<p>correct A2L file is loaded or load the appropriate A2L file automatically. </p>
+<p>EPK check </p>
+<p>The EPK identifier (EPROM identifier) is a character string that is present in the ECU </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 19 - </p>
+<p>as well as in the database. The address in the ECU where this identifier can be found </p>
+<p>is specified in the database. This character string can, in turn, designate the software </p>
+<p>version based on the project name and its version. </p>
+<p>Checksum </p>
+<p>The checksum of code segments (memory segments with ECU code) can be </p>
+<p>calculated for the HEX file and the ECU. On the basis of the checksum it can be </p>
+<p>determined if the HEX file, the A2L file, and the software on the ECU are compatible </p>
+<p>with respect to version. This approach assumes that the HEX file and the A2L file are </p>
+<p>viewed as a unit. </p>
+<p>Application of the </p>
+<p>procedures </p>
+<p>The described procedures can be applied independently of one another. Each </p>
+<p>individual procedure increases the assurance that you are working with correct data. </p>
+<p>For example, it is possible to have the A2L file selected automatically based on the </p>
+<p>&quot;XCP Station Identifier&quot; and to additionally use the check based on EPK identifier. </p>
+<p>  </p>
+<p><b>3.2.3 </b></p>
+<p><b>Online Calibration </b></p>
+<p>Prerequisite </p>
+<p>This section introduces the most important terms regarding online calibration. Online </p>
+<p>calibration enables optimization of the calibration parameters of the ECU algorithm </p>
+<p>during runtime so that the effects of the change can be directly measured. A </p>
+<p>prerequisite for this is availability of sufficient RAM memory. </p>
+<p>Calibration concepts </p>
+<p>Two different calibration concepts are available for calibrating with XCP and </p>
+<p>AUTOSAR: </p>
+<p><b>&gt; </b></p>
+<p>InitRAM </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR Single Pointered </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Additional information on the topic of calibration concepts can be found in </p>
+<p>the respective AUTOSAR specification AUTOSAR_SWS_RTE, chapter &quot;Calibration&quot;. </p>
+<p>  </p>
+<p><b>3.2.4 </b></p>
+<p><b>Page Switching </b></p>
+<p>Switchover of </p>
+<p>memory segment </p>
+<p>pages between RAM </p>
+<p>and FLASH </p>
+<p>Calibration parameters normally reside in FLASH memory and are copied to RAM </p>
+<p>memory, if required. Depending on the implementation, some ECUs provide the </p>
+<p>option of page switching, i.e., the XCP switchover of memory segment pages </p>
+<p>between RAM and FLASH. With the help of this feature, calibration parameters can </p>
+<p>be calibrated and the possibility exists to quickly switch back to the values stored in </p>
+<p>FLASH memory. This XCP mechanism is independent of the calibration concept </p>
+<p>used. </p>
+<p>Logical structure of </p>
+<p>the memory in </p>
+<p>segments </p>
+<p>In principle, the memory is logically structured in segments. These specify where the </p>
+<p>calibration parameters reside. Each segment can, in turn, have multiple pages. A </p>
+<p>page describes the same data at the same address, but with different properties or </p>
+<p>values (see Figure 3-6). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 20 - </p>
+<p><i>Figure 3-6: Physical </i></p>
+<p><i>layout of the memory </i></p>
+<p> </p>
+<p>Assignment </p>
+<p>The assignment of the algorithm to a page within a segment must be unambiguous at </p>
+<p>all times. In addition, only one page at a time may be active in a segment. This page </p>
+<p>is the so-called &quot;active page for the ECU in this segment&quot;.  </p>
+<p>Access </p>
+<p>The page that the ECU or the XCP driver accesses can be controlled individually. The </p>
+<p>active page for the XCP access is called the “active page for the XCP access in this </p>
+<p>segment”. </p>
+<p>Commands  </p>
+<p>In order to use page switching, the ECU must support the XCP commands </p>
+<p>GET_CAL_PAGE</p>
+<p> and </p>
+<p>SET_CAL_PAGE</p>
+<p>. </p>
+<p> </p>
+<p>With the </p>
+<p>GET_CAL_PAGE</p>
+<p> command, the master asks the slave which page of a </p>
+<p>segment is currently active. With the </p>
+<p>SET_CAL_PAGE</p>
+<p> command, on the other hand, </p>
+<p>the master can define which page the master itself or the ECU algorithm accesses. </p>
+<p>  </p>
+<p><b>3.2.5 </b></p>
+<p><b>Bypassing </b></p>
+<p>Changes to the ECU </p>
+<p>algorithm </p>
+<p>With the help of the bypassing feature, changes to the ECU algorithm can be made </p>
+<p>without calibration and subsequent flashing of the software. </p>
+<p>Implementation </p>
+<p>To implement bypassing, at least 2 XCP events as well as writable access to the ECU </p>
+<p>RAM via XCP are required. The events must differ in their direction (STIM, DAQ). </p>
+<p>Figure 3-7 shows the use of bypassing. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 21 - </p>
+<p> </p>
+<p><i>Figure 3-7: Use of bypassing </i></p>
+<p> </p>
+<p><b>Signal path: </b></p>
+<p>1. </p>
+<p>Reception of signals of the ECU (DAQ) </p>
+<p>2. </p>
+<p>Transmission of signals as input of the model </p>
+<p>3. </p>
+<p>Transmission of events back to the XCP master </p>
+<p>4. </p>
+<p>Transmission of events back to the ECU (STIM) </p>
+<p><b>Calibration path: </b></p>
+<p>5. </p>
+<p>Calibration of the ECU (XCP) </p>
+<p>6. </p>
+<p>Calibration of the model with XCP </p>
+<p> </p>
+<p> </p>
+<p><b>Reference:</b> The ASAM XCP Version 1.1 Part 1 - Overview specification, section 1.3 </p>
+<p>BYPASSING (BYP), explains in detail all other functions and implementations on the </p>
+<p>topic of bypassing. </p>
+<p>  </p>
+<p><b>3.2.6 </b></p>
+<p><b>Resume Mode </b></p>
+<p>Automatic data </p>
+<p>transfer </p>
+<p>Resume mode enables automatic data transfer to take place directly after switching </p>
+<p>on the ECU. This mode is commonly used to start recording and evaluating data as </p>
+<p>soon as the ECU starts. Resume mode supports both the STIM and DAQ directions. </p>
+<p>The </p>
+<p>RESUME_SUPPORTED</p>
+<p> flag in the DAQ properties must be set appropriately in the </p>
+<p>A2L file. </p>
+<p>Commands </p>
+<p>With the </p>
+<p>START_STOP_DAQ_LIST</p>
+<p> command (select), the master can select a DAQ </p>
+<p>list as part of a DAQ list configuration that the slave stores in non-volatile memory. </p>
+<p>The master then sends to the slave the configuration ID that the master has itself </p>
+<p>calculated and stored. The slave then knows that it will store the DAQ lists in non-</p>
+<p>volatile memory as soon as the </p>
+<p>STORE_DAQ_REQ_RESUME</p>
+<p> command is transmitted </p>
+<p>to it. The configuration ID is also stored in non-volatile memory so that the slave can </p>
+<p>return it upon the </p>
+<p>GET_STATUS</p>
+<p> command. Via the </p>
+<p>GET_STATUS</p>
+<p> command, the </p>
+<p>master finds out whether a slave is in resume mode. Prior to storing, the slave deletes </p>
+<p>the previous content of the non-volatile memory. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 22 - </p>
+<p> </p>
+<p> </p>
+<p>After each start of the slave, it sends the </p>
+<p>EV_RESUME_MODE</p>
+<p> command to the master. </p>
+<p>This command contains the following data: </p>
+<p><i>Figure 3-8: Data of the </i></p>
+<p><i>EV_RESUME_MODE</i></p>
+<p><i> </i></p>
+<p><i>command</i></p>
+<p><i> </i></p>
+<p> </p>
+<p>Communication </p>
+<p>sequence </p>
+<p>The communication sequence between the master and slave can be tracked in Figure </p>
+<p>3-9. </p>
+<p><i>Figure 3-9: </i></p>
+<p><i>Communication </i></p>
+<p><i>sequence between </i></p>
+<p><i>master and slave </i></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Additional XCP commands and information regarding resume mode can </p>
+<p>be found in the ASAM XCP Version 1.1 Part 1 - Overview specification. </p>
+<p>  </p>
+<p><b>3.3 </b></p>
+<p><b>A2L File </b></p>
+<p>Goal </p>
+<p>The A2L file has been specified by the Association for Standardization of Automation </p>
+<p>and Measuring Systems (ASAM) with the goal of defining compatible and replaceable </p>
+<p>modules for electronics development in the automotive industry. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 23 - </p>
+<p><i>Figure 3-10: ASAM </i></p>
+<p><i>interfaces </i></p>
+<p> </p>
+<p>  </p>
+<p>ECU description file </p>
+<p>The description file of the ECU for configuring the models and the layout of the </p>
+<p>calibratable and measurable objects supplies the ASAP2 (ASAM MCD 2MC) interface </p>
+<p>in the form of the A2L file. Finally, the data exchange between the MCD system and </p>
+<p>the ECU is specified via the ASAM MCD 1MC (ASAP1b) interface. </p>
+<p>  </p>
+<p><b>3.3.1 </b></p>
+<p><b>Structure </b></p>
+<p>Modular structure </p>
+<p>The A2L file has a modular structure, which enables the replacement of individual </p>
+<p>modules without having to adapt the entire A2L file. Figure 3-11 shows this modular </p>
+<p>structure. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 24 - </p>
+<p><i>Figure 3-11: Structure </i></p>
+<p><i>of the A2L file </i></p>
+<p> </p>
+<p>4 major parts </p>
+<p>The project-relevant data at the start of the A2L file are defined using the </p>
+<p>PROJECT</p>
+<p> </p>
+<p>keyword and form the framework of the A2L file. These also include the ECU </p>
+<p>description that can be described with the </p>
+<p>MODULE</p>
+<p> keyword and divided into 4 major </p>
+<p>parts: </p>
+<p><b>&gt; </b></p>
+<p>AML </p>
+<p><b>&gt; </b></p>
+<p>General ECU Implementation </p>
+<p><b>&gt; </b></p>
+<p>IF_DATA </p>
+<p><b>&gt; </b></p>
+<p>A2L Objects </p>
+<p> </p>
+<p>These parts are explained in more detail below. </p>
+<p>  </p>
+<p><b>3.3.1.1 </b></p>
+<p><b>AML </b></p>
+<p>Interface-specific </p>
+<p>parameters </p>
+<p>The first part defines the interface-specific parameters. It yields the framework of the </p>
+<p>IF_DATA</p>
+<p> area that is defined using the A2ML metalanguage with the </p>
+<p>AML</p>
+<p> keyword. </p>
+<p>The AML is generally configured once since the specification of a driver and the </p>
+<p>corresponding features is also performed once. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Detailed information regarding the metalanguage can be found in the </p>
+<p>ASAP2 specification ASAM MCD-2 MC, chapter 5. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 25 - </p>
+<p><b>3.3.1.2 </b></p>
+<p><b>General ECU Implementation </b></p>
+<p>ECU description </p>
+<p>This part of the A2L file specifies the ECU description. Here, standardized structures </p>
+<p>of the ECU and the general description are defined using the </p>
+<p>MOD_COMMON</p>
+<p> and </p>
+<p>MOD_PAR</p>
+<p> keywords. This part of the A2L file also generally remains unchanged since </p>
+<p>the structures of the ECU are set. The keywords are now briefly presented: </p>
+<p><b>MOD_COMMON </b></p>
+<p>The </p>
+<p>MOD_COMMON</p>
+<p> keyword describes the internal structures of the ECU. The </p>
+<p>possibility exists to define certain parameters for the complete ECU. For example, if a </p>
+<p>standard byte order exists, this can be specified for the complete device in this area. </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin MOD_COMMON &quot;&quot; </p>
+<p>  BYTE_ORDER MSB_LAST </p>
+<p>  … </p>
+<p>/end MOD_COMMON</p>
+<p> </p>
+<p> </p>
+<p><b>MOD_PAR </b></p>
+<p>The </p>
+<p>MOD_PAR</p>
+<p> keyword describes the ECU-specific description data such as the </p>
+<p>EPROM identifier or the memory segments. </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin MOD_PAR &quot;Comment&quot; </p>
+<p>  ADDR_EPK 0x12345 </p>
+<p>  EPK &quot;EPROM identifier test&quot; </p>
+<p>  /begin MEMORY_SEGMENT  Data0001 &quot;Data segment&quot; DATA </p>
+<p>   FLASH INTERN 0x30000 0x1000 -1 -1 -1 -1 -1  </p>
+<p>  /end MEMORY_SEGMENT    </p>
+<p>  SYSTEM_CONSTANT &quot;CONTROLLERx CONSTANT1&quot; &quot;0.99&quot; </p>
+<p>/end MOD_PAR </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 26 - </p>
+<p><b>3.3.1.3 </b></p>
+<p><b>IF_DATA </b></p>
+<p>Communication </p>
+<p>interface </p>
+<p>Next, the communication interface is specified using the </p>
+<p>IF_DATA</p>
+<p> keyword. This is </p>
+<p>only adapted if, for example, certain XCP commands are also to be used afterwards. </p>
+<p><b>IF_DATA</b></p>
+<p><b> </b></p>
+<p>The </p>
+<p>IF_DATA</p>
+<p> keyword describes the interface-specific data, such as protocol layer or </p>
+<p>DAQ lists. These can also be defined directly as a subcategory for diverse A2L </p>
+<p>objects. </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin IF_DATA XCP </p>
+<p>  /begin PROTOCOL_LAYER </p>
+<p>    … </p>
+<p>  /end PROTOCOL_LAYER </p>
+<p>  /begin DAQ </p>
+<p>    … </p>
+<p>  /end DAQ </p>
+<p>  /begin XCP_ON_CAN </p>
+<p>    … </p>
+<p>  /end XCP_ON_CAN </p>
+<p>/end IF_DATA </p>
+<p> </p>
+<p> </p>
+<p>DAQ configuration </p>
+<p>The DAQ configuration is an essential component of the XCP protocol and will </p>
+<p>therefore be presented again in more detail. The configuration is made under the </p>
+<p>DAQ</p>
+<p> </p>
+<p>keyword in the </p>
+<p>IF_DATA</p>
+<p> section, and the individual events are defined under this </p>
+<p>point. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> More detailed information regarding the definition of events can be found </p>
+<p>in the ASAM XCP Version 1.1 Part 1 - Overview specification, section 1.1.1.5 Event </p>
+<p>Channels. </p>
+<p>  </p>
+<p>Specification of DAQ </p>
+<p>lists </p>
+<p>Table 3-1: Specification of DAQ lists in the </p>
+<p>IF_DATA</p>
+<p> section compares the static and </p>
+<p>dynamic DAQ configuration in the A2L file. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 27 - </p>
+<p>  </p>
+<p><b>XCP (static) </b></p>
+<p><b>XCP (dynamic) </b></p>
+<p><b>Explanation </b></p>
+<p>/begin DAQ </p>
+<p>/begin DAQ </p>
+<p> </p>
+<p>  STATIC </p>
+<p>  DYNAMIC </p>
+<p>DAQ configuration </p>
+<p>  RESUME_SUPPORTED </p>
+<p>  RESUME_SUPPORTED </p>
+<p>Resume mode is supported </p>
+<p>  /begin DAQ_LIST </p>
+<p>   </p>
+<p> </p>
+<p>    0x0 </p>
+<p>   </p>
+<p>DAQ list number </p>
+<p>    DAQ_LIST_TYPE DAQ </p>
+<p>   </p>
+<p>Direction (DAQ | STIM) </p>
+<p>    MAX_ODT 0xB </p>
+<p>   </p>
+<p>Maximum ODTs </p>
+<p>    MAX_ODT_ENTRIES 0x7     </p>
+<p>Maximum entries in an ODT </p>
+<p>    FIRST_PID 0x3 </p>
+<p>   </p>
+<p>Packet designator </p>
+<p>    EVENT_FIXED 0x0 </p>
+<p>   </p>
+<p>Event channel is permanently </p>
+<p>specified </p>
+<p>  /end DAQ_LIST </p>
+<p> </p>
+<p> </p>
+<p>  /begin EVENT </p>
+<p>/begin EVENT </p>
+<p> </p>
+<p>    &quot;10 ms Liste 1&quot; </p>
+<p>    &quot;10 ms Liste 1&quot;  Name of the event channel </p>
+<p>    &quot;10 ms Lis&quot; </p>
+<p>    &quot;10 ms Lis&quot; </p>
+<p>Brief name of the event channel </p>
+<p>    0x0000 </p>
+<p>    0x0000 </p>
+<p>Number of the event channel </p>
+<p>Direction (DAQ | STIM) </p>
+<p>    DAQ </p>
+<p>    DAQ </p>
+<p>Direction (DAQ | STIM) </p>
+<p>    0x01 </p>
+<p>    0x01 </p>
+<p>Maximum of DAQ lists </p>
+<p>    0x0A </p>
+<p>    0x0A </p>
+<p>Sampling period (0 corresponds to </p>
+<p>non-cyclic) </p>
+<p>    0x06 </p>
+<p>    0x06 </p>
+<p>Time base(0x06 corresponds to 1ms) </p>
+<p>    0x00 </p>
+<p>    0x00 </p>
+<p>Priority </p>
+<p>  /end EVENT </p>
+<p>  /end EVENT </p>
+<p> </p>
+<p>/end DAQ </p>
+<p>/end DAQ </p>
+<p> </p>
+<p><i>Table 3-1: Specification of DAQ lists in the </i></p>
+<p><i>IF_DATA</i></p>
+<p><i> section </i></p>
+<p> </p>
+<p>Default event </p>
+<p>It is recommended to assign at least one default event to each measurement and </p>
+<p>calibration parameter in order to ensure that the objects will be measured at the </p>
+<p>correct time in each case (example in next section under A2L Objects | Measurement </p>
+<p>parameters). With the help of this assignment, the drag &amp; drop feature of the display </p>
+<p>windows in CANape can be used optimally. If a default event is not defined, the </p>
+<p>measurement mode must be changed manually by polling the appropriate event. </p>
+<p>  </p>
+<p><b>3.3.1.4 </b></p>
+<p><b>A2L Objects </b></p>
+<p>Specification of </p>
+<p>parameters and </p>
+<p>keywords </p>
+<p>The last part contains the A2L objects. The measurement and calibration parameters </p>
+<p>are specified here using various parameters and keywords. In this area, changes may </p>
+<p>occur even after completion of the A2L file since, for example, measurement </p>
+<p>parameters will also be added during the course of the project. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 28 - </p>
+<p>  </p>
+<p>Measurement </p>
+<p>parameters </p>
+<p>The measurement parameters are defined using the </p>
+<p>MEASUREMENT</p>
+<p> keyword. Some </p>
+<p>parameter values are optional (labeled in </p>
+<p>[]</p>
+<p>), while other values, such as the name, </p>
+<p>are mandatory. </p>
+<p> </p>
+<p>Prototype: </p>
+<p>/begin MEASUREMENT </p>
+<p>    ident  Name </p>
+<p>    string  LongIdentifier </p>
+<p>    datatype  Datatype </p>
+<p>    ident  Conversion </p>
+<p>    uint  Resolution </p>
+<p>    float  Accuracy </p>
+<p>    float  LowerLimit </p>
+<p>    float  UpperLimit </p>
+<p>    [-&gt; ANNOTATION]* </p>
+<p>    [-&gt; ARRAY_SIZE] </p>
+<p>    [-&gt; BIT_MASK] </p>
+<p>    [-&gt; BIT_OPERATION] </p>
+<p>    [-&gt; BYTE_ORDER] </p>
+<p>    [-&gt; DISCRETE] </p>
+<p>    [-&gt; DISPLAY_IDENTIFIER] </p>
+<p>    [-&gt; ECU_ADDRESS] </p>
+<p>    [-&gt; ECU_ADDRESS_EXTENSION] </p>
+<p>    [-&gt; ERROR_MASK] </p>
+<p>    [-&gt; FORMAT] </p>
+<p>    [-&gt; FUNCTION_LIST] </p>
+<p>    [-&gt; IF_DATA]* </p>
+<p>    [-&gt; LAYOUT] </p>
+<p>    [-&gt; MATRIX_DIM] </p>
+<p>    [-&gt; MAX_REFRESH] </p>
+<p>    [-&gt; PHYS_UNIT] </p>
+<p>    [-&gt; READ_WRITE] </p>
+<p>    [-&gt; REF_MEMORY_SEGMENT] </p>
+<p>    [-&gt; SYMBOL_LINK] </p>
+<p>    [-&gt; VIRTUAL] </p>
+<p>/end MEASUREMENT</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 29 - </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin MEASUREMENT </p>
+<p>  FP_LED </p>
+<p>  &quot;Raw value target driving program&quot; </p>
+<p>  UBYTE NonDim_2p0 0 0 0 10 </p>
+<p>  ECU_ADDRESS 0xD000B47C </p>
+<p>  ECU_ADDRESS_EXTENSION 0x0 </p>
+<p>  /begin IF_DATA XCP </p>
+<p>    /begin DAQ_EVENT VARIABLE </p>
+<p>      /begin DEFAULT_EVENT_LIST </p>
+<p>        EVENT 0001 </p>
+<p>      /end DEFAULT_EVENT_LIST </p>
+<p>    /end DAQ_EVENT </p>
+<p>  /end IF_DATA </p>
+<p>/end MEASUREMENT</p>
+<p> </p>
+<p>  </p>
+<p>Calibration </p>
+<p>parameters </p>
+<p>The calibration parameters are specified in the A2L file using the </p>
+<p>CHARACTERISTIC</p>
+<p> </p>
+<p>keyword. In this case, as well, there are optional parameter values </p>
+<p>[]</p>
+<p> and mandatory </p>
+<p>parameter values. </p>
+<p><b> </b></p>
+<p>Prototype: </p>
+<p>/begin CHARACTERISTIC  ident  Name </p>
+<p>    string  LongIdentifier </p>
+<p>    enum  Type </p>
+<p>    ulong  Address </p>
+<p>    ident  Deposit </p>
+<p>    float  MaxDiff </p>
+<p>    ident  Conversion </p>
+<p>    float  LowerLimit </p>
+<p>    float  UpperLimit </p>
+<p>    [-&gt; ANNOTATION]* </p>
+<p>    [-&gt; AXIS_DESCR]* </p>
+<p>    [-&gt; BIT_MASK] </p>
+<p>    [-&gt; BYTE_ORDER] </p>
+<p>    [-&gt; CALIBRATION_ACCESS] </p>
+<p>    [-&gt; COMPARISON_QUANTITY] </p>
+<p>    [-&gt; DEPENDENT_CHARACTERISTIC] </p>
+<p>    [-&gt; DISCRETE] </p>
+<p>    [-&gt; DISPLAY_IDENTIFIER] </p>
+<p>    [-&gt; ECU_ADDRESS_EXTENSION] </p>
+<p>    [-&gt; EXTENDED_LIMITS] </p>
+<p>    [-&gt; FORMAT] </p>
+<p>    [-&gt; FUNCTION_LIST] </p>
+<p>    [-&gt; GUARD_RAILS] </p>
+<p>    [-&gt; IF_DATA]* </p>
+<p>    [-&gt; MAP_LIST] </p>
+<p>    [-&gt; MATRIX_DIM] </p>
+<p>    [-&gt; MAX_REFRESH] </p>
+<p>    [-&gt; NUMBER] </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 30 - </p>
+<p>    [-&gt; PHYS_UNIT] </p>
+<p>    [-&gt; READ_ONLY] </p>
+<p>    [-&gt; REF_MEMORY_SEGMENT] </p>
+<p>    [-&gt; STEP_SIZE] </p>
+<p>    [-&gt; SYMBOL_LINK] </p>
+<p>    [-&gt; VIRTUAL_CHARACTERISTIC] </p>
+<p>/end CHARACTERISTIC</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin CHARACTERISTIC Pehp_IDATA.T_FP_delay </p>
+<p>  &quot;Time for transition from target to actual driving program </p>
+<p>HPP&quot; </p>
+<p>  VALUE 0xA01350CC UWORD_COL_DIRECT 0 ms_f10 0 60000 </p>
+<p>ECU_ADDRESS_EXTENSION 0x0 </p>
+<p>  EXTENDED_LIMITS 0 60000 </p>
+<p>  BYTE_ORDER MSB_LAST </p>
+<p>  FORMAT &quot;%6.0&quot; </p>
+<p>/end CHARACTERISTIC</p>
+<p> </p>
+<p>  </p>
+<p>Conversion rules </p>
+<p>Frequently, conversion rules are additionally defined for measurement or calibration </p>
+<p>parameters if, for example, an object is to be converted to a physical unit. The </p>
+<p>COMPU_METHOD</p>
+<p> keyword is used for this. </p>
+<p> </p>
+<p>Prototype: </p>
+<p>/begin COMPU_METHOD  ident  Name </p>
+<p>    string  LongIdentifier </p>
+<p>    enum  ConversionType </p>
+<p>    string  Format </p>
+<p>    string  Unit </p>
+<p>    [-&gt; COEFFS] </p>
+<p>    [-&gt; COEFFS_LINEAR] </p>
+<p>    [-&gt; COMPU_TAB_REF] </p>
+<p>    [-&gt; FORMULA] </p>
+<p>    [-&gt; REF_UNIT] </p>
+<p>    [-&gt; STATUS_STRING_REF] </p>
+<p>/end COMPU_METHOD </p>
+<p> </p>
+<p> </p>
+<p>There are various conversion types for this: </p>
+<p><b>IDENTICAL </b></p>
+<p>Raw value and physical value are identical, no conversion is necessary </p>
+<p><b>FORM </b></p>
+<p>A formula is used for the conversion (to be specified with the </p>
+<p>FORMULA</p>
+<p> keyword) </p>
+<p><b>LINEAR </b></p>
+<p>Conversion is made linearly according to </p>
+<p>f(x)=ax+b</p>
+<p>  </p>
+<p>(a and b are specified using the </p>
+<p>COEFFS_LINEAR</p>
+<p> keyword) </p>
+<p><b>RAT_FUNC </b></p>
+<p>Conversion is made using a rational function: </p>
+<p>f(x) = (axx+bx+c)/(dxx+ex+f)</p>
+<p> </p>
+<p>a, b, c, d, e, f </p>
+<p>are specified using the </p>
+<p>COEFFS</p>
+<p> keyword. </p>
+<p><b>TAB_INTP </b></p>
+<p>Conversion table with interpolation </p>
+<p><b>TAB_NOINTP </b></p>
+<p>Conversion table without interpolation </p>
+<p><b>TAB_VERB </b></p>
+<p>Verbal conversion table </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 31 - </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin COMPU_METHOD NonDim_2p0_a &quot;&quot; </p>
+<p>  RAT_FUNC &quot;%5.0&quot; &quot;-&quot; </p>
+<p>  COEFFS 2 1 0 0 4 1 </p>
+<p>/end COMPU_METHOD </p>
+<p>  </p>
+<p>Groups </p>
+<p>Hierarchy levels are realized in the A2L file using groups. In a project with many </p>
+<p>measurement and calibration parameters, these can be subdivided and categorized. </p>
+<p>The possibility also exists to define subgroups. This makes the A2L file easier to view </p>
+<p>in CANape. </p>
+<p> </p>
+<p>Prototype: </p>
+<p>/begin GROUP  ident  GroupName </p>
+<p>    string  GroupLongIdentifier </p>
+<p>    [-&gt; ANNOTATION]* </p>
+<p>    [-&gt; FUNCTION_LIST] </p>
+<p>    [-&gt; IF_DATA]* </p>
+<p>    [-&gt; REF_CHARACTERISTIC] </p>
+<p>    [-&gt; REF_MEASUREMENT] </p>
+<p>    [-&gt; ROOT] </p>
+<p>    [-&gt; SUB_GROUP] </p>
+<p>/end GROUP </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin GROUP Maps &quot;Calibration Maps&quot; </p>
+<p> ROOT </p>
+<p>  /begin SUB_GROUP </p>
+<p>    WorkingPoint </p>
+<p>  /end SUB_GROUP </p>
+<p>  /begin REF_CHARACTERISTIC </p>
+<p>    KF1 KF2 KF3 KF4 KF5 KF6 KF7 KF8 </p>
+<p>    TestKennfeld map1_8_8_uc map4_80_uc map5_82_uc </p>
+<p>  /end REF_CHARACTERISTIC </p>
+<p>/end GROUP</p>
+<p> </p>
+<p>  </p>
+<p>Structures </p>
+<p>The A2L Specification contains no keyword for structures. CANape identifies these </p>
+<p>based on analysis of the object name. </p>
+<p> </p>
+<p>The valid syntax for structures in the A2L has the following appearance: </p>
+<p>&quot;</p>
+<p>.</p>
+<p>&quot; for objects (e.g., &quot;</p>
+<p>TestStructStruct1.TestStruct2.s1</p>
+<p>&quot;) </p>
+<p>&quot;</p>
+<p>[]</p>
+<p>&quot; for arrays (e.g., &quot;</p>
+<p>TestStructStruct1.TestStruct2.s1[0]</p>
+<p>&quot;) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Measuring and Calibrating of ECU Software </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 32 - </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> </p>
+<p> </p>
+<p>/begin CHARACTERISTIC Test1.s0 &quot;&quot; </p>
+<p>  VALUE 0x2080D0 __ULONG_S 0 Test1.s0.CONVERSION 0 4294967295 </p>
+<p>  ECU_ADDRESS_EXTENSION 0x0 </p>
+<p>  EXTENDED_LIMITS 0 4294967295 </p>
+<p>  FORMAT &quot;%.15&quot; </p>
+<p>/end CHARACTERISTIC </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Detailed information on the meaning of individual parameters can be </p>
+<p>found in the ASAP2 specification ASAM MCD-2 MC under the respective keyword. </p>
+<p>  </p>
+<p><b>3.3.2 </b></p>
+<p><b>Mode of Functioning </b></p>
+<p> </p>
+<p>  </p>
+<p><i>Figure 3-12: Mode of functioning of the A2L </i></p>
+<p>  </p>
+<p>Engine speed as </p>
+<p>example </p>
+<p>Figure 3-12 illustrates the mode of functioning of an A2L file. The engine speed is </p>
+<p>read out here as an example. Via the A2L file, the measurement and calibration </p>
+<p>system (CANape) learns which memory address contains the engine speed and how </p>
+<p>the ASAM MCD 1MC interface must be parameterized. The read-out raw value is </p>
+<p>then converted to a physical value using a conversion rule described in the A2L file. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>OEM </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 33 - </p>
+<p><b>4 </b></p>
+<p><b>OEM </b></p>
+<p><b>In This Chapter You Will Find the Following Information: </b></p>
+<p>4.1 </p>
+<p>Objective </p>
+<p> page 34 </p>
+<p>4.2 </p>
+<p>Content of the Performance Specifications </p>
+<p> page 34 </p>
+<p>4.3 </p>
+<p>Measurement Task </p>
+<p> page 34 </p>
+<p>4.4 </p>
+<p>Calibration Task </p>
+<p> page 35 </p>
+<p>4.5 </p>
+<p>XCP Features </p>
+<p> page 35 </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>OEM </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 34 - </p>
+<p><b>4.1 </b></p>
+<p><b>Objective </b></p>
+<p>Checklist for </p>
+<p>performance </p>
+<p>specifications </p>
+<p>This chapter serves as a checklist for creating performance specifications. The OEM </p>
+<p>must ensure that the indicated items are incorporated in the performance </p>
+<p>specifications after careful consideration and as needed. </p>
+<p>  </p>
+<p><b>4.2 </b></p>
+<p><b>Content of the Performance Specifications </b></p>
+<p> </p>
+<p>The content of the performance specifications must define the desired requirements </p>
+<p>for the supplier. These can be divided into mandatory and optional requirements. </p>
+<p><b>Mandatory </b></p>
+<p><b>Requirements </b></p>
+<p><b>&gt; </b></p>
+<p>Delivery of an A2L compatible with the software version </p>
+<p><b>&gt; </b></p>
+<p>Configured XCP driver </p>
+<p><b>&gt; </b></p>
+<p>Preconfigured CANape project </p>
+<p><b>Optional </b></p>
+<p><b>Requirements </b></p>
+<p><b>&gt; </b></p>
+<p>Build environment that can generate the A2L </p>
+<p><b>&gt; </b></p>
+<p>Delivery of a linker MAP file </p>
+<p> </p>
+<p>The delivery of a linker MAP file has the advantage that new measurement and </p>
+<p>calibration parameters can be incorporated directly into the A2L file. If a request to </p>
+<p>measure additional objects arises during the course of a measurement task, the </p>
+<p>memory addresses are known and these can be added. </p>
+<p>  </p>
+<p><b>4.3 </b></p>
+<p><b>Measurement Task </b></p>
+<p>Information to be </p>
+<p>communicated </p>
+<p>To realize the mandatory requirements relating to the measurement task, the supplier </p>
+<p>requires some information, such as the category of the measurement parameters. </p>
+<p>Various details about the DAQ configuration are also relevant both for the configured </p>
+<p>XCP driver and for the A2L file. </p>
+<p> </p>
+<p>Specifically, information on the following items must be communicated to the supplier: </p>
+<p><b>&gt; </b></p>
+<p>Category of the measurement parameters </p>
+<p><b>&gt; </b></p>
+<p>Software component </p>
+<p><b>&gt; </b></p>
+<p>Basic software </p>
+<p><b>&gt; </b></p>
+<p>BSW module (e.g., COM, CanNm) </p>
+<p><b>&gt; </b></p>
+<p>Runtime monitoring </p>
+<p><b>&gt; </b></p>
+<p>Event-triggered measuring via DAQ </p>
+<p><b>&gt; </b></p>
+<p>Static or dynamic DAQ lists </p>
+<p>Vector recommends dynamic DAQ lists in order to make more efficient use of </p>
+<p>the memory and, if necessary, to allow more signals to be measured. </p>
+<p><b>&gt; </b></p>
+<p>Definition of DAQ event time base  </p>
+<p><b>&gt; </b></p>
+<p>Use of timestamps </p>
+<p><b>&gt; </b></p>
+<p>Use of DAQ default events </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>OEM </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 35 - </p>
+<p><b>4.4 </b></p>
+<p><b>Calibration Task </b></p>
+<p>Items to be </p>
+<p>considered </p>
+<p>The calibration task also affects the mandatory requirements (A2L file, XCP driver) for </p>
+<p>the supplier. The following items should be carefully considered here: </p>
+<p><b>&gt; </b></p>
+<p>Location of the calibration parameters </p>
+<p><b>&gt; </b></p>
+<p>Software component </p>
+<p><b>&gt; </b></p>
+<p>NVRAM </p>
+<p><b>&gt; </b></p>
+<p>Optimized &quot;going online&quot; </p>
+<p>The accesses to the ECU are decreased when &quot;going online&quot; is optimized. An </p>
+<p>upload operation is performed only if differences between the data in the memory </p>
+<p>image and the ECU are identified. This procedure accelerates the &quot;going online&quot;. </p>
+<p>For optimized &quot;going online&quot;, the use of a memory image is required. The </p>
+<p>memory image is described on the basis of memory segments, which contain </p>
+<p>only calibration parameters. In addition, the checksum calculation must be </p>
+<p>implemented in the ECU. </p>
+<p>Optimized &quot;going online&quot; is also a prerequisite for offline calibration and the use of </p>
+<p>dataset management. </p>
+<p><b>&gt; </b></p>
+<p>Use of a flashable HEX file (with calibrated calibration parameters from CANape) </p>
+<p>  </p>
+<p><b>4.5 </b></p>
+<p><b>XCP Features </b></p>
+<p>Features to be </p>
+<p>supported </p>
+<p>The XCP Driver section explained some aspects and features of the XCP protocol. </p>
+<p>Specifically, the following were explained: Measurement Modes, Autoselection and </p>
+<p>Software Version Check of the A2L File, Online Calibration, Page Switching, </p>
+<p>Bypassing, and Resume Mode. It is important here that the OEM communicates to </p>
+<p>the supplier which of these features are to be supported by the XCP driver. </p>
+<p> </p>
+<p>It is recommended to incorporate the following XCP features in the performance </p>
+<p>specifications: </p>
+<p><b>&gt; </b></p>
+<p>Polling and DAQ measurement modes </p>
+<p><b>&gt; </b></p>
+<p>Autoselection of A2L and the software version check </p>
+<p><b>&gt; </b></p>
+<p>Online calibration </p>
+<p><b>&gt; </b></p>
+<p>Resume mode </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 36 - </p>
+<p><b>5 </b></p>
+<p><b>Supplier </b></p>
+<p><b>In This Chapter You Will Find the Following Information: </b></p>
+<p>5.1 </p>
+<p>Preface </p>
+<p> page 37 </p>
+<p>5.2 </p>
+<p>Requirements </p>
+<p> page 37 </p>
+<p>5.3 </p>
+<p>Definition of Measurement and Calibration Parameters </p>
+<p> page 37 </p>
+<p> </p>
+<p>Measuring and Calibrating of AUTOSAR Software Components </p>
+<p> </p>
+<p>Measuring of Ports and Variables </p>
+<p> </p>
+<p>XCP Events </p>
+<p> </p>
+<p>Software Component with Calibration Parameters </p>
+<p> </p>
+<p>Calibration Parameters for Multiple Software Components </p>
+<p> </p>
+<p>Configuration of the RTE (Runtime Environment) </p>
+<p> </p>
+<p>Measuring and Calibrating Without the Support of the RTE </p>
+<p> </p>
+<p>Debugging of the BSW (Basic Software) </p>
+<p>5.4 </p>
+<p>Configuration of the XCP Module </p>
+<p> page 42 </p>
+<p> </p>
+<p>DAQ List Configuration </p>
+<p> </p>
+<p>Tool-Driven DAQ Timestamp Option </p>
+<p> </p>
+<p>XCP Event Information </p>
+<p> </p>
+<p>Software Version Check </p>
+<p> </p>
+<p>Use of the XCP Component in the Implementation </p>
+<p> </p>
+<p>Recommendations for the Configuration of the XCP Module </p>
+<p>5.5 </p>
+<p>Configuration of the Driver Modules </p>
+<p> page 48 </p>
+<p> </p>
+<p>CAN Module MICROSAR XCP </p>
+<p>5.6 </p>
+<p>Configuration of the Memory Management </p>
+<p> page 48 </p>
+<p> </p>
+<p>Configuration for Resume Mode </p>
+<p>5.7 </p>
+<p>Creating an A2L File </p>
+<p> page 49 </p>
+<p> </p>
+<p>Creation of a Master A2L File </p>
+<p> </p>
+<p>Expansion of the Master A2L File </p>
+<p> </p>
+<p>Working with ASAP2 Tool-Set </p>
+<p> </p>
+<p>Working with CANape and the ASAP2 Editor </p>
+<p>5.8 </p>
+<p>Fast Access to the ECU Via the VX Module </p>
+<p> page 55 </p>
+<p>5.9 </p>
+<p>Additional Topics </p>
+<p> page 56 </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 37 - </p>
+<p><b>5.1 </b></p>
+<p><b>Preface </b></p>
+<p>Certain functions and </p>
+<p>configurations for </p>
+<p>AUTOSAR </p>
+<p>The measurement and calibration task assigned by the OEM is carried out in the </p>
+<p>implementation of the ECU software. When AUTOSAR-compliant software modules </p>
+<p>are used, the modules must be configured appropriately and certain functions must </p>
+<p>be implemented. </p>
+<p> </p>
+<p>This chapter explains procedures for implementing the requirements for the ECU </p>
+<p>software. The description refers to the MICROSAR product. </p>
+<p> </p>
+<p>The first part describes the configuration of software components (SW-C), the </p>
+<p>MICROSAR RTE, and the MICROSAR BSW module. </p>
+<p> </p>
+<p>This is followed by a brief overview of the integration of the XCP slave. The XCP </p>
+<p>slave is provided by the XCP module. </p>
+<p> </p>
+<p>The final part describes the creation of the A2L description file, which will be a central </p>
+<p>component of the CANape configuration. </p>
+<p>  </p>
+<p><b>5.2 </b></p>
+<p><b>Requirements </b></p>
+<p>Software </p>
+<p>components </p>
+<p>The following software components at least starting with the following versions are </p>
+<p>required for the descriptions: </p>
+<p><b>&gt; </b></p>
+<p>Vector Informatik DaVinci Developer 3.0.110 (SP5) </p>
+<p><b>&gt; </b></p>
+<p>Vector Informatik DaVinci Configurator 4.1.1.2 </p>
+<p><b>&gt; </b></p>
+<p>Vector Informatik ASAP2 Tool-Set 7.0 </p>
+<p><b>&gt; </b></p>
+<p>Vector Informatik CANape 10.0 SP4 </p>
+<p><b>&gt; </b></p>
+<p>Vector MICROSAR Basic Software starting with Release 14 including </p>
+<p>MICROSAR XCP and MICROSAR RTE </p>
+<p>  </p>
+<p><b>5.3 </b></p>
+<p><b>Definition of Measurement and Calibration Parameters </b></p>
+<p>Via software </p>
+<p>components </p>
+<p>The measurement and calibration parameters for the measurement and calibration </p>
+<p>task of the OEM are usually located in the software components (SW-C). These </p>
+<p>parameters are defined with configuration tools, such as the DaVinci Developer. </p>
+<p>Configuration of the RTE is also required for this. </p>
+<p>Without RTE </p>
+<p>Other measurement and calibration parameters can also be provided without the </p>
+<p>support of AUTOSAR interfaces. A brief explanation is given in the Measuring and </p>
+<p>Calibrating Without the Support of the RTE section. </p>
+<p>Via A2L file </p>
+<p>In addition, measurement parameters can also be added to the measurement </p>
+<p>configuration within the AUTOSAR basic software. This is done by inserting known </p>
+<p>measurement parameters from the basic software into the A2L file. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 38 - </p>
+<p><b>5.3.1 </b></p>
+<p><b>Measuring and Calibrating of AUTOSAR Software Components </b></p>
+<p>Measurable objects </p>
+<p>Measurable objects can be configured using a configuration tool, such as the DaVinci </p>
+<p>Developer. Measurable objects include data elements (</p>
+<p><b>data elements</b></p>
+<p>) of </p>
+<p>application and service ports (</p>
+<p><b>application port interfaces</b></p>
+<p>), variables for </p>
+<p>communication between runnables (</p>
+<p><b>inter-runnable variables</b></p>
+<p>), and calibration </p>
+<p>parameters (</p>
+<p><b>calibration parameters</b></p>
+<p>). </p>
+<p> </p>
+<p><i>Figure 5-1: SW-C connected to ports </i></p>
+<p> </p>
+<p><i>Figure 5-2: SW-C with parameters for measuring/calibrating </i></p>
+<p>Calibration access </p>
+<p>The objects indicated above can be made measurable by setting <b>Calibration Access </b></p>
+<p>to <b>ReadOnly </b>in the DaVinci Developer. The <b>ReadWrite </b>setting enables the writing of </p>
+<p>objects with CANape. The writing of calibration parameters occurs in the common </p>
+<p>&quot;Calibration&quot; use case of CANape. The writing of other data elements can be </p>
+<p>configured but is not recommended. This is because the write access is not exclusive, </p>
+<p>which means that information can be overwritten again. </p>
+<p><i>Figure 5-3: </i></p>
+<p><i>Measurement and </i></p>
+<p><i>calibration option for an </i></p>
+<p><i>object (e.g., </i></p>
+<p><i>data </i></p>
+<p><i>element</i></p>
+<p><i>) </i></p>
+<p> </p>
+<p>Specifying calibration </p>
+<p>parameters </p>
+<p>The AUTOSAR Standard provides the option of specifying calibration parameters. </p>
+<p>Two variants are differentiated. </p>
+<p>Calibration parameters can be defined within a software component. These are then </p>
+<p>also available only for this software component. </p>
+<p>The second variant is the use of a calibration software component that can provide </p>
+<p>calibration parameters for multiple software components. </p>
+<p>  </p>
+<p><b>5.3.2 </b></p>
+<p><b>Measuring of Ports and Variables </b></p>
+<p>Configuration of the </p>
+<p>data elements </p>
+<p>Data elements to be measured must be configured appropriately with the help of the </p>
+<p><b>Calibration &amp; Measurement Support</b>. For measuring, <b>Calibration Access </b>must be </p>
+<p>set to <b>ReadOnly</b>. </p>
+<p> </p>
+<p>The following data elements can be measured: </p>
+<p><b>&gt; </b></p>
+<p><b>Sender/Receiver Ports </b></p>
+<p><b>&gt; </b></p>
+<p><b>Client/Server Ports (RTE not currently supported) </b></p>
+<p><b>&gt; </b></p>
+<p><b>Inter-Runnable Variables </b></p>
+<p><b>&gt; </b></p>
+<p><b>Calibration Parameters </b></p>
+<p> </p>
+<p>For </p>
+<p><b>Sender</b></p>
+<p> and </p>
+<p><b>Receiver Ports</b></p>
+<p>, the data elements can be easily configured for </p>
+<p>calibrating via the <b>Properties</b>. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 39 - </p>
+<p><i>Figure 5-4: </i></p>
+<p><i>Configuration of a </i></p>
+<p><i>sender/receiver port </i></p>
+<p> </p>
+<p>Special case: Data </p>
+<p>Mapping </p>
+<p><b>Sender/Receiver Ports</b></p>
+<p> for which a Data Mapping is defined represent a special </p>
+<p>case. For these ports, a direct (explicit) access and a buffered (implicit) access can </p>
+<p>be configured as shown in Figure 5-5. </p>
+<p><i>Figure 5-5: Access </i></p>
+<p><i>definition of a port </i></p>
+<p> </p>
+<p> </p>
+<p>Ports that have explicit access configured can only be measured using the BSW </p>
+<p>module COM. On the other hand, ports whose access was configured as buffered </p>
+<p>can be measured using the RTE as well as the BSW module COM. </p>
+<p>The measurement parameters are typically already preconfigured. </p>
+<p>  </p>
+<p><b>5.3.3 </b></p>
+<p><b>XCP Events </b></p>
+<p>RTE support </p>
+<p>The RTE supports the generation of XCP events. For one thing, an event is created </p>
+<p>for each task. These events are used to measure variables of the runnables that are </p>
+<p>run within the task. The following should be noted in this regard: </p>
+<p><b>&gt; </b></p>
+<p>The RTE generates XCP events at the end of each task. An XCP event thus does </p>
+<p>not have a direct relation to the running of a Runnable. It is therefore common </p>
+<p>that a Runnable does not run continuously between XCP events. </p>
+<p><b>&gt; </b></p>
+<p>If XCP events are generated by the RTE, the DAQ measurement mode must also </p>
+<p>be activated in the XCP module. </p>
+<p><b>&gt; </b></p>
+<p>It must thereby be anticipated that the XCP events of the RTE will be called very </p>
+<p>often. </p>
+<p><b>&gt; </b></p>
+<p>The generated XCP events are not cyclic, so it is not possible to make a definitive </p>
+<p>statement about the expected bus load. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 40 - </p>
+<p> </p>
+<p>For another thing, the RTE also generates XCP events for the above-mentioned </p>
+<p>access to buffered ports. By means of the description in the A2L file, it is ensured that </p>
+<p>these ports are measured fixed with the generated event. </p>
+<p>  </p>
+<p><b>5.3.4 </b></p>
+<p><b>Software Component with Calibration Parameters </b></p>
+<p>External access  </p>
+<p>The definition of calibration parameters (</p>
+<p><b>Calibration Parameter</b></p>
+<p>) makes it </p>
+<p>possible to change a calibration parameter within the software component externally </p>
+<p>via XCP. </p>
+<p> </p>
+<p>Within the software component, access to this calibration parameter is read-only. </p>
+<p>However, outside of the SW-C, the possibility exists to change this calibration </p>
+<p>parameter. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 5-6: Properties of a calibration parameter </i></p>
+<p>  </p>
+<p> </p>
+<p>A calibration parameter consists of a data type and an initial value. The scope </p>
+<p>(<b>Scope</b>) and the measurement and calibration access can be configured. </p>
+<p> </p>
+<p><b>Note:</b> For additional information about these parameters, refer to the online help for </p>
+<p>the DaVinci Developer. </p>
+<p>  </p>
+<p><b>5.3.5 </b></p>
+<p><b>Calibration Parameters for Multiple Software Components </b></p>
+<p>Calibration-type </p>
+<p>software component </p>
+<p>A calibration-type software component is used to provide calibration parameters for </p>
+<p>multiple software components. </p>
+<p> </p>
+<p>This type of software component has only calibration ports (</p>
+<p><b>Calibration Ports</b></p>
+<p>), </p>
+<p>that provide calibration parameters for other SW-Cs and act as a sender port. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 41 - </p>
+<p>  </p>
+<p> </p>
+<p>Representation of a calibration software component in DaVinci Developer: </p>
+<p> </p>
+<p> </p>
+<p><i>Figure 5-7: Graphic interface </i></p>
+<p> </p>
+<p><i>Figure 5-8: List with the configured ports </i></p>
+<p> </p>
+<p>Each calibration port, in turn, contains calibration parameters. These calibration </p>
+<p>parameters are handled in just the same way as calibration parameters within a </p>
+<p>software component. </p>
+<p>  </p>
+<p><b>5.3.6 </b></p>
+<p><b>Configuration of the RTE (Runtime Environment) </b></p>
+<p>RTE support </p>
+<p>necessary </p>
+<p>The support of the RTE is required in order to measure and calibrate software </p>
+<p>components using the XCP protocol. The MICROSAR RTE Generator provides this </p>
+<p>measurement and calibration support. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> For an explanation of the activation of the measurement and calibration </p>
+<p>support, refer to the technical reference TechnicalReference_Asr_Rte, page 102ff. </p>
+<p>  </p>
+<p>Online calibration </p>
+<p>procedures </p>
+<p>supported by </p>
+<p>CANape </p>
+<p>CANape currently supports the following online calibration procedures: </p>
+<p><b>&gt; </b></p>
+<p>Initialized RAM </p>
+<p><b>&gt; </b></p>
+<p>Single Pointered </p>
+<p>Initialized RAM </p>
+<p>The standard calibration procedure with CANape is &quot;Initialized RAM&quot;. This procedure </p>
+<p>is suitable when the ECU has sufficient RAM memory for all calibration parameters to </p>
+<p>be calibrated. </p>
+<p>Single Pointered </p>
+<p>The advantage of the &quot;Single Pointered&quot; calibration concept is that not all calibration </p>
+<p>parameters constantly have a copy in the RAM memory. Therefore, this procedure </p>
+<p>must be chosen when RAM memory capacity is limited. </p>
+<p> </p>
+<p>When the ECU source code is generated by the DaVinci Developer, A2L fragments </p>
+<p>are also generated. The integration of the created A2L fragments </p>
+<p>Rte.a2l</p>
+<p> and </p>
+<p>Rte_XcpEvents.a2l</p>
+<p> is described in more detail in the Creating an A2L File section. </p>
+<p>  </p>
+<p><b>5.3.7 </b></p>
+<p><b>Measuring and Calibrating Without the Support of the RTE </b></p>
+<p>Points to be </p>
+<p>considered </p>
+<p>The possibility exists to use measurement and calibration even without the support of </p>
+<p>the RTE. </p>
+<p> </p>
+<p>The following points must be noted in this regard: </p>
+<p><b>&gt; </b></p>
+<p>Measurement via DAQ events requires that corresponding XCP events be </p>
+<p>programmed and then described in the A2L file. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 42 - </p>
+<p> </p>
+<p><b>Example:</b> <b>Integrating an XCP event within a runnable </b></p>
+<p> </p>
+<p>FUNC(void, RTE_CTAPMCU_APPL_CODE) RCtApMy_Algo(void) </p>
+<p>{ </p>
+<p>  // Perform algorithm within my runnable </p>
+<p>  ... </p>
+<p> </p>
+<p>  // Trigger user defined XCP Event </p>
+<p>  XcpEvent(12); </p>
+<p>} </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>For online calibration, a separate implementation of the calibration method </p>
+<p>(&quot;Initialized RAM&quot; or AUTOSAR &quot;Single Pointered&quot;) is required. </p>
+<p><b>&gt; </b></p>
+<p>Calibration and measurement requires one or more A2L files that are created </p>
+<p>manually or with an external program (e.g., ASAP2 Creator or TargetLink). These </p>
+<p>A2L files must be merged with the A2L files generated by the Vector tools. The </p>
+<p>ASAP2 Merger program can be used for this (see description in the Creating an </p>
+<p>A2L File section on page 49). </p>
+<p>  </p>
+<p><b>5.3.8 </b></p>
+<p><b>Debugging of the BSW (Basic Software) </b></p>
+<p>Modules which </p>
+<p>provide </p>
+<p>measurement </p>
+<p>parameters </p>
+<p>MICROSAR AMD allows measuring BSW internal status information using XCP in </p>
+<p>order to ease debugging. For this purpose MICROSAR AMD provides measurement </p>
+<p>parameters for by different MICROSAR modules such as COM, CANNM or CANTP. </p>
+<p>Generating the A2L </p>
+<p>information </p>
+<p>For generating the A2L information GENy creates automatically the A2L fragments </p>
+<p>bsw.a2l</p>
+<p> and </p>
+<p>bsw_xcp_events.a2l</p>
+<p> required for the A2L. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Information for configuration and detailed instructions are provided in the </p>
+<p>User Manual AMD. </p>
+<p>  </p>
+<p><b>5.4 </b></p>
+<p><b>Configuration of the XCP Module </b></p>
+<p>Configuration tool </p>
+<p>GENy </p>
+<p>The XCP module is configured with the GENy software component configuration tool. </p>
+<p>The source code for the XCP slave implementation is then generated based on this </p>
+<p>configuration. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 43 - </p>
+<p> </p>
+<p><i>Figure 5-9: Settings in GENy </i></p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Information and instructions on configuring the module can be found in </p>
+<p>the TechnicalReference_XCP_Protocol_Layer document. </p>
+<p>  </p>
+<p>Preface </p>
+<p>The most important configuration parameters are described below. In addition, the </p>
+<p>optional XCP features Measurement Modes and Autoselection and Software Version </p>
+<p>Check of the A2L File are described in the context of the XCP module. </p>
+<p>  </p>
+<p><b>5.4.1 </b></p>
+<p><b>DAQ List Configuration </b></p>
+<p>Implementation only </p>
+<p>for dynamic DAQ </p>
+<p>lists </p>
+<p>The XCP module currently has only the implementation for dynamic DAQ lists. </p>
+<p>Predefined DAQ lists (static DAQ lists) are currently not supported by the XCP </p>
+<p>module. Static DAQ lists are not suitable for use of an XCP slave within an </p>
+<p>AUTOSAR software stack. For one thing, these require an unnecessarily large </p>
+<p>amount of memory. For another thing, when very many XCP events are implemented, </p>
+<p>the maximum possible number of static lists may be exceeded if a fixed assignment is </p>
+<p>used. </p>
+<p>Amount of memory </p>
+<p>space </p>
+<p>The amount of memory provided for the DAQ configuration can be specified in the </p>
+<p>XCP module. </p>
+<p> </p>
+<p>The following formula can be used for the calculation: </p>
+<p>measure</p>
+<p> </p>
+<p>per</p>
+<p> </p>
+<p>signals</p>
+<p> </p>
+<p>t</p>
+<p>measuremen</p>
+<p> </p>
+<p>of</p>
+<p> </p>
+<p>number</p>
+<p>  </p>
+<p>max.</p>
+<p>5</p>
+<p>[bytes]</p>
+<p> </p>
+<p>ion</p>
+<p>configurat</p>
+<p> </p>
+<p>DAQ</p>
+<p> </p>
+<p>for</p>
+<p> </p>
+<p>space</p>
+<p>Memory </p>
+<p></p>
+<p></p>
+<p> </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 44 - </p>
+<p><b>5.4.2 </b></p>
+<p><b>Tool-Driven DAQ Timestamp Option </b></p>
+<p>Additional options for </p>
+<p>timestamps </p>
+<p>As described previously in the Measurement Modes section, the possibility exists to </p>
+<p>use a timestamp of the ECU. To do so, this must be supported in the XCP driver. As </p>
+<p>an additional option, the XCP driver can also supply the timestamp as a matter of </p>
+<p>principle (timestamp fixed) or on request. The size of the timestamp (1, 2, 4 bytes per </p>
+<p>event) should be chosen after careful consideration. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p>The ECU uses a 1 µs counter for generating the DAQ timestamps. Only a 2-byte </p>
+<p>timestamp is chosen. </p>
+<p>As a result, the timestamp overflows every 65 ms. So that the MCD tool can </p>
+<p>recognize an overflow, <b>at least one signal </b>that supplies a measurement value and </p>
+<p>thus also a timestamp at a more frequent interval than 65 ms must be measured in </p>
+<p>the measurement setup. </p>
+<p>  </p>
+<p><b>5.4.3 </b></p>
+<p><b>XCP Event Information </b></p>
+<p>XCP slave to XCP </p>
+<p>master </p>
+<p>XCP event information can be provided in two ways by the XCP slave. Either by a </p>
+<p>generated A2L file that contains the configured events or by the XCP command </p>
+<p>GET_DAQ_EVENT_INFO</p>
+<p> which provides the event information directly from the ECU. </p>
+<p>In both cases the event information has to be configured in the generation tool </p>
+<p>accordingly. </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> If the </p>
+<p>GET_DAQ_EVENT_INFO</p>
+<p> feature is activated in the XCP module, the </p>
+<p>automatically generated events of the RTE are not taken into consideration. </p>
+<p>  </p>
+<p><b>Recommendation: </b></p>
+<p><b> </b></p>
+<p>No RTE events are </p>
+<p>used: </p>
+<p>If no RTE events are used, the functionality of the XCP event information can be </p>
+<p>used. However, attention must be paid that all events that are implemented are </p>
+<p>described (including those of the BSW component). </p>
+<p>RTE events are </p>
+<p>used: </p>
+<p>Due to the fact that the </p>
+<p>GET_DAQ_EVENT_INFO</p>
+<p> feature overwrites all events defined </p>
+<p>in A2L files, deactivation of this feature is recommended if RTE events are used. In </p>
+<p>this case the generated fragment </p>
+<p>XCP_events.a2l</p>
+<p> can be inserted into the master </p>
+<p>A2L file (see the Creating an A2L File section). </p>
+<p>  </p>
+<p><b>5.4.4 </b></p>
+<p><b>Software Version Check </b></p>
+<p>Aspects for </p>
+<p>implementation </p>
+<p>The possibilities for checking the software version were previously presented in the </p>
+<p>Autoselection and Software Version Check of the A2L File section. Aspects for the </p>
+<p>implementation are explained here. </p>
+<p>  </p>
+<p><b>XCP Station </b></p>
+<p><b>Identifier (protocol </b></p>
+<p><b>command </b></p>
+<p><b>GET_ID</b></p>
+<p><b>) </b></p>
+<p>The Station Identifier should be centrally defined in an appropriate way and </p>
+<p>afterwards only integrated. This can be achieved as follows: </p>
+<p><b>&gt; </b></p>
+<p>Do not perform a manual configuration of the XCP identifier in GENy. </p>
+<p><b>&gt; </b></p>
+<p>Create a &quot;User Defined&quot; configuration containing, for example: </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 45 - </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p><b>user_cfg.h: </b></p>
+<p>/* Standard commands */ </p>
+<p>#define kXcpStationIdLength 7u </p>
+<p>extern CONST(XcpCharType, XCP_CONST) kXcpStationId[]; </p>
+<p><b>user_cfg.c: </b></p>
+<p>CONST(XcpCharType, XCP_CONST) kXcpStationId[] = &quot;EcuName_V1-2-</p>
+<p>0&quot;; </p>
+<p>  </p>
+<p> </p>
+<p>If this information is integrated in the build process, the Station Identifier </p>
+<p>EcuName_V1-2-0</p>
+<p> is used. </p>
+<p>  </p>
+<p><b>EPK check </b></p>
+<p>It is recommended that the EPK identifier be generated automatically and consistently </p>
+<p>with every compilation both in the source code and in the A2L file. </p>
+<p>Ideally, the EPK is stored at a constant address in the ECU. This could look like this </p>
+<p>in the source code: </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p>__attribute__((section(&quot;calflash_signature&quot;))) const char </p>
+<p>epk[26] = &quot;EcuName V1.2.0 01.03.2012&quot;;</p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>In the A2L file, the EPK identifier must also be implemented accordingly. For the </p>
+<p>above example in the ECU software, the entry in the A2L file looks like: </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p> </p>
+<p>    /begin MOD_PAR &quot;EcuName&quot; </p>
+<p>           ADDR_EPK 0x350002 </p>
+<p>          EPK &quot;EcuName V1.2.0 01.03.2012&quot; </p>
+<p>    /end MOD_PAR</p>
+<p> </p>
+<p>  </p>
+<p><b>Checksum of code </b></p>
+<p><b>segments in the </b></p>
+<p><b>ECU (CANape 11.0 </b></p>
+<p><b>and higher) </b></p>
+<p>So that CANape can calculate the checksum of code segments, some information is </p>
+<p>required. First, the code segments must be defined in the A2L file. Second, CANape </p>
+<p>requires a HEX file that also contains the code segments. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 46 - </p>
+<p><b>5.4.5 </b></p>
+<p><b>Use of the XCP Component in the Implementation </b></p>
+<p> </p>
+<p><i>Figure 5-10: Interaction of the XCP module with AUTOSAR application </i></p>
+<p> </p>
+<p>Interaction of XCP </p>
+<p>module with </p>
+<p>AUTOSAR </p>
+<p>application </p>
+<p>1. </p>
+<p>For DAQ measurements, the basic software or the application calls the </p>
+<p>XcpEvent</p>
+<p> function. </p>
+<p>2. </p>
+<p>The initialization routine of the application (within </p>
+<p>DriverInitTwo</p>
+<p>) calls </p>
+<p>XcpInit</p>
+<p>. </p>
+<p>3. </p>
+<p>The scheduler of the basic software calls </p>
+<p>XcpBackground</p>
+<p> periodically. </p>
+<p>4. </p>
+<p>By means of the </p>
+<p>CanXcp</p>
+<p> functions, the application can be informed about CAN-</p>
+<p>specific events. </p>
+<p>  </p>
+<p>Procedure for use </p>
+<p><b>&gt; </b></p>
+<p>All modules that require the XCP component must include the </p>
+<p>XcpProf.h</p>
+<p> </p>
+<p>header file. </p>
+<p><b>&gt; </b></p>
+<p>The XCP component must be initialized in the initialization routine of the software </p>
+<p>by calling the </p>
+<p>XcpInit</p>
+<p> function. </p>
+<p><b>&gt; </b></p>
+<p>A desired XCP service within the application can be used by calling a function, for </p>
+<p>example </p>
+<p>XcpEvent</p>
+<p> (channel) with a corresponding channel/event number. </p>
+<p>  </p>
+<p><b>5.4.6 </b></p>
+<p><b>Recommendations for the Configuration of the XCP Module </b></p>
+<p>Check important </p>
+<p>parameters </p>
+<p>In general, every configuration parameter of the XCP module should be checked with </p>
+<p>respect to its setting. Important parameters that should be assigned a different value </p>
+<p>than the default value are described below. These can also be seen again directly in </p>
+<p>GENy in Figure 5-9. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 47 - </p>
+<p>General Settings </p>
+<p>XCP Station Identifier </p>
+<p>Manual specification of the file name of the </p>
+<p>A2L file without the file name extension. Use </p>
+<p>of the automatic name adaptation described </p>
+<p>in the Software Version Check section is </p>
+<p>recommended. </p>
+<p> </p>
+<p>Event Codes </p>
+<p>Activate option. </p>
+<p> </p>
+<p>Development Error Detection </p>
+<p>Activate option during the development. </p>
+<p><i>Table 5-1: Recommendations for the Configuration of the XCP Module: General Settings </i></p>
+<p>  </p>
+<p>Synchronous Data </p>
+<p>Acquisition (DAQ) </p>
+<p>Synchronous Data Acquisition (DAQ) </p>
+<p>Activate option (see the DAQ List </p>
+<p>Configuration section) </p>
+<p> </p>
+<p>Memory Size </p>
+<p>A memory size of 2048 bytes has proven to </p>
+<p>be adequate. The memory is reserved and </p>
+<p>used exclusively for the DAQ configuration </p>
+<p>and the Send Queue for the resume mode. </p>
+<p> </p>
+<p>Prescaler </p>
+<p>Activate option. </p>
+<p> </p>
+<p>Write DAQ multiple </p>
+<p>Activate option if CAN is not used as </p>
+<p>Transport Layer. </p>
+<p> </p>
+<p>Resume Mode </p>
+<p>Activate option if the OEM requires this in the </p>
+<p>performance specifications. If activated, the </p>
+<p>memory size should be rechecked, since the </p>
+<p>Send Queue should have appropriate </p>
+<p>capacity. </p>
+<p> </p>
+<p>General Info </p>
+<p>Activate option. </p>
+<p> </p>
+<p>STIM </p>
+<p>Activate option if the OEM requires the </p>
+<p>bypassing feature in the performance </p>
+<p>specifications. </p>
+<p> </p>
+<p>DAQ Timestamp </p>
+<p>Activate option (see the Tool-Driven DAQ </p>
+<p>Timestamp Option section). </p>
+<p> </p>
+<p>Fixed Timestamp </p>
+<p>Activate option if CAN is not used as </p>
+<p>Transport Layer. </p>
+<p> </p>
+<p>Timestamp Size </p>
+<p>Selection should be greater than or equal to </p>
+<p>WORD (2 bytes). </p>
+<p> </p>
+<p>Timestamp Unit + Ticks per Unit </p>
+<p>The time unit for the timestamp should be less </p>
+<p>than the smallest event cycle time. </p>
+<p><i>Table 5-2: Recommendations for the Configuration of the XCP Module: DAQ </i></p>
+<p>  </p>
+<p>Block Transfer </p>
+<p>Block Upload </p>
+<p>Activate option. </p>
+<p> </p>
+<p>Block Download </p>
+<p>Activate option. </p>
+<p> </p>
+<p>MIN_ST for Block Download </p>
+<p>Check whether the ECU can process the </p>
+<p>blocks on time without a loss of data. </p>
+<p>Otherwise, a wait time should be configured </p>
+<p>here. </p>
+<p><i>Table 5-3: Recommendations for the Configuration of the XCP Module: Block Transfer </i></p>
+<p>  </p>
+<p>Checksum </p>
+<p>Checksum </p>
+<p>Activate option. </p>
+<p> </p>
+<p>AUTOSAR CRC Module Support </p>
+<p>Recommended if the AUTOSAR module is </p>
+<p>present. </p>
+<p><i>Table 5-4: Recommendations for the Configuration of the XCP Module: Checksum </i></p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 48 - </p>
+<p><b>5.5 </b></p>
+<p><b>Configuration of the Driver Modules </b></p>
+<p><b>5.5.1 </b></p>
+<p><b>CAN Module MICROSAR XCP </b></p>
+<p>Configuration </p>
+<p>The CAN module MICROSAR XCP is configured with the GENy Software Component </p>
+<p>Configuration tool. </p>
+<p>The CAN messages for the XCP communication can be specified for MICROSAR </p>
+<p>XCP. </p>
+<p>The module is also responsible for creating the </p>
+<p>CanXCPAsr.a2l</p>
+<p> file. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> Additional information is provided in the Technical Reference XCP </p>
+<p>Protocol Layer document. </p>
+<p>  </p>
+<p><b>5.6 </b></p>
+<p><b>Configuration of the Memory Management </b></p>
+<p>NVM module </p>
+<p>The AUTOSAR Standard provides an NVM module for the memory management. </p>
+<p>Measuring and calibrating generally have no direct points of contact with the memory </p>
+<p>management. </p>
+<p> </p>
+<p>The sole use case for configuring the NVM with regard to the XCP module is the use </p>
+<p>of Resume Mode. </p>
+<p>  </p>
+<p><b>5.6.1 </b></p>
+<p><b>Configuration for Resume Mode </b></p>
+<p>Implementation </p>
+<p>For implementation of Resume Mode, the XCP driver must store its DAQ </p>
+<p>configuration in a non-volatile memory. Two pieces of information must be stored for </p>
+<p>resume mode: first, the fact that the mode is active and, second, the DAQ </p>
+<p>configuration itself. </p>
+<p> </p>
+<p>For this a memory block large enough for the configuration is configured in the NVM </p>
+<p>module. Its size can be derived from the buffer size configured in the XCP module. </p>
+<p>Buffer size </p>
+<p>The following formula can be used to calculate the buffer size: </p>
+<p>timestamp</p>
+<p> </p>
+<p>the</p>
+<p> </p>
+<p>of</p>
+<p> </p>
+<p>Size</p>
+<p>j)</p>
+<p> </p>
+<p>,</p>
+<p>signal</p>
+<p> </p>
+<p>nt</p>
+<p>(Measureme</p>
+<p>time</p>
+<p> </p>
+<p>cycle</p>
+<p>1</p>
+<p> </p>
+<p> </p>
+<p>time</p>
+<p> </p>
+<p>Buffer</p>
+<p>size</p>
+<p> </p>
+<p>Buffer</p>
+<p>Signal</p>
+<p>j</p>
+<p>i</p>
+<p> </p>
+<p>Event</p>
+<p>Event</p>
+<p>i</p>
+<p>i</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p> </p>
+<p>API methods </p>
+<p>The API methods provided by the NVM module can then be used in order to save and </p>
+<p>load the configuration in the XCP module. This program part is not generated </p>
+<p>automatically and must be programmed. </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> The methods to be implemented can be referenced in the Technical </p>
+<p>Reference XCP Protocol Layer document. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 49 - </p>
+<p><b>5.7 </b></p>
+<p><b>Creating an A2L File </b></p>
+<p>To complete the A2L </p>
+<p>file, merge all </p>
+<p>relevant information </p>
+<p>regarding the ECU </p>
+<p>The A2L description file contains all relevant information regarding the ECU. This </p>
+<p>information is generated from various generators during the creation process. </p>
+<p>Information, such as the physical address, which is not available until the ECU </p>
+<p>application has been created, is also needed. </p>
+<p> </p>
+<p>All parts must be merged to ultimately obtain a complete A2L description file. The </p>
+<p>addresses in the A2L file then still have to be updated. </p>
+<p> </p>
+<p>Ideally, this process is incorporated into the automated creation process of the ECU </p>
+<p>application. </p>
+<p>  </p>
+<p><b>5.7.1 </b></p>
+<p><b>Creation of a Master A2L File </b></p>
+<p> </p>
+<p><b>Note:</b> MICROSAR XCP provides a _</p>
+<p>Master.a2l</p>
+<p> file as a template in the delivery </p>
+<p>folder </p>
+<p>…\Misc\McData</p>
+<p>. All A2L files generated by Vector tools can be found in </p>
+<p>…\GenData</p>
+<p> folder. </p>
+<p>  </p>
+<p>Goal </p>
+<p>A master A2L file that merges all partial databases into one is required. This master </p>
+<p>file can then be used as a template for the file to be created. The objective is to </p>
+<p>ultimately obtain a single file containing all information. </p>
+<p>Project-specific </p>
+<p>master A2L file </p>
+<p>This master A2L file is very project-specific. The information for an A2L file is created </p>
+<p>by different generators. Some information is also added manually. For this reason, </p>
+<p>the master A2L file is not created automatically. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 5-11: Process for creating a master A2L file (example) </i></p>
+<p>  </p>
+<p>include</p>
+<p> commands </p>
+<p>The general structure of an A2L file is already described in Figure 3-11: Structure of </p>
+<p>the A2L file. To merge the individual A2L fragments, </p>
+<p>include</p>
+<p> commands are used. </p>
+<p>These are inserted accordingly to the modular structure (AML, General ECU </p>
+<p>Implementation, IF_DATA and A2L Objects). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 50 - </p>
+<p> </p>
+<p>To allow the merge of the individual memory segments running smoothly, project-</p>
+<p>specific adaptions must be made in the master A2L file. These are marked </p>
+<p>with </p>
+<p>// TODO</p>
+<p>: </p>
+<p>Adaption of </p>
+<p>include</p>
+<p> </p>
+<p>commands </p>
+<p>For the below-named </p>
+<p>include</p>
+<p> commands the file paths may have to be adapted. </p>
+<p>Generally remove the appropriate </p>
+<p>includes</p>
+<p> if not required in the project. </p>
+<p>Use of a text editor </p>
+<p>The simplest procedure is to use a text editor to create and adapt the master A2L file. </p>
+<p>  </p>
+<p>Master A2L file </p>
+<p>ASAP2_VERSION 1.60 </p>
+<p>/begin PROJECT ExampleProject &quot;&quot; </p>
+<p>  /begin MODULE MyModuleName &quot;&quot; </p>
+<p>AML </p>
+<p>    /begin A2ML </p>
+<p>      ... </p>
+<p>      block &quot;IF_DATA&quot; taggedunion if_data { </p>
+<p>        ... </p>
+<p>      }; </p>
+<p>      ... </p>
+<p>      //TODO: Include AML Information if required. </p>
+<p>    /end A2ML </p>
+<p>     </p>
+<p>General ECU </p>
+<p>implementation </p>
+<p>    /begin MOD_COMMON &quot;&quot; </p>
+<p>      // TODO: Set the Byte Order of the ECU as defined by the </p>
+<p>ECUC module MSB_FIRST or MSB_LAST and configure the byte </p>
+<p>alignment used in this project. </p>
+<p>    /end MOD_COMMON </p>
+<p>     </p>
+<p>    /begin MOD_PAR &quot;&quot; </p>
+<p>    /include &quot;GenData\Rte\<b>Rte_MemSeg.a2l</b>&quot; </p>
+<p>    // TODO: Add or include MEMORY_SEGMENT information here. </p>
+<p>    /end MOD_PAR </p>
+<p>     </p>
+<p>IF_DATA </p>
+<p>    /begin IF_DATA XCP </p>
+<p>      /include &quot;GenData\<b>XCP.a2l</b>&quot; </p>
+<p>      /begin DAQ </p>
+<p>        // TODO: Add or include further a2l file splitter that </p>
+<p>provide XCP Events. </p>
+<p>        /include &quot;GenData\<b>XCP_daq.a2l</b>&quot; </p>
+<p>        /include &quot;GenData\<b>XCP_events.a2l</b>&quot; </p>
+<p>        /include &quot;Misc\McData\<b>Dlt_Events.a2l</b>&quot; </p>
+<p>        /include &quot;GenData\Bsw\<b>bsw_xcp_events.a2l</b>&quot; </p>
+<p>        /include &quot;GenData\Rte\<b>Rte_XcpEvents.a2l</b>&quot; </p>
+<p>       /end DAQ </p>
+<p>      /include &quot;GenData\<b>CanXCPAsr.a2l</b>&quot; </p>
+<p>    /end IF_DATA </p>
+<p>     </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 51 - </p>
+<p>A2L objects </p>
+<p>    // TODO: Add or include further a2l splitter that provide </p>
+<p>measurement objects. </p>
+<p>    /include &quot;Misc\McData\<b>Dlt.a2l </b></p>
+<p>    /include &quot;GenData\Bsw\<b>bsw.a2l</b>&quot; </p>
+<p>    /include &quot;GenData\Rte\<b>Rte.a2l</b>&quot; </p>
+<p>    /include &quot;GenData\<b>AmdRtm.a2l</b>&quot; </p>
+<p>     </p>
+<p> </p>
+<p>  /end MODULE </p>
+<p>/end PROJECT </p>
+<p>  </p>
+<p><b>5.7.2 </b></p>
+<p><b>Expansion of the Master A2L File </b></p>
+<p>Include</p>
+<p> commands </p>
+<p>A good approach for incorporating additional contents into the A2L file is the </p>
+<p>expansion of the master A2L file using</p>
+<p> include</p>
+<p> commands. Copying additional </p>
+<p>information directly and inserting it without </p>
+<p>include</p>
+<p> commands is not recommended. </p>
+<p>Integrating of ECU </p>
+<p>information (General </p>
+<p>ECU </p>
+<p>Implementation) </p>
+<p>The A2L elements </p>
+<p>MOD_COMMON</p>
+<p> and </p>
+<p>MOD_PAR</p>
+<p> are best described in additional A2L </p>
+<p>files, which are manually integrated in the A2L file via an </p>
+<p>include</p>
+<p> command. </p>
+<p>These </p>
+<p>include</p>
+<p> instructions are already inserted in the master file and accompany </p>
+<p>the AUTOSAR Calibration user manual. </p>
+<p>Integrating of </p>
+<p>interface data </p>
+<p>(Interface Data) </p>
+<p>Some parts of the </p>
+<p>IF_DATA</p>
+<p> information are created by generators. These parts are </p>
+<p>integrated via an </p>
+<p>include</p>
+<p> command. If additional manual information is to be added, </p>
+<p>the creation of additional A2L files is recommended. These must be integrated in the </p>
+<p>IF_DATA</p>
+<p> at the appropriate points. The merging of </p>
+<p>IF_DATA</p>
+<p> information from </p>
+<p>various A2L files using the ASAP2 Merger is not supported. </p>
+<p>The </p>
+<p>include</p>
+<p> instruction </p>
+<p>UserDefinedXcpEvents.a2l</p>
+<p> in the master file adds </p>
+<p>manually defined XCP events to the </p>
+<p>IF_DATA</p>
+<p> section, for example. </p>
+<p>Integrating of A2L </p>
+<p>objects </p>
+<p>(measurement and </p>
+<p>calibration </p>
+<p>parameters) </p>
+<p>Partial databases containing measurement and calibration parameters are integrated </p>
+<p>most commonly. These files can be created, for example, by generators such as </p>
+<p>Simulink, TargetLink, or the ASAP2 Creator. </p>
+<p>Another example is the basic software, which also contains measurable objects. </p>
+<p>These files can be integrated manually using an additional </p>
+<p>include</p>
+<p> command, with </p>
+<p>the help of the ASAP2 Tool-Set or the ASAP2 Editor. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> A file can only be added manually using an </p>
+<p>include</p>
+<p> command if the file </p>
+<p>structure permits this. A complete A2L file cannot be added via </p>
+<p>include</p>
+<p>. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> <b>A2L fragment – Inserting via </b></p>
+<p>include</p>
+<p><b> command possible </b></p>
+<p> </p>
+<p>    /CHARACTERISTIC </p>
+<p>    … </p>
+<p>    /MEASUREMENT </p>
+<p>    … </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 52 - </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b> <b>Complete A2L file – Inserting possible only via ASAP2 Merger </b></p>
+<p> </p>
+<p>/begin PROJECT ExampleProject &quot;&quot; </p>
+<p>  /begin MODULE MyModuleName &quot;&quot; </p>
+<p>    /CHARACTERISTIC </p>
+<p>    … </p>
+<p>    /MEASUREMENT </p>
+<p>    … </p>
+<p>  /end MODULE </p>
+<p>/end PROJECT </p>
+<p>  </p>
+<p><b>5.7.3 </b></p>
+<p><b>Working with ASAP2 Tool-Set </b></p>
+<p><b>5.7.3.1 </b></p>
+<p><b>Merging of Additional A2L Files </b></p>
+<p>Procedure for </p>
+<p>complete A2L files </p>
+<p>A complete A2L file (as in the above example) cannot be embedded in the master </p>
+<p>A2L file using an</p>
+<p> include</p>
+<p> command. These types of A2L files can be merged using </p>
+<p>the ASAP2 Merger program, which is part of the ASAP2 Tool-Set. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 5-12: Integrating of A2L objects </i></p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> The use of the ASAP2 Merger and its possible settings in the INI file are </p>
+<p>described in the ASAP2 Tool-Set user manual. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p>The generated Extern1.a2l and ExternN.a2l files are imported into the master A2L file </p>
+<p>Master.a2l</p>
+<p> as a slave. The result of the merging is then written to the </p>
+<p>ECU_merged.a2l</p>
+<p> file. Necessary settings are provided with the </p>
+<p>merger.ini</p>
+<p> file. </p>
+<p>The </p>
+<p>merger.ini</p>
+<p> file must be present since the ASAP2 Merger adopts the setting </p>
+<p>from this file at each command line call. </p>
+<p><b>Command Line Call: </b></p>
+<p>ASAP2Merger.exe -m Master.a2l -s Extern1.a2l -s ExternN.a2l -o </p>
+<p>ECU_Merged.a2l -p &quot;&lt;INI_PATH&gt;\merger.ini&quot; </p>
+<p><b>Merger.ini </b></p>
+<p>[OPTIONS] </p>
+<p>MERGE_GROUP_CONTENTS = 1  // The contents of groups with the </p>
+<p>same name will be merged </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 53 - </p>
+<p>DISABLE_SUFFIXES = 1      // Do not create suffixes for </p>
+<p>imported objects</p>
+<p> </p>
+<p>  </p>
+<p><b>5.7.3.2 </b></p>
+<p><b>Update of the Addresses in the A2L File </b></p>
+<p>Necessity </p>
+<p>It is necessary to update the measurement and calibration parameters in an A2L file </p>
+<p>because the addresses of objects are not known until after the program code is </p>
+<p>created (after compilation). </p>
+<p>Further benefit </p>
+<p>The update step can also be used to create, with the help of the master A2L file, a </p>
+<p>complete A2L file that no longer has any </p>
+<p>Includes</p>
+<p>. The advantage of doing this is </p>
+<p>that afterwards only one file has to be worked with and all partial databases do not </p>
+<p>always have to be separately copied. </p>
+<p><i>Figure 5-13: Update of </i></p>
+<p><i>the addresses in the </i></p>
+<p><i>A2L file </i></p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p><b>Reference:</b> The use of the ASAP2 Updater and its possible settings in the INI file are </p>
+<p>described in the ASAP2 Tool-Set user manual. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> The </p>
+<p>_Updater.ini</p>
+<p> file can be found in the delivery folder </p>
+<p>…\Misc\McData</p>
+<p>. </p>
+<p>It is supplied with the AUTOSAR Calibration user manual. </p>
+<p>  </p>
+<p>Template </p>
+<p>_Updater.ini</p>
+<p> </p>
+<p>The </p>
+<p>_Updater.ini</p>
+<p> file is provided as a template, which is indicated by the </p>
+<p>underscore. </p>
+<p>Necessary adaption </p>
+<p>The </p>
+<p>_Updater.ini</p>
+<p> file needs to be adapted in any case, e.g. at least the </p>
+<p>MAP_FORMAT</p>
+<p> must be specified. The array notation in [ ] is necessary because it is </p>
+<p>used by MICROSAR that way. </p>
+<p>  </p>
+<p> </p>
+<p><b>Example:</b>  </p>
+<p>The </p>
+<p>Master.a2l</p>
+<p> file is read in and the addresses of the measurement and </p>
+<p>calibration parameters are updated and written to the </p>
+<p>ECU.a2l</p>
+<p> file. The addresses </p>
+<p>for the update are taken from the </p>
+<p>demo.elf</p>
+<p> file. Information of the update operation </p>
+<p>is also written in the </p>
+<p>a2l.log</p>
+<p> file. Necessary settings are provided with the </p>
+<p>updater.ini</p>
+<p> file. The ASAP2 Updater also always requires an </p>
+<p>updater.ini</p>
+<p> file. </p>
+<p><b>Command Line Call: </b></p>
+<p>ASAP2Updater.exe -I Master.a2l -O ECU.a2l -A demo.elf -L </p>
+<p>a2l.log -T &quot;&lt;INI_PATH&gt;\Updater.ini&quot; </p>
+<p><b>updater.ini: </b></p>
+<p>[OPTIONS] </p>
+<p>MAP_FORMAT=31 // Use ELF 32 Bit</p>
+<p> </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 54 - </p>
+<p><b>5.7.3.3 </b></p>
+<p><b>Step by Step Instructions with the ASAP2 Tool-Set </b></p>
+<p>Recommendation </p>
+<p>The use of the ASAP2 Tool-Set is recommended because this can be integrated in an </p>
+<p>automatic generation process. The address update and the export of the database </p>
+<p>can be integrated as a post-build task. </p>
+<p>  </p>
+<p> </p>
+<p><b>STEP 1:</b> <b>A2L fragment generation </b></p>
+<p>So that A2L fragments are generated, the corresponding generators must be </p>
+<p>configured. This is done by integrating these into the build process. </p>
+<p>It must be ensured that the created A2L fragments are stored are a fixed location. </p>
+<p> </p>
+<p><b>STEP 2:</b> <b>Manual creation of A2L fragments </b></p>
+<p>Information that the A2L file must subsequently contain but that is not automatically </p>
+<p>generated must be manually created. </p>
+<p> </p>
+<p><b>STEP 3:</b> <b>Adaptation of the master A2L file </b></p>
+<p>A master A2L file must be created. In the process, the paths of the </p>
+<p>include</p>
+<p> </p>
+<p>commands must be adapted accordingly. </p>
+<p> </p>
+<p><b>STEP 4:</b> <b>Merging of additional A2L files </b></p>
+<p>If complete A2L files must be integrated, the Merger of the ASAP2 Tool-Set must be </p>
+<p>used. For this, the Merger must be called with appropriate parameters for each </p>
+<p>additional complete A2L file. </p>
+<p> </p>
+<p><b>STEP 5:</b> <b>Update of the addresses and export of the final file </b></p>
+<p>The final step is to configure the creation of the final A2L file. For this, the ASAP2 </p>
+<p>Updater is incorporated into the build process, which updates the addresses of the </p>
+<p>measurement and calibration parameters. At the same time, a new final A2L </p>
+<p>containing all included A2L fragments is created. </p>
+<p> </p>
+<p><b>STEP 6:</b> <b>Use of the A2L file in CANape </b></p>
+<p>Following completion of these steps, a current A2L file should now be generated </p>
+<p>automatically when the ECU software is created. </p>
+<p>This final A2L file can then be used in CANape. </p>
+<p>  </p>
+<p><b>5.7.4 </b></p>
+<p><b>Working with CANape and the ASAP2 Editor </b></p>
+<p>Use exported </p>
+<p>databases without </p>
+<p>include commands </p>
+<p>CANape and the ASAP2 Editor support an interactive procedure for carrying out the </p>
+<p>actions described above. In this procedure, however, it must be ensured that the </p>
+<p>master file with its </p>
+<p>include</p>
+<p> commands remains intact. The master A2L file should </p>
+<p>therefore not be specified as a database for the ECU directly in CANape. Instead, an </p>
+<p>exported database that contains no more </p>
+<p>include</p>
+<p> instructions must always be used. </p>
+<p>  </p>
+<p> </p>
+<p><b>Caution:</b> When saving, the ASAP2 Editor overwrites the existing A2L file and </p>
+<p>removes thereby the </p>
+<p>includes</p>
+<p>. For this reason always store only a copy. </p>
+<p>  </p>
+<p>INI-file </p>
+<p>All project-specific settings of CANape are stored in the </p>
+<p>CANape.ini</p>
+<p>. Changes to </p>
+<p>the configuration can be easily made via the user interface in CANape. </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> The </p>
+<p>_CANape.ini </p>
+<p>file can be found in the delivery folder </p>
+<p>…\Misc\McData</p>
+<p>. It </p>
+<p>is supplied with the AUTOSAR Calibration user manual. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 55 - </p>
+<p>Template </p>
+<p>The </p>
+<p>_CANape.ini</p>
+<p> file is provided as a template, which is indicated by the </p>
+<p>underscore. The necessary presettings, such as for the export important notation [ ] of </p>
+<p>arrays is already preconfigured to facilitate the implementation. </p>
+<p>  </p>
+<p><b>5.7.4.1 </b></p>
+<p><b>Step by Step Instruction </b></p>
+<p> </p>
+<p><b>STEP 1:</b> <b>A2L fragment generation </b></p>
+<p>So that A2L fragments are generated, the corresponding generators must be </p>
+<p>configured. This is done by integrating these into the build process. </p>
+<p>It must be ensured that the created A2L fragments are stored are a fixed location. </p>
+<p> </p>
+<p><b>STEP 2:</b> <b>Manual creation of A2L fragments </b></p>
+<p>Information that the A2L file must subsequently contain but that is not automatically </p>
+<p>generated must be manually created. </p>
+<p> </p>
+<p><b>STEP 3: Insert INI file </b></p>
+<p>Copy the definite </p>
+<p>CANape.ini </p>
+<p>file to the directory of the master A2L file. </p>
+<p> </p>
+<p><b>STEP 4:</b> <b>Adaptation of the master A2L file </b></p>
+<p>A master A2L file must be created. In the process, the paths of the </p>
+<p>include</p>
+<p> </p>
+<p>commands must be adapted accordingly. </p>
+<p> </p>
+<p><b>STEP 5:</b> <b>Start the ASAP2 Editor </b></p>
+<p>Start the ASAP2 Editor and load the master A2L. The ASAP2 Editor will be used to </p>
+<p>create the final A2L file. </p>
+<p> </p>
+<p><b>STEP 6:</b> <b>Merging of additional A2L files </b></p>
+<p>The ASAP2 Editor can merge content from existing A2L databases. If complete, A2L </p>
+<p>files must be integrated; the import functionality can be used. Either use <b>File | Import </b></p>
+<p>or <b>File | Add partial database </b>from the application menu. </p>
+<p> </p>
+<p><b>STEP 7:</b> <b>Update of the addresses </b></p>
+<p>The address update requires a configured MAP file. A MAP file can be added via the </p>
+<p>database properties. After assigning a MAP file, the address can be updated via the </p>
+<p>application menu <b>File | Update addresses</b>. </p>
+<p> </p>
+<p><b>STEP 8:</b> <b>Create final A2L file to use in CANape </b></p>
+<p>The master A2L file should not be altered with the ASAP2 Editor. A new A2L file </p>
+<p>should be generated instead. This can be achieved by saving into a new database </p>
+<p>using the application menu entry <b>File|Save as</b>. </p>
+<p>This final A2L file can then be used in CANape. </p>
+<p>  </p>
+<p><b>5.8 </b></p>
+<p><b>Fast Access to the ECU Via the VX Module </b></p>
+<p>Great measurement </p>
+<p>bandwidth </p>
+<p>An VX module is a scalable solution with maximum performance for measurement </p>
+<p>and calibration tasks. The use of VX measurement hardware enables a greater </p>
+<p>measurement bandwidth. The system forms the interface between the ECU and a </p>
+<p>measurement and calibration tool such as CANape. For a high data throughput with </p>
+<p>minimum runtime effects on the ECU, the data access occurs via microcontroller-</p>
+<p>specific data trace and debug interfaces. The VX module is connected to the PC </p>
+<p>using XCP on Ethernet. The VX measurement hardware is connected to the ECU via </p>
+<p>a POD (Plug-On Device). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Supplier </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 56 - </p>
+<p>Application notes </p>
+<p>For information on general integration of a VX module (VX1000), refer to the following </p>
+<p>application notes: </p>
+<p><b>&gt; </b></p>
+<p>AN-IMC-1-016 VX1000: Getting Started with Nexus JTAG and MPC5554 </p>
+<p><b>&gt; </b></p>
+<p>AN-IMC-1-013 VX1000: Getting Started with Infineon XC2000 </p>
+<p><b>&gt; </b></p>
+<p>AN-IMC-1-014 VX1000: Getting Started with Infineon TriCore </p>
+<p>  </p>
+<p> </p>
+<p><b>Note:</b> These documents are available from the Vector Download Center. </p>
+<p>  </p>
+<p><b>5.9 </b></p>
+<p><b>Additional Topics </b></p>
+<p>Items to consider </p>
+<p>The following items require additional consideration: </p>
+<p><b>&gt; </b></p>
+<p>Memory protection unit, ISO26262, Thread safety </p>
+<p><b>&gt; </b></p>
+<p>Limiting of runtime of a task or runnable </p>
+<p><b>&gt; </b></p>
+<p>MultiThreading </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Delivery Test/Quick Start </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 57 - </p>
+<p><b>6 </b></p>
+<p><b>Delivery Test/Quick Start </b></p>
+<p>Objectives </p>
+<p>This chapter describes a delivery test for the A2L file created by the supplier. </p>
+<p>However, it can also be used as a CANape Quick Start for the OEM. </p>
+<p>Test of the A2L file </p>
+<p>To ensure the completeness and the functionality of the delivered A2L file, a simple </p>
+<p>delivery test can be performed with the help of CANape. If the A2L file is incomplete </p>
+<p>or corrupt, an error appears when the file is inserted. If the insertion is successful, a </p>
+<p>few measurement signals can be added to display windows for the test and a </p>
+<p>measurement started. If no error appears, the A2L file is functional. </p>
+<p>  </p>
+<p> </p>
+<p><b>Perform delivery test (step by step instruction): </b></p>
+<p>1. </p>
+<p>Copy the A2L file to an empty directory and connect the hardware. </p>
+<p>2. </p>
+<p>Start CANape from this directory (right-click on <b>canape32.exe | Properties | Run </b></p>
+<p><b>in </b></p>
+<p></p>
+<p> insert directory of the A2L file). </p>
+<p>3. </p>
+<p>Use a drag &amp; drop operation to move the A2L file to CANape. </p>
+<p>If an error message appears, the A2L file is incomplete or corrupt. Otherwise, the </p>
+<p>ECU is shown as online. </p>
+<p>4. </p>
+<p>Open the Symbol Explorer </p>
+<p> and expand the database under <b>Devices</b>. </p>
+<p>5. </p>
+<p>Select individual measurement and calibration parameters, use drag &amp; drop to </p>
+<p>move them onto the empty display page (see Figure 6-1), and choose suitable </p>
+<p>measurement and calibration windows. </p>
+<p> </p>
+<p><i>Figure 6-1: Dragging measurement and calibration parameters onto display page </i></p>
+<p>6. </p>
+<p>Start the measurement and calibrate the calibration parameters. </p>
+<p>7. </p>
+<p>Check the required XCP features in the corresponding settings (for more detailed </p>
+<p>information on each feature, refer to the CANape online help or the XCP Features </p>
+<p>in CANape section). </p>
+<p>The delivery test is successful if no error message occurs, meaningful </p>
+<p>measurement values are displayed in the display windows, calibration parameters </p>
+<p>can be calibrated, and all desired XCP features can be found. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 58 - </p>
+<p><b>7 </b></p>
+<p><b>CANape Introduction </b></p>
+<p><b>In This Chapter You Will Find the Following Information: </b></p>
+<p>7.1 </p>
+<p>Creation of a Project </p>
+<p> page 59 </p>
+<p>7.2 </p>
+<p>Device Configuration </p>
+<p> page 60 </p>
+<p> </p>
+<p>Devices </p>
+<p> </p>
+<p>Networks </p>
+<p> </p>
+<p>Vector Hardware </p>
+<p> </p>
+<p>XCP Features in CANape </p>
+<p>7.3 </p>
+<p>Online Measurement Configuration </p>
+<p> page 64 </p>
+<p> </p>
+<p>Measurement Options </p>
+<p> </p>
+<p>Measurement Signals </p>
+<p> </p>
+<p>Recorder List </p>
+<p> </p>
+<p>Event List </p>
+<p>7.4 </p>
+<p>Working with Parameter Set Files </p>
+<p> page 69 </p>
+<p>7.5 </p>
+<p>Dataset Management </p>
+<p> page 70 </p>
+<p> </p>
+<p>Tool-Based in CANape 11.0 and Higher </p>
+<p>7.6 </p>
+<p>Offline Evaluation </p>
+<p> page 72 </p>
+<p>7.7 </p>
+<p>Flashing </p>
+<p> page 74 </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 59 - </p>
+<p><b>7.1 </b></p>
+<p><b>Creation of a Project </b></p>
+<p>First steps </p>
+<p>A CANape project is created either using the selection dialog after starting CANape or </p>
+<p>in CANape itself via <b>File | New project</b>. Once a project name has been defined in the </p>
+<p>first step, CANape suggests a project directory structure in the second step, in which </p>
+<p>the project name is a subdirectory. </p>
+<p><i>Figure 7-1: Creating the </i></p>
+<p><i>project directory </i></p>
+<p> </p>
+<p>Working directory </p>
+<p>This serves as a working directory for CANape and should be changed as required. It </p>
+<p>typically contains the following: </p>
+<p><b>&gt; </b></p>
+<p>The </p>
+<p>CANape.ini</p>
+<p> initialization file, i.e., the global configuration of the project </p>
+<p><b>&gt; </b></p>
+<p>Several configuration files (</p>
+<p>*.cna</p>
+<p>), i.e., local configurations for individual </p>
+<p>measurement and calibration tasks </p>
+<p><b>&gt; </b></p>
+<p>A subdirectory in which the measurement files are stored </p>
+<p><b>&gt; </b></p>
+<p>For each ECU: </p>
+<p><b>&gt; </b></p>
+<p>A subdirectory containing the A2L file </p>
+<p><b>&gt; </b></p>
+<p>A subdirectory in which its parameter set files are stored </p>
+<p><b>&gt; </b></p>
+<p>Other subdirectories, depending on the devices used (e.g., external </p>
+<p>measurement equipment modules) </p>
+<p>Definition of the </p>
+<p>devices </p>
+<p>After the desired project directory structure has been specified, the new project is </p>
+<p>opened. The next step is to define the devices. An ECU description file in A2L format </p>
+<p>or a diagnostic driver in ODX/CDD format is generally required for this. In the end, a </p>
+<p>complete project has at least one configuration file (</p>
+<p>*.cna</p>
+<p>), the corresponding </p>
+<p>initialization file (</p>
+<p>*.ini</p>
+<p>), and at least one ECU description file (</p>
+<p>*.a2l</p>
+<p>). </p>
+<p> </p>
+<p>Figure 7-2 shows the recommended project directory structure. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 60 - </p>
+<p><i>Figure 7-2: Project </i></p>
+<p><i>directory </i></p>
+<p> </p>
+<p>Prototype version </p>
+<p>release </p>
+<p>Folders for the project-relevant files are created for each prototype version release </p>
+<p>X.Y of an ECU. The CANape configuration file (</p>
+<p>*.cna</p>
+<p>) and the </p>
+<p>canape.ini</p>
+<p> file are </p>
+<p>located in folders in the <b>CANape 10 SP4 </b>subdirectory. The Hex file, the databases </p>
+<p>(</p>
+<p>*.a2l</p>
+<p>, </p>
+<p>*.cdd</p>
+<p>), and the network files (e.g., </p>
+<p>*.axml</p>
+<p>) are inserted as subfolders for </p>
+<p>each prototype version release. In addition, the measurement, parameter set, and </p>
+<p>script files are stored in their own folders. </p>
+<p>  </p>
+<p><b>7.2 </b></p>
+<p><b>Device Configuration </b></p>
+<p>Settings </p>
+<p>The settings for <b>devices</b>, <b>networks</b>, and <b>channels </b>can be modified and individual </p>
+<p>devices and networks can be added in the device configuration. The device </p>
+<p>configuration is accessed via the </p>
+<p> icon or using <b>Device | Device configuration</b>. </p>
+<p>Graphic </p>
+<p>representation </p>
+<p>The device configuration can also be represented graphically using the Device </p>
+<p>window. Double-clicking the individual icons opens the corresponding part of the </p>
+<p>Device Configuration or the Database Editor. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 61 - </p>
+<p> </p>
+<p><i>Figure 7-3: Device window in CANape 11.0 </i></p>
+<p>  </p>
+<p><b>7.2.1 </b></p>
+<p><b>Devices </b></p>
+<p>Creating new </p>
+<p>devices </p>
+<p>The <b>Devices </b>subitem of the Device Configuration displays all the created devices. </p>
+<p>Here, new ECUs can be created from a database or the MCD3 server, or completely </p>
+<p>new ECUs can be created. In the latter case, CANape generates an A2L body that </p>
+<p>the user must still configure and complete using the ASAP2 Editor. Besides the XCP </p>
+<p>and CCP devices, diagnostic drivers or databases can also be used. An example of </p>
+<p>integrating a diagnostic database and of using panels for this can found in the </p>
+<p>installation directory of CANape under <b>Examples | ODX</b>. A new device can be </p>
+<p>created directly by dragging and dropping the database in CANape. </p>
+<p>Bus monitoring </p>
+<p>For the bus monitoring, the databases of the CAN bus (</p>
+<p>*.dbc</p>
+<p>), FlexRay bus </p>
+<p>(</p>
+<p>*.fibex</p>
+<p>), and LIN bus (</p>
+<p>*.ldf</p>
+<p>) can be integrated in CANape. In the AUTOSAR </p>
+<p>context, the possibility exists to use an AUTOSAR system description file (</p>
+<p>*.arxml</p>
+<p>) </p>
+<p>in the case of the CAN or FlexRay bus. </p>
+<p>Configuration </p>
+<p>Corresponding dialog pages are available for configuring each created device. </p>
+<p>Additional information regarding the configuration options can be found in the </p>
+<p>CANape online help. Depending on the device status, the icon changes from green </p>
+<p>(online) to yellow (offline) or red (inactive). </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 62 - </p>
+<p> </p>
+<p><i>Figure 7-4: Device configuration </i></p>
+<p>  </p>
+<p><b>7.2.2 </b></p>
+<p><b>Networks </b></p>
+<p>Listing </p>
+<p>The <b>Networks </b>subitem lists all networks available in the current configuration. </p>
+<p>Configuration </p>
+<p>The following networks can be created in CANape: CAN, LIN, ETH, K-Line, FlexRay, </p>
+<p>and MOST. The networks are configured on the corresponding dialog pages. </p>
+<p>  </p>
+<p><b>7.2.3 </b></p>
+<p><b>Vector Hardware </b></p>
+<p>Configuration of the </p>
+<p>hardware </p>
+<p>The configuration of the hardware is performed using the Vector Hardware. It can be </p>
+<p>opened using <b>Device | Vector hardware configuration </b>or in the <b>Channels | Vector </b></p>
+<p>section in the Device Configuration. </p>
+<p> </p>
+<p>The appropriate hardware can be assigned to the respective channels using </p>
+<p><b>Application | CANape</b>. In so doing, the physical channel number does not have to </p>
+<p>match the logical channel number. The possibility also exists to change the number of </p>
+<p>channels for a particular bus system. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-5: Vector Hardware Config </i></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 63 - </p>
+<p><b>7.2.4 </b></p>
+<p><b>XCP Features in CANape </b></p>
+<p>Timestamp </p>
+<p>The use of a timestamp can be specified in the Device Configuration in subitem </p>
+<p><b>Protocol | Event List </b>of the device. Depending on the implementation in the ECU, </p>
+<p>the option also exists here to require a timestamp of the slave. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-6: Timestamp in the device configuration </i></p>
+<p>  </p>
+<p>Resume mode </p>
+<p>Whether or not resume mode is supported is indicated in the <b>Expert settings </b>of the </p>
+<p><b>DAQ Lists </b>subitem. </p>
+<p>Autoselection/ </p>
+<p>software version </p>
+<p>check </p>
+<p>The autoselection and the software version check of the A2L file can also be set in </p>
+<p>the device configuration. This option can be found in the <b>Database </b>subitem. </p>
+<p> </p>
+<p>If the &quot;Page Switching&quot; or &quot;Checksum calculation&quot; options are used, these can be </p>
+<p>found under Memory Segments of the device (see Figure 7-7). </p>
+<p>Online help </p>
+<p>All XCP features are described in more detail in the CANape online help. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 64 - </p>
+<p> </p>
+<p><i>Figure 7-7: Page switching in the device window </i></p>
+<p>  </p>
+<p><b>7.3 </b></p>
+<p><b>Online Measurement Configuration </b></p>
+<p>Call </p>
+<p>The complete measurement is configured in the online measurement configuration. It </p>
+<p>is called via the </p>
+<p> icon or using <b>Measurement | Measurement Configuration</b>. </p>
+<p>Display windows and </p>
+<p>pages </p>
+<p>Various display windows are available in order to display the measurement and </p>
+<p>calibration parameters. These windows are described in detail in the CANape online </p>
+<p>help. In addition, several display pages can be created to enable a well-organized </p>
+<p>complete configuration. </p>
+<p>  </p>
+<p><b>7.3.1 </b></p>
+<p><b>Measurement Options </b></p>
+<p>Behavior of the </p>
+<p>measurement </p>
+<p>The behavior of the measurement can be configured in the measurement options of </p>
+<p>the measurement configuration. For example, the handling with polling signals during </p>
+<p>the measurement or the size of the measurement buffer can be adapted. In addition, </p>
+<p>a comment template for newly created measurement files can be specified here. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 65 - </p>
+<p><i>Figure 7-8: MDF </i></p>
+<p><i>measurement comment </i></p>
+<p><i>template </i></p>
+<p> </p>
+<p>  </p>
+<p><b>7.3.2 </b></p>
+<p><b>Measurement Signals </b></p>
+<p>Measureable signals </p>
+<p>All signals of the measurement configuration are listed on this page. Signals of the </p>
+<p>database can be selected using <b>Edit | Insert Signal</b>. Only the signals that are </p>
+<p>contained in the measurement signal list or in the display windows of CANape are </p>
+<p>measured. The option also exists to deactivate signals for individual measurements </p>
+<p>instead of deleting and adding them again. For the case that a signal is to be </p>
+<p>measured but not recorded, i.e., for performance and memory space reasons, the </p>
+<p><b>Recorder </b>option can be deactivated. </p>
+<p>Measurement modes </p>
+<p>The measurement mode of the measurement signals leaves some of the </p>
+<p>configuration options up to the user. The most commonly used measurement modes </p>
+<p>are: </p>
+<p><b>&gt; </b></p>
+<p><b>Event: </b>In event mode, the ECU sends the current measurement value of a signal </p>
+<p>autonomously. The possible events and DAQ lists are defined in the ECU and </p>
+<p>described in the A2L file. </p>
+<p><b>&gt; </b></p>
+<p><b>Polling: </b>In polling mode, the measurement values of a signal are returned </p>
+<p>asynchronously on request and according to the polling rate of the ECU. This </p>
+<p>process is well suited for slower measurements when there are no requirements </p>
+<p>for synchronous polling. </p>
+<p><b>&gt; </b></p>
+<p><b>Cyclic: </b>In XCP and CCP, the cyclic measurement mode corresponds to the event </p>
+<p>measurement mode. A data reduction can be achieved based on its cycle time. </p>
+<p><b>&gt; </b></p>
+<p><b>On key: </b>When a key (combination) is entered, the signal is requested (polling). </p>
+<p><b>&gt; </b></p>
+<p><b>On trigger: </b>When a trigger event occurs (StartTrigger, StopTrigger, </p>
+<p>LastTriggerFinished), CANape measures the desired signal (polling). </p>
+<p><b>&gt; </b></p>
+<p><b>On event: </b>When a particular system event occurs (e.g., measurement start), the </p>
+<p>signal is measured (polling). </p>
+<p>Measurement rate </p>
+<p>The measurement rate is displayed to the right of the displayed measurement mode </p>
+<p>in the measurement configuration of the measurement signals. It indicates the </p>
+<p>recording rate in polling or cyclic mode. The rate is specified as a time interval </p>
+<p>between two measurement values, in milliseconds. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 66 - </p>
+<p>Bus utilization </p>
+<p>The bus utilization and the measurement events for the selected device are listed at </p>
+<p>the bottom of the measurement configuration. Here the bar indicates the percentage </p>
+<p>utilization of the individual event time bases and the bus. </p>
+<p>Online help </p>
+<p>In addition to the signals of the individual databases, additional measurement signals </p>
+<p>such as global variables can also be incorporated into the measurement </p>
+<p>configuration. For more detailed information on this, refer to the CANape online help. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-9: Measurement configuration: Measurement signals list </i></p>
+<p>  </p>
+<p>Inserting signals </p>
+<p>With the help of the Symbol Explorer </p>
+<p>, individual measurement signals can be </p>
+<p>inserted directly in a display window using a drag &amp; drop operation. These are </p>
+<p>automatically added to the measurement signal list. </p>
+<p>Shortening rule </p>
+<p>To improve the readability of long measurement signal names in the Symbol Explorer, </p>
+<p>a shortening rule can be specified using <b>Tools | Options</b>, section <b>Display | Object </b></p>
+<p><b>Names</b>. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 67 - </p>
+<p><i>Figure 7-10: Setting of </i></p>
+<p><i>a name shortening rule </i></p>
+<p> </p>
+<p> </p>
+<p>This indicates the start of the signal name only and is limited in the display to the last </p>
+<p>part after the specified separator. </p>
+<p><i>Figure 7-11: Example </i></p>
+<p><i>for use of a name </i></p>
+<p><i>shortening rule </i></p>
+<p> </p>
+<p>  </p>
+<p><b>7.3.3 </b></p>
+<p><b>Recorder List </b></p>
+<p>Definitions/Settings </p>
+<p>The recorder list in the measurement configuration provides an overview of the </p>
+<p>defined recorders. The option exists to deactivate individual recorders in order to </p>
+<p>realize different measurement tasks. The setting of the file name of the MDF file can </p>
+<p>be made individually for each recorder. Here, it is possible to use different macros in </p>
+<p>order, for example, to record the time of day in the file name. Under the <b>Options </b></p>
+<p>area, various settings can be made for each recorder. A detailed explanation of these </p>
+<p>settings can be found in the CANape online help. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 68 - </p>
+<p> </p>
+<p><i>Figure 7-12: Measurement configuration: Recorder list </i></p>
+<p>  </p>
+<p>Trigger of recordings </p>
+<p>In addition to the most straightforward measurement in which all signals are recorded </p>
+<p>over the entire measurement period, the possibility also exists to trigger the recording </p>
+<p>of individual signals by certain events. These are defined in more detail in the <b>Trigger </b></p>
+<p>area. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-13: Trigger condition </i></p>
+<p>  </p>
+<p>Start events </p>
+<p>The selection menu of the <b>[New] </b>button can be used to select various start events. </p>
+<p>The following categories are available for selection here: </p>
+<p><b>&gt; </b></p>
+<p>System events (messages from the PC or the ECU) </p>
+<p><b>&gt; </b></p>
+<p>Signal events (values from active measurement) </p>
+<p><b>&gt; </b></p>
+<p>Keyboard events (operator inputs) </p>
+<p>Stop event </p>
+<p>These events are also available again as a stop event. However, a time limitation can </p>
+<p>also be chosen as a stop event. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 69 - </p>
+<p>Assign signals to </p>
+<p>recorders </p>
+<p>The measurement signals that are recorded by this recorder are indicated under <b>All </b></p>
+<p><b>recorder signals</b>. Signals can be assigned to individual recorders so that these are </p>
+<p>recorded only when the trigger condition occurs. </p>
+<p>  </p>
+<p><b>7.3.4 </b></p>
+<p><b>Event List </b></p>
+<p>Overall event list </p>
+<p>The <b>Event list </b>section of the Measurement Configuration lists all events with their </p>
+<p>properties. Here it can be seen whether the event is an ECU event or a general </p>
+<p>system event. The defined trigger events are also displayed here. </p>
+<p>Definition of new </p>
+<p>events </p>
+<p>New events are defined using the context menu. These are then available in the </p>
+<p>measurement signal list as a measurement mode so that, for example, a signal is </p>
+<p>measured only after a particular key has been pressed. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-14: Measurement configuration - Event list </i></p>
+<p> </p>
+<p><b>7.4 </b></p>
+<p><b>Working with Parameter Set Files </b></p>
+<p>Purposes for saving </p>
+<p>parameter set files </p>
+<p>CANape offers the option to perform online calibration of calibration parameters and </p>
+<p>to save these as a parameter set file. These files are then used mainly for two </p>
+<p>purposes: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>For saving the current version and for documenting and/or exchanging parameter </p>
+<p>values </p>
+<p>Different options are available for selection for saving the calibration parameters. </p>
+<p>First, the parameters of a single calibration window can be saved by selecting </p>
+<p><b>Save </b>in the popup menu of the Calibration window. Second, all the parameters of </p>
+<p>all Calibration windows can also be saved. This can be done using <b>Calibration | </b></p>
+<p><b>Save all calibration windows</b>. In addition, the possibility exists to select </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 70 - </p>
+<p>particular parameters via a filter (<b>Calibration | Save parameter set as</b>). </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>In order to bring the system to a defined state </p>
+<p>Several functions are also available for loading a parameter set file. Calibration </p>
+<p>parameters in a particular calibration window can also be opened here by </p>
+<p>selecting <b>Load </b>in the popup menu of the Calibration window. Particular </p>
+<p>calibration parameters can also be selected using <b>Calibration | Load parameter </b></p>
+<p><b>set from</b>. </p>
+<p>  </p>
+<p><b>7.5 </b></p>
+<p><b>Dataset Management </b></p>
+<p>Definition of dataset </p>
+<p>A dataset is a set of various parameters at a particular point in time within the edit </p>
+<p>history. It normally contains all parameters that belong to an ECU and is represented </p>
+<p>via the following files: </p>
+<p><b>&gt; </b></p>
+<p>Database file (A2L file) </p>
+<p><b>&gt; </b></p>
+<p>Memory image content (HEX file) </p>
+<p><b>&gt; </b></p>
+<p>Parameter set file (only for datasets from the eCDM system) </p>
+<p> </p>
+<p>The dataset is the central object for the versioning and configuring of parameters. </p>
+<p>  </p>
+<p><b>7.5.1 </b></p>
+<p><b>Tool-Based in CANape 11.0 and Higher </b></p>
+<p>Dataset </p>
+<p>management </p>
+<p>In CANape 11.0, a convenient dataset management tool has been introduced. The </p>
+<p><b>[Dataset Management] </b>can be called via the device configuration. Here, various </p>
+<p>datasets of an ECU can be added. New datasets (A2L+HEX, HEX or uncoded) can </p>
+<p>be added on the Datasets tab using the </p>
+<p> icon. Additional settings are available in </p>
+<p>the context menu. The <b>Timestamps </b>tab shows the snapshots of the calibration </p>
+<p>history and indicates their timestamp. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 71 - </p>
+<p><i>Figure 7-15: Dataset </i></p>
+<p><i>management in </i></p>
+<p><i>CANape 11.0 </i></p>
+<p> </p>
+<p>Working with multiple </p>
+<p>datasets </p>
+<p>The datasets are then displayed and can be activated in the Symbol Explorer. This </p>
+<p>provides a convenient means for working with multiple datasets within a project. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 72 - </p>
+<p><i>Figure 7-16: Dataset </i></p>
+<p><i>management in the </i></p>
+<p><i>Symbol Explorer </i></p>
+<p> </p>
+<p>Demo project </p>
+<p>The <b>Examples </b>folder of the CANape installation directory contains a demo project </p>
+<p>named </p>
+<p>Datasets_Thesaurus</p>
+<p>, which illustrates the use of the dataset management </p>
+<p>using an example. </p>
+<p>  </p>
+<p><b>7.6 </b></p>
+<p><b>Offline Evaluation </b></p>
+<p>Read in </p>
+<p>measurement data </p>
+<p>For purposes of offline evaluation, measurement data can be read in using <b>Analysis | </b></p>
+<p><b>Show values from measurement file</b>. </p>
+<p>Measurement File </p>
+<p>Manager </p>
+<p>The <b>Measurement File Manager </b>(can also be opened via the <b>Analysis </b>menu item) </p>
+<p>shows all loaded MDF files as well as the virtual MDF channels. Several possible </p>
+<p>settings are available in the toolbar of the Measurement File Manager. These are </p>
+<p>described in detail in the CANape online help. </p>
+<p>Data Mining </p>
+<p>An automatic procedure for offline evaluation of loaded MDF files is available under </p>
+<p><b>Analysis | Data Mining</b>. The option exists, for example, to find the times at which the </p>
+<p>speed exceed 3000 rpm. In so doing, it is possible to evaluate multiple measurement </p>
+<p>files with measurement signal names as identical as possible in a single search. </p>
+<p>These are specified in the <b>File filter list </b>section. The option of using wildcards </p>
+<p>(</p>
+<p>*.mdf</p>
+<p>) is also available. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 73 - </p>
+<p>Calculation methods </p>
+<p>The calculation methods are configured in the <b>Methods </b>section. The following are </p>
+<p>available for selection here: </p>
+<p><b>&gt; </b></p>
+<p>Function (based on user-defined functions that are created in the function editor </p>
+<p>or from the global function library) </p>
+<p><b>&gt; </b></p>
+<p>MATLAB/Simulink model (based on MATLAB/Simulink models that are available </p>
+<p>as DLL) </p>
+<p><b>&gt; </b></p>
+<p>Arithmetic condition (based on user-defined criteria) </p>
+<p><b>&gt; </b></p>
+<p>Script (defined in the Functions Editor) </p>
+<p>Definition of </p>
+<p>algebraic conditions </p>
+<p>Figure 7-17 shows the definition of an algebraic condition. The time range to be </p>
+<p>evaluated can be set under <b>Extended</b>. </p>
+<p>  </p>
+<p> </p>
+<p><i>Figure 7-17: Data Mining: Creating an algebraic condition </i></p>
+<p>  </p>
+<p>Naming analysis files </p>
+<p>The desired file name of the analysis file can be entered in the <b>Options </b>section. The </p>
+<p>name can contain various macros that can be inserted using the corresponding </p>
+<p>button. </p>
+<p>Further settings </p>
+<p>In addition, it is possible to limit the number of hits per file. It is useful to specify a </p>
+<p>creation date of the file to be searched if only the measurement data starting from a </p>
+<p>certain date are to be evaluated. </p>
+<p>Output in CSV format </p>
+<p>The results can also be output in CSV format for further analysis. The desired </p>
+<p>separator for the measurement data should be indicated in the selection menu in this </p>
+<p>section. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>CANape Introduction </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 74 - </p>
+<p>  </p>
+<p>Executing scripts </p>
+<p>Scripts that are executed before starting the analysis, before the analysis of each file, </p>
+<p>after the analysis of each file, or after finishing the complete analysis can also be </p>
+<p>specified. </p>
+<p>Example of Data </p>
+<p>Mining </p>
+<p>A detailed example of Data Mining can be found in the installation directory of </p>
+<p>CANape under <b>Examples | DataMining</b>. </p>
+<p>  </p>
+<p><b>7.7 </b></p>
+<p><b>Flashing </b></p>
+<p>Flash tools </p>
+<p>Other Flash tools, such as vFlash can be opened from CANape. </p>
+<p>Online help </p>
+<p>Additional information on the topic of flashing with CANape can be found in the </p>
+<p>CANape online help. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Addresses </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 75 - </p>
+<p><b>8 </b></p>
+<p><b>Addresses </b></p>
+<p>Addresses on Vector </p>
+<p>homepage </p>
+<p>Please find the contacts of Vector Informatik GmbH and all subsidiaries worldwide </p>
+<p>via: </p>
+<p>http://www.vector.com/vi_addresses_en.html  </p>
+<p>  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>User Manual AUTOSAR Calibration  </p>
+<p>Abbreviations </p>
+<p>© Vector Informatik GmbH </p>
+<p>Version 1.0 </p>
+<p>- 76 - </p>
+<p><b>9 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>ASAM </p>
+<p><b>A</b>ssociation for <b>S</b>tandardization of <b>A</b>utomation and <b>M</b>easuring Systems </p>
+<p>AUTOSAR  </p>
+<p><b>AUT</b>omotive <b>O</b>pen <b>S</b>ystem <b>AR</b>chitecture </p>
+<p>BSW </p>
+<p><b>B</b>asic <b>s</b>oft<b>w</b>are </p>
+<p>CSA </p>
+<p><b>C</b>ommon <b>S</b>oftware <b>A</b>rchitecture </p>
+<p>CTO </p>
+<p><b>C</b>ommand <b>T</b>ransfer <b>O</b>bject </p>
+<p>DAQ </p>
+<p><b>D</b>ata <b>A</b>cquisition  </p>
+<p>DTO </p>
+<p><b>C</b>ommand <b>T</b>ransfer <b>O</b>bject </p>
+<p>E/E Architecture </p>
+<p><b>E</b>lectrical/electronic architecture </p>
+<p>EPK </p>
+<p><b>EP</b>ROM-<b>K</b>ennung (EPROM identifier) </p>
+<p>EPROM </p>
+<p><b>E</b>rasable <b>P</b>rogrammable <b>R</b>ead <b>O</b>nly <b>M</b>emory </p>
+<p>MCD System </p>
+<p><b>M</b>easurement <b>C</b>alibration, and <b>D</b>iagnostics System </p>
+<p>ODT </p>
+<p><b>O</b>bject <b>D</b>escription <b>T</b>able </p>
+<p>RTE </p>
+<p><b>R</b>untime <b>E</b>nvironment </p>
+<p>SW-C </p>
+<p><b>S</b>oft<b>w</b>are <b>C</b>omponent </p>
+<p>VFB </p>
+<p><b>V</b>irtual <b>F</b>unction <b>B</b>us  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Get more Information! </b></p>
+<p><b>Visit our Website for: </b></p>
+<p>&gt; News </p>
+<p>&gt; Products </p>
+<p>&gt; Demo Software </p>
+<p>&gt; Support </p>
+<p>&gt; Training Classes </p>
+<p>&gt; Addresses </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

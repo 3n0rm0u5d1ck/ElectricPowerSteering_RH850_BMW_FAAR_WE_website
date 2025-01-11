@@ -1,0 +1,131 @@
+---
+layout: default
+title: AN-ISC-8-1211_Limitations_of_MICROSAR_RTE_for_Partition_Termination
+nav_order: 47
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Limitations of MICROSAR RTE for Partition Termination </b></p>
+<p>Version 1.0.0 </p>
+<p>2017-08-15 </p>
+<p>Application Note AN-ISC-8-1211 </p>
+<p><b>Author </b></p>
+<p>Jonas Wolf </p>
+<p><b>Restrictions </b></p>
+<p>Customer Confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>This application note describes the scenarios it is considered possible to terminate an </p>
+<p>OS application, in which the MICROSAR RTE is used, using the MICROSAR OS. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ........................................................................................................................................ 2</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Limitations of MICROSAR RTE .................................................................................................... 2</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Additional Resources ................................................................................................................... 3</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Contacts ......................................................................................................................................... 3</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Limitations of MICROSAR RTE for Partition Termination</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>Terminating and restarting of partitions (i.e. OS applications) is an AUTOSAR feature supported by </p>
+<p>Vector’s Operating System (OS). Vector’s MICROSAR Runtime Environment (RTE), however, does </p>
+<p>not implement termination or restart of partitions. </p>
+<p><b>2 </b></p>
+<p><b>Limitations of MICROSAR RTE </b></p>
+<p>Terminating or restarting OS applications is problematic, for example when the following </p>
+<p>dependencies between different OS applications exist: </p>
+<p><b>&gt; </b></p>
+<p>Trusted function calls, </p>
+<p><b>&gt; </b></p>
+<p>Client/server communication, </p>
+<p><b>&gt; </b></p>
+<p>Queued sender/receiver communication, </p>
+<p><b>&gt; </b></p>
+<p>Mode management, </p>
+<p><b>&gt; </b></p>
+<p>Dependencies on states on application level </p>
+<p>These kinds of dependencies rely on either OS objects, like events, or RTE states, e.g. queue state. If </p>
+<p>one OS application is restarted, the other OS application(s) may have an inconsistent view on these </p>
+<p>objects or states. There may be also dependencies on the application level that are not obvious to </p>
+<p>identify, e.g. due to functional dependencies. </p>
+<p>For implementing termination or restarting of OS applications it must be considered that termination or </p>
+<p>restart may happen exactly at a point in time when one of the activities above is being executed, e.g. </p>
+<p>during a client/server call. </p>
+<p>The restarted OS applications need to establish their initialization state again. This requires initializing </p>
+<p>all variables, e.g. states and inter-runnable variables to their initial values. Due to a different system </p>
+<p>state in other partitions, this will most likely break functionality if no measures on the application level </p>
+<p>are taken. </p>
+<p> </p>
+<p>The MICROSAR RTE currently does not implement functionality for terminating or restarting of OS </p>
+<p>applications. However, using the MICROSAR OS to terminate an OS application, in which the RTE is </p>
+<p>used, is considered possible only under the following conditions: </p>
+<p><b>&gt; </b></p>
+<p>The OS application is only terminated and not restarted. Restarting the OS application </p>
+<p>requires a restart of the complete ECU. </p>
+<p><b>&gt; </b></p>
+<p>The OS application, that is terminated, only has unqueued sender/receiver communication to </p>
+<p>other OS applications. </p>
+<p><b>&gt; </b></p>
+<p>The OS application that is terminated, does not access other OS objects, like events, from </p>
+<p>other OS applications. </p>
+<p>Please note that the OS unlocks any locked spin-locks, if an OS application is terminated. This may </p>
+<p>leave the protected data in an inconsistent state. </p>
+<p>OS Application A </p>
+<p>OS Application B </p>
+<p>RTE </p>
+<p>The ECU can end up in an unknown state if OS Application A is terminated, and </p>
+<p>SWCs in OS Application B has dependencies listed above. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Limitations of MICROSAR RTE for Partition Termination</p>
+<p> </p>
+<p>Copyright © 2017 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>3 </b></p>
+<p><b>Additional Resources </b></p>
+<p>VECTOR TECHNICAL REFERENCES </p>
+<p>Technical Reference RTE </p>
+<p>Technical Reference OS </p>
+<p><b>4 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

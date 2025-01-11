@@ -1,0 +1,573 @@
+---
+layout: default
+title: IntegrationManual_Vin
+nav_order: 1
+parent: Vin
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Integration Manual Vin</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-02-23</p>
+<p>Version</p>
+<p>3.5.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>3.5.0</p>
+<p>2017-02-23</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.2</p>
+<p>2016-10-27</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Add a note on NVM block length</p>
+<p>3.4.1</p>
+<p>2016-08-25</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Fix NVM configuration</p>
+<p>3.4.0</p>
+<p>2016-03-17</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Specify write frequency of NVM blocks, updated</p>
+<p>section Data Mapping</p>
+<p>3.3.0</p>
+<p>2015-12-11</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Clarified data mapping</p>
+<p>3.2.0</p>
+<p>2015-07-10</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added SI adapter</p>
+<p>3.1.0</p>
+<p>2015-03-13</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added SSV functionality</p>
+<p>3.0.0</p>
+<p>2014-10-29</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Initial version</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 1 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>3</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>3</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p>3.1</p>
+<p>BMW Specifications</p>
+<p>5</p>
+<p>3.2</p>
+<p>AUTOSAR Specifications</p>
+<p>5</p>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p><b>6</b></p>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>5.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>5.1.1</p>
+<p>RTE</p>
+<p>7</p>
+<p>5.1.2</p>
+<p>NvM</p>
+<p>7</p>
+<p>5.2</p>
+<p>Dependencies on BMW modules</p>
+<p>7</p>
+<p>5.2.1</p>
+<p>Dlog</p>
+<p>7</p>
+<p>5.2.2</p>
+<p>Fscsm</p>
+<p>7</p>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>8</b></p>
+<p>6.1</p>
+<p>Configuration of other Modules</p>
+<p>8</p>
+<p>6.1.1</p>
+<p>Communication Stack</p>
+<p>8</p>
+<p>6.1.2</p>
+<p>Nvm</p>
+<p>8</p>
+<p>6.1.3</p>
+<p>Fscsm</p>
+<p>9</p>
+<p>6.2</p>
+<p>Configuration</p>
+<p>9</p>
+<p>6.3</p>
+<p>Configuration of the RTE</p>
+<p>9</p>
+<p>6.3.1</p>
+<p>Assembly connectors</p>
+<p>9</p>
+<p>6.3.1.1</p>
+<p>Always</p>
+<p>9</p>
+<p>6.3.1.2</p>
+<p>If SecureVin is configured</p>
+<p>9</p>
+<p>6.3.2</p>
+<p>Event Mapping</p>
+<p>9</p>
+<p>6.3.3</p>
+<p>Data Mapping</p>
+<p>10</p>
+<p>6.3.3.1</p>
+<p>If EnableSIAdapter=false</p>
+<p>10</p>
+<p>6.3.3.2</p>
+<p>If SecureVin is configured with EnableSIAdapter=false</p>
+<p>10</p>
+<p>6.3.3.3</p>
+<p>If EnableSIAdapter=true</p>
+<p>10</p>
+<p>6.3.3.4</p>
+<p>If SecureVin is configured with EnableSIAdapter=true</p>
+<p>10</p>
+<p>6.3.4</p>
+<p>Exclusive Areas</p>
+<p>11</p>
+<p>6.4</p>
+<p>Software Integration</p>
+<p>11</p>
+<p>6.4.1</p>
+<p>Startup/Initialisation</p>
+<p>11</p>
+<p>6.4.2</p>
+<p>Normal Operation</p>
+<p>11</p>
+<p>6.4.3</p>
+<p>Shutdown/Deactivation</p>
+<p>11</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 2 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>1.1</b></p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4 Platform Modules please refer to [1].</p>
+<p>This document only describes topics related to the SWT BAC4 Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW system</p>
+<p>function VIN.</p>
+<p><b>1.2</b></p>
+<p><b>Functional overview</b></p>
+<p>The Vin module is used to request the VIN over the bus, set the qualifier and hand it over to application</p>
+<p>software components.</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>A&amp;S</p>
+<p>Authentication and Signature (Grundschutzmechanismen)</p>
+<p>AllgGB</p>
+<p>Allgemeine Gültigkeitsbedingung</p>
+<p>AN</p>
+<p>Applikationsnummer</p>
+<p>API</p>
+<p>Application Programming Interface</p>
+<p>AppGB</p>
+<p>Applikationsspezifische Gültigkeitsbedingung</p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>CA</p>
+<p>Certification Authority</p>
+<p>CAL</p>
+<p>Cryptographic Abstraction Layer</p>
+<p>CAS</p>
+<p>Car Access System (Steuergerät)</p>
+<p>CCC</p>
+<p>Car Communication Computer</p>
+<p>CKD</p>
+<p>Completely Knocked Down.</p>
+<p>A BMW plant</p>
+<p>that</p>
+<p>is not</p>
+<p>connected to the</p>
+<p>central BMW IT.</p>
+<p>CSM</p>
+<p>Client Security Module</p>
+<p>CRL</p>
+<p>Certificate Revocation List</p>
+<p>DEK</p>
+<p>Data Encryption Key</p>
+<p>DER</p>
+<p>Distinguished Encoding Rules (As described by ASN.1)</p>
+<p>DES</p>
+<p>Data Encryption Standard</p>
+<p>DN</p>
+<p>Distinguished Name</p>
+<p>DTC</p>
+<p>Diagnostic Trouble Code -&gt; Fehlercode des Fehlerspeichereintrages</p>
+<p>ECU</p>
+<p>Electronic Control Unit</p>
+<p>FAT</p>
+<p>Flash-Absicherungs-Tool</p>
+<p>FSC</p>
+<p>Freischaltcode</p>
+<p>FSCS</p>
+<p>Freischaltcode-Stelle</p>
+<p>FZG</p>
+<p>Fahrzeug</p>
+<p>FZG-R</p>
+<p>BMW Fahrzeug-Root-CA</p>
+<p>GB</p>
+<p>Gültigkeitsbedingung</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 3 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p>GG</p>
+<p>Gültigkeitsgruppe</p>
+<p>GMT</p>
+<p>Greenwich Mean Time</p>
+<p>HO</p>
+<p>Handelsorganisation (BMW)</p>
+<p>HW</p>
+<p>Hardware</p>
+<p>M-FSCS</p>
+<p>Master-Freischaltcodestelle</p>
+<p>OS</p>
+<p>Operating System</p>
+<p>PKI</p>
+<p>Public Key Infrastrucutre</p>
+<p>RCn</p>
+<p>Routine Control Option n / Exit Result n</p>
+<p>RI</p>
+<p>Routine Identifier</p>
+<p>RSA</p>
+<p>Asymmetric Cryptoalgorithm by Rivest, Shamir und Adleman</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>SG</p>
+<p>Steuergerät</p>
+<p>SGID</p>
+<p>Steuergeräte-ID, Diagnoseadresse, Steuergeräte-Adresse</p>
+<p>SID</p>
+<p>Service Identifier</p>
+<p>SigS</p>
+<p>SW-Signatur-Stelle</p>
+<p>SW</p>
+<p>Software</p>
+<p>SW-C</p>
+<p>Software Component</p>
+<p>SWID</p>
+<p>Software-ID consisting of application number and upgrade index</p>
+<p>SWT</p>
+<p>SWEEPING Technologies (SoftWare Enabled Electronic Platform for Inno-</p>
+<p>vative Next Generation Technologies)</p>
+<p>UDS</p>
+<p>Universal Diagnostic Services</p>
+<p>UI</p>
+<p>Upgrade Index</p>
+<p>UTC</p>
+<p>Coordinated Universal Time</p>
+<p>VCM</p>
+<p>Vehicle Configuration Management</p>
+<p>VIN</p>
+<p>Vehicle Identification Number</p>
+<p>VIN7</p>
+<p>The last 7 digits of the 17-digit VIN</p>
+<p>All abbreviations used throughout this document -- except the ones listed here -- can be found in the</p>
+<p>official AUTOSAR glossary [6].</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 4 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>3.1</b></p>
+<p><b>BMW Specifications</b></p>
+<p>[1]</p>
+<p>BAC4 General Concept for the Module Integration</p>
+<p>BAC4_General_Concepts_for_the_Module_Integration.pdf</p>
+<p>[2]</p>
+<p>Specification of Module DataLogistic</p>
+<p>ModuleSpecification_Dlog.pdf</p>
+<p>[3]</p>
+<p>Specification of Module FSCSM</p>
+<p>ModuleSpecification_Fscsm.pdf</p>
+<p>[4]</p>
+<p>Integration Manual FSCSM</p>
+<p>IntegrationManual_Fscsm.pdf</p>
+<p>[5]</p>
+<p>Specification of Module Vin</p>
+<p>ModuleSpecification_Vin.pdf</p>
+<p><b>3.2</b></p>
+<p><b>AUTOSAR Specifications</b></p>
+<p>[6]</p>
+<p>Glossary</p>
+<p>AUTOSAR_TR_Glossary</p>
+<p>[7]</p>
+<p>Specification of RTE Software</p>
+<p>AUTOSAR_SWS_RTE</p>
+<p>[8]</p>
+<p>Specification of NVRAM Manager</p>
+<p>AUTOSAR_SWS_NVRAMManager</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 5 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p>Autosar 4.2.1 or later is required.</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 6 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>5.1</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p><b>5.1.1</b></p>
+<p><b>RTE</b></p>
+<p>The module Vin is realized as a software component and is using RTE services [7] for client/server as well</p>
+<p>as sender/receiver communication to communicate with other SWCs.</p>
+<p><b>5.1.2</b></p>
+<p><b>NvM</b></p>
+<p>The NVRAM Manager [8] is used to store the last VIN and the SSV state.</p>
+<p><b>5.2</b></p>
+<p><b>Dependencies on BMW modules</b></p>
+<p><b>5.2.1</b></p>
+<p><b>Dlog</b></p>
+<p>The Dlog module [2] is used to get the internal VIN.</p>
+<p><b>5.2.2</b></p>
+<p><b>Fscsm</b></p>
+<p>The Fscsm module [3] is needed for receiving the secure VIN.</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 7 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>6.1</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before the module Vin is compiled and linked.</p>
+<p><b>6.1.1</b></p>
+<p><b>Communication Stack</b></p>
+<p>The communication stack shall be configured to provide the Vehicle Identification Number (VIN) message</p>
+<p>from the corresponding bus.</p>
+<p>For<i> i ∈ {</i>1<i>, . . . ,</i> 7<i>}</i> configure the signals</p>
+<p>Shortname (according to BMW BNE):</p>
+<p>NO_VECH_&lt;<i>i</i>&gt;</p>
+<p>ComBitPosition:</p>
+<p>8(<i>i −</i> 1)</p>
+<p>ComBitSize:</p>
+<p>8</p>
+<p>ComSignalEndianness:</p>
+<p>OPAQUE</p>
+<p>ComSignalLength:</p>
+<p>1</p>
+<p>ComSignalType:</p>
+<p>UINT8_N</p>
+<p>ComTransferProperty:</p>
+<p>TRIGGERED</p>
+<p><b>Note:</b> The Signals</p>
+<p>NO_VECH_&lt;<i>i</i>&gt; (1<i> ≤ i ≤</i> 7) have to be configured as a Signalgroup!</p>
+<p><b>Note:</b> In Ethernet, these signals are modeled as structure in the field</p>
+<p>ChassisNumber</p>
+<p>of the Service</p>
+<p>Interface</p>
+<p>VehicleInformation</p>
+<p>.</p>
+<p><b>6.1.2</b></p>
+<p><b>Nvm</b></p>
+<p>Following NvM blocks shall be configured:</p>
+<p><b>NVM_BLOCK_Vin</b></p>
+<p>NvMBlockCrcType</p>
+<p>NVM_CRC16</p>
+<p>NvMBlockHeaderInclude</p>
+<p>Vin_NvM.h</p>
+<p>NvMBlockManagementType</p>
+<p>NVM_BLOCK_NATIVE</p>
+<p>NvMBlockUseCrc</p>
+<p>true</p>
+<p>NvMBlockWriteProt</p>
+<p>false</p>
+<p>NvMExtraBlockChecks</p>
+<p>true</p>
+<p>NvMNvBlockLength</p>
+<p>8</p>
+<p>1</p>
+<p>NvMNvBlockNum</p>
+<p>1</p>
+<p>NvMProvideRteServicePort</p>
+<p>true</p>
+<p>NvMRamBlockDataAddress</p>
+<p>-</p>
+<p>NvMResistantToChangedSw</p>
+<p>true, if NvMDynamicConfiguration = true</p>
+<p>NvMRomBlockDataAddress</p>
+<p>&amp;Vin_NVStateDefault</p>
+<p>NvMRomBlockNum</p>
+<p>0</p>
+<p>1</p>
+<p>block length might differ depending on the used compiler and compiler settings</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 8 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p>NvMSelectBlockForReadAll</p>
+<p>false</p>
+<p>NvMSelectBlockForWriteAll</p>
+<p>false</p>
+<p>NvMWriteBlockOnce</p>
+<p>False</p>
+<p><b>Write Frequency:</b></p>
+<p>The block will be written every time a different VIN than the last VIN is received on</p>
+<p>the bus and once on switch to safe environment. In practice this means, it is written once in the plant and</p>
+<p>every time, the ECU is transferred into a different vehicle.</p>
+<p><b>6.1.3</b></p>
+<p><b>Fscsm</b></p>
+<p>For the secure VIN, FscsmActivateVerifyMessage shall be enabled in Fscsm, see [3, 4] for details.</p>
+<p><b>6.2</b></p>
+<p><b>Configuration</b></p>
+<p>For a detailed description of the configuration parameters, please consult the Vin Software Specification</p>
+<p>[5].</p>
+<p><b>6.3</b></p>
+<p><b>Configuration of the RTE</b></p>
+<p><b>6.3.1</b></p>
+<p><b>Assembly connectors</b></p>
+<p><b>6.3.1.1</b></p>
+<p><b>Always</b></p>
+<p>&lt;BSW-Servicename&gt;* shall be connected with its corresponding BSW port.</p>
+<p>&lt;Modulename&gt;&lt;Portname&gt; shall be connected with its corresponding &lt;Portname&gt; of the module</p>
+<p>&lt;Modulename&gt;.</p>
+<p><b>6.3.1.2</b></p>
+<p><b>If SecureVin is configured</b></p>
+<p>SSVErrorCode shall be connected to the DEM Environment Data for the FscsmError, see [3, 4] for</p>
+<p>details.</p>
+<p>RandomNumberGenerator shall be connected to the corresponding Port of the Fscsm module.</p>
+<p><b>6.3.2</b></p>
+<p><b>Event Mapping</b></p>
+<p>All events must be mapped to the same or to non-preemptive tasks.</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 9 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6.3.3</b></p>
+<p><b>Data Mapping</b></p>
+<p><b>6.3.3.1</b></p>
+<p><b>If EnableSIAdapter=false</b></p>
+<p>For the R-Port ComVin, the data elements Vin_ComVinType/Vin&lt;<i>i</i>&gt; shall be mapped to the signals</p>
+<p>NO_VECH_&lt;<i>i</i>&gt; for<i> i ∈ {</i>1<i>, . . . ,</i> 7<i>}</i>.</p>
+<p>For the P-Port VinRequest, the data element RequestMessageIdentifier shall be mapped to the signal</p>
+<p>ID_FN_INQY.</p>
+<p><b>6.3.3.2</b></p>
+<p><b>If SecureVin is configured with EnableSIAdapter=false</b></p>
+<p>For the P-Port SSVChallengeToSSS, the data element Challenge shall be mapped to the PDU</p>
+<p>SECU_CHAL as follows:</p>
+<p>SsvId</p>
+<p><i>→</i> SSV_IDENT_CHAL</p>
+<p>SSssId</p>
+<p><i>→</i> SSS_IDENT_CHAL</p>
+<p>Challenge</p>
+<p><i>→</i> SECU_CHAL</p>
+<p>For the R-Port SSVResponseFromSSS, the data element Response shall be mapped to the PDU</p>
+<p>SECU_RESP as follows:</p>
+<p>SsvId</p>
+<p><i>→</i> SSV_IDENT_RESP</p>
+<p>CounterBase</p>
+<p><i>→</i> COU_BS_RESP</p>
+<p>Signature</p>
+<p><i>→</i> STU_RESP</p>
+<p>For the R-Port SSVVinMacFromSSS, the data element Mac shall be mapped to the signal STU_8_BYTE.</p>
+<p><b>6.3.3.3</b></p>
+<p><b>If EnableSIAdapter=true</b></p>
+<p>The R-Port ComVin shall be connected to the corresponding P-Port of the VinSIAdapter SWC.</p>
+<p>The P-Port VinRequest shall be connected to the corresponding R-Port of the VinSIAdapter SWC.</p>
+<p>The R-Port ChassisNumberNotifier of the VinSIAdapter SWC shall be connected with the notifier of the</p>
+<p>Field ChassisNumber of the Service Interface VehicleInformation.</p>
+<p>The R-Port ChassisNumber of the VinSIAdapter SWC shall be connected with the getter of the Field</p>
+<p>ChassisNumber of the Service Interface VehicleInformation.</p>
+<p><b>6.3.3.4</b></p>
+<p><b>If SecureVin is configured with EnableSIAdapter=true</b></p>
+<p>The P-Port SSVChallengeToSSS and the R-Ports SSVResponseFromSSS, SSVVinMacFromSSS shall</p>
+<p>be connected to the corresponding ports of the VinSIAdapter SWC.</p>
+<p>The R-Port ChassisNumberAuthentication of the VinSIAdapter SWC shall be connected with the Service</p>
+<p>Interface ChassisNumberAuthentication.</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 10 of 11</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6.3.4</b></p>
+<p><b>Exclusive Areas</b></p>
+<p>The exclusive area VinState shall be configured.</p>
+<p><b>6.4</b></p>
+<p><b>Software Integration</b></p>
+<p><b>6.4.1</b></p>
+<p><b>Startup/Initialisation</b></p>
+<p>The INITIALIZED mode shall be requested.</p>
+<p><b>6.4.2</b></p>
+<p><b>Normal Operation</b></p>
+<p>When the LifeCycle mode is in INITIALIZED, the RUNNING mode shall be requested.</p>
+<p><b>6.4.3</b></p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>The STOPPED mode shall be requested.</p>
+<p>IntegrationManual_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 11 of 11</p>
+</body>
+</html>
+{% endraw %}

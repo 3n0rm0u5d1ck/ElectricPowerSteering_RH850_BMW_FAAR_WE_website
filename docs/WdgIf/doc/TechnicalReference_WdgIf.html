@@ -1,0 +1,3117 @@
+---
+layout: default
+title: TechnicalReference_WdgIf
+nav_order: 1
+parent: Watchdog Interface
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR WDGIF </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Christian Leder, Rene Isau </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>2 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Christian Leder, </p>
+<p>Rene Isau </p>
+<p>2016-03-16 </p>
+<p>1.0.0 </p>
+<p>First version of the migrated WdgIf </p>
+<p>Technical Reference </p>
+<p>Christian Leder </p>
+<p>2016-07-13 </p>
+<p>1.1.0 </p>
+<p>Update after introduction of native CFG5 </p>
+<p>generator </p>
+<p>Christian Leder </p>
+<p>2017-01-09 </p>
+<p>1.2.0 </p>
+<p>Update after removing state combiner </p>
+<p>automatic mode </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_WatchdogInterface.pdf </p>
+<p>V2.3.0 </p>
+<p>[2] </p>
+<p> </p>
+<p>Vector </p>
+<p>Informatik </p>
+<p>Safety Manual </p>
+<p> </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>V1.4.0 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We  have  configured  the  programs  in  accordance  with  your  specifications  in  the </p>
+<p>questionnaire.  Whereas  the  programs  do  support  other  configurations  than  the  one </p>
+<p>specified  in  your  questionnaire,  Vector´s  release  of  the  programs  delivered  to  your </p>
+<p>company </p>
+<p>is </p>
+<p>expressly </p>
+<p>restricted </p>
+<p>to </p>
+<p>the </p>
+<p>configuration </p>
+<p>you </p>
+<p>have </p>
+<p>specified </p>
+<p>in </p>
+<p>the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>3 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Basic Functionality of the WdgIf ....................................................................... 10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 11</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 11</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Operation in Multi-Core Systems ..................................................................... 12</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Independent Watchdog Devices ....................................................... 13</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>WdgIf with a State Combiner ............................................................ 14</p>
+<p> </p>
+<p>3.2.2.1</p>
+<p> </p>
+<p>Checking the Slave Trigger Pattern ................................ 16</p>
+<p> </p>
+<p>3.2.2.2</p>
+<p> </p>
+<p>Operation of the State Combiner.................................... 17</p>
+<p> </p>
+<p>3.2.2.2.1</p>
+<p> </p>
+<p>Synchronous Mode .................................... 17</p>
+<p> </p>
+<p>3.2.2.2.2</p>
+<p> </p>
+<p>Asynchronous Mode .................................. 19</p>
+<p> </p>
+<p>3.2.2.3</p>
+<p> </p>
+<p>Worst Case Delay .......................................................... 21</p>
+<p> </p>
+<p><i>3.2.2.4</i></p>
+<p> </p>
+<p>Worst Case Evaluations ................................................. 23</p>
+<p> </p>
+<p>3.2.2.5</p>
+<p> </p>
+<p>Optimal Timing ............................................................... 27</p>
+<p> </p>
+<p>3.2.2.6</p>
+<p> </p>
+<p>Start-up Phase ............................................................... 28</p>
+<p> </p>
+<p>3.2.2.7</p>
+<p> </p>
+<p>Changing the Monitoring Period During Runtime ........... 28</p>
+<p> </p>
+<p>3.2.2.7.1</p>
+<p> </p>
+<p>Changing the Monitoring Period in </p>
+<p>Synchronous Mode .................................... 28</p>
+<p> </p>
+<p>3.2.2.7.2</p>
+<p> </p>
+<p>Changing the Monitoring Period in </p>
+<p>Asynchronous Mode .................................. 29</p>
+<p> </p>
+<p>3.2.2.8</p>
+<p> </p>
+<p>Shared Memory ............................................................. 29</p>
+<p> </p>
+<p>3.2.2.9</p>
+<p> </p>
+<p>Limitations of the State Combiner Implementation ......... 29</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Memory Sections ............................................................................................. 30</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Code and Constants ........................................................................ 30</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Module Variables ............................................................................. 30</p>
+<p> </p>
+<p>3.3.2.1</p>
+<p> </p>
+<p>Module Variables with MICROSAR Os Gen6 / </p>
+<p>AUTOSAR Os version 4.0 .............................................. 30</p>
+<p> </p>
+<p>3.3.2.2</p>
+<p> </p>
+<p>Module Variables with MICROSAR Os Gen7 / </p>
+<p>AUTOSAR Os version 4.2 .............................................. 31</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 32</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 32</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 33</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>4 </p>
+<p>based on template version 5.12.0 </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 33</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 33</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 34</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 34</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>State Combiner Type Definitions ...................................................................... 35</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services provided by WdgIf ............................................................................. 38</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>WdgIf_SetMode ............................................................................... 38</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>WdgIf_SetTriggerCondition .............................................................. 38</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>WdgIf_SetTriggerWindow ................................................................ 39</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>WdgIf_GetVersionInfo ...................................................................... 39</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Services used by WdgIf ................................................................................... 40</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 42</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 42</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Integration with MICROSAR / fully AUTOSAR compliant Wdg drivers .............. 42</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Configuring the State Combiner ....................................................................... 43</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Configuration for Synchronous Mode ............................................... 43</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Configuration for Asynchronous Mode ............................................. 44</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 45</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 45</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 46</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 47</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>5 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Watchdog Manager Stack in an AUTOSAR environment ............................ 9</p>
+<p> </p>
+<p>Figure 2-3</p>
+<p> </p>
+<p>Layered structure of the Watchdog Interface ............................................ 10</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>WdgM Stack on a multi-core system using WdgIf to address </p>
+<p>independent watchdogs for each core ...................................................... 13</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>WdgM Stack on a multi-core system using the State Combiner for a </p>
+<p>combined core reaction ............................................................................ 14</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Master and slave run synchronously with a sufficient offset to avoid jitter </p>
+<p>effects (example 1) ................................................................................... 18</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Master and slave run synchronously with a sufficient offset (example 2)... 18</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Master and slave run synchronously with a sufficient offset (example 3)... 19</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Master and slave drifting apart although they have the same configured </p>
+<p>period (P</p>
+<p>m</p>
+<p> = P</p>
+<p>s</p>
+<p>) ........................................................................................ 20</p>
+<p> </p>
+<p>Figure 3-7</p>
+<p> </p>
+<p>Master and slave do not drift from each other but jitter effects occur......... 21</p>
+<p> </p>
+<p>Figure 3-8</p>
+<p> </p>
+<p>Slave skipping one trigger is not necessarily detected by master in </p>
+<p>asynchronous mode ................................................................................. 21</p>
+<p> </p>
+<p>Figure 3-9</p>
+<p> </p>
+<p>Worst case delay of the State Combiner ................................................... 23</p>
+<p> </p>
+<p>Figure 3-10</p>
+<p> </p>
+<p>Worst case evaluation Case 2 .................................................................. 24</p>
+<p> </p>
+<p>Figure 3-11</p>
+<p> </p>
+<p>Worst case evaluation Case 4 .................................................................. 26</p>
+<p> </p>
+<p>Figure 3-12</p>
+<p> </p>
+<p>Start-up phase, master starts before slave ............................................... 28</p>
+<p> </p>
+<p>Figure 3-13</p>
+<p> </p>
+<p>Start-up phase, master starts before slave ............................................... 29</p>
+<p> </p>
+<p><b>Tables </b></p>
+<p>Table 1-1</p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 11</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 11</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 12</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Combinations for worst case evaluation .................................................... 23</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Code and Constants ................................................................................. 30</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>WdgIf constants ........................................................................................ 30</p>
+<p> </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Module variables with MICROSAR Os Gen6 / AUTOSAR Os version 4.0 . 30</p>
+<p> </p>
+<p>Table 3-8 </p>
+<p> </p>
+<p>Module variables MICROSAR Os Gen7 / AUTOSAR Os version 4.2 ........ 31</p>
+<p> </p>
+<p>Table 3-9 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 32</p>
+<p> </p>
+<p>Table 3-10 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 32</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 33</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 33</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>WdgIf Type Definitions .............................................................................. 35</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>State Combiner Type Definitions ............................................................... 37</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>WdgIf_SetMode ........................................................................................ 38</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>WdgIf_SetTriggerCondition ....................................................................... 39</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>WdgIf_SetTriggerWindow ......................................................................... 39</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>WdgIf_GetVersionInfo ............................................................................... 40</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>Services used by the WdgIf ...................................................................... 41</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 45</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 46</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>6 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00 </p>
+<p>Migration of the WdgIf to Vector Informatik GmbH </p>
+<p>2.00 </p>
+<p>Introduction of native CFG5 generator </p>
+<p>2.01 </p>
+<p>Removing manual state combine mode </p>
+<p>Table 1-1 </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>7 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module WdgIf as specified in [1]. </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.0.1 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>WDGIF_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>WDGIF_MODULE_ID  </p>
+<p>43 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p>This user manual describes the Watchdog Interface (WdgIf), which is part of the Watchdog </p>
+<p>Manager Stack, which is part of the AUTOSAR ECU Abstraction Layer. The main WdgIf </p>
+<p>functionality  consists  of  linking  one  or  more  Watchdog  drivers  (Wdg)  to  the  overlying </p>
+<p>Watchdog Manager module (WdgM). </p>
+<p>For  multi-core  systems,  the WdgIf  additionally  offers the  State  Combiner functionality  to </p>
+<p>allow several WdgM instances, each running on a separate processor core, to share and </p>
+<p>trigger  a  single  watchdog  device.  The  WdgIf  was  developed  according  to  AUTOSAR </p>
+<p>version 4.0.1 [1].  </p>
+<p>The  WdgIf  is  compatible  with  this  AUTOSAR  version,  but  not  fully  compliant.  For  the </p>
+<p>deviations, see section Deviations. In any case, if the WdgIf is used with AUTOSAR 4.0.1 </p>
+<p>or another version, all requirements described in the Safety Manual [2] must be fulfilled. </p>
+<p>This user manual does not cover safety-related topics. For safety-related requirements for </p>
+<p>the integration and the application of the WdgIf, refer to the Safety Manual [2]. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>8 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the WdgIf is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview  </p>
+<p>The WdgM Stack consists of the hardware-independent modules Watchdog Manager and </p>
+<p>Watchdog Interface (blue rectangle) and a hardware-dependent module Watchdog driver. </p>
+<p>Figure 2-2 shows the WdgM Stack with its modules in an AUTOSAR environment. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>9 </p>
+<p>based on template version 5.12.0 </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Watchdog Manager Stack in an AUTOSAR environment </p>
+<p>The </p>
+<p>WdgM </p>
+<p>controls, </p>
+<p>through </p>
+<p>the </p>
+<p>WdgIf </p>
+<p>and </p>
+<p>the </p>
+<p>Wdg, </p>
+<p>the </p>
+<p>hardware-implemented </p>
+<p>watchdogs, which can be one or more internal or external watchdog devices. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>A watchdog device requires a hardware-dependent Wdg driver. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>10 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2.2 </b></p>
+<p><b>Basic Functionality of the WdgIf </b></p>
+<p>The WdgIf is a platform-independent software module and provides an interface to one or </p>
+<p>more  Watchdog  driver  modules  for  the  WdgM.  The  WdgM  addresses  the  watchdog </p>
+<p>devices </p>
+<p>through </p>
+<p>the </p>
+<p>WdgIf </p>
+<p>using </p>
+<p>a </p>
+<p>device </p>
+<p>index </p>
+<p>parameter </p>
+<p>(</p>
+<p>DeviceIndex</p>
+<p>). </p>
+<p>The </p>
+<p>DeviceIndex</p>
+<p> is used by the WdgIf to refer to a specific Wdg driver instance. </p>
+<p>Figure 2-3 shows the layered structure of the Wdg Stack. The attached watchdog device </p>
+<p>can be internal or external. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-3 </p>
+<p>Layered structure of the Watchdog Interface </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>11 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>WdgIf. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further WdgIf functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>The WdgIf provides uniform access to services of the underlying watchdog drivers like mode </p>
+<p>switching and setting trigger conditions. </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>No deviations. </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>12 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>The </p>
+<p>WdgIf </p>
+<p>module </p>
+<p>checks </p>
+<p>for </p>
+<p>development </p>
+<p>errors </p>
+<p>independently </p>
+<p>from </p>
+<p>the </p>
+<p>configuration </p>
+<p>parameter </p>
+<p>WdgIfDevErrorDetect</p>
+<p> but reports to the AUTOSAR module Development Error </p>
+<p>Tracer (DET) only if </p>
+<p>WdgIfDevErrorDetect</p>
+<p> is set to true. </p>
+<p>In case of multi-core systems, the WdgIf supports the State Combiner functionality which is not </p>
+<p>specified by AUTOSAR. </p>
+<p>If the State Combiner functionality is used, then the WdgIf calls the functions </p>
+<p>GetSpinlock()</p>
+<p> </p>
+<p>/ </p>
+<p>ReleaseSpinlock()</p>
+<p> </p>
+<p>(if </p>
+<p>configuration </p>
+<p>parameter </p>
+<p>WdgIfStateCombinerUseOsSpinlock</p>
+<p> </p>
+<p>is </p>
+<p>true</p>
+<p>) </p>
+<p>or </p>
+<p>the </p>
+<p>functions </p>
+<p>Appl_GetSpinlock(</p>
+<p>) </p>
+<p>/ </p>
+<p>Appl_ReleaseSpinlock()</p>
+<p> </p>
+<p>(if </p>
+<p>configuration </p>
+<p>parameter </p>
+<p>WdgIfStateCombinerUseOsSpinlock</p>
+<p> is </p>
+<p>false</p>
+<p>) in order to use spinlock functionality for </p>
+<p>inter-core synchronization. For details, see section Services used by WdgIf. </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2 </b></p>
+<p><b>Operation in Multi-Core Systems </b></p>
+<p>The WdgIf can also be integrated into <b>multi-core </b>systems. During the configuration of the </p>
+<p>WdgIf on several cores, it is important to consider how to connect each WdgM instance </p>
+<p>running on a processor core to the correct Wdg driver module or modules via the WdgIf. </p>
+<p>There are two possible approaches for configuring the WdgIf for a multi-core system: </p>
+<p><b>&gt; </b></p>
+<p>Independent watchdog devices  </p>
+<p>Configuring the WdgIf module so, that the WdgM instances running on different </p>
+<p>processor cores trigger its own watchdog device independently from the other cores. </p>
+<p>An example of such a system is a multi-core processor which has one internal </p>
+<p>watchdog device for each core. A fault on a certain core results in a watchdog reaction </p>
+<p>from the core's own watchdog device. Depending on its setup this might be a </p>
+<p>processor reset or only a single core reset. </p>
+<p><b>&gt; </b></p>
+<p>WdgIf with a State Combiner  </p>
+<p>Configuring the WdgIf module with a State Combiner so that the WdgM instances </p>
+<p>running on different processor cores can share one watchdog device and use it to </p>
+<p>cause a reset in case of an irreparable error. The watchdog device will be triggered </p>
+<p>only if no WdgM instance reports any error.  </p>
+<p>An example is a multi-core processor with an external watchdog connected to it. A </p>
+<p>fault on any processor core results in a watchdog reset. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>A combination of the two approaches above is also possible. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>13 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.2.1 </b></p>
+<p><b>Independent Watchdog Devices </b></p>
+<p>The WdgIf is configured to enable each Watchdog stack instance running on a separate </p>
+<p>processor core to trigger its own watchdog device independently from the Watchdog stack </p>
+<p>instances running on the other cores. Whether the watchdog device causes a processor </p>
+<p>reset or a core reset depends on the device's configuration. In this case, the  Watchdog </p>
+<p>stack  instance  running  on  each  processor  core  is  acting  as  if  it </p>
+<p>is  running  on  an </p>
+<p>independent single-core system. Configuring this scenario is also very similar to the single-</p>
+<p>core configuration. However, it needs to be ensured that the watchdog device for a certain </p>
+<p>core is connected to the correct WdgM instance. Furthermore, the configuration parameter </p>
+<p>WdgIfUseStateCombiner</p>
+<p> must be set to </p>
+<p>false. </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>WdgM Stack on a multi-core system using WdgIf to address independent watchdogs for each core </p>
+<p><b> </b></p>
+<p><b>deployment WdgM stack on multi-core - independent core reaction</b></p>
+<p>«device»</p>
+<p><b>Microcontroller - independent core reaction</b></p>
+<p>«device»</p>
+<p><b>core 0</b></p>
+<p>«device»</p>
+<p><b>core 1</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>Wdg</b></p>
+<p>«device»</p>
+<p><b>int Wdg 0</b></p>
+<p>«device»</p>
+<p><b>int Wdg 1</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>Wdg</b></p>
+<p>independet core reaction</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>14 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.2.2 </b></p>
+<p><b>WdgIf with a State Combiner </b></p>
+<p>The <b>State Combiner </b>is a <b>platform-independent </b>piece of software that is implemented as </p>
+<p>an optional feature of the WdgIf module. Its purpose is to enable WdgM instances running </p>
+<p>on different processor cores to share one watchdog device. The State Combiner acts as </p>
+<p>following: </p>
+<p><b>&gt; </b></p>
+<p>If  an  error  during  the  WdgM  supervision  is  detected  on  a  core,  then  the  WdgM </p>
+<p>instance on  this  core requests  a  reset,  which  the  State  Combiner retransmits  to  the </p>
+<p>watchdog device. </p>
+<p><b>&gt; </b></p>
+<p>Furthermore, the State Combiner monitors the trigger pattern of the WdgM instances </p>
+<p>in order to detect runtime errors such as trigger omissions (e.g. one of the processor </p>
+<p>cores stopped working) or too frequent triggers (e.g. due to scheduling problems, an </p>
+<p>WdgM instance is invoked too frequently). </p>
+<p><b>&gt; </b></p>
+<p>The State Combiner triggers the watchdog device only if none of the WdgM instances </p>
+<p>requests a reset and the trigger patterns of all WdgM instances are correct. </p>
+<p><b>&gt; </b></p>
+<p>The  State  Combiner  feature  can  be  enabled  by  setting  the  configuration  parameter </p>
+<p>WdgIfUseStateCombiner</p>
+<p> to </p>
+<p>true</p>
+<p>. </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>WdgM Stack on a multi-core system using the State Combiner for a combined core reaction </p>
+<p><b> deployment WdgM stack on multi-core - combined core reaction</b></p>
+<p>«device»</p>
+<p><b>Microcontroller - combined core reaction</b></p>
+<p>«device»</p>
+<p><b>core 0</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>Wdg ext.</b></p>
+<p><b>State Combiner </b></p>
+<p><b>(master)</b></p>
+<p>«device»</p>
+<p><b>core 1</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>State Combiner </b></p>
+<p><b>(slav e)</b></p>
+<p>combined core reaction</p>
+<p>«device»</p>
+<p><b>core 2</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>State Combiner </b></p>
+<p><b>(slav e)</b></p>
+<p>«device»</p>
+<p><b>core 3</b></p>
+<p><b>WdgM</b></p>
+<p><b>WdgIf</b></p>
+<p><b>Wdg int.</b></p>
+<p>«device»</p>
+<p><b>Wdg ext.</b></p>
+<p>«device»</p>
+<p><b>Wdg int.</b></p>
+<p>«device»</p>
+<p><b>Shared Memory</b></p>
+<p>write core</p>
+<p>2 state</p>
+<p>write core 1</p>
+<p>state</p>
+<p>read state of</p>
+<p>slave cores</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>15 </p>
+<p>based on template version 5.12.0 </p>
+<p>If enabled, the State Combiner instance on <b>one processor core </b>is configured to work in </p>
+<p><b>master mode</b>, which triggers the actual watchdog device, while State Combiner instances </p>
+<p>on the <b>other processor </b>cores are configured to work in <b>slave mode</b>. In the following the </p>
+<p>State Combiner instance configured to work in master mode is referred to as <b>master </b>and </p>
+<p>the State Combiner instance(s) configured to work in slave mode as <b>slave(s)</b>. The slaves </p>
+<p>do  not  trigger  a  watchdog  device  but  only  communicate  with  the  master  via  shared </p>
+<p>memory. The master triggers the actual watchdog device if the global status of the WdgM </p>
+<p>instances on all cores is other than </p>
+<p>STOPPED</p>
+<p>. Therefore, as soon as the WdgM instance </p>
+<p>on at least one core has reached the global status </p>
+<p>STOPPED</p>
+<p> (i.e. an irreparable error was </p>
+<p>detected), the watchdog device is – depending on the configuration – reset or not triggered </p>
+<p>anymore. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The State Combiner is not visible to the upper layer, i.e. the WdgM instances on each </p>
+<p>processor core. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The trigger process in case of a State Combiner is as follows: </p>
+<p><b>&gt; </b></p>
+<p>The  WdgM  instance  on  a  processor  core  sends  a  trigger  request  to  its  underlying </p>
+<p>WdgIf </p>
+<p>instance. </p>
+<p>No </p>
+<p>watchdog </p>
+<p>device </p>
+<p>is </p>
+<p>triggered, </p>
+<p>but </p>
+<p>the </p>
+<p>corresponding </p>
+<p>State </p>
+<p>Combiner instance is invoked - either the master or a slave. </p>
+<p><b>&gt; </b></p>
+<p>The slave does not trigger but rather signals to the master the trigger request from the </p>
+<p>upper layer. </p>
+<p><b>&gt; </b></p>
+<p>If the slave detects an error, it will send a reset request to the State Combiner.  </p>
+<p><b>&gt; </b></p>
+<p>Based on the trigger pattern of the slave (the sequence of the slave's trigger request </p>
+<p>signals  over  a  certain  period  of  time),  the  master  evaluates  whether  the  slave  is </p>
+<p>running correctly. </p>
+<p><b>&gt; </b></p>
+<p>The master triggers the actual watchdog device if: </p>
+<p><b>&gt; </b></p>
+<p>the master's overlying WdgM instance requested a valid watchdog trigger, </p>
+<p><b>&gt; </b></p>
+<p>no  slave  requested  a  reset  (no  error  reported  by  the  slave's  overlying  WdgM </p>
+<p>instance), and  </p>
+<p><b>&gt; </b></p>
+<p>the trigger pattern of each slave is correct (based on the configuration). </p>
+<p> </p>
+<p>The  following  must  be  configured  so  that  the  State  Combiner  is  used  by  the  overlying </p>
+<p>WdgM instances to trigger a single watchdog device for all processor cores: </p>
+<p><b>&gt; </b></p>
+<p>The WdgM instance running on the processor core that controls the physical watchdog </p>
+<p>device must be configured to send a trigger request to the master. (In the WdgIf’s ECU </p>
+<p>configuration, </p>
+<p>the </p>
+<p>WdgIfDeviceRef</p>
+<p> </p>
+<p>parameter </p>
+<p>must </p>
+<p>be </p>
+<p>linked </p>
+<p>to </p>
+<p>a </p>
+<p>WdgIfStateCombinerMaster</p>
+<p> </p>
+<p>container </p>
+<p>of </p>
+<p>WdgIf </p>
+<p>instead </p>
+<p>of </p>
+<p>a </p>
+<p>WdgIfDevice</p>
+<p> </p>
+<p>container.) The trigger condition value of the WdgM needs to be set up according to </p>
+<p>the actual watchdog device. </p>
+<p><b>&gt; </b></p>
+<p>The WdgM instances running on the other processor cores must be configured to send </p>
+<p>a trigger request to a slave. (In the WdgIf’s ECU configuration, the </p>
+<p>WdgIfDeviceRef </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>16 </p>
+<p>based on template version 5.12.0 </p>
+<p>parameter  must  be  linked  to  a </p>
+<p>WdgIfStateCombinerSlave</p>
+<p>  container  of  WdgIf </p>
+<p>instead of a </p>
+<p>WdgIfDevice</p>
+<p> container.)  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The </p>
+<p>trigger </p>
+<p>condition </p>
+<p>value  for </p>
+<p>a </p>
+<p>slave </p>
+<p>can  be </p>
+<p>configured </p>
+<p>arbitrary.  The </p>
+<p>only </p>
+<p>requirement is not configuring the value with 0. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>&gt; </b></p>
+<p>The master must be configured to trigger the watchdog device. (In the WdgIf’s ECU </p>
+<p>configuration  the  parameter </p>
+<p>WdgIfStateCombinerMasterWdgRef</p>
+<p>  must  reference </p>
+<p>the watchdog device’s driver.) The trigger condition value with which the driver will be </p>
+<p>triggered is given by the overlying WdgM and retransmitted to the watchdog device by </p>
+<p>the master. </p>
+<p><b>&gt; </b></p>
+<p>Following this configuration, the master checks the trigger requests of each slave and </p>
+<p>triggers  the  watchdog  device  only  if  each  slave  triggers  correctly,  no  slave  explicitly </p>
+<p>requested a reset, and the master was triggered correctly. </p>
+<p><b>&gt; </b></p>
+<p>A reset occurs in the following cases: </p>
+<p><b>&gt; </b></p>
+<p>The WdgM instance triggering the master requests a reset – the reset request is </p>
+<p>immediately retransmitted to the watchdog device. </p>
+<p><b>&gt; </b></p>
+<p>The  WdgM  instance  triggering  a  slave  requests  a  reset  –  the  reset  request  is </p>
+<p>retransmitted to the watchdog device with the next invocation of the master. </p>
+<p><b>&gt; </b></p>
+<p>The master detects a shared memory corruption – it checks the shared memory </p>
+<p>each time it is invoked – then the master immediately sends a reset request to the </p>
+<p>watchdog device. </p>
+<p><b>3.2.2.1 </b></p>
+<p><b>Checking the Slave Trigger Pattern </b></p>
+<p>Checking the trigger pattern of the slaves by the master is based on slave trigger counters </p>
+<p>which are stored in shared memory. Each counter contains the number of triggers for a </p>
+<p>specific slave. The slave increases its trigger counter each time it is being invoked with a </p>
+<p>valid trigger request by its overlying WdgM instance. The master checks the slave trigger </p>
+<p>counter  once  per  master  period  or  once  per  a  multiple  of  the <b> master  period</b>.  This </p>
+<p>multiplicity factor is called <b>reference cycle </b>and the duration of time in which the master </p>
+<p>checks a slave once is called <b>check interval</b>. E.g., if the master checks a slave each time </p>
+<p>the master is invoked, then the reference cycle is 1 and the check interval is one master </p>
+<p>period;  if  the  master  checks  the  slave  every  other  time  the  master  is  invoked,  then  the </p>
+<p>reference cycle is 2 and the check interval is 2 times the master period. </p>
+<p>The master expects that the slave increases its trigger counter in every check interval by a </p>
+<p>certain  number.  This  number  depends  on  the  master  period,  the  slave  period  and  their </p>
+<p>ratio  to  one  another.  The  increase  of  the  slave  trigger  counter  must  be  at  least  1. </p>
+<p>Otherwise the error case of a total slave outage cannot be detected. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>17 </p>
+<p>based on template version 5.12.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The reference cycle as well as the number of expected slave triggers might be different </p>
+<p>for each slave. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.2.2.2 </b></p>
+<p><b>Operation of the State Combiner </b></p>
+<p>There  are  two  possible  operation  modes  –  synchronous  or  asynchronous  mode.  In  the </p>
+<p>synchronous  mode  a  check  interval  exists  such  that  the  number  of  slave  invocations  in </p>
+<p>one check interval is always constant. Therefore the master can be configured to expect a </p>
+<p>constant number of slave trigger counter increments. In the asynchronous mode no such </p>
+<p>constant check interval exists and the number of slave invocations in one check interval is </p>
+<p>variable. </p>
+<p>Therefore </p>
+<p>the </p>
+<p>master </p>
+<p>can </p>
+<p>only </p>
+<p>expect </p>
+<p>that </p>
+<p>the </p>
+<p>number </p>
+<p>of </p>
+<p>slave </p>
+<p>counter </p>
+<p>increments lies within a configured interval. </p>
+<p><b>3.2.2.2.1 </b></p>
+<p><b>Synchronous Mode </b></p>
+<p>Synchronous mode is given if a check interval can be chosen in which the number of slave </p>
+<p>triggers is always constant. This is the case if both following conditions apply: </p>
+<p><b>&gt; </b></p>
+<p><i>No  drifting</i>.  The  master  and  slave  invocations  do  not  drift  apart.  The  ratio  between </p>
+<p>master and slave period remains constant. </p>
+<p><b>&gt; </b></p>
+<p><i>Sufficient invocation offset</i>. The slave invocation is done with a  sufficient offset from </p>
+<p>the master invocation so that their invocation order is not affected by jitter (jitter effects </p>
+<p>are avoided).  </p>
+<p>The jitter effects can be avoided if the offset between master and slave invocations is </p>
+<p>greater than the sum of the maximum possible jitter of the master invocation (j</p>
+<p>m</p>
+<p>) and </p>
+<p>the maximum possible jitter of the slave invocation (j</p>
+<p>s</p>
+<p>). Note that these are the jitters of </p>
+<p>the respective WdgM main functions invoking master and slave. Two offsets need to </p>
+<p>be considered: </p>
+<p><b>&gt; </b></p>
+<p>The offset from the master invocation in which the master checks the slave to the </p>
+<p>next slave invocation must be greater than jm + js. </p>
+<p><b>&gt; </b></p>
+<p>The  offset  from  the  slave  invocation  to  the  next  master  invocation  in  which  the </p>
+<p>master checks this slave must be greater than jm + js as well. </p>
+<p>The <b>benefit </b>of the synchronous mode is the shorter interval in which the master can check </p>
+<p>the number of slave triggers (leading to a shorter reaction time) as well as the guaranteed </p>
+<p>detection  of  all  slave  trigger  errors.  Furthermore,  if  the  jitter  becomes  bigger  than  the </p>
+<p>configured offset, this will be detected as an error. </p>
+<p>The <b> drawback </b> of  the  synchronous  mode  is  that  if  the  timing  of  the  system  must  be </p>
+<p>changed during runtime (e.g. low power mode), then the ratio between master and slave </p>
+<p>invocation period must remain the same. </p>
+<p>Following scenarios illustrate typical examples of the synchronous mode. </p>
+<p>Figure  3-3  depicts  an  example  of  a  scenario  where  master  and  slave  have  the  same </p>
+<p>period (P</p>
+<p>m</p>
+<p> = P</p>
+<p>s</p>
+<p>). The master checks the slave once in each master period (reference cycle </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>18 </p>
+<p>based on template version 5.12.0 </p>
+<p>is  1)  and  it  expects  exactly  one  slave  triggering.  The  offset  is  sufficient  to  avoid  jitter </p>
+<p>effects. </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Master and slave run synchronously with a sufficient offset to avoid jitter effects (example 1) </p>
+<p>Figure 3-4 shows an example of a scenario where the slave's period is a multiple of the </p>
+<p>master's  period  (in  the  example  P</p>
+<p>s</p>
+<p>  =  2*P</p>
+<p>m</p>
+<p>).  As  a  consequence,  the  number  of  slave </p>
+<p>triggers  within  the  check  interval  (reference  cycle  is  2)  is  always  constant  –  one  in  this </p>
+<p>example. The offset is sufficient to avoid jitter effects. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>When  master  and  slave  periods  are  referred  in  this  text,  the  configured  periods  are </p>
+<p>meant. Due to jitter, the actual periods might, of course, be slightly different. However, it </p>
+<p>is important that the conditions for synchronous mode apply. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Master and slave run synchronously with a sufficient offset (example 2) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>19 </p>
+<p>based on template version 5.12.0 </p>
+<p>Figure 3-5 shows an example of a scenario where the master's period is a multiple of the </p>
+<p>slave's  period  (in  the  example  P</p>
+<p>m</p>
+<p>  =  2*P</p>
+<p>s</p>
+<p>). Again,  the  number  of  slave  triggers  within  a </p>
+<p>master's check interval (reference cycle is 1) is always constant – two in this example. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Master and slave run synchronously with a sufficient offset (example 3) </p>
+<p>The Synchronous Mode is strongly recommended, because it results in the most accurate </p>
+<p>slave  monitoring  that  can  be  reached  with  a  software  State  Combiner as  well  as  in  the </p>
+<p>shortest  worst  case  reaction  time  in  case  of  slave  trigger errors. Furthermore,  it detects </p>
+<p>every kind of trigger error because the exact number of expected triggers is known. </p>
+<p><b>3.2.2.2.2 </b></p>
+<p><b>Asynchronous Mode </b></p>
+<p>Asynchronous </p>
+<p>mode </p>
+<p>is </p>
+<p>given </p>
+<p>if </p>
+<p>the </p>
+<p>synchronous </p>
+<p>mode </p>
+<p>cannot </p>
+<p>be </p>
+<p>applied </p>
+<p>– </p>
+<p>in </p>
+<p>asynchronous  mode  no  check  interval  can  be  chosen  such  that  the  number  of  slave </p>
+<p>triggers is constant in each check interval. This is the case if at least one of the following </p>
+<p>applies: </p>
+<p><b>&gt; </b></p>
+<p><i>Drifting</i>. Master and Slave invocations drift from one another. </p>
+<p><b>&gt; </b></p>
+<p><i>Insufficient invocation offset resulting in jitter effects</i>. The offset between master and </p>
+<p>slave  invocations  is such  that  the  jitter effects  result  in  a  variable  invocation pattern </p>
+<p>(number of slave triggers changes between check intervals). </p>
+<p>As a consequence, the master can only check whether the actual number of slave triggers </p>
+<p>is within a certain interval. </p>
+<p>The <b>benefit </b>of the asynchronous mode is that if the timing of the system must be changed </p>
+<p>during runtime, then the ratio between master and slave invocation period need not remain </p>
+<p>the same. In this case, the State Combiner is usually configured to compute the expected </p>
+<p>number of slave triggers dynamically. </p>
+<p>The <b>drawback </b>of the asynchronous mode is the necessity of introducing a tolerance when </p>
+<p>checking the slaves – the number of expected slave triggers lies within an interval. This </p>
+<p>results in a greater reference cycle and in potentially overlooking slave trigger errors. </p>
+<p>Simple  scenarios  for  each  of  the  two  reasons  that  lead  to  asynchronous  mode  are </p>
+<p>discussed below. After that, one examples illustrating the drawback of the asynchronous </p>
+<p>mode – the potential overlooking of trigger errors – are presented. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>20 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Scenario 1: Asynchronous Mode due to Drifting </b></p>
+<p>Master and slave invocations drift from each other. </p>
+<p> </p>
+<p>Figure 3-6 </p>
+<p>Master and slave drifting apart although they have the same configured period (P</p>
+<p>m</p>
+<p> = P</p>
+<p>s</p>
+<p>) </p>
+<p>In this example, the master period and the slave period have the same configured length </p>
+<p>but their clocks drift with some rate Δ (positive or negative). The master must check once </p>
+<p>in  n  master  periods  whether  the  number  of  slave  triggers  is  within  an  interval </p>
+<p>[tr1; </p>
+<p>tr2]</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The exact reference cycle n and the interval of the number of expected slave triggers </p>
+<p>depend on the master and slave periods. With increasing jitter the reference cycle also </p>
+<p>increases. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Scenario 2: Asynchronous Mode due to Insufficient Offset (Jitter) </b></p>
+<p>Master and  slave  do not  drift apart. But they  are  invoked  at  the  same points  of  time or </p>
+<p>close enough to one another so that the jitter affects their sequence. This is illustrated in </p>
+<p>Figure 3-7. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>21 </p>
+<p>based on template version 5.12.0 </p>
+<p>Figure 3-7 </p>
+<p>Master and slave do not drift from each other but jitter effects occur </p>
+<p>In this case, the master and slave are running synchronously, but due to the jitter and the </p>
+<p>insufficient </p>
+<p>offset </p>
+<p>between </p>
+<p>master </p>
+<p>and </p>
+<p>slave </p>
+<p>invocations </p>
+<p>the </p>
+<p>trigger </p>
+<p>pattern </p>
+<p>is </p>
+<p>unpredictable. For the master and a slave running with the same period the same values </p>
+<p>are derived as for the asynchronous scenario with drifting above – the master checks the </p>
+<p>slave  once  in  every  second  master  period  (reference  cycle  is  2)  and  the  number  of </p>
+<p>expected slave triggers lies in the interval between 1 and 3 inclusively.  </p>
+<p><b>Example of Overlooking Trigger Errors: Slave Trigger Omissions </b></p>
+<p>Figure 3-8 shows an example of how a trigger omission can be overlooked by the master. </p>
+<p>Let the expected slave trigger counter interval be </p>
+<p>[1; 2]</p>
+<p>. During the first check interval, </p>
+<p>the  slave  is  invoked  correctly  (as  expected  by  the  master).  During  the  second  check </p>
+<p>interval, the slave should have triggered two times, but one trigger is omitted – the master </p>
+<p>cannot detect this trigger error, since the trigger counter interval is not violated. The third </p>
+<p>check interval shows zero triggers and this is out of the interval, hence the trigger error is </p>
+<p>detected. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In this example, a minimum of two consecutive slave invocation omissions will always </p>
+<p>be detected by the master. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 3-8 </p>
+<p>Slave skipping one trigger is not necessarily detected by master in asynchronous mode </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Due  to  the  drawbacks,  using  the  asynchronous  mode  should  be  avoided  and,  if </p>
+<p>possible, the synchronous mode should be used! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.2.2.3 </b></p>
+<p><b>Worst Case Delay </b></p>
+<p>The <b>delay </b>of the State Combiner is defined as the duration from the point in time when a </p>
+<p>failure  occurs  on  the  slave  and  the  point  in  time  when  this  failure  is  escalated  to  the </p>
+<p>watchdog device by the master. The failure on the slave can be a failure detected by the </p>
+<p>WdgM running on the slave’s core or a failure which results in erroneous triggering of the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>22 </p>
+<p>based on template version 5.12.0 </p>
+<p>slave. Here, a failure on the slave is a slave trigger outage, i.e. discontinuation of the slave </p>
+<p>triggers, and the worst case delay refers to this slave trigger error only. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Drifting </p>
+<p>of </p>
+<p>the </p>
+<p>slave </p>
+<p>triggering </p>
+<p>might </p>
+<p>lead </p>
+<p>to </p>
+<p>a </p>
+<p>longer </p>
+<p>detection </p>
+<p>time </p>
+<p>(in </p>
+<p>both, </p>
+<p>synchronous  and  asynchronous  mode)  or  might  be  overlooked  by  the  master  (in </p>
+<p>asynchronous mode only). Occasional slave trigger omissions might be overlooked by </p>
+<p>the master only in asynchronous mode, but they are detected in synchronous mode. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Reset  requests  from  the  slave  are  detected  by  the  master  at  the  end  of  the  current </p>
+<p>master period (and not at the end of the current check interval) in both, synchronous </p>
+<p>and asynchronous mode. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The upper limit for the <b>worst case delay of the State Combiner (WCD) </b>in synchronous </p>
+<p>mode is the double maximum duration of the check interval: </p>
+<p>WCD &lt; 2*n*T</p>
+<p>m</p>
+<p>, where </p>
+<p>T</p>
+<p>m</p>
+<p> is </p>
+<p>the WdgM configuration parameter </p>
+<p>WdgMTriggerWindowCondition</p>
+<p> set on the master </p>
+<p>core and </p>
+<p>n</p>
+<p> is the <b>reference cycle </b>with which the master checks the slave.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>T</p>
+<p>m</p>
+<p> </p>
+<p>is </p>
+<p>the </p>
+<p>worst </p>
+<p>case </p>
+<p>actual </p>
+<p>period </p>
+<p>of </p>
+<p>invocation </p>
+<p>of </p>
+<p>the </p>
+<p>master’s </p>
+<p>WdgM_MainFunction()</p>
+<p>, and it is limited by the watchdog device. </p>
+<p>T</p>
+<p>m</p>
+<p> can also </p>
+<p>be  expressed  as  the  configured  master  invocation  period  plus  the  maximum </p>
+<p>possible jitter of this invocation: </p>
+<p>T</p>
+<p>m</p>
+<p> = P</p>
+<p>m</p>
+<p> + j</p>
+<p>m</p>
+<p>.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The <b> worst  case  scenario </b> happens  under  the  following  conditions  (illustrated  in  Figure </p>
+<p>3-9). The  slave  is  triggered  shortly  after the  master  has  successfully  checked  the  slave </p>
+<p>triggers. However, the slave fails right afterwards and is not being triggered anymore, it is </p>
+<p>not able to directly inform the master of a failure either. At the end of the current check </p>
+<p>interval the master still evaluates the slave as OK if the number of slave triggers is within </p>
+<p>the expected interval despite the trigger error. Yet, the next time the master core checks </p>
+<p>the slave core, it detects that the slave has stopped triggering (at the end of the third check </p>
+<p>interval shown in the figure). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>23 </p>
+<p>based on template version 5.12.0 </p>
+<p>Figure 3-9 </p>
+<p>Worst case delay of the State Combiner </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Slave trigger errors that do not lead to violation of the expected number of slave </p>
+<p>triggers interval cannot be detected by the master!</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><i><b>3.2.2.4 </i> Worst Case Evaluations </b></p>
+<p>The  WdgIf  Fault  Reaction  Time  does  not  depend  on  the  monitoring  feature,  but  on  the </p>
+<p>following three aspects: </p>
+<p><b>&gt; </b></p>
+<p>whether a State Combiner is used or not, </p>
+<p><b>&gt; </b></p>
+<p>whether an immediate reset or discontinuing of triggers is configured, </p>
+<p><b>&gt; </b></p>
+<p>whether the fault is detected in the master application SW or a slave application SW (if </p>
+<p>a State Combiner is used). </p>
+<p>There exist 6 different combinations of the three aspects listed above: </p>
+<p><b>Case  </b></p>
+<p><b>State Combiner used  </b></p>
+<p><b>Escalation kind  </b></p>
+<p><b>Fault occurs in  </b></p>
+<p>1  </p>
+<p>Yes  </p>
+<p>Immediate Reset  </p>
+<p>Master SW application </p>
+<p>2  </p>
+<p>Yes  </p>
+<p>Immediate Reset  </p>
+<p>Slave SW application </p>
+<p>3  </p>
+<p>Yes  </p>
+<p>Discontinuing of Triggers </p>
+<p>Master SW application </p>
+<p>4  </p>
+<p>Yes  </p>
+<p>Discontinuing of Triggers </p>
+<p>Slave SW application </p>
+<p>5  </p>
+<p>No  </p>
+<p>Immediate Reset  </p>
+<p>n/a </p>
+<p>6  </p>
+<p>No  </p>
+<p>Discontinuing of Triggers </p>
+<p>n/a  </p>
+<p>Table 3-4  </p>
+<p>Combinations for worst case evaluation </p>
+<p>The WdgIf Fault Reaction Time of every combination is discussed in the following: </p>
+<p> </p>
+<p><b>Case 1 </b>- State Combiner, immediate reset, fault in master, <b>Case 5 </b>- No State Combiner, </p>
+<p>immediate reset: </p>
+<p>The WdgIf escalates the reset request immediately to the Wdg device. The WdgIf Fault </p>
+<p>Reaction Time  for  case  1  and  case  5  is  always  0  (in  any  case,  there  is  no  more  cycle </p>
+<p>consumed - not counting the code execution). </p>
+<p><b>Case 2 </b>- State Combiner, immediate reset, fault in slave: </p>
+<p><b>&gt; </b></p>
+<p>The  slave  writes  an  immediate  reset  request  to  the  shared  memory  of  the  State </p>
+<p>Combiner. </p>
+<p><b>&gt; </b></p>
+<p>The master reads the request at the next call of </p>
+<p>WdgM_MainFunction()</p>
+<p> and initiates </p>
+<p>the immediate reset. </p>
+<p>The worst case happens </p>
+<p><b>&gt; </b></p>
+<p>when the master calls its </p>
+<p>WdgM_MainFunction()</p>
+<p>, </p>
+<p><b>&gt; </b></p>
+<p>the slave writes the reset request immediately afterwards and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>24 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>&gt; </b></p>
+<p>the </p>
+<p>master </p>
+<p>calls </p>
+<p>its </p>
+<p>WdgM_MainFunction()</p>
+<p> </p>
+<p>with </p>
+<p>max. </p>
+<p>possible </p>
+<p>delay </p>
+<p>(</p>
+<p>WdgMTriggerConditionValue</p>
+<p>(master)). </p>
+<p><b>&gt; </b></p>
+<p>As </p>
+<p>Figure </p>
+<p>3-10 </p>
+<p>shows, </p>
+<p>the </p>
+<p>WdgIf </p>
+<p>Fault </p>
+<p>Reaction </p>
+<p>Time </p>
+<p>is </p>
+<p>WdgMTriggerConditionValue</p>
+<p>(master). </p>
+<p> </p>
+<p>Figure 3-10 </p>
+<p>Worst case evaluation Case 2 </p>
+<p><b>Case  3 </b> -  State  Combiner,  discontinuing  of  triggers,  fault  in  master, <b> Case  6 </b> -  No  State </p>
+<p>Combiner, discontinuing of triggers:  </p>
+<p>There is no action or delay on the WdgIf level. The WdgIf Fault Reaction Time for case 3 </p>
+<p>and case 6 is always 0 (in any case, there is no more cycle consumed - not counting the </p>
+<p>code execution). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Master</p>
+<p>Slave</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>WdgM_MainFunction</p>
+<p>Slave</p>
+<p>WdgMTriggerConditionValue(master)</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>WdgIf Fault Reaction Time</p>
+<p>WdgM Fault Reaction Time</p>
+<p>Slave writes</p>
+<p>reset request</p>
+<p>Master</p>
+<p>initiates reset</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>25 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Case 4 </b>- State Combiner, discontinuing of triggers, fault in slave: </p>
+<p><b>&gt; </b></p>
+<p>The slave discontinues triggering. </p>
+<p><b>&gt; </b></p>
+<p>With every call of </p>
+<p>WdgM_MainFunction()</p>
+<p> on master side, the master checks how </p>
+<p>often the slave has triggered since the previous check. </p>
+<p><b>&gt; </b></p>
+<p>As  soon  as  the  number  of  slave  triggers  is  outside  the  expected  range,  the  master </p>
+<p>initiates </p>
+<p>an </p>
+<p>immediate </p>
+<p>reset. </p>
+<p>(This </p>
+<p>is </p>
+<p>not </p>
+<p>necessarily </p>
+<p>with </p>
+<p>the </p>
+<p>next </p>
+<p>call </p>
+<p>of </p>
+<p>WdgM_MainFunction(</p>
+<p>) on master side.) </p>
+<p>The worst case happens when </p>
+<p><b>&gt; </b></p>
+<p>the master checks the number of triggers on slave side since the previous check, </p>
+<p><b>&gt; </b></p>
+<p>the  slave  sends  an  allowed  number  of  triggers  (with  respect  to  the  next  check  on </p>
+<p>master side) immediately afterwards, </p>
+<p><b>&gt; </b></p>
+<p>the WdgM Fault Reaction Time ends and the slave discontinues triggering immediately </p>
+<p>afterwards. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Then the WdgIf Fault Reaction Time is (almost): </p>
+<p>        </p>
+<p>         2 * </p>
+<p>WdgIfStateCombinerReferenceCycle</p>
+<p> * </p>
+<p>WdgMTriggerConditionValue</p>
+<p>Master</p>
+<p>,</p>
+<p> </p>
+<p> </p>
+<p>where </p>
+<p>WdgIfStateCombinerReferenceCycle</p>
+<p> is the number of </p>
+<p>WdgMSupervisionCycle</p>
+<p> on master side between two checks of slave triggers. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Figure 3-11 demonstrates this: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle</p>
+<p> is 2, </p>
+<p><b>&gt; </b></p>
+<p>the  slave  sends  an  allowed  number  of  triggers  for  the  1st  check  interval  (i.e.  one </p>
+<p>trigger) before the end of the WdgIf Fault Reaction Time,  </p>
+<p><b>&gt; </b></p>
+<p>the master checks the slave triggers every 2nd call of </p>
+<p>WdgM_MainFunction</p>
+<p> (every </p>
+<p>2nd </p>
+<p>WdgMTriggerConditionValue</p>
+<p> (T</p>
+<p>M</p>
+<p>)), </p>
+<p><b>&gt; </b></p>
+<p>the discontinuing of slave triggers is detected at the end of the 2nd check interval. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>26 </p>
+<p>based on template version 5.12.0 </p>
+<p> </p>
+<p>Figure 3-11 </p>
+<p>Worst case evaluation Case 4 </p>
+<p> </p>
+<p>Master</p>
+<p>Slave</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>WdgM_MainFunction</p>
+<p>Slave</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>T</p>
+<p>M</p>
+<p>WdgM Fault Reaction Time</p>
+<p>Trigger</p>
+<p>discontinuation</p>
+<p>Master checks</p>
+<p>slave triggers</p>
+<p>and initiates</p>
+<p>reset</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>Master checks</p>
+<p>slave triggers</p>
+<p>(ok)</p>
+<p>Master checks</p>
+<p>slave triggers</p>
+<p>T</p>
+<p>M</p>
+<p>T</p>
+<p>M</p>
+<p>T</p>
+<p>M</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>WdgM_MainFunction</p>
+<p>Master</p>
+<p>1st Check Interval</p>
+<p>2nd Check Interval</p>
+<p>WdgIf Fault Reaction Time</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>27 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.2.2.5 </b></p>
+<p><b>Optimal Timing </b></p>
+<p>The  optimal  timing  results  in  minimal  worst  case  delay.  It  can  be  reached  when  the </p>
+<p>reference </p>
+<p>cycle </p>
+<p>is </p>
+<p>minimal </p>
+<p>– </p>
+<p>which </p>
+<p>is </p>
+<p>1. </p>
+<p>This </p>
+<p>applies </p>
+<p>for </p>
+<p>both, </p>
+<p>synchronous </p>
+<p>and </p>
+<p>asynchronous mode. </p>
+<p>Following </p>
+<p>must </p>
+<p>apply </p>
+<p>so </p>
+<p>that </p>
+<p>the </p>
+<p>optimal </p>
+<p>reference </p>
+<p>cycle </p>
+<p>of </p>
+<p>1 </p>
+<p>can </p>
+<p>be </p>
+<p>reached </p>
+<p>in </p>
+<p><b>synchronous mode</b>. The period of the WdgM main function invoking the master (</p>
+<p>P</p>
+<p>m</p>
+<p>) is a </p>
+<p>multiple of the period of the WdgM main function invoking the slave (</p>
+<p>P</p>
+<p>s</p>
+<p>). If </p>
+<p>P</p>
+<p>m </p>
+<p>= n * P</p>
+<p>s</p>
+<p>, </p>
+<p>where </p>
+<p>n = 1, 2, 3,…</p>
+<p>, then the master can check the slave in each master period. </p>
+<p><b>&gt; </b></p>
+<p>Example (synchronous mode): </p>
+<p><b>&gt; </b></p>
+<p>Master: </p>
+<p>P</p>
+<p>m</p>
+<p> = 20ms</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Slave: </p>
+<p>P</p>
+<p>s</p>
+<p> = 10ms</p>
+<p> </p>
+<p>Within one cycle of the master exactly 2 triggers of the slave are expected.  </p>
+<p>The worst case delay WCD to a failure in the slave is </p>
+<p>40 ms</p>
+<p>. </p>
+<p>The  following  must  apply  so  that  the  optimal  reference  cycle  of  1  can  be  reached  in </p>
+<p><b>asynchronous mode</b>. The master period must be longer than the slave period </p>
+<p>Example (asynchronous mode): </p>
+<p><b>&gt; </b></p>
+<p>Master: P</p>
+<p>m</p>
+<p> =  21ms  </p>
+<p><b>&gt; </b></p>
+<p>Slave: P</p>
+<p>m</p>
+<p> 18ms </p>
+<p>Within </p>
+<p>n = 1</p>
+<p> cycles of the master (at most </p>
+<p>21 ms</p>
+<p>) are 1 to 2 ticks of the slave expected. </p>
+<p>The WCD for a failure in the slave is </p>
+<p>2 * n * T</p>
+<p>m</p>
+<p> = 42 ms</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Even with the optimal ratio between periods the drawbacks of the asynchronous mode </p>
+<p>described in chapter Asynchronous Mode apply. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>28 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.2.2.6 </b></p>
+<p><b>Start-up Phase </b></p>
+<p>If </p>
+<p>the </p>
+<p>slave </p>
+<p>starts </p>
+<p>together </p>
+<p>with </p>
+<p>or </p>
+<p>after </p>
+<p>the </p>
+<p>master, </p>
+<p>then </p>
+<p>the </p>
+<p>parameter </p>
+<p>WdgIfStateCombinerStartUpSyncCycles</p>
+<p>  shall  be  set  to  some  positive  value  n  so </p>
+<p>that the master starts evaluating the slave triggering not from the first time the master is </p>
+<p>invoked after start up, but after the first n master periods. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>n</p>
+<p>  must  be  big  enough  so  that  the  master  starts  evaluating  the  slaves  as  soon  as </p>
+<p>possible after the slaves started; and small enough so that the master does not start to </p>
+<p>evaluate before the slaves started. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>A typical start-up phase setup is illustrated in Figure 3-12: </p>
+<p> </p>
+<p>Figure 3-12 </p>
+<p>Start-up phase, master starts before slave </p>
+<p>The  slave  (running  on  some  processor  core  B)  starts  later  than  the  master  (running  on </p>
+<p>processor core A). The </p>
+<p>WdgIfStateCombinerStartUpSyncCycles</p>
+<p> parameter is set to </p>
+<p>2 so that the master starts checking the slave after the slave has started. Before the slave </p>
+<p>starts, the master triggers the watchdog device only according to the trigger requests of </p>
+<p>the master’s overlying main function. Note, however, that if a slave’s main function detects </p>
+<p>a failure and explicitly requests a reset, then the master reacts even during the start-up </p>
+<p>phase and retransmits the reset request to the watchdog device. </p>
+<p><b>3.2.2.7 </b></p>
+<p><b>Changing the Monitoring Period During Runtime </b></p>
+<p>Changing the monitoring period means that either the processor frequency or the period of </p>
+<p>invocation of master or slave is changed. </p>
+<p><b>3.2.2.7.1 </b></p>
+<p><b>Changing the Monitoring Period in Synchronous Mode </b></p>
+<p>If the monitoring period in a synchronous mode needs to be changed, several things need </p>
+<p>to be considered. The number of slave triggers within one check interval must remain the </p>
+<p>same and </p>
+<p><b>&gt; </b></p>
+<p>the  change  of  the  monitoring  period  must  be  made  simultaneously  on  master  and </p>
+<p>slave. </p>
+<p>It is recommended that such a monitoring period change is not made while any instance of </p>
+<p>the WdgM Stack is being executed. </p>
+<p>Figure 3-13 shows an example of monitoring period change in synchronous mode. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>29 </p>
+<p>based on template version 5.12.0 </p>
+<p> </p>
+<p>Figure 3-13 </p>
+<p>Start-up phase, master starts before slave </p>
+<p><b>3.2.2.7.2 </b></p>
+<p><b>Changing the Monitoring Period in Asynchronous Mode </b></p>
+<p>If the monitoring period in asynchronous mode needs to be changed, several things have </p>
+<p>to be considered. </p>
+<p>If  the  State  Combiner  is  configured  in  asynchronous  mode,  then  for  any  change  of  the </p>
+<p>master period or slave period the following restriction applies: </p>
+<p><b>&gt; </b></p>
+<p>After the change the slave must not violate the interval of expected number of triggers. </p>
+<p>In order to meet the previous restriction following recommendations apply: </p>
+<p><b>&gt; </b></p>
+<p>It is recommended that the ratio between master and slave period remains the same. </p>
+<p><b>&gt; </b></p>
+<p>It  is  recommended  that  the  monitoring  period  change  is  done  simultaneously  for </p>
+<p>master and slave. </p>
+<p><b>&gt; </b></p>
+<p>It  is  recommended  that  such  a  monitoring  period  change  is  not  made  while  any </p>
+<p>instance of the WdgM Stack is being executed. </p>
+<p><b>3.2.2.8 </b></p>
+<p><b>Shared Memory </b></p>
+<p>The  State  Combiner  instances  use  shared  memory  to  communicate.  Every  counter </p>
+<p>increment of every slave is written to this memory area. The master reads out the shared </p>
+<p>memory </p>
+<p>in </p>
+<p>order </p>
+<p>to </p>
+<p>check </p>
+<p>the </p>
+<p>counter </p>
+<p>increments </p>
+<p>against </p>
+<p>the </p>
+<p>expected </p>
+<p>counter </p>
+<p>increments. The slave’s trigger requests increment the respective slave’s trigger counter in </p>
+<p>shared  memory. A  reset  request  from  the  slave  is  also  stored  in  the  shared  memory  to </p>
+<p>inform the master. All data in the shared memory is also stored with inverse value in order </p>
+<p>to ensure the detection of memory corruption. </p>
+<p>Access to the shared memory is protected against concurrent access. The shared memory </p>
+<p>is  only  written  by  the  slaves  and  only  read  by  the  master.  This  is  achieved  by  a </p>
+<p>mutex/semaphore that is configured for this shared memory block. </p>
+<p><b>3.2.2.9 </b></p>
+<p><b>Limitations of the State Combiner Implementation </b></p>
+<p>The State Combiner layer has the following limitations: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>30 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>&gt; </b></p>
+<p>Only  one  watchdog device  can  be  connected to  the master and be triggered.  Other </p>
+<p>watchdog devices can, however, be directly connected with any WdgIf instance (ECU </p>
+<p>description container </p>
+<p>WdgIfDevice</p>
+<p>) and not via State Combiner. </p>
+<p><b>3.3 </b></p>
+<p><b>Memory Sections </b></p>
+<p><b>3.3.1 </b></p>
+<p><b>Code and Constants </b></p>
+<p>Following memory sections need to be set up for WdgIf's code: </p>
+<p><b>Section </b></p>
+<p><b>Description </b></p>
+<p>WDGIF_START_SEC_CODE / </p>
+<p>WDGIF_STOP_SEC_CODE </p>
+<p>Set up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>Table 3-5  </p>
+<p>Code and Constants </p>
+<p>Following memory sections need to be set up for WdgIf's constants: </p>
+<p><b>Section </b></p>
+<p><b>Description </b></p>
+<p>WDGIF_START_SEC_CONST_ </p>
+<p>UNSPECIFIED /  </p>
+<p>WDGIF_STOP_SEC_CONST_ </p>
+<p>UNSPECIFIED </p>
+<p>Set up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>Table 3-6  </p>
+<p>WdgIf constants </p>
+<p><b>3.3.2 </b></p>
+<p><b>Module Variables </b></p>
+<p>Following  memory  sections  need  to  be  set  up  for WdgIf’s  module  variables  if  the  State </p>
+<p>Combiner functionality is used (otherwise the WdgIf uses no global variables): </p>
+<p><b>3.3.2.1 </b></p>
+<p><b>Module Variables with MICROSAR Os Gen6 / AUTOSAR Os version 4.0 </b></p>
+<p><b>Section </b></p>
+<p><b>Description </b></p>
+<p>WDGIF_START_SEC_VAR_8BIT / </p>
+<p>WDGIF_STOP_SEC_VAR_8BIT, </p>
+<p> </p>
+<p>WDGIF_START_SEC_VAR_16BIT / </p>
+<p>WDGIF_STOP_SEC_VAR_16BIT </p>
+<p>If the configuration parameter </p>
+<p>WdgIfGlobalMemoryAppTaskRef </p>
+<p>is set, then these </p>
+<p>sections are renamed according to the configured OS </p>
+<p>application (the prefix &quot;</p>
+<p>WDGIF_</p>
+<p>&quot; is converted to </p>
+<p>&quot;</p>
+<p>&lt;OSApp&gt;_</p>
+<p>&quot;, where </p>
+<p>&lt;OSApp&gt;</p>
+<p> is the name of the OS </p>
+<p>application) and generated as part of </p>
+<p>WdgIf_MemMap.h</p>
+<p>. </p>
+<p>Otherwise they need to be set up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>WDGIF_GLOBAL_SHARED_START_S</p>
+<p>EC_VAR_ </p>
+<p>UNSPECIFIED / </p>
+<p>WDGIF_GLOBAL_SHARED_STOP_SE</p>
+<p>C_VAR_ </p>
+<p>UNSPECIFIED </p>
+<p>These sections are always assigned in the generated file </p>
+<p>WdgIf_MemMap.h</p>
+<p> to OS sections and renamed to: </p>
+<p>GlobalShared_START_SEC_VAR_UNSPECIFIED / </p>
+<p>GlobalShared_STOP_SEC_VAR_UNSPECIFIED </p>
+<p>If other assignment is required, then they need to be set </p>
+<p>up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>Table 3-7  </p>
+<p>Module variables with MICROSAR Os Gen6 / AUTOSAR Os version 4.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>31 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.3.2.2 </b></p>
+<p><b>Module Variables with MICROSAR Os Gen7 / AUTOSAR Os version 4.2 </b></p>
+<p><b>Section </b></p>
+<p><b>Description </b></p>
+<p>WDGIF_START_SEC_VAR_8BIT / </p>
+<p>WDGIF_STOP_SEC_VAR_8BIT, </p>
+<p> </p>
+<p>WDGIF_START_SEC_VAR_16BIT / </p>
+<p>WDGIF_STOP_SEC_VAR_16BIT </p>
+<p>If the configuration parameter </p>
+<p>WdgIfGlobalMemoryAppTaskRef </p>
+<p>is set, then these </p>
+<p>sections are renamed according to the configured OS </p>
+<p>application (the prefix &quot;</p>
+<p>WDGIF_START_SEC</p>
+<p>&quot; is converted </p>
+<p>to &quot;</p>
+<p>OS_START_SEC_&lt;OSApp&gt;</p>
+<p>” and &quot;</p>
+<p>WDGIF_STOP_SEC</p>
+<p>&quot; </p>
+<p>is converted to &quot;</p>
+<p>OS_STOP_SEC_&lt;OSApp&gt;</p>
+<p> &quot;, where </p>
+<p>&lt;OSApp&gt;</p>
+<p> is the name of the OS application) and </p>
+<p>generated as part of </p>
+<p>WdgIf_MemMap.h</p>
+<p>. Otherwise they </p>
+<p>need to be set up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>WDGIF_GLOBAL_SHARED_START_S</p>
+<p>EC_VAR_ </p>
+<p>UNSPECIFIED / </p>
+<p>WDGIF_GLOBAL_SHARED_STOP_SE</p>
+<p>C_VAR_ </p>
+<p>UNSPECIFIED </p>
+<p>These sections are always assigned in the generated file </p>
+<p>WdgIf_MemMap.h</p>
+<p> to OS sections and renamed to: </p>
+<p>OS_START_SEC_GLOBALSHARED_VAR_UNSPECIFIED </p>
+<p>/ OS_STOP_SEC_GLOBALSHARED_VAR_UNSPECIFIED </p>
+<p>If other assignment is required, then they need to be set </p>
+<p>up manually, e.g. in </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>Table 3-8  </p>
+<p>Module variables MICROSAR Os Gen7 / AUTOSAR Os version 4.2 </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>32 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3.4 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.4.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [1],  if development  error reporting  is enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>WdgIf_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported WdgIf ID is 43 (decimal). </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  chapter  5.3.  The </p>
+<p>following table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x01u </p>
+<p>WdgIf_SetMode </p>
+<p>0x02u </p>
+<p>WdgIf_SetTriggerCondition </p>
+<p>0x03u </p>
+<p>WdgIf_GetVersionInfo </p>
+<p>0x04u </p>
+<p>WdgIf_SetTriggerWindow </p>
+<p>Table 3-9  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01u </p>
+<p>API service called with wrong device index parameter </p>
+<p>0x02u </p>
+<p>API service called with NULL_PTR as parameter</p>
+<p> </p>
+<p>Table 3-10  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>33 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>The delivery of the WdgIf contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>WdgIf.c </p>
+<p>WdgIf implementation </p>
+<p>WdgIf.h </p>
+<p>WdgIf API definitions and function declarations </p>
+<p>WdgIf_Types.h </p>
+<p>WdgIf type definitions </p>
+<p>WdgIf_Cfg.h </p>
+<p>Type definitions for the configuration data in generated files </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the WdgIf generator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>WdgIf_Lcfg.c </p>
+<p>Generated configuration of the component. </p>
+<p>WdgIf_Lcfg.h </p>
+<p>Generated header file for the configuration of the component. </p>
+<p>WdgIf_Cfg_Features.h </p>
+<p>This file contains all preprocessor options for the component. </p>
+<p>WdgIf_MemMap.h </p>
+<p>This file contains memory sections relevant for the State Combiner </p>
+<p>functionality . </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>34 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>This section describes the types, functions and interfaces that are imported or provided by </p>
+<p>the WdgIf software layer. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>This  section  describes  the  types  of  the  parameters  passed  to  the API  functions  of  the </p>
+<p>WdgIf. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>WdgIf_InterfaceFunctions</p>
+<p>Type </p>
+<p>c-struct </p>
+<p>Provides </p>
+<p>pointers to the </p>
+<p>platform-</p>
+<p>specific APIs. </p>
+<p>Std_ReturnType </p>
+<p>(*Wdg_SetMode_AR) </p>
+<p>(WdgIf_ModeType) </p>
+<p>void </p>
+<p>(*Wdg_SetTriggerCondition_AR) </p>
+<p>(uint16) </p>
+<p>WdgIf_InterfaceFunctions</p>
+<p>PerWdgDeviceType </p>
+<p>c-struct </p>
+<p>Connects </p>
+<p>platform-</p>
+<p>dependent </p>
+<p>functions  to  a </p>
+<p>physical </p>
+<p>watchdog </p>
+<p>in </p>
+<p>order  to  allow </p>
+<p>several </p>
+<p>watchdogs </p>
+<p>of </p>
+<p>the </p>
+<p>same </p>
+<p>platform </p>
+<p>to </p>
+<p>work </p>
+<p>simultaneousl</p>
+<p>y </p>
+<p>(e.g., </p>
+<p>external </p>
+<p>watchdogs). </p>
+<p>const </p>
+<p>WdgIf_InterfaceFunctions </p>
+<p>Type* WdgFunctions </p>
+<p> </p>
+<p>Pointers to the platform-specific watchdog </p>
+<p>driver functions. </p>
+<p><b>Note: </b>If the State Combiner is enabled, </p>
+<p>the NULL pointer is set instead of a </p>
+<p>pointer to the driver functions. </p>
+<p>uint8 WdgInstance</p>
+<p>  </p>
+<p> </p>
+<p>Index of the physical watchdog instance </p>
+<p>within this platform. </p>
+<p>Note: If the State Combiner is enabled, </p>
+<p>the parameter </p>
+<p>WdgInstance</p>
+<p> is used to </p>
+<p>address the State Combiner instance </p>
+<p>instead of a physical watchdog device. </p>
+<p><b>Note: </b>This parameter is used only if the </p>
+<p>State Combiner is used (preprocessor </p>
+<p>switch </p>
+<p>WDGIF_USE_STATECOMBINER</p>
+<p> is </p>
+<p>STD_ON</p>
+<p>). </p>
+<p>WdgIf_InterfaceType </p>
+<p>c-struct </p>
+<p>Main </p>
+<p>WdgIf </p>
+<p>configuration </p>
+<p>structure </p>
+<p>const uint8 NumOfWdgs </p>
+<p> </p>
+<p>Number of watchdogs supported in the </p>
+<p>WdgIf</p>
+<p> </p>
+<p>const </p>
+<p>WdgIf_InterfaceFunctions </p>
+<p>PerWdgDeviceType* </p>
+<p>WdgFunctionsPerDevice </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>35 </p>
+<p>based on template version 5.12.0 </p>
+<p>Reference to the watchdog driver </p>
+<p>functions and watchdog device instances</p>
+<p> </p>
+<p>const </p>
+<p>WdgIf_StateCombinerConfigType </p>
+<p>*WdgIfStateCombinerConfig </p>
+<p> </p>
+<p>Pointer to State Combiner common </p>
+<p>specific configuration data. </p>
+<p>Part of the structure only if State combiner </p>
+<p>is used (</p>
+<p>WDGIF_USE_STATECOMBINER</p>
+<p> is </p>
+<p>STD_ON</p>
+<p>).</p>
+<p> </p>
+<p>WdgIf_ModeType </p>
+<p>enum </p>
+<p>Mode </p>
+<p>of </p>
+<p>the </p>
+<p>Watchdog </p>
+<p>WDGIF_OFF_MODE </p>
+<p> </p>
+<p>Watchdog disabled</p>
+<p> </p>
+<p>WDGIF_SLOW_MODE </p>
+<p> </p>
+<p>Long timeout period (slow triggering)</p>
+<p> </p>
+<p>WDGIF_FAST_MODE </p>
+<p> </p>
+<p>Short timeout period (fast triggering)</p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>WdgIf Type Definitions </p>
+<p><b>5.2 </b></p>
+<p><b>State Combiner Type Definitions </b></p>
+<p>This section describes the State Combiner types in case the State Combiner functionality </p>
+<p>is enabled. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>WdgIf_StateCombiner</p>
+<p>SharedMemory </p>
+<p>c-struct </p>
+<p>State Combiner global </p>
+<p>shared data. Read by </p>
+<p>the master and written </p>
+<p>by all slave devices. </p>
+<p>Contains the current </p>
+<p>WindowStart</p>
+<p> and </p>
+<p>Timeout </p>
+<p>values of the </p>
+<p>slave devices and the </p>
+<p>Counter</p>
+<p> values. This is </p>
+<p>an array with an element </p>
+<p>for each slave. </p>
+<p>uint16 SlaveCounterValue </p>
+<p> </p>
+<p>Current slave’s trigger counter </p>
+<p>value.</p>
+<p> </p>
+<p>uint16 </p>
+<p>SlaveCounterValue_INV </p>
+<p> </p>
+<p>Inverted value of the current </p>
+<p>Timeout</p>
+<p> of the slave’s trigger </p>
+<p>request.</p>
+<p> </p>
+<p>WdgIf_StateCombiner</p>
+<p>SlaveTriggerPatternTy</p>
+<p>pe </p>
+<p>c-struct </p>
+<p>Configuration </p>
+<p>structure </p>
+<p>for </p>
+<p>configuring </p>
+<p>State </p>
+<p>Combiner. </p>
+<p>This </p>
+<p>is </p>
+<p>an </p>
+<p>array with an element for </p>
+<p>each slave. </p>
+<p>uint16 </p>
+<p>WdgIfStateCombinerReference</p>
+<p>Cycle </p>
+<p> </p>
+<p>Defines the reference cycle with </p>
+<p>which the master will check the </p>
+<p>slave.</p>
+<p> </p>
+<p>uint16 </p>
+<p>WdgIfStateCombinerSlaveIncr</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>36 </p>
+<p>based on template version 5.12.0 </p>
+<p>ementsMin </p>
+<p> </p>
+<p>Minimal number of expected slave </p>
+<p>triggers in one master check </p>
+<p>interval.</p>
+<p> </p>
+<p>uint16 </p>
+<p>WdgIfStateCombinerSlaveIncr</p>
+<p>ementsMax </p>
+<p> </p>
+<p>Maximal number of expected slave </p>
+<p>triggers in one master check </p>
+<p>interval.</p>
+<p> </p>
+<p>WdgIf_StateCombiner</p>
+<p>ConfigType </p>
+<p>c-struct </p>
+<p>State </p>
+<p>Combiner </p>
+<p>configuration structure</p>
+<p> </p>
+<p>uint8 </p>
+<p>WdgIfStateCombinerNumberOfS</p>
+<p>laves </p>
+<p> </p>
+<p>Number of slaves configured for the </p>
+<p>State Combiner. </p>
+<p>WdgIf_StateCombinerSpinlock</p>
+<p>IdType </p>
+<p>WdgIfStateCombinerSpinlockI</p>
+<p>d </p>
+<p> </p>
+<p>Spinlock ID for synchronizing the </p>
+<p>access to the shared memory </p>
+<p>section. </p>
+<p>uint16 </p>
+<p>WdgIfStateCombinerStartUpSy</p>
+<p>ncCycles </p>
+<p> </p>
+<p>Number of master cycles during </p>
+<p>start-up in which the master does </p>
+<p>not check the slave triggers.</p>
+<p> </p>
+<p>const </p>
+<p>WdgIf_InterfaceFunctionsTyp</p>
+<p>e </p>
+<p>*WdgIfStateCombinerFunction</p>
+<p>s </p>
+<p> </p>
+<p>Pointer to the functions of the </p>
+<p>watchdog device driver connected to </p>
+<p>the master.</p>
+<p> </p>
+<p>WdgIf_StateCombinerSharedMe</p>
+<p>mory </p>
+<p>*WdgIfStateCombinerSData </p>
+<p> </p>
+<p>Pointer to the shared memory.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>const  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>37 </p>
+<p>based on template version 5.12.0 </p>
+<p>WdgIf_StateCombinerSlaveTri</p>
+<p>ggerPatternType </p>
+<p>Type  </p>
+<p>**WdgIfStateCombinerSlaveTr</p>
+<p>iggerPattern </p>
+<p>  </p>
+<p>Pointer to an array of data for State </p>
+<p>Combiner configuration. One </p>
+<p>element for each slave.  </p>
+<p>Table 5-2  </p>
+<p>State Combiner Type Definitions </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>38 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5.3 </b></p>
+<p><b>Services provided by WdgIf </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>WdgIf_SetMode </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>WdgIf_SetMode</b></p>
+<p> </p>
+<p>( uint8 DeviceIndex, WdgIf_ModeType Mode)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>DeviceIndex </p>
+<p>Identifies the watchdog instance </p>
+<p>Mode </p>
+<p>WDGIF_OFF_MODE: Watchdog disabled </p>
+<p>WDGIF_SLOW_MODE: Long timeout period (slow triggering) </p>
+<p>WDGIF_FAST_MODE: Short timeout period (fast triggering) </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK</p>
+<p>:            API finished successfully </p>
+<p>E_NOT_OK: </p>
+<p>An error occurred during execution </p>
+<p><b>Functional Description </b></p>
+<p>This function maps the </p>
+<p>SetMode</p>
+<p> service to the corresponding physical watchdog implementation </p>
+<p>according to the parameter </p>
+<p>DeviceIndex</p>
+<p>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This service is expected to be called in task context. </p>
+<p>Table 5-3  </p>
+<p>WdgIf_SetMode </p>
+<p><b>5.3.2 </b></p>
+<p><b>WdgIf_SetTriggerCondition </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType </p>
+<p><b>WdgIf_SetTriggerCondition </b></p>
+<p>( uint8 DeviceIndex, uint16 Timeout) </p>
+<p><b>Parameter </b></p>
+<p>DeviceIndex </p>
+<p>Identifies the watchdog instance </p>
+<p>Timeout </p>
+<p>Timeout value in milliseconds for setting the trigger </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK</p>
+<p>:            API finished successfully </p>
+<p>E_NOT_OK: </p>
+<p>An error occurred during execution </p>
+<p><b>Functional Description </b></p>
+<p>This function maps the </p>
+<p>SetTriggerCondition</p>
+<p> service to the corresponding physical watchdog </p>
+<p>according to the parameter </p>
+<p>DeviceIndex</p>
+<p>. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>39 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This service is expected to be called in task context. </p>
+<p>Table 5-4  </p>
+<p>WdgIf_SetTriggerCondition </p>
+<p><b>5.3.3 </b></p>
+<p><b>WdgIf_SetTriggerWindow </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType </p>
+<p><b>WdgIf_SetTriggerWindow </b></p>
+<p>( </p>
+<p>uint8 DeviceIndex, </p>
+<p>uint16 </p>
+<p>WindowStart,</p>
+<p> </p>
+<p>uint16 Timeout </p>
+<p>) </p>
+<p><b>Parameter </b></p>
+<p>DeviceIndex </p>
+<p>Identifies the watchdog instance </p>
+<p>WindowStart </p>
+<p>Minimum time until next watchdog service is allowed in milliseconds </p>
+<p>Timeout </p>
+<p>Timeout value in milliseconds for setting the trigger </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK</p>
+<p>:            API finished successfully </p>
+<p>E_NOT_OK: </p>
+<p>An error occurred during execution </p>
+<p><b>Functional Description </b></p>
+<p>This function maps the </p>
+<p>SetTriggerWindow</p>
+<p> service to the corresponding physical watchdog according to </p>
+<p>the parameter </p>
+<p>DeviceIndex</p>
+<p>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This service is expected to be called in task context. </p>
+<p>Table 5-5  </p>
+<p>WdgIf_SetTriggerWindow </p>
+<p><b>5.3.4 </b></p>
+<p><b>WdgIf_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void </p>
+<p><b>WdgIf_GetVersionInfo </b></p>
+<p>( Std_VersionInfoType* VersionInfoPtr) </p>
+<p><b>Parameter </b></p>
+<p>VersionInfoPtr </p>
+<p>Pointer to where to store the version information of this module </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>40 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Return code </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>WdgIf_GetVersionInfo</p>
+<p> returns the version information of this module. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous. </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p><b>&gt; </b></p>
+<p>This function is only available if preprocessor switch </p>
+<p>WDGIF_VERSION_INFO_API</p>
+<p> set to </p>
+<p>STD_ON</p>
+<p>. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This service is expected to be called in task context. </p>
+<p>Table 5-6  </p>
+<p>WdgIf_GetVersionInfo </p>
+<p><b>5.4 </b></p>
+<p><b>Services used by WdgIf </b></p>
+<p>In  Table  5-7  services  provided  by  other  components,  which  are  used  by  the  WdgIf  are </p>
+<p>listed.  For  details  about  prototype  and  functionality  refer  to  the  documentation  of  the </p>
+<p>providing component. </p>
+<p>The  external  functions  must  not  degrade  the  quality  level  of  the  WdgIf.  Hence,  the </p>
+<p>possibility to use wrapper functions is provided so that either: </p>
+<p><b>&gt; </b></p>
+<p>the wrapper function calls the external function (e.g. context switch), or </p>
+<p><b>&gt; </b></p>
+<p>the wrapper function provides an alternative implementation of the external function. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In  case  of  using  wrapper  functions,  these  must  be  implemented  according  to  the </p>
+<p>required quality level of the system (e.g. ASIL D). </p>
+<p>All wrapper functions have the prefix “</p>
+<p>Appl_</p>
+<p>”. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Component </b></p>
+<p><b>Function </b></p>
+<p><b>Description </b></p>
+<p>OS </p>
+<p>GetSpinlock() /  </p>
+<p>ReleaseSpinlock() </p>
+<p>If the State Combiner functionality is used </p>
+<p>(preprocessor option </p>
+<p>WDGIF_USE_STATECOMBINER</p>
+<p> is </p>
+<p>STD_ON</p>
+<p>) </p>
+<p>and if the preprocessor option </p>
+<p>WDGIF_STATECOMBINER_USE_OS_SPIN_LO</p>
+<p>CK</p>
+<p> is </p>
+<p>STD_ON</p>
+<p>, these OS functions are used in </p>
+<p>order to synchronize the State Combiner </p>
+<p>instances running on different processor </p>
+<p>cores. The declaration is included with </p>
+<p>Os.h</p>
+<p>. </p>
+<p>Note: If these functions do not meet the target </p>
+<p>quality level of the system, then the wrapper </p>
+<p>functions </p>
+<p>Appl_GetSpinlock()</p>
+<p> and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>41 </p>
+<p>based on template version 5.12.0 </p>
+<p>Appl_ReleaseSpinlock() </p>
+<p>must be used. </p>
+<p>Note: These functions use the spinlock ID </p>
+<p>configured with the configuration parameter </p>
+<p>WdgIfStateCombinerSpinlockID</p>
+<p>. This </p>
+<p>spinlock must be initialized before the WdgIf is </p>
+<p>invoked for the first time (i.e. the overlying </p>
+<p>WdgM main function is invoked for the first </p>
+<p>time after system start-up). </p>
+<p>Appl_Spinlo</p>
+<p>ck </p>
+<p>Appl_GetSpinlock() /  </p>
+<p>Appl_ReleaseSpinlock() </p>
+<p>If the State Combiner functionality is used </p>
+<p>(preprocessor option </p>
+<p>WDGIF_USE_STATECOMBINER</p>
+<p> is </p>
+<p>STD_ON</p>
+<p>) </p>
+<p>and if the preprocessor option </p>
+<p>WDGIF_STATECOMBINER_USE_OS_SPIN_LO</p>
+<p>CK</p>
+<p> is </p>
+<p>STD_OFF</p>
+<p>, these user defined functions </p>
+<p>are used in order to synchronize the State </p>
+<p>Combiner instances running on different </p>
+<p>processor cores.  </p>
+<p>The expected declarations are included with </p>
+<p>Appl_Spinlock.h: Std_ReturnType </p>
+<p>Appl_GetSpinlock (uint32 ID); </p>
+<p>Std_ReturnType </p>
+<p>Appl_ReleaseSpinlock (uint32 int </p>
+<p>ID); </p>
+<p>Note: These functions use the spinlock ID </p>
+<p>configured with configuration parameter </p>
+<p>WdgIfStateCombinerSpinlockID</p>
+<p>. This </p>
+<p>spinlock must be initialized before the WdgIf is </p>
+<p>invoked for the first time (i.e. the overlying </p>
+<p>WdgM main function is invoked for the first </p>
+<p>time after system start-up). </p>
+<p>Table 5-7  </p>
+<p>Services used by the WdgIf </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>42 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>This section describes the configuration of the WdgIf. Only link time configuration is used </p>
+<p>for the WdgIf. </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The WdgIf supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the WdgIf parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the WdgIf_bswmd.arxml file. </p>
+<p>The WdgIf can be configured using the following tool:  </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Configurator 5 (AUTOSAR 4 packages only). Parameters are explained within </p>
+<p>the tool.  </p>
+<p>The outputs of the configuration and generation process are the configuration source files. </p>
+<p><b>6.2 </b></p>
+<p><b>Integration with MICROSAR / fully AUTOSAR compliant Wdg drivers </b></p>
+<p>In order to integrate the WdgIf with a MICROSAR / fully AUTOSAR-compliant watchdog </p>
+<p>driver the </p>
+<p>WdgIfDevice</p>
+<p> must be configured as following: </p>
+<p>Driver-API as specified by AUTOSAR: </p>
+<p><b>&gt; </b></p>
+<p>Only the AUTOSAR parameter </p>
+<p>WdgIfDriverRef</p>
+<p> has to be configured by referencing </p>
+<p>either a watchdog driver directly (</p>
+<p>WdgGeneral</p>
+<p>) or a </p>
+<p>WdgIfStateCombinerMaster</p>
+<p> </p>
+<p>or </p>
+<p>WdgIfStateCombinerSlave</p>
+<p>. </p>
+<p>All </p>
+<p>other </p>
+<p>parameters </p>
+<p>(</p>
+<p>WdgIfDeviceIncludeFile</p>
+<p>, </p>
+<p>WdgIfDeviceSetMode</p>
+<p> </p>
+<p>and </p>
+<p>WdgIfDeviceSetTriggerCondition</p>
+<p>) </p>
+<p>will </p>
+<p>be </p>
+<p>updated </p>
+<p>automatically. </p>
+<p>If </p>
+<p>a </p>
+<p>WdgIfStateCombinerSlave</p>
+<p>  is  referenced  the  parameters  mentioned  above  does </p>
+<p>not have to be configured. </p>
+<p>Driver-API as not specified by AUTOSAR: </p>
+<p><b>&gt; </b></p>
+<p>The </p>
+<p>parameters </p>
+<p>(</p>
+<p>WdgIfDeviceIncludeFile</p>
+<p>, </p>
+<p>WdgIfDeviceSetMode</p>
+<p> </p>
+<p>and </p>
+<p>WdgIfDeviceSetTriggerCondition</p>
+<p>)  must  be  configured  to  satisfy  the  driver’s </p>
+<p>need.    </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If the WdgM is the caller of the WdgIf (i.e. function </p>
+<p>WdgIf_SetTriggerWindow()</p>
+<p> is </p>
+<p>used </p>
+<p>to </p>
+<p>service </p>
+<p>the </p>
+<p>watchdog </p>
+<p>device), </p>
+<p>the </p>
+<p>parameter </p>
+<p>WindowStart </p>
+<p>(WdgMTriggerWindowStart)</p>
+<p>  has  no  effect,  because  it  cannot  be  passed  to  an </p>
+<p>AUTOSAR-compliant driver. It is then good practice to set it to 0, because this would </p>
+<p>be the functional meaning of its absence. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>43 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>6.3 </b></p>
+<p><b>Configuring the State Combiner </b></p>
+<p>The  State  Combiner  allows  to  configure  the  reference  cycle  and  the  expected  counter </p>
+<p>increments interval for each slave. </p>
+<p><b>&gt; </b></p>
+<p>Allows the user to determine and configure the values for reference cycle and number </p>
+<p>of expected triggers per trigger. Can be used to optimize reaction time. </p>
+<p><b>&gt; </b></p>
+<p>Does not allow changing the master or slave period unless the ratio between them </p>
+<p>stays the same. </p>
+<p><b>&gt; </b></p>
+<p>The State Combiner checks whether the number of slave triggers corresponds to the </p>
+<p>configuration – the system integrator must make sure that the configured values are </p>
+<p>correct! </p>
+<p><b>6.3.1 </b></p>
+<p><b>Configuration for Synchronous Mode </b></p>
+<p>In order to configure the State Combiner for synchronous mode following parameters must </p>
+<p>be configured in the ECU description: </p>
+<p><b>&gt; </b></p>
+<p>Set </p>
+<p>WdgIfUseStateCombiner</p>
+<p> to </p>
+<p>true</p>
+<p> (enable State Combiner). </p>
+<p><b>&gt; </b></p>
+<p>Set </p>
+<p>WdgIfStateCombinerReferenceCycle</p>
+<p> </p>
+<p>to </p>
+<p>the </p>
+<p>expected </p>
+<p>number </p>
+<p>of </p>
+<p>slave </p>
+<p>triggers. </p>
+<p><b>&gt; </b></p>
+<p>Set </p>
+<p>WdgIfStateCombinerSlaveIncrementsMin</p>
+<p> </p>
+<p>to </p>
+<p>the </p>
+<p>constant </p>
+<p>number </p>
+<p>of </p>
+<p>expected slave triggers. </p>
+<p><b>&gt; </b></p>
+<p>Set </p>
+<p>WdgIfStateCombinerSlaveIncrementsMax</p>
+<p> </p>
+<p>to </p>
+<p>the </p>
+<p>constant </p>
+<p>number </p>
+<p>of </p>
+<p>expected slave triggers as well. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The last three parameters are set for each slave. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin</p>
+<p> and </p>
+<p>WdgIfStateCombinerSlaveIncrementsMax</p>
+<p> must have the same value for </p>
+<p>synchronous mode! </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Example scenario 1: </b>Assume that the necessary conditions for synchronous mode apply, </p>
+<p>the  master  period  is  20ms  and  the  slave  period  is  20ms. The  following  configuration  is </p>
+<p>recommended for the State Combiner: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfUseStateCombiner = true </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle = 1 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin = 1 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMax = 1</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>44 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Example scenario 2: </b>Assume that the necessary conditions for synchronous mode apply, </p>
+<p>the  master  period  is  20ms  and  the  slave  period  is  40ms. The  following  configuration  is </p>
+<p>recommended for the State Combiner: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfUseStateCombiner = true </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle = 2 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin = 1 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMax = 1</p>
+<p> </p>
+<p><b>Example scenario 3: </b>Assume that the necessary conditions for synchronous mode apply, </p>
+<p>the  master  period  is  30ms  and  the  slave  period  is  10ms. The  following  configuration  is </p>
+<p>recommended for the State Combiner: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfUseStateCombiner = true </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle = 1 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin = 3 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMax = 3</p>
+<p> </p>
+<p><b>6.3.2 </b></p>
+<p><b>Configuration for Asynchronous Mode </b></p>
+<p>If the State Combiner is configured for asynchronous mode, then the reference cycle and </p>
+<p>the maximum and the minimum numbers of expected slave triggers are entered as part of </p>
+<p>the configuration. Following needs to be configured: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfUseStateCombiner</p>
+<p> to </p>
+<p>true</p>
+<p> (enable State Combiner). </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle</p>
+<p> to the required value. </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin</p>
+<p> to the required value. </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMax</p>
+<p> to the required value. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The last three parameters have to be set for each slave.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Example scenario:  </b></p>
+<p>Assume that the necessary conditions for asynchronous mode apply, the master period is </p>
+<p>20ms  and  the  slave  period  is  20ms.  Jitter  for  both  master  and  slave  is  maximum  2ms. </p>
+<p>Following configuration is optimal for the State Combiner: </p>
+<p><b>&gt; </b></p>
+<p>WdgIfUseStateCombiner = true </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerReferenceCycle = 2 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMin = 1 </p>
+<p><b>&gt; </b></p>
+<p>WdgIfStateCombinerSlaveIncrementsMax = 3</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>45 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>&lt;infix&gt; </p>
+<p>A placeholder with this name is interpreted as follows: </p>
+<p><b>&gt; </b></p>
+<p>In case of AUTOSAR 4 compatible environment the &lt;infix&gt; </p>
+<p>placeholder consists of the vendor ID and device name string </p>
+<p>of the configured Watchdog driver. </p>
+<p><b>&gt; </b></p>
+<p>In case of AUTOSAR 3 compatible environment the &lt;infix&gt; </p>
+<p>placeholder consists of the device name string of the </p>
+<p>configured Watchdog driver. </p>
+<p>Check interval </p>
+<p>The duration between two consecutive points in time when the master </p>
+<p>checks a slave trigger counter. It is the reference cycle multiplied by the </p>
+<p>master invocation period. </p>
+<p>Master </p>
+<p>State Combiner instance which is configured to work in master mode. </p>
+<p>Slave </p>
+<p>State Combiner instance which is configured to work in slave mode. </p>
+<p>Master / Slave </p>
+<p>invocation </p>
+<p>In the WdgM Stack, this is the point in time when the </p>
+<p>WdgM_MainFunction of the overlying WdgM is invoked – this main </p>
+<p>function eventually calls the master / slave. </p>
+<p>Reference cycle </p>
+<p>The number of master periods between two consecutive checks of the </p>
+<p>slave by the master. One means that the master checks a slave each </p>
+<p>time the master is invoked; two means that the master checks a slave </p>
+<p>every second time the master is invoked, etc. Note that for each slave the </p>
+<p>reference cycle can be different. See also check interval. </p>
+<p>Slave trigger errors </p>
+<p>They are: </p>
+<p><b>&gt; </b></p>
+<p>slave invocation omissions, </p>
+<p><b>&gt; </b></p>
+<p>slave invocation drifting, </p>
+<p><b>&gt; </b></p>
+<p>too frequent slave invocations and </p>
+<p><b>&gt; </b></p>
+<p>unscheduled triggers. </p>
+<p>Trigger counter </p>
+<p>A variable in shared memory for each slave which starts from 0 and is </p>
+<p>being incremented by its slave each time the slave is invoked with a </p>
+<p>trigger request. </p>
+<p>Number of slave </p>
+<p>triggers </p>
+<p>The number of trigger requests of a slave during a given period of time. </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>46 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR (AUTomotive Open System ARchitecture) is a worldwide </p>
+<p>development partnership of car manufacturers, suppliers and other </p>
+<p>companies from the electronics, semiconductor and software industry. </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>MCU </p>
+<p>Microcontroller Unit  </p>
+<p>WCD </p>
+<p>Worst Case Delay </p>
+<p>Wdg </p>
+<p>Watchdog Driver </p>
+<p>WdgIf </p>
+<p>Watchdog Interface </p>
+<p>WdgM </p>
+<p>Watchdog Manager </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR WDGIF </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>47 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

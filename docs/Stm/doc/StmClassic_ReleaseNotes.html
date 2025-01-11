@@ -1,0 +1,295 @@
+---
+layout: default
+title: StmClassic_ReleaseNotes
+nav_order: 3
+parent: Stm
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes StmClassic</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>BAC-6522, BAC-6523, BAC-6524, BAC-6255, BAC-6307</p>
+<p>5.1.1</p>
+<p>2017-11-09</p>
+<p>BAC-6246, BAC-6436</p>
+<p>5.1.0</p>
+<p>2017-10-12</p>
+<p>BAC-6247, BAC-6202, BAC-6429</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_StmClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The main objective of the STM functionality is to listen to certain vehicle wide states that are</p>
+<p>communicated on the system busses and maintain these states for the local ECU. This means: - Make</p>
+<p>these states available as modes to other software components - React on some changes of these states</p>
+<p>(for instance setting Dem enableconditions) - React on timeouts of these communicated states (set</p>
+<p>default values, reporterror events accordingly) The STM module is modeled as an AUTOSAR software</p>
+<p>component (SWC) residing above the RTE.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6522</p>
+<p>CR Headline:</p>
+<p>Add AdminData field to paramdef</p>
+<p>Description of Issues:</p>
+<p>AdminData field is missing in the paramdef files.</p>
+<p>Description of Changes:</p>
+<p>Adding AdminData field to paramdef files.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/StmClassic_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6523</p>
+<p>CR Headline:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd.</p>
+<p>Description of Changes:</p>
+<p>Assuring that the Schema of paramdefs, paramconfs and SWCDen</p>
+<p>is compatible with AUTOSAR_4-3-0_STRICT_COMPACT.xsd.</p>
+<p>Changed Files:</p>
+<p>generate/meta/Stm_interfaces.arxml.pgen</p>
+<p>meta/Stm_ext_interfaces.arxml</p>
+<p>cfgdesc/StmClassic_paramdef.arxml</p>
+<p>generate/meta/Stm_internal.arxml.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6524</p>
+<p>CR Headline:</p>
+<p>Separate parameter definition from generic into classic/adaptive</p>
+<p>Description of Issues:</p>
+<p>Separate parameter definition from generic into classic/adaptive.</p>
+<p>Description of Changes:</p>
+<p>Separating the parameter definition from the Stm generic into the</p>
+<p>Stm classic/adaptive adapter.</p>
+<p>Changed Files:</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>generate/src/StmClassic_PBCfg.c.pgen</p>
+<p>generate/include/StmClassic_Version.h.pgen</p>
+<p>generate/meta/Stm_internal.arxml.pgen</p>
+<p>ReleaseNotes_StmClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>CMakeLists.txt</p>
+<p>generate/meta/Stm_interfaces.arxml.pgen</p>
+<p>generate/include/Stm_Cfg.h.pgen</p>
+<p>cfgdesc/StmClassic_paramdef.arxml</p>
+<p>generate/include/StmClassic_PBCfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6255</p>
+<p>CR Headline:</p>
+<p>Create TEX based integration manuals</p>
+<p>Description of Issues:</p>
+<p>Create TEX based integration manuals.</p>
+<p>Description of Changes:</p>
+<p>Creating TEX based integration manuals.</p>
+<p>Changed Files:</p>
+<p>CMakeLists.txt</p>
+<p>doc/StmClassic_IntegrationManual.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6307</p>
+<p>CR Headline:</p>
+<p>StmClassic: Compiler warnings - Stm_v5.0.0 - mgcc_v4.5.1</p>
+<p>Description of Issues:</p>
+<p>Compiler warnings - Stm_v5.0.0 - mgcc_v4.5.1</p>
+<p>Description of Changes:</p>
+<p>Fixing Compiler warnings.</p>
+<p>Changed Files:</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>src/Stm_TimerAdapter.c</p>
+<p>include/Stm_Timer.h</p>
+<p>src/Stm_ComAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6246</p>
+<p>CR Headline:</p>
+<p>Add Requirement Traceability</p>
+<p>Description of Issues:</p>
+<p>Requirements Tracing incomplete</p>
+<p>Description of Changes:</p>
+<p>Added Requirements Traceability</p>
+<p>Changed Files:</p>
+<p>src/Stm_ErrMemAdapter.c</p>
+<p>src/Stm_MgmtAdapter.c</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>src/Stm_ComAdapter.c</p>
+<p>doc/StmClassic_RequirementsTable.pdf</p>
+<p>src/Stm_TimerAdapter.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6436</p>
+<p>CR Headline:</p>
+<p>Stm version checks incorrect</p>
+<p>Description of Issues:</p>
+<p>Incorrect version check macro usage.</p>
+<p>ReleaseNotes_StmClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Changes:</p>
+<p>Corrected usage.</p>
+<p>Changed Files:</p>
+<p>include/StmClassic_Version.h</p>
+<p>src/Stm_ErrMemAdapter.c</p>
+<p>src/Stm_MgmtAdapter.c</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>generate/src/StmClassic_PBCfg.c.pgen</p>
+<p>include/Stm_Com.h</p>
+<p>src/Stm_ComAdapter.c</p>
+<p>src/Stm_TimerAdapter.c</p>
+<p>include/Stm_Timer.h</p>
+<p>include/Stm_Mgmt.h</p>
+<p>generate/include/StmClassic_PBCfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6247</p>
+<p>CR Headline:</p>
+<p>Wrong file header in Stm_ext_interfaces.arxml</p>
+<p>Description of Issues:</p>
+<p>File Headers were in wrong format.</p>
+<p>Description of Changes:</p>
+<p>Corrected all file headers</p>
+<p>Changed Files:</p>
+<p>src/Stm_ErrMemAdapter.c</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>generate/src/StmClassic_PBCfg.c.pgen</p>
+<p>include/Stm_Com.h</p>
+<p>src/Stm_TimerAdapter.c</p>
+<p>meta/Stm_ext_interfaces.arxml</p>
+<p>generate/meta/Stm_internal.arxml.pgen</p>
+<p>include/Stm_Timer.h</p>
+<p>generate/meta/Stm_interfaces.arxml.pgen</p>
+<p>generate/include/StmClassic_PBCfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6202</p>
+<p>CR Headline:</p>
+<p>Remove SP2015/2015 suffixes from VEHICLE STATE</p>
+<p>Description of Issues:</p>
+<p>Editorial changes.</p>
+<p>Description of Changes:</p>
+<p>Removing the SP2015/2015 suffixes from VEHICLE STATE.</p>
+<p>Changed Files:</p>
+<p>src/Stm_MgmtAdapter.c</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>generate/src/StmClassic_PBCfg.c.pgen</p>
+<p>src/Stm_ComAdapter.c</p>
+<p>generate/meta/Stm_internal.arxml.pgen</p>
+<p>generate/meta/Stm_interfaces.arxml.pgen</p>
+<p>include/Stm_Mgmt.h</p>
+<p>ReleaseNotes_StmClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 5</p>
+<h1 style="page-break-before:always; "></h1>
+<p>generate/include/StmClassic_PBCfg.h.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6429</p>
+<p>CR Headline:</p>
+<p>Stm references parameters with wrong names in pgen files</p>
+<p>Description of Issues:</p>
+<p>Stm references parameter &quot;stmVehicleStateEnabled&quot; with lower</p>
+<p>case first letter, which is wrong, in several *.pgen files.</p>
+<p>Description of Changes:</p>
+<p>Fixed parameter name.</p>
+<p>Changed Files:</p>
+<p>generate/include/StmClassic_Cfg.h.pgen</p>
+<p>generate/meta/Stm_internal.arxml.pgen</p>
+<p>generate/src/StmClassic_PBCfg.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_StmClassic, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 5</p>
+</body>
+</html>
+{% endraw %}

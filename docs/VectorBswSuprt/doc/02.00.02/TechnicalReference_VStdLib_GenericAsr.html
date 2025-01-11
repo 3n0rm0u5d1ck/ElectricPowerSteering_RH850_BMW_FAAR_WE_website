@@ -1,0 +1,1416 @@
+---
+layout: default
+title: TechnicalReference_VStdLib_GenericAsr
+nav_order: 4
+parent: Vector Basic Software Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR VStdLib </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Generic implementation of the Vector Standard Library </p>
+<p>Version 1.00.01 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Torsten Kercher </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>2 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Document Information </b></p>
+<p> </p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Torsten Kercher </p>
+<p>2015-05-04 </p>
+<p>1.00.00 </p>
+<p>Creation </p>
+<p>Torsten Kercher </p>
+<p>2016-04-12 </p>
+<p>1.00.01 </p>
+<p>Update to new CI, no changes in content </p>
+<p> </p>
+<p> </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>1.6.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>3.2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>3 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 6</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 6</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 8</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization and Main Functions ........................................................................ 8</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Error Handling .................................................................................................... 8</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ..................................................................................................................... 9</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................... 9</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Include Structure ................................................................................................ 9</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Critical Sections ................................................................................................. 9</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping ..................................................... 10</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Integration Hints ............................................................................................... 11</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 12</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 12</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by VStdLib .......................................................................... 12</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by VStdLib ................................................................................ 22</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 23</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 23</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Manual Configuration in Header File ................................................................ 23</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Abbreviations .............................................................................................................. 25</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 26</b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>4 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ......................................................... 6</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules ................................................................... 7</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Include Structure ........................................................................................ 9</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 5</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Service IDs ................................................................................................. 8</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................... 8</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................... 9</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping ............................................. 10</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>VStdLib_GetVersionInfo ........................................................................... 12</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>VStdLib_MemClr ...................................................................................... 13</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>VStdLib_MemClrMacro ............................................................................. 14</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>VStdLib_MemSet ...................................................................................... 15</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>VStdLib_MemSetMacro ............................................................................ 16</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>VStdLib_MemCpy ..................................................................................... 17</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>VStdLib_MemCpy16 ................................................................................. 18</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>VStdLib_MemCpy32 ................................................................................. 19</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>VStdLib_MemCpy_s ................................................................................. 20</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>VStdLib_MemCpyMacro ........................................................................... 21</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>VStdLib_MemCpyMacro_s ....................................................................... 22</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Services used by VStdLib ......................................................................... 22</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>General configuration ............................................................................... 24</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 25</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>5 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00 </p>
+<p>Creation of the component. </p>
+<p>2.00 </p>
+<p>Detach the component from core-based implementations, give optimized </p>
+<p>routines and support operations on large data (&gt; 65535 bytes). </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>6 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This  document  describes  the  functionality,  API  and  configuration  of  the  generic  Vector </p>
+<p>Standard Library (VStdLib).  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.x </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>VSTDLIB_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>VSTDLIB_MODULE_ID </p>
+<p>255 decimal </p>
+<p>(according to [1]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation. </p>
+<p> </p>
+<p>The  VStdLib  provides  a  hardware  independent  implementation  of  memory  manipulation </p>
+<p>services used by several MICROSAR BSW components. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the VStdLib is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>7 </p>
+<p>based on template version 5.9.0 </p>
+<p>The next figure shows the interfaces to adjacent modules of the VStdLib. These interfaces </p>
+<p>are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules </p>
+<p> </p>
+<p> </p>
+<p><b> class Module Structure</b></p>
+<p>«EmbeddedInterface»</p>
+<p><b>VStdLib</b></p>
+<p>+ </p>
+<p>VStdLib_GetVersionInfo()</p>
+<p>+ </p>
+<p>VStdLib_MemClr()</p>
+<p>+ </p>
+<p>VStdLib_MemClrLarge()</p>
+<p>+ </p>
+<p>VStdLib_MemClrMacro()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy_s()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy16()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy16Large()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy32()</p>
+<p>+ </p>
+<p>VStdLib_MemCpy32Large()</p>
+<p>+ </p>
+<p>VStdLib_MemCpyLarge()</p>
+<p>+ </p>
+<p>VStdLib_MemCpyLarge_s()</p>
+<p>+ </p>
+<p>VStdLib_MemCpyMacro()</p>
+<p>+ </p>
+<p>VStdLib_MemCpyMacro_s()</p>
+<p>+ </p>
+<p>VStdLib_MemSet()</p>
+<p>+ </p>
+<p>VStdLib_MemSetLarge()</p>
+<p>+ </p>
+<p>VStdLib_MemSetMacro()</p>
+<p>Module</p>
+<p>Det</p>
+<p>Module</p>
+<p>MICROSAR BSW</p>
+<p>module</p>
+<p>Module</p>
+<p>VStdLib</p>
+<p>«EmbeddedInterface»</p>
+<p><b>Det</b></p>
+<p>+ </p>
+<p>Det_ReportError()</p>
+<p>Module</p>
+<p>(Compiler) Library</p>
+<p>«EmbeddedInterface»</p>
+<p><b>(Compiler) Library</b></p>
+<p>«use</p>
+<p>optionally»</p>
+<p>«realize»</p>
+<p>«use»</p>
+<p>«use</p>
+<p>optionally»</p>
+<p>«realize»</p>
+<p>«realize»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>8 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p>This chapter describes the general function of the component. </p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The Vector Standard Library gives a standard interface for memory initialization and copy </p>
+<p>services as described in section 5.2. It provides a hardware independent implementation </p>
+<p>of  this  interface,  but  also  allows  the  mapping  to  project  specific  implementations  for </p>
+<p>optimization reasons. </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization and Main Functions </b></p>
+<p>No initialization is necessary and no main functions are provided. </p>
+<p><b>3.3 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.3.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>VSTDLIB_DEV_ERROR_REPORT == STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported VStdLib ID is 255. The service IDs identify the services which are described </p>
+<p>in section 5.2. The following table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>VSTDLIB_SID_MEM_SET</p>
+<p> </p>
+<p>(0x00)</p>
+<p> </p>
+<p>VStdLib_MemClr(), VStdLib_MemSet() </p>
+<p>VSTDLIB_SID_MEM_COPY</p>
+<p> </p>
+<p>(0x01)</p>
+<p> </p>
+<p>VStdLib_MemCpy() </p>
+<p>VSTDLIB_SID_MEM_COPY_16</p>
+<p> </p>
+<p>(0x02)</p>
+<p> </p>
+<p>VStdLib_MemCpy16() </p>
+<p>VSTDLIB_SID_MEM_COPY_32</p>
+<p> </p>
+<p>(0x03)</p>
+<p> </p>
+<p>VStdLib_MemCpy32() </p>
+<p>VSTDLIB_SID_MEM_COPY_S</p>
+<p> </p>
+<p>(0x04)</p>
+<p> </p>
+<p>VStdLib_MemCpy_s() </p>
+<p>VSTDLIB_SID_GET_VERSION_INFO</p>
+<p> </p>
+<p>(0x05)</p>
+<p> </p>
+<p>VStdLib_GetVersionInfo() </p>
+<p>Table 3-1  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>VSTDLIB_E_PARAM_POINTER</p>
+<p> </p>
+<p>(0x01)</p>
+<p> </p>
+<p>API service used with NULL pointer parameter. </p>
+<p>VSTDLIB_E_PARAM_SIZE</p>
+<p> </p>
+<p>(0x02)</p>
+<p> </p>
+<p>VStdLib_MemCpy_s()</p>
+<p> used with invalid </p>
+<p>destination size parameter. </p>
+<p>Table 3-2  </p>
+<p>Errors reported to DET </p>
+<p><b>3.3.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>No production code error reporting is supported. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>9 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This  chapter  gives  necessary  information  for  the  integration  of  the  MICROSAR  VStdLib </p>
+<p>into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the VStdLib contains following static files. There are no dynamic files. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>vstdlib.c </p>
+<p>This is the source file of the VStdLib.</p>
+<p> </p>
+<p>vstdlib.h </p>
+<p>This is the header file that contains the public API. </p>
+<p>VStdLib_Cfg.h </p>
+<p>This is the configuration header file, see chapter 6 for details.</p>
+<p> </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.2 </b></p>
+<p><b>Include Structure </b></p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Include Structure </p>
+<p><b>4.3 </b></p>
+<p><b>Critical Sections </b></p>
+<p>No critical sections are implemented. </p>
+<p><b> class IncludeStructure</b></p>
+<p>vstdlib.c</p>
+<p>Det.h</p>
+<p>vstdlib.h</p>
+<p>VStdLib_Cfg.h</p>
+<p>Std_Types.h</p>
+<p>MemMap.h</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>10 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>4.4 </b></p>
+<p><b>Compiler Abstraction and Memory Mapping </b></p>
+<p>The  objects  (e.g.  variables,  functions,  constants)  are  declared  by  compiler  independent </p>
+<p>definitions  –  the  compiler  abstraction  definitions.  Each  compiler  abstraction  definition  is </p>
+<p>assigned to a memory section. </p>
+<p>The  following  table  contains  the  memory  section  names  and  the  compiler  abstraction </p>
+<p>definitions of the VStdLib and illustrates their assignment among each other. </p>
+<p> </p>
+<p><b>Compiler Abstraction </b></p>
+<p><b> Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Memory Mapping  </b></p>
+<p><b>Sections </b></p>
+<p>VSTDLIB_CODE </p>
+<p>VSTDLIB_APPL_VAR </p>
+<p>VSTDLIB_VAR_FAR </p>
+<p>VSTDLIB_START_SEC_CODE </p>
+<p>VSTDLIB_STOP_SEC_CODE</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Table 4-2  </p>
+<p>Compiler Abstraction and Memory Mapping </p>
+<p>The VStdLib declares no global variables or constants thus only a general CODE section </p>
+<p>is provided for the memory mapping that is abstracted by </p>
+<p>VSTDLIB_CODE</p>
+<p>.</p>
+<p> </p>
+<p>Due to the AUTOSAR compiler and memory abstraction the location of individual data and </p>
+<p>the  width  of  pointers  are  not  known  during  development  time. </p>
+<p>Hence  the  compiler </p>
+<p>abstraction  definition </p>
+<p>VSTDLIB_APPL_VAR</p>
+<p>  refers  to  variables  which  are  defined  by  the </p>
+<p>application and not handled by the VStdLib memory mapping. </p>
+<p>The function implementation of all memory manipulation services as described in section </p>
+<p>5.2 </p>
+<p>abstracts </p>
+<p>all </p>
+<p>pointer </p>
+<p>arguments </p>
+<p>(independently </p>
+<p>of </p>
+<p>the </p>
+<p>target </p>
+<p>type) </p>
+<p>with </p>
+<p>VSTDLIB_VAR_FAR</p>
+<p>  to  allow  that  all  data  can  be  handled  by  far  accesses.  The  macro </p>
+<p>implementation performs an in-place access, thus the unaltered pointer class of the caller </p>
+<p>is used. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>For most 32bit MCUs it is not necessary to give any qualifiers with </p>
+<p>VSTDLIB_VAR_FAR</p>
+<p> </p>
+<p>to change the pointer class as these platforms commonly use 32bit pointers that can </p>
+<p>address  the  whole  memory  by  default.  Please  note  that  both  RAM  and  ROM  are </p>
+<p>accessed with this qualifier and an external implementation (see section 6.2.1) has to </p>
+<p>be used if distinct pointers have to be qualified individually on the used target platform. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>11 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>4.5 </b></p>
+<p><b>Integration Hints </b></p>
+<p><b>&gt; </b></p>
+<p>Avoid overlapping destination and source memory areas when using the copy services </p>
+<p>as this may lead to unexpected results. </p>
+<p><b>&gt; </b></p>
+<p>Consider  side  effects  if  macros  are  used:  If  either  destination  or  source  pointer  is </p>
+<p>retrieved using a call to a function, this function might be invoked for nCnt times. It is </p>
+<p>recommended to use temporary pointers to avoid any side effects. </p>
+<p><b>&gt; </b></p>
+<p>The VStdLib is optimized for 32-bit MCUs. When using a controller with a smaller bit </p>
+<p>width it is highly recommended to use an external implementation that is optimized for </p>
+<p>this architecture (see </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS</p>
+<p> in section 6.2.1). If large </p>
+<p>data  support  is  not  necessary  define  each </p>
+<p>VSTDLIB_RUNTIME_OPTIMIZATION</p>
+<p>  and </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA</p>
+<p> to </p>
+<p>STD_OFF</p>
+<p> as an alternative. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>12 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>See Figure 2-2 for an interfaces overview. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The nCnt parameter of all memory manipulation services is of type </p>
+<p>VStdLib_CntType</p>
+<p> </p>
+<p>that </p>
+<p>equals </p>
+<p>uint32_least </p>
+<p>if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA</p>
+<p> </p>
+<p>is </p>
+<p>defined </p>
+<p>to </p>
+<p>STD_ON</p>
+<p> </p>
+<p>(default setting) or uint16_least if it is explicitly defined to </p>
+<p>STD_OFF</p>
+<p>. </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by VStdLib </b></p>
+<p> </p>
+<p><b>5.2.1 </b></p>
+<p><b>VStdLib_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_GetVersionInfo </b>(Std_VersionInfoType *versioninfo) </p>
+<p><b>Parameter </b></p>
+<p>versioninfo [out] </p>
+<p>Pointer to where to store the version information, must not be NULL. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information of this module. </p>
+<p>Returns version information, vendor ID and AUTOSAR module ID of the component. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameter 'versioninfo' has to be valid and reference an object of type Std_VersionInfoType. </p>
+<p>Configuration Variant(s): </p>
+<p>VSTDLIB_VERSION_INFO_API == STD_ON</p>
+<p> </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-1  </p>
+<p>VStdLib_GetVersionInfo </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>13 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.2 </b></p>
+<p><b>VStdLib_MemClr </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemClr </b>(void *pDst, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to be initialized, must not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of bytes to initialize, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes memory to zero. </p>
+<p>Sets nCnt bytes starting at pDst to zero. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Configuration Variant(s): This service is implemented externally if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>== STD_ON</p>
+<p>, else it is realized by a call to VStdLib_MemSet() with 'nPattern' == 0. The compatible definition </p>
+<p>VStdLib_MemClrLarge() exists additionally (and solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-2  </p>
+<p>VStdLib_MemClr </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>14 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.3 </b></p>
+<p><b>VStdLib_MemClrMacro </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemClrMacro </b>(AnyPtrType *pDst, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Any typed pointer to the memory location to be initialized, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of blocks to initialize, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes memory to zero (macro implementation). </p>
+<p>Sets nCnt blocks starting at pDst to zero (block-size is given by the type of pDst). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This macro is Synchronous </p>
+<p>&gt; </p>
+<p>This macro is Reentrant </p>
+<p>Table 5-3  </p>
+<p>VStdLib_MemClrMacro </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>15 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.4 </b></p>
+<p><b>VStdLib_MemSet </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemSet </b>(void *pDst, uint8 nPattern, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to be initialized, must not be NULL. </p>
+<p>nPattern [in] </p>
+<p>The character to be used to initialize the memory. </p>
+<p>nCnt [in] </p>
+<p>Number of bytes to initialize, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes memory to a specified pattern. </p>
+<p>Sets nCnt bytes starting at pDst to the character nPattern. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Configuration Variant(s): This service is implemented externally if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>== STD_ON</p>
+<p>. The compatible definition VStdLib_MemSetLarge() exists additionally (and solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-4  </p>
+<p>VStdLib_MemSet </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>16 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.5 </b></p>
+<p><b>VStdLib_MemSetMacro </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemSetMacro </b>(AnyPtrType *pDst, AnyIntType nPattern, </p>
+<p>VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Any typed pointer to the memory location to be initialized, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>nPattern [in] </p>
+<p>The pattern to be used to initialize the memory (consider the correlation </p>
+<p>between its type and the type of pDst). </p>
+<p>nCnt [in] </p>
+<p>Number of blocks to initialize, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initializes memory to a specified pattern (macro implementation). </p>
+<p>Sets nCnt blocks starting at pDst to nPattern (block-size is given by the type of pDst). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This macro is Synchronous </p>
+<p>&gt; </p>
+<p>This macro is Reentrant </p>
+<p>Table 5-5  </p>
+<p>VStdLib_MemSetMacro </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>17 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.6 </b></p>
+<p><b>VStdLib_MemCpy </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpy </b>(void *pDst, const void *pSrc, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to copy to, must not be NULL. </p>
+<p>pSrc [in] </p>
+<p>Pointer to the memory location to copy from, must not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of bytes to copy, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Copies data from one memory location to another. </p>
+<p>Copies nCnt bytes starting at pSrc to another memory location starting at pDst. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Configuration Variant(s): This service is implemented externally if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>== STD_ON</p>
+<p>. The compatible definition VStdLib_MemCpyLarge() exists additionally (and solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-6  </p>
+<p>VStdLib_MemCpy </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>18 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.7 </b></p>
+<p><b>VStdLib_MemCpy16 </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpy16 </b>(uint16 *pDst, const uint16 *pSrc, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to copy to, 16-bit aligned and not NULL. </p>
+<p>pSrc [in] </p>
+<p>Pointer to the memory location to copy from, 16-bit aligned and not NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of 16-bit blocks to copy, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Copies data from one memory location to another. </p>
+<p>Copies nCnt 16-bit blocks starting at pSrc to another memory location starting at pDst. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Configuration Variant(s): This service is implemented externally if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>== STD_ON</p>
+<p>. The compatible definition VStdLib_MemCpy16Large() exists additionally (and solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-7  </p>
+<p>VStdLib_MemCpy16 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>19 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.8 </b></p>
+<p><b>VStdLib_MemCpy32 </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpy32 </b>(uint32 *pDst, const uint32 *pSrc, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to copy to, 32-bit aligned and not NULL. </p>
+<p>pSrc [in] </p>
+<p>Pointer to the memory location to copy from, 32-bit aligned and not NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of 32-bit blocks to copy, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Copies data from one memory location to another. </p>
+<p>Copies nCnt 32-bit blocks starting at pSrc to another memory location starting at pDst. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Configuration Variant(s): This service is implemented externally if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>== STD_ON</p>
+<p>. The compatible definition VStdLib_MemCpy32Large() exists additionally (and solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-8  </p>
+<p>VStdLib_MemCpy32 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>20 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.9 </b></p>
+<p><b>VStdLib_MemCpy_s </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpy_s </b>(void *pDst, VStdLib_CntType nDstSize, const void *pSrc, </p>
+<p>VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Pointer to the memory location to copy to, must not be NULL. </p>
+<p>nDstSize [in] </p>
+<p>Maximum number of bytes to modify in the destination (typically the size of the </p>
+<p>destination object). </p>
+<p>pSrc [in] </p>
+<p>Pointer to the memory location to copy from, must not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of bytes to copy. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Verifies the destination size and copies data from one memory location to another. </p>
+<p>Uses VStdLib_MemCpy() to copy nCnt bytes starting at pSrc to another memory location starting at pDst, if </p>
+<p>nDstSize is greater than or equal to nCnt. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nDstSize' have to define a valid memory area. </p>
+<p>Configuration Variant(s): The compatible definition VStdLib_MemCpyLarge_s() exists additionally (and </p>
+<p>solely) if </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA == STD_ON</p>
+<p>. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-9  </p>
+<p>VStdLib_MemCpy_s </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>21 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.10 </b></p>
+<p><b>VStdLib_MemCpyMacro </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpyMacro </b>(AnyPtrType *pDst, AnyPtrType *pSrc, VStdLib_CntType </p>
+<p>nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Any typed pointer to the memory location to copy to, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>pSrc [in] </p>
+<p>Any typed pointer to the memory location to copy from, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of blocks to copy, pDst must be valid for this amount. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Copies data from one memory location to another (macro implementation). </p>
+<p>Copies nCnt blocks starting at pSrc to another memory location starting at pDst (block-size is given by the </p>
+<p>type of pDst). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nCnt' have to define a valid memory area. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This macro is Synchronous </p>
+<p>&gt; </p>
+<p>This macro is Reentrant </p>
+<p>Table 5-10  </p>
+<p>VStdLib_MemCpyMacro </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>22 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.2.11 </b></p>
+<p><b>VStdLib_MemCpyMacro_s </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdLib_MemCpyMacro_s </b>(AnyPtrType *pDst, VStdLib_CntType nDstSize, </p>
+<p>AnyPtrType *pSrc, VStdLib_CntType nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDst [out] </p>
+<p>Any typed pointer to the memory location to copy to, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>nDstSize [in] </p>
+<p>Maximum number of blocks to modify in the destination (typically the size of </p>
+<p>the destination object). </p>
+<p>pSrc [in] </p>
+<p>Any typed pointer to the memory location to copy from, must be aligned </p>
+<p>corresponding to its type and not be NULL. </p>
+<p>nCnt [in] </p>
+<p>Number of blocks to copy. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Verifies the destination size and copies data from one memory location to another (macro implementation). </p>
+<p>Uses VStdLib_MemCpyMacro() to copy nCnt blocks starting at pSrc to another memory location starting at </p>
+<p>pDst (block-size is given by the type of pDst), if nDstSize is greater than or equal to nCnt. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>The parameters 'pDst' and 'nDstSize' have to define a valid memory area. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>ANY </p>
+<p>&gt; </p>
+<p>This macro is Synchronous </p>
+<p>&gt; </p>
+<p>This macro is Reentrant </p>
+<p>Table 5-11  </p>
+<p>VStdLib_MemCpyMacro_s </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by VStdLib </b></p>
+<p>The following table lists used services that are provided by other components. For details </p>
+<p>about prototypes and functionality refer to the documentation of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError() </p>
+<p>(Compiler) Library </p>
+<p>Refer to section 6.2.2 </p>
+<p>Table 5-12  </p>
+<p>Services used by VStdLib </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>23 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>The Vector Standard Library is solely configured manually in a header file. </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The VStdLib supports following configuration variants: </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p><b>6.2 </b></p>
+<p><b>Manual Configuration in Header File </b></p>
+<p>The configuration of the VStdLib is done statically within the file “VStdLib_Cfg.h”. </p>
+<p> </p>
+<p><b>6.2.1 </b></p>
+<p><b>General configuration </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value </p>
+<p>is typed bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS </p>
+<p>STD_ON </p>
+<p><b>STD_OFF </b></p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> all memory manipulation routines </p>
+<p>are mapped to external functions (e.g. compiler </p>
+<p>libraries or other implementations that are </p>
+<p>optimized for the target platform). This requires </p>
+<p>additional configuration, refer to section 6.2.2. </p>
+<p>If set to </p>
+<p>STD_OFF</p>
+<p> generic functions provided by </p>
+<p>the VStdLib are used. </p>
+<p>VSTDLIB_RUNTIME_OPTIMIZATION </p>
+<p><b>STD_ON </b></p>
+<p>STD_OFF </p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> optimized routines are used to </p>
+<p>increase the performance of the memory </p>
+<p>manipulation functions (increases code size). </p>
+<p>If set to </p>
+<p>STD_OFF</p>
+<p> code efficient routines are used </p>
+<p>that increase runtime. </p>
+<p>This setting is only relevant if </p>
+<p>VSTDLIB_USE_ </p>
+<p>LIBRARY_FUNCTIONS == STD_OFF</p>
+<p>. </p>
+<p>VSTDLIB_USE_JUMPTABLES </p>
+<p><b>STD_ON </b></p>
+<p>STD_OFF </p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> jump tables are used to increase </p>
+<p>the performance of the memory manipulation </p>
+<p>functions (runtime efficient in general). </p>
+<p>If set to </p>
+<p>STD_OFF</p>
+<p> the jump tables are replaced by </p>
+<p>loops. Use this setting if the compiler generates no </p>
+<p>efficient code for the jump tables. </p>
+<p>This setting is only relevant if </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS == </p>
+<p>STD_OFF</p>
+<p> and </p>
+<p>VSTDLIB_RUNTIME_ </p>
+<p>OPTIMIZATION == STD_ON</p>
+<p>. </p>
+<p>VSTDLIB_DEV_ERROR_DETECT </p>
+<p>STD_ON </p>
+<p><b>STD_OFF </b></p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> the development error detection is </p>
+<p>enabled. In this case the pointer arguments of all </p>
+<p>global module functions provided by the VStdLib </p>
+<p>are checked. If any </p>
+<p>NULL_PTR</p>
+<p> is passed, these </p>
+<p>functions return without performing any action. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>24 </p>
+<p>based on template version 5.9.0 </p>
+<p>VSTDLIB_DEV_ERROR_REPORT </p>
+<p>STD_ON </p>
+<p><b>STD_OFF </b></p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> the development error reporting is </p>
+<p>enabled (requires </p>
+<p>VSTDLIB_DEV_ERROR_ </p>
+<p>DETECT == STD_ON</p>
+<p>). In this case the function </p>
+<p>Det_ReportError()</p>
+<p> is called if any error is </p>
+<p>detected. </p>
+<p>VSTDLIB_VERSION_INFO_API </p>
+<p>STD_ON </p>
+<p><b>STD_OFF </b></p>
+<p>If set to </p>
+<p>STD_ON</p>
+<p> the function </p>
+<p>VStdLib_GetVersionInfo()</p>
+<p> is provided. </p>
+<p>VSTDLIB_DUMMY_STATEMENT(v) </p>
+<p>e.g. (v) = (v) </p>
+<p><b>(void)(v)</b> </p>
+<p>Expression that is used for dummy statements to </p>
+<p>avoid compiler warnings about unused identifiers. </p>
+<p>Leave this definition empty to disable the usage of </p>
+<p>dummy statements.</p>
+<p><b> </b></p>
+<p>Table 6-1  </p>
+<p>General configuration </p>
+<p> </p>
+<p><b>6.2.2 </b></p>
+<p><b>Additional configuration when using library functions </b></p>
+<p>If </p>
+<p>VSTDLIB_USE_LIBRARY_FUNCTIONS == STD_ON</p>
+<p>  it  is  necessary  to  specify  library </p>
+<p>functions  to  be  used  for  the  memory  manipulations.  See  the  corresponding  section  in </p>
+<p>“VStdLib_Cfg.h” for details and an example mapping. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If the external functionality is not able to handle more than 65535 bytes it is necessary </p>
+<p>to define </p>
+<p>VSTDLIB_SUPPORT_LARGE_DATA to STD_OFF</p>
+<p>. </p>
+<p> </p>
+<p>It  has  to  be  ensured  that  the  specified  functions  are  able  to  copy  from  and  to  all </p>
+<p>memory  locations  independently  of  the  pointer  length.  The  specified  functions  must </p>
+<p>behave synchronously. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>25 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>7 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>MCU </p>
+<p>Microcontroller Unit </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR solution) </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>VStdLib </p>
+<p>Vector Standard Library </p>
+<p>Table 7-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR VStdLib </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.00.01 </p>
+<p>26 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

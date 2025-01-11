@@ -1,0 +1,1564 @@
+---
+layout: default
+title: TechnicalReference_CryIf
+nav_order: 84
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR CryIf </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Crypto Interface </p>
+<p>Version 1.2.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Markus Schneider, Philipp Ritter </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Schneider, Markus </p>
+<p>2017-03-07 </p>
+<p>1.01.00 </p>
+<p>Initial creation of Technical Reference </p>
+<p>Ritter, Philipp </p>
+<p>2017-05-08 </p>
+<p>1.02.00 </p>
+<p>Changed chapter 5.1.6, 5.1.7, 5.1.8,</p>
+<p> </p>
+<p>5.1.11 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CryptoInterface.pdf </p>
+<p>4.3.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DET.pdf </p>
+<p>4.3.0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ........................................................................................................ 9</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States ................................................................................................................ 9</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions .................................................................................................. 9</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................... 9</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ............................................................. 9</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 11</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 11</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 11</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 11</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 12</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Services provided by CRYIF ............................................................................ 12</p>
+<p> </p>
+<p>5.1.1</p>
+<p> </p>
+<p>CryIf_InitMemory .............................................................................. 12</p>
+<p> </p>
+<p>5.1.2</p>
+<p> </p>
+<p>CryIf_Init .......................................................................................... 12</p>
+<p> </p>
+<p>5.1.3</p>
+<p> </p>
+<p>CryIf_GetVersionInfo ........................................................................ 13</p>
+<p> </p>
+<p>5.1.4</p>
+<p> </p>
+<p>CryIf_ProcessJob ............................................................................. 13</p>
+<p> </p>
+<p>5.1.5</p>
+<p> </p>
+<p>CryIf_CancelJob .............................................................................. 14</p>
+<p> </p>
+<p>5.1.6</p>
+<p> </p>
+<p>CryIf_KeyElementSet ....................................................................... 15</p>
+<p> </p>
+<p>5.1.7</p>
+<p> </p>
+<p>CryIf_KeySetValid ............................................................................ 15</p>
+<p> </p>
+<p>5.1.8</p>
+<p> </p>
+<p>CryIf_KeyElementGet ...................................................................... 16</p>
+<p> </p>
+<p>5.1.9</p>
+<p> </p>
+<p>CryIf_KeyElementCopy .................................................................... 17</p>
+<p> </p>
+<p>5.1.10</p>
+<p> </p>
+<p>CryIf_KeyCopy ................................................................................. 17</p>
+<p> </p>
+<p>5.1.11</p>
+<p> </p>
+<p>CryIf_RandomSeed.......................................................................... 18</p>
+<p> </p>
+<p>5.1.12</p>
+<p> </p>
+<p>CryIf_KeyGenerate .......................................................................... 19</p>
+<p> </p>
+<p>5.1.13</p>
+<p> </p>
+<p>CryIf_KeyDerive ............................................................................... 19</p>
+<p> </p>
+<p>5.1.14</p>
+<p> </p>
+<p>CryIf_KeyExchangeCalcPubVal ....................................................... 20</p>
+<p> </p>
+<p>5.1.15</p>
+<p> </p>
+<p>CryIf_KeyExchangeCalcSecret ........................................................ 21</p>
+<p> </p>
+<p>5.1.16</p>
+<p> </p>
+<p>CryIf_CertificateParse ...................................................................... 21</p>
+<p> </p>
+<p>5.1.17</p>
+<p> </p>
+<p>CryIf_CertificateVerify ...................................................................... 22</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services used by CRYIF .................................................................................. 23</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 23</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.3.1</p>
+<p> </p>
+<p>CryIf_CallbackNotification ................................................................ 23</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 24</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 24</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration with DaVinci Configurator 5 Pro ................................................. 24</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>General Properties ........................................................................... 24</p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>Channel Properties .......................................................................... 24</p>
+<p> </p>
+<p>6.2.3</p>
+<p> </p>
+<p>Key Properties ................................................................................. 25</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 26</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 26</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 26</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 27</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.3 Architecture Overview ......................................................... 7</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the CRYIF .............................................. 8</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 9</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 10</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 10</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 11</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 11</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>CryIf_InitMemory ...................................................................................... 12</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>CryIf_Init ................................................................................................... 13</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>CryIf_GetVersionInfo ................................................................................ 13</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>CryIf_ProcessJob ..................................................................................... 14</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>CryIf_CancelJob ....................................................................................... 14</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>CryIf_KeyElementSet ............................................................................... 15</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>CryIf_KeySetValid ..................................................................................... 16</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>CryIf_KeyElementGet ............................................................................... 16</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>CryIf_KeyElementCopy ............................................................................ 17</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>CryIf_KeyCopy ......................................................................................... 18</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>CryIf_RandomSeed .................................................................................. 19</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>CryIf_KeyGenerate ................................................................................... 19</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>CryIf_KeyDerive ....................................................................................... 20</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>CryIf_KeyExchangeCalcPubVal ................................................................ 21</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>CryIf_KeyExchangeCalcSecret ................................................................. 21</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>CryIf_CertificateParse ............................................................................... 22</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>CryIf_CertificateVerify ............................................................................... 23</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>Services used by the CRYIF ..................................................................... 23</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>CryIf_CallbackNotification ......................................................................... 23</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>General Properties.................................................................................... 24</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Channel Properties ................................................................................... 24</p>
+<p> </p>
+<p>Table 6-3 </p>
+<p> </p>
+<p>Key Properties .......................................................................................... 25</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 26</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 26</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>Initial beta release </p>
+<p>1.01.00 </p>
+<p>Adaptions to the specification; several improvements and bug fixes </p>
+<p>1.02.00 </p>
+<p>Release of component </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module CRYIF as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4.3 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>CRYIF_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>CRYIF_MODULE_ID   </p>
+<p>112 decimal </p>
+<p>(according to ref. [1]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The Crypto Interface (CRYIF) is called by the Cryptographic Service Manager (CSM) to </p>
+<p>forward its service requests to the underlying Crypto Drivers (CRYPTO). The CRYIF has </p>
+<p>access to the CRYPTO to calculate results with their cryptographic services. These results </p>
+<p>are returned to the CSM by the CRYIF. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the CRYIF is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.3 Architecture Overview  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p>  </p>
+<p>The next figure shows the interfaces to adjacent modules of the CRYIF. These interfaces </p>
+<p>are described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the CRYIF </p>
+<p> </p>
+<p><b> cmp Architecture</b></p>
+<p><b>CRYIF</b></p>
+<p><b>CSM</b></p>
+<p><b>BswM</b></p>
+<p><b>Det</b></p>
+<p><b>CRYPTO</b></p>
+<p>Det_ReportError</p>
+<p>«optional»</p>
+<p>Csm_&lt;KeyManagement&gt;</p>
+<p>Crypto_ProcessJob</p>
+<p>Crypto_CancelJob</p>
+<p>Csm_&lt;Service&gt;</p>
+<p>Csm_CallbackNotification</p>
+<p>«optional»</p>
+<p>Crypto_&lt;KeyManagement&gt;</p>
+<p>CryIf_Init</p>
+<p>CryIf_CallbackNotification</p>
+<p>«optional»</p>
+<p>Csm_CancelJob</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>CRYIF. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Dispatching jobs to the configured Crypto Driver </p>
+<p>Dispatching key management functionalities </p>
+<p>Forward Callback Notification  </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>Before any other functionality of the CRYIF module can be called the initialization function </p>
+<p>CryIf_Init() </p>
+<p>has to be called by the BSWM. </p>
+<p>For </p>
+<p>manual </p>
+<p>null </p>
+<p>initialization </p>
+<p>of </p>
+<p>RAM </p>
+<p>variables </p>
+<p>the </p>
+<p>CRYIF </p>
+<p>offers </p>
+<p>the </p>
+<p>function </p>
+<p>CryIf_InitMemory()</p>
+<p>which can be called before the </p>
+<p>CryIf_Init()</p>
+<p>. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The CRYIF does not have a state machine. </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>CRYIF does not provide a main function. All calls are synchronous. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>CRYIF_DEV_ERROR_REPORT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported CRYIF ID is 112. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.1. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>CryIf_Init </p>
+<p>0x01 </p>
+<p>CryIf_GetVersionInfo </p>
+<p>0x02 </p>
+<p>CryIf_ProcessJob </p>
+<p>0x03 </p>
+<p>CryIf_CancelJob </p>
+<p>0x04 </p>
+<p>CryIf_KeyElementSet </p>
+<p>0x05 </p>
+<p>CryIf_KeySetValid </p>
+<p>0x06 </p>
+<p>CryIf_KeyElementGet </p>
+<p>0x0f </p>
+<p>CryIf_KeyElementCopy </p>
+<p>0x10 </p>
+<p>CryIf_KeyCopy </p>
+<p>0x07 </p>
+<p>CryIf_RandomSeed </p>
+<p>0x08 </p>
+<p>CryIf_KeyGenerate </p>
+<p>0x09 </p>
+<p>CryIf_KeyDerive </p>
+<p>0x0A </p>
+<p>CryIf_KeyExchangeCalcPubVal </p>
+<p>0x0B </p>
+<p>CryIf_KeyExchangeCalcSecret </p>
+<p>0x0C </p>
+<p>CryIf_CertificateParse </p>
+<p>0x11 </p>
+<p>CryIf_CertificateVerify </p>
+<p>Table 3-2  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x00 </p>
+<p>API service used without module initialization </p>
+<p>0x01 </p>
+<p>Initialization of CRYIF module failed </p>
+<p>0x02 </p>
+<p>API request called with invalid parameter (null pointer) </p>
+<p>0x03 </p>
+<p>API request called with invalid parameter (out of range) </p>
+<p>0x04 </p>
+<p>API request called with invalid parameter (invalid value) </p>
+<p>0x11 </p>
+<p>The service CryIf_Init() is called while the module is already </p>
+<p>initialized </p>
+<p>Table 3-3  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR CRYIF into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the CRYIF contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>CryIf.c </p>
+<p>This file contains the CRYIF source code. </p>
+<p>CryIf.h </p>
+<p>This is the header file of the CRYIF. </p>
+<p>CryIf_Cbk.h </p>
+<p>This is the callback header file of CRYIF. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator 5 Pro </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>CryIf_Cfg.c </p>
+<p>This is configuration source file. </p>
+<p>CryIf_Cfg.h </p>
+<p>This is configuration header file. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Services provided by CRYIF </b></p>
+<p><b>5.1.1 </b></p>
+<p><b>CryIf_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>CryIf_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Power-up memory initialization. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Use this function in case these variables are not initialized by the startup code. </p>
+<p>Module is uninitialized. </p>
+<p>Initialize component variables at power up.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-1  </p>
+<p>CryIf_InitMemory </p>
+<p> </p>
+<p><b>5.1.2 </b></p>
+<p><b>CryIf_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>CryIf_Init </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>ConfigPtr [in] </p>
+<p>Configuration structure for initializing the module </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Initialization function. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>Specification of module initialization </p>
+<p>&gt; </p>
+<p>Interrupts are disabled.Module is uninitialized.CryIf_InitMemory has been called unless </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p>CryIf_ModuleInitialized is initialized by start-up code. </p>
+<p>This function initializes the module CryIf. It initializes all variables and sets the module state to initialized.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Non-Reentrant </p>
+<p>Table 5-2  </p>
+<p>CryIf_Init </p>
+<p> </p>
+<p><b>5.1.3 </b></p>
+<p><b>CryIf_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>CryIf_GetVersionInfo </b>(Std_VersionInfoType *versioninfo) </p>
+<p><b>Parameter </b></p>
+<p>versioninfo [out] </p>
+<p>Pointer to where to store the version information. Parameter must not be </p>
+<p>NULL. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>CryIf_GetVersionInfo() returns version information, vendor ID and AUTOSAR module ID of the component.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK|ISR2 </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-3  </p>
+<p>CryIf_GetVersionInfo </p>
+<p> </p>
+<p><b>5.1.4 </b></p>
+<p><b>CryIf_ProcessJob </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_ProcessJob </b>(uint32 channelId, Crypto_JobType *job) </p>
+<p><b>Parameter </b></p>
+<p>channelId [in] </p>
+<p>Holds the identifier of the crypto channel. </p>
+<p>job [in,out] </p>
+<p>Pointer to the configuration of the job. Contains structures with user and </p>
+<p>primitive relevant information. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_NOT_VALID Request failed, the key is not valid. </p>
+<p>CRYPTO_E_QUEUE_FULL Request failed, the queue is full. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Process the received job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This interface dispatches the received jobs to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-4  </p>
+<p>CryIf_ProcessJob </p>
+<p> </p>
+<p><b>5.1.5 </b></p>
+<p><b>CryIf_CancelJob </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_CancelJob </b>(uint32 channelId, Crypto_JobType *job) </p>
+<p><b>Parameter </b></p>
+<p>channelId [in] </p>
+<p>Holds the identifier of the crypto channel. </p>
+<p>job [in,out] </p>
+<p>Pointer to the configuration of the job. Contains structures with user and </p>
+<p>primitive relevant information. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful, job has been removed. </p>
+<p>Std_ReturnType </p>
+<p>E_NOT_OK Request failed, job could not be removed. </p>
+<p><b>Functional Description </b></p>
+<p>Cancels the received job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This interface removes the provided job from the underlying Crypto Driver Object queue.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-5  </p>
+<p>CryIf_CancelJob </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5.1.6 </b></p>
+<p><b>CryIf_KeyElementSet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyElementSet </b>(uint32 cryIfKeyId, uint32 keyElementId, </p>
+<p>const uint8 *keyPtr, uint32 keyLength) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be set. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be set. </p>
+<p>keyPtr [in] </p>
+<p>Holds the pointer to the key data which shall be set as key element. </p>
+<p>keyLength [in] </p>
+<p>Contains the length of the key element in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element size </p>
+<p>does not match size of provided data. </p>
+<p><b>Functional Description </b></p>
+<p>Sets a key element. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key element set function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-6  </p>
+<p>CryIf_KeyElementSet </p>
+<p> </p>
+<p><b>5.1.7 </b></p>
+<p><b>CryIf_KeySetValid </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeySetValid </b>(uint32 cryIfKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key elements shall be set to valid. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>Sets the key to valid. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key set valid function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-7  </p>
+<p>CryIf_KeySetValid </p>
+<p> </p>
+<p><b>5.1.8 </b></p>
+<p><b>CryIf_KeyElementGet </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyElementGet </b>(uint32 cryIfKeyId, uint32 keyElementId, </p>
+<p>uint8 *resultPtr, uint32 *resultLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be set. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be set. </p>
+<p>keyPtr [in] </p>
+<p>Holds the pointer to the key data which shall be set as key element. </p>
+<p>keyLength [in] </p>
+<p>Contains the length of the key element in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Exports the key element  </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the get key element function to the configured crypto driver object. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-8  </p>
+<p>CryIf_KeyElementGet </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p><b>5.1.9 </b></p>
+<p><b>CryIf_KeyElementCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyElementCopy </b>(uint32 cryIfKeyId, uint32 keyElementId, </p>
+<p>uint32 targetCryIfKeyId, uint32 targetKeyElementId) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<p>keyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the source for the copy </p>
+<p>operation. </p>
+<p>targetCryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p>targetKeyElementId [in] </p>
+<p>Holds the identifier of the key element which shall be the destination for the </p>
+<p>copy operation. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_EXTRACT_DENIED Request failed, not allowed to extract </p>
+<p>key material. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element sizes </p>
+<p>are not compatible. </p>
+<p><b>Functional Description </b></p>
+<p>Copy key element. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall copy a key elements from one key to a target key.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-9  </p>
+<p>CryIf_KeyElementCopy </p>
+<p> </p>
+<p><b>5.1.10 </b></p>
+<p><b>CryIf_KeyCopy </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyCopy </b>(uint32 cryIfKeyId, uint32 targetCryIfKeyId) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the source element. </p>
+<p>targetCryIfKeyId [in] </p>
+<p>Holds the identifier of the key whose key element shall be the destination </p>
+<p>element. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_KEY_READ_FAIL Request failed, read access was denied. </p>
+<p>CRYPTO_E_KEY_WRITE_FAIL Request failed, write access was denied. </p>
+<p>CRYPTO_E_KEY_NOT_AVAILABLE Request failed, the key is not available. </p>
+<p>CRYPTO_E_KEY_SIZE_MISMATCH Request failed, the key element sizes </p>
+<p>are not compatible. </p>
+<p><b>Functional Description </b></p>
+<p>Copy the key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall copy all key elements from the source key to a target key.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-10  </p>
+<p>CryIf_KeyCopy </p>
+<p> </p>
+<p><b>5.1.11 </b></p>
+<p><b>CryIf_RandomSeed </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_RandomSeed </b>(uint32 cryIfKeyId, const uint8 *seedPtr, </p>
+<p>uint32 seedLength) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key for which a new material shall be generated. </p>
+<p>seedPtr [in] </p>
+<p>Holds a pointer to the memory location which contains the data to feed the </p>
+<p>seed. </p>
+<p>seedLength [in] </p>
+<p>Contains the length of the seed in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p><b>Functional Description </b></p>
+<p>Initialize the seed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the random seed function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-11  </p>
+<p>CryIf_RandomSeed </p>
+<p> </p>
+<p><b>5.1.12 </b></p>
+<p><b>CryIf_KeyGenerate </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyGenerate </b>(uint32 cryIfKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key which is to be updated with the generated value. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Generates a key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key generate function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-12  </p>
+<p>CryIf_KeyGenerate </p>
+<p> </p>
+<p><b>5.1.13 </b></p>
+<p><b>CryIf_KeyDerive </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyDerive </b>(uint32 cryIfKeyId, uint32 targetCryIfKeyId) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key which is used for key derivation. </p>
+<p>targetCryIfKeyId [in] </p>
+<p>Holds the identifier of the key which is used to store the derived key. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Derives a key. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key derive function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-13  </p>
+<p>CryIf_KeyDerive </p>
+<p> </p>
+<p><b>5.1.14 </b></p>
+<p><b>CryIf_KeyExchangeCalcPubVal </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyExchangeCalcPubVal </b>(uint32 cryIfKeyId, uint8 </p>
+<p>*publicValuePtr, uint32 *publicValueLengthPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used for the key exchange </p>
+<p>protocol. </p>
+<p>publicValuePtr [out] </p>
+<p>Contains the pointer to the data where the public value shall be stored. </p>
+<p>publicValueLengthPtr </p>
+<p>[in,out] </p>
+<p>Holds a pointer to the memory location in which the public value length </p>
+<p>information is stored. On calling this function, this parameter shall contain the </p>
+<p>size of the buffer provided by publicValuePtr. When the request has finished, </p>
+<p>the actual length of the returned value shall be stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Calculation of the public value. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key exchange public value calculation function to the configured crypto </p>
+<p>driver object.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-14  </p>
+<p>CryIf_KeyExchangeCalcPubVal </p>
+<p> </p>
+<p><b>5.1.15 </b></p>
+<p><b>CryIf_KeyExchangeCalcSecret </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_KeyExchangeCalcSecret </b>(uint32 cryIfKeyId, const uint8 </p>
+<p>*partnerPublicValuePtr, uint32 partnerPublicValueLength) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used for the key exchange </p>
+<p>protocol. </p>
+<p>partnerPublicValuePtr [in] </p>
+<p>Holds the pointer to the memory location which contains the partners public </p>
+<p>value. </p>
+<p>partnerPublicValueLength </p>
+<p>[in] </p>
+<p>Contains the length of the partners public value in bytes. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p>CRYPTO_E_SMALL_BUFFER Request failed, the provided buffer is too small </p>
+<p>to store the result. </p>
+<p><b>Functional Description </b></p>
+<p>Calculation of the secret. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the key exchange common shared secret calculation function to the configured </p>
+<p>crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-15  </p>
+<p>CryIf_KeyExchangeCalcSecret </p>
+<p> </p>
+<p><b>5.1.16 </b></p>
+<p><b>CryIf_CertificateParse </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_CertificateParse </b>(uint32 cryIfKeyId) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key slot in which the certificate has been stored. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Parse stored certificate. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>This function shall dispatch the certificate parse function to the configured crypto driver object.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-16  </p>
+<p>CryIf_CertificateParse </p>
+<p> </p>
+<p><b>5.1.17 </b></p>
+<p><b>CryIf_CertificateVerify </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType <b>CryIf_CertificateVerify </b>(uint32 cryIfKeyId, uint32 </p>
+<p>verifyCryIfKeyId, Crypto_VerifyResultType *verifyPtr) </p>
+<p><b>Parameter </b></p>
+<p>cryIfKeyId [in] </p>
+<p>Holds the identifier of the key which shall be used to validate the certificate. </p>
+<p>verifyCryIfKeyId [in] </p>
+<p>Holds the identifier of the key containing the certificate, which shall be verified. </p>
+<p>verifyPtr [out] </p>
+<p>Holds a pointer to the memory location which will contain the result of the </p>
+<p>certificate verification. </p>
+<p><b>Return code </b></p>
+<p>Std_ReturnType </p>
+<p>E_OK Request successful. </p>
+<p>E_NOT_OK Request failed. </p>
+<p>CRYPTO_E_BUSY Request failed, Crypto Driver Object is busy. </p>
+<p><b>Functional Description </b></p>
+<p>Certificate verification. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>none </p>
+<p>Verifies the certificate stored in the key referenced by verifyCryptoKeyId with the certificate stored in the key </p>
+<p>referenced by cryIfKeyId.  </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>TASK </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p>&gt; </p>
+<p>This function is Synchronous </p>
+<p>&gt; </p>
+<p>This function is Reentrant </p>
+<p>Table 5-17  </p>
+<p>CryIf_CertificateVerify </p>
+<p><b>5.2 </b></p>
+<p><b>Services used by CRYIF </b></p>
+<p>In  the  following  table  services  provided  by  other  components,  which  are  used  by  the </p>
+<p>CRYIF are listed. For details about prototype and functionality refer to the documentation </p>
+<p>of the providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>Table 5-18  </p>
+<p>Services used by the CRYIF </p>
+<p><b>5.3 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This chapter describes the callback function that is implemented by the CRYIF and can be </p>
+<p>invoked  by  other  modules. The  prototypes  of  the  callback  functions  are  provided  in  the </p>
+<p>header file </p>
+<p>CryIf_Cbk.h</p>
+<p> by the CRYIF. </p>
+<p><b>5.3.1 </b></p>
+<p><b>CryIf_CallbackNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>CryIf_CallbackNotification </b>( Crypto_JobType *job, Std_ReturnType result )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>job </p>
+<p>Points to the completed job's information structure. It contains a callbackID to </p>
+<p>identify which job is finished. </p>
+<p>result </p>
+<p>Contains the result of the cryptographic operation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>none </p>
+<p><b>Functional Description </b></p>
+<p>Notifies the CRYIF about the completion of the request with the result of the cryptographic operation. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Table 5-19  </p>
+<p>CryIf_CallbackNotification </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the CRYIF the attributes can be configured with the following tools: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator 5 Pro for a detailed description see 6.2   </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The CRYIF supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the CRYIF parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the CryIf_bswmd.arxml file. </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration with DaVinci Configurator 5 Pro  </b></p>
+<p><b>6.2.1 </b></p>
+<p><b>General Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is </p>
+<p>typed bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CryIfVersionInfoApi </p>
+<p>TRUE </p>
+<p><b>FALSE </b></p>
+<p>Pre-processor switch to enable and disable availability </p>
+<p>of the API Crypto_GetVersionInfo().   </p>
+<p>- True: API CryIf_GetVersionInfo() is available  </p>
+<p>- False: API CryIf_GetVersionInfo() is not available. </p>
+<p>CryIfDevErrorDetect </p>
+<p><b>TRUE </b></p>
+<p>FALSE </p>
+<p>Switches the development error detection and </p>
+<p>notification on or off.  </p>
+<p>- True: detection and notification is enabled.  </p>
+<p>- False: detection and notification is disabled. </p>
+<p>CryIfMaxNumberOfKeyElements </p>
+<p><b>10 </b></p>
+<p>Size of the maximal amount of element within an key </p>
+<p>type of all referenced Crypto Drivers </p>
+<p>CryIfMaxSizeOfKeyElement </p>
+<p><b>512 </b></p>
+<p>Size of the largest key element of all referenced Crypto </p>
+<p>Drivers </p>
+<p>Table 6-1  </p>
+<p>General Properties </p>
+<p><b>6.2.2 </b></p>
+<p><b>Channel Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is </p>
+<p>typed bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CryIfChannelId </p>
+<p><b> </b></p>
+<p>Identifier of the crypto channel </p>
+<p>CryIfDriverObjectRef </p>
+<p> </p>
+<p>Reference to a Crypto Driver Object </p>
+<p>Table 6-2  </p>
+<p>Channel Properties </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6.2.3 </b></p>
+<p><b>Key Properties </b></p>
+<p><b>Attribute Name </b></p>
+<p><b>Values </b></p>
+<p>Default value is </p>
+<p>typed bold</p>
+<p><b> </b></p>
+<p><b>Description </b></p>
+<p>CryIfKeyId </p>
+<p><b> </b></p>
+<p>Identifier of the key. </p>
+<p>CryIfKeyRef </p>
+<p> </p>
+<p>This parameter refers to a crypto driver key. </p>
+<p>Table 6-3  </p>
+<p>Key Properties </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>CSM </p>
+<p>Crypto Service Manager </p>
+<p>CRYIF </p>
+<p>Crypto Interface </p>
+<p>CRYPTO </p>
+<p>Crypto Driver </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CryIf </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.2.0 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

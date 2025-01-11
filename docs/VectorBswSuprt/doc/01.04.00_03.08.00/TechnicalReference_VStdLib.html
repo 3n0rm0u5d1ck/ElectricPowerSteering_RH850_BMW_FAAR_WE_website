@@ -1,0 +1,985 @@
+---
+layout: default
+title: TechnicalReference_VStdLib
+nav_order: 2
+parent: Vector Basic Software Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>VStdLib </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Vector Standard Library </p>
+<p>Version 1.6.2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Patrick Markl, Timo Vanoni </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>2 / 21 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Patrick Markl </p>
+<p>2008-02-06 </p>
+<p>1.0 </p>
+<p>Creation, merge from Application Note </p>
+<p>Patrick Markl </p>
+<p>2008-10-31 </p>
+<p>1.3 </p>
+<p>Fixed document version </p>
+<p>Patrick Markl </p>
+<p>2008-11-07 </p>
+<p>1.4 </p>
+<p>Added information about mixed VStdLib versions </p>
+<p>Patrick Markl </p>
+<p>2009-07-02 </p>
+<p>1.5 </p>
+<p>Updated assertion codes </p>
+<p>Added chapter about QNX OS </p>
+<p>Patrick Markl </p>
+<p>2009-10-16 </p>
+<p>1.6 </p>
+<p>Described inclusion of OSEK OS header file </p>
+<p>Timo Vanoni </p>
+<p>2013-05-10 </p>
+<p>1.6.2 </p>
+<p>ESCAN00067020: The interrupt lock functions </p>
+<p>do not work correctly for the user mode at </p>
+<p>specific controller </p>
+<p>Table 1-1  </p>
+<p>History of the Document </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>3 / 21 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................. 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................... 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 6</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ..................................................................................................................... 8</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>CANbedded Particularities ................................................................................. 8</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>MICROSAR Particularities ................................................................................. 8</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Mixing VStdLib Versions .................................................................................... 8</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration ................................................................................................................ 9</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Usage with OSEK OS ...................................................................................... 11</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Usage with QNX OS ........................................................................................ 11</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 13</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 13</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Interrupt Control ............................................................................................... 14</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Memory Functions ........................................................................................... 15</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 17</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Assertions ................................................................................................................... 18</b></p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Limitations .................................................................................................................. 19</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Interrupt control does not work correctly in user mode ..................................... 19</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 20</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 20</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 20</p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 21</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>4 / 21 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>VStdLib configuration dialog in GENy ......................................................... 9</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>VStdLib configuration dialog in CANGen .................................................... 9</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>Locking configuration in case CAN events are handled in an interrupt </p>
+<p>thread ....................................................................................................... 11</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>Configuration of the VStdLib in case of handling CAN events on interrupt </p>
+<p>level .......................................................................................................... 12</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the Document ............................................................................. 2</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>5 / 21 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>The  basic  idea  of  the  VStdLib  is  to  provide  standard  functionality  to  different  Vector </p>
+<p>components. This includes memory copy and interrupt locking functions. The VStdLib is </p>
+<p>also  a  means  to  provide  special  memory  copy  functions,  which  are  not  available  by </p>
+<p>compiler libraries to the communication components.  </p>
+<p>The VStdLib is designed to be used by Vector communication components only. So the </p>
+<p>customer integrating the communication stack will probably not notice the VStdLib at all. </p>
+<p>The VStdLib is highly hardware specific. This means some functions are only available on </p>
+<p>certain  platforms.  This  includes  special  copy  functions  for  far,  near  or  huge  memory. A </p>
+<p>hardware specific VStdLib does not necessarily implement all possible copy function for </p>
+<p>the  corresponding  hardware  platform,  but  only  the  functions  required  by  the  Vector </p>
+<p>software components. </p>
+<p>The </p>
+<p>VStdLib </p>
+<p>also </p>
+<p>provides </p>
+<p>interrupt </p>
+<p>lock </p>
+<p>functions. </p>
+<p>This </p>
+<p>feature </p>
+<p>depends </p>
+<p>on </p>
+<p>the </p>
+<p>CANbedded CAN driver’s Reference Implementation (RI). The RI defines a certain feature </p>
+<p>set to be supported by the CAN driver. CAN drivers which implement RI1.5 and higher do </p>
+<p>not </p>
+<p>provide </p>
+<p>an </p>
+<p>interrupt </p>
+<p>locking </p>
+<p>mechanism </p>
+<p>as </p>
+<p>previously </p>
+<p>implementations </p>
+<p>did </p>
+<p>(CanGlobalInterruptDisable/CanGlobalInterruptRestore). These driver require a VStdLib to </p>
+<p>provide </p>
+<p>this </p>
+<p>functionality, </p>
+<p>although </p>
+<p>the </p>
+<p>API </p>
+<p>CanGlobalInterruptDisable </p>
+<p>and </p>
+<p>CanGlobalInterruptRestore remains for compatibility. Please refer to the CANbedded CAN </p>
+<p>driver technical reference for more information about your specific CAN driver. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>6 / 21 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p>The  VStdLib  provides  basically  two  main  functionalities  to  Vector  communication  stack </p>
+<p>components. </p>
+<p><b>&gt; </b></p>
+<p>Functions to copy memory </p>
+<p><b>&gt; </b></p>
+<p>Functions to lock/unlock interrupts </p>
+<p>Interrupt locking functionality is required for CAN drivers with a reference implementation </p>
+<p>1.5 or higher or MICROSAR stacks. Functions to copy memory are always provided. The </p>
+<p>following table describes the API of the VStdLib which is used internally. </p>
+<p> </p>
+<p><b>API Function </b></p>
+<p><b>Description </b></p>
+<p>VStdMemSet </p>
+<p>Initializes default RAM memory to a certain </p>
+<p>character. </p>
+<p>VStdMemNearSet </p>
+<p>Initializes near RAM memory to a certain character.  </p>
+<p>VStdMemFarSet </p>
+<p>Initializes far RAM memory to a certain character. </p>
+<p>VStdMemClr </p>
+<p>Clears default RAM to zero. </p>
+<p>VStdMemNearClr </p>
+<p>Clears near RAM to zero. </p>
+<p>VStdMemFarClr </p>
+<p>Clears far RAM to zero. </p>
+<p>VStdMemCpyRamToRam </p>
+<p>Copies default RAM to default RAM. </p>
+<p>VStdMemCpyRomToRam </p>
+<p>Copies default ROM to default RAM. </p>
+<p>VStdMemCpyRamToNearRam </p>
+<p>Copies default RAM to near RAM. </p>
+<p>VStdMemCpyRomToNearRam </p>
+<p>Copies default ROM to near RAM. </p>
+<p>VStdMemCpyRamToFarRam </p>
+<p>Copies default RAM to far RAM. </p>
+<p>VStdMemCpyRomToFarRam </p>
+<p>Copies default ROM to far RAM. </p>
+<p>VStdMemCpy16RamToRam </p>
+<p>Copies default RAM to default RAM. The copying is </p>
+<p>performed 16 bit wise. </p>
+<p>VStdMemCpy16RamToFarRam </p>
+<p>Copies default RAM to far RAM. The copying is </p>
+<p>performed 16 bit wise. </p>
+<p>VStdMemCpy16FarRamToRam </p>
+<p>Copies far RAM to default RAM. The copying is </p>
+<p>performed 16 bit wise. </p>
+<p>VStdMemCpy32RamToRam </p>
+<p>Copies default RAM to default RAM. The copying is </p>
+<p>performed 32 bit wise. </p>
+<p>VStdMemCpy32RamToFarRam </p>
+<p>Copies default RAM to far RAM. The copying is </p>
+<p>performed 32 bit wise. </p>
+<p>VStdMemCpy32FarRamToRam </p>
+<p>Copies far RAM to default RAM. The copying is </p>
+<p>performed 32 bit wise. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>7 / 21 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The API functions described in the following table contain “near” and “far” as parts of </p>
+<p>the API names. The meaning of near and far depends on the platform and the functions </p>
+<p>are not necessarily implemented to work on near or far memory. </p>
+<p>The wording “default RAM” or “default ROM” means RAM or ROM data which is not </p>
+<p>explicitly declared to be near or far. These data inherit the current compiler memory </p>
+<p>model settings. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>One cannot be sure that a far to near copy routine (for instance) implements really a </p>
+<p>copying from far to near. This depends on the platform and the supported memory </p>
+<p>models of the communication stack! </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>8 / 21 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>The  integration  of  the  VStdLib  is  straightforward.  As  the  other  Vector  components  the </p>
+<p>VStdLib  is  to  be  configured  by  means  of  the  configuration  tool.  The  configuration  is </p>
+<p>described in the next chapter. Chapter 6 describes some callback function which have to </p>
+<p>be implemented by the application depending on the configuration. </p>
+<p>In order to integrate the VStdLib simply add the file vstdlib.c as the other Vector software </p>
+<p>components to the compile and link list. </p>
+<p><b>4.1 </b></p>
+<p><b>CANbedded Particularities </b></p>
+<p>If the VStdLib is integrated as part of a CANbedded stack the initialization of the VStdLib is </p>
+<p>performed by the CAN or LIN driver automatically. </p>
+<p><b>4.2 </b></p>
+<p><b>MICROSAR Particularities </b></p>
+<p>If  a  MICROSAR  stack  is  integrated  the  VStdLib  is  not  initialized  by  any  of  the  software </p>
+<p>components. The application has  to  take  care  that  the  VStdLib’s  initialization function  is </p>
+<p>called  before  any  other  MICROSAR API  function  is  called. The  following  code  example </p>
+<p>shows how to initialize the VStdLib. </p>
+<p> </p>
+<p>void InitRoutine(void) </p>
+<p>{ </p>
+<p>  ... </p>
+<p> </p>
+<p>  /* Initialize the VstLib */ </p>
+<p>  VStdInitPowerOn(); </p>
+<p> </p>
+<p>  /* Perform initialization of the other software components */ </p>
+<p>  ... </p>
+<p>   </p>
+<p>} </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>Mixing VStdLib Versions </b></p>
+<p>If you receive different software component packages from Vector, it is possible that these </p>
+<p>packages  contain  different VStdLib  versions. A  general  rule  is  to  use  the  VStdLib  which </p>
+<p>was received with the CAN driver package. In case you encounter any incompatibilities or </p>
+<p>have questions, please contact the Vector support. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>9 / 21 </p>
+<p><b>5 </b></p>
+<p><b>Configuration </b></p>
+<p>It depends on the used communication software if the VStdLib has configurable options. </p>
+<p>The  configuration  tool  provides  options  for  the  VStdLib  if  (as  previously  described)  the </p>
+<p>used CAN driver has RI1.5 or higher or a MICROSAR stack is used.  </p>
+<p>The VStdLib is configured by means of the configuration tool. CANGen provides an own </p>
+<p>dialog named VStdLib to configure this component. In GENy these configuration options </p>
+<p>are </p>
+<p>found </p>
+<p>in </p>
+<p>the </p>
+<p>hardware </p>
+<p>options </p>
+<p>dialog. </p>
+<p>The </p>
+<p>following </p>
+<p>two </p>
+<p>pictures </p>
+<p>show </p>
+<p>the </p>
+<p>configuration dialogs in both tools. The first picture shows the dialog in GENy.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>VStdLib configuration dialog in GENy </p>
+<p> </p>
+<p>The next picture shows the configuration dialog of the VStdLib in the CANGen tool. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>VStdLib configuration dialog in CANGen </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>10 / 21 </p>
+<p>The following table describes the different configuration items of the VStdLib dialogs. </p>
+<p> </p>
+<p><b>Configuration Item </b></p>
+<p><b>Description </b></p>
+<p>Lock Mechanism </p>
+<p>One can select the interrupt lock mechanism </p>
+<p>used by the VStdLib. The VStdLib provides </p>
+<p>four different types: Default, LockLevel, OSEK </p>
+<p>and User. </p>
+<p>The setting “OSEK” covers OSEK OS and </p>
+<p>AUTOSAR OS. </p>
+<p>Lock Level </p>
+<p>If LockLevel was selected as Lock Mechanism </p>
+<p>one can select the interrupt lock level used for </p>
+<p>CANbedded components. The VStdLib will </p>
+<p>lock interrupts up to the specified level. Higher </p>
+<p>level interrupts remain unlocked. </p>
+<p>Nested Disable </p>
+<p>If “User” was selected as Lock Mechanism the </p>
+<p>user can type in the name of the user defined </p>
+<p>function which lock the interrupts. </p>
+<p>Nested Restore </p>
+<p>If “User” was selected as Lock Mechanism the </p>
+<p>user can type in the name of the user defined </p>
+<p>function which restores the interrupts to their </p>
+<p>previous state. </p>
+<p>Assertions </p>
+<p>If this checkbox is enabled the VStdLib will call </p>
+<p>an assertion function in case of a fatal error. </p>
+<p> </p>
+<p> </p>
+<p>If one configures the option Lock Mechanism as “User” two function have to be provided. </p>
+<p>The prototype of both functions is: </p>
+<p> </p>
+<p><b>void UserFunction(void) </b></p>
+<p> </p>
+<p>The  first  function  entered  under  the  option  “Nested  Disable”  is  expected  to  disable </p>
+<p>interrupts  and  store  the  current  context  of  the  interrupt  state  (Current  I-Flag,  Current </p>
+<p>Interrupt Lock Level, etc.) to a global variable. </p>
+<p>The second function entered under “Nested Restore” is expected to restore the interrupts </p>
+<p>to the previous state using the value which was saved in the context of “Nested Disable”. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>The two functions must not implement a disable/enable mechanism but a </p>
+<p>disable/restore mechanism! Otherwise it may happen that interrupts remain locked until </p>
+<p>the next Power On reset. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>11 / 21 </p>
+<p>The configuration option “User” can be used instead of the previously known CAN driver </p>
+<p>option “Interrupt Control by Application”. </p>
+<p> </p>
+<p><b>5.1 </b></p>
+<p><b>Usage with OSEK OS </b></p>
+<p>If OSEK OS is configured as lock mechanism the VStdLib needs to include the header of </p>
+<p>the OSEK OS. Since the header of the OSEK OS may have different names depending on </p>
+<p>the OS supplier the VStdLib includes always the same header file. This header file has to </p>
+<p>be provided by the user. The file’s name must be os.h. If the OSEK OS already provides a </p>
+<p>file named like this nothing needs to be done (as long it provides the required prototypes). </p>
+<p>Otherwise the user has to create a header file named os.h and include the corresponding </p>
+<p>OSEK OS file. </p>
+<p>If the VStdLib is configured to lock/unlock interrupts by means of OSEK OS the following </p>
+<p>OSEK functions are called to implement the lock: </p>
+<p><b>&gt; </b></p>
+<p>SuspendAllInterrupts </p>
+<p><b>&gt; </b></p>
+<p>ResumeAllInterrupts </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Usage with QNX OS </b></p>
+<p>In case the VStdLib is used in a QNX OS environment two options for interrupt locking are </p>
+<p>available.  Depending  on  the  way  CAN  interrupts  are  handled  (ISR,  Interrupt  Thread) </p>
+<p>different locking mechanisms are needed. </p>
+<p> </p>
+<p>In  case  the  CAN  interrupts  are  handled  by  an  interrupt  thread  the  locking  is  done  by </p>
+<p>means of mutexes. These are not implemented by the VStdLib but the QWrap component. </p>
+<p>Please refer to Figure 5-3 which shows the locking configuration in this case.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>Locking configuration in case CAN events are handled in an interrupt thread </p>
+<p>User defined locking is also required if the VStdLib is configured to run in the context of the </p>
+<p>QNX startup code (minidriver). The MdWrap component provides the same callbacks as </p>
+<p>shown in Figure 5-3 also in that case. QWrap and MdWrap implement the same callback </p>
+<p>names in case the same tool configuration is used to generate for the minidriver and the </p>
+<p>fulldriver. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>12 / 21 </p>
+<p> </p>
+<p>In  case  CAN  interrupts  are  handled  by  a  CAN  interrupt  routine  the  VStdLib  locking </p>
+<p>functions disable/restore the global interrupt flag. Mutexes are not used. In this case the </p>
+<p>configuration of the VStdLib must be set to Default as shown in Figure 5-4. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>Configuration of the VStdLib in case of handling CAN events on interrupt level </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>13 / 21 </p>
+<p><b>6 </b></p>
+<p><b>API Description </b></p>
+<p>This chapter describes the API of the VStdLib. </p>
+<p> </p>
+<p><b>6.1 </b></p>
+<p><b>Initialization </b></p>
+<p> </p>
+<p><b>VStdInitPowerOn </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdInitPowerOn</b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the VStdLib component. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function must be called once after PowerOn reset. This function must not be re-called </p>
+<p>later. </p>
+<p><b>&gt; </b></p>
+<p>The application must not call any other Vector communication stack function before this </p>
+<p>function. This includes also the other VStdLib functions. In other words: The function </p>
+<p>VStdInitPowerOn must be the very first Vector function being called after startup. Depending </p>
+<p>on the architecture the caller must take care about interruptions of the init function which may </p>
+<p>violate this requirement (OS task which calls another Vector function). </p>
+<p><b>&gt; </b></p>
+<p>If the CANbedded stack is used this function is automatically called by the CAN or LIN driver. </p>
+<p><b>&gt; </b></p>
+<p>In a MICROSAR communication stack is integrated this function has to be called by the </p>
+<p>application before any other MICROSAR API function is called. </p>
+<p> </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>Task context </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>14 / 21 </p>
+<p><b>6.2 </b></p>
+<p><b>Interrupt Control </b></p>
+<p> </p>
+<p><b>VStdSuspendAllInterrupts </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdSuspendAllInterrupts</b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Disables all interrupts or locks interrupts to a certain lock level. This depends on the hardware platform. </p>
+<p>The way interrupts are locked is to be configured in the configuration tool.  </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is designed to be called in a nested way (except User Interrupt Control is </p>
+<p>configured). </p>
+<p><b>&gt; </b></p>
+<p>Every call to VStdSuspendAllInterrupts must have a corresponding call to </p>
+<p>VStdResumeAllInterrupts. </p>
+<p><b>&gt; </b></p>
+<p>If User Interrupt Control is configured this function is redirected to the functions specified by </p>
+<p>the user in the configuration tool. No nesting counter is implemented. The user may have to </p>
+<p>take special care to handle this behavior. </p>
+<p><b>&gt; </b></p>
+<p>Depending on the used OS this function may use either a global lock or a mutex. </p>
+<p><b>&gt; </b></p>
+<p>Default implementation only works if corresponding flags can be modified (e.g. in privileged </p>
+<p>mode). </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No limitation </p>
+<p> </p>
+<p> </p>
+<p><b>VStdResumeAllInterrupts </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdResumeAllInterrupts</b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Resumes the interrupts which were locked using the API function VStdSuspendAllInterrupts.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>15 / 21 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function must not be called without a corresponding call to VStdSuspendAllInterrupts. </p>
+<p><b>&gt; </b></p>
+<p>If User Interrupt Control is configured this function is redirected to the functions specified by </p>
+<p>the user in the configuration tool. No nesting counter is implemented. The user may have to </p>
+<p>take special care to handle this behavior. </p>
+<p><b>&gt; </b></p>
+<p>Depending on the used OS this function may use either a global lock or a mutex. </p>
+<p><b>&gt; </b></p>
+<p>Default implementation only works if corresponding flags can be modified (e.g. in privileged </p>
+<p>mode). </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No limitation </p>
+<p> </p>
+<p> </p>
+<p><b>6.3 </b></p>
+<p><b>Memory Functions </b></p>
+<p>This chapter describes not all functions, as they do all the same except for the memory </p>
+<p>qualifiers of the source and destination locations. </p>
+<p> </p>
+<p><b>VStdMemSet </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdMemSet </b>(void *pDest, vuint8 nPattern, vuint16 nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDest </p>
+<p>The start address in memory which is to be initialized using the given </p>
+<p>character. </p>
+<p>nPattern </p>
+<p>The character to be used to fill nCnt Bytes starting at address pDest. </p>
+<p>nCnt </p>
+<p>The number of Bytes to be filled using the given character. </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function fills nCnt Bytes starting at address pDest in memory using the character nPattern. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function exists in three variants (default, near and far memory). Depending on the </p>
+<p>platform these function may be implemented differently </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p> </p>
+<p> </p>
+<p><b>VStdMemSet </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>16 / 21 </p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdMemClr </b>(void *pDest, vuint16 nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDest </p>
+<p>The start address in memory which is to be initialized to zero. </p>
+<p>nCnt </p>
+<p>The number of Bytes to be set to zero. </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function initializes nCnt Bytes starting at address pDest in memory to zero. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function exists in three variants (default, near and far memory). Depending on the </p>
+<p>platform these function may be implemented differently </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p> </p>
+<p> </p>
+<p><b>VStdMemSet </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>VStdMemCpy </b>(void *pDest, void *pSrc, vuint16 nCnt) </p>
+<p><b>Parameter </b></p>
+<p>pDest </p>
+<p>The destination address to which the data is copied. </p>
+<p>pSrc </p>
+<p>The source address from where the data is copied. </p>
+<p>nCnt </p>
+<p>The number of Bytes to be copied from start address pSrc to destination </p>
+<p>address pDest. </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function copies a block of nCnt Bytes starting at memory location pSrc to another memory location </p>
+<p>starting at address pDest. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function exists in many variants. These variants implement different memory source and </p>
+<p>destination locations. </p>
+<p><b>&gt; </b></p>
+<p>The implementation of these functions is highly platform dependent </p>
+<p><b>&gt; </b></p>
+<p>The memory blocks starting at pSrc and pDest must no overlap. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>17 / 21 </p>
+<p><b>6.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p> </p>
+<p><b>ApplVStdFatalError </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>ApplVStdFatalError </b>(vuint8 nErrorNumber) </p>
+<p><b>Parameter </b></p>
+<p>nErrorNumber </p>
+<p>This parameter describes the reason which caused the assertion. </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This function is called by the VStdLib in case an assertion fails. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is to be implemented by the application. </p>
+<p><b>&gt; </b></p>
+<p>If this function returns to the caller, it is not ensured that the calling functions finished </p>
+<p>successfully. It has to be considered as a severe error if this function is called. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>No restriction </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>18 / 21 </p>
+<p><b>7 </b></p>
+<p><b>Assertions </b></p>
+<p>If  the  user  enables  the  option  “Assertions”  the  VStdLib  component  performs  additional </p>
+<p>checks.  If  a  checked  condition  fails  the  assertion  function  ApplVStdFatalError  is  called. </p>
+<p>The implementation of this function is to be provided by the application. This function has </p>
+<p>an  errorcode  parameter  which  describes  the  reason  which  caused  the  assertion.  The </p>
+<p>following table describes these reasons. </p>
+<p> </p>
+<p><b>Errorcode </b></p>
+<p><b>Description </b></p>
+<p>kVStdErrorIntDisableTooOften </p>
+<p>The called VStdLib interrupt locking function </p>
+<p>exceeded a nesting call depth of 127. </p>
+<p>kVStdErrorIntRestoreTooOften </p>
+<p>The number of calls of the VStdLib interrupt </p>
+<p>unlocking function was higher than the number of </p>
+<p>nested interrupt lock calls. </p>
+<p>kVStdErrorMemClrInvalidParameter  </p>
+<p>A memclr function of the VStdLib was called with an </p>
+<p>invalid pointer parameter </p>
+<p>kVStdErrorMemCpyInvalidParameter </p>
+<p>A memcpy function of the VStdLib was called with an </p>
+<p>invalid pointer parameter </p>
+<p>kVStdErrorMemSetInvalidParameter </p>
+<p>A memset function of the VStdLib was called with an </p>
+<p>invalid pointer parameter </p>
+<p>kVStdErrorUnexpectedLockState </p>
+<p>A interrupt restore function of the VStdLib is called </p>
+<p>but the interrupts are already unlocked. This state is </p>
+<p>not expected and must never occur. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Note that some of the assertions exist solely in case the VStdLib is configured to use </p>
+<p>no library functions. In that case the missing library functionality is implemented directly </p>
+<p>in the VStdLib source file. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Not every assertion code is implemented on each hardware. </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>19 / 21 </p>
+<p><b>8 </b></p>
+<p><b>Limitations </b></p>
+<p><b>8.1 </b></p>
+<p><b>Interrupt control does not work correctly in user mode </b></p>
+<p>For  proper  functionality  it  is  required  that  the  interrupt  lock  functions  can  modify  the </p>
+<p>relevant  bits  (e.g.  Interrupt  Level,  Interrupt  Enable)  in  the  corresponding  registers  (e.g. </p>
+<p>processor status word).  </p>
+<p>If the specific controller supports any non-privileged mode (e.g. user mode) that does not </p>
+<p>allow  access  to  the  relevant  registers  and  the  interrupt  lock APIs  are  called  within  this </p>
+<p>context the interrupt lock may not work as expected.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>20 / 21 </p>
+<p><b>9 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>9.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>User configuration file </p>
+<p>A text file which is appended by the configuration tool to the generated </p>
+<p>source files. If a user configuration file is required the technical reference </p>
+<p>describes it and the contents. </p>
+<p> </p>
+<p> </p>
+<p><b>9.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>RI </p>
+<p>Reference implementation of the CANbedded CAN driver. The reference </p>
+<p>implementation defines the features a CAN driver must provide. From </p>
+<p>Reference Implementation 1.5 (RI1.5) the interrupt locking functionality of </p>
+<p>each CAN driver is moved to the VStdLib for the specific platform. </p>
+<p>VStdLib </p>
+<p>Vector Standard Library </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference VStdLib  </p>
+<p> </p>
+<p></p>
+<p>2013, Vector Informatik GmbH </p>
+<p>Version: 1.6.2 </p>
+<p>based on template version 3.7 </p>
+<p>21 / 21 </p>
+<p><b>10  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

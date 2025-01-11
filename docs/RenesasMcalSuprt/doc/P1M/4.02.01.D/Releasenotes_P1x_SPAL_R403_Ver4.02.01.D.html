@@ -1,0 +1,2613 @@
+---
+layout: default
+title: Releasenotes_P1x_SPAL_R403_Ver4.02.01.D
+nav_order: 23
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 1 of 32 </p>
+<p>Release Notes for RENESAS RH850/P1x: </p>
+<p>RENESAS_SW-AUTOSAR-P1x: MCAL Ver4.02.01.D </p>
+<p>MP Quality </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose: </p>
+<p>To deliver AUTOSAR R4.0.3 MCAL software for P1x Ver4.02.01.D release using the following </p>
+<p>inputs. </p>
+<p> </p>
+<p>        Device Manual:       </p>
+<p>           </p>
+<p>r01uh0436ej0130-rh850p1x.pdf </p>
+<p> </p>
+<p>        Device File:  </p>
+<p>                DF-RH850P1M-EE_V120.zip </p>
+<p> </p>
+<p>        Operating Precautions:    R01TU0069ED0300_RH850.pdf </p>
+<p>                                                   </p>
+<p>        Modules supported:          DIO, FLS, MCU, PORT, SPI and WDG. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Note: In case of integration of this product into safety related applications please contact Renesas for </p>
+<p>additional safety related work products. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 2 of 32 </p>
+<p>1.2</p>
+<p> </p>
+<p>Package information </p>
+<p><b>Product   </b></p>
+<p>RH850/P1x </p>
+<p><b>Variant </b></p>
+<p>P1M </p>
+<p><b>Product Release Version </b></p>
+<p>Ver4.02.01.D </p>
+<p><b>AUTOSAR Specification Version </b></p>
+<p>4.0.3 </p>
+<p><b>Device tested on </b></p>
+<p>P1M - R7F701318 </p>
+<p>P1M - R7F701310 </p>
+<p><b>Devices supported </b></p>
+<p>RH850/P1M </p>
+<p>R7F701310 </p>
+<p>R7F701311 </p>
+<p>R7F701314   </p>
+<p>R7F701315   </p>
+<p>R7F701318 </p>
+<p>R7F701319   </p>
+<p>R7F701322   </p>
+<p>R7F701323   </p>
+<p><b>Release Date </b></p>
+<p>24-Feb-2017 </p>
+<p> </p>
+<p>Additional to the above list, the following derivatives (with ICU-S units) are also supported: </p>
+<p> </p>
+<p><b>ICU-S Devices supported </b></p>
+<p>R7F701362 </p>
+<p>R7F701363 </p>
+<p>R7F701366 </p>
+<p>R7F701367 </p>
+<p> </p>
+<p>As there was no impact on MCAL identified due to the ICU-S unit, Renesas recommends to use the below equivalent </p>
+<p>devices part number without ICU-S unit, during MCAL configuration, instead of the actual device part number with </p>
+<p>ICU-S unit: </p>
+<p> </p>
+<p><b>Device (with ICU-S Support) </b></p>
+<p><b>Equivalent device(w/o ICU-S support) </b></p>
+<p>R7F701362 </p>
+<p>R7F701318 </p>
+<p>R7F701363 </p>
+<p>R7F701319 </p>
+<p>R7F701366 </p>
+<p>R7F701322 </p>
+<p>R7F701367 </p>
+<p>R7F701323 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 3 of 32 </p>
+<p>1.3</p>
+<p> </p>
+<p>Tools   </p>
+<p>1.3.1</p>
+<p> </p>
+<p>GHS </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>GreenHills </p>
+<p>Multi IDE – </p>
+<p>compiler </p>
+<p>Green Hills Multi </p>
+<p>V6.1.6 Compiler </p>
+<p>Version 2015.1.7 </p>
+<p> </p>
+<p>-c -Osize -g -cpu=rh850g3m -gsize -prepare_dispose </p>
+<p>-inline_prologue -sda=all -Wundef -no_callt -reserve_r2 </p>
+<p>--short_enum --prototype_errors --diag_error 193 </p>
+<p>-dual_debug -large_sda --no_commons -shorten_loads </p>
+<p>-shorten_moves -Wshadow -nofloatio </p>
+<p>-ignore_callt_state_in_interrupts -delete </p>
+<p>1.3.2</p>
+<p> </p>
+<p>Configuration code generator </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>ECU Spectrum </p>
+<p>4.0.14 </p>
+<p>- </p>
+<p>1.3.3</p>
+<p> </p>
+<p>Additional software </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>NA </p>
+<p>- </p>
+<p>- </p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Generic Information </p>
+<p>1.4.1</p>
+<p> </p>
+<p>Release Target </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>Generic </p>
+<p><b>Module Overview User Manual </b></p>
+<p>R20UT3752EJ0101-AUTOSAR.pdf – V1.0.10 </p>
+<p><b>Getting Started for P1x MCAL User </b></p>
+<p><b>Manual </b></p>
+<p>R20UT3753EJ0101-AUTOSAR.pdf – V1.0.8 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>1.4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>Generator Files </b></p>
+<p>P1x_translation.h   </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:     </p>
+<p>1.</p>
+<p> </p>
+<p>Updated supported devices list in 'Environment'. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated copyright information. </p>
+<p><b>Common Files </b></p>
+<p>ComStack_Types.h   </p>
+<p>1.0.1 </p>
+<p>  No changes for release Ver4.02.01.D </p>
+<p>Std_Types.h   </p>
+<p>1.0.1 </p>
+<p>  No changes for release Ver4.02.01.D </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 4 of 32 </p>
+<p>rh850_Types.h </p>
+<p>1.0.4 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Platform_Types.h   </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>Compiler Files </b></p>
+<p>Compiler.h </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Compiler_Cfg.h   </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>MemMap.h   </p>
+<p>1.0.10 </p>
+<p>  Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Memory section </p>
+<p>FLS_START_SEC_PRIVATERAM_CODE and </p>
+<p>FLS_STOP_SEC_PRIVATERAM_CODE added for FLS </p>
+<p>module. </p>
+<p>Os.h   </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Os.c   </p>
+<p>1.0.2 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>RUCG Tool </b></p>
+<p>RUCG.exe </p>
+<p>1.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p> </p>
+<p><b>Getting Started for P1x MCAL User Manual </b></p>
+<p>R20UT3753EJ0101-AUTOSAR.pdf </p>
+<p>1.0.8 </p>
+<p>  Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added R-number. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Notice and copyright information. </p>
+<p><b>Module Overview User Manual </b></p>
+<p>R20UT3752EJ0101-AUTOSAR.pdf </p>
+<p>1.0.10 </p>
+<p>  Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>New section 3.4 added for Deviation List. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated section 3.2 ‘RH850 Macros Definition’ for adding </p>
+<p>explanation regarding usage and modification of macros. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated R-Number. </p>
+<p>4.</p>
+<p> </p>
+<p>Updated notice and copyright information. </p>
+<p>5.</p>
+<p> </p>
+<p>Removed 3.2.2 related information from Chapter 2 </p>
+<p>‘Reference Documents’ and ‘Definitions’. </p>
+<p>6.</p>
+<p> </p>
+<p>Corrected page numbers </p>
+<p><b>RUCG Tool User Manual </b></p>
+<p>R20UT3754EJ0101-AUTOSAR.pdf </p>
+<p>1.1.3 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1. Updated notice and copyright information. </p>
+<p>2. Updated R Number. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 5 of 32 </p>
+<p>1.4.3 </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>1.4.4 </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 6 of 32 </p>
+<p>1.5 Module Index </p>
+<p> </p>
+<p>DIO </p>
+<p> </p>
+<p>FLS </p>
+<p> </p>
+<p>MCU </p>
+<p> </p>
+<p>PORT </p>
+<p> </p>
+<p>SPI </p>
+<p> </p>
+<p>WDG </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 7 of 32 </p>
+<p>2 </p>
+<p>DIO </p>
+<p>2.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>DIO </p>
+<p><b>Software Version </b></p>
+<p>1.0.12 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3708EJ0101-AUTOSAR.pdf – V1.0.10 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3709EJ0101-AUTOSAR.pdf – V1.0.6 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>2.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_DIO_P1M_04_05_12_13_20_</p>
+<p>21.arxml</p>
+<p> </p>
+<p>1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>For Requirement TPS_ECUC_06004, ADMIN-DATA </p>
+<p>section is updated.   </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information. </p>
+<p>R403_DIO_P1M_10_11_14_15_18_</p>
+<p>19_22_23.arxml</p>
+<p> </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>For Requirement TPS_ECUC_06004, ADMIN-DATA </p>
+<p>section is updated.   </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information. </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_DIO_P1x_BSWMDT.arxml </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Corrected Service ID of API Dio_Init to decimal value. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Software patch version is updated. </p>
+<p><b>Source Code </b></p>
+<p>Dio.c </p>
+<p>1.0.24 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Removed unnecessary Requirement tag </p>
+<p>'EAAR_PN0034_FR_0017' and corrected requirement </p>
+<p>'DIO140' in Dio_WritePort. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Added inclusion of &quot;Dio_RegWrite.h&quot;. </p>
+<p>Dio_Ram.c </p>
+<p>1.0.9 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Dio_Version.c </p>
+<p>1.0.7 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Dio.h </p>
+<p>1.0.14 </p>
+<p>Following changes are made in Ver4.02.01</p>
+<p>.D</p>
+<p>:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Inclusion of &quot;Dio_RegWrite.h&quot; is removed and numeric </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 8 of 32 </p>
+<p>values are appended with 'U' for macro definitions. </p>
+<p>3.</p>
+<p> </p>
+<p>Copyright information is updated.   </p>
+<p>Dio_Debug.h </p>
+<p>1.0.5 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Dio_PBTypes.h </p>
+<p>1.0.15 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Numeric values are appended with 'U' for macro </p>
+<p>definitions. </p>
+<p>3.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Dio_Ram.h </p>
+<p>1.0.13 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated   </p>
+<p>Dio_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information 'Copyright(c) 2017' corrected to </p>
+<p>'Copyright(c) 2016-2017'. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed macro 'DIO_DEM_TYPE' </p>
+<p>Dio_Version.h </p>
+<p>1.0.10 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to 'DIO_H_00x :'. </p>
+<p>2.</p>
+<p> </p>
+<p>Included &quot;Dem.h&quot; file. </p>
+<p>3.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p><b>DLL executable code for DIO configuration generation </b></p>
+<p>Dio_X1x.dll </p>
+<p>1.0.19 </p>
+<p>Following change is made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Dio_X1x.cfgxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated </p>
+<p><b>P1x Sample Application P1M Source file<i></b> </i></p>
+<p>App_DIO_P1M_Sample.c </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Sample application is updated as per requirement </p>
+<p>EAAR_PN0061_NR_0006. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright Information updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated Sample application for checking all ports, </p>
+<p>channels and channel groups. </p>
+<p><b>P1x Sample Application P1M Header file<i></b> </i></p>
+<p>App_DIO_P1M_Sample.h </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Sample application is updated as per requirement </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 9 of 32 </p>
+<p>EAAR_PN0061_NR_0006. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright Information updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated Sample application for checking all ports, </p>
+<p>channels and channel groups. </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3708EJ0101-AUTOSAR.pdf </p>
+<p>1.0.10 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Section 10.3 Function Definitions updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Chapter 11 Development and Production Errors. </p>
+<p>3.</p>
+<p> </p>
+<p>Abbreviations and Acronyms updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Chapter 2 ‘Reference section’ updated. </p>
+<p>5.</p>
+<p> </p>
+<p>R Number updated. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated Driver Version Details in Chapter 14 ‘Release </p>
+<p>Details’. </p>
+<p>7.</p>
+<p> </p>
+<p>Updated section 13.3 ‘Memory and Throughput’. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated chapter 4 ‘Forethoughts’. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated notice and copyright information. </p>
+<p>10.</p>
+<p> </p>
+<p>Modified Figure 5-2 in chapter 5. </p>
+<p>R20UT3709EJ0101-AUTOSAR.pdf </p>
+<p> 1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>R Number updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated notice and copyright information </p>
+<p>3.</p>
+<p> </p>
+<p>Updated Abbreviations and Acronyms </p>
+<p>4.</p>
+<p> </p>
+<p>Page numbers corrected. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated chapter 2 References. </p>
+<p>2.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>2.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 10 of 32 </p>
+<p>3 </p>
+<p>FLS </p>
+<p>3.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>FLS </p>
+<p><b>Software Version </b></p>
+<p>V1.0.4 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3710EJ0101-AUTOSAR.pdf – V1.0.4 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3711EJ0101-AUTOSAR.pdf – V1.0.8 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>3.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_FLS_P1M_04_05_10_to_15.arx</p>
+<p>ml </p>
+<p>1.1.6 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>For Requirement TPS_ECUC_06004, ADMIN-DATA </p>
+<p>section is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information.   </p>
+<p>R403_FLS_P1M_18_to_23.arxml </p>
+<p>1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>For Requirement TPS_ECUC_06004, ADMIN-DATA </p>
+<p>section is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information.   </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_FLS_P1x_BSWMDT.arxml </p>
+<p>1.0.9 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated software patch version. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information. </p>
+<p>3.</p>
+<p> </p>
+<p>The tag IMPLEMENTED-ENTRY-REF is moved after </p>
+<p>MINIMUM-START-INTERVAL tag in scheduled function </p>
+<p>Fls_Mainfunction.Also multiple EXCLUSIVE-AREAS </p>
+<p>tags are removed from inside </p>
+<p>BSW-INTERNAL-BEHAVIOR section. </p>
+<p>4.</p>
+<p> </p>
+<p>Decimal values are given to the Service ID's of the API's </p>
+<p>Fls_ReadImmediate,Fls_BlankCheck,Fls_Suspend, </p>
+<p>Fls_Resume and Fls_GetVersionInfo. </p>
+<p><b>Source Code </b></p>
+<p>Fls.c </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Elements of structure &quot;Fls_GstVarProperties&quot; are renamed. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated.   </p>
+<p>3.</p>
+<p> </p>
+<p>Call of Fls_TimeOutCheckAndProcessing() is moved into </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 11 of 32 </p>
+<p>the command switch case for erase, write and blank check. </p>
+<p>4.</p>
+<p> </p>
+<p>Removed unnecessary mapping of requirements </p>
+<p>AR_PN0040_FR_0017 and EAAR_PN0034_FR_0017. </p>
+<p>5.</p>
+<p> </p>
+<p>Message tag for Msg(4:0857) added in AUTOSAR release </p>
+<p>version information and Fls_Init API. </p>
+<p>Fls_Irq.c </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Elements of structure &quot;Fls_GstVarProperties&quot; are renamed. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Justification for Misra warning 4:0857 is added. </p>
+<p>Fls_Internal.c </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Elements of structure &quot;Fls_GstVarProperties&quot; are renamed. </p>
+<p>3.</p>
+<p> </p>
+<p>Message tag for Msg (4:0857) added in </p>
+<p>Fls_InitiateWriteJob API. </p>
+<p>4.</p>
+<p> </p>
+<p>Fls_ProcessCancel, Fls_TimeOutCheckAndProcessing, </p>
+<p>Fls_ProcessRead and Fls_ProcessJobResult APIs are </p>
+<p>improved to report FLS_FCU_ERR_INTERNAL in case </p>
+<p>of malfunctioning of Fls_FcuSwitchMode API. </p>
+<p>5.</p>
+<p> </p>
+<p>Global variable Fls_GblTimeOutMonitor is cleared in </p>
+<p>functions Fls_ProcessJobResult,Fls_ProcessSuspend and </p>
+<p>Fls_CancelInternal APIs. Also </p>
+<p>Fls_TimeOutCheckAndProcessing is modified regarding </p>
+<p>DET report in case of timeout error. </p>
+<p>6.</p>
+<p> </p>
+<p>Message tag for Msg (4:0857) added in AUTOSAR release </p>
+<p>version information and Fls_PreFcuInitCheck API. </p>
+<p>Fls_Private_Fcu.c </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Fls_FcuSwitchMode API is updated for Write-Verify </p>
+<p>implementation of FENTRYR register. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Fls_FcuSwitchMode is improved to handle mode switch to </p>
+<p>USER and mode switch to P/E separately and </p>
+<p>Fls_FcuCheckSequencerStatus is added to check </p>
+<p>FENTRYR register to identify command lock state. </p>
+<p>4.</p>
+<p> </p>
+<p>Fls_FcuForcedStop is updated to check for CMDLK bit. </p>
+<p>5.</p>
+<p> </p>
+<p>Fls_FcuCopytoRam </p>
+<p>Fls_FcuSwitchBFlash,Fls_FcuClearCache and </p>
+<p>Fls_FcuGetFWParam APIs are moved to new memory </p>
+<p>section FLS_START_SEC_PRIVATERAM_CODE. </p>
+<p>6.</p>
+<p> </p>
+<p>Elements of structure &quot;Fls_GstVarProperties&quot; are renamed. </p>
+<p>7.</p>
+<p> </p>
+<p>Message tags for Msg (4:0303) added in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 12 of 32 </p>
+<p>Fls_FcuSwitchBFlash API and Msg (4:1290) in </p>
+<p>Fls_FcuSwitchMode API. Justification for Msg(4:0857) </p>
+<p>added and message tags added for </p>
+<p>Fls_FcuPrepareEnvironment and Fls_FcuForcedStop APIs. </p>
+<p>8.</p>
+<p> </p>
+<p>Removed unnecessary mapping of requirement </p>
+<p>AR_PN0072_FR_0017. </p>
+<p>9.</p>
+<p> </p>
+<p>Fls_FcuClearStatus API is updated to remove error bit </p>
+<p>checking. </p>
+<p>10.</p>
+<p> </p>
+<p>Added unit design ID in the API </p>
+<p>Fls_FcuCheckSequencerStatus. </p>
+<p>11.</p>
+<p> </p>
+<p>Fls_FcuForcedStop API is updated to check for FRDY bit </p>
+<p>using FLS_FCU_FRDY_POOL_COUNT value. </p>
+<p>12.</p>
+<p> </p>
+<p>UT ID Tag FLS_UT_002 added for the uncovered parts of </p>
+<p>the code during Unit Testing. </p>
+<p>Fls_Ram.c </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Fls_GbIntrRqstFlag changed to Fls_GblIntrRqstFlag. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Comments added to justify usage of Global variables. </p>
+<p>Fls_Version.c </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Fls.h </p>
+<p>1.0.3 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Fls_Debug.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Fls_Internal.h </p>
+<p>1.0.2 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Fls_Private_Fcu.h </p>
+<p>1.0.3 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Added Fls_FcuCheckSequencerStatus API declaration. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Fls_FcuCopytoRam </p>
+<p>Fls_FcuSwitchBFlash,Fls_FcuClearCache and </p>
+<p>Fls_FcuGetFWParam APIs are moved to new memory </p>
+<p>section FLS_START_SEC_PRIVATERAM_CODE. </p>
+<p>Fls_Irq.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Switch FLS_INTERRUPT_MODE is added for declaration </p>
+<p>of Interrupt FLS_FLENDNM_ISR. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Fls_PBTypes.h </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Added FLS_FCU_FRDY_POOL_COUNT macro. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated memclass of </p>
+<p>Fls_GulTempBuffer.Fls_GblSuspendStatus is removed as </p>
+<p>there is no usage. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 13 of 32 </p>
+<p>4.</p>
+<p> </p>
+<p>Value of the macro </p>
+<p>FLS_FCU_REGBIT_FASTAT_CMDLK is typecasted to </p>
+<p>uint8 </p>
+<p>Fls_Ram.h </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Fls_GbIntrRqstFlag changed to Fls_GblIntrRqstFlag. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Comments added to justify usage of Global variables. </p>
+<p>Fls_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Macro banner for FLS_REG_WRITE_VERIFY_INIT is </p>
+<p>updated. </p>
+<p>Fls_Types.h </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Elements of structure &quot;Fls_GstVarProperties&quot; are renamed. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Fls_Version.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>DLL executable code for FLS configuration generation </b></p>
+<p>Fls_X1x.dll </p>
+<p>1.3.11 </p>
+<p>Following change is made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Fls_X1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances.   </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p><b>X1x Common Sample Application Source file </b></p>
+<p>App_FLS_Common_Sample.c </p>
+<p>1.1.14 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Ghs section FLS_SAMPLE_CODE_RAM changed to </p>
+<p>FLS_SAMPLE_CODE_ROM </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Test script is updated for Delay function </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_FLS_Common_Sample.h </p>
+<p>1.0.3 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Macro FLS_TEN is added to optimize testing </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_FLS_P1M_Sample.c</p>
+<p> </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_FLS_P1M_Sample.h</p>
+<p> </p>
+<p>1.0.2 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3710EJ0101-AUTOSAR.pdf </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated Table for Abbreviations and Acronyms to remove </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 14 of 32 </p>
+<p>unused Abbreviations/ Acronyms. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Chapter 2 Reference Documents. </p>
+<p>3.</p>
+<p> </p>
+<p>3. Updated section 4.1 ‘General’ to add information about </p>
+<p>Read, Read Immediate, Suspend and Resume operations. </p>
+<p>4.</p>
+<p> </p>
+<p>Updated section 4.2 ‘Preconditions’ to add information </p>
+<p>about BlankCheck operation. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated Chapter 3 and Chapter 9 to rename the FLS </p>
+<p>Driver Generation Tool reference document. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated Section 13.3.1 with ROM/RAM usage values. </p>
+<p>7.</p>
+<p> </p>
+<p>Updated Section 13.3.3 ‘Throughput Details’ to add Note </p>
+<p>under Table 13-6 Throughput Details of the APIs and </p>
+<p>updated the Throughput details. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated section 12 ‘Memory Organization’ to remove </p>
+<p>unused memory segments and their descriptions. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated Chapter 14 for FLS Driver Software version. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated notice, address and copyright information’s. </p>
+<p>11.</p>
+<p> </p>
+<p>Version of R-number is updated at the end of document. </p>
+<p>12.</p>
+<p> </p>
+<p>Updated Section 7.1 to add Cautions. </p>
+<p>13.</p>
+<p> </p>
+<p>Updated Section 10.3 with the details of Fls_Resume API. </p>
+<p>R20UT3711EJ0101-AUTOSAR.pdf </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Abbreviation and Acronyms list is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Section 2.1 for Document versions. </p>
+<p>3.</p>
+<p> </p>
+<p>Table headers are updated in section 8.1 to specify correct </p>
+<p>ERR Ids. </p>
+<p>4.</p>
+<p> </p>
+<p>Updated R Number. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated notice, address and copyright information’s. </p>
+<p>6.</p>
+<p> </p>
+<p>Error message ERR092033 is added in section 8.1. </p>
+<p>3.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>3.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 15 of 32 </p>
+<p>4 </p>
+<p>MCU </p>
+<p>4.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>MCU </p>
+<p><b>Software Version </b></p>
+<p>V1.0.8 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3720EJ0101-AUTOSAR.pdf– V1.0.9 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3721EJ0101-AUTOSAR.pdf– V1.0.8 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_MCU_P1M_04_05.arxml </p>
+<p>1.1.9 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Description of McuLoopCount is updated </p>
+<p>R403_MCU_P1M_10_to_15_18_to_</p>
+<p>23.arxml </p>
+<p>1.0.6 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Description of McuLoopCount is updated </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_MCU_P1x_BSWMDT.arxml </p>
+<p>1.0.10 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Software Version is updated.   </p>
+<p>2.</p>
+<p> </p>
+<p>Fixed all AMDC rule violations. </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Mcu.c </p>
+<p>1.0.10 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated Mcu_Init for initialisation of Global variables. </p>
+<p>2.</p>
+<p> </p>
+<p>Removed multiple declarations in same line from </p>
+<p>Mcu_HWInit. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed justification for MISRA Msg(4:0857) and </p>
+<p>Msg(4:3218) and updated Mcu_StartUPTest for fixing </p>
+<p>MISRA warnings. </p>
+<p>4.</p>
+<p> </p>
+<p>Modified naming of local variable in function </p>
+<p>Mcu_GetResetRawValue. </p>
+<p>5.</p>
+<p> </p>
+<p>Declaration of local variables are changed for using </p>
+<p>macros. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated macros MCU_PROTECTEDWRITE and </p>
+<p>MCU_PROTECTEDWRITERETNONE as per naming </p>
+<p>convention. </p>
+<p>7.</p>
+<p> </p>
+<p>Values move to LHS during comparison and proper </p>
+<p>spacing provided as per coding guidelines. </p>
+<p>Mcu_Irq.c </p>
+<p>1.0.10 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 16 of 32 </p>
+<p>1.</p>
+<p> </p>
+<p>Declaration of local variables are changed for using </p>
+<p>macros. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated macros MCU_PROTECTEDWRITE and </p>
+<p>MCU_PROTECTEDWRITERETNONE as per naming </p>
+<p>convention. </p>
+<p>Mcu_Ram.c </p>
+<p>1.0.6 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Mcu_Version.c </p>
+<p>1.0.4 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Mcu.h </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p>2.</p>
+<p> </p>
+<p>Corrected macros MCU_PROTECTEDWRITE and </p>
+<p>MCU_PROTECTEDWRITERETNONE as per naming </p>
+<p>convention. </p>
+<p>Mcu_Debug.h </p>
+<p>1.0.4 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p>Mcu_Irq.h </p>
+<p>1.0.4 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p>Mcu_PBTypes.h </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p>2.</p>
+<p> </p>
+<p>Removed macros MCU_CLMA0_DELAY_CNT, </p>
+<p>MCU_CLMA1_DELAY_CNT, </p>
+<p>MCU_CLMA2_DELAY_CNT and </p>
+<p>MCU_CLMA3_DELAY_CNT as these are not used. </p>
+<p>Mcu_Ram.h </p>
+<p>1.0.7 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p>Mcu_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01</p>
+<p>.D</p>
+<p>:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added justification for MISRA Msg(4:0857). </p>
+<p>2.</p>
+<p> </p>
+<p>Added subfix for macros. </p>
+<p>Mcu_Types.h </p>
+<p>1.0.8 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Rrequirement tag 'implements' changed to MCU_H_00x. </p>
+<p>Mcu_Version.h </p>
+<p>1.0.3 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirement tag 'implements' changed to MCU_H_00x. </p>
+<p><b>DLL executable code for MCU configuration generation</b></p>
+<p> </p>
+<p>Mcu_P1x.dll </p>
+<p>1.1.5 </p>
+<p>Following change is made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Mcu_P1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances.           </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 17 of 32 </p>
+<p><b>P1x Sample Application P1M Source file<i></b> </i></p>
+<p>App_MCU_P1M_Sample.c </p>
+<p>1.0.6 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Corrected macros MCU_PROTECTEDWRITE as per </p>
+<p>naming convention. </p>
+<p><b>P1x Sample Application P1M Header file<i></b> </i></p>
+<p>App_MCU_P1M_Sample.h </p>
+<p>1.0.3 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3720EJ0101-AUTOSAR.pdf </p>
+<p>1.0.9 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Abbreviations and Acronyms updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Chapter 14, Release Details updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated R number, Notice and Copyright information. </p>
+<p>4.</p>
+<p> </p>
+<p>Section 13.3 Memory and Throughput Details updated.   </p>
+<p>R20UT3721EJ0101-AUTOSAR.pdf </p>
+<p>1.0.8 </p>
+<p> </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated Abbreviations and Acronyms. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Error ERR101044. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated R number. </p>
+<p>4.</p>
+<p> </p>
+<p>Updated Notice and Copyright information. </p>
+<p>4.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>4.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 18 of 32 </p>
+<p>5 </p>
+<p>PORT </p>
+<p>5.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>PORT </p>
+<p><b>Software Version </b></p>
+<p>V1.5.4 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3722EJ0101-AUTOSAR.pdf – V1.0.9 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3723EJ0101-AUTOSAR.pdf – V1.0.9 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>5.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_PORT_P1M_04_05.arxml </p>
+<p>1.0.5 </p>
+<p>Following changes are made in Ver4.02.01.D:                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Parameter    PortPinLevelValue is removed from </p>
+<p>PortGroupJtag0:Pin2 and PortPinLevelValue, </p>
+<p>PortPullUpOption,PortPullDownOption, </p>
+<p>PortInputBufferControl,PortBiDirectionControl are </p>
+<p>removed from PortGroupJtag0:Pin4 </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>ADMIN-DATA section updated as per the requirement </p>
+<p>TPS_ECUC_06004 </p>
+<p>R403_PORT_P1M_12_13.arxml </p>
+<p>1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:                                                                                     </p>
+<p>1.</p>
+<p> </p>
+<p>Parameter PortPinLevelValue is removed and </p>
+<p>PortInputBufferControl, PortPullUpOption, </p>
+<p>PortPullDownOption are added in PortGroupJtag0:Pin2 and </p>
+<p>PortPinLevelValue, PortPullUpOption, </p>
+<p>PortPullDownOption, </p>
+<p>PortInputBufferControl,PortBiDirectionControl are </p>
+<p>removed from PortGroupJtag0:Pin4. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>ADMIN-DATA section updated as per the requirement </p>
+<p>TPS_ECUC_06004 </p>
+<p>R403_PORT_P1M_18_19_22_23.ar</p>
+<p>xml </p>
+<p>1.0.5 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Literal of the parameter PortPinInitialMode is corrected for </p>
+<p>PortGroup5:Pin7 </p>
+<p>2.</p>
+<p> </p>
+<p>Parameter PortPullUpOption is added to Portgroup3:Pin5   </p>
+<p>3.</p>
+<p> </p>
+<p>Parameters PortPinLevelValue, PortPullUpOption, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 19 of 32 </p>
+<p>PortPullDownOption, PortInputBufferControl, </p>
+<p>PortBiDirectionControl are removed </p>
+<p>fromPortGroupJtag0:Pin4 and PortPinLevelValue is </p>
+<p>removed from PortGroupJtag0:Pin2.     </p>
+<p>4.</p>
+<p> </p>
+<p>Corrected the Range of the parameter </p>
+<p>PortNumberOfPortPins         </p>
+<p>5.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>6.</p>
+<p> </p>
+<p>ADMIN-DATA section updated as per the requirement </p>
+<p>TPS_ECUC_06004 </p>
+<p>R403_PORT_P1M_20_21.arxml </p>
+<p>1.0.5 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Parameters PortPinLevelValue, PortPullUpOption, </p>
+<p>PortPullDownOption, PortInputBufferControl, </p>
+<p>PortBiDirectionControl are removed from, </p>
+<p>PortGroupJtag0:Pin4 and PortPinLevelValue is removed </p>
+<p>from PortGroupJtag0:Pin2. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>ADMIN-DATA section updated as per the requirement </p>
+<p>TPS_ECUC_06004 </p>
+<p>R403_PORT_P1M_10_11_14_15.ar</p>
+<p>xml </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Parameter PortPullUpOption is added to PortGroup2:Pin15 </p>
+<p>and Portgroup3:Pin5. </p>
+<p>2.</p>
+<p> </p>
+<p>Parameters PortPinLevelValue, PortPullUpOption, </p>
+<p>PortPullDownOption, PortInputBufferControl, </p>
+<p>PortBiDirectionControl are removed from </p>
+<p>PortGroupJtag0:Pin4 and the parameters </p>
+<p>PortPullUpOption,PortPullDownOption are added in </p>
+<p>PortGroupJtag0:Pin2.             </p>
+<p>3.</p>
+<p> </p>
+<p>Corrected the Range of the parameter </p>
+<p>PortNumberOfPortPins </p>
+<p>4.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>5.</p>
+<p> </p>
+<p>ADMIN-DATA section updated as per the requirement </p>
+<p>TPS_ECUC_06004 </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_PORT_P1x_BSWMDT.arxml </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:                                                                                     </p>
+<p>1.</p>
+<p> </p>
+<p>SW-VERSION is updated </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Port.c </p>
+<p>1.5.13 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Write verify check on PSR register is updated in the </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 20 of 32 </p>
+<p>function Port_PinModeHWRegSet. </p>
+<p>2.</p>
+<p> </p>
+<p>Missing UD IDs are added </p>
+<p>3.</p>
+<p> </p>
+<p>Macro Port_ProtectedWrite is changed to upper case </p>
+<p>4.</p>
+<p> </p>
+<p>Typecasting to PORT_DEM_TYPE is removed in the </p>
+<p>Dem_ReportErrorStatus call </p>
+<p>5.</p>
+<p> </p>
+<p>Port_SetToDioOrAltMode() is updated </p>
+<p>6.</p>
+<p> </p>
+<p>Multiplication operator is replaced with AND in the </p>
+<p>functions Port_DriveUnivCtrlRegInit Port_SetPinDirection </p>
+<p>and Port_OpenDrainCtrlRegInit </p>
+<p>7.</p>
+<p> </p>
+<p>Unwanted MISRA violations (4:2962) and (4:1891) are </p>
+<p>removed. </p>
+<p>Port_Ram.c</p>
+<p> </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Port_Version.c </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Port.h </p>
+<p>1.5.7 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags </p>
+<p>2.</p>
+<p> </p>
+<p>Macro Port_ProtectedWrite is changed to upper case and </p>
+<p>added suffix &quot;U&quot; to all macros </p>
+<p>3.</p>
+<p> </p>
+<p>Variable Port_GstConfiguration is made dimensional to </p>
+<p>remove the QAC warning Msg (4:3684) </p>
+<p>Port_Debug.h </p>
+<p>1.0.3 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags. </p>
+<p>Port_PBTypes.h </p>
+<p>1.4.10 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags </p>
+<p>2.</p>
+<p> </p>
+<p>Macro PORT_DEM_TYPE is removed. Added suffix &quot;U&quot; </p>
+<p>to all the macros. Global arrays are made dimensional. </p>
+<p>Structure name is updated in the union </p>
+<p>Port_Pin_DioOrAltMode to make it unique.                                   </p>
+<p>Macro PORT_LONG_WORD_ZERO is added. Tag name </p>
+<p>is    added for the structure inside the union </p>
+<p>Port_Pin_DioOrAltMode and Port_Pin_Direction </p>
+<p>Port_Ram.h </p>
+<p>1.0.4 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags. </p>
+<p>Port_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags </p>
+<p>2.</p>
+<p> </p>
+<p>PORT_DEM_TYPE is removed from the macro </p>
+<p>PORT_WV_REPORT_ERROR and added suffix &quot;U&quot; to </p>
+<p>write verify macros </p>
+<p>Port_Types.h </p>
+<p>1.3.4 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 21 of 32 </p>
+<p>Port_Version.h </p>
+<p>1.0.7 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the format of requirement tags. </p>
+<p><b>DLL executable code for PORT configuration generation</b></p>
+<p> </p>
+<p>Port_X1x.dll </p>
+<p>1.3.15 </p>
+<p>Following change is made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Port_X1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances. </p>
+<p>2.</p>
+<p> </p>
+<p>  Copyright information updated </p>
+<p><b>P1x Sample Application P1M Source file<i></b> </i></p>
+<p>App_PORT_P1M_Sample.c </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>WriteVerifyErrorNotify function added. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated </p>
+<p><b>P1x Sample Application P1M Header file<i></b> </i></p>
+<p>App_PORT_P1M_Sample.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3722EJ0101-AUTOSAR.pdf </p>
+<p>1.0.9 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Section 4.1.General is updated with the information on pin </p>
+<p>level of output pin. </p>
+<p>2.</p>
+<p> </p>
+<p>Deviation regarding the parameter PortPinlevelValue of </p>
+<p>JTag PortPin is removed from the section 4.5.Deviation List </p>
+<p>3.</p>
+<p> </p>
+<p>Abbreviation list is updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Section 10.3 Function Definitions is updated </p>
+<p>5.</p>
+<p> </p>
+<p>Chapter 2 Reference documents is updated for device </p>
+<p>manual name and version change. </p>
+<p>6.</p>
+<p> </p>
+<p>Chapter 14 Release Details is updated with Port Driver </p>
+<p>Software version. </p>
+<p>7.</p>
+<p> </p>
+<p>Version of R-number is updated at the end of document </p>
+<p>8.</p>
+<p> </p>
+<p>Notice is updated </p>
+<p>9.</p>
+<p> </p>
+<p>Section 4.1.General is updated with the information on </p>
+<p>default value of PortLoopTimeout </p>
+<p>10.</p>
+<p> </p>
+<p>Section 13.2.2.2 is updated with 701318 device information </p>
+<p>11.</p>
+<p> </p>
+<p>Chapter 3 and 9 are updated with R-Numbered Tool User </p>
+<p>manual name. </p>
+<p>12.</p>
+<p> </p>
+<p>Chapter 13.3. Memory and Throughput is updated </p>
+<p>13.</p>
+<p> </p>
+<p>Known limitation added for user mode in the section 4.3 </p>
+<p>14.</p>
+<p> </p>
+<p>Macros PORT_MODE_DIO&quot; and </p>
+<p>&quot;PORT_MODE_ADJUST&quot; added in Section 10.2.4. </p>
+<p>15.</p>
+<p> </p>
+<p>Information on Port_SetPinDefaultDirection and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 22 of 32 </p>
+<p>Port_SetPinDefaultMode added in Chapter 5. </p>
+<p>R20UT3723EJ0101-AUTOSAR.pdf </p>
+<p>1.0.9 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Abbreviation list is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>R number is updated at end of the document </p>
+<p>3.</p>
+<p> </p>
+<p>Notice is updated </p>
+<p>4.</p>
+<p> </p>
+<p>Version of Parameter definition files updated in the section </p>
+<p>2.1.Reference Documents </p>
+<p>5.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>5.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 23 of 32 </p>
+<p>6 </p>
+<p>SPI </p>
+<p>6.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>SPI </p>
+<p><b>Software Version </b></p>
+<p>V1.6.5 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3726EJ0101-AUTOSAR.pdf – V1.0.11 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3727EJ0101-AUTOSAR.pdf – V1.0.12 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>6.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_SPI_P1M_04_05_12_13_20_2</p>
+<p>1.arxml</p>
+<p> </p>
+<p> </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Default value, MIN value and description of SpiTimeOut is </p>
+<p>updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>Spelling corrected in the description of </p>
+<p>SPI_E_ECC_SELFTEST_FAILURE updated. </p>
+<p>R403_SPI_P1M_10_11_14_15_18_1</p>
+<p>9_22_23.arxml</p>
+<p> </p>
+<p> </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>4.</p>
+<p> </p>
+<p>Default value, MIN value and description of SpiTimeOut is </p>
+<p>updated. </p>
+<p>5.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>6.</p>
+<p> </p>
+<p>Spelling corrected in the description of </p>
+<p>SPI_E_ECC_SELFTEST_FAILURE updated. </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_SPI_P1x_BSWMDT.arxml </p>
+<p>1.0.11 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Order of IS-REENTRANT is corrected in </p>
+<p>BSW-MODULE-ENTRY </p>
+<p>3.</p>
+<p> </p>
+<p>Spi_GetErrorInfo is mentioned in BSW-CALLED-ENTITY. </p>
+<p>4.</p>
+<p> </p>
+<p>Software version information is updated. </p>
+<p><b>Source Code </b></p>
+<p>Spi.c </p>
+<p>1.5.11 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>QAC warning justification added at relevant places. </p>
+<p>2.</p>
+<p> </p>
+<p>A new check is added in Spi_AsyncTransmit() to ensure the </p>
+<p>array element accessed from Spi_GaaSeqQueue[] is within </p>
+<p>the defined array size. </p>
+<p>3.</p>
+<p> </p>
+<p>Constants are moved to left hand side for condition checks at </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 24 of 32 </p>
+<p>all applicable places </p>
+<p>4.</p>
+<p> </p>
+<p>'U' is appended for MACRO definitions wherever applicable. </p>
+<p>5.</p>
+<p> </p>
+<p>Declaration and initialization of LucNoOfErrorsCopied is </p>
+<p>separated in Spi_GetErrorInfo API. </p>
+<p>6.</p>
+<p> </p>
+<p>Removed unwanted requirement mapping comments </p>
+<p>7.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_Irq.c </p>
+<p>1.2.12 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>QAC </p>
+<p>warning </p>
+<p>Msg(2:2814), </p>
+<p>Msg(2:3892) </p>
+<p>and </p>
+<p>MISRA </p>
+<p>Violation Msg(4:0303), Msg(4:0489),Msg(4:0488) are added </p>
+<p>at the respective places. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>Spi_Driver.c </p>
+<p>1.4.9 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Added condition check in the Spi_HWInit and </p>
+<p>Spi_HWDeInit to clear TIJC interrupts. </p>
+<p>2.</p>
+<p> </p>
+<p>Spi_HWTransmitSyncJob() and Spi_InitiateSycTransmit() </p>
+<p>are updated to set the variable 'Spi_GblSyncTx' properly. </p>
+<p>3.</p>
+<p> </p>
+<p>Spi_HWTransmitSyncJob() is updated by removing the </p>
+<p>setting of 'Spi_GblSyncTx'. </p>
+<p>4.</p>
+<p> </p>
+<p>Spi_HWWriteIB() is updated to write CSIHMCTL0 in all </p>
+<p>possible combination of Tx-mode and dual buffer mode. </p>
+<p>5.</p>
+<p> </p>
+<p>MISRA C RULE VIOLATION Msg(4:0303),Msg(4:0400) </p>
+<p>and QAC Warning Msg(2:3416), Msg(0:2755) are added at </p>
+<p>the relevant places. </p>
+<p>6.</p>
+<p> </p>
+<p>Spi_ReceiveISR() is updated by removing the redundant </p>
+<p>code for 32 bit transmission in Tx-only mode. </p>
+<p>7.</p>
+<p> </p>
+<p>Spi_ProcessSequence function call in Spi_ComErrorISRis </p>
+<p>removed. </p>
+<p>8.</p>
+<p> </p>
+<p>In Spi_ProcessTransmission function, critical section is </p>
+<p>modified. </p>
+<p>9.</p>
+<p> </p>
+<p>In Spi_ProcessTransmission function, LblInitiateTx is </p>
+<p>assigned with SPI_TRUE based on the comparison of queue </p>
+<p>status </p>
+<p>10.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>11.</p>
+<p> </p>
+<p>Re-initialization of the &quot;Spi_GpDmaUnitConfig&quot; variable in </p>
+<p>Spi_HWDeInit() is removed. </p>
+<p>12.</p>
+<p> </p>
+<p>Constants are moved to left hand side for condition checks at </p>
+<p>all applicable places. </p>
+<p>13.</p>
+<p> </p>
+<p>Naming convention corrected from LucIndex to LusIndex </p>
+<p>14.</p>
+<p> </p>
+<p>Job and sequence failed condition check is added in </p>
+<p>Spi_ProcessDualBufferData() for dual buffer mode.. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 25 of 32 </p>
+<p>Spi_Ram.c </p>
+<p>1.2.11 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Spi_Scheduler.c </p>
+<p>1.2.16 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Copy right information is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC warning Msg(2:3416), MISRA Violation Msg(4:0400) </p>
+<p>are added at the respective places. </p>
+<p>3.</p>
+<p> </p>
+<p>Spi_GblQueueStatus is updated as SPI_QUEUE_FILLED in </p>
+<p>Spi_PushRemainingJobsToQueue() and </p>
+<p>Spi_PushInterruptableSeqJobs () when jobs are queued.Also </p>
+<p>Spi_GusAllQueueSts is updated in </p>
+<p>Spi_PushRemainingJobsToQueue() and </p>
+<p>Spi_PushInterruptableSeqJobs(). </p>
+<p>4.</p>
+<p> </p>
+<p>Constants are moved to left hand side for condition checks at </p>
+<p>all applicable places. </p>
+<p>Spi_Version.c </p>
+<p>1.0.7 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Spi.h </p>
+<p>1.1.9 </p>
+<p> </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>'U' is appended for MACRO definitions wherever applicable. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>Spi_Driver.h </p>
+<p>1.2.12 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Spi_Irq.h </p>
+<p>1.2.6 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Hexadecimal constants are updated with upper case. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_LTTypes.h </p>
+<p>1.2.15 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Structure tag is added for Tst_DmaAddr and </p>
+<p>Tst_ByteAccess. </p>
+<p>2.</p>
+<p> </p>
+<p>'U' is appended for MACRO definitions wherever applicable. </p>
+<p>3.</p>
+<p> </p>
+<p>Naming convention corrected from usReserved1 to </p>
+<p>ulReserved1 </p>
+<p>4.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_PBTypes.h </p>
+<p>1.2.14 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Spi_Ram.h </p>
+<p>1.2.12 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>QAC warning, 4:0857 is justified. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>Spi_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>SPI_DEM_TYPE is removed. </p>
+<p>2.</p>
+<p> </p>
+<p>'U' is appended for MACRO definitions wherever applicable. </p>
+<p>3.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_Scheduler.h </p>
+<p>1.2.6 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p>Spi_Types.h </p>
+<p>1.2.11 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>'U' is appended at relevant places. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 26 of 32 </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<p>Spi_Version.h </p>
+<p>1.0.7 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>DLL executable code for ICU configuration generation </b></p>
+<p>Spi_X1x.dll </p>
+<p>1.2.17 </p>
+<p>Following change is made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Spi_X1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated </p>
+<p><b>X1x Common Sample Application Source file </b></p>
+<p>App_SPI_Common_Sample.c </p>
+<p>1.0.8 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_SPI_Common_Sample.h </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_SPI_P1M_Sample.c</p>
+<p> </p>
+<p>1.0.4 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_SPI_P1M_Sample.h</p>
+<p> </p>
+<p>1.0.3 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3726EJ0101-AUTOSAR.pdf </p>
+<p>1.0.11 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Section 11.2 is updated and 11.3 is added with the hardware </p>
+<p>errors description details </p>
+<p>2.</p>
+<p> </p>
+<p>Section 10.3 is updated with the detailed description of the </p>
+<p>functions </p>
+<p>3.</p>
+<p> </p>
+<p>Section 3.1.1 is updated with the deletion of the redundant </p>
+<p>mentioned Driver.h file name </p>
+<p>4.</p>
+<p> </p>
+<p>Throughput details, RAM/ROM Usage and stack depth </p>
+<p>values are updated in the section 13.3 </p>
+<p>5.</p>
+<p> </p>
+<p>Section 4.1 is updated with the SpiTimeOut configuring </p>
+<p>details. </p>
+<p>6.</p>
+<p> </p>
+<p>The unused segment SPI_CFG_DBTOC_UNSPECIFIED </p>
+<p>details are removed from the chapter 12. </p>
+<p>7.</p>
+<p> </p>
+<p>Abbreviations and Acronyms section is updated </p>
+<p>8.</p>
+<p> </p>
+<p>Chapter 14 is updated with the release details. </p>
+<p>9.</p>
+<p> </p>
+<p>R-number is updated </p>
+<p>10.</p>
+<p> </p>
+<p>Notice and Company addresses are updated </p>
+<p>11.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>R20UT3727EJ0101-AUTOSAR.pdf </p>
+<p> 1.0.12 </p>
+<p>Following changes are made in Ver4.02.01.D:-   </p>
+<p>1.</p>
+<p> </p>
+<p>Updated Pdf versions in section 2.1 ‘Reference Documents’ </p>
+<p>2.</p>
+<p> </p>
+<p>Error messages ERR083005, ERR083018 and ERR083037 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 27 of 32 </p>
+<p>are rephrased in the section 8.1 </p>
+<p>3.</p>
+<p> </p>
+<p>Error Message, ERR083095 is added in the section 8.1 </p>
+<p>4.</p>
+<p> </p>
+<p>R-number is updated. </p>
+<p>5.</p>
+<p> </p>
+<p>Notice and Company addresses are updated </p>
+<p>6.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>6.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>6.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 28 of 32 </p>
+<p>7 </p>
+<p>WDG </p>
+<p>7.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701318 </p>
+<p><b>Module </b></p>
+<p>WDG </p>
+<p><b>Software Version </b></p>
+<p>V1.0.12 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3728EJ0101-AUTOSAR.pdf – V1.0.8 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3729EJ0101-AUTOSAR.pdf – V1.0.6 </p>
+<p><b>Date </b></p>
+<p>24-Feb-2017 </p>
+<p>7.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_WDG_P1M_04_05_10_to_15_1</p>
+<p>8_to_23.arxml </p>
+<p>1.0.5 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>For Requirement TPS_ECUC_06004, ADMIN-DATA </p>
+<p>section is updated.   </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Copyright information. </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_WDG_P1x_BSWMDT.arxml </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Software patch version is updated </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>The placement of Service Id's are corrected for Autosar </p>
+<p>API's. </p>
+<p><b>Source Code </b></p>
+<p>Wdg_59_DriverA.c </p>
+<p>1.0.15 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Tag Message Msg(2:3416) in </p>
+<p>Wdg_59_DriverA_SetTriggerCondition is added. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Followed naming conventions are changed, </p>
+<p>usInitTimerCountValue to ulInitTimerCountValue </p>
+<p>usSlowTimeValue to ulSlowTimeValue usFastTimeValue </p>
+<p>to ulFastTimeValue Wdg_59_DriverA_GusTiggerCounter </p>
+<p>to Wdg_59_DriverA_GulTiggerCounter. </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverA_SetMode is updated to intialize the </p>
+<p>return value when requested mode and current mode are </p>
+<p>same. </p>
+<p>5.</p>
+<p> </p>
+<p>Redundant assignment is deleted. The value of this object </p>
+<p>is never used before being modified. To avoid QAC </p>
+<p>warning Msg(4:2982). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 29 of 32 </p>
+<p>Wdg_59_DriverA_Irq.c </p>
+<p>1.0.11 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added QAC warning justification for Msg(2:3416) and </p>
+<p>Msg tags in </p>
+<p>WDG_59_DRIVERA_TRIGGERFUNCTION_ISR API. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Macro WDG_59_DRIVERA_INTWDT_EIC_ADDR </p>
+<p>replaced by WDG_59_DRIVERA_INTWDTEIC_ADDR </p>
+<p>in interrupt consistency check. </p>
+<p>4.</p>
+<p> </p>
+<p>The naming convention has changed from </p>
+<p>Wdg_59_DriverA_GusTiggerCounter to </p>
+<p>Wdg_59_DriverA_GulTiggerCounter </p>
+<p>Wdg_59_DriverA_Private.c </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added QAC warning justification for Msg(2:3416) and </p>
+<p>Msg tags in Wdg_59_DriverA_SetModeDetCheck API. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>The naming convention has changed from uiApiId to </p>
+<p>ucApiId </p>
+<p>4.</p>
+<p> </p>
+<p>The value of function parameter is declared with the </p>
+<p>'const' type Qualifier. To avoid QAC warning </p>
+<p>Msg(2:3227). </p>
+<p>5.</p>
+<p> </p>
+<p>For Wdg_59_DriverA_TriggerFunc Re-entrancy is </p>
+<p>corrected. </p>
+<p>Wdg_59_DriverA_Ram.c </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>The naming conventions are changed from </p>
+<p>Wdg_59_DriverA_GusTiggerCounter to </p>
+<p>Wdg_59_DriverA_GulTiggerCounter </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Wdg_59_DriverA_Version.c </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>For QAC Warning Rule has been changed to NA. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Wdg_59_DriverA.h </p>
+<p>1.0.9 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, ‘Implements’ is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p>3.</p>
+<p> </p>
+<p>Suffix 'U' is added    for AutoSAR Macros </p>
+<p>Wdg_59_DriverA_Debug.h </p>
+<p>1.0.1 </p>
+<p>  No changes for release Ver4.02.01.D </p>
+<p>Wdg_59_DriverA_Irq.h </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Macro WDG_59_DRIVERA_INTWDT_EIC_ADDR is </p>
+<p>removed. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 30 of 32 </p>
+<p>3.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>Wdg_59_DriverA_PBTypes.h </p>
+<p>1.0.11 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Dead code is removed </p>
+<p>'WDG_59_DRIVERA_NMI_MASKVALUE, </p>
+<p>WDG_59_DRIVERA_NMI_MODE,WDG_59_DRIVER</p>
+<p>A_RAM, WDG_59_DRIVERA_ROM </p>
+<p>4.</p>
+<p> </p>
+<p>The naming convention has changed from </p>
+<p>Wdg_59_DriverA_GusTiggerCounter to </p>
+<p>Wdg_59_DriverA_GulTiggerCounter </p>
+<p>5.</p>
+<p> </p>
+<p>Suffix 'U' is added for WDG_59_DRIVERA_WINDOW </p>
+<p>Wdg_59_DriverA_Private.h </p>
+<p>1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>The naming convention has changed from uiApiId to </p>
+<p>ucApiId </p>
+<p>4.</p>
+<p> </p>
+<p>The value of function parameter is declared with the </p>
+<p>'const' type Qualifier,to avoid QAC warning </p>
+<p>Msg(2:3227). </p>
+<p>Wdg_59_DriverA_Ram.h </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>The naming convention has changed from </p>
+<p>Wdg_59_DriverA_GusTiggerCounter to </p>
+<p>Wdg_59_DriverA_GulTiggerCounter </p>
+<p>Wdg_59_DriverA_RegWrite.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>5.</p>
+<p> </p>
+<p>The naming convention has changed from uiApiId to </p>
+<p>ucApiId </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 31 of 32 </p>
+<p>Wdg_59_DriverA_Types.h </p>
+<p>1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>The naming convention are changed, </p>
+<p>usInitTimerCountValue to ulInitTimerCountValue, </p>
+<p>usSlowTimeValue to ulSlowTimeValue, usFastTimeValue </p>
+<p>to ulFastTimeValue </p>
+<p>Wdg_59_DriverA_Version.h </p>
+<p>1.0.7 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Requirements tag, 'Implements' is replaced with </p>
+<p>WDG_H_XXX. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Suffix 'U' is added    for AutoSAR Macros </p>
+<p><b>DLL executable code for WDG configuration generation </b></p>
+<p>Wdg_X1x.dll </p>
+<p>1.0.21 </p>
+<p>Following change is made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Tool .dll updated for tool code changes. </p>
+<p>Wdg_X1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>A new filter option, &lt;FILTER-RENESAS&gt; is added to </p>
+<p>handle multiple module instances. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated </p>
+<p><b>X1x Common Sample Application Source file </b></p>
+<p>App_WDG_Common_Sample.c </p>
+<p>1.0.11 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_WDG_Common_Sample.h </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_WDG_P1M_Sample.c</p>
+<p> </p>
+<p>1.0.5 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_WDG_P1M_Sample.h</p>
+<p> </p>
+<p>1.0.3 </p>
+<p>No changes for release Ver4.02.01.D </p>
+<p><b>P1x User Manual </b></p>
+<p>R20UT3728EJ0101-AUTOSAR.pdf </p>
+<p>1.0.8 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Abbreviation list is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Section 10.3 Function Definitions is updated. </p>
+<p>3.</p>
+<p> </p>
+<p>Chapter 14 release details version is updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Chapter 3 and 9 are updated with R-Numbered Tool User </p>
+<p>manual name. </p>
+<p>5.</p>
+<p> </p>
+<p>Version of R-number is updated at the end of document. </p>
+<p>6.</p>
+<p> </p>
+<p>Notice and copyright information is updated. </p>
+<p>7.</p>
+<p> </p>
+<p>Table of contents updated. </p>
+<p>8.</p>
+<p> </p>
+<p>Table 4.1 WDG Driver Deviation List is updated to add </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 24/02/2017 </p>
+<p> </p>
+<p>Page 32 of 32 </p>
+<p>not implemented requirement ‘WDG163’. </p>
+<p>9.</p>
+<p> </p>
+<p>Chapter 10.2.1 Wdg_59_DriverA_ConfigType is updated. </p>
+<p>10.</p>
+<p> </p>
+<p>Chapter 12 Memory Organization is updated. </p>
+<p>R20UT3729EJ0101-AUTOSAR.pdf </p>
+<p> 1.0.6 </p>
+<p>Following changes are made in Ver4.02.01.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Abbreviation list is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Chapter 3 and 9 are updated with R-Numbered Tool User </p>
+<p>manual name. </p>
+<p>3.</p>
+<p> </p>
+<p>Version of R-number is updated at the end of document. </p>
+<p>4.</p>
+<p> </p>
+<p>Notice and copyright information is updated. </p>
+<p>5.</p>
+<p> </p>
+<p>R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml </p>
+<p>version is updated </p>
+<p>7.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1M_FixedIssues_Ver4.02.01.D.xlsx. </p>
+<p>7.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1M_KnownIssues_QM_CW08_2017.xlsx. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,2294 @@
+---
+layout: default
+title: TechnicalReference_ComStackLib
+nav_order: 80
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR ComStackLib </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>ComStackLib based BSW generators </p>
+<p>Version 2.01.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Gunnar Meiss </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>2 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Gunnar Meiss </p>
+<p>2013-03-25 </p>
+<p>1.00.00 </p>
+<p>initial version </p>
+<p>Gunnar Meiss </p>
+<p>2013-08-23 </p>
+<p>1.01.00 </p>
+<p>ESCAN00068919 Remove </p>
+<p>&lt;MSN&gt;UseSignedDataTypesInIndexArrays </p>
+<p>ESCAN00070017 Remove &lt;MSN&gt;_Resource.xml </p>
+<p>Gunnar Meiss </p>
+<p>2014-10-06 </p>
+<p>2.00.00 </p>
+<p>ESCAN00078776 AR4-698: Post-Build Selectable </p>
+<p>(Identity Manager) </p>
+<p>Gunnar Meiss </p>
+<p>2014-12-19 </p>
+<p>2.00.01 </p>
+<p>ESCAN00080380 Minor typing and grammar corrections </p>
+<p>Gunnar Meiss </p>
+<p>2016-03-30 </p>
+<p>2.00.02 </p>
+<p>ESCAN00089127 Extend MD_CSL_3355_3356 with the </p>
+<p>aspects of the PRQA Rule 3358 and 3359 </p>
+<p>ESCAN00089126 Support a justification for PRQA Rule </p>
+<p>310 and PCSymbolicNonDereferenciateablePointers </p>
+<p>Added chapter Freedom from Interference </p>
+<p>Gunnar Meiss </p>
+<p>2016-07-19 </p>
+<p>2.00.03 </p>
+<p>ESCAN00091055 Extend </p>
+<p>MD_CSL_3355_3356_3358_3359 with the aspects of </p>
+<p>PRQA Rule 3325 </p>
+<p>Gunnar Meiss </p>
+<p>2017-03-24 </p>
+<p>2.01.00 </p>
+<p>STORYC-534: &lt;MSN&gt;MinimizeNumericalDataTypes is </p>
+<p>always enabled </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> Vector </p>
+<p>Compliance Documentation MISRA-C:2004 / MICROSAR </p>
+<p>2.2.0 </p>
+<p>Scope of the Document </p>
+<p>This  technical  reference  describes  the  general  use  of  the  ComStackLib  based  BSW </p>
+<p>generators. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>3 </p>
+<p>based on template version 5.5.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>4 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>CONFIG-CLASS of Data .................................................................................. 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>CONFIG-CLASS PRE-COMPILE Optimizations .............................................. 10</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Optimize Const Data to Defines ....................................................... 10</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Optimize Bool Data in Structs .......................................................... 11</p>
+<p> </p>
+<p>3.2.3</p>
+<p> </p>
+<p>Data Deduplication and Reduction ................................................... 12</p>
+<p> </p>
+<p>3.2.3.1</p>
+<p> </p>
+<p>Equal Data ..................................................................... 13</p>
+<p> </p>
+<p>3.2.3.2</p>
+<p> </p>
+<p>Unary and Binary Operations ......................................... 14</p>
+<p> </p>
+<p>3.2.4</p>
+<p> </p>
+<p>Data Streaming ................................................................................ 15</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>CONFIG-CLASS Independent Optimizations ................................................... 16</p>
+<p> </p>
+<p>3.3.1</p>
+<p> </p>
+<p>Sort Struct Elements ........................................................................ 16</p>
+<p> </p>
+<p>3.3.2</p>
+<p> </p>
+<p>Optimize Data Types ........................................................................ 17</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>SELECTABLE Optimizations ............................................................................ 18</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Merge of VAR and CONST Based Data ........................................... 18</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Freedom from Interference .............................................................................. 18</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 19</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Dynamic Files .................................................................................................. 19</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>IMPLEMENTATION-CONFIG-VARIANT dependent Data ................................ 21</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Optimization Levels .......................................................................................... 22</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>MISRA, PRQA and Compiler Warnings ............................................................ 24</p>
+<p> </p>
+<p>4.4.1</p>
+<p> </p>
+<p>General ............................................................................................ 24</p>
+<p> </p>
+<p>4.4.2</p>
+<p> </p>
+<p>Bitfields ............................................................................................ 31</p>
+<p> </p>
+<p>4.4.3</p>
+<p> </p>
+<p>&lt;MSN&gt;_Has Macros in the SELECTABLE Use Case ...................... 32</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 33</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 33</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Configuration with a GCE ................................................................................. 33</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 39</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 39</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 40</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 41</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>5 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>Embedded Code Aspects ........................................................................... 7</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>AUTOSAR 4.2 Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Resources in compiler optimization variants ............................................... 9</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Using defines for CONST data .................................................................. 10</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Boolean struct data variants ..................................................................... 11</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Boolean struct data versus Bitmasking ..................................................... 12</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Data deduplication without operations ...................................................... 13</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Data deduplication with operations ........................................................... 14</p>
+<p> </p>
+<p>Figure 3-7</p>
+<p> </p>
+<p>Data Streaming ......................................................................................... 15</p>
+<p> </p>
+<p>Figure 3-8</p>
+<p> </p>
+<p>Sorting struct elements ............................................................................. 16</p>
+<p> </p>
+<p>Figure 3-9</p>
+<p> </p>
+<p>Data type minimization ............................................................................. 17</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Resources in optimization variants ........................................................... 22</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 20</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>IMPLEMENTATION-CONFIG-VARIATIONS ............................................. 21</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Optimization Levels .................................................................................. 22</p>
+<p> </p>
+<p>Table 4-4 </p>
+<p> </p>
+<p>Optimization Decision Table ...................................................................... 23</p>
+<p> </p>
+<p>Table 4-5 </p>
+<p> </p>
+<p>MD_CSL_3199 ......................................................................................... 24</p>
+<p> </p>
+<p>Table 4-6 </p>
+<p> </p>
+<p>MD_CSL_750_759 ................................................................................... 25</p>
+<p> </p>
+<p>Table 4-7 </p>
+<p> </p>
+<p>MD_CSL_0779 ......................................................................................... 26</p>
+<p> </p>
+<p>Table 4-8 </p>
+<p> </p>
+<p>MD_CSL_2018 ......................................................................................... 27</p>
+<p> </p>
+<p>Table 4-9 </p>
+<p> </p>
+<p>MD_CSL_3355_3356_3358_3359_3325 .................................................. 28</p>
+<p> </p>
+<p>Table 4-10 </p>
+<p> </p>
+<p>MD_CSL_3453 ......................................................................................... 29</p>
+<p> </p>
+<p>Table 4-11 </p>
+<p> </p>
+<p>MD_CSL_0310 ......................................................................................... 30</p>
+<p> </p>
+<p>Table 4-12 </p>
+<p> </p>
+<p>/MICROSAR/EcuC/EcucGeneral/BitFieldDataType .................................. 31</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Container .................................................................................................. 33</p>
+<p> </p>
+<p>7Table 5-2 </p>
+<p> </p>
+<p>Attributes of ComStackLib based BSW generators ................................... 38</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 39</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 40</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>6 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>Support of embedded data generation in the </p>
+<p>IMPLEMENTATION-CONFIG-VARIANT VARIANT-PRE-COMPILE </p>
+<p>2.00.00 </p>
+<p>Support of the </p>
+<p>IMPLEMENTATION-CONFIG-VARIANT VARIANT-POST-BUILD-</p>
+<p>LOADABLE </p>
+<p>3.00.00 </p>
+<p>Revision of existing techniques </p>
+<p>4.00.00 </p>
+<p>Revision of existing techniques </p>
+<p>5.00.00 </p>
+<p>AR4-698: Post-Build Selectable (Identity Manager) </p>
+<p>6.00.00 </p>
+<p>Support VTT </p>
+<p>7.00.00 </p>
+<p>Support Techniques to ensure Freedom of Interference </p>
+<p>8.00.00 </p>
+<p>Java 8 </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>7 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the configuration of ComStackLib based BSW generators. </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>PRE-COMPILE [SELECTABLE] </p>
+<p>POST-BUILD-LOADABLE [SELECTABLE] </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p>The ComStackLib is an embedded data generation engine designed for AUTOSAR based </p>
+<p>BSW  software.  Generating  embedded  software  is  situated  in  the  context  of  different </p>
+<p>aspects. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>Embedded Code Aspects </p>
+<p>The  number  of  aspects  for  embedded  software  is  quite  high  and  they  have  a  various </p>
+<p>importance from the view of different stakeholders. Some aspects contradict to each other </p>
+<p>and  other  aspects </p>
+<p>cannot </p>
+<p>be  changed  at  the  time  of  the  project. </p>
+<p>Due  to  this </p>
+<p>the </p>
+<p>ComStackLib </p>
+<p>has </p>
+<p>been </p>
+<p>introduced </p>
+<p>as </p>
+<p>scalable </p>
+<p>embedded </p>
+<p>data </p>
+<p>generation </p>
+<p>engine </p>
+<p>designed for AUTOSAR. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Size of ROM</p>
+<p>Size of RAM</p>
+<p>Size of code</p>
+<p>Runtime of code</p>
+<p>Readability of code</p>
+<p>Readability of generated</p>
+<p>data</p>
+<p>MISRA conformance</p>
+<p>Maintainability of the BSW</p>
+<p>and code generators</p>
+<p>Hardware</p>
+<p>Compiler implementations</p>
+<p>and configurations</p>
+<p>Complexity of Features</p>
+<p>Complexity of different</p>
+<p>configuration variants</p>
+<p>Development costs</p>
+<p>Developer</p>
+<p>Customer A</p>
+<p>Customer B</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>8 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The </p>
+<p>following </p>
+<p>figure </p>
+<p>shows </p>
+<p>where </p>
+<p>the </p>
+<p>ComStackLib </p>
+<p>is </p>
+<p>used </p>
+<p>in </p>
+<p>the </p>
+<p>MICROSAR </p>
+<p>architecture. </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>AUTOSAR 4.2 Architecture Overview   </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>9 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p>This chapter gives necessary information for the tailoring of the MICROSAR ComStackLib </p>
+<p>based software into your environment. Figure 3-1  Resources </p>
+<p>in </p>
+<p>compiler </p>
+<p>optimization </p>
+<p>variants  shows  the  resource  consumption  of  two  different ECUs  combined  with  different </p>
+<p>compiler optimization levels. The compiler is not able to influence the size of CONST and </p>
+<p>VAR data. The embedded software developer is in charge to reduce the CONST and VAR </p>
+<p>data consumption. </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Resources in compiler optimization variants </p>
+<p> </p>
+<p><b> </b></p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>/Od (Disable</p>
+<p>(Debug))</p>
+<p>/O1 (Minimize Size)</p>
+<p>/O2 (Maximize</p>
+<p>Speed)</p>
+<p>/Ox (Full</p>
+<p>Optimization)</p>
+<p>CanLin CONST</p>
+<p>CanLin VAR</p>
+<p>CanLin CODE</p>
+<p>FrLin CONST</p>
+<p>FrLin VAR</p>
+<p>FrLin CODE</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>10 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.1 </b></p>
+<p><b>CONFIG-CLASS of Data </b></p>
+<p>The code generator has an internal knowledge of the required CONFIG-CLASS. Due to </p>
+<p>this data can be moved dependent on the IMPLEMENTATION-CONFIG-VARIANT. See </p>
+<p>chapter 4.2 IMPLEMENTATION-CONFIG-VARIANT dependent Data. </p>
+<p><b>3.2 </b></p>
+<p><b>CONFIG-CLASS PRE-COMPILE Optimizations </b></p>
+<p><b>3.2.1 </b></p>
+<p><b>Optimize Const Data to Defines </b></p>
+<p>Set </p>
+<p>the </p>
+<p>configuration </p>
+<p>parameters </p>
+<p>&lt;MSN&gt;OptimizeConstVars2Define </p>
+<p>and </p>
+<p>&lt;MSN&gt;OptimizeConstArrays2Define  to  TRUE  to  optimize  automatically  CONST  data  in </p>
+<p>the  CONFIG-CLASS PRE-COMPILE to a define. </p>
+<p>  </p>
+<p>Figure 3-2 </p>
+<p>Using defines for CONST data </p>
+<p>The optimization effect depends on the available configuration data. CONST and CODE </p>
+<p>size in the ECU can be reduced. </p>
+<p><b> </b></p>
+<p>0,00%</p>
+<p>2,00%</p>
+<p>4,00%</p>
+<p>6,00%</p>
+<p>8,00%</p>
+<p>10,00%</p>
+<p>12,00%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>11 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.2.2 </b></p>
+<p><b>Optimize Bool Data in Structs </b></p>
+<p>Boolean  data  can  be  represented  differently  in  C  structs.  Due  to  this,  the  generation  of </p>
+<p>boolean </p>
+<p>data </p>
+<p>can </p>
+<p>be </p>
+<p>configured </p>
+<p>with </p>
+<p>&lt;MSN&gt;StructBoolDataUsage </p>
+<p>as </p>
+<p>BOOLEAN, </p>
+<p>BITFIELD and BITMASKING. There is nearly no difference between the usage of different </p>
+<p>bit data types. </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Boolean struct data variants </p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CanLin CONST</p>
+<p>CanLin VAR</p>
+<p>CanLin CODE</p>
+<p>FrLin CONST</p>
+<p>FrLin VAR</p>
+<p>FrLin CODE</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>12 </p>
+<p>based on template version 5.5.0 </p>
+<p>  </p>
+<p>Figure 3-4 </p>
+<p>Boolean struct data versus Bitmasking </p>
+<p>The usage of BITMASKING reduces the CONST size. The increase of the CODE size is </p>
+<p>so tiny, that it can be omitted. </p>
+<p><b>3.2.3 </b></p>
+<p><b>Data Deduplication and Reduction </b></p>
+<p>Data  deduplication  and  reduction  is  a  typical  way  to  reduce  the  amount  of  data.  The </p>
+<p>ComStackLib  provides  generic  algorithms  which  implement  typical  data  deduplication </p>
+<p>mechanisms. </p>
+<p> </p>
+<p><b> </b></p>
+<p>0,00%</p>
+<p>5,00%</p>
+<p>10,00%</p>
+<p>15,00%</p>
+<p>20,00%</p>
+<p>25,00%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>13 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.2.3.1 </b></p>
+<p><b>Equal Data </b></p>
+<p>Identical data can be deduplicated by redirection of the data access to other data. There is </p>
+<p>no influence to the runtime of the embedded software. </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Data deduplication without operations </p>
+<p> </p>
+<p><b> </b></p>
+<p>0%</p>
+<p>2%</p>
+<p>4%</p>
+<p>6%</p>
+<p>8%</p>
+<p>10%</p>
+<p>12%</p>
+<p>14%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>14 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.2.3.2 </b></p>
+<p><b>Unary and Binary Operations </b></p>
+<p>Data can be reduced by using unary operations or operations on constants or operations </p>
+<p>on other data elements. The operations are located in the data access layer. Due to this, </p>
+<p>the code itself remains as implemented. This reduction has influence to the runtime of the </p>
+<p>embedded software. </p>
+<p> </p>
+<p>Figure 3-6 </p>
+<p>Data deduplication with operations </p>
+<p> </p>
+<p><b> </b></p>
+<p>0%</p>
+<p>5%</p>
+<p>10%</p>
+<p>15%</p>
+<p>20%</p>
+<p>25%</p>
+<p>30%</p>
+<p>35%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>15 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.2.4 </b></p>
+<p><b>Data Streaming </b></p>
+<p>Data can be packed into multiple streams of basic data types and identical parts can be </p>
+<p>overlapped with and without data offsets. The data access layer redirects to the dependent </p>
+<p>data index. There is no influence to the runtime of the embedded software, but the data </p>
+<p>compression rate is quite high in large configurations and complex modules containing lots </p>
+<p>of data. </p>
+<p>  </p>
+<p>Figure 3-7 </p>
+<p>Data Streaming </p>
+<p> </p>
+<p><b> </b></p>
+<p>0,00%</p>
+<p>5,00%</p>
+<p>10,00%</p>
+<p>15,00%</p>
+<p>20,00%</p>
+<p>25,00%</p>
+<p>30,00%</p>
+<p>35,00%</p>
+<p>40,00%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>16 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.3 </b></p>
+<p><b>CONFIG-CLASS Independent Optimizations </b></p>
+<p><b>3.3.1 </b></p>
+<p><b>Sort Struct Elements </b></p>
+<p>C  structs  are  always  sorted  depending  on  the  size  of  an  element  data  type.  Sorting </p>
+<p>structure elements reduces the number of padding bytes added by the compiler to align </p>
+<p>the data. </p>
+<p> </p>
+<p>Figure 3-8 </p>
+<p>Sorting struct elements </p>
+<p> </p>
+<p>0,00%</p>
+<p>1,00%</p>
+<p>2,00%</p>
+<p>3,00%</p>
+<p>4,00%</p>
+<p>5,00%</p>
+<p>6,00%</p>
+<p>7,00%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>17 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.3.2 </b></p>
+<p><b>Optimize Data Types </b></p>
+<p>Every generated data element generated with the ComStackLib has an own C data type. </p>
+<p>Due to this, the data type itself can be calculated automatically as small as possible based </p>
+<p>on the used values. </p>
+<p>  </p>
+<p>Figure 3-9 </p>
+<p>Data type minimization </p>
+<p>The usage of data type minimization saves CONST, VAR and CODE size. </p>
+<p> </p>
+<p><b> </b></p>
+<p>-10,00%</p>
+<p>0,00%</p>
+<p>10,00%</p>
+<p>20,00%</p>
+<p>30,00%</p>
+<p>40,00%</p>
+<p>50,00%</p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>CONST</p>
+<p>VAR</p>
+<p>CODE</p>
+<p>CanLin %</p>
+<p>FrLin %</p>
+<p>CanLin Off</p>
+<p>CanLin On</p>
+<p>FrLin Off</p>
+<p>FrLin On</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>18 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>3.4 </b></p>
+<p><b>SELECTABLE Optimizations </b></p>
+<p>If </p>
+<p>the </p>
+<p>configuration </p>
+<p>variant </p>
+<p>is </p>
+<p>SELECTABLE </p>
+<p>based </p>
+<p>the </p>
+<p>following </p>
+<p>optimizations </p>
+<p>are </p>
+<p>automatically performed. </p>
+<p><b>3.4.1 </b></p>
+<p><b>Merge of VAR and CONST Based Data </b></p>
+<p>All VAR based generated data is merged between different predefined variants. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p> </p>
+<p>A predefined variant LEFT_ECU needs a VAR based array of the type uint8 with 10 </p>
+<p>elements and predefined variant RIGHT_ECU needs a VAR based array of the type </p>
+<p>uint8 with 6 elements in the same context. The result is a variant independent </p>
+<p>generated VAR based array of the type uint8 with 10 elements. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Due to this, if the BSW configuration data is identical in different predefined variants, the </p>
+<p>module configuration is completely merged. </p>
+<p> </p>
+<p><b>3.5 </b></p>
+<p><b>Freedom from Interference </b></p>
+<p>The generated data elements are wrapped by the generated data access. Writing out of </p>
+<p>bounds in VAR arrays is a typically trap in software programming. To avoid overriding other </p>
+<p>variables,  there  are  two  safety  strategies  implemented.  The  strategy  can  be  conﬁgured </p>
+<p>with  &lt;MSN&gt;OutOfBoundsWriteProtectionStrategy  globally  for  the  data  access  macros. </p>
+<p>The component developer can deactivate the strategy for a single VAR array individually if </p>
+<p>interference freeness does not rely on an out of bounds protection strategy. </p>
+<p><b>&gt; </b></p>
+<p><b>Index checking: </b>the data access checks the used index against the generator known </p>
+<p>size and values are not manipulated if the index value is out of bounds problem. </p>
+<p><b>&gt; </b></p>
+<p><b>Index saturation: </b>VAR arrays are blown up to the next 2 n size and the used index is </p>
+<p>saturated by a mask value. Due to this, there is no out of bounds problem, but values </p>
+<p>in other indexes can be manipulated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>19 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This </p>
+<p>chapter </p>
+<p>gives </p>
+<p>necessary </p>
+<p>information </p>
+<p>for </p>
+<p>the </p>
+<p>integration </p>
+<p>of </p>
+<p>the </p>
+<p>MICROSAR </p>
+<p>ComStackLib based software into an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool  CFG5 for ComStackLib based </p>
+<p>BSW software. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>&lt;MSN&gt;_Cfg.h </p>
+<p>This file contains: </p>
+<p><b>&gt; </b></p>
+<p>global constant macros </p>
+<p><b>&gt; </b></p>
+<p>global function macros </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes </p>
+<p>of CONFIG-CLASS PRE-COMPILE data. </p>
+<p>&lt;MSN&gt;_Cfg.c </p>
+<p>This file is generated dependent on the used code generator for </p>
+<p>compatibility reasons and contains if generated: </p>
+<p><b>&gt; </b></p>
+<p>local constant macros </p>
+<p><b>&gt; </b></p>
+<p>local function macros </p>
+<p><b>&gt; </b></p>
+<p>local data types and structures </p>
+<p><b>&gt; </b></p>
+<p>local data prototypes </p>
+<p><b>&gt; </b></p>
+<p>local data </p>
+<p><b>&gt; </b></p>
+<p>global data </p>
+<p>of CONFIG-CLASS PRE-COMPILE data.  </p>
+<p>&lt;MSN&gt;_Lcfg.h </p>
+<p>This file contains: </p>
+<p><b>&gt; </b></p>
+<p>global constant macros </p>
+<p><b>&gt; </b></p>
+<p>global function macros </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes </p>
+<p>of CONFIG-CLASS LINK data. </p>
+<p>&lt;MSN&gt;_Lcfg.c </p>
+<p>This file contains: </p>
+<p><b>&gt; </b></p>
+<p>local constant macros </p>
+<p><b>&gt; </b></p>
+<p>local function macros </p>
+<p><b>&gt; </b></p>
+<p>local data types and structures </p>
+<p><b>&gt; </b></p>
+<p>local data prototypes </p>
+<p><b>&gt; </b></p>
+<p>local data </p>
+<p><b>&gt; </b></p>
+<p>global data </p>
+<p>of CONFIG-CLASS LINK and PRE-COMPILE data if the &lt;MSN&gt;_Cfg.c is </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>20 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>not generated. </p>
+<p>&lt;MSN&gt;_PBcfg.h </p>
+<p>This file contains: </p>
+<p><b>&gt; </b></p>
+<p>global constant macros </p>
+<p><b>&gt; </b></p>
+<p>global function macros </p>
+<p><b>&gt; </b></p>
+<p>global data types and structures </p>
+<p><b>&gt; </b></p>
+<p>global data prototypes </p>
+<p><b>&gt; </b></p>
+<p>global function prototypes </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>&lt;MSN&gt;_PBcfg.c </p>
+<p>This file contains: </p>
+<p><b>&gt; </b></p>
+<p>local constant macros </p>
+<p><b>&gt; </b></p>
+<p>local function macros </p>
+<p><b>&gt; </b></p>
+<p>local data types and structures </p>
+<p><b>&gt; </b></p>
+<p>local data prototypes </p>
+<p><b>&gt; </b></p>
+<p>local data </p>
+<p><b>&gt; </b></p>
+<p>global data </p>
+<p>of CONFIG-CLASS POST-BUILD data. </p>
+<p>&lt;MSN&gt;_XMI21.xml </p>
+<p>This file is a XMI file to visualize data relations e.g. in Enterprise Architect.  </p>
+<p>The file is used for development purposes at Vector and informational for </p>
+<p>the customer. </p>
+<p>Table 4-1  </p>
+<p>Generated files </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>21 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4.2 </b></p>
+<p><b>IMPLEMENTATION-CONFIG-VARIANT dependent Data </b></p>
+<p>The CONFIG-CLASS of generated data depends on the configured  IMPLEMENTATION-</p>
+<p>CONFIG-VARIANT </p>
+<p>and </p>
+<p>the </p>
+<p>IMPLEMENTATION-CONFIG-CLASSES </p>
+<p>described </p>
+<p>in </p>
+<p>the </p>
+<p>&lt;MSN&gt;_bswmd.arxml. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Expert Knowledge </b></p>
+<p>If the generated data is in a C struct and the struct contains pre-compile and postbuild </p>
+<p>changeable data, the data nature is postbuild. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>IMPLEMENTATION-</b></p>
+<p><b>CONFIG-VARIANT </b></p>
+<p><b>Description </b></p>
+<p>VARIANT-PRE-</p>
+<p>COMPILE </p>
+<p>[SELECTABLE] </p>
+<p><b>&gt; </b></p>
+<p>All generated data is of CONFIG-CLASS PRE-COMPILE and generated </p>
+<p>into &lt;MSN&gt;_Cfg.c or &lt;MSN&gt;_Lcfg.c (if &lt;MSN&gt;_Cfg.c does not exist).  </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS LINK and POST-BUILD data does not exist. </p>
+<p>VARIANT-LINK-TIME </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS PRE-COMPILE data and is generated into </p>
+<p>&lt;MSN&gt;_Cfg.c or &lt;MSN&gt;_Lcfg.c(if &lt;MSN&gt;_Cfg.c does not exist). </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS LINK data and is generated into &lt;MSN&gt;_Lcfg.c. </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS POST-BUILD data changeable data does not exist. </p>
+<p>VARIANT-POST-</p>
+<p>BUILD-LOADABLE </p>
+<p>[SELECTABLE] </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS PRE-COMPILE data and is generated into </p>
+<p>&lt;MSN&gt;_Cfg.c or &lt;MSN&gt;_Lcfg.c(if &lt;MSN&gt;_Cfg.c does not exist). </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS LINK data and is generated into &lt;MSN&gt;_Lcfg.c. </p>
+<p><b>&gt; </b></p>
+<p>CONFIG-CLASS POST-BUILD data and is generated into </p>
+<p>&lt;MSN&gt;_PBcfg.c. </p>
+<p>Table 4-2  </p>
+<p>IMPLEMENTATION-CONFIG-VARIATIONS </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>22 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4.3 </b></p>
+<p><b>Optimization Levels </b></p>
+<p>This </p>
+<p>chapter </p>
+<p>describes </p>
+<p>optimization </p>
+<p>levels </p>
+<p>and </p>
+<p>their </p>
+<p>configuration. </p>
+<p>Use </p>
+<p>Table </p>
+<p>4-3 </p>
+<p> </p>
+<p>Optimization Levels and Table 4-4   Optimization </p>
+<p>Decision </p>
+<p>Table </p>
+<p>to </p>
+<p>tailor </p>
+<p>your </p>
+<p>configuration. </p>
+<p><b>Optimization </b></p>
+<p><b>Description </b></p>
+<p>Small (Default) </p>
+<p>The data is reduced by operations and not packed into a data stream. </p>
+<p>Fast </p>
+<p>The data is not reduced by operations and not packed into a data stream. </p>
+<p>Tiny </p>
+<p>The data is not reduced by operations and packed into a data stream. </p>
+<p>Teeny-weeny </p>
+<p>The data is reduced by operations and packed into a data stream. </p>
+<p>Table 4-3  </p>
+<p>Optimization Levels </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Resources in optimization variants </p>
+<p> </p>
+<p> </p>
+<p>0</p>
+<p>5000</p>
+<p>10000</p>
+<p>15000</p>
+<p>20000</p>
+<p>25000</p>
+<p>Off</p>
+<p>Default</p>
+<p>Fast</p>
+<p>Tiny</p>
+<p>Teeny Weeny</p>
+<p>CanLin CONST</p>
+<p>CanLin VAR</p>
+<p>CanLin CODE</p>
+<p>FrLin CONST</p>
+<p>FrLin VAR</p>
+<p>FrLin CODE</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>23 </p>
+<p>based on template version 5.5.0 </p>
+<p> </p>
+<p><b>Optimization Level </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Small (Default) </p>
+<p>Fast </p>
+<p>Tiny </p>
+<p>Teeny-weeny </p>
+<p>&lt;MSN&gt;ConstDataDeduplication </p>
+<p>DEDUPLICATE_</p>
+<p>CONST_DATA_</p>
+<p>WITH_CAST </p>
+<p>DEDUPLICATE_</p>
+<p>CONST_DATA_</p>
+<p>WITH_CAST </p>
+<p>DEDUPLICATE_</p>
+<p>CONST_DATA_</p>
+<p>WITH_CAST </p>
+<p>DEDUPLICATE_</p>
+<p>CONST_DATA_</p>
+<p>WITH_CAST </p>
+<p>&lt;MSN&gt;OptimizeConstArrays2Defi</p>
+<p>ne </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>&lt;MSN&gt;OptimizeConstVars2Define </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>&lt;MSN&gt;StructBoolDataUsage </p>
+<p>BITMASKING </p>
+<p>BOOLEAN </p>
+<p>BOOLEAN </p>
+<p>BITMASKING </p>
+<p>&lt;MSN&gt;DeduplicateZero2NIndirect</p>
+<p>edData </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>&lt;MSN&gt;ReduceBoolDataByNegati</p>
+<p>onThreshold </p>
+<p>2 </p>
+<p>0 </p>
+<p>0 </p>
+<p>2 </p>
+<p>&lt;MSN&gt;ReduceNumericalDataByO</p>
+<p>ffsetThreshold </p>
+<p>2 </p>
+<p>0 </p>
+<p>0 </p>
+<p>2 </p>
+<p>&lt;MSN&gt;ReduceBoolDataByNumeri</p>
+<p>calComparisonThreshold </p>
+<p>2 </p>
+<p>0 </p>
+<p>0 </p>
+<p>2 </p>
+<p>&lt;MSN&gt;ReduceNumericalDataByA</p>
+<p>rraySubtractionThreshold </p>
+<p>2 </p>
+<p>0 </p>
+<p>0 </p>
+<p>2 </p>
+<p>&lt;MSN&gt;DeduplicateBoolDataByNu</p>
+<p>mericalComparision </p>
+<p>2 </p>
+<p>0 </p>
+<p>0 </p>
+<p>2 </p>
+<p>&lt;MSN&gt;UseSignedDataTypesInInd</p>
+<p>exArrays </p>
+<p>FALSE </p>
+<p>FALSE </p>
+<p>FALSE </p>
+<p>FALSE </p>
+<p>&lt;MSN&gt;ReduceDataByStreaming </p>
+<p>FALSE </p>
+<p>FALSE </p>
+<p>TRUE </p>
+<p>TRUE </p>
+<p>Table 4-4  </p>
+<p>Optimization Decision Table </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>24 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4.4 </b></p>
+<p><b>MISRA, PRQA and Compiler Warnings </b></p>
+<p>The  MICROSAR  code  is  in  the  most  cases  a  piece  of  hand  written  static  code  and </p>
+<p>generated  data  and  code  for  different  compilers.  This  combination  of  hand  written  and </p>
+<p>generated </p>
+<p>code </p>
+<p>can  produce </p>
+<p>MISRA </p>
+<p>deviations  or </p>
+<p>compiler </p>
+<p>warnings.  This </p>
+<p>chapter </p>
+<p>extends [1].  </p>
+<p><b>4.4.1 </b></p>
+<p><b>General </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The ComStackLib switch &lt;MSN&gt;OptimizeConstArrays2Define may produce compiler </p>
+<p>warnings. If you don’t trust your compiler or your project settings do not allow the usage </p>
+<p>of compiler warnings, configure &lt;MSN&gt;OptimizeConstArrays2Define to false. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_3199 </b></p>
+<p>Violated rule </p>
+<p>PRQA Redundancy 3199 (The value of '%s' is never used following this </p>
+<p>assignment.) </p>
+<p>Reason </p>
+<p>The parameter /MICROSAR/EcuC/EcucGeneral/DummyStatement is </p>
+<p>configured to TRUE to avoid the compiler warning about unused function </p>
+<p>parameters. </p>
+<p>If the function is an interface to other modules and the prototype is specified by </p>
+<p>a standard, the prototype cannot be changed. </p>
+<p>If the function is not defined by a standard, the parameter could be removed in </p>
+<p>the implementation. The disadvantage is that the code itself is stuffed with </p>
+<p>preprocessor statements and the number variations of the software are </p>
+<p>exploding. Due to this, the code will not be changed. </p>
+<p>Potential risks </p>
+<p>The function contains unused code. </p>
+<p>Prevention of risks </p>
+<p>Configure the parameter /MICROSAR/EcuC/EcucGeneral/DummyStatement to </p>
+<p>FALSE and accept the compiler warning about unused function parameters. </p>
+<p>OR </p>
+<p>The code inspection is in charge to detect unused code.  </p>
+<p>Examples </p>
+<p>#define MSN_PROCESS_DATA          STD_OFF  </p>
+<p>#define MSN_USE_DUMMY_STATEMENT   STD_ON </p>
+<p> </p>
+<p>void Msn_foo(uint8 a) </p>
+<p>{ </p>
+<p>#if (MSN_PROCESS_DATA == STD_ON) </p>
+<p>  /* some code which uses the parameter a */ </p>
+<p>#endif </p>
+<p>#if (MSN_USE_DUMMY_STATEMENT == STD_ON) </p>
+<p># if (MSN_PROCESS_DATA == STD_OFF) </p>
+<p>  a=a; </p>
+<p># endif </p>
+<p>#endif </p>
+<p>} </p>
+<p>Table 4-5  </p>
+<p>MD_CSL_3199 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>25 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_750_759 </b></p>
+<p>Violated rule </p>
+<p>Rule 18.4 (Unions shall not be used.) </p>
+<p>Reason </p>
+<p>Generated data uses array and symbol based data access. The embedded </p>
+<p>code itself uses only one access type. Due to this critical runtime effects do not </p>
+<p>occur. </p>
+<p>Potential risks </p>
+<p>The A2L data may not match to the real data. </p>
+<p>Prevention of risks </p>
+<p>Each delivery is integrated and tested on the real target system. </p>
+<p>Examples </p>
+<p>/* symbolic data access for A2L */ </p>
+<p>typedef struct sMsn_FooDataStructType </p>
+<p>{ </p>
+<p>  boolean indexA; </p>
+<p>  boolean indexB; </p>
+<p>} Msn_FooDataStructType; </p>
+<p> </p>
+<p>/* union data type to have array and symbolic data </p>
+<p>access */ </p>
+<p>typedef union uMsn_FooDataType </p>
+<p>{ </p>
+<p>  boolean raw[2]; /**&lt; this element is used for array </p>
+<p>based data access from the embedded code */ </p>
+<p>  Msn_FooDataStructType str; /**&lt; this element is </p>
+<p>used for symbolic based data access from A2L */ </p>
+<p>} Msn_FooDataUType; </p>
+<p> </p>
+<p>/* this variable array uses the union data type */ </p>
+<p>Msn_FooDataUType msn_FooData;  </p>
+<p>Table 4-6  </p>
+<p>MD_CSL_750_759 </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>26 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_0779 </b></p>
+<p>Violated rule </p>
+<p>Rule 5.1 (Identifiers (internal and external) shall not rely on the significance of </p>
+<p>more than 31 characters.) </p>
+<p>Reason </p>
+<p>Generated symbols may exceed the 31 character limitation, because the code </p>
+<p>generator concatenates strings based on fixed rules. </p>
+<p>Potential risks </p>
+<p>The linker or compiler may mismatch symbols. </p>
+<p>Prevention of risks </p>
+<p>Modern compilers for AUTOSAR platforms do not have this limitation any </p>
+<p>more. </p>
+<p>Examples </p>
+<p>#if</p>
+<p> </p>
+<p>(MSN_DEFRXSIGGRPINFOENDIDXOFDEFRXPDUINFO == STD_ON)</p>
+<p> </p>
+<p>{ </p>
+<p>  Msn_DefRxSigGrpInfoEndIdxOfDefRxPduInfoType idxRxSigGrpInfo = </p>
+<p>  Msn_GetDefRxSigGrpInfoStartIdxOfDefRxPduInfo(idxRxPduInfo); </p>
+<p>  /* some code */ </p>
+<p>#endif</p>
+<p> </p>
+<p>Table 4-7  </p>
+<p>MD_CSL_0779 </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>27 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_2018 </b></p>
+<p>Violated rule </p>
+<p>Rule 14.1 (This switch default label is unreachable.) </p>
+<p>Reason </p>
+<p>The parameter &lt;MSN&gt;OptimizeConstArrays2Define is configured to TRUE. </p>
+<p>Potential risks </p>
+<p>The default case of the switch statement contains possibly dead code. </p>
+<p>Prevention of risks </p>
+<p>The code inspection is in charge to detect useless conditions with possibly </p>
+<p>dead code. </p>
+<p>Examples </p>
+<p>#define MSN_PROCESS_DATA          STD_ON  </p>
+<p>#define MSN_CASE_SMALL            5 </p>
+<p>#define MSN_CASE_MEDIUM           8 </p>
+<p>#define MSN_CASE_LARGE            12 </p>
+<p>#define MSN_CASE_SMALL_USED       FALSE </p>
+<p>#define MSN_CASE_MEDIUM_USED      TRUE </p>
+<p>#define MSN_CASE_LARGE            FALSE </p>
+<p> </p>
+<p>/* this array is reduced to a constant define </p>
+<p>const uint8 msn_FooData [2] = </p>
+<p>{ </p>
+<p>  MSN_CASE_MEDIUM, </p>
+<p>  MSN_CASE_MEDIUM </p>
+<p>}; </p>
+<p>*/ </p>
+<p>#define Msn_GetFooData (Index)      MSN_CASE_MEDIUM </p>
+<p> </p>
+<p>void Msn_foo(uint8 a) </p>
+<p>{ </p>
+<p>#if (MSN_PROCESS_DATA == STD_ON) </p>
+<p>  switch(Msn_GetFooData(a)) </p>
+<p>  { </p>
+<p>#if (MSN_CASE_SMALL_USED == STD_ON) </p>
+<p>    case MSN_CASE_SMALL: </p>
+<p>      /* some MSN_CASE_SMALL code */ </p>
+<p>      break; </p>
+<p>#endif </p>
+<p>#if (MSN_CASE_MEDIUM_USED == STD_ON) </p>
+<p>    case MSN_CASE_MEDIUM: </p>
+<p>      /* some MSN_CASE_MEDIUM code */ </p>
+<p>      break; </p>
+<p>#endif </p>
+<p>#if (MSN_CASE_LARGE_USED == STD_ON) </p>
+<p>    case MSN_CASE_LARGE: </p>
+<p>      /* some MSN_CASE_LARGE code */ </p>
+<p>      break; </p>
+<p>#endif </p>
+<p>    default: </p>
+<p>      /* some default handling like calling Det */ </p>
+<p>  } </p>
+<p>#endif </p>
+<p>}</p>
+<p> </p>
+<p>Table 4-8  </p>
+<p>MD_CSL_2018 </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>28 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_3355_3356_3358_3359_3325 </b></p>
+<p>Violated rule </p>
+<p>Rule 13.7 (The result of this logical operation or control expression is always </p>
+<p>'false' or ‘true’) </p>
+<p>Reason </p>
+<p>The parameter &lt;MSN&gt;OptimizeConstArrays2Define is configured to TRUE. </p>
+<p>Potential risks </p>
+<p>The function contains useless conditions with possibly dead code. </p>
+<p>Prevention of risks </p>
+<p>The code inspection is in charge to detect useless conditions with possibly </p>
+<p>dead code. </p>
+<p>Examples </p>
+<p>#define MSN_PROCESS_DATA          STD_ON  </p>
+<p> </p>
+<p>/* this array is reduced to a define </p>
+<p>const boolean msn_FooData [2] = </p>
+<p>{ </p>
+<p>  TRUE, </p>
+<p>  TRUE </p>
+<p>}; </p>
+<p>*/ </p>
+<p>#define Msn_IsFooData (Index)      TRUE </p>
+<p> </p>
+<p>void Msn_foo(uint8 a) </p>
+<p>{ </p>
+<p>#if (MSN_PROCESS_DATA == STD_ON) </p>
+<p>  if(Msn_IsFooData(a)) </p>
+<p>  { </p>
+<p>    /* some code */ </p>
+<p>  } </p>
+<p>#endif </p>
+<p>} </p>
+<p>Table 4-9  </p>
+<p>MD_CSL_3355_3356_3358_3359_3325 </p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>29 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_3453 </b></p>
+<p>Violated rule </p>
+<p>Rule 19.7 (A function should be used in preference to a function-like macro.) </p>
+<p>Reason </p>
+<p>ComStackLib based modules use macros to access generated RAM and ROM </p>
+<p>data. The implementation of data access functions would cause much code </p>
+<p>and runtime. </p>
+<p>Potential risks </p>
+<p>Resulting code is difficult to understand or may not work as expected. </p>
+<p>Prevention of risks </p>
+<p>Code inspection and test of the different variants in the component test. </p>
+<p>Examples </p>
+<p>#define MSN_PROCESS_DATA          STD_ON  </p>
+<p> </p>
+<p>/* this array is accessed by a generated data access </p>
+<p>macro */ </p>
+<p>const boolean msn_FooData [2] = </p>
+<p>{ </p>
+<p>  TRUE, </p>
+<p>  TRUE </p>
+<p>}; </p>
+<p> </p>
+<p>#define Msn_IsFooData (Index)   msn_FooData[Index] </p>
+<p> </p>
+<p>void Msn_foo(uint8 a) </p>
+<p>{ </p>
+<p>#if (MSN_PROCESS_DATA == STD_ON) </p>
+<p>  if(Msn_IsFooData(a)) </p>
+<p>  { </p>
+<p>    /* some code */ </p>
+<p>  } </p>
+<p>#endif </p>
+<p>} </p>
+<p>Table 4-10  </p>
+<p>MD_CSL_3453 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>30 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Deviation ID </b></p>
+<p><b>MD_CSL_310 </b></p>
+<p>Violated rule </p>
+<p>Rule 11.4 (A cast should not be performed between a pointer to object type </p>
+<p>and a different pointer to object type.) </p>
+<p>Reason </p>
+<p>The  parameter  &lt;MSN&gt;OptimizeConstArrays2Define  is  configured  to  TRUE </p>
+<p>AND  the  module  configuration  variant  is  PRE-COMPILE  or  POST-BUILD-</p>
+<p>LOADABLE SELECTABLE.  </p>
+<p>The values behind a symbol are reduced to a constant define, but a non </p>
+<p>NULL_PTR is needed to identify the usage of the values in the source code. </p>
+<p>Due to this the module root symbol is used. </p>
+<p>Potential risks </p>
+<p>The compiler and MISRA warns about the cast of different pointer types. </p>
+<p>Prevention of risks </p>
+<p>The code uses the generated macros to access data values and does not </p>
+<p>touch the pointers. </p>
+<p>Examples </p>
+<p>#define Msn_GetFoo(Index)     1U </p>
+<p>#define Msn_HasFoo ()         (Msn_ConfigDataPtr-&gt;FooPtrOfPCConfig != NULL_PTR) </p>
+<p>#define Msn_Foo               ((Msn_FooPtrType)(&amp;(Msn_PCConfig))) </p>
+<p> </p>
+<p>CONST(Msn_PCConfigsType, MSN_CONST) Msn_PCConfig = { </p>
+<p>  { /* Index: 0 Keys: [Config_LeftFront] */ </p>
+<p>      Msn_Foo  /**&lt; the pointer to Msn_Foo */  /* PRQA S 0310 */  /* MD_CSL_310 </p>
+<p>*/ </p>
+<p>    , 5U                  /**&lt; the number of elements in Msn_Foo */ </p>
+<p>  }, </p>
+<p>  { /* Index: 1 Keys: [Config_RightFront] */ </p>
+<p>      NULL_PTR            /**&lt; the pointer to Msn_Foo */ </p>
+<p>    , 0U                  /**&lt; the number of elements in Msn_Foo */ </p>
+<p>  } </p>
+<p>};</p>
+<p> </p>
+<p>Table 4-11  </p>
+<p>MD_CSL_0310 </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>31 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4.4.2 </b></p>
+<p><b>Bitfields </b></p>
+<p>The </p>
+<p>data </p>
+<p>type </p>
+<p>of </p>
+<p>bit </p>
+<p>fields </p>
+<p>is </p>
+<p>configurable </p>
+<p>in </p>
+<p>the </p>
+<p>EcuC </p>
+<p>module </p>
+<p>and </p>
+<p>important </p>
+<p>if </p>
+<p>&lt;MSN&gt;StructBoolDataUsage </p>
+<p>is </p>
+<p>configured </p>
+<p>to </p>
+<p>BITFIELD. </p>
+<p>According </p>
+<p>to </p>
+<p>Table </p>
+<p>4-12 </p>
+<p> </p>
+<p>/MICROSAR/EcuC/EcucGeneral/BitFieldDataType the usage of UNSIGNED_INT is the </p>
+<p>best choice, but for some compilers the usage of UNSIGNED_CHAR is for some reasons </p>
+<p>required and you want to live with the MISRA violations. </p>
+<p><b>BitFieldDataType </b></p>
+<p><b>Literal </b></p>
+<p><b>Description </b></p>
+<p>INT </p>
+<p></p>
+<p> </p>
+<p>does typically not produce a compiler warning </p>
+<p></p>
+<p> </p>
+<p>violates </p>
+<p>MISRA Rule 6.4 Bit fields shall only be defined to be of type unsigned int or </p>
+<p>signed int. </p>
+<p>MISRA Rule 6.5  </p>
+<p>Bit fields of type signed int shall be at least 2 bits long. </p>
+<p>MISRA Rule 10.1  The value of an expression of integer type shall not be </p>
+<p>implicitly converted to a different underlying type if: a) it is not a conversion to a </p>
+<p>wider integer type of the same signedness, or b) the expression is complex, or </p>
+<p>c) the expression is not constant and is a function argument, or d) the </p>
+<p>expression is not constant and is a return expression (if TRUE is assigned to </p>
+<p>the value as initializer) </p>
+<p>UNSIGNED_INT </p>
+<p></p>
+<p> </p>
+<p>does typically not produce a compiler warning </p>
+<p></p>
+<p> </p>
+<p>violates no MISRA Rule </p>
+<p>UNSIGNED_CHAR </p>
+<p></p>
+<p> </p>
+<p>does typically produce a compiler warning like warning C4214: nonstandard </p>
+<p>extension used : bit field types other than int </p>
+<p></p>
+<p> </p>
+<p>violates MISRA Rule 6.4 Bit fields shall only be defined to be of type unsigned </p>
+<p>int or signed int. </p>
+<p>UNSIGNED_SHORT </p>
+<p></p>
+<p> </p>
+<p>does typically produce a compiler warning like warning C4214: nonstandard </p>
+<p>extension used : bit field types other than int </p>
+<p></p>
+<p> </p>
+<p>violates MISRA Rule 6.4 Bit fields shall only be defined to be of type unsigned </p>
+<p>int or signed int. </p>
+<p>Table 4-12  </p>
+<p>/MICROSAR/EcuC/EcucGeneral/BitFieldDataType </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>32 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>4.4.3 </b></p>
+<p><b>&lt;MSN&gt;_Has Macros in the SELECTABLE Use Case </b></p>
+<p>The  usage  of  &lt;MSN&gt;_Has*  macros  produces  in  the  SELECTABLE  use  case  compiler </p>
+<p>warnings like “The result of this logical operation is always 'false' or ‘true’”. This compiler </p>
+<p>warning  is  up  to  now  acceptable  because  the  compiler  detects  automatically  the  case </p>
+<p>where the “if” condition is not needed and removes automatically the runtime consuming if </p>
+<p>condition. A typical use case is described in the following example code. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>The generated CONST or VAR data element accesses by </p>
+<p>Msn_GetFooData()</p>
+<p> is </p>
+<p>needed in all predefined variants. Due to this, the generated </p>
+<p>Msn_HasFooData()</p>
+<p> </p>
+<p>macro is always true and the compiler warning occurs. </p>
+<p> </p>
+<p>#define MSN_USE_INIT_POINTER          STD_ON  </p>
+<p> </p>
+<p>#define Msn_HasFooData()              TRUE </p>
+<p> </p>
+<p>void Msn_foo(uint8 a) </p>
+<p>{ </p>
+<p>#if (MSN_USE_INIT_POINTER == STD_ON) </p>
+<p>  if(Msn_HasFooData()) </p>
+<p>#endif </p>
+<p>  { </p>
+<p>    /* some code and process Msn_GetFooData() */ </p>
+<p>  } </p>
+<p>} </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>33 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>5 </b></p>
+<p><b>Configuration </b></p>
+<p>ComStackLib  based  BSW  generators  can  be  configured  according  with  CFG5.  For  a </p>
+<p>detailed description see 5.2. </p>
+<p><b>5.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The </p>
+<p>configuration </p>
+<p>classes </p>
+<p>of </p>
+<p>ComStackLib </p>
+<p>based </p>
+<p>BSW </p>
+<p>generators </p>
+<p>depend </p>
+<p>on </p>
+<p>the </p>
+<p>supported </p>
+<p>configuration </p>
+<p>variants. </p>
+<p>For </p>
+<p>their </p>
+<p>definitions </p>
+<p>please </p>
+<p>see </p>
+<p>the </p>
+<p>BSW </p>
+<p>specific </p>
+<p>&lt;MSN&gt;_bswmd.arxml file. </p>
+<p><b>5.2 </b></p>
+<p><b>Configuration with a GCE </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The configuration parameters, their multiplicity and default values depend on the BSW </p>
+<p>module. For their definitions please see the BSW specific &lt;MSN&gt;_bswmd.arxml file. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Container Name </b></p>
+<p>&lt;MSN&gt;General </p>
+<p><b>Path </b></p>
+<p>\MICROSAR\&lt;MSN&gt;\&lt;MSN&gt;General </p>
+<p><b>Multiplicity </b></p>
+<p>1..1 </p>
+<p><b>Description </b></p>
+<p>The general configuration container of the ComStackLib based BSW </p>
+<p>configuration </p>
+<p>Table 5-1  </p>
+<p>Container  </p>
+<p> </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>&lt;MSN&gt;OutOfBound</p>
+<p>sWriteProtectionStra</p>
+<p>tegy </p>
+<p>ENUM </p>
+<p>This parameter is used to configure a strategy to protect the code to </p>
+<p>write out of bounds. </p>
+<p> </p>
+<p>NONE: no protection strategy is generated in the data access. </p>
+<p>INDEX_SATURATION: arrays are blown up and the data access index </p>
+<p>is saturated by an appropriate mask. The advantage is the speed of the </p>
+<p>data access, but own data elements at other indexes of the same </p>
+<p>variable can be overridden. </p>
+<p>INDEX_CHECKING: the data access index is validated by a runtime </p>
+<p>check. The advantage is that values are never written to incorrect </p>
+<p>indexes of the data access. </p>
+<p>&lt;MSN&gt;OutOfBound</p>
+<p>sWriteSanitizer </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the generation of runtime checks </p>
+<p>which call a DET error notification function to find easily out of bounds </p>
+<p>write problems. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>34 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>This debugging feature must not be used in production code! </p>
+<p>FALSE:  no checks are generated in the data access. </p>
+<p>TRUE: the data access is enriched with DET checks to validate </p>
+<p>indexes. </p>
+<p>&lt;MSN&gt;OutOfBound</p>
+<p>sReadSanitizer </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the generation of runtime checks </p>
+<p>which call a DET error notification function to find easily out of bounds </p>
+<p>read problems. </p>
+<p>The debugging feature must not be used in production code! </p>
+<p>FALSE:  no checks are generated in the data access. </p>
+<p>TRUE: the data access is enriched with DET checks to validate </p>
+<p>indexes. </p>
+<p>&lt;MSN&gt;ConstDataD</p>
+<p>eduplication </p>
+<p>ENUM </p>
+<p>This parameter is used to deduplicate CONFIG-CLASS PRE-COMPILE  </p>
+<p>ROM data. </p>
+<p> </p>
+<p>NONE: The generated data is not deduplicated. </p>
+<p> </p>
+<p>DEDUPLICATE_CONST_DATA_WITHOUT_CAST: The data is </p>
+<p>deduplicated without using casts. </p>
+<p>Code: no change expected. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size can be minimized. </p>
+<p>Runtime: no change expected. </p>
+<p> </p>
+<p>DEDUPLICATE_CONST_DATA_WITH_CAST: The data is deduplicated </p>
+<p>using casts. </p>
+<p>Code: no change expected. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size can be minimized more than in </p>
+<p>DEDUPLICATE_CONST_DATA_WITHOUT_CAST. </p>
+<p>Runtime: no change expected. </p>
+<p>&lt;MSN&gt;OptimizeCon</p>
+<p>stArrays2Define </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to generate </p>
+<p>CONFIG-CLASS PRE-COMPILE ROM arrays as constant define. </p>
+<p> </p>
+<p>TRUE: ROM arrays are generated as constant define if all values are </p>
+<p>identical. </p>
+<p>Code: the code size is smaller. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased. </p>
+<p> </p>
+<p>FALSE: ROM arrays are generated as data even if all values are </p>
+<p>identical. </p>
+<p>&lt;MSN&gt;OptimizeCon</p>
+<p>stVars2Define </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to generate </p>
+<p>CONFIG-CLASS PRE-COMPILE ROM constants as constant define. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>35 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>TRUE: ROM constants are generated as constant define. </p>
+<p>Code: the code size is smaller. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased. </p>
+<p> </p>
+<p>FALSE: ROM constants are always generated as data. </p>
+<p>&lt;MSN&gt;StructBoolD</p>
+<p>ataUsage </p>
+<p>ENUM </p>
+<p>This parameter is used to tailor the usage of boolean data in structures </p>
+<p>in all CONFIG-CLASSES. The difference between BITFIELD and </p>
+<p>BITMASKING depends on your compiler options and memory mapping. </p>
+<p> </p>
+<p>BOOLEAN: The datatype of boolean data is native boolean. </p>
+<p>Code: the code size is small. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is large. </p>
+<p>Runtime: the runtime is fast. </p>
+<p> </p>
+<p>BITFIELD: The bitfield type is used and the compiler extracts the </p>
+<p>boolean data from structures. </p>
+<p>Code: the code size is larger than using BOOLEAN. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is smaller than using BOOLEAN. </p>
+<p>Runtime: the runtime is larger than using BOOLEAN. </p>
+<p> </p>
+<p>BITMASKING: Generated Masks are used to extract the boolean data </p>
+<p>from structures. </p>
+<p>Code: the code size is larger than using BOOLEAN. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is smaller than using BOOLEAN. </p>
+<p>Runtime: the runtime is larger than using BOOLEAN. </p>
+<p>&lt;MSN&gt;Deduplicate</p>
+<p>Zero2NIndirectedDa</p>
+<p>ta </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to compress 0:N </p>
+<p>relational ROM data in all CONFIG-CLASSES without increasing the </p>
+<p>runtime. </p>
+<p>This option can be used in lib builds and in postbuild configurations. </p>
+<p> </p>
+<p>TRUE: 0:N relational ROM data is compressed without decreasing the </p>
+<p>runtime. </p>
+<p>Code: no change expected. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: no change expected. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>36 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>FALSE: 0:N relational ROM data is not compressed. </p>
+<p>&lt;MSN&gt;ReduceBool</p>
+<p>DataByNegationThr</p>
+<p>eshold </p>
+<p>INT </p>
+<p>This parameter activates/deactivates the capability to compress </p>
+<p>boolean CONFIG-CLASS PRE-COMPILE ROM data by using the </p>
+<p>negation operator. </p>
+<p>0: The optimization is not performed. </p>
+<p>&gt;0: This is the threshold to activate the data optimization. </p>
+<p> </p>
+<p>Code: the code size is increased due to the usage of the negation </p>
+<p>operator in the data access. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased due to the usage of the negation </p>
+<p>operator in the data access. </p>
+<p>&lt;MSN&gt;ReduceNum</p>
+<p>ericalDataByOffsetT</p>
+<p>hreshold </p>
+<p>INT </p>
+<p>This parameter activates/deactivates the capability to compress </p>
+<p>numerical CONFIG-CLASS PRE-COMPILE ROM data by using a </p>
+<p>constant offset. </p>
+<p>0: The optimization is not performed. </p>
+<p>&gt;0: This is the threshold to activate the data optimization. </p>
+<p> </p>
+<p>Code: the code size is increased due to the usage of the constant offset </p>
+<p>operation in the data access. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased due to the usage of the constant </p>
+<p>offset operation in the data access. </p>
+<p>&lt;MSN&gt;ReduceBool</p>
+<p>DataByNumericalCo</p>
+<p>mparisonThreshold </p>
+<p>INT </p>
+<p>This parameter activates/deactivates the capability to compress </p>
+<p>boolean CONFIG-CLASS PRE-COMPILE ROM data by using </p>
+<p>comparison with other ROM data. </p>
+<p>0: The optimization is not performed.  </p>
+<p>&gt;0: This is the threshold to activate the data optimization. </p>
+<p> </p>
+<p>Code: the code size is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<p>&lt;MSN&gt;ReduceBool</p>
+<p>DataByNumericalRe</p>
+<p>lationThreshold </p>
+<p>INT </p>
+<p>This parameter activates/deactivates the capability to compress </p>
+<p>boolean CONFIG-CLASS PRE-COMPILE ROM data by using relational </p>
+<p>comparison with other ROM data. </p>
+<p>0: The optimization is not performed. </p>
+<p>&gt;0: This is the threshold to activate the data optimization. </p>
+<p> </p>
+<p>Code: the code size is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>37 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<p>&lt;MSN&gt;ReduceNum</p>
+<p>ericalDataByArrayS</p>
+<p>ubtractionThreshold </p>
+<p>INT </p>
+<p>This parameter activates/deactivates the capability to compress </p>
+<p>numerical CONFIG-CLASS PRE-COMPILE ROM data by using a </p>
+<p>subtraction with other ROM data. </p>
+<p>0: The optimization is not performed.  </p>
+<p>&gt;0: This is the threshold to activate the data optimization. </p>
+<p> </p>
+<p>Code: the code size is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is minimized. </p>
+<p>Runtime: the runtime is increased due to the usage of the operation in </p>
+<p>the data access. </p>
+<p>&lt;MSN&gt;Deduplicate</p>
+<p>BoolDataByNumeric</p>
+<p>alComparision </p>
+<p>ENUM </p>
+<p>This parameter is used to tailor the CONFIG-CLASS PRE-COMPILE </p>
+<p>ROM data deduplication mechanisms. A comparison with 0 is very </p>
+<p>efficient, but a numerical comparison with a value not 0 can be used to </p>
+<p>increase the ROM data compression rate. </p>
+<p> </p>
+<p>NONE: ROM data deduplications are switched off. </p>
+<p>Code: the code size is small. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is large. </p>
+<p>Runtime: the runtime is fast. </p>
+<p> </p>
+<p>DEDUPLICATE_DATA_WITH_ZERO: ROM data deduplications can be </p>
+<p>applied with the value 0. </p>
+<p>Code: the code size is larger than using NONE </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is smaller than using NONE. </p>
+<p>Runtime: the runtime is larger than using NONE. </p>
+<p> </p>
+<p>DEDUPLICATE_DATA_WITH_ANY_VALUE: ROM data deduplications </p>
+<p>can be applied with any numerical value. </p>
+<p>Code: the code size is larger than using NONE </p>
+<p>RAM: no change expected. </p>
+<p>ROM: the ROM size is smaller than using </p>
+<p>DEDUPLICATE_DATA_WITH_ZERO. </p>
+<p>Runtime: the runtime is larger than using NONE. </p>
+<p>&lt;MSN&gt;ReduceData</p>
+<p>ByStreaming </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to pack generated </p>
+<p>CONFIG-CLASS PRE-COMPILE ROM data into a data type dependent </p>
+<p>stream. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>38 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>Attribute Name </b></p>
+<p><b>Value </b></p>
+<p><b>Type </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p>TRUE: generated const data is packed into a data type dependent </p>
+<p>stream. </p>
+<p>Code: no change expected. </p>
+<p>RAM: no change expected. </p>
+<p>ROM: configuration dependent smaller than with FALSE. </p>
+<p>Runtime: no change expected. </p>
+<p> </p>
+<p>FALSE: generated const data is not packed into a data type dependent </p>
+<p>stream. </p>
+<p>&lt;MSN&gt;ShortSymbol</p>
+<p>s </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to generate </p>
+<p>shortened symbol names. </p>
+<p> </p>
+<p>FALSE: symbol names are generated in a human readable style based </p>
+<p>on the MIP, tags and variant names. </p>
+<p>TRUE: symbol names are generated based on the MIP and a CRC32. </p>
+<p>&lt;MSN&gt;InterfacesFo</p>
+<p>rDeactivatedData </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to generate bsw </p>
+<p>data interfaces for deactivated data elements. This is an advantage for </p>
+<p>the BSW developer to reduce the time to market with a development </p>
+<p>environment using auto completition and to investigate potential </p>
+<p>interfaces. </p>
+<p> </p>
+<p>FALSE: data interfaces are not generated if the data element is </p>
+<p>deactivated. </p>
+<p>TRUE: data interfaces are generated as e.g. empty macros. </p>
+<p>&lt;MSN&gt;ReferringKe</p>
+<p>ysInComments </p>
+<p>BOOL </p>
+<p>This parameter activates/deactivates the capability to generate referring </p>
+<p>keys in comments. This is an advantage for the developer to investigate </p>
+<p>indirections, but this feature reduces the overall readability of the </p>
+<p>generated data. </p>
+<p> </p>
+<p>FALSE: referring keys are not generated in comments. </p>
+<p>TRUE: referring keys are generated in comments. </p>
+<p>7Table 5-2  </p>
+<p>Attributes of ComStackLib based BSW generators </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>39 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>6 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>6.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>BSWMD </p>
+<p>The BSWMD is a formal notation of all information belonging to a certain </p>
+<p>BSW artifact (BSW module or BSW cluster) in addition to the </p>
+<p>implementation of that artifact. </p>
+<p>CFG5 </p>
+<p>Generation tool for MICROSAR components. </p>
+<p>Electronic Control </p>
+<p>Unit </p>
+<p>Also known as ECU. Small embedded computer system consisting of at </p>
+<p>least one CPU and corresponding periphery which is placed in one </p>
+<p>housing. </p>
+<p>Post-build </p>
+<p>This type of configuration is possible after building the software module or </p>
+<p>the ECU software. The software may either receive parameters of its </p>
+<p>configuration during the download of the complete ECU software resulting </p>
+<p>from the linkage of the code, or it may receive its configuration file that </p>
+<p>can be downloaded to the ECU separately, avoiding a re-compilation and </p>
+<p>re-build of the ECU software modules. In order to make the post-build </p>
+<p>time reconfiguration possible, the reconfigurable parameters shall be </p>
+<p>stored at a known memory location of ECU storage area. </p>
+<p>Use case </p>
+<p>A model of the usage by the user of a system in order to realize a single </p>
+<p>functional feature of the system. </p>
+<p>Table 6-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>40 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>6.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CPU </p>
+<p>Central Processing Unit </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>GCE </p>
+<p>Generic Configuration Editor </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>MIP </p>
+<p>Module Implementation Prefix </p>
+<p>MISRA </p>
+<p>Motor Industry Software Reliability Association </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>ROM </p>
+<p>Read-Only Memory </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>XMI </p>
+<p>The XML Metadata Interchange (XMI) is an Object Management Group </p>
+<p>(OMG) standard for exchanging metadata information via Extensible </p>
+<p>Markup Language (XML). </p>
+<p>Table 6-2  </p>
+<p>Abbreviations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR ComStackLib </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 2.01.00 </p>
+<p>41 </p>
+<p>based on template version 5.5.0 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

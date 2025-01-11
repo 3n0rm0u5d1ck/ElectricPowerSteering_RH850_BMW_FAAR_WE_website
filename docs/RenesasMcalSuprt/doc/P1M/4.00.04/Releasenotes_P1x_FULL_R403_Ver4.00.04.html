@@ -1,0 +1,2771 @@
+---
+layout: default
+title: Releasenotes_P1x_FULL_R403_Ver4.00.04
+nav_order: 21
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 1 of 42 </p>
+<p>Release Notes for RENESAS RH850/P1x: </p>
+<p>RENESAS_SW-AUTOSAR-P1x: MCAL Ver4.00.04 </p>
+<p>QM Beta Quality </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose: </p>
+<p>To deliver AUTOSAR R4.0.3 MCAL software for P1x V4.00.04 release using the following inputs. </p>
+<p> </p>
+<p>        Device Manual:       </p>
+<p>           </p>
+<p>r01uh0436ej0070_rh850p1x.pdf </p>
+<p> </p>
+<p>        Device File:  </p>
+<p>                DF-RH850P1M-EE_V100.zip </p>
+<p> </p>
+<p>        Operating Precautions:    R01TU0069ED0200_RH850.pdf </p>
+<p>                                                   </p>
+<p>        Flash Libraries:    </p>
+<p>        RENESAS_FCL_RH850_T01E_V2.00.exe </p>
+<p>                                              RENESAS_FDL_RH850_T01E_V2.00.exe </p>
+<p> </p>
+<p>        Modules supported:          ADC, CAN, DIO, FLS, FLSTST, FR, GPT, ICU, MCU, PORT, PWM,         </p>
+<p>                                                          RAMTST, SPI, WDG. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 2 of 42 </p>
+<p>1.2</p>
+<p> </p>
+<p>Package information </p>
+<p><b>Product   </b></p>
+<p>RH850/P1x </p>
+<p><b>Variant </b></p>
+<p>P1M </p>
+<p><b>Product Release Version </b></p>
+<p>Ver4.00.04 </p>
+<p><b>AUTOSAR Specification Version </b></p>
+<p>4.0.3 </p>
+<p><b>Device tested on </b></p>
+<p>P1M - R7F701310   </p>
+<p><b>Devices supported </b></p>
+<p>R7F701304   </p>
+<p>R7F701305 </p>
+<p>R7F701310 </p>
+<p>R7F701311 </p>
+<p>R7F701312   </p>
+<p>R7F701313   </p>
+<p>R7F701314   </p>
+<p>R7F701315   </p>
+<p>R7F701318 </p>
+<p>R7F701319   </p>
+<p>R7F701320   </p>
+<p>R7F701321   </p>
+<p>R7F701322   </p>
+<p>R7F701323   </p>
+<p><b>Release Date </b></p>
+<p>08-June-2015 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 3 of 42 </p>
+<p>1.3</p>
+<p> </p>
+<p>Tools   </p>
+<p>1.3.1</p>
+<p> </p>
+<p>GHS </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>GreenHills </p>
+<p>Multi IDE – </p>
+<p>compiler </p>
+<p>Green Hills Multi </p>
+<p>V6.1.4 Compiler </p>
+<p>Version 2013.5.5 </p>
+<p>+ </p>
+<p>Patches : </p>
+<p>P2, P9, P12, P13, </p>
+<p>P14 </p>
+<p>-Ospace -g -cpu=rh850g3k -gsize   </p>
+<p>-prepare_dispose -sda=all -passsource   </p>
+<p>-Wundef -no_callt -reserve_r2   </p>
+<p>--short_enum -fsoft --prototype_errors   </p>
+<p>--diag_error 193 -dual_debug -large_sda   </p>
+<p>--no_commons -shorten_loads   </p>
+<p>-shorten_moves -Wshadow -nofloatio   </p>
+<p>-ignore_callt_state_in_interrupts -delete   </p>
+<p>-inline_prologue </p>
+<p>1.3.2</p>
+<p> </p>
+<p>Configuration code generator </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>ECU Spectrum </p>
+<p>4.0.14 </p>
+<p>- </p>
+<p>1.3.3</p>
+<p> </p>
+<p>Additional software </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>NA </p>
+<p>- </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 4 of 42 </p>
+<p>1.4</p>
+<p> </p>
+<p>Generic Information </p>
+<p>1.4.1</p>
+<p> </p>
+<p>Release Target </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>Generic </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>1.4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p>P1x_translation.h   </p>
+<p>1.0.6 </p>
+<p>File updated for FLS and CAN macros. </p>
+<p>ComStack_Types.h   </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Std_Types.h   </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>rh850_Types.h </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Platform_Types.h   </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Compiler.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Compiler_Cfg.h   </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p>MemMap.h   </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p>NvM_Types.h   </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Os.h   </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Os.c   </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>GettingStarted_MCAL_Drivers_X1x.</p>
+<p>pdf </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p>AUTOSAR_Modules_Overview.pdf </p>
+<p>1.0.7 </p>
+<p>No change </p>
+<p>1.4.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 5 of 42 </p>
+<p> </p>
+<p>1.5</p>
+<p> </p>
+<p>Module Index </p>
+<p> </p>
+<p>ADC </p>
+<p> </p>
+<p>CAN </p>
+<p> </p>
+<p>DIO </p>
+<p> </p>
+<p>FLS </p>
+<p> </p>
+<p>FLSTST </p>
+<p> </p>
+<p>FR </p>
+<p> </p>
+<p>GPT </p>
+<p> </p>
+<p>ICU </p>
+<p> </p>
+<p>MCU </p>
+<p> </p>
+<p>PORT </p>
+<p> </p>
+<p>PWM </p>
+<p> </p>
+<p>RAMTST </p>
+<p> </p>
+<p>SPI </p>
+<p> </p>
+<p>WDG </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 6 of 42 </p>
+<p>2 </p>
+<p>ADC </p>
+<p>2.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>ADC </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>2.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_ADC_P1M_04_05_12_13_20</p>
+<p>_21.arxml </p>
+<p>1.0.5 </p>
+<p>As part of Px4 V4.00.04 Release, following changes </p>
+<p>are made                                                                                     </p>
+<p>1. As per mantis #24237, Parameter                               </p>
+<p>AdcUseHwContiScanMode is added in AdcGroup container.                                                                           </p>
+<p>2. As per mantis #27411, PDF name is modified.         </p>
+<p>3. Copyright information is updated.                             </p>
+<p>R403_ADC_P1M_10_11_14_15_18</p>
+<p>_19_22_23.arxml </p>
+<p>1.0.6 </p>
+<p>As part of Px4 V4.00.04 Release, following changes </p>
+<p>are made                                                                                     </p>
+<p>1. As per mantis #24237, Parameter                           </p>
+<p>AdcUseHwContiScanMode is added in AdcGroup container.                                                                           </p>
+<p>2. As per mantis #27411, PDF name is modified.         </p>
+<p>3. Copyright information is updated.                         </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_ADC_P1x_BSWMDT.arxml<i> </i></p>
+<p>1.0.4 </p>
+<p>As part of P1x V4.00.04 Release, following changes are made:                                                                                   </p>
+<p>1. Software version is updated.                     </p>
+<p>2. As per mantis #26305, critical section name   </p>
+<p>'RAMDATA_PROTECTION' is changed to                       </p>
+<p>'ADC_RAMDATA_PROTECTION'.                                             </p>
+<p>3. Copyright information is updated.                             </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Adc.c </p>
+<p>1.7.7 </p>
+<p>As part of P1x V4.00.04 Release, following changes are made: </p>
+<p>1. NULL check is added for 'PtrToSamplePtr' in </p>
+<p>Adc_GetStreamLastPointer() API. </p>
+<p>2. As per mantis #26305, critical section name </p>
+<p>'RAMDATA_PROTECTION' is changed to </p>
+<p>'ADC_RAMDATA_PROTECTION'. </p>
+<p>3. MISRA violation is updated. </p>
+<p>Adc_Irq.c </p>
+<p>1.3.4 </p>
+<p>No change </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 7 of 42 </p>
+<p>Adc_Private_ADCD_ADCB.c </p>
+<p>1.0.7 </p>
+<p>As part of P1x V4.00.04 Release, following changes are made: </p>
+<p>1. As per mantis #24936 Redundant compilation switches are </p>
+<p>corrected in Adc_GroupCompleteMode() API. </p>
+<p>2. As per mantis #25801, 'Track and Hold'    implementation is </p>
+<p>corrected to match with the flow diagram in the HW User </p>
+<p>manual. </p>
+<p>3. As per mantis #26305, critical section name     </p>
+<p>'RAMDATA_PROTECTION' is changed to </p>
+<p>'ADC_RAMDATA_PROTECTION'. </p>
+<p>4. As per mantis #25842, position of critical section exit is </p>
+<p>corrected in Adc_GroupCompleteMode API. </p>
+<p>5. As per mantis #24237, software re-triggering is implemented </p>
+<p>for continuous conversion for software triggered groups. </p>
+<p>6. As per mantis #27488, HW triggered One-shot conversion is </p>
+<p>corrected to avoid conversion of more than one stream in one </p>
+<p>HW trigger. </p>
+<p>7. As per mantis #26324, volatile declaration    is added for </p>
+<p>variables storing register values. </p>
+<p>8. MISRA violation is updated. </p>
+<p>9. As per mantis #27334, redundant variables and double </p>
+<p>assignments are removed. </p>
+<p>10. As per mantis #27186, index calculation of the array </p>
+<p>'Adc_GpRunTimeData' is corrected to avoid out of bound </p>
+<p>access. </p>
+<p>Adc_Ram.c </p>
+<p>1.5.3 </p>
+<p>No change   </p>
+<p>Adc_Version.c </p>
+<p>1.1.3 </p>
+<p>No change   </p>
+<p>Adc.h </p>
+<p>1.5.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Adc_Debug.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Adc_Irq.h </p>
+<p>1.0.9 </p>
+<p>No change </p>
+<p>Adc_PBTypes_ADCD_ADCB.h </p>
+<p>1.0.5 </p>
+<p>As part of P1x V4.00.04 Release, following changes are made: </p>
+<p>1. As per mantis #25801, 'Track and Hold' implementation is </p>
+<p>corrected to match with the flow diagram in the HW Usermanual.   </p>
+<p>2. As per mantis #26331, element names are corrected in union </p>
+<p>'UInt'. </p>
+<p>3. As per mantis #26324, volatile declaration is added for </p>
+<p>variables storing register values. </p>
+<p>Adc_Private.h </p>
+<p>1.4.6 </p>
+<p>As part of P1x V4.00.04 Release, following changes are made:   </p>
+<p>1. Compiler switches are corrected for the API </p>
+<p>Adc_SearchnDelete(). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 8 of 42 </p>
+<p>Adc_Ram.h </p>
+<p>1.5.3 </p>
+<p>No change </p>
+<p>Adc_Types.h </p>
+<p>1.7.4 </p>
+<p>No change </p>
+<p>Adc_Version.h </p>
+<p>1.1.1 </p>
+<p>No change </p>
+<p><b>Tool Executable<i></b> </i></p>
+<p>Adc_ADCD_ADCB.exe </p>
+<p>1.3.2 </p>
+<p>Tool exe updated for tool code changes. </p>
+<p>Adc_ADCD_ADCB.cfgxml </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application Source file<i></b> </i></p>
+<p>App_ADC_Common_Sample.c </p>
+<p>1.1.9 </p>
+<p>No change for P1x V4.00.04 release. </p>
+<p><b>X1x Common Sample Application Header file<i></b> </i></p>
+<p>App_ADC_Common_Sample.h </p>
+<p>1.0.4 </p>
+<p>No change for P1x V4.00.04 release. </p>
+<p><b>P1x Sample Application P1M Source file<i></b> </i></p>
+<p>App_ADC_P1M_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change for P1x V4.00.04 release. </p>
+<p><b>P1x Sample Application P1M Header file<i></b> </i></p>
+<p>App_ADC_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change for P1x V4.00.04 release. </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_ADC_Component_Use</p>
+<p>rManual.pdf </p>
+<p>1.0.4 </p>
+<p>The following changes are done.   </p>
+<p>1. Chapter 2 is updated for reference document.   </p>
+<p>2. Section 3.1 is updated for folder section.   </p>
+<p>3. Section 4.1 is updated for usage guidelines.   </p>
+<p>4. In chapter 13, P1M supported devices are added.   </p>
+<p>5. Section 13.1 is updated for translation header file and </p>
+<p>parameter definition files.   </p>
+<p>6. Section 13.2 is updated for sample application structure and </p>
+<p>building sample application.   </p>
+<p>7. Section 13.3 is updated for memory and throughput details.   </p>
+<p>8. Chapter 14 is updated for version of ADC Driver component. </p>
+<p>9. Range of ChannelId is corrected in sections 10.3.1 and 10.3.2.</p>
+<p> </p>
+<p> </p>
+<p>10. Channel Mapping is corrected in section 10.3.3. </p>
+<p>11. Table 13-2 is updated for CAT-2 ERROR ISR.</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_ADC_Tool_UserManu</p>
+<p>al.pdf </p>
+<p>1.0.4 </p>
+<p>1. Error message ERR123140 is added. </p>
+<p>2. Section 2.1 Reference Documents are updated to add PDF </p>
+<p>reference</p>
+<p>. </p>
+<p>3. </p>
+<p>List of mandatory parameters is updated in section 8.1.</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 9 of 42 </p>
+<p>3 </p>
+<p>CAN </p>
+<p>3.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310   </p>
+<p><b>Module </b></p>
+<p>CAN </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>3.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_CAN_P1M_04_05_10_to_15.arxml </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0.4 </p>
+<p>As part of P1x V4.00.04 release, following changes are </p>
+<p>made. </p>
+<p>1. As per mantis #27411, renamed file. </p>
+<p>2. Updated File version and copyright information. </p>
+<p>3. As per mantis #24428, added a parameter </p>
+<p>'CanWakeupFunctionalityAPI' under CanGeneral </p>
+<p>container. </p>
+<p>R403_CAN_P1M_18_to_23.arxml </p>
+<p>1.0.2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>As part of P1x V4.00.04 release, following changes are </p>
+<p>made. </p>
+<p>1. As per mantis #27411, renamed file. </p>
+<p>2. Updated File version and copyright information. </p>
+<p>3. As per mantis #24428, added a parameter </p>
+<p>'CanWakeupFunctionalityAPI' under CanGeneral </p>
+<p>container. </p>
+<p><b>BSWMDT </b></p>
+<p>R403_CAN_P1x_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>As part of V4.00.04 P1x release, following changes are </p>
+<p>made </p>
+<p>1. Device Support Added for R7F701304, R7F701305, </p>
+<p>R7F701313, R7F701318, R7F701319, R7F701320, </p>
+<p>R7F701321, R7F701322, and R7F701323. </p>
+<p>2. Software version information is updated. </p>
+<p>3. Copyright information is updated. </p>
+<p><b>Source Code </b></p>
+<p>Can.c </p>
+<p>  1.2.12 </p>
+<p>As part of P1x V4.00.04 release, following changes are </p>
+<p>made, </p>
+<p>1. As per mantis #27644, </p>
+<p>RH850_SV_MODE_IMR_WRITE_ONLY (16, </p>
+<p>LpWupIntMaskReg, (LpPCController-&gt;usWupIntMask)); </p>
+<p>is changed to RH850_SV_MODE_IMR_AND (16, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 10 of 42 </p>
+<p>LpWupIntMaskReg, (LpPCController-&gt;usWupIntMask)); </p>
+<p>for the proper masking of IMR register. </p>
+<p>Can_Int.c </p>
+<p>  1.1.6 </p>
+<p>No change </p>
+<p>Can_Irq.c </p>
+<p>  1.1.8 </p>
+<p>No change </p>
+<p>Can_MainServ.c </p>
+<p>  1.2.8 </p>
+<p>No change </p>
+<p>Can_ModeCntrl.c </p>
+<p>  1.2.9 </p>
+<p>No change </p>
+<p>Can_Ram.c </p>
+<p>1.1.2 </p>
+<p>No change </p>
+<p>Can_RamTest.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Can_Version.c </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p>Can_Wakeup.c </p>
+<p>1.0.14 </p>
+<p>As part of P1x V4.00.04 release, Following change is </p>
+<p>made </p>
+<p>1. Access to Can_CheckWakeup() API is made under the </p>
+<p>compiler switch condition </p>
+<p>#if(CAN_CHECKWAKEUP_API == STD_ON). </p>
+<p>Can_Write.c </p>
+<p>1.0.17 </p>
+<p>No change </p>
+<p>Can_Wakeup_Int.c </p>
+<p>1.0.1 </p>
+<p>As part of P1x V4.00.04 release, following changes are </p>
+<p>made, </p>
+<p>1. As per mantis #27642, removed unused parameter </p>
+<p>'LucController' from 'CanEnableWakeUp' function </p>
+<p>definition. </p>
+<p>2. As per mantis #27641, 'DNFA2EN' register handling </p>
+<p>modified. </p>
+<p>Can.h </p>
+<p>1.0.11 </p>
+<p>No change </p>
+<p>Can_Debug.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Can_Init.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Can_Int.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Can_Irq.h </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p>Can_MainServ.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Can_ModeCntrl.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p>Can_PBTypes.h </p>
+<p>1.0.9 </p>
+<p>No change </p>
+<p>Can_PCTypes.h </p>
+<p>1.0.11 </p>
+<p>No change </p>
+<p>Can_Ram.h </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p>Can_RamTest.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Can_RegStruct.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Can_Tgt.h </p>
+<p>1.0.12 </p>
+<p>No change </p>
+<p>Can_Types.h </p>
+<p>1.0.9 </p>
+<p>No change </p>
+<p>Can_Version.h </p>
+<p>1.0.7 </p>
+<p>No change </p>
+<p>Can_Wakeup.h </p>
+<p>1.0.5 </p>
+<p>As part of P1x V4.00.04 release, Following change is </p>
+<p>made </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 11 of 42 </p>
+<p>1. Can_CheckWakeup() API is made under the compiler </p>
+<p>switch condition #if(CAN_CHECKWAKEUP_API == </p>
+<p>STD_ON). </p>
+<p>Can_Write.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>Tool Executable </b></p>
+<p>Can_X1x.exe </p>
+<p>1.2.11 </p>
+<p>As per mantis #24579 and #24428 BswConfigValidate.pm, </p>
+<p>BswIm.pm, BswHdr.pm, BswConfig.pm are updated. </p>
+<p>Can_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No Change </p>
+<p><b>X1x Sample Application Source file </b></p>
+<p>App_CAN_Common_Sample.c </p>
+<p>1.0.11 </p>
+<p>As part of P1x V4.00.04 release, Following change </p>
+<p>is made </p>
+<p>1. Can_CheckWakeup() call is made under pre compiler </p>
+<p>switch #if(CAN_CHECKWAKEUP_API == STD_ON). </p>
+<p><b>X1x Sample Application header file </b></p>
+<p>App_CAN_Common_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_CAN_P1M_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_CAN_Device_Sample.h </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_CAN_Component_UserMa</p>
+<p>nual.pdf </p>
+<p>1.0.3 </p>
+<p>Following changes are made. </p>
+<p>1. Updated ‘Chapter 2 Reference Documents’. </p>
+<p>2. Added a ‘Note’ in Chapter 4 , Forethoughts. </p>
+<p>3. Chapter 13 is updated for adding new devices support. </p>
+<p>4. Chapter 14 is updated for Release Details. </p>
+<p>5. Section 13.3 is updated with Memory, Stack Usage and       </p>
+<p>Throughput details for 144 pin device 701310. </p>
+<p>6. Added ISR Throughput details in section 13.3. </p>
+<p>7. Chapter 13, section 13.2 compiler, linker, and assembler </p>
+<p>options removed. </p>
+<p>AUTOSAR_CAN_Tool_UserManual.pdf   </p>
+<p> </p>
+<p>1.0.2 </p>
+<p>Following change is made   </p>
+<p>1. Updated ‘Section 2.1 Reference documents’.   </p>
+<p>2. In Section 8.1, ERR080075 to ERR080080 are added.   </p>
+<p>3. In Section 8.3, INF080007 to INF080010 are added.   </p>
+<p>3.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 12 of 42 </p>
+<p>4 </p>
+<p>DIO </p>
+<p>4.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>DIO </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_DIO_P1M_04_05_12_13_20_</p>
+<p>21.arxml </p>
+<p>1.0.3 </p>
+<p>Following changes are made :       </p>
+<p>1. File renamed from R403_DIO_P1M_701304_701305_   </p>
+<p>701312_701313_701320_701321.arxml to                         </p>
+<p>R403_DIO_P1M_04_05_12_13_20_21.arxml    as    per mantis </p>
+<p>#27411.                                                                       </p>
+<p>2. Parameter DioPortName is updated with portgroups   </p>
+<p>pin information </p>
+<p>R403_DIO_P1M_10_11_14_15_18_</p>
+<p>19_22_23.arxml </p>
+<p>1.0.4 </p>
+<p>Following changes are made:                                                   </p>
+<p>1. File is renamed from R403_DIO_P1M_701310_701311_   </p>
+<p>701314_701315_701318_701319_701322_701323.arxml to </p>
+<p>R403_DIO_P1M_10_11_14_15_18_19_22_23.arxml as per </p>
+<p>mantis #27411. </p>
+<p><b>BSWMDT </b></p>
+<p>R403_DIO_P1x_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>Following changes are made:                                                     </p>
+<p>1. Environment section is updated for new devices. </p>
+<p>2. Copyright information is updated.                             </p>
+<p><b>Source Code </b></p>
+<p>Dio.c </p>
+<p>1.0.21 </p>
+<p>No change </p>
+<p>Dio_Ram.c </p>
+<p>1.0.7 </p>
+<p>No change </p>
+<p>Dio_Version.c </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p>Dio.h </p>
+<p>1.0.11 </p>
+<p>No change </p>
+<p>Dio_Debug.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Dio_LTTypes.h </p>
+<p>1.0.14 </p>
+<p>No change</p>
+<p> </p>
+<p>Dio_PBTypes.h </p>
+<p>1.0.12 </p>
+<p>No change</p>
+<p> </p>
+<p>Dio_Ram.h </p>
+<p>1.0.10 </p>
+<p>No change </p>
+<p>Dio_Version.h </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p><b>Tool Executable </b></p>
+<p>Dio_X1x.exe </p>
+<p>1.0.16 </p>
+<p>No change </p>
+<p>Dio_X1x.cfgxml </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 13 of 42 </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_DIO_P1M_Sample.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_DIO_Device_Sample.h </p>
+<p>1.0.4 </p>
+<p>Following changes are made: </p>
+<p>1. Updated to support new devices 701318, 701319, 701320, </p>
+<p>701321, 701322, 701323 </p>
+<p>2. Copyright information is updated. </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_DIO_Component_User</p>
+<p>Manual.pdf </p>
+<p>1.0.6 </p>
+<p>Following changes are made: </p>
+<p>1. Chapter 2 reference documents section is updated. </p>
+<p>2. Chapter 3 section 3.1.1 is updated for new devices. </p>
+<p>3. Chapter 4 section 4.1 General is updated and a note is added </p>
+<p>regarding interrupt vector (.c) file </p>
+<p>4. Chapter 13   </p>
+<p>13.1.1 Translation header files section is updated as per new </p>
+<p>devices. </p>
+<p>13.1.2 PDF section is updated as per new devices. </p>
+<p>13.3.1 Sample application structure is updated for new devices </p>
+<p>13.3.2 Building sample application section is updated </p>
+<p>13.4 Memory and throughput details are updated for 144 pin </p>
+<p>devices. </p>
+<p>AUTOSAR_DIO_Tool_UserManual</p>
+<p>.pdf </p>
+<p>1.0.2 </p>
+<p>Section 2.1 Reference documents section is updated with the </p>
+<p>parameter definition file names. </p>
+<p>4.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p> </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 14 of 42 </p>
+<p>5 </p>
+<p>FLS </p>
+<p>5.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>FLS </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>5.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_FLS_P1M_04_05.arxml </p>
+<p>1.1.1 </p>
+<p>As part of P1x V4.00.04 Release,   </p>
+<p>1. As per mantis #24538, parameter 'FlsCancelTime'   </p>
+<p>is added in FlsPublishedInformation container.   </p>
+<p>2. As per mantis #24538, parameter 'FlsCFCancelTime' is added </p>
+<p>in FlsCodeFlash container.   </p>
+<p>3. As per mantis #23970, description of parameters </p>
+<p>'FlsEraseTime', 'FlsWriteTime', 'FlsBlankCheckTime' and </p>
+<p>'FlsReadTime' are updated.                                                                                   </p>
+<p>4. As per mantis #27411, filename is updated.       </p>
+<p>5. Updated file version and copyright information.</p>
+<p> </p>
+<p>R403_FLS_P1M_10_to_15.arxml </p>
+<p>1.1.1 </p>
+<p>As part of P1x V4.00.04 Release,   </p>
+<p>1. As per mantis #24538, parameter 'FlsCancelTime' is added in </p>
+<p>FlsPublishedInformation container.   </p>
+<p>2. As per mantis #24538, parameter 'FlsCFCancelTime'                                                       </p>
+<p>is added in FlsCodeFlash container. </p>
+<p>3. As per mantis #23970, description of parameters   </p>
+<p>'FlsEraseTime', 'FlsWriteTime', 'FlsBlankCheckTime' and </p>
+<p>'FlsReadTime' are updated.                                                                                                                                 </p>
+<p>4. As per mantis #27411, filename is updated.   </p>
+<p>5. Updated file version and copyright information. </p>
+<p>R403_FLS_P1M_18_to_23.arxml </p>
+<p>1.0.1 </p>
+<p>As part of P1x V4.00.04 Release,   </p>
+<p>1. As per mantis #24538, parameter 'FlsCancelTime' is added in </p>
+<p>FlsPublishedInformation container. </p>
+<p>2. As per mantis #24538, parameter 'FlsCFCancelTime'                                                       </p>
+<p>is added in FlsCodeFlash container. </p>
+<p>3. As per mantis #23970, description of parameters </p>
+<p>'FlsEraseTime', 'FlsWriteTime', 'FlsBlankCheckTime' and </p>
+<p>'FlsReadTime' are updated.                                                                                                                                   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 15 of 42 </p>
+<p>4. As per mantis #27411, filename is updated. </p>
+<p>5. Updated file version and copyright information. </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_FLS_P1x_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>As part of P1x V4.00.04 release, following changes are made:                                                                                       </p>
+<p>1. Updated software version.   </p>
+<p>2. Updated file version and copyright information. </p>
+<p><b>Source Code </b></p>
+<p>Fls.c </p>
+<p>1.3.9 </p>
+<p>As part of P1x V4.00.04 release, following changes are made: </p>
+<p>1. As per mantis #28186, section </p>
+<p>DRIVERSTATE_DATA_PROTECTION is renamed to </p>
+<p>FLS_DRIVERSTATE_DATA_PROTECTION. </p>
+<p>2. Updated file version. </p>
+<p>Fls_Irq.c </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Fls_Internal.c </p>
+<p>1.3.6 </p>
+<p>No change </p>
+<p>Fls_Ram.c </p>
+<p>1.2.5 </p>
+<p>No change </p>
+<p>Fls_Version.c </p>
+<p>1.1.0 </p>
+<p>No change </p>
+<p>Fls.h </p>
+<p>1.3.5 </p>
+<p>No change   </p>
+<p>Fls_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fls_Internal.h </p>
+<p>1.3.2 </p>
+<p>No change   </p>
+<p>Fls_Irq.h </p>
+<p>1.0.1 </p>
+<p>No change   </p>
+<p>Fls_PBTypes.h </p>
+<p>1.5.3 </p>
+<p>No change   </p>
+<p>Fls_Ram.h </p>
+<p>1.2.5 </p>
+<p>No change   </p>
+<p>Fls_Types.h </p>
+<p>1.3.5 </p>
+<p>No change   </p>
+<p>Fls_Version.h </p>
+<p>1.1.1 </p>
+<p>No change </p>
+<p><b>Tool Executable </b></p>
+<p>Fls_X1x.exe </p>
+<p>1.3.6 </p>
+<p>No change </p>
+<p>Fls_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>X1x Sample Application source file </b></p>
+<p>App_FLS_Common_Sample.c </p>
+<p>1.1.9 </p>
+<p>No change</p>
+<p> </p>
+<p><b>X1x Sample Application header file </b></p>
+<p>App_FLS_Common_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_FLS_P1M_Sample.c </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_FLS_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_FLS_Component_User</p>
+<p>Manual.pdf </p>
+<p> 1.0.5 </p>
+<p>The following changes are made:   </p>
+<p>1. Chapter 2: Reference document is updated   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 16 of 42 </p>
+<p>2. As part of device support activity for R7F701304, </p>
+<p>R7F701305, R7F701313, R7F701315, R7F701318 to </p>
+<p>R7F701323 updated sections 3.1.1, 13.1.1, 13.1.2, 13.3.1.   </p>
+<p>3. Updated version number and copyright year.   </p>
+<p>4. Updated section 13.4 for memory and throughput.   </p>
+<p>5. Removed section Compiler, Linker and Assembler in </p>
+<p>Chapter13.   </p>
+<p>6. Removed Test_Application_P1x.trxml path from Section </p>
+<p>3.1.1.   </p>
+<p>7. Section 4.1 is updated for adding note in Forethoughts.   </p>
+<p>8. Chapter 12 is updated.   </p>
+<p>9. Section 4.2. Preconditions is updated.   </p>
+<p>10. Updated Tables 4-2 and 4-3 in Section 4.5.   </p>
+<p>11. Chapter 14: Release Detail is updated for FLS Driver </p>
+<p>Version</p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR_FLS_Tool_UserManual</p>
+<p>.pdf </p>
+<p> 1.0.3 </p>
+<p>The following changes are made:   </p>
+<p>• Pdf name and version are updated in Section 2.1   </p>
+<p>• Added parameters FlsCancelTime and FlsCFCancelTime in the </p>
+<p>list of mandatory parameters in Section 8.1.   </p>
+<p>• The description of error ERR092029 is updated in Section 8.1.   </p>
+<p>• Updated version number and copyright year.   </p>
+<p>5.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 17 of 42 </p>
+<p>6 </p>
+<p>FLSTST </p>
+<p>6.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>FLSTST </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>6.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_FLSTST_P1M_04_05.arxml </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 development activity the following </p>
+<p>changes are made:                                           </p>
+<p>1. As per mantis #27411, file name changed to </p>
+<p>R403_FLSTST_P1M_04_05.arxml                                     </p>
+<p>2. Copyright information updated.                               </p>
+<p>3. ADMIN-DATA updated.                                                     </p>
+<p>R403_FLSTST_P1M_10_to_15.arx</p>
+<p>ml </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 development activity the following </p>
+<p>changes are made:                                           </p>
+<p>1. As per mantis #27411, file name changed to </p>
+<p>R403_FLSTST_P1M_10_to_15.arxml                               </p>
+<p>2. Copyright information updated.                               </p>
+<p>3. ADMIN-DATA updated.                                                     </p>
+<p>R403_FLSTST_P1M_18_to_23.arx</p>
+<p>ml </p>
+<p>1.0.1 </p>
+<p>As part of P1x V4.00.04 development activity the   </p>
+<p>following changes are made:                                             </p>
+<p>1. As per mantis #27411, file name changed to     </p>
+<p>R403_FLSTST_P1M_18_to_23.arxml                                 </p>
+<p>2. Copyright information updated.                                 </p>
+<p>3. ADMIN-DATA updated.                                                       </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_FLSTST_P1x_BSWMDT.arx</p>
+<p>ml </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 development activity the         </p>
+<p>following changes are made:                                                   </p>
+<p>1. Environment section updated to add device </p>
+<p>support </p>
+<p>2. Copyright information updated.                                       </p>
+<p><b>Source Code </b></p>
+<p>FlsTst.c </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p>FlsTst_Ram.c </p>
+<p>1.0.3 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_Version.c </p>
+<p>1.0.1 </p>
+<p>No change</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 18 of 42 </p>
+<p>FlsTst.h </p>
+<p>1.0.4 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_Debug.h </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_PBTypes.h </p>
+<p>1.0.3 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_Ram.h </p>
+<p>1.0.4 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_Types.h </p>
+<p>1.0.2 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_Version.h </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p><b>Tool Executable </b></p>
+<p>FlsTst_X1x.exe </p>
+<p>1.0.4 </p>
+<p>No change</p>
+<p> </p>
+<p>FlsTst_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p><b>X1x Sample Application source file<i></b> </i></p>
+<p>App_FLSTST_Common_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_FLSTST_Common_Sample.h </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_FLSTST_P1M_Sample.c </p>
+<p>1.0.0 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_FLSTST_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change</p>
+<p> </p>
+<p><b>P1x User Manual<i></b> </i></p>
+<p>AUTOSAR_FLSTST_Component_</p>
+<p>UserManual.pdf </p>
+<p>1.0.5 </p>
+<p>As part of P1x V4.00.04 following changes are </p>
+<p>made:   </p>
+<p>1. Section 4.1 is updated by adding forethought </p>
+<p>2. Section 13.2 for compiler, linker and assembler </p>
+<p>options is removed </p>
+<p>3. Sections 13.3.1, Section 13.3.2, Section 13.3.3 are </p>
+<p>updated with RAM/ROM details and throughput </p>
+<p>details </p>
+<p>4. Section 13 and Section 13.1.1 are updated by </p>
+<p>adding the new devices supported by the translation </p>
+<p>header </p>
+<p>5. Section 13.1.2 is updated with the renamed pdf </p>
+<p>files used </p>
+<p>6. Section 13.2.1 is updated by adding the sample </p>
+<p>applications added for the new devices </p>
+<p>7. Section 13.2.2 is updated by adding the new </p>
+<p>devices supported. </p>
+<p>AUTOSAR_FLSTST_SA_Test_Pro</p>
+<p>cedure.pdf </p>
+<p>1.0.1 </p>
+<p>No change. </p>
+<p>AUTOSAR_FLSTST_Tool_UserMa</p>
+<p>nual.pdf </p>
+<p>1.0.3 </p>
+<p>As part of P1x 4.00.04 the following changes are </p>
+<p>made: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 19 of 42 </p>
+<p>Reference documents section is updated. </p>
+<p>6.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 20 of 42 </p>
+<p>7 </p>
+<p>FR </p>
+<p>7.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310   </p>
+<p><b>Module </b></p>
+<p>FR </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>7.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_FR_P1M_04_05_10_to_15_1</p>
+<p>8_to_23.arxml </p>
+<p>1.0.4 </p>
+<p>As per the PRD, </p>
+<p>1. Devices R7F701318, R7F701319, R7F701320, R7F701321, </p>
+<p>R7F701322 and R7F701323 are added in 'FrDeviceName' </p>
+<p>parameter and in environment section and devices which are not in </p>
+<p>scope is removed. </p>
+<p>2. As per Mantis #27411, The file name has been changed to </p>
+<p>R403_FR_P1M_04_05_10_to_15_18_to_23 from </p>
+<p>R403_FR_P1M_701300_701301_701304_701305_701308_to_7</p>
+<p>01323 </p>
+<p>3. As per Mantis #27728, Max, Min and default value of following </p>
+<p>parameters FrOutputPtrTableAddress, FrFifoPtrTableAddress </p>
+<p>and FrInputPtrTableAddress are modified. </p>
+<p><b>BSWMDT   </b></p>
+<p>R403_Fr_P1x_BSWMDT.arxml </p>
+<p>1.0.2 </p>
+<p>As part of P1x V4.00.04 Maintenance activity, </p>
+<p>1. Software version information is updated. </p>
+<p>2. Module ID is Changed to 81 </p>
+<p>3. Environment Section is updated to add all </p>
+<p>Supported devices of P1M. </p>
+<p><b>Source Code </b></p>
+<p>Fr_59.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Fr_59_Internal.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Fr_59_Version.c     </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fr_59_Ram.c </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Fr_59_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fr_59_GeneralTypes.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fr_59_Internal.h </p>
+<p>1.0.3 </p>
+<p>As  part  of  P1x_V4.00.04  maintenance  activity,  As  per  mantis </p>
+<p>#27460, following API's are declared as extern. </p>
+<p>1.  Fr_Input_Queue_Halt(),  Fr_User_Request_Input_Transfer(), </p>
+<p>Fr_User_Request_Output_Transfer. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 21 of 42 </p>
+<p>Fr_59_PBTypes.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p>Fr_59_Ram.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p>Fr_59_Types.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fr_59_Version.h       </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Fr_59.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>Tool Executable </b></p>
+<p>Fr_X1x.exe </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Fr_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>Initial Version. </p>
+<p><b>X1x Common Sample Application Source file for node1 </b></p>
+<p>App_FR_Common_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application Source file for node2 </b></p>
+<p>App_FR_Common_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application header file for node1 </b></p>
+<p>App_FR_Common_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application header file for node2 </b></p>
+<p>App_FR_Common_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file for node1 </b></p>
+<p>App_FR_P1M_Sample.c </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file for node2 </b></p>
+<p>App_FR_P1M_Sample.c     </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file for node1 </b></p>
+<p>App_FR_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file for node2 </b></p>
+<p>App_FR_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_FR_Component_User</p>
+<p>Manual.pdf </p>
+<p>1.0.3 </p>
+<p>Following changes are made: </p>
+<p>1.</p>
+<p> </p>
+<p>Chapter 2 Reference Documents updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Chapter 1, 8, 12 and Sections 3.1.1, 4.2, 4.5, 10.3, 13.2.1, </p>
+<p>13.3.3 Updated the file names by adding vender id. </p>
+<p>3.</p>
+<p> </p>
+<p>Section 13.2.1.    Sample Application Structure updated by                                                       </p>
+<p>adding the sample application configuration for supported </p>
+<p>devices. </p>
+<p>4.</p>
+<p> </p>
+<p>Memory and Throughput details updated in section 13.2. </p>
+<p>5.</p>
+<p> </p>
+<p>Chapter 14 Release Details updated. </p>
+<p>6.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<p>7.</p>
+<p> </p>
+<p>Removed Compiler and Linker options. </p>
+<p>AUTOSAR_FR_Tool_UserManual.</p>
+<p>pdf </p>
+<p> 1.0.4 </p>
+<p>Following changes are made:   </p>
+<p>1. File names of Fr_PBcfg.c and Fr_Cfg.h renamed to </p>
+<p>Fr_59_PBcfg.c and Fr_59_Cfg.h.   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 22 of 42 </p>
+<p>2. Copyright information updated   </p>
+<p>7.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 23 of 42 </p>
+<p>8 </p>
+<p>GPT </p>
+<p>8.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>GPT </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>8.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_GPT_P1M_04_05_12_13_20_21.arx</p>
+<p>ml </p>
+<p>1.0.1 </p>
+<p>As part of P1x V4.00.04 development activity the </p>
+<p>following changes are made:                                           </p>
+<p>1. As per mantis #27411, file name changed </p>
+<p>to </p>
+<p>R403_GPT_P1M_04_05_12_13_20_21.ar</p>
+<p>xml                   </p>
+<p>2. Copyright information updated.                               </p>
+<p>3. ADMIN-DATA updated.                                                     </p>
+<p>R403_GPT_P1M_10_11_14_15_18_19_22_</p>
+<p>23.arxml </p>
+<p>1.0.6 </p>
+<p>As part of P1x V4.00.04 development </p>
+<p>activity the </p>
+<p>following changes are made:                                           </p>
+<p>1. As per mantis #27411, file name changed </p>
+<p>to       </p>
+<p>R403_GPT_P1M_10_11_14_15_18_19_2</p>
+<p>2_23.arxml       </p>
+<p>2. Copyright information updated.                               </p>
+<p>3. ADMIN-DATA updated.                                                                                                         </p>
+<p><b>BSWMDT </b></p>
+<p>R403_GPT_P1x_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>No change   </p>
+<p><b>Source Code </b></p>
+<p>Gpt.c </p>
+<p>1.0.17 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Irq.c </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_LLDriver.c </p>
+<p>1.0.19 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Ram.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Version.c </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Debug.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Irq.h </p>
+<p>1.0.7 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_LLDriver.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 24 of 42 </p>
+<p>Gpt_PBTypes.h </p>
+<p>1.0.14 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Ram.h </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_RegReadBack.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Types.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_Version.h </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Tool Executable </b></p>
+<p>Gpt_X1x.exe </p>
+<p>1.1.6 </p>
+<p>No change </p>
+<p> </p>
+<p>Gpt_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<p><b>X1x Common Sample Application Source file </b></p>
+<p>App_GPT_Common_Sample.c </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_GPT_Common_Sample.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_GPT_P1M_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_GPT_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_GPT_Component_UserManua</p>
+<p>l.pdf </p>
+<p>1.0.5 </p>
+<p>Following changes are made:   </p>
+<p>1. Added note in chapter4 Forethoughts.   </p>
+<p>2. Removed Compiler Assembler and linker option.   </p>
+<p>3. Updated copyright information.   </p>
+<p>4. Updated chapter 13 to add additional device support.   </p>
+<p>5. Updated throughput and memory details. </p>
+<p>AUTOSAR_GPT_Tool_UserManual.pdf </p>
+<p>1.0.5 </p>
+<p>Following changes are made:   </p>
+<p>• Updated copyright information.   </p>
+<p>• Updated reference section with new PDF name.   </p>
+<p>8.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 25 of 42 </p>
+<p>9 </p>
+<p>ICU </p>
+<p>9.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>ICU </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>9.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_ICU_P1M_04_05_12_13_20</p>
+<p>_21.arxml </p>
+<p>1.0.1 </p>
+<p> As per    mantis issue #27411, following changes has been </p>
+<p>made:                                                                                   </p>
+<p>1. PDF renamed as </p>
+<p>R403_ICU_P1M_04_05_12_13_20_21.arxml </p>
+<p>2. Copyright information is updated. </p>
+<p>R403_ICU_P1M_10_11_14_15_18</p>
+<p>_19_22_23.arxml </p>
+<p>1.1.2 </p>
+<p> As per    mantis issue #27411, following changes has been </p>
+<p>made:                                                                                   </p>
+<p>1. PDF renamed as </p>
+<p>R403_ICU_P1M_04_05_12_13_20_21.arxml </p>
+<p>2. Copyright information is updated. </p>
+<p><b>BSWMDT File </b></p>
+<p>R403_ICU_P1x_BSWMDT.arxml </p>
+<p>1.0.2 </p>
+<p>No change   </p>
+<p><b>Source Code </b></p>
+<p>Icu.c </p>
+<p>1.5.5 </p>
+<p>No change   </p>
+<p>Icu_Irq.c </p>
+<p>1.2.0 </p>
+<p>No change   </p>
+<p>Icu_LLDriver.c </p>
+<p>1.6.6 </p>
+<p>No change   </p>
+<p>Icu_Ram.c </p>
+<p>1.1.4 </p>
+<p>No change   </p>
+<p>Icu_Version.c </p>
+<p>1.0.4 </p>
+<p>No change   </p>
+<p>Icu.h </p>
+<p>1.4.4 </p>
+<p>No change   </p>
+<p>Icu_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change   </p>
+<p>Icu_Irq.h </p>
+<p>1.1.1 </p>
+<p>No change   </p>
+<p>Icu_LLDriver.h </p>
+<p>1.3.4 </p>
+<p>No change   </p>
+<p>Icu_PBTypes.h </p>
+<p>1.5.5 </p>
+<p>No change   </p>
+<p>Icu_Ram.h </p>
+<p>1.1.4 </p>
+<p>No change   </p>
+<p>Icu_Types.h </p>
+<p>1.1.2 </p>
+<p>No change   </p>
+<p>Icu_Version.h </p>
+<p>1.0.3 </p>
+<p>No change   </p>
+<p><b>Tool Executable </b></p>
+<p>Icu_X1x.exe </p>
+<p>1.4.6 </p>
+<p>No change </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 26 of 42 </p>
+<p>Icu_P1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>X1x Common Sample Application Source file </b></p>
+<p>App_ICU_Common_Sample.c </p>
+<p>1.3.4 </p>
+<p>No change </p>
+<p><b>P1x    Sample Application Source file </b></p>
+<p>App_ICU_P1M_Sample.c </p>
+<p>1.0.4 </p>
+<p>As a part of P1x V4.00.04 release corrected </p>
+<p>Port_Init() for Device 701310. </p>
+<p><b>X1x Common Sample Application Header file </b></p>
+<p>App_ICU_Common_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p><b>P1x Sample Application Header file </b></p>
+<p>App_ICU_Device_Sample.h </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_ICU_Component_User</p>
+<p>Manual.pdf </p>
+<p>1.0.7 </p>
+<p>Following changes are made: </p>
+<p>  1.  Chapter  2  Reference  documents  are  updated  for  version           </p>
+<p>change. </p>
+<p>2.  Chapter  4  is  updated  for  information  regarding  Interrupt </p>
+<p>vector table. </p>
+<p>3. Section 13.1.1 is updated for adding new devices.   </p>
+<p>4. Section 13.1.1 is updated for names of PDF.   </p>
+<p>5.  Section  13.2  Compiler, </p>
+<p>Linker  and </p>
+<p>Assembler  section  is </p>
+<p>removed.   </p>
+<p>6.  Section  13.2  is  updated  for  parameter  definition  file  and </p>
+<p>sample application configuration files of all P1M devices.   </p>
+<p>7. Section 13.3 Memory and Throughput details are updated </p>
+<p>AUTOSAR_ICU_Tool_UserManual</p>
+<p>.pdf </p>
+<p>1.0.4 </p>
+<p>Following changes are made: </p>
+<p>Parameter  definition  file  names  and  versions  are  updated  in </p>
+<p>section 2.1. </p>
+<p>9.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 27 of 42 </p>
+<p>10 </p>
+<p>MCU </p>
+<p>10.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>MCU </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>10.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_MCU_P1M_04_05.arxml </p>
+<p>1.1.4 </p>
+<p>1. As per Mantis #26418, Description of &quot;McuResetReason&quot; </p>
+<p>parameter is to   </p>
+<p>&quot;The parameter represents the different type of reset that a Micro </p>
+<p>supports. This parameter is referenced by the parameter </p>
+<p>EcuMResetReason in the ECU State manager module, </p>
+<p>MCU_SW_RESET.&quot;   </p>
+<p>2. As per Mantis #27411, The file name has been changed to                               </p>
+<p>R403_MCU_P1M_04_05 from </p>
+<p>R403_MCU_P1M_701304_701305 </p>
+<p>3. Local RAM range corrected to 4273864704 to 4273995775     </p>
+<p>R403_MCU_P1M_10_to_15_18_to_</p>
+<p>23.arxml </p>
+<p>1.0.1 </p>
+<p>1. As per Mantis #26418, Description of &quot;McuResetReason&quot; </p>
+<p>parameter is to   </p>
+<p>&quot;The parameter represents the different type of    reset that a </p>
+<p>Micro supports. This parameter is referenced by the parameter </p>
+<p>EcuMResetReason in the ECU State manager module, </p>
+<p>MCU_SW_RESET.&quot; </p>
+<p>2. As per Mantis #27411,    The file name has been changed to                               </p>
+<p>R403_MCU_P1M_10_to_15_18_to_23 from   </p>
+<p>R403_MCU_P1M_701310_to_701315_7013018_to_7013023. </p>
+<p><b>BSWMDT </b></p>
+<p>R403_MCU_P1x_BSWMDT.arxml </p>
+<p>1.0.5 </p>
+<p>Updated SW-VERSION for changes in Source code </p>
+<p><b>Source Code </b></p>
+<p>Mcu.c </p>
+<p>1.0.6 </p>
+<p>1. As per mantis #26418 ,following change is made: </p>
+<p>MCU_SW_RST is corrected with name MCU_SW_RESET , </p>
+<p>MCU_WDT_RST is corrected with name </p>
+<p>MCU_WATCHDOG_RESET,                                                         </p>
+<p>MCU_POWER_ON_CLEAR_RST is corrected with name </p>
+<p>MCU_POWER_ON_RESET </p>
+<p>2. Added code comments as per MO Review in Mantis                                                           </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 28 of 42 </p>
+<p>#27515 </p>
+<p>3. Justifications for QAC warnings Msg(4:0857), Msg(4:2983), </p>
+<p>Msg(4:4499), Msg(4:2991), Msg(4:2982),                                                 </p>
+<p>Msg(4:2992), Msg(4:2996), Msg(4:0400). </p>
+<p>Mcu_Irq.c </p>
+<p>1.0.6 </p>
+<p>1. Added code comments as per MO Review in Mantis                                                       </p>
+<p>#27515 </p>
+<p>2. Added justification for MISRA warning Msg(4:3138) </p>
+<p>3. Added compiler switch, #ifndef </p>
+<p>Os_MCU_FEINT_CAT2_ISR and #ifndef </p>
+<p>MCU_FEINT_CAT2_ISR for MCU_FENMI_ENTRY and </p>
+<p>MCU_FENMI_LEAVE as per mantis #27723 </p>
+<p>Mcu_Ram.c </p>
+<p>1.0.4 </p>
+<p>Added code comments as per MO Review in Mantis    #27515 </p>
+<p>Mcu_Version.c </p>
+<p>1.0.2 </p>
+<p>No changes </p>
+<p>Mcu.h </p>
+<p>1.0.3 </p>
+<p>1. Added code comments as per MO Review in Mantis #27515 </p>
+<p>2. Added Justification for MISRA Violation:                                               </p>
+<p>START Msg(4:3412) </p>
+<p>Mcu_Debug.h </p>
+<p>1.0.2 </p>
+<p>Added code comments as per MO Review in Mantis                               </p>
+<p>#27515 </p>
+<p>Mcu_Irq.h </p>
+<p>1.0.2 </p>
+<p>1.Added code comments as per MO Review in Mantis    #27515 </p>
+<p>2.Removed _Interrupt_ from MCU_FEINT_ISR </p>
+<p>Mcu_PBTypes.h </p>
+<p>1.0.4 </p>
+<p>Added code comments as per MO Review in Mantis    #27515 </p>
+<p>Mcu_Ram.h </p>
+<p>1.0.4 </p>
+<p>Added code comments as per MO Review in Mantis    #27515 </p>
+<p>Mcu_Types.h </p>
+<p>1.0.4 </p>
+<p>1.As per mantis #26418 ,following change is made:                                                           </p>
+<p>MCU_SW_RST is corrected with name MCU_SW_RESET , </p>
+<p>MCU_WDT_RST is corrected with name </p>
+<p>MCU_WATCHDOG_RESET ,                                                           </p>
+<p>MCU_POWER_ON_CLEAR_RST is corrected with name </p>
+<p>MCU_POWER_ON_RESET </p>
+<p>2. Added code comments as per MO Review in Mantis    #27515 </p>
+<p>Mcu_Version.h </p>
+<p>1.0.1 </p>
+<p>Added code comments as per MO Review in Mantis    #27515 </p>
+<p><b>Tool Executable </b></p>
+<p>Mcu_P1x.exe </p>
+<p>1.1.1 </p>
+<p>Updated for Ver4.0004 release </p>
+<p>Mcu_P1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_MCU_P1M_Sample.c </p>
+<p>1.0.3 </p>
+<p>As per mantis #27723, the following change is made, </p>
+<p>1. Removed #pragma intvect MCU_FEINT_ISR 0x000000E0. </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_MCU_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 29 of 42 </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_MCU_Component_Use</p>
+<p>rManual.pdf </p>
+<p>1.0.5 </p>
+<p>Following changes are made:   </p>
+<p>1. New section, “4.7 Callout API” added to chapter 4.   </p>
+<p>2. Information regarding Interrupt vector table is added to </p>
+<p>“Section 4.1 General”.   </p>
+<p>3. As part of device support activity for R7F701304, R7F701305, </p>
+<p>R7F701313, R7F701315, R7F701318 to R7F701323 updated </p>
+<p>sections 3.1.1, 13.1, 13.2.   </p>
+<p>4. Removed section Compiler,Linker and Assembler in </p>
+<p>Chapter13.   </p>
+<p>5. Updated section 13.3 for memory and throughput   </p>
+<p>6. Copyright information has been changed to 2015   </p>
+<p>AUTOSAR_MCU_Tool_UserManu</p>
+<p>al.pdf </p>
+<p>1.0.3 </p>
+<p>The following changes are made:   </p>
+<p>• Pdf name and version are updated in Section 2.1   </p>
+<p>• Updated version and copyright year.   </p>
+<p>10.3</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 30 of 42 </p>
+<p>11 </p>
+<p>PORT </p>
+<p>11.1</p>
+<p> </p>
+<p>  Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>PORT </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>11.2</p>
+<p> </p>
+<p>  Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x- Parameter Definition files<i></b> </i></p>
+<p>R403_PORT_P1M_04_05.arxml </p>
+<p>1.0.1 </p>
+<p>As per mantis 27411,27777,26630 following changes                                       </p>
+<p>are made   </p>
+<p>1. File name changed to R403_PORT_P1M_04_05.arxml </p>
+<p>from R403_PORT_P1M_701304_701305.arxml   </p>
+<p>2. Copyright information is updated.     </p>
+<p>3. Parameter 'PortIpControl' is removed from </p>
+<p>PortGroup0,PortGroup2 PortPin4,PortGroup3 </p>
+<p>PortPin11,14,PortGroup4 PortPin2-4 and    PortGroup5 </p>
+<p>PortPin5-14   </p>
+<p>4. Parameters 'PortInputSelection', 'PortUnlimitedCurrentControl',                                       </p>
+<p>'PortDriveStrengthControl' and </p>
+<p>'PortOpenDrainControl_Expansion' are removed from PortPin4 of </p>
+<p>PortGroupJtag0. </p>
+<p>R403_PORT_P1M_10_11_14_15.ar</p>
+<p>xml </p>
+<p>1.0.4 </p>
+<p>As per mantis 27411,27777,26630 following changes    are made:                                                                                       </p>
+<p>1. File name changed from   </p>
+<p>R403_PORT_P1M_701310_701311_701314_701315.arxml </p>
+<p>to R403_PORT_P1M_10_11_14_15.arxml.   </p>
+<p>2. Copyright information is updated.   </p>
+<p>3. Parameter 'PortInputSelection' is removed from                                                       </p>
+<p>PortPin0 of PortGroup0 and PortPin4 of PortGroupJtag0.                                                                     </p>
+<p>4. Parameters 'PortInputSelection', 'PortUnlimitedCurrentControl',                                       </p>
+<p>'PortDriveStrengthControl' and </p>
+<p>'PortOpenDrainControl_Expansion' are removed from PortPin4 of </p>
+<p>PortGroupJtag0 </p>
+<p>5. Parameter 'PortIpControl' is removed from   </p>
+<p>PortGroup0,PortGroup3 PortPin11,14, PortGroup4 PortPin2-4 </p>
+<p>and    PortGroup5 PortPin5-15. </p>
+<p>R403_PORT_P1M_12_13.arxml </p>
+<p>1.0.2 </p>
+<p>As per mantis 27411,27777,26630 following changes are made:                                                                                       </p>
+<p>1. File name changed from </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 31 of 42 </p>
+<p>R403_PORT_P1M_701312_701313.arxml to </p>
+<p>R403_PORT_P1M_12_13.arxml </p>
+<p>2. Copyright information is updated.     </p>
+<p>3. Parameter 'PortIpControl' is removed from </p>
+<p>PortGroup0,PortGroup1 PortPin1,PortGroup3 </p>
+<p>PortPin11,14,PortGroup4 PortPin2-4 and PortGroup5 </p>
+<p>PortPin0,5-14. </p>
+<p>4. Parameter 'PortInputSelection' is removed from </p>
+<p>PortGroup2 PortPin3,6,8,PortGroup3 PortPin3 </p>
+<p>5. Parameters 'PortInputSelection', 'PortUnlimitedCurrentControl',                                       </p>
+<p>'PortDriveStrengthControl' and </p>
+<p>'PortOpenDrainControl_Expansion' are removed from </p>
+<p>PortPin4 of PortGroupJtag0. </p>
+<p>R403_PORT_P1M_18_19_22_23.ar</p>
+<p>xml </p>
+<p>1.0.1 </p>
+<p>As per mantis 27411,27777,26630 following changes are made:                                                                                       </p>
+<p>1. File name changed from </p>
+<p>R403_PORT_P1M_701318_701319_701322_701323.arxml    to   </p>
+<p>R403_PORT_P1M_18_19_22_23.arxml. </p>
+<p>2. Copyright information is updated.     </p>
+<p>3. Parameters 'PortInputSelection',   </p>
+<p>'PortUnlimitedCurrentControl',    'PortDriveStrengthControl' and                                       </p>
+<p>'PortOpenDrainControl_Expansion' are removed from PortPin4 of </p>
+<p>PortGroupJtag0   </p>
+<p>4. Parameter 'PortIpControl' is removed from </p>
+<p>PortGroup0,PortGroup3 PortPin5,11,14, PortGroup4 PortPin2-4 </p>
+<p>and    PortGroup5 PortPin5-14           </p>
+<p>R403_PORT_P1M_20_21.arxml </p>
+<p>1.0.1 </p>
+<p>As per mantis 27411,27777,26630 following changes                                           </p>
+<p>are made:       </p>
+<p>1. File name changed from   </p>
+<p>R403_PORT_P1M_701320_701321.arxml to </p>
+<p>R403_PORT_P1M_20_21.arxml.     </p>
+<p>2. Copyright information is updated.     </p>
+<p>3. Parameter 'PortIpControl' is removed from </p>
+<p>PortGroup0,PortGroup2 PortPin0,PortGroup3 </p>
+<p>PortPin11,14,PortGroup4 PortPin2-4 and PortGroup5 PortPin5-14   </p>
+<p>4. Parameter 'PortInputSelection' is removed from PortGroup0 </p>
+<p>PortPin10,PortGroup3 PortPin13. </p>
+<p>5. Parameters 'PortInputSelection', 'PortUnlimitedCurrentControl',                                       </p>
+<p>'PortDriveStrengthControl' and </p>
+<p>'PortOpenDrainControl_Expansion' are removed from </p>
+<p>PortPin4 of PortGroupJtag0. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 32 of 42 </p>
+<p><b>BSWMDT </b></p>
+<p>R403_PORT_P1x_BSWMDT.arxml </p>
+<p>1.0.3 </p>
+<p>As per mantis #27419 following changes are made: </p>
+<p>1. Environment section is updated to add P1x devices   </p>
+<p>2. Copyright information is updated.     </p>
+<p><b>Source Code </b></p>
+<p>Port.c </p>
+<p>1.5.9 </p>
+<p>No change </p>
+<p>Port_Ram.c </p>
+<p>1.0.3 </p>
+<p>No change   </p>
+<p>Port_Version.c </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p> </p>
+<p>Port.h </p>
+<p>1.5.3 </p>
+<p>No change </p>
+<p>Port_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Port_Types.h </p>
+<p>1.3.1 </p>
+<p>No change </p>
+<p> </p>
+<p>Port_PBTypes.h </p>
+<p>1.4.7 </p>
+<p>No change </p>
+<p>Port_Ram.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Port_Version.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p><b>Tool Executable </b></p>
+<p>Port_X1x.exe </p>
+<p>1.3.12 </p>
+<p>Tool updated for P1x Ver4.00.04 release. </p>
+<p>Port_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_PORT_P1M_Sample.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_PORT_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_PORT_Component_Us</p>
+<p>erManual.pdf </p>
+<p>1.0.5 </p>
+<p>Following changes are made:   </p>
+<p>1. Section 1.1 Document Overview is updated.   </p>
+<p>2. Chapter 2 Reference documents are updated for version change.   </p>
+<p>3. Chapter 4 is updated for information regarding Interrupt vector </p>
+<p>table.   </p>
+<p>4. Chapter 6 Port_SetPinMode is updated.   </p>
+<p>5. Section 10.2.4 Port_PinModeType is updated.   </p>
+<p>6. Section 13.1.1 is updated for adding new devices.   </p>
+<p>7. Section 13.2 Compiler, Linker and Assembler section is </p>
+<p>removed.   </p>
+<p>8. Section 13.2 is updated for parameter definition file and sample </p>
+<p>application configuration files of all P1M devices.   </p>
+<p>9. Section 13.3 Memory and Throughput details are updated.   </p>
+<p>AUTOSAR_PORT_Tool_UserManu</p>
+<p>al.pdf </p>
+<p>1.0.5 </p>
+<p>Following changes are made:   </p>
+<p>1. Parameter Definition file names and versions are updated in </p>
+<p>section 2.1. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 33 of 42 </p>
+<p>2. Error message ERR124018 is added in section 8.1.   </p>
+<p>11.3</p>
+<p> </p>
+<p>  Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 34 of 42 </p>
+<p>12 </p>
+<p>PWM </p>
+<p>12.1</p>
+<p> </p>
+<p>  Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>PWM </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>12.2</p>
+<p> </p>
+<p>  Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x Parameter Definition file<i></b> </i></p>
+<p>R403_PWM_P1M_04_05_12_13_2</p>
+<p>0_21.arxml </p>
+<p>1.0.1 </p>
+<p>As part of P1x V4.00.04 Maintenance Activity, the following </p>
+<p>changes are done. </p>
+<p>1. As per mantis #27411, the file names are changed and file </p>
+<p>version is updated. </p>
+<p>2. Copyright information is updated. </p>
+<p>3. Admin Data is updated. </p>
+<p>R403_PWM_P1M_10_11_14_15_1</p>
+<p>8_19_22_23.arxml </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 Maintenance Activity,the following </p>
+<p>changes are done. </p>
+<p>1. As per mantis #27411, the file names are changed and file </p>
+<p>version is updated. </p>
+<p>2. Copyright information is updated. </p>
+<p>3. Admin Data is updated. </p>
+<p><b>BSWMDT File<i></b> </i></p>
+<p>R403_PWM_P1x_BSWMDT.arxml </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Pwm.c </p>
+<p>1.6.7 </p>
+<p>No change </p>
+<p>Pwm_Irq.c </p>
+<p>1.2.1 </p>
+<p>No change </p>
+<p>Pwm_LLDriver.c </p>
+<p>1.6.9 </p>
+<p>No change </p>
+<p>Pwm_Ram.c </p>
+<p>1.3.8 </p>
+<p>No change </p>
+<p>Pwm_Version.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p>Pwm.h </p>
+<p>1.4.6 </p>
+<p>No change </p>
+<p>Pwm_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p>Pwm_Irq.h </p>
+<p>1.2.0 </p>
+<p>No change </p>
+<p>Pwm_LLDriver.h </p>
+<p>1.4.4 </p>
+<p>No change </p>
+<p>Pwm_PBTypes.h </p>
+<p>1.4.9 </p>
+<p>No change </p>
+<p>Pwm_Ram.h </p>
+<p>1.3.8 </p>
+<p>No change </p>
+<p>Pwm_Types.h </p>
+<p>1.5.5 </p>
+<p>No change </p>
+<p>Pwm_Version.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 35 of 42 </p>
+<p><b>Tool Executable<i></b> </i></p>
+<p>PWM_X1x.exe </p>
+<p>1.6.5 </p>
+<p>No change </p>
+<p>Pwm_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p><b>X1x Sample Application Source file </b></p>
+<p>App_PWM_Common_Sample.c </p>
+<p>1.4.4 </p>
+<p>No change </p>
+<p><b>X1x Sample Application header file </b></p>
+<p>App_PWM_Common_Sample.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_PWM_P1M_Sample.c </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p><b>P1x Sample Application P1M Header file </b></p>
+<p>App_PWM_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_PWM_Component_Us</p>
+<p>erManual.pdf </p>
+<p>1.0.3 </p>
+<p>As part of V4.00.04 P1x Maintenance Activity,Following changes </p>
+<p>are made.   </p>
+<p>1. Chapter 2 is updated for referenced documents version. </p>
+<p>2. Updated Section 3.1.1 and section 13.1.1 for adding the device </p>
+<p>names. </p>
+<p>3. Section 13.3.1 is updated for name of the parameter    definition </p>
+<p>file and additional devices. </p>
+<p>4. Section 13.4 is updated for ROM/RAM usage, Stack Depth and </p>
+<p>Throughput details. </p>
+<p>5. Section 4.1 is updated to add notes for the file </p>
+<p>“Interrupt_VectorTable.c” and the API </p>
+<p>“Pwm_SetChannelOutput”. </p>
+<p>6. In Section 13, The Compiler,Linker and Assembler options    are   </p>
+<p>removed. </p>
+<p>7. Section 4.6, Table 4-2, Remarks is updated for the </p>
+<p>Set_TriggerDealy API.   </p>
+<p>8. In Section 4.1, a note is updated for the ‘The counter of    master </p>
+<p>channel’. </p>
+<p>AUTOSAR_PWM_Tool_UserManu</p>
+<p>al.pdf </p>
+<p>1.0.3 </p>
+<p>As part of V4.00.04 P1x Maintenance Activity, </p>
+<p>following changes are made: </p>
+<p>1. Chapter 2 ‘Reference’ is updated for the name and version of               </p>
+<p>the parameter definition files. </p>
+<p>2. Error message ERR000019 is added in section 8.1   </p>
+<p>12.3</p>
+<p> </p>
+<p>  Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 36 of 42 </p>
+<p>13 </p>
+<p>RAMTST </p>
+<p>13.1</p>
+<p> </p>
+<p>  Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>RAMTST </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>13.2</p>
+<p> </p>
+<p>  Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x Parameter Definition file </b></p>
+<p>R403_RAMTST_P1M_04_05.arxml </p>
+<p>1.0.1 </p>
+<p>As per mantis 25915 following changes are made:           </p>
+<p>1. File name changed to R403_RAMTST_P1M_04_05.arxml </p>
+<p>from R403_RAMTST_P1M_701304_701305.arxml.                 </p>
+<p>2. LOWER-MULTIPLICITY of   </p>
+<p>RamTstDemEventParameterRefs container and </p>
+<p>RAMTST_E_RAM_FAILURE parameter    is updated.                                                                             </p>
+<p>R403_RAMTST_P1M_10_to_15_1</p>
+<p>8_to_23.arxml </p>
+<p>1.0.3 </p>
+<p>As per mantis 25915 , following changes are made :   </p>
+<p>1. LOWER-MULTIPLICITY of   </p>
+<p>RamTstDemEventParameterRefs container and </p>
+<p>RAMTST_E_RAM_FAILURE parameter    is updated.                                                                             </p>
+<p>2. File name changed from                                   </p>
+<p>R403_RAMTST_P1M_701310_to_701315_701318                 </p>
+<p>_to_701323.arxml to                                                           </p>
+<p>R403_RAMTST_P1M_10_to_15_18_to_23.arxml                     </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_RAMTST_P1x_BSWMDT.ar</p>
+<p>xml </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Source Code<i></b> </i></p>
+<p>RamTst.c </p>
+<p>1.1.4 </p>
+<p>No change </p>
+<p> </p>
+<p>RamTst.h </p>
+<p>1.1.3 </p>
+<p>No change </p>
+<p> </p>
+<p>RamTst_RegReadBack.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p> </p>
+<p>RamTst_Types.h </p>
+<p>1.1.2 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Tool Executable<i></b> </i></p>
+<p>RamTst_X1x.exe </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p> </p>
+<p>  RamTst_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<p><b>X1x Sample Application source file<i></b> </i></p>
+<p>App_RAMTST_Common_Sample.c </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p> </p>
+<p><b>X1x Sample Application header file<i></b> </i></p>
+<p>App_RAMTST_Common_Sample.h </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 37 of 42 </p>
+<p><b>P1x Sample Application P1M Source file<i> </b></i></p>
+<p>App_RAMTST_P1M_Sample.c </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p> </p>
+<p><b>P1x Sample Application P1M header file<i> </b></i></p>
+<p>App_RAMTST_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p> </p>
+<p><b>P1x User Manual<i></b> </i></p>
+<p>AUTOSAR_RAMTST_Component</p>
+<p>_UserManual.pdf </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 activity following changes are made:   </p>
+<p>1. In chapter 2, Reference documents updated.   </p>
+<p>2. Chapter 3, section 3.3.1 Folder structure updated.   </p>
+<p>3. Chapter 13 supporting device name updated, also section   </p>
+<p>13.1.1 updated.   </p>
+<p>4. Chapter 13, section 13.2 compiler, linker, and assembler   </p>
+<p>options removed.   </p>
+<p>5. Chapter 13, section 13.2 Sample Application updated.   </p>
+<p>6. Chapter 13, section 13.3 Memory And Throughput Details                                                             </p>
+<p>updated.   </p>
+<p>AUTOSAR_RAMTST_Tool_User</p>
+<p>Manual.pdf </p>
+<p>1.0.3 </p>
+<p>Following changes are made: </p>
+<p>1.Updated chapter 2 by adding new PDF reference. </p>
+<p>13.3</p>
+<p> </p>
+<p>  Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 38 of 42 </p>
+<p>14 </p>
+<p>SPI </p>
+<p>14.1</p>
+<p> </p>
+<p>  Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>SPI </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>14.2</p>
+<p> </p>
+<p>  Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x Parameter Definition file </b></p>
+<p>R403_SPI_P1M_04_05_12_13_20_</p>
+<p>21.arxml </p>
+<p>1.0.5 </p>
+<p>As per mantis #27411,following changes are made         </p>
+<p>1. File has been renamed to reduce file name length. </p>
+<p>2. Updated Copyright information. </p>
+<p>R403_SPI_P1M_10_11_14_15_18_</p>
+<p>19_22_23.arxml </p>
+<p>1.0.5 </p>
+<p>As per mantis #27411,following changes are made         </p>
+<p>1. File has been renamed to reduce file name length. </p>
+<p>2. Updated Copyright information. </p>
+<p><b>BSWMDT File<i></b> </i></p>
+<p>R403_SPI_P1x_BSWMDT.arxml </p>
+<p>1.0.6 </p>
+<p>Following changes are made:   </p>
+<p>1. Software version information is updated.               </p>
+<p>2. Updated copyright information.</p>
+<p> </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Spi.c </p>
+<p>1.5.6 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Driver.c </p>
+<p>1.4.4 </p>
+<p>Following changes are made </p>
+<p>1. As per mantis #27771, Spi_ReceiveISR API is updated to </p>
+<p>remove compilation warning. </p>
+<p>2. As per mantis #27772, Spi_HwInit API is updated for 32 bit </p>
+<p>DMA settings.</p>
+<p> </p>
+<p>Spi_Irq.c </p>
+<p>1.2.8 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Ram.c </p>
+<p>1.2.8 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Scheduler.c </p>
+<p>1.2.12 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Version.c </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi.h </p>
+<p>1.1.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Driver.h </p>
+<p>1.2.9 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Irq.h </p>
+<p>1.2.3 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_LTTypes.h </p>
+<p>1.2.11 </p>
+<p>As per mantis #27772, definition for </p>
+<p>SPI_DMA_32BIT_RX_SETTINGS and </p>
+<p>SPI_DMA_32BIT_TX_SETTINGS are added. </p>
+<p>Spi_PBTypes.h </p>
+<p>1.2.11 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Ram.h </p>
+<p>1.2.8 </p>
+<p>No change </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 39 of 42 </p>
+<p>Spi_Scheduler.h </p>
+<p>1.2.4 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Types.h </p>
+<p>1.2.7 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_Version.h </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Tool Executable<i></b> </i></p>
+<p>Spi_X1x.exe </p>
+<p>1.2.12 </p>
+<p>No change </p>
+<p> </p>
+<p>Spi_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<p><b>X1x Common Sample Application Source file<i></b> </i></p>
+<p>App_SPI_Common_Sample.c </p>
+<p>1.0.7 </p>
+<p>As part of P1x V4.00.04 Release activity, </p>
+<p>1. Removed all device specific macros. </p>
+<p>2. Test Application is updated to make it common across all family</p>
+<p>   </p>
+<p><b>X1x Common Sample Application header file<i></b> </i></p>
+<p>App_SPI_Common_Sample.h </p>
+<p>1.0.5 </p>
+<p>As part of P1x V4.00.04 Release activity, </p>
+<p>1. Removed all device specific macros. </p>
+<p>2. Test Application is updated to make it common across all family   </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_SPI_P1M_Sample.c </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 development activity, following changes </p>
+<p>are made: </p>
+<p>1. Corrected port settings and chip select settings for master for </p>
+<p>701310 external loopback testing. </p>
+<p>2. Updated slave register settings. </p>
+<p>3. Updated Copyright information. </p>
+<p><b>P1x Sample Application P1M header file<i></b> </i></p>
+<p>App_SPI_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>As part of P1x V4.00.04 development activity, following   </p>
+<p>changes are made: </p>
+<p>1. Modified for 701310 external loopback testing. </p>
+<p>2. Updated slave register settings. </p>
+<p>3. Updated Copyright information </p>
+<p><b>P1x User Manual </b></p>
+<p>AUTOSAR_SPI_Component_User</p>
+<p>Manual.pdf </p>
+<p>1.0.6 </p>
+<p>Following changes are made : </p>
+<p>1. Updated Chapter 2 ‘Reference Documents’ to correct the name </p>
+<p>and version of device manual. </p>
+<p>2. Information regarding Interrupt vector table has been provided </p>
+<p>in section 4.1 ‘General’. </p>
+<p>3. In Chapter 13, ’P1M Specific Information’ P1M 4.0.3 supported </p>
+<p>devices are updated. </p>
+<p>4. Table 13-1 PDF information updated for P1M 4.0.3 supported </p>
+<p>devices.   </p>
+<p>5. Section 13.1.1 has been updated to include the translation </p>
+<p>header file for all P1M 4.0.3 supporting devices. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 40 of 42 </p>
+<p>6. Updated section 13.3.1 ‘Sample Application Structure’ to add </p>
+<p>all the supported devices for P1M 4.0.3. </p>
+<p>7. Updated section 13.3.2 ‘Building the Sample Application’ to </p>
+<p>add configuration details for the device 701310. </p>
+<p>8. Updated section 13.4 ‘Memory and Throughput’ for the device </p>
+<p>R7F701310. </p>
+<p>9. Updated chapter 14 ‘Release Details’ to correct the SPI driver </p>
+<p>version. </p>
+<p>10. Removed section ‘Compiler, Linker and Assembler’ from </p>
+<p>chapter 13. </p>
+<p>11. </p>
+<p>Added </p>
+<p>macros </p>
+<p>SPI_DMA_32BIT_TX_SETTINGS </p>
+<p>and     </p>
+<p>SPI_DMA_32BIT_RX_SETTINGS </p>
+<p>in </p>
+<p>Chapter </p>
+<p>6 </p>
+<p>‘Registers </p>
+<p>Details’. </p>
+<p>AUTOSAR_SPI_Tool_UserManual.</p>
+<p>pdf </p>
+<p>1.0.7</p>
+<p> </p>
+<p>Following changes are made:   </p>
+<p>1. Updated section 2.1 ‘Reference Documents’ to correct the name </p>
+<p>and version of Parameter Definition Files.   </p>
+<p>2. Section 8.1 and Section 8.2 is modified for removing warning </p>
+<p>and adding error message (WRN083001 to ERR083122). </p>
+<p>14.3</p>
+<p> </p>
+<p>  Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 41 of 42 </p>
+<p>15 </p>
+<p>WDG </p>
+<p>15.1</p>
+<p> </p>
+<p>  Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M - R7F701310 </p>
+<p><b>Module </b></p>
+<p>WDG </p>
+<p><b>Date </b></p>
+<p>08-June-2015 </p>
+<p>15.2</p>
+<p> </p>
+<p>  Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x - Parameter Definition files<i></b> </i></p>
+<p>R403_WDG_P1M_04_05_10_to_15</p>
+<p>_18_to_23.arxml </p>
+<p>1.0.3 </p>
+<p>As part of P1x V4.00.04 development activity the </p>
+<p>following changes are made: </p>
+<p>1. As per mantis #27411, file name changed to </p>
+<p>R403_WDG_P1M_04_05_10_to_15_18_to_23.arxml </p>
+<p>2. Copyright information updated. </p>
+<p>3. ADMIN-DATA updated. </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_WDG_P1x_BSWMDT.arxml </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Wdg_59_DriverA.c </p>
+<p>1.0.12 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Irq.c </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Private.c </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Ram.c </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Version.c </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA.h </p>
+<p>1.0.6 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Irq.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_PBTypes.h </p>
+<p>1.0.8 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Private.h </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Ram.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_RegReadBack.h </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Types.h </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_59_DriverA_Version.h </p>
+<p>1.0.5 </p>
+<p>No change </p>
+<p> </p>
+<p><b>Tool Executable<i></b> </i></p>
+<p>Wdg_X1x.exe </p>
+<p>1.0.17 </p>
+<p>No change </p>
+<p> </p>
+<p>Wdg_X1x.cfgxml </p>
+<p>1.0.0 </p>
+<p>No change </p>
+<p> </p>
+<p><b>X1x Common Sample Application Source file<i></b> </i></p>
+<p>App_WDG_Common_Sample.c </p>
+<p>1.0.10 </p>
+<p>No change </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p> </p>
+<p>Release Date: 08/06/2015 </p>
+<p> </p>
+<p>Page 42 of 42 </p>
+<p><b>X1x Common Sample Application header file </b></p>
+<p>App_WDG_Common_Sample.h </p>
+<p>1.0.4 </p>
+<p>No change </p>
+<p> </p>
+<p><b>P1x Sample Application P1M Source file </b></p>
+<p>App_WDG_P1M_Sample.c </p>
+<p>1.0.3 </p>
+<p>No change </p>
+<p> </p>
+<p><b>P1x Sample Application P1M header file </b></p>
+<p>App_WDG_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change </p>
+<p> </p>
+<p><b>P1x User Manual<i></b> </i></p>
+<p>AUTOSAR_WDG_Component_Us</p>
+<p>erManual.pdf </p>
+<p>1.0.4 </p>
+<p>Following changes are made: </p>
+<p>1. Updated Chapter 4.1 to add notes. </p>
+<p>2. Updated Chapter 13 to add new device support. </p>
+<p>3. Removed sections for Compiler, Linker and Assembler. </p>
+<p>4. Updated Chapter 13.3 with memory and throughput details. </p>
+<p>5. Updated copyright information. </p>
+<p>AUTOSAR_WDG_Tool_UserManu</p>
+<p>al.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made:   </p>
+<p>1. Updated Chapter 2 to add PDF reference. </p>
+<p>2. Updated copyright information. </p>
+<p>15.3</p>
+<p> </p>
+<p>  Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>1. </p>
+<p>Please refer KnownIssues_P1x_R403_2015_CW23.pdf</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

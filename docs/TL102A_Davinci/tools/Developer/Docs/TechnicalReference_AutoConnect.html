@@ -1,0 +1,413 @@
+---
+layout: default
+title: TechnicalReference_AutoConnect
+nav_order: 9
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Auto-Connect Port Prototypes </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Pavol Gramblicka </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>2 / 13 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Pavol Gramblicka </p>
+<p>2015-04-28</p>
+<p> </p>
+<p>0.1.0 </p>
+<p>Initial version</p>
+<p> </p>
+<p>Pavol Gramblicka </p>
+<p>2015-04-28</p>
+<p> </p>
+<p>1.0.0 </p>
+<p>Final version</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>3 / 13 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ....................................................................................................................... 5</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Intended Audience ............................................................................................. 5</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Terms and Acronyms ......................................................................................... 5</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Input Port Prototypes ................................................................................................... 6</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Auto-Connect ................................................................................................................ 7</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Auto-Connect – simple pattern ........................................................................... 7</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Auto-Connect – enhanced patterns .................................................................... 9</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Prefix, Postfix ..................................................................................... 9</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Complex patterns using the component prototype name .................. 10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 13</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>4 / 13 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>Start the contextless auto-connecting ......................................................... 6</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Start the context dependent auto-connecting .............................................. 6</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Simple auto-connect scenario ..................................................................... 7</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>List of proposed connections ...................................................................... 8</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Context dependent auto-connecting of a prefixed port prototype ................ 9</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Context dependent auto-connecting with a prefixed naming  pattern ........ 10</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Context dependent auto-connecting of a port prototype without the </p>
+<p>component restriction ............................................................................... 11</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Context dependent auto-connecting of port prototypes with the </p>
+<p>component restriction ............................................................................... 12</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Terms and Acronyms .................................................................................. 5</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>5 / 13 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>DaVinci Developer is part of Vector’s solution for AUTOSAR compatible software design. It </p>
+<p>is  used  to design  and  configure  software  components and  provides  various  concepts  to </p>
+<p>support this process. </p>
+<p>This document describes a part of the design process related to DaVinci Developer from a </p>
+<p>technical  point  of  view,  trying  to  give  the  user  a  better  understanding  of  the  internal </p>
+<p>processes and how the tool reacts in different situations. </p>
+<p><b>1.1 </b></p>
+<p><b> Intended Audience </b></p>
+<p>This document aims at developers who are involved in the AUTOSAR design process and </p>
+<p>use DaVinci Developer to integrate various software components. </p>
+<p><b>1.2 </b></p>
+<p><b>Terms and Acronyms </b></p>
+<p><b>Term </b></p>
+<p><b>Definition </b></p>
+<p>DEV </p>
+<p>DaVinci Developer </p>
+<p>Table 1-1  </p>
+<p>Terms and Acronyms </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>6 / 13 </p>
+<p><b>2 </b></p>
+<p><b>Input Port Prototypes </b></p>
+<p>The  auto-connect  functionality  may  be  started  contextless  from  the <b> Software  Design </b></p>
+<p>toolbar (Figure 2-1) or from the context menu of the graphic view (Figure 2-2). </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>Start the contextless auto-connecting </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Start the context dependent auto-connecting </p>
+<p>1. </p>
+<p>In case of the contextless connecting, all port prototypes of the parent composition are </p>
+<p>considered. </p>
+<p>2. </p>
+<p>In case of the context dependent connecting, the connections are created according to </p>
+<p>the provided selection. </p>
+<p><b>&gt;  no selection </b>– all port prototypes within the composition are considered </p>
+<p><b>&gt;  a component is selected </b>– all port prototypes of the component are considered </p>
+<p><b>&gt;  single port prototype selection </b>– only these port prototypes are considered to </p>
+<p>be the source resp. destination of a proposed connector prototype </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>7 / 13 </p>
+<p><b>3 </b></p>
+<p><b>Auto-Connect </b></p>
+<p><b>3.1 </b></p>
+<p><b>Auto-Connect – simple pattern </b></p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>Simple auto-connect scenario </p>
+<p> </p>
+<p> </p>
+<p>Imagine  we  want  to  use  the  context  dependent  auto-connect  for  the  port  prototype </p>
+<p><b>Counter </b>of the component <b>SWC1<i></b>. </i></p>
+<p>1. </p>
+<p>Select the port prototype </p>
+<p>2. </p>
+<p>Right mouse-click on port prototype to open the context menu </p>
+<p>3. </p>
+<p>Choose <b>Complete Connectors </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>8 / 13 </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>List of proposed connections </p>
+<p>The algorithm is looking for counterparts for the selected port prototype <b>SWC1.Counter </b></p>
+<p><b>&gt; </b></p>
+<p>in the first step, the naming pattern is analyzed to provide a key string </p>
+<p><b>&gt; </b></p>
+<p>simple pattern without prefix resp. postfix is used i.e. only the name of the port </p>
+<p>prototype is essential for the search algorithm, key string = <b>Counter </b></p>
+<p><b>&gt; </b></p>
+<p>for all connectable port prototypes</p>
+<p>i</p>
+<p>, if the key string is a substring of the name of a </p>
+<p>connectable port prototype a connection will be proposed </p>
+<p><b>&gt; </b></p>
+<p>a line in the dialog then corresponds to the proposed connection </p>
+<p><b>&gt; </b></p>
+<p>additionally the algorithm can be refined with <b>Connect Options </b></p>
+<p><b>&gt; </b></p>
+<p><b>Match case </b>– consider case sensitive matching </p>
+<p><b>&gt; </b></p>
+<p><b>Match whole word <i></b>– </i>consider exact matching </p>
+<p><b>&gt; </b></p>
+<p><b>Allow split </b>– in case of a P-Port more than one connection is allowed </p>
+<p><b>&gt; </b></p>
+<p><b>Allow merge </b>– in case of an R-Port more than one connection is allowed </p>
+<p><b>&gt; </b></p>
+<p><b>Allow incompatible <i></b>– </i>consider AUTOSAR compatibility rules </p>
+<p><b>&gt; </b></p>
+<p>If you refined the options, press <b>Apply </b>to take the changes into account </p>
+<p><b>&gt; </b></p>
+<p>to get more information about proposed connection press right mouse button to open </p>
+<p>the context menu </p>
+<p><b>&gt; </b></p>
+<p>with <b>Show P-Port </b>resp. <b>Show Connected </b>menu buttons the port prototypes might </p>
+<p>be located in the software design </p>
+<p><b>&gt; </b></p>
+<p>with <b>Add </b>and <b>Remove </b>menu buttons the proposed list might be edited </p>
+<p><b>&gt; </b></p>
+<p>with the rest menu buttons the property dialogs might be open </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>9 / 13 </p>
+<p><b>3.2 </b></p>
+<p><b>Auto-Connect – enhanced patterns </b></p>
+<p>In a more complicated case, the naming pattern of the selected port prototype has to be </p>
+<p>identified. </p>
+<p><b>3.2.1 </b></p>
+<p><b>Prefix, Postfix </b></p>
+<p>Consider  the  designer  uses  always  a  prefix  or  a  postfix  for  his  port  prototypes,  e.g. </p>
+<p><b>SWC1::PPCounter</b>. In this case, the algorithm cannot find any connectable port prototype </p>
+<p>which includes the substring <b>PPCounter </b>in his name. </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Context dependent auto-connecting of a prefixed port prototype </p>
+<p>The user must explicitly determinate the prefix part. When computing the key string, the </p>
+<p>prefix part will be removed and the algorithm is running like in the simple case. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>10 / 13 </p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Context dependent auto-connecting with a prefixed naming  pattern </p>
+<p><b>3.2.2 </b></p>
+<p><b>Complex patterns using the component prototype name </b></p>
+<p>In a very special case, the destination component may be identified by the naming pattern. </p>
+<p>This  scenario  is  applicable  if  there  are  components  which  have  port  prototypes  of  the </p>
+<p>same  or </p>
+<p>similar </p>
+<p>naming </p>
+<p>but </p>
+<p>the </p>
+<p>proposed </p>
+<p>set </p>
+<p>should </p>
+<p>be </p>
+<p>restricted </p>
+<p>to </p>
+<p>a </p>
+<p>dedicated </p>
+<p>component. Suppose  we  want  to  restrict  the  proposal  to  component <b> SWC2</b>. The  Figure </p>
+<p>3-5 displays such a scenario where connections to <b>SWC2 </b>and <b>SWC3 </b>will be proposed. In </p>
+<p>our example, we  can simply remove the connection to <b> SWC3 </b>but in general it might be </p>
+<p>difficult to identify such relations. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>11 / 13 </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Context dependent auto-connecting of a port prototype without the component restriction </p>
+<p>To be sure the port prototype of the desired component will be proposed, the restriction </p>
+<p>must be coded in the name of the selected port prototyped. The naming pattern looks like </p>
+<p>this &lt;COMPONENT_PROTOTYPE&gt;_&lt;PORT_PROTOTYPE&gt;. The algorithm will parse the </p>
+<p>port  prototype  name  and  try  to  identify  corresponding  parts.  Additionally  to  the  current </p>
+<p>concept, the name of the component will be matching. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>12 / 13 </p>
+<p> </p>
+<p>Figure 3-6 </p>
+<p>Context dependent auto-connecting of port prototypes with the component restriction </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Auto-Connect Port Prototypes </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.0 </p>
+<p>based on template version 5.2.0 </p>
+<p>13 / 13 </p>
+<p><b>4 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p>                                            </p>
+<p>i</p>
+<p>A connectable port prototype is such a port prototype which allow for creation of a meaningful connector </p>
+<p>prototypes. In case of an assembly connector, if P-Port is selected only an R-Port or PR-Ports are </p>
+<p>meaningful and vice versa. In case of a delegation connector prototypes, if P-Port is selected only a P-Port </p>
+<p>or PR-Port are meaningful and similar if an R-Port is selected only an R-Port or PR-Port are meaningful. </p>
+</body>
+</html>
+{% endraw %}

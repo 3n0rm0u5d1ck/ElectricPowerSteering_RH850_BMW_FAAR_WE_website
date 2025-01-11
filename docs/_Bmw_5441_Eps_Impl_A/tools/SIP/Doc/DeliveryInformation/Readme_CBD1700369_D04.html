@@ -1,0 +1,49 @@
+---
+layout: default
+title: Readme_CBD1700369_D04
+nav_order: 63
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p><b>Readme CBD1700369 D04 </b></p>
+<p><b> </b></p>
+<p> <b>Note / Integration hints </b></p>
+<p><b> </b></p>
+<p><b>BAC modules </b></p>
+<p>In our integration we used the latest BMW BAC modules which were available </p>
+<p>(BAC4.3 Version 3.5.0). However, we faced some issues with the BAC modules </p>
+<p>which forced us to modify the code of the BAC modules to be able to do a complete </p>
+<p>flash process successfully. Both issues were submitted to BMW and we suppose they </p>
+<p>get fixed in one of the next BAC4.3 releases. </p>
+<p>We added the modified you your SIP in the folder “IntegrationFiles”: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The patches are marked in the files with @@@patchedByVector. You can replace the </p>
+<p>original files with these ones as long as these issues exist. </p>
+<p> </p>
+<p>At BMW the issue are registered as BAC-6612 and BAC-6828. </p>
+<p> </p>
+<p><b>DiagSystemTest </b></p>
+<p>One testcase (3.1.4) of the DiagSystemTest could not be performed successfully </p>
+<p>since the test suite just stops the CANoe measurement when running this testcase. </p>
+<p>Please contact BMW in case you’re facing the same issue. </p>
+<p><i><b> </b></i></p>
+</body>
+</html>
+{% endraw %}

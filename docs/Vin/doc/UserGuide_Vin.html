@@ -1,0 +1,363 @@
+---
+layout: default
+title: UserGuide_Vin
+nav_order: 4
+parent: Vin
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>User Guide Vin</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-02-23</p>
+<p>Version</p>
+<p>3.5.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>3.5.0</p>
+<p>2017-02-23</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.2</p>
+<p>2016-10-27</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.1</p>
+<p>2016-08-25</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.4.0</p>
+<p>2016-03-17</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added section &quot;Getting Notified about a</p>
+<p>Changed VIN&quot;</p>
+<p>3.3.0</p>
+<p>2015-12-11</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.2.0</p>
+<p>2015-07-10</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.1.0</p>
+<p>2015-03-13</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Added content to section 4.2: &quot;Evaluating the</p>
+<p>Qualifier&quot;</p>
+<p>3.0.0</p>
+<p>2014-10-29</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Initial version</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 1 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>Purpose</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>3</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p>3.1</p>
+<p>BMW Specifications</p>
+<p>5</p>
+<p>3.2</p>
+<p>AUTOSAR Specifications</p>
+<p>5</p>
+<p><b>4</b></p>
+<p><b>Usage</b></p>
+<p><b>6</b></p>
+<p>4.1</p>
+<p>Receiving the VIN and Qualifier</p>
+<p>6</p>
+<p>4.2</p>
+<p>Evaluating the Qualifier</p>
+<p>6</p>
+<p>4.3</p>
+<p>Getting Notified about a Changed VIN</p>
+<p>6</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 2 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Overview</b></p>
+<p><b>1.1</b></p>
+<p><b>Purpose</b></p>
+<p>The Vin module is used to request the VIN over the bus, set the qualifier and hand it over to</p>
+<p>application software components.</p>
+<p>The Vin module is modeled as an AUTOSAR software component (SWC) residing above the</p>
+<p>RTE.</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p>A&amp;S</p>
+<p>Authentication and Signature (Grundschutzmechanismen)</p>
+<p>AllgGB</p>
+<p>Allgemeine Gültigkeitsbedingung</p>
+<p>AN</p>
+<p>Applikationsnummer</p>
+<p>API</p>
+<p>Application Programming Interface</p>
+<p>AppGB</p>
+<p>Applikationsspezifische Gültigkeitsbedingung</p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>CA</p>
+<p>Certification Authority</p>
+<p>CAL</p>
+<p>Cryptographic Abstraction Layer</p>
+<p>CAS</p>
+<p>Car Access System (Steuergerät)</p>
+<p>CCC</p>
+<p>Car Communication Computer</p>
+<p>CKD</p>
+<p>Completely Knocked Down.</p>
+<p>A BMW plant that is not connected to</p>
+<p>the central BMW IT.</p>
+<p>CSM</p>
+<p>Client Security Module</p>
+<p>CRL</p>
+<p>Certificate Revocation List</p>
+<p>DEK</p>
+<p>Data Encryption Key</p>
+<p>DER</p>
+<p>Distinguished Encoding Rules (As described by ASN.1)</p>
+<p>DES</p>
+<p>Data Encryption Standard</p>
+<p>DN</p>
+<p>Distinguished Name</p>
+<p>DTC</p>
+<p>Diagnostic Trouble Code -&gt; Fehlercode des Fehlerspeichereintrages</p>
+<p>ECU</p>
+<p>Electronic Control Unit</p>
+<p>FAT</p>
+<p>Flash-Absicherungs-Tool</p>
+<p>FSC</p>
+<p>Freischaltcode</p>
+<p>FSCS</p>
+<p>Freischaltcode-Stelle</p>
+<p>FZG</p>
+<p>Fahrzeug</p>
+<p>FZG-R</p>
+<p>BMW Fahrzeug-Root-CA</p>
+<p>GB</p>
+<p>Gültigkeitsbedingung</p>
+<p>GG</p>
+<p>Gültigkeitsgruppe</p>
+<p>GMT</p>
+<p>Greenwich Mean Time</p>
+<p>HO</p>
+<p>Handelsorganisation (BMW)</p>
+<p>HW</p>
+<p>Hardware</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 3 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p>M-FSCS</p>
+<p>Master-Freischaltcodestelle</p>
+<p>OS</p>
+<p>Operating System</p>
+<p>PKI</p>
+<p>Public Key Infrastrucutre</p>
+<p>RCn</p>
+<p>Routine Control Option n / Exit Result n</p>
+<p>RI</p>
+<p>Routine Identifier</p>
+<p>RSA</p>
+<p>Asymmetric Cryptoalgorithm by Rivest, Shamir und Adleman</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>SG</p>
+<p>Steuergerät</p>
+<p>SGID</p>
+<p>Steuergeräte-ID, Diagnoseadresse, Steuergeräte-Adresse</p>
+<p>SID</p>
+<p>Service Identifier</p>
+<p>SigS</p>
+<p>SW-Signatur-Stelle</p>
+<p>SW</p>
+<p>Software</p>
+<p>SW-C</p>
+<p>Software Component</p>
+<p>SWID</p>
+<p>Software-ID consisting of application number and upgrade index</p>
+<p>SWT</p>
+<p>SWEEPING Technologies (SoftWare Enabled Electronic Platform for</p>
+<p>Innovative Next Generation Technologies)</p>
+<p>UDS</p>
+<p>Universal Diagnostic Services</p>
+<p>UI</p>
+<p>Upgrade Index</p>
+<p>UTC</p>
+<p>Coordinated Universal Time</p>
+<p>VCM</p>
+<p>Vehicle Configuration Management</p>
+<p>VIN</p>
+<p>Vehicle Identification Number</p>
+<p>VIN7</p>
+<p>The last 7 digits of the 17-digit VIN</p>
+<p>All abbreviations used throughout this document -- except the ones listed here -- can be found</p>
+<p>in the official AUTOSAR glossary [1].</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 4 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>3.1</b></p>
+<p><b>BMW Specifications</b></p>
+<p><b>3.2</b></p>
+<p><b>AUTOSAR Specifications</b></p>
+<p>[1]</p>
+<p>Glossary</p>
+<p>AUTOSAR_TR_Glossary</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 5 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Usage</b></p>
+<p>This section describes all functional Vin features to be used by an application.</p>
+<p><b>4.1</b></p>
+<p><b>Receiving the VIN and Qualifier</b></p>
+<p>1</p>
+<p>Vin_VinType</p>
+<p>ExternalVIN;</p>
+<p>2</p>
+<p>3</p>
+<p><b>if</b>( E_OK == Rte_Read_Vin_Vin_Vin(&amp;ExternalVIN))</p>
+<p>4</p>
+<p>{</p>
+<p>5</p>
+<p><i>/</i></p>
+<p><i>*</i></p>
+<p><i>ExternalVIN.Vin contains the VIN,</i></p>
+<p>6</p>
+<p><i>ExternalVIN.Qualifier contains the corresponding qualifier</i></p>
+<p><i>*</i></p>
+<p><i>/</i></p>
+<p>7</p>
+<p>}</p>
+<p><b>4.2</b></p>
+<p><b>Evaluating the Qualifier</b></p>
+<p>There is a macro to easily evaluate the qualifier in</p>
+<p>Vin_Helper.h</p>
+<p>. The check, whether an</p>
+<p>external VIN has been received at all, use the following code snipped:</p>
+<p>1</p>
+<p><b>#include</b> &quot;Vin_Helper.h&quot;</p>
+<p>2</p>
+<p>3</p>
+<p><b>if</b> (VIN_CHECKQUALIFIER(ExternalVIN.Qualifier, VIN_CQ_VIN_RECEIVED))</p>
+<p>4</p>
+<p>{</p>
+<p>5</p>
+<p><i>/</i></p>
+<p><i>*</i></p>
+<p><i>An external VIN has been received</i></p>
+<p><i>*</i></p>
+<p><i>/</i></p>
+<p>6</p>
+<p>}</p>
+<p>To check for a verified secure VIN, use</p>
+<p>1</p>
+<p><b>#include</b> &quot;Vin_Helper.h&quot;</p>
+<p>2</p>
+<p>3</p>
+<p><b>if</b> (VIN_CHECKQUALIFIER(ExternalVIN.Qualifier, VIN_CQ_VIN_SECURE))</p>
+<p>4</p>
+<p>{</p>
+<p>5</p>
+<p><i>/</i></p>
+<p><i>*</i></p>
+<p><i>An external secured VIN has been received and verified</i></p>
+<p><i>*</i></p>
+<p><i>/</i></p>
+<p>6</p>
+<p>}</p>
+<p>For a plain VIN in an unsafe environment, use the same with</p>
+<p>VIN_CQ_VIN_UNSAFE</p>
+<p>.</p>
+<p><b>4.3</b></p>
+<p><b>Getting Notified about a Changed VIN</b></p>
+<p>If a received VIN is different from the last received VIN, the mode</p>
+<p>VinChangeIndicator</p>
+<p>is</p>
+<p>switched to</p>
+<p>VIN_CI_CHANGED</p>
+<p>.</p>
+<p>The mode will stay in</p>
+<p>VIN_CI_CHANGED</p>
+<p>until shutdown of the ECU. On the next start-up, the</p>
+<p>mode will switch to</p>
+<p>VIN_CI_NOCHANGE</p>
+<p>if the same VIN is received.</p>
+<p><b>Hint:</b> If you need to trigger a long-running operation on a VIN change, you should write a flag</p>
+<p>into NVM in your</p>
+<p>ON-ENTER</p>
+<p>Runnable and then trigger the operation. So if the ECU shuts down</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 6 of 7</p>
+<h1 style="page-break-before:always; "></h1>
+<p>before the long-running operation has finished, you can restart it in the next life cycle according</p>
+<p>to the flag.</p>
+<p>UserGuide_Vin, Version 3.5.0, Software Platforms</p>
+<p>Page 7 of 7</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,1731 @@
+---
+layout: default
+title: TechnicalReference_RteAnalyzer
+nav_order: 109
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR RTE Analyzer </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.0.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Sascha Sommer </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>2 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Sascha Sommer </p>
+<p>2015-09-25 </p>
+<p>0.5 </p>
+<p>Initial creation for RTE Analyzer 0.5.0 </p>
+<p>Sascha Sommer </p>
+<p>2016-02-26 </p>
+<p>0.6 </p>
+<p>Update for RTE Analyzer 0.6.0 </p>
+<p>Sascha Sommer </p>
+<p>2016-07-07 </p>
+<p>0.7 </p>
+<p>Described Configuration Feedback and </p>
+<p>Template Variant Check </p>
+<p>Sascha Sommer </p>
+<p>2016-10-20 </p>
+<p>0.8 </p>
+<p>Configuration Feedback extensions </p>
+<p>Sascha Sommer </p>
+<p>Charu Pathni </p>
+<p>2017-03-23 </p>
+<p>0.9 </p>
+<p>Updated for RTE Analyzer 0.9.0 </p>
+<p>Removed BETA disclaimer </p>
+<p>Fixed chapter numbering </p>
+<p>Sascha Sommer </p>
+<p>2017-05-09 </p>
+<p>1.0 </p>
+<p>Update for RTE Analyzer 1.0.0 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> ISO </p>
+<p>ISO/IEC 9899:1990, Programming languages -C </p>
+<p>Second </p>
+<p>edition </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_RTE.pdf </p>
+<p>4.2.2 </p>
+<p> </p>
+<p> </p>
+<p>Scope of the Document </p>
+<p>This technical reference describes the general use of the MICROSAR RTE Analyzer static </p>
+<p>code  analysis  tool.  This  document  is  relevant  for  developers  that  want  to  integrate  a </p>
+<p>generated RTE into an ECU with functional safety requirements. All aspects that concern </p>
+<p>the generation of the RTE are described in the technical reference of the RTE. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>3 </p>
+<p>based on template version 5.12.0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>4 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Contents</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>RTE Analyzer History ................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 8</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>RTE Analysis and Integration .................................................................................... 10</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 10</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 10</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 12</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Restrictions ...................................................................................................... 13</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>RTE Analyzer Command Line Options ............................................................. 13</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Analysis Report Contents ................................................................................. 14</p>
+<p> </p>
+<p>4.4.1</p>
+<p> </p>
+<p>Analyzed Files .................................................................................. 14</p>
+<p> </p>
+<p>4.4.2</p>
+<p> </p>
+<p>Configuration Parameters ................................................................ 14</p>
+<p> </p>
+<p>4.4.3</p>
+<p> </p>
+<p>Findings ........................................................................................... 15</p>
+<p> </p>
+<p>4.4.4</p>
+<p> </p>
+<p>Configuration Feedback ................................................................... 22</p>
+<p> </p>
+<p>4.4.5</p>
+<p> </p>
+<p>Template Variant Check ................................................................... 24</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Integration into DaVinci CFG............................................................................ 24</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 28</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 28</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 28</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Additional Copyrights ................................................................................................ 29</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 30</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>5 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>RTE Analyzer history .................................................................................. 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported  features .................................................................................... 9</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 11</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Assumed platform type sizes .................................................................... 12</p>
+<p> </p>
+<p>Table 4-3 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 13</p>
+<p> </p>
+<p>Table 4-4 </p>
+<p> </p>
+<p>RTE Analyzer Command Line Options ...................................................... 14</p>
+<p> </p>
+<p>Table 4-5 </p>
+<p> </p>
+<p>Analysis parameters that are extracted from the configuration .................. 15</p>
+<p> </p>
+<p>Table 4-6 </p>
+<p> </p>
+<p>RTE Analyzer Findings ............................................................................. 22</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 28</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 28</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Free and Open Source Software Licenses ............................................... 29</p>
+<p> </p>
+<p><b>Figures </b></p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Project menu ............................................................................................ 25</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>External generation steps ......................................................................... 25</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>Code generation ....................................................................................... 26</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>6 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>1 </b></p>
+<p><b>RTE Analyzer History </b></p>
+<p>The  RTE  Analyzer  history  gives  an  overview  over  the  important  milestones  that  are </p>
+<p>supported in the different versions of the RTE Analyzer.  </p>
+<p><b>RTE Analyzer </b></p>
+<p><b>Version </b></p>
+<p><b>New Features </b></p>
+<p>0.5.0 </p>
+<p>Initial version of MICROSAR RTE Analyzer for MICROSAR RTE 4.9.x </p>
+<p>Supported Features: </p>
+<p>- </p>
+<p>Detection of RTE code that cannot be compiled </p>
+<p>- </p>
+<p>Detection of Out Of Bounds write accesses within RTE APIs </p>
+<p>- </p>
+<p>Detection of Interrupt Lock API sequence mismatches within RTE </p>
+<p>APIs </p>
+<p>- </p>
+<p>Detection of Unreachable RTE APIs and runnables </p>
+<p>- </p>
+<p>Detection of RTE variables that are accessed from concurrent </p>
+<p>execution contexts without protection </p>
+<p>- </p>
+<p>Detection of concurrent calls to non-reentrant APIs within the RTE </p>
+<p>- </p>
+<p>Detection of variables that are accessed from multiple cores and </p>
+<p>that are not mapped to non-cacheable memory sections </p>
+<p>- </p>
+<p>Detection of non-typesafe interfaces to the BSW and SWCs where </p>
+<p>a call with a wrong parameter might cause out of bounds writes by </p>
+<p>the RTE or a called runnable/BSW API. </p>
+<p>- </p>
+<p>Detection of recursive call sequences </p>
+<p>0.6.0 </p>
+<p>Updated for MICROSAR RTE 4.10.x </p>
+<p>0.6.1 </p>
+<p>Updated for MICROSAR RTE 4.11.x </p>
+<p>0.7.0 </p>
+<p>Updated for MICROSAR RTE 4.12.x </p>
+<p>New optimized Range Analysis algorithm </p>
+<p>Added Configuration Feedback </p>
+<p>Added Template Variant Check </p>
+<p>0.8.0 </p>
+<p>Extended Configuration Feedback </p>
+<p>Findings that are expected to always occur were moved to the </p>
+<p>configuration feedback section in the Analysis report </p>
+<p>RTE Analyzer now automatically extracts the number of bytes written by </p>
+<p>the COM signal reception APIs from the generated MICROSAR COM </p>
+<p>sources </p>
+<p>RTE Analyzer now automatically extracts the size of the buffer that is </p>
+<p>passed by the NVM module from the generated MICROSAR NVM </p>
+<p>sources </p>
+<p>RTE Analyzer now checks for memcpy with overlapping source and </p>
+<p>destination </p>
+<p>0.9.0 </p>
+<p>Compilation support is now included in MicrosarIRAnalyzer </p>
+<p>Added new checks for flags and overlapping memcpy arguments </p>
+<p>1.0.0 </p>
+<p>First major release </p>
+<p>Table 1-1  </p>
+<p>RTE Analyzer history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>7 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This </p>
+<p>document </p>
+<p>describes </p>
+<p>the </p>
+<p>static </p>
+<p>code </p>
+<p>analysis </p>
+<p>tool </p>
+<p>MICROSAR </p>
+<p>RTE </p>
+<p>Analyzer. </p>
+<p>MICROSAR  RTE  Analyzer  is  part  of  MICROSAR  Safe  RTE.  MICROSAR  Safe  RTE </p>
+<p>provides  an  AUTOSAR  RTE  generator  that  is  developed  with  an  ISO26262  compliant </p>
+<p>development process, to allow the usage of the generated RTE code within an ECU with </p>
+<p>functional safety requirements. </p>
+<p>MICROSAR  RTE  Analyzer  analyzes  the  generated  RTE  code  for  errors  with  a  special </p>
+<p>emphasis on sporadic runtime errors that are hard to detect during ECU integration tests. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>8 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p>The features listed in the following table cover the complete functionality  of MICROSAR </p>
+<p>RTE Analyzer. </p>
+<p> </p>
+<p><b>Supported Features </b></p>
+<p>Compilation check for RTE code </p>
+<p>Detection of disallowed inline assembly usage in RTE APIs </p>
+<p>Detection of template variants that are not allowed for SafeRTE </p>
+<p>Detection of template combinations that are not allowed for SafeRTE </p>
+<p>Detection of accesses to invalid pointers in RTE APIs </p>
+<p>Detection of out of bounds write accesses in RTE APIs </p>
+<p>Detection of memcpy operations with overlapping pointers in RTE APIs </p>
+<p>Detection of global RTE variables that are not initialized </p>
+<p>Detection of interrupt lock API sequence mismatches in RTE APIs </p>
+<p>Detection of OS APIs that are wrongly called with locked interrupts in RTE APIs </p>
+<p>Detection of data consistency APIs that are called from the wrong context in RTE APIs </p>
+<p>Detection of RTE variables that are accessed from concurrent execution contexts without </p>
+<p>protection </p>
+<p>Detection of RTE variables that are accessed from multiple cores and that are not mapped to </p>
+<p>non-cacheable memory sections </p>
+<p>Detection of concurrent calls to non-reentrant APIs within RTE APIs </p>
+<p>Configuration Feedback for scheduling properties </p>
+<p>Configuration Feedback for executable entities </p>
+<p>Configuration Feedback for unreachable RTE APIs and entities </p>
+<p>Configuration Feedback for RTE APIs that require a valid COM buffer configuration </p>
+<p>Configuration Feedback for RTE APIs that require a valid NVM buffer configuration </p>
+<p>Automatic verification of COM buffer assumptions for MICROSAR COM </p>
+<p>Automatic verification of NVM buffer assumptions for MICROSAR NVM </p>
+<p>Configuration Feedback for non-typesafe interfaces to the BSW and SWCs where a call with a </p>
+<p>wrong parameter might cause out of bounds writes by the RTE or a called runnable/BSW API </p>
+<p>Configuration Feedback for RTE APIs for which a call from a wrong context might cause data </p>
+<p>consistency problems </p>
+<p>Configuration Feedback for RTE APIs that are blocking </p>
+<p>Configuration Feedback for RTE APIs that communicate with other ECUs </p>
+<p>Configuration Feedback for RTE APIs with queues </p>
+<p>Configuration Feedback for RTE APIs with alive timeout handling </p>
+<p>Configuration Feedback for RTE APIs with invalidation handling </p>
+<p>Configuration Feedback for RTE APIs with never received handling </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>9 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Supported Features </b></p>
+<p>Configuration Feedback for RTE APIs with initial value handling </p>
+<p>Configuration Feedback for RTE APIs with E2E transformer handling </p>
+<p>Configuration Feedback for RTE APIs with data conversion  </p>
+<p>Configuration Feedback for RTE APIs that access non-volatile memory </p>
+<p>Configuration Feedback for exclusive areas </p>
+<p>Configuration Feedback for connections </p>
+<p>Configuration Feedback for recursive calls </p>
+<p>Configuration Feedback for spinlocks that need to protect from task interruptions </p>
+<p>RTE Analyzer Configuration generation by DaVinci CFG </p>
+<p>Analysis report generation </p>
+<p>Configuration Feedback Generation for QM and ASIL partitions </p>
+<p>Table 3-1  </p>
+<p>Supported  features </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>10 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>4 </b></p>
+<p><b>RTE Analysis and Integration </b></p>
+<p>This chapter gives necessary information about the content of the delivery, the usage of </p>
+<p>MICROSAR RTE Analyzer and a description of the generated report. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery contains the files which are described in the chapters 4.1.1 and 4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>MicrosarRteAnalyzer.exe </p>
+<p>MICROSAR RTE Analyzer command line frontend</p>
+<p> </p>
+<p>MicrosarRteAnalyzerCfgGen.exe </p>
+<p>MICROSAR RTE Analyzer configuration file generator </p>
+<p>(automatically invoked by DaVinci CFG during RTE </p>
+<p>generation) </p>
+<p>Settings_RteAnalyzer.xml </p>
+<p>DaVinci CFG adaption module </p>
+<p>TechnicalReference_RteAnalyzer.pdf </p>
+<p>This document </p>
+<p>MicrosarIRAnalyzer.exe </p>
+<p>Analysis backend (used internally by </p>
+<p>MicrosarRteAnalyzer.exe) </p>
+<p>License_Artistic.txt </p>
+<p>Perl license </p>
+<p>License_LLVM.txt </p>
+<p>LLVM/CLANG license </p>
+<p>Com.h </p>
+<p>Stub Com header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Compiler.h </p>
+<p>Stub Compiler header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Compiler_Cfg.h </p>
+<p>Stub Compiler_Cfg header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>ComStack_Cfg.h </p>
+<p>Stub ComStack_Cfg header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>ComStack_Types.h </p>
+<p>Stub ComStack_Types header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Det.h </p>
+<p>Stub Det header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>E2EXf.h </p>
+<p>Stub E2EXf header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Float.h </p>
+<p>Stub Float header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Ioc.h </p>
+<p>Stub Ioc header (used internally by </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>11 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>LdCom.h </p>
+<p>Stub LdCom header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>MemMap.h </p>
+<p>Stub MemMap header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>NvM.h </p>
+<p>Stub NvM header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification)</p>
+<p> </p>
+<p>Os.h </p>
+<p>Stub Os header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Os_MemMap.h </p>
+<p>Stub Os_MemMap header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Platform_Types.h </p>
+<p>Stub Platform_Types header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Std_Types.h </p>
+<p>Stub Std_Types header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>String.h </p>
+<p>Stub String header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Xcp.h </p>
+<p>Stub Xcp header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>XcpProf.h </p>
+<p>Stub XcpProf header (used internally by </p>
+<p>MicrosarRteAnalyzer.exe for standalone RTE </p>
+<p>verification) </p>
+<p>Vstdlib.h </p>
+<p>Stub VStdlib header (used internally by </p>
+<p>MicroarRteAnalyzer.exe to extract the COM signal </p>
+<p>lengths) </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>12 </p>
+<p>based on template version 5.12.0 </p>
+<p>RTE Analyzer assumes the following maximum data type sizes: </p>
+<p> </p>
+<p><b>Type </b></p>
+<p><b>Size in Bits </b></p>
+<p>sint8 </p>
+<p>8 </p>
+<p>uint8 </p>
+<p>8 </p>
+<p>sint16 </p>
+<p>16 </p>
+<p>uint16 </p>
+<p>16 </p>
+<p>sint32 </p>
+<p>32 </p>
+<p>uint32 </p>
+<p>32 </p>
+<p>sint64 </p>
+<p>64 </p>
+<p>uint64 </p>
+<p>64 </p>
+<p>float32 </p>
+<p>32 </p>
+<p>float64 </p>
+<p>64 </p>
+<p>enum </p>
+<p>32 </p>
+<p>Table 4-2  </p>
+<p>Assumed platform type sizes </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If the sizes of the platform types exceed the sizes described Table 4-2, contact Vector </p>
+<p>as the size of the data types is used for the data consistency checks. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci CFG to the RteAnalyzer </p>
+<p>subdirectory when the RTE is generated. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>RteAnalyzerConfiguration.json </p>
+<p>Configuration file for MICROSAR RTE Analyzer. </p>
+<p>&lt;BSW&gt;.c </p>
+<p>These files contain stub implementations for the schedulable </p>
+<p>entities that call all available RTE APIs. </p>
+<p>TestControl.c </p>
+<p>This file contains stubs for the BSW calls to the RTE. </p>
+<p>&lt;SWC&gt;.c </p>
+<p>These files contain stub implementations for the runnables that </p>
+<p>call all available RTE APIs. </p>
+<p>Com_Cfg.h </p>
+<p>This file contains the configuration for the stub COM module. </p>
+<p>LdCom_Cfg.h </p>
+<p>This file contains the configuration for the stub LDCOM module. </p>
+<p>Os_Cfg.h </p>
+<p>This file contains the configuration for the stub OS module. </p>
+<p>Ioc_Cfg.h </p>
+<p>This file contains the IOC configuration for the stub OS module. </p>
+<p>Xcp_Cfg.h </p>
+<p>This file contains the configuration for the stub XCP module. </p>
+<p>NvM_Cfg.h </p>
+<p>This file contains the configuration for the stub NVM module. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>13 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>E2EXf_Cfg.h </p>
+<p>This file contains the configuration for the stub E2EXf module. </p>
+<p>Table 4-3  </p>
+<p>Generated files </p>
+<p>Besides  the  files  that  are  generated  by  DaVinci  CFG,  RTE  Analyzer  generates  the </p>
+<p>following files when invoked from the commandline. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>AnalysisReport.txt </p>
+<p>Report that contains the results of the static code analysis and </p>
+<p>analysis assumptions that need to be reviewed by the user of </p>
+<p>MICROSAR RTE Analyzer. </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Restrictions  </b></p>
+<p>MICROSAR RTE Analyzer uses a Compiler front end in order to compile the input source </p>
+<p>files. This Compiler front end requires ANSI-C 90 [1] conform source code. Some target </p>
+<p>compilers implement specific  language  extensions  which  might  prevent  MICROSAR </p>
+<p>RTE Analyzer  from  compiling  the  code successfully. The Vector BSW code does not </p>
+<p>contain  such  language  extensions.  However,  these  extensions  may  be  included  via </p>
+<p>customer header files. In such a case the customer shall take care that these language </p>
+<p>extensions  are  encapsulated  via  the  preprocessor  for  the  MICROSAR  RTE  Analyzer </p>
+<p>execution. The  corresponding  preprocessor switches  can  be  specified  via  the  command </p>
+<p>line when calling MICROSAR RTE Analyzer. </p>
+<p> </p>
+<p><b>4.3 </b></p>
+<p><b>RTE Analyzer Command Line Options </b></p>
+<p>The  frontend  RTE  Analyzer  starts  the  static  code  analysis.  It  can  be  started  on  the </p>
+<p>command  line  once  the  RTE  and  the  MICROSAR  RTE  Analyzer  configuration  were </p>
+<p>generated by DaVinci CFG. </p>
+<p><b>Option </b></p>
+<p><b>Description </b></p>
+<p>–c &lt;config&gt; </p>
+<p>Selects the configuration file of the project that shall be analyzed. </p>
+<p> </p>
+<p>-I &lt;dir&gt; </p>
+<p>Add directory name &lt;dir&gt; to include file search path </p>
+<p>-D &lt;name&gt;[=&lt;value&gt;] </p>
+<p>Defines macro with name &lt;name&gt; and value &lt;value&gt; </p>
+<p>–o &lt;path&gt; </p>
+<p>Selects the directory to which the analysis report will be written </p>
+<p>-e </p>
+<p>Extended Configuration Feedback. If not set, the Configuration </p>
+<p>Feedback will not include RTE functionality in OS Applications with </p>
+<p>SafetyLevel QM or OS Applications for which no SafetyLevel is </p>
+<p>configured in the ECUC module. </p>
+<p>-d </p>
+<p>Disable analysis of COM and NVM generation data </p>
+<p>-j </p>
+<p>Number of threads for compilation. Defaults to the number of </p>
+<p>processors. </p>
+<p>-V </p>
+<p>Shows the version </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>14 </p>
+<p>based on template version 5.12.0 </p>
+<p>–h </p>
+<p>Shows the command line help </p>
+<p>-w </p>
+<p>Windows version (64Bit or 32Bit) </p>
+<p>Table 4-4  </p>
+<p>RTE Analyzer Command Line Options </p>
+<p><b>Example: </b></p>
+<p>MicrosarRteAnalyzer.exe -c RteAnalyzerConfiguration.json –o </p>
+<p>Reports  </p>
+<p> </p>
+<p><b>4.4 </b></p>
+<p><b>Analysis Report Contents </b></p>
+<p>RTE Analyzer prints errors that prevent the analysis of the system to the console. </p>
+<p>When  RTE  Analyzer  was  executed  without  errors,  an  analysis  report  is  written  to  the </p>
+<p>output directory that contains potential problems within the generated RTE. </p>
+<p>These problems are only listed in the report and not printed to the console. </p>
+<p>As not every detected violation necessarily leads to an error in the ECU, the final decision </p>
+<p>whether an issue is critical or not is up to the user of RTE Analyzer. </p>
+<p>Besides the detected constraint violations, the analysis report also contains assumptions </p>
+<p>about the system that were derived from the configuration. </p>
+<p>These assumptions need to be verified by the user of RTE Analyzer. </p>
+<p> </p>
+<p><b>4.4.1 </b></p>
+<p><b>Analyzed Files </b></p>
+<p>The report starts with the version of the analysis report, the time of the analysis and the </p>
+<p>name of the windows user that initiated the analysis. </p>
+<p>Moreover the analyzed files are listed. It needs to be assured that the correct files were </p>
+<p>analyzed and no file is missing. </p>
+<p> </p>
+<p><b>4.4.2 </b></p>
+<p><b>Configuration Parameters </b></p>
+<p>MICROSAR  RTE  Analyzer  relies  on  configuration  parameters  from </p>
+<p>DaVinci  CFG  to </p>
+<p>determine the scheduling properties of the individual tasks and BSW callbacks. </p>
+<p>These parameters need to be reviewed because a wrong parameter might lead to missed </p>
+<p>data consistency problems. </p>
+<p>The report contains the following parameters that need to be checked against the target </p>
+<p>system. </p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p><b>Description </b></p>
+<p>MaxAtomicMemoryAccess </p>
+<p>Describes the maximum number of bytes for </p>
+<p>variable accesses up to which the compiler </p>
+<p>will emit an atomic access instruction. </p>
+<p>BswOsApplication </p>
+<p>Describes the OS Application from which the </p>
+<p>RTE Callbacks (</p>
+<p>Rte_COMCbk, Rte_LdCom, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>15 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>Parameter </b></p>
+<p><b>Description </b></p>
+<p>Rte_GetMirror, Rte_SetMirrors,</p>
+<p> …) </p>
+<p>are called. </p>
+<p>OsApplications </p>
+<p>Lists the OS Applications in the system </p>
+<p>OsApplicationName </p>
+<p>Name of the OS Application </p>
+<p>CoreId </p>
+<p>ID of the Core that contains the OS </p>
+<p>Application </p>
+<p>IsTrusted </p>
+<p>Describes if the OS Application runs without </p>
+<p>MPU (IsTrusted == 1) or with MPU (IsTrusted </p>
+<p>== 0) </p>
+<p>SafetyLevel </p>
+<p>SafetyLevel of the OS Application: QM, </p>
+<p>ASIL_A, ASIL_B, ASIL_C, ASIL_D </p>
+<p>Tasks </p>
+<p>List of OS Tasks that are assigned to the OS </p>
+<p>Application </p>
+<p>TaskName </p>
+<p>Name of the OS Task </p>
+<p>Priority </p>
+<p>Priority of the OS Task </p>
+<p>Preemption </p>
+<p>Preemption setting of the OS Task </p>
+<p>Callbacks </p>
+<p>List of callbacks that are assigned to the </p>
+<p>BswOsApplication </p>
+<p>CallbackName </p>
+<p>Name of the callback </p>
+<p>ExecutedOnTaskLevel </p>
+<p>Describes if the callback is called from a task </p>
+<p>(1) or from an ISR (0). </p>
+<p>Table 4-5  </p>
+<p>Analysis parameters that are extracted from the configuration </p>
+<p> </p>
+<p> </p>
+<p><b>4.4.3 </b></p>
+<p><b>Findings </b></p>
+<p>RTE  Analyzer  currently  reports  the  findings  described  in  Table  4-6.  The  description </p>
+<p>describes the possible findings in more detail and the actions that need to be taken when </p>
+<p>they are contained in the analysis report. </p>
+<p> </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>11000 </p>
+<p>Unsupported integer to pointer conversion </p>
+<p>RTE code uses an integer value that was </p>
+<p>casted to a pointer type. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>uint8* ptr = 0xdeadbeef; </i></p>
+<p><i>*ptr = 5; </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>11001 </p>
+<p>Unsupported inline assembly </p>
+<p>RTE code uses inline assembly. </p>
+<p>Example: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>16 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p><i>asm(&quot;add %al, (%rax)&quot;); </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>11006 </p>
+<p>Unsupported path to pointer target </p>
+<p>The pointer analysis detected a code </p>
+<p>construct that it cannot handle. This code </p>
+<p>construct must not be used in RTE code. </p>
+<p>Contact Vector. </p>
+<p>11007 </p>
+<p>Unsupported usage of memcpy or memset </p>
+<p>Memcpy or memset is used through an </p>
+<p>indirect function call. This code construct </p>
+<p>must not be used in RTE code. Contact </p>
+<p>Vector. </p>
+<p>11009 </p>
+<p>Unsupported instruction </p>
+<p>An instruction was encountered.  This </p>
+<p>code construct must not be used in RTE </p>
+<p>code. Contact Vector. </p>
+<p>12000 </p>
+<p>Potential out of bounds write </p>
+<p>A pointer that was already used in the </p>
+<p>preparation of the analysis is outside of </p>
+<p>the assumptions that were used during </p>
+<p>the preparations. </p>
+<p>Example: </p>
+<p><i> </i></p>
+<p><i>typedef struct { </i></p>
+<p><i>   uint8* a; </i></p>
+<p><i>   uint8* b; </i></p>
+<p><i>} struct_t; </i></p>
+<p><i> </i></p>
+<p><i>struct_t s; </i></p>
+<p><i> </i></p>
+<p><i>uint8** ptr = &amp;s.a; </i></p>
+<p><i>ptr[1][0] = 7; </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>12001 </p>
+<p>Potential null pointer write </p>
+<p>An RTE API writes to a pointer that may </p>
+<p>be null. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>12002 </p>
+<p>Potential out of bounds write </p>
+<p>An RTE API writes outside of the bounds </p>
+<p>of a variable. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>uint8 a[5]; </i></p>
+<p><i>a[5] = 1; </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>17 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>the RTE code. Contact Vector. </p>
+<p>12003 </p>
+<p>Potential access of invalid pointer </p>
+<p>An RTE API accesses an invalid pointer. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13000 </p>
+<p>Unexpected lock sequence </p>
+<p>A lock function is not followed by an </p>
+<p>appropriate unlock function. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>SuspendAllInterrupts(); </i></p>
+<p><i>a = 5; </i></p>
+<p><i>ResumeOSInterrupts(); </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13001 </p>
+<p>Different lock states for loop </p>
+<p>A function uses different lock states in </p>
+<p>different loop iterations. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>for (i = 0; i &lt; 20; i++) </i></p>
+<p><i>{ </i></p>
+<p><i>    if (i == 5) </i></p>
+<p><i>   { </i></p>
+<p><i>        DisableAllInterupts(); </i></p>
+<p><i>    } </i></p>
+<p><i>    if (i == 6) </i></p>
+<p><i>    { </i></p>
+<p><i>        EnableAllInterrupts(); </i></p>
+<p><i>    } </i></p>
+<p><i>} </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13002 </p>
+<p>Different lock states for call </p>
+<p>A call may be done with and without prior </p>
+<p>locking. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>if (a == 0) </i></p>
+<p><i>{ </i></p>
+<p><i>   DisableAllInterrupts(); </i></p>
+<p><i>} </i></p>
+<p><i>Function(); </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13003 </p>
+<p>Different lock states for recursive call </p>
+<p>A recursive function changes the lock </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>18 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>state prior to the next recursion. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>void func() </i></p>
+<p><i>{ </i></p>
+<p><i>    DisableAllInterrupts(); </i></p>
+<p><i>    func(); </i></p>
+<p><i>    EnableAllInterrupts(); </i></p>
+<p><i>} </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13004 </p>
+<p>Different lock states for return </p>
+<p>A function may return a with different lock </p>
+<p>state. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>DisableAllInterrupts(); </i></p>
+<p><i>if (a) </i></p>
+<p><i>{ </i></p>
+<p><i>   return; </i></p>
+<p><i>} </i></p>
+<p><i>EnableAllInterrupts(); </i></p>
+<p><i>return; </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13005 </p>
+<p>Task or ISR returns with locked interrupts </p>
+<p>A RTE Task or callback returns with </p>
+<p>locked interrupts in at least one code </p>
+<p>branch. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13006 </p>
+<p>OS API called with locked interrupt </p>
+<p>An OS API e.g. </p>
+<p>WaitEvent</p>
+<p> is called with </p>
+<p>locked interrupts. This is prohibited by the </p>
+<p>OS specification. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13007 </p>
+<p>OS API called with disabled interrupts </p>
+<p>An OS API e.g. </p>
+<p>SuspendOSInterrupts</p>
+<p> </p>
+<p>is called within a section that is locked </p>
+<p>with DisableAllInterrupts. This is </p>
+<p>prohibited by the OS specification. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13008 </p>
+<p>OS API called in wrong context </p>
+<p>An optimized MICROSAR interrupt lock </p>
+<p>API is called from the wrong context. E.g. </p>
+<p>an optimized lock API for trusted OS </p>
+<p>application is called from an untrusted </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>19 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>application. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13009 </p>
+<p>Accesses can interrupt each other </p>
+<p>RTE Analyzer detected that a variable is </p>
+<p>accessed from multiple tasks that can </p>
+<p>interrupt each other. The variable is not </p>
+<p>protected by an OS API e.g. </p>
+<p>interrupt </p>
+<p>lock or spinlock. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13010 </p>
+<p>Non-reentrant function with non-constant </p>
+<p>handle </p>
+<p>RTE Analyzer checks the RTE for </p>
+<p>concurrent calls to BSW APIs. If the </p>
+<p>reentrancy depends on the handle, the </p>
+<p>handle needs to be constant so that it can </p>
+<p>be analyzed by RTE Analyzer. This code </p>
+<p>construct must not be used in the RTE </p>
+<p>code. Contact Vector. </p>
+<p>13011 </p>
+<p>Non-reentrant function invoked </p>
+<p>concurrently </p>
+<p>RTE Analyzer detects concurrently called </p>
+<p>functions for which the caller would have </p>
+<p>needed to assure non-reentrant calls. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>13012 </p>
+<p>Different resources used on same core </p>
+<p>The RTE code uses different resources to </p>
+<p>protect the same variable. If a variable </p>
+<p>needs to be protected from concurrent </p>
+<p>accesses in multiple tasks, the same </p>
+<p>resource needs to be used for all </p>
+<p>accesses. This code construct must not </p>
+<p>be used in the RTE code. Contact Vector. </p>
+<p>13013 </p>
+<p>Different spinlocks used </p>
+<p>The RTE code uses different spinlocks to </p>
+<p>protect the same variable on a single </p>
+<p>core. If a variable needs to be protected </p>
+<p>from concurrent accesses on multiple </p>
+<p>cores, the same spinlock needs to be </p>
+<p>used for all accesses. This code construct </p>
+<p>must not be used in the RTE code. </p>
+<p>Contact Vector. </p>
+<p>13014 </p>
+<p>Not all accesses protected with resource </p>
+<p>The RTE code does not always use </p>
+<p>resources to protect a variable. If a </p>
+<p>variable needs to be protected from </p>
+<p>concurrent accesses in multiple tasks, the </p>
+<p>same resource needs to be used for all </p>
+<p>accesses. This code construct must not </p>
+<p>be used in the RTE code. Contact Vector. </p>
+<p>13015 </p>
+<p>Bitfield write access without interrupt locks </p>
+<p>The RTE uses interrupt locks to prevent </p>
+<p>read modify write problems in bitfields. </p>
+<p>RTE Analyzer detected an access without </p>
+<p>locks. This code construct must not be </p>
+<p>used in the RTE code. Contact Vector. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>20 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>13017 </p>
+<p>Lock type cannot be nested </p>
+<p>The RTE uses a non-nestable interrupt </p>
+<p>lock nestedly. This code construct must </p>
+<p>not be used in the RTE code. Contact </p>
+<p>Vector.  </p>
+<p>13018 </p>
+<p>Lock uses unsupported handle parameter </p>
+<p>The RTE uses a nonconstant handle for </p>
+<p>spinlocks or resources. This code </p>
+<p>construct must not be used in the RTE </p>
+<p>code. Contact Vector. </p>
+<p>14000 </p>
+<p>Unmatched memory section </p>
+<p>A memory section was not closed </p>
+<p>correctly. Example: </p>
+<p> </p>
+<p><i>#define RTE_START_SEC_VAR </i></p>
+<p><i>#include “MemMap.h” </i></p>
+<p><i>uint8 var; </i></p>
+<p><i>#define RTE_STOP_SEC_CONST </i></p>
+<p><i>#include “MemMap.h” </i></p>
+<p><i> </i></p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>14001 </p>
+<p>Variable not mapped to memory section </p>
+<p>A variable is declared without being </p>
+<p>mapped to a memory section. </p>
+<p> </p>
+<p>Example: </p>
+<p> </p>
+<p><i>uint8 var; </i></p>
+<p><i> </i></p>
+<p><i>#define RTE_START_SEC_VAR </i></p>
+<p><i>#include “MemMap.h” </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>14002 </p>
+<p>Variable not mapped to NOCACHE </p>
+<p>memory section </p>
+<p>A variable that is accessed from multiple </p>
+<p>cores is not mapped to a NOCACHE </p>
+<p>memory section. This may lead to data </p>
+<p>consistency problems. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>#define RTE_START_SEC_VAR </i></p>
+<p><i>#include “MemMap.h” </i></p>
+<p><i> </i></p>
+<p><i>uint8 var; </i></p>
+<p><i> </i></p>
+<p><i>#define RTE_STOP_SEC_VAR </i></p>
+<p><i>#include “MemMap.h” </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>21 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>the RTE code. Contact Vector. </p>
+<p>16000 </p>
+<p>Missing task info </p>
+<p>The configuration contains no task </p>
+<p>settings for the task. Possible reason: a </p>
+<p>function ends with the name func and is </p>
+<p>missdetected as OS Task by RTE </p>
+<p>Analyzer. Rename the function or ignore </p>
+<p>the message. </p>
+<p>17000 </p>
+<p>Potential illegal memcpy </p>
+<p>Memcpy is called with overlapping source </p>
+<p>and destination arguments. </p>
+<p>Example: </p>
+<p> </p>
+<p><i>Rte_MemCpy(dst, dst, 5); </i></p>
+<p> </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>17001 </p>
+<p>Potential illegal memcpy (undeterminable) </p>
+<p>Memcpy may be called with overlapping </p>
+<p>source and destination arguments. The </p>
+<p>size could not be resolved. This code </p>
+<p>construct must not be used in the RTE </p>
+<p>code. Contact Vector. </p>
+<p>20000 </p>
+<p>Use of uninitialized variables </p>
+<p>RTE code reads variables that are not </p>
+<p>initialized in </p>
+<p>Rte_Start</p>
+<p> or </p>
+<p>Rte_InitMemory</p>
+<p>. This code construct </p>
+<p>must not be used in the RTE code. </p>
+<p>Contact Vector. </p>
+<p>20001 </p>
+<p>Inconsistent handling of never received </p>
+<p>flags </p>
+<p>RTE code accesses never received flags </p>
+<p>that are not set on the sending side.  </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>20002 </p>
+<p>Inconsistent handling of invalidate flags </p>
+<p>RTE code accesses invalidate flags that </p>
+<p>are not set on the sending side. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>20003 </p>
+<p>Inconsistent handling of update flags </p>
+<p>RTE code accesses invalidate flags that </p>
+<p>are not set on the sending side. </p>
+<p>This code construct must not be used in </p>
+<p>the RTE code. Contact Vector. </p>
+<p>20004 </p>
+<p>Inconsistent handling of idle flags </p>
+<p>RTE code accesses idle flags in an </p>
+<p>unsupported way. This code construct </p>
+<p>must not be used in the RTE code. </p>
+<p>Contact Vector. </p>
+<p>20005 </p>
+<p>Inconsistent handling of overflow flags </p>
+<p>RTE code accesses overflow flags in an </p>
+<p>unsupported way. This code construct </p>
+<p>must not be used in the RTE code. </p>
+<p>Contact Vector. </p>
+<p>20006 </p>
+<p>Inconsistent handling of call completed </p>
+<p>flags </p>
+<p>RTE code accesses call completed flags </p>
+<p>in an unsupported way. This code </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>22 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>ID </b></p>
+<p><b>Headline </b></p>
+<p><b>Description </b></p>
+<p>construct must not be used in the RTE </p>
+<p>code. Contact Vector. </p>
+<p>Table 4-6  </p>
+<p>RTE Analyzer Findings </p>
+<p><b>4.4.4 </b></p>
+<p><b>Configuration Feedback </b></p>
+<p>The  findings  from  chapter  4.4.3  describe  inconsistencies  within  the  generated  RTE. </p>
+<p>However,  also  a  consistently  generated  RTE  may  violate  functional  safety  requirements </p>
+<p>when  the  generated  RTE  does  not  match  the  intentions  of  the  user  e.g.  when  wrong </p>
+<p>configuration parameters were chosen for the intended use case.  </p>
+<p>Therefore, during development of the RTE Generator a safety analysis is performed on all </p>
+<p>input  parameters  of  the  generator  in  order  to  detect  functionality  for  which  a  slightly </p>
+<p>different  configuration  leads  to  the  generation  of  APIs  with  compatible  C  signature  but </p>
+<p>different runtime behavior. </p>
+<p>RTE Analyzer lists the detected functionality in the analysis report, so that an integration </p>
+<p>test  as  required  by  ISO26262  can  confirm  that  only  the  intended  and  no  unintended </p>
+<p>functionality is implemented in the generated RTE. </p>
+<p>This also makes it possible to use MICROSAR RTE Generator in combination with non-</p>
+<p>TCL1 configuration tools as unintended configuration modifications by the tool will lead to </p>
+<p>an unexpected configuration feedback.  </p>
+<p>By  default  the  configuration  feedback  is  only  printed  for  the  OS  Applications  with ASIL </p>
+<p>safety  levels. When  the  –e  configuration  switch  is  enabled,  the  RTE  functionality  in  OS </p>
+<p>Applications with SafetyLevel QM is also included. Analysis report contains the following </p>
+<p>information: </p>
+<p></p>
+<p> </p>
+<p>Function may be called recursively - The software design contains e.g. configured </p>
+<p>client  server  calls  that  may  lead  to  recursive  calls.  ISO26262  recommends  that </p>
+<p>recursion is not used in the software design and implementation. </p>
+<p></p>
+<p> </p>
+<p>Uncalled function - A function e.g. a server runnable without connected client was </p>
+<p>encountered during the analysis. Functions that are not called are not analyzed by </p>
+<p>RTE Analyzer. Assure that the function is not called in the target system, either. </p>
+<p></p>
+<p> </p>
+<p>Call  with  non-typesafe  parameters  -  Some  APIs  contain  pointers  that  are  not </p>
+<p>typesafe  e.g.  because  the  parameter  type  is  a  pointer  to  the  base  type  and  the </p>
+<p>function writes more than a single element of this type. The parameter may also be </p>
+<p>a void pointer type. RTE Analyzer lists these functions so that it can be verified that </p>
+<p>the passed buffer matches the expectations of the called function. Please note that </p>
+<p>the buffer that is listed by RTE Analyzer might be larger than the actual number of </p>
+<p>bytes that are written by the called function. </p>
+<p></p>
+<p> </p>
+<p>COM call with non-typesafe parameters – The COM APIs for data reception are not </p>
+<p>typesafe. It has to be assured, that COM does not write more bytes than expected </p>
+<p>by  the  RTE.  If  MICROSAR  COM  is  used,  RTE Analyzer  extracts  the  number  of </p>
+<p>written bytes from the generated COM sources. </p>
+<p></p>
+<p> </p>
+<p>NVM  callback  with  non-typesafe  parameters  – The  NVM  GetMirror callback  does </p>
+<p>not have typesafe parameters. It has to be assured that the buffer that is passed by </p>
+<p>the  NVM  is  not  smaller  than  the  number  of  bytes  that  are  written  by  the  RTE.  If </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>23 </p>
+<p>based on template version 5.12.0 </p>
+<p>MICROSAR  NVM  is  used,  RTE Analyzer  extracts  the  available  number  of  bytes </p>
+<p>from the generated NVM sources. </p>
+<p></p>
+<p> </p>
+<p>API  for  Safe  component  must  not  be  called  from  wrong  context  -  The  RTE </p>
+<p>generator  disables  task  priority  optimizations  for  partitions  with  an  ASIL  Safety </p>
+<p>Level. If an API is used only on a single task according to the configuration, the RTE </p>
+<p>generator optimizes nevertheless. RTE Analyzer lists these APIs so that it can be </p>
+<p>confirmed that the APIs are not accidently called from a runnable for which no port </p>
+<p>access was configured in the configuration. </p>
+<p></p>
+<p> </p>
+<p>Non-Queued connections – This contains list of all non-queued intra-ECU sender-</p>
+<p>receiver </p>
+<p>connections </p>
+<p>between </p>
+<p>Rte_Write, </p>
+<p>Rte_IWrite, </p>
+<p>Rte_Read, </p>
+<p>Rte_DRead, Rte_IRead. </p>
+<p></p>
+<p> </p>
+<p>Queued  connections  –  This  contains  list  of  all  queued  intra-ECU  sender-receiver </p>
+<p>communication connections between </p>
+<p>Rte_Send</p>
+<p> and </p>
+<p>Rte_Receive</p>
+<p>. </p>
+<p></p>
+<p> </p>
+<p>Inter-runnable </p>
+<p>connections </p>
+<p>– </p>
+<p>This </p>
+<p>contains </p>
+<p>list </p>
+<p>of </p>
+<p>all </p>
+<p>inter-runnable </p>
+<p>variable </p>
+<p>connections. </p>
+<p></p>
+<p> </p>
+<p>External connections – This contains list of all the APIs and server runnables that </p>
+<p>communicate with other ECUs. </p>
+<p></p>
+<p> </p>
+<p>Switch-mode  connections  –  This  contains  list  of  all  mode  connections  between </p>
+<p>Rte_Switch</p>
+<p> and </p>
+<p>Rte_Mode</p>
+<p>. </p>
+<p></p>
+<p> </p>
+<p>Exclusive areas – This contains list of all exclusive areas and their implementation </p>
+<p>methods.  This  includes  explicit  and  implicit  exclusive  areas.  The  implementation </p>
+<p>methods need to be set according to the requirements of the application.  </p>
+<p></p>
+<p> </p>
+<p>Initial values of APIs – This contains list of all the APIs that return an initial value. </p>
+<p>The calling runnable needs to handle the initial value. When RteAnalyzer was able </p>
+<p>to extract the initial value from the code, the value is also printed.  </p>
+<p></p>
+<p> </p>
+<p>Blocking  APIs </p>
+<p>–  This  contains </p>
+<p>list </p>
+<p>of  all  APIs </p>
+<p>that </p>
+<p>are </p>
+<p>blocking. </p>
+<p>These  may </p>
+<p>unexpectedly delay the calling function. </p>
+<p></p>
+<p> </p>
+<p>Executable Entities – This contains list of all the executable entities. The entities are </p>
+<p>listed together with the tasks in which they are executed. </p>
+<p></p>
+<p> </p>
+<p>APIs with special return values – This contains list of all the APIs that return special </p>
+<p>error </p>
+<p>codes </p>
+<p>such </p>
+<p>as </p>
+<p>RTE_E_MAX_AGE_EXCEEDED, </p>
+<p>RTE_E_INVALID </p>
+<p>and </p>
+<p>RTE_E_NEVER_RECEIVED. </p>
+<p></p>
+<p> </p>
+<p>APIs with queues – This contains the list of APIs with queues along with the queue </p>
+<p>sizes.  </p>
+<p></p>
+<p> </p>
+<p>APIs with E2E transformers – This contains the list of APIs that read or write data </p>
+<p>with the help of the E2E transformer. The communication partner needs to handle </p>
+<p>the converted data. </p>
+<p></p>
+<p> </p>
+<p>Reentrant Executable Entities – This contains list of all executable entities that are </p>
+<p>called reentrantly. This is based on the core id, priority and the preemption setting </p>
+<p>of the tasks in which the entity is executed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>24 </p>
+<p>based on template version 5.12.0 </p>
+<p></p>
+<p> </p>
+<p>APIs  using  data  conversion  –  This  contains  list  of  all  the  APIs  that  do  data </p>
+<p>conversion. The communication partner needs to handle the converted data. </p>
+<p></p>
+<p> </p>
+<p>APIs  that  may  use  NVM  –  This  contains  list  of  all  Per  Instance  Memories  and </p>
+<p>sender-receiver APIs that access NV Block SWCs. The NVM module needs to be </p>
+<p>configured correctly. </p>
+<p>Please note that the  configuration feedback describes the actual properties of the code. </p>
+<p>This can be different from the configured values, especially if the APIs are generated for </p>
+<p>unconnected ports. </p>
+<p>Example: </p>
+<p>An </p>
+<p>unconnected </p>
+<p>Rte_Read</p>
+<p> </p>
+<p>API </p>
+<p>is </p>
+<p>configured </p>
+<p>to </p>
+<p>return </p>
+<p>RTE_E_NEVER_RECEIVED.  According  to  the  RTE  specification,  the  return  value  is </p>
+<p>RTE_E_UNCONNECTED  independently  of  the  never  received  handling,  therefore  the </p>
+<p>generated API has no code to return RTE_E_NEVER_RECEIVED and the analysis report </p>
+<p>does not list the API in the “APIs with special return values” section. </p>
+<p>The safety manual describes how the configuration feedback can be used for integration </p>
+<p>testing. </p>
+<p><b>4.4.5 </b></p>
+<p><b>Template Variant Check </b></p>
+<p>MICROSAR  RTE  Generator  is  a  template  based  code  generator.  During  generation, </p>
+<p>MICROSAR RTE Generator calculates checksums for the template sequences that were </p>
+<p>used to generate the RTE APIs. The delivery of the generator contains a list of checksums </p>
+<p>that were approved for the usage in an ECU with functional safety requirements. </p>
+<p>MICROSAR </p>
+<p>RTE  Analyzer </p>
+<p>checks </p>
+<p>that </p>
+<p>the </p>
+<p>template </p>
+<p>sequences </p>
+<p>that </p>
+<p>were </p>
+<p>used </p>
+<p>to </p>
+<p>generate the analyzed RTE are within the allowed sequences. </p>
+<p>Please contact Vector if the analysis report lists template variants that are not within the </p>
+<p>allowed ones. </p>
+<p> </p>
+<p><b>4.5 </b></p>
+<p><b>Integration into DaVinci CFG </b></p>
+<p>Since  MICROSAR  RTE  Analyzer  checks  the  consistency  of  the  generated  RTE  it  is </p>
+<p>convenient to run MICROSAR RTE Analyzer automatically after the data is generated. To </p>
+<p>integrate MICROSAR RTE Analyzer into DaVinci CFG, an external generation step can be </p>
+<p>configured. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>25 </p>
+<p>based on template version 5.12.0 </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Project menu </p>
+<p>Start DaVinci CFG and select the menu “Project”. Next select the menu item “Settings”. </p>
+<p> </p>
+<p>To  add  a  new  external  generation  step,  select  “External  Generation  Steps”.  This  will </p>
+<p>display the following window: </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>External generation steps </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>26 </p>
+<p>based on template version 5.12.0 </p>
+<p>Click on the Add button with the “+” symbol and enter the MICROSAR RTE Analyzer path </p>
+<p>e.g.  </p>
+<p>$(SipRootPath)/Misc/RteAnalyzer/MicrosarRteAnalyzer.exe </p>
+<p>and command line arguments e.g. </p>
+<p>-c $(GenDataFolder)/RteAnalyzer/RteAnalyzerConfiguration.json -o </p>
+<p>$(GenDataFolder)/RteAnalyzer/Reports </p>
+<p>For Virtual Target, $(GenDataVTTFolder) needs to be used.</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It is required to set a working directory for a post generation step. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Now  the  external  generation  step  needs  to  be  configured  to  be  run  after  the  DaVinci </p>
+<p>Generators. To configure this click on the item “Code Generation”. </p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>Code generation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>27 </p>
+<p>based on template version 5.12.0 </p>
+<p>Now select the MICROSAR RTE Analyzer Generation Step and enable it by checking the </p>
+<p>check box in front of it. Additionally MICROSAR RTE Analyzer should be run after DaVinci </p>
+<p>CFG  generated  the  data.  Therefore  it  is  necessary  to  move  it  after  the  DaVinci  Code </p>
+<p>Generation using the Down button with the “</p>
+<p></p>
+<p>” symbol. </p>
+<p>Now MICROSAR RTE Analyzer will be automatically executed after the DaVinci CFG has </p>
+<p>generated the data. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>MICROSAR RTE Analyzer will also be executed if the data was not successfully </p>
+<p>generated. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>28 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>5 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>5.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci CFG   </p>
+<p>DaVinci Configurator 5: The BSW and RTE Configuration Editor. </p>
+<p>Table 5-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>COM </p>
+<p>Communication </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>E2EXF </p>
+<p>E2E Transformer </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>LDCOM </p>
+<p>Efficient COM for Large Data </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPORT </p>
+<p>Provide Port </p>
+<p>RPORT </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 5-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>29 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>6 </b></p>
+<p><b>Additional Copyrights </b></p>
+<p> </p>
+<p>MICROSAR RTE Analyzer contains Free and Open Source Software (FOSS). The  </p>
+<p>following table lists the files which contain this software, the kind and version of the FOSS,  </p>
+<p>the license under which this FOSS is distributed and a reference to a license file which  </p>
+<p>contains the original text of the license terms and conditions. The referenced license files  </p>
+<p>can be found in the directory of MICROSAR RTE Analyzer.  </p>
+<p>  </p>
+<p> </p>
+<p><b>File </b></p>
+<p><b>FOSS </b></p>
+<p><b>License </b></p>
+<p><b>License Reference </b></p>
+<p>MicrosarRteAnalyzer.exe </p>
+<p>MicrosarRteAnalyzerCfgGen.exe </p>
+<p>Perl 5.20.2 </p>
+<p>Artistic License </p>
+<p>License_Artistic.txt </p>
+<p> </p>
+<p>MicrosarIRAnalyzer.exe </p>
+<p> </p>
+<p>llvm 3.6.2 </p>
+<p>vssa r343 </p>
+<p>Clang 3.6.2 </p>
+<p>LLVM </p>
+<p>License </p>
+<p>License_LLVM.txt </p>
+<p>Table 6-1  </p>
+<p>Free and Open Source Software Licenses </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR RTE Analyzer </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.0.0 </p>
+<p>30 </p>
+<p>based on template version 5.12.0 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,290 @@
+---
+layout: default
+title: AN-ISC-8-1166_RTE_BRE_without_AUTOSAR_OS
+nav_order: 1
+parent: RTE
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Using RTE or BRE without AUTOSAR OS </b></p>
+<p>Version 1.1.1 </p>
+<p>2016-06-08 </p>
+<p>Application Note AN-ISC-8-1166 </p>
+<p><b>Author </b></p>
+<p>Hannes Haas </p>
+<p><b>Restrictions </b></p>
+<p>Customer Confidential – Vector decides </p>
+<p><b>Abstract </b></p>
+<p>This application note describes how to configure the MICROSAR BRE (Basic Runtime </p>
+<p>Environment) or a minimum RTE without using an AUTOSAR OS. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table of Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ........................................................................................................................................ 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Limitations ............................................................................................................................ 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>OS Configuration in DaVinci Configurator ................................................................................. 2</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>BRE Configuration Requirements for the OS ...................................................................... 3</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Call Cycle of Tasks .............................................................................................................. 3</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Mandated OS APIs ........................................................................................................................ 3</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Calling of Tasks ............................................................................................................................. 4</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Additional Resources ................................................................................................................... 4</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Contacts ......................................................................................................................................... 4</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Using RTE or BRE without AUTOSAR OS</p>
+<p> </p>
+<p>Copyright © 2016 - Vector Informatik GmbH </p>
+<p>2 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>1 </b></p>
+<p><b>Overview </b></p>
+<p>The RTE and BRE implementation assume the existence of an AUTOSAR OS or an OSEK OS as it </p>
+<p>very much depends on it functionalities and configuration description. If a different OS or a basic </p>
+<p>scheduler (non-AUTOSAR OS) is used, the provided interfaces must be similar to the interfaces </p>
+<p>defined by AUTOSAR OS. Interfaces in this context include. </p>
+<p><b>&gt; </b></p>
+<p>C APIs and header files </p>
+<p><b>&gt; </b></p>
+<p>ECUC configuration data exchange </p>
+<p><b>&gt; </b></p>
+<p>API behavior </p>
+<p>The intention of this document is to provide an overview of the configuration process and the required </p>
+<p>APIs. An exact description of the API behavior is not scope of this document. Please refer to the </p>
+<p>AUTOSAR OS specification for details. </p>
+<p>The focus of this document is set on a minimum RTE feature set that is also provided by the BRE. For </p>
+<p>more advanced RTE features the usage of an AUTOSAR OS is highly recommended. </p>
+<p><b>1.1 </b></p>
+<p><b>Limitations </b></p>
+<p>This document describes a RTE/BRE configuration for an ECU project without enhanced functionality </p>
+<p>such as </p>
+<p><b>&gt; </b></p>
+<p>Multi-core </p>
+<p><b>&gt; </b></p>
+<p>Application partitioning using MPU </p>
+<p><b>&gt; </b></p>
+<p>Safety requirements </p>
+<p>These assumptions are vital as otherwise the dependency between BRE and operating system </p>
+<p>becomes too complex to be managed and documented in such an application note. </p>
+<p><b>2 </b></p>
+<p><b>OS Configuration in DaVinci Configurator </b></p>
+<p>BRE requires the existence of an AUTOSAR OS in the ECUC project as it will e.g. read the tasks </p>
+<p>configuration from the OS configuration. </p>
+<p>In order to add an OS, launch DaVinci Configurator Pro and open the <b>Project Settings </b>page. Add the </p>
+<p>AUTOSAR OS as new BSW module. As the OS is not part of your delivery choose <b>Select from </b></p>
+<p><b>AUTOSAR Standard Definition</b>. Now you can add the OS to your project. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>Project Settings Editor in DaVinci Developer Pro </p>
+<p>It is not required to configure the OS completely, thus the OS configuration may contain validation </p>
+<p>errors as long as all information required for BRE is available. The AUTOSAR OS configuration must </p>
+<p>match with the behavior of your non-AUTOSAR OS with respect to the following aspects. Please </p>
+<p>configure these properties using DaVinci Configurator Pro: </p>
+<p><b>&gt; </b></p>
+<p><b>Tasks</b>: Add a container for at least those tasks that are handled by BRE. The BRE will implement </p>
+<p>the tasks that are used to map BSW main functions to.  </p>
+<p><b>&gt; </b></p>
+<p><b>TaskPriority</b>: Configure the task priority of the tasks implemented by BRE </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Using RTE or BRE without AUTOSAR OS</p>
+<p> </p>
+<p>Copyright © 2016 - Vector Informatik GmbH </p>
+<p>3 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>&gt; </b></p>
+<p><b>TaskSchedule</b>: Attribute defines the preempt ability of the task. If this Task cannot be preempted </p>
+<p>by other Tasks select NON. If this Task can be preempted by other Tasks with higher TaskPriority </p>
+<p>select FULL. </p>
+<p>Having set up the OS in this way, the BRE can now be configured by e.g. mapping BSW main </p>
+<p>functions (</p>
+<p>MainFunctions</p>
+<p>) to the tasks. </p>
+<p>If no OSEK OS is used, only basic tasks shall be used as otherwise the interface to the OS will get too </p>
+<p>complex. In contrast to extended tasks, basic tasks can be integrated with a non-AUTOSAR and non </p>
+<p>OSEK-OS scheduler with reasonable effort. This documentation is therefore limited to the usage of </p>
+<p>basic tasks. </p>
+<p>To cause the BRE to utilize basic tasks only, it is only allowed to map Runnables (BSW </p>
+<p>MainFunctions) with same trigger conditions to one task (cyclic with same cycle time and offset). If </p>
+<p>there are different cycle times to be used, one task for each cycle time has to be defined. The same </p>
+<p>applies if different offset times shall be used. Mixing different trigger conditions can cause the BRE to </p>
+<p>utilize complex OS features such as extended tasks and schedule tables. </p>
+<p><b>2.1 </b></p>
+<p><b>BRE Configuration Requirements for the OS </b></p>
+<p>Once the BRE is configured, click <b>Validate </b>or <b>Generate </b>in DaVinci Configurator Pro. Activate at least </p>
+<p>the <b>RTE generator </b>(which is also used to generate the BRE code). The BRE will now update parts of </p>
+<p>the OS configuration based on the current configuration. To verify that only basic tasks are required by </p>
+<p>the BRE, check that no events are created in ‘Os/OsEvent’. </p>
+<p>If you do not use an OSEK configuration tool you will find the required OS configuration in the OS </p>
+<p>configuration within DaVinci Configurator Pro. The following OS configuration options added by the </p>
+<p>BRE are of importance for your non-AUTOSAR OS configuration. </p>
+<p><b>2.2 </b></p>
+<p><b>Call Cycle of Tasks </b></p>
+<p>For basic tasks the BRE implementation (see Rte.c) will invoke SetRelAlarm indicating the required </p>
+<p>cycle time (this is also the time configured for the main functions mapped to that task). Configure your </p>
+<p>non-AUTOSAR OS in a way that it invokes the task in that cycle time. </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Mandated OS APIs </b></p>
+<p>Assuming the BRE is configured as above, basic tasks will be used only.  </p>
+<p>When using basic tasks, the following APIs are required by BRE and must be provided by the non-</p>
+<p>AUTOSAR OS. The BRE implementation assumes that these APIs match the AUTOSAR OS </p>
+<p>standard: </p>
+<p><b>&gt; </b></p>
+<p><b>OS Tasks: </b>As defined by the AUTOSAR OS, the BRE will utilize the </p>
+<p>TASK(x)</p>
+<p> macro when </p>
+<p>implementing the task. </p>
+<p>x</p>
+<p> is thereby the function name as defined in the OS configuration. If your </p>
+<p>OS does not provide this macro, define this or a similar macro within </p>
+<p>Os.h</p>
+<p>. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>#define TASK(x) void x##func(void) </p>
+<p>To invoke the task from your OS call:  &lt;x&gt;func(); </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Provision of </p>
+<p>SuspendAllInterrupts(void)</p>
+<p> and </p>
+<p>ResumeAllInterrupts(void)</p>
+<p> for critical </p>
+<p>section handling. These APIs shall support nested calls (i.e. lock interrupts the first time </p>
+<p>SuspendAllInterrupts</p>
+<p> is called, count the nesting and unlock interrupts the last time </p>
+<p>ResumeAllInterrupts</p>
+<p> is invoked). The API is used if </p>
+<p>Rte|RteBswModuleInstance|RteBswExclusiveAreaImpl|RteExclusiveAreaImplMechanism is set to </p>
+<p>&quot;ALL_INTERRUPT_BLOCKING&quot;. This is the recommended setting and the default choice. </p>
+<p><b>&gt; </b></p>
+<p>Depending on the BRE configuration the APIs </p>
+<p>DisableAllInterrupts(void)</p>
+<p> and </p>
+<p>EnableAllInterrupts(void)</p>
+<p> are used that directly lock the interrupts without nesting. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Using RTE or BRE without AUTOSAR OS</p>
+<p> </p>
+<p>Copyright © 2016 - Vector Informatik GmbH </p>
+<p>4 </p>
+<p>Contact Information:   www.vector.com   or +49-711-80 670-0 </p>
+<p><b>&gt; </b></p>
+<p>SetRelAlarm: Will be used to set up the cycle time and offset for (basic) tasks. You can use the </p>
+<p>API to enable the main function scheduling if required. If you have a simple scheduler that does </p>
+<p>not require dynamic alarm configuration, function may be defined to nothing within your </p>
+<p>Os.h</p>
+<p> </p>
+<p>implementation. Ensure the tasks are not called before the call of this API. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>#define SetRelAlarm (x, y, z)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>CancelAlarm</b>: API will be used to disable calling the main functions during ECU shutdown. You </p>
+<p>can use the API to disable the main function scheduling if required. If you have a simple scheduler </p>
+<p>this function may be defined to nothing within your </p>
+<p>Os.h</p>
+<p> implementation.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>#define CancelAlarm (x)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>TerminateTask</b>: Will be called at the end of a basic task. If you have a simple scheduler this </p>
+<p>function may be defined to nothing within your </p>
+<p>Os.h</p>
+<p> implementation. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Example </b></p>
+<p>#define TerminateTask()</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>OS Functionality used by BRE must be published in the header </p>
+<p>Os.h</p>
+<p>. </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>Calling of Tasks </b></p>
+<p>After the stack has been initialized (earliest after SchM_Init calling the </p>
+<p>SetRelAlarm()</p>
+<p> API) the </p>
+<p>Tasks have to be called by the non-AUTOSAR OS according to the defined cycle time. </p>
+<p><b>5 </b></p>
+<p><b>Additional Resources </b></p>
+<p>AUTOSAR STANDARD </p>
+<p><b>AUTOSAR_SWS_OS.pdf  </b></p>
+<p>AUTOSAR specification of OS </p>
+<p><b>AUTOSAR_SWS_RTE.pdf </b> AUTOSAR specification of RTE </p>
+<p>TECHNICAL REFERENCE </p>
+<p><b>TechnicalReference_Bre.pdf </b></p>
+<p>MICROSAR BRE technical reference (available in SIP if </p>
+<p>BRE is being used) </p>
+<p><b>6 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

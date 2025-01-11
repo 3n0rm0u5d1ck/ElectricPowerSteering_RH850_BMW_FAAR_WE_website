@@ -1,0 +1,1043 @@
+---
+layout: default
+title: TechnicalReference_MSSV
+nav_order: 104
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Safe Silence Verifier </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p>Version 1.4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Markus Groß, Patrick Markl </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>2 / 22 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Markus Groß </p>
+<p>2012-07-24 </p>
+<p>1.0 </p>
+<p>Initial version </p>
+<p>Patrick Markl </p>
+<p>2012-08-22 </p>
+<p>1.1 </p>
+<p>Changes after review </p>
+<p>Markus Groß </p>
+<p>2012-11-15 </p>
+<p>1.2 </p>
+<p>Add information about third party libraries </p>
+<p>Markus Groß </p>
+<p>2013-01-15 </p>
+<p>1.3 </p>
+<p>Update to reflect changes </p>
+<p>Patrick Markl </p>
+<p>2014-03-03 </p>
+<p>1.4 </p>
+<p>Added restrictions chapter </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>ISO </p>
+<p>ISO/IEC 9899:1990, Programming languages -C </p>
+<p>Second </p>
+<p>edition </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>3 / 22 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 6</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Intended audience ............................................................................................. 6</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Required Environment ....................................................................................... 7</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Restrictions ........................................................................................................ 7</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Command Line Parameters ............................................................................... 7</p>
+<p> </p>
+<p>2.3.1</p>
+<p> </p>
+<p>Option -h, --help ................................................................................. 8</p>
+<p> </p>
+<p>2.3.2</p>
+<p> </p>
+<p>Option --version ................................................................................. 8</p>
+<p> </p>
+<p>2.3.3</p>
+<p> </p>
+<p>Option -v, --verbose ............................................................................ 8</p>
+<p> </p>
+<p>2.3.4</p>
+<p> </p>
+<p>Option --crcCheck .............................................................................. 8</p>
+<p> </p>
+<p>2.3.5</p>
+<p> </p>
+<p>Option --openReport .......................................................................... 8</p>
+<p> </p>
+<p>2.3.6</p>
+<p> </p>
+<p>Option </p>
+<p>--stats</p>
+<p> ................................................................................ 8</p>
+<p> </p>
+<p>2.3.7</p>
+<p> </p>
+<p>Option -l, --logFile .............................................................................. 8</p>
+<p> </p>
+<p>2.3.8</p>
+<p> </p>
+<p>Option -r, --reportFile .......................................................................... 9</p>
+<p> </p>
+<p>2.3.9</p>
+<p> </p>
+<p>Option -p, --pluginDir .......................................................................... 9</p>
+<p> </p>
+<p>2.3.10</p>
+<p> </p>
+<p>Option -D, --define ............................................................................. 9</p>
+<p> </p>
+<p>2.3.11</p>
+<p> </p>
+<p>Option –i, --inputDir ............................................................................ 9</p>
+<p> </p>
+<p>2.3.12</p>
+<p> </p>
+<p>Command Line Usage ....................................................................... 9</p>
+<p> </p>
+<p>2.3.12.1</p>
+<p> </p>
+<p>Option Only Parameters .................................................. 9</p>
+<p> </p>
+<p>2.3.12.2</p>
+<p> </p>
+<p>Parameters Requiring A Value ....................................... 10</p>
+<p> </p>
+<p>2.3.12.3</p>
+<p> </p>
+<p>Examples ....................................................................... 10</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Analysis Report .......................................................................................................... 11</b></p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Structure .......................................................................................... 11</p>
+<p> </p>
+<p>3.1.1.1</p>
+<p> </p>
+<p>Header ........................................................................... 11</p>
+<p> </p>
+<p>3.1.1.2</p>
+<p> </p>
+<p>Information about Environment ...................................... 11</p>
+<p> </p>
+<p>3.1.1.3</p>
+<p> </p>
+<p>Detailed Log Output ....................................................... 11</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Error Messages ............................................................................................... 12</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Steps if the Analysis Fails ................................................................................ 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 14</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Deliverables ..................................................................................................... 14</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>GENy ............................................................................................................... 14</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>DaVinci Configurator Pro 5............................................................................... 16</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Third Party Libraries ................................................................................................... 18</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Boost ............................................................................................................... 18</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>ChaiScript ........................................................................................................ 18</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>4 / 22 </p>
+<p>5.3</p>
+<p> </p>
+<p>LLVM/Clang ..................................................................................................... 19</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>OpenBSD regex ............................................................................................... 20</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 22</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>5 / 22 </p>
+<p><b>Tables </b></p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Command Line Parameters ........................................................................ 8</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Message classes and their value .............................................................. 13</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Locations of Deliverables in an SIP .......................................................... 14</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>6 / 22 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>MICROSAR  Safe  Silence  Verifier  (MSSV)  is  a  command  line  tool  delivered  as  part  of </p>
+<p>Silent  BSW  packages.  MSSV  checks  based  on  rules  the  consistency  of  generated </p>
+<p>configuration files of the BSW modules. The result is written to a HTML report. The report </p>
+<p>is part of the proof that the BSW modules fulfill the Freedom from Interference criteria. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Reference</b> </p>
+<p>For all required steps to be performed as part of the Silent BSW integration see the </p>
+<p>project specific Safety Manual. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>1.1 </b></p>
+<p><b>Intended audience </b></p>
+<p>This document is relevant for developers who integrate Silent BSW into their ECU.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>7 / 22 </p>
+<p><b>2 </b></p>
+<p><b>Functional Description </b></p>
+<p>This chapter describes the tool MSSV and how it can be used to check the consistency of </p>
+<p>the generated configuration data for SilentBSW modules. MSSV supports configuration via </p>
+<p>command line parameters. These are described in the following section together with the </p>
+<p>report which is the output of MSSV.  </p>
+<p><b>2.1 </b></p>
+<p><b>Required Environment </b></p>
+<p>MSSV supports the following operating systems: </p>
+<p><b>&gt; </b></p>
+<p>Windows XP SP3 (32Bit) </p>
+<p><b>&gt; </b></p>
+<p>Windows 7 (32Bit)  </p>
+<p><b>&gt; </b></p>
+<p>Windows 7 (64Bit) </p>
+<p><b>2.2 </b></p>
+<p><b>Restrictions </b></p>
+<p>MSSV uses a Compiler front end in order to compile the input source files. This Compiler </p>
+<p>front end requires ANSI-C 90 [1] conform source code. Some target compilers implement </p>
+<p>specific </p>
+<p>language </p>
+<p>extensions </p>
+<p>which </p>
+<p>might </p>
+<p>prevent </p>
+<p>MSSV </p>
+<p>from </p>
+<p>compiling </p>
+<p>the </p>
+<p>code </p>
+<p>successfully. The Vector BSW code does not contain such language extensions. However, </p>
+<p>these extensions may be included via customer header files. In such a case the customer </p>
+<p>shall take care that these language extensions are encapsulated via the preprocessor for </p>
+<p>the MSSV execution. The corresponding preprocessor switches can be specified via the </p>
+<p>command line when calling MSSV. </p>
+<p><b>2.3 </b></p>
+<p><b>Command Line Parameters </b></p>
+<p>MSSV is configured by means of command line parameters. This chapter describes the </p>
+<p>available command line parameters and their meaning. </p>
+<p><b>Command Line Parameter </b></p>
+<p><b>Description </b></p>
+<p>Optional Parameters </p>
+<p> </p>
+<p>-h, --help </p>
+<p>Display available options. </p>
+<p>--version </p>
+<p>Prints the version and exits. </p>
+<p>-v, --verbose </p>
+<p>Enables verbose output of MSSV. </p>
+<p>--crcCheck </p>
+<p>Only perform CRC32 checks and then exit. </p>
+<p>--openReport </p>
+<p>Open the report file when finished. </p>
+<p>--stats </p>
+<p>Display timing statistics when MSSV is finished. </p>
+<p>-l, --logFile &lt;file&gt; </p>
+<p>Specifies the filename of a logfile.  </p>
+<p>If this parameter is missing MSSV writes the log to </p>
+<p>stdout. </p>
+<p>-r, --reportFile &lt;file&gt; </p>
+<p>Specifies the filename of the report. If the parameter is </p>
+<p>just a path the report is written with the default report </p>
+<p>file name. Otherwise the specified report file name is </p>
+<p>used.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>8 / 22 </p>
+<p><b>Command Line Parameter </b></p>
+<p><b>Description </b></p>
+<p>Optional Parameters </p>
+<p> </p>
+<p>If this parameter is missing MSSV writes the report to </p>
+<p>the current working directory. </p>
+<p>-p, --pluginDir &lt;directory&gt; </p>
+<p>Specifies the path of the plugin directory. By default </p>
+<p>this is the subfolder “plugins” in the directory of MSSV. </p>
+<p>-D, --define &lt;symbol&gt; </p>
+<p>Additional defines for the compiler. </p>
+<p>Required Parameters </p>
+<p> </p>
+<p>-i, --inputDir &lt;directory&gt; </p>
+<p>One or more input directories. </p>
+<p>Table 2-1  </p>
+<p>Command Line Parameters </p>
+<p><b>2.3.1 </b></p>
+<p><b>Option -h, --help </b></p>
+<p>This  command  line  option  prints  the  help  of  MSSV  on  the  console.  The  help  lists  all </p>
+<p>command line parameters as displayed in Table 2-1. </p>
+<p><b>2.3.2</b></p>
+<p><b> </b></p>
+<p><b>Option --version</b></p>
+<p><b> </b></p>
+<p>This parameter displays the version of MSSV on the command line. </p>
+<p><b>2.3.3</b></p>
+<p><b> </b></p>
+<p><b>Option -v, --verbose</b></p>
+<p><b> </b></p>
+<p>The verbose option enables a verbose output of messages from MSSV. As a default the </p>
+<p>verbose  mode  is  not  active.  This  means  that  MSSV  only  displays  warnings,  errors  and </p>
+<p>fatal  errors  as  well  as  some  selected  note  messages  which  might  be  of  interest  for  the </p>
+<p>user. If the verbose mode is enabled MSSV will display all note messages. </p>
+<p><b>2.3.4 </b></p>
+<p><b>Option --crcCheck </b></p>
+<p>The CRC check option can be used to check the CRC32 checksums of the plugins. Then </p>
+<p>the report file contains a report about all plugins and their checksums. If the report is green </p>
+<p>all plugins are valid. If the report is red at least one plugin is invalid. </p>
+<p><b>2.3.5 </b></p>
+<p><b>Option --openReport </b></p>
+<p>This command line parameter instructs MSSV to open the resulting report HTML file after it </p>
+<p>has finished.  Please make  sure  that  HTML  files  are  opened  with  a  suitable program  by </p>
+<p>default when using this option (e.g. if you double click an HTML file in the explorer it should </p>
+<p>open a web browser). </p>
+<p><b>2.3.6</b></p>
+<p><b> </b></p>
+<p><b>Option </b></p>
+<p><b>--stats</b></p>
+<p><b> </b></p>
+<p>The statistics option is not particularly interesting. Passing this option to MSSV will display </p>
+<p>some timing statistics. These statistics include how much time was spent on each plugin </p>
+<p>and to parse a file etc. </p>
+<p><b>2.3.7</b></p>
+<p><b> </b></p>
+<p><b>Option -l, --logFile</b></p>
+<p><b> </b></p>
+<p>By default MSSV displays all messages on the standard output (stdout). Using this option </p>
+<p>MSSV will redirect its output to a file instead. Please note that the file which is specified </p>
+<p>using this option should be writable by MSSV and be located inside a directory which is </p>
+<p>accessible for MSSV.  </p>
+<p>The resulting log file will have the file extension “.log” regardless what extension the file </p>
+<p>had which was specified as the command line parameter. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>9 / 22 </p>
+<p><b>2.3.8 </b></p>
+<p><b>Option -r, --reportFile </b></p>
+<p>MSSV writes a report file at the end of its analysis. This report file is named “report.html” </p>
+<p>by default and will be stored inside the working directory from which MSSV was called. </p>
+<p>Using this command line option it is possible to specify a custom filename and location for </p>
+<p>the  report  file.  Please  note  that  the  file  which  is  specified  using  this  option  should  be </p>
+<p>writable by MSSV and be located inside a directory which is accessible for MSSV.  </p>
+<p>The resulting report file will have the file extension “.html” regardless what extension the </p>
+<p>file had which was specified as the command line parameter. </p>
+<p><b>2.3.9 </b></p>
+<p><b>Option -p, --pluginDir </b></p>
+<p>This option enables the user to switch the plugin directory MSSV is using to perform the </p>
+<p>consistency checks. This is useful if multiple plugin directories exist. </p>
+<p><b>2.3.10 </b></p>
+<p><b>Option -D, --define </b></p>
+<p>Internally  MSSV  uses  a  compiler  frontend  to  parse  the  generated  source  code  and </p>
+<p>preprocess it. With this option it is possible to define symbols for the preprocessor without </p>
+<p>adding them to a header file. This parameter is similar to the “-D” parameter known from </p>
+<p>compilers such as GCC or Clang. </p>
+<p>This command line option can be specified multiple times to define an arbitrary amount of </p>
+<p>symbols. </p>
+<p><b>2.3.11 </b></p>
+<p><b>Option –i, --inputDir </b></p>
+<p>MSSV requires one or more input directories to operate correctly. These input directories </p>
+<p>are scanned for source code files, which are processed by the plugins. </p>
+<p>To  specify  multiple  input  directories  the  parameter  can  be  passed  multiple  times  with </p>
+<p>different values. The input directories are not scanned recursively by default. However, if a </p>
+<p>directory ends with “</p>
+<p>\*</p>
+<p>” MSSV scans this input directory recursively. </p>
+<p><b>2.3.12 </b></p>
+<p><b>Command Line Usage </b></p>
+<p><b>2.3.12.1 </b></p>
+<p><b>Option Only Parameters </b></p>
+<p>Option only command line parameters can be passed to MSSV and do not require a value. </p>
+<p>Option only command line parameters are: </p>
+<p></p>
+<p> </p>
+<p>-h / --help </p>
+<p></p>
+<p> </p>
+<p>--version </p>
+<p></p>
+<p> </p>
+<p>-v / --verbose </p>
+<p></p>
+<p> </p>
+<p>--crcCheck </p>
+<p></p>
+<p> </p>
+<p>--openReport </p>
+<p></p>
+<p> </p>
+<p>--stats </p>
+<p>These options can be passed as command line option separated by spaces. </p>
+<p>For example: </p>
+<p>MSSV.exe --help </p>
+<p>or </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>10 / 22 </p>
+<p>MSSV.exe –v --openReport ... </p>
+<p><b>2.3.12.2 </b></p>
+<p><b>Parameters Requiring A Value </b></p>
+<p>Parameters which require a value are: </p>
+<p></p>
+<p> </p>
+<p>-l / --logFile </p>
+<p></p>
+<p> </p>
+<p>-r / --reportFile </p>
+<p></p>
+<p> </p>
+<p>-p / --pluginDir </p>
+<p></p>
+<p> </p>
+<p>-D / --define </p>
+<p></p>
+<p> </p>
+<p>-i / --inputDir </p>
+<p>These parameters require a value if they are specified on the command line. The value is </p>
+<p>separated from the identifier using a space. </p>
+<p>For example: </p>
+<p>MSSV.exe --reportFile myreport.html --define DEBUG ... </p>
+<p><b>2.3.12.3 </b></p>
+<p><b>Examples </b></p>
+<p> </p>
+<p><b>Display MSSV Help </b></p>
+<p>To display the MSSV help use: </p>
+<p>MSSV.exe --help </p>
+<p> </p>
+<p><b>Run MSSV with minimum parameters </b></p>
+<p>Assume  that  the  root  path  of  the  delivery  is </p>
+<p>D:\delivery</p>
+<p>.  To  run  MSSV  with  the </p>
+<p>minimum required parameters one can use: </p>
+<p>MSSV.exe --inputDir D:\delivery\* </p>
+<p>This will instruct MSSV to scan the root path of the delivery recursively. </p>
+<p> </p>
+<p><b>Log the output of MSSV to a file </b></p>
+<p>Based  on  the  example  above,  one  can  extend  the  command  line  to  log  the  output  of </p>
+<p>MSSV to a file. This time we use the short form parameters: </p>
+<p>MSSV.exe –-inputDir D:\delivery\* -l mylog.log </p>
+<p> </p>
+<p><b>Write the report to another file and enable verbose mode </b></p>
+<p>The  command  line  from  the  previous  example  is  adapted  to  write  the  report  to  the  file </p>
+<p>specified and to enable verbose output: </p>
+<p>MSSV.exe –-inputDir D:\delivery\* -r myreport.html -v </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>11 / 22 </p>
+<p><b>3 </b></p>
+<p><b>Analysis Report </b></p>
+<p>MSSV generates a report file after performing its consistency checks. By default the report </p>
+<p>file  is named  “report.html”  and  is located  inside  the  working  directory  where  MSSV  was </p>
+<p>executed. </p>
+<p><b>3.1.1 </b></p>
+<p><b>Structure </b></p>
+<p>This report file has a simple structure to display the most important parts at a glance. The </p>
+<p>parts are described in the next sections. </p>
+<p><b>3.1.1.1 </b></p>
+<p><b>Header </b></p>
+<p>The header displays whether the MSSV consistency check was successful or not. </p>
+<p>In case the check was successful and no inconsistencies or errors occurred, the header </p>
+<p>displays “Overall Check Result: Passed”. </p>
+<p>If  an  inconsistency  was  detected  or  other  errors  occurred,  the  header  displays  “Overall </p>
+<p>Check Result: Fail”. </p>
+<p>Additionally there may be a list of plugins which were skipped. This can happen both if the </p>
+<p>overall check result is pass or fail. In case one or more plugins were skipped,  “Skipped </p>
+<p>Plugins: …” will be displayed  directly under the overall check result. This list of skipped </p>
+<p>plugins needs to be manually reviewed as to why they were skipped and if this has any </p>
+<p>impact on the consistency of the generated data. </p>
+<p>For example if a plugin was skipped because the module it is checking is not enabled and </p>
+<p>not used, this would most likely not affect the consistency of the generated data. For more </p>
+<p>information refer to the project specific Safety Manual. </p>
+<p><b>3.1.1.2 </b></p>
+<p><b>Information about Environment </b></p>
+<p>The  second  section  of  the  report  displays  some  information  about  the  environment  of </p>
+<p>MSSV. This includes for example the current windows user and the number of found errors </p>
+<p>and warnings. </p>
+<p><b>3.1.1.3 </b></p>
+<p><b>Detailed Log Output </b></p>
+<p>The detailed log output contains all messages from MSSV. This also includes messages </p>
+<p>which are only visible if the verbose mode is active. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>12 / 22 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The information found in the detailed log output is complex and not intended to be </p>
+<p>checked. The only relevant information for the user is the overall test result which says </p>
+<p>if the check was successful or not. The detailed information becomes relevant if any </p>
+<p>errors occurred. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.2 </b></p>
+<p><b>Error Messages </b></p>
+<p>MSSV  emits errors either in  the detailed  log  output  section  of  the  report file  or displays </p>
+<p>them  as  message  boxes.  Errors  are  only  displayed  using  message  boxes  if  the  report </p>
+<p>could not be opened or written and hence cannot be emitted to the report. </p>
+<p>This  leads  to  a  simple  workflow  of  MSSV.  If  an  error  message  was  displayed  using  a </p>
+<p>message box a report file does not exist. If no message box was displayed all potential </p>
+<p>errors can be found in the report alongside the overall verdict of the  MSSV consistency </p>
+<p>check. </p>
+<p>There exist four classes of MSSV messages: </p>
+<p></p>
+<p> </p>
+<p>Note, </p>
+<p></p>
+<p> </p>
+<p>Warning, </p>
+<p></p>
+<p> </p>
+<p>Error, </p>
+<p></p>
+<p> </p>
+<p>Fatal error. </p>
+<p>Notes are emitted very often and are not of importance for the user of MSSV, but can help </p>
+<p>to trace a problem if one occurred. </p>
+<p>Warnings indicate that a minor issue occurred which are not relevant enough to issue an </p>
+<p>error. For example if a source code file for a plugin was not found, a warning is emitted. An </p>
+<p>error is not emitted because the user may have disabled the module intentionally in the </p>
+<p>generator and thus the consistency of the project is not affected by this module. However, </p>
+<p>the plugin for which the source code file was not found is skipped and added to the list of </p>
+<p>skipped plugins in the report. This list needs to be reviewed manually. </p>
+<p>An error can occur during the consistency check of a BSW module if e.g. an inconsistency </p>
+<p>was detected. Errors do not prevent MSSV from continuing its consistency check and help </p>
+<p>the user to identify the underlying issue. </p>
+<p>A fatal error indicates that a serious Issue occurred that prevents MSSV from performing </p>
+<p>the consistency check. </p>
+<p>The return value of the </p>
+<p>MSSV.exe</p>
+<p> is determined by these four classes of messages. The </p>
+<p>class of the highest occurred message defines the return value. </p>
+<p><b>Message Class </b></p>
+<p><b>Value </b></p>
+<p>Note </p>
+<p>0 </p>
+<p>Warning </p>
+<p>1 </p>
+<p>Error </p>
+<p>2 </p>
+<p>Fatal Error </p>
+<p>3 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>13 / 22 </p>
+<p>Table 3-1  </p>
+<p>Message classes and their value </p>
+<p>For example if a warning occurred and no errors of any kind the return value of MSSV is 1. </p>
+<p>If an error and a fatal error were emitted the return value is 3. If only notes were emitted </p>
+<p>MSSV returns 0. </p>
+<p><b>3.3 </b></p>
+<p><b>Steps if the Analysis Fails </b></p>
+<p>In case the MSSV analysis reports a failure Vector has to be informed about this issue. </p>
+<p>Please use the contact information found in the project specific Safety Manual. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>14 / 22 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>Since MSSV checks the consistency of the generated data it is convenient to run  MSSV </p>
+<p>automatically  after  the  data  is  generated.  To  integrate  MSSV  into  the  MICROSAR  3 </p>
+<p>workflow </p>
+<p>a </p>
+<p>GENy </p>
+<p>post </p>
+<p>generation </p>
+<p>application </p>
+<p>can </p>
+<p>be </p>
+<p>used. </p>
+<p>For </p>
+<p>integration </p>
+<p>into </p>
+<p>MICROSAR 4 DaVinci Configurator Pro 5 supports external generation steps to allow easy </p>
+<p>integration. </p>
+<p><b>4.1 </b></p>
+<p><b>Deliverables </b></p>
+<p>The following table describes which parts are delivered with the MSSV tool and where to </p>
+<p>find them. </p>
+<p> </p>
+<p><b>Deliverable </b></p>
+<p><b>Location </b></p>
+<p>MSSV.exe </p>
+<p>.\Generators\MSSV\MSSV.exe </p>
+<p>Technical Reference </p>
+<p>.\Doc\TechnicalReferences\TechnicalReference_MSSV.pdf </p>
+<p>Table 4-1  </p>
+<p>Locations of Deliverables in an SIP </p>
+<p><b>4.2 </b></p>
+<p><b>GENy </b></p>
+<p> </p>
+<p>Start  GENy  and  select  the  menu  “Configuration”.  Next  select  the  menu  item  “Post </p>
+<p>Generation Applications...”. This will display the following window: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>15 / 22 </p>
+<p> </p>
+<p>In this window you can enter the MSSV command line. First enter the path to the MSSV </p>
+<p>executable and then add any parameters to it. The input directory is specified as absolute </p>
+<p>path using the respective command line parameter. </p>
+<p> </p>
+<p>To test the post generation application select again the menu “Configuration” and click the </p>
+<p>item “Generate System”. Alternatively you can press F7. This will trigger GENy to generate </p>
+<p>the data for the current configuration. </p>
+<p> </p>
+<p> </p>
+<p>After  the  Generation  has  finished  generating  the  data  a  messagebox  will  be  displayed. </p>
+<p>This messagebox  displays  the  previously  set  up  post  generation  application  and  shows </p>
+<p>exactly what command line will be executed if the button “OK” is clicked. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>16 / 22 </p>
+<p>To run the post generation application click the “OK” button. </p>
+<p><b>4.3 </b></p>
+<p><b>DaVinci Configurator Pro 5 </b></p>
+<p> </p>
+<p>Start DaVinci Configurator Pro 5 and select the menu “Project”. Next select the menu item </p>
+<p>“Settings”. </p>
+<p> </p>
+<p>To  add  a  new  external  generation  step,  select  “External  Generation  Steps”.  This  will </p>
+<p>display the following window: </p>
+<p> </p>
+<p>Click on the Add button with the “+” symbol and enter the MSSV path and command line </p>
+<p>arguments.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>17 / 22 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It is required to set a working directory for a post generation step. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Now  the  external  generation  step  needs  to  be  configured  to  be  run  after  the  DaVinci </p>
+<p>Generators. To configure this click on the item “Code Generation” in the location bar in the </p>
+<p>same window. </p>
+<p> </p>
+<p>Now select the MSSV Generation Step and enable it by checking the check box in front of </p>
+<p>it. Additionally  MSSV  should  be  run  after  DaVinci  Configurator  Pro  generated  the  data. </p>
+<p>Therefore it is necessary to move it after the DaVinci Code Generation using the Down </p>
+<p>button with the “</p>
+<p></p>
+<p>” symbol. </p>
+<p>Now </p>
+<p>MSSV </p>
+<p>will </p>
+<p>be </p>
+<p>automatically </p>
+<p>executed </p>
+<p>after </p>
+<p>the </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>Pro </p>
+<p>has </p>
+<p>generated the data. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>MSSV will also be executed if the data was not successfully generated. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>18 / 22 </p>
+<p><b>5 </b></p>
+<p><b>Third Party Libraries </b></p>
+<p><b>5.1 </b></p>
+<p><b>Boost </b></p>
+<p>Boost Software License - Version 1.0 - August 17th, 2003 </p>
+<p> </p>
+<p>Permission is hereby granted, free of charge, to any person or organization </p>
+<p>obtaining a copy of the software and accompanying documentation covered by </p>
+<p>this license (the &quot;Software&quot;) to use, reproduce, display, distribute, </p>
+<p>execute, and transmit the Software, and to prepare derivative works of the </p>
+<p>Software, and to permit third-parties to whom the Software is furnished to </p>
+<p>do so, all subject to the following: </p>
+<p> </p>
+<p>The copyright notices in the Software and this entire statement, including </p>
+<p>the above license grant, this restriction and the following disclaimer, </p>
+<p>must be included in all copies of the Software, in whole or in part, and </p>
+<p>all derivative works of the Software, unless such copies or derivative </p>
+<p>works are solely in the form of machine-executable object code generated by </p>
+<p>a source language processor. </p>
+<p> </p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </p>
+<p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, </p>
+<p>FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT </p>
+<p>SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE </p>
+<p>FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, </p>
+<p>ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER </p>
+<p>DEALINGS IN THE SOFTWARE. </p>
+<p><b>5.2 </b></p>
+<p><b>ChaiScript </b></p>
+<p>Copyright 2009-2012 Jason Turner and Jonathan Turner. All Rights Reserved. </p>
+<p>Redistribution and use in source and binary forms, with or without </p>
+<p>modification, are permitted provided that the following conditions are </p>
+<p>met: </p>
+<p> </p>
+<p>  * Redistributions of source code must retain the above copyright </p>
+<p>    notice, this list of conditions and the following disclaimer. </p>
+<p>  * Redistributions in binary form must reproduce the above </p>
+<p>    copyright notice, this list of conditions and the following </p>
+<p>    disclaimer in the documentation and/or other materials provided </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>19 / 22 </p>
+<p>    with the distribution. </p>
+<p>  * Neither the name of Jason Turner nor Jonathan Turner nor the  </p>
+<p>    name of contributors may be used to endorse or promote products derived </p>
+<p>    from this software without specific prior written permission. </p>
+<p> </p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS </p>
+<p>&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT </p>
+<p>LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR </p>
+<p>A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT </p>
+<p>OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, </p>
+<p>SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT </p>
+<p>LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, </p>
+<p>DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY </p>
+<p>THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT </p>
+<p>(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE </p>
+<p>OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
+<p><b>5.3 </b></p>
+<p><b>LLVM/Clang </b></p>
+<p>University of Illinois/NCSA </p>
+<p>Open Source License </p>
+<p> </p>
+<p>Copyright (c) 2003-2012 University of Illinois at Urbana-Champaign. </p>
+<p>All rights reserved. </p>
+<p> </p>
+<p>Developed by: </p>
+<p> </p>
+<p>    LLVM Team </p>
+<p> </p>
+<p>    University of Illinois at Urbana-Champaign </p>
+<p> </p>
+<p>    http://llvm.org </p>
+<p> </p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of </p>
+<p>this software and associated documentation files (the &quot;Software&quot;), to deal with </p>
+<p>the Software without restriction, including without limitation the rights to </p>
+<p>use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies </p>
+<p>of the Software, and to permit persons to whom the Software is furnished to do </p>
+<p>so, subject to the following conditions: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>20 / 22 </p>
+<p>    * Redistributions of source code must retain the above copyright notice, </p>
+<p>      this list of conditions and the following disclaimers. </p>
+<p> </p>
+<p>    * Redistributions in binary form must reproduce the above copyright notice, </p>
+<p>      this list of conditions and the following disclaimers in the </p>
+<p>      documentation and/or other materials provided with the distribution. </p>
+<p> </p>
+<p>    * Neither the names of the LLVM Team, University of Illinois at </p>
+<p>      Urbana-Champaign, nor the names of its contributors may be used to </p>
+<p>      endorse or promote products derived from this Software without specific </p>
+<p>      prior written permission. </p>
+<p> </p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR </p>
+<p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS </p>
+<p>FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE </p>
+<p>CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER </p>
+<p>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, </p>
+<p>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE </p>
+<p>SOFTWARE. </p>
+<p><b>5.4 </b></p>
+<p><b>OpenBSD regex </b></p>
+<p>$OpenBSD: COPYRIGHT,v 1.3 2003/06/02 20:18:36 millert Exp $ </p>
+<p> </p>
+<p>Copyright 1992, 1993, 1994 Henry Spencer.  All rights reserved. </p>
+<p>This software is not subject to any license of the American Telephone </p>
+<p>and Telegraph Company or of the Regents of the University of California. </p>
+<p> </p>
+<p>Permission is granted to anyone to use this software for any purpose on </p>
+<p>any computer system, and to alter it and redistribute it, subject </p>
+<p>to the following restrictions: </p>
+<p> </p>
+<p>1. The author is not responsible for the consequences of use of this </p>
+<p>   software, no matter how awful, even if they arise from flaws in it. </p>
+<p> </p>
+<p>2. The origin of this software must not be misrepresented, either by </p>
+<p>   explicit claim or by omission.  Since few users ever read sources, </p>
+<p>   credits must appear in the documentation. </p>
+<p> </p>
+<p>3. Altered versions must be plainly marked as such, and must not be </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>21 / 22 </p>
+<p>   misrepresented as being the original software.  Since few users </p>
+<p>   ever read sources, credits must appear in the documentation. </p>
+<p> </p>
+<p>4. This notice may not be removed or altered. </p>
+<p> </p>
+<p>=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= </p>
+<p>/*- </p>
+<p> * Copyright (c) 1994 </p>
+<p> * </p>
+<p>The Regents of the University of California.  All rights reserved. </p>
+<p> * </p>
+<p> * Redistribution and use in source and binary forms, with or without </p>
+<p> * modification, are permitted provided that the following conditions </p>
+<p> * are met: </p>
+<p> * 1. Redistributions of source code must retain the above copyright </p>
+<p> *    notice, this list of conditions and the following disclaimer. </p>
+<p> * 2. Redistributions in binary form must reproduce the above copyright </p>
+<p> *    notice, this list of conditions and the following disclaimer in the </p>
+<p> *    documentation and/or other materials provided with the distribution. </p>
+<p> * 3. Neither the name of the University nor the names of its contributors </p>
+<p> *    may be used to endorse or promote products derived from this software </p>
+<p> *    without specific prior written permission. </p>
+<p> * </p>
+<p> * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND </p>
+<p> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE </p>
+<p> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE </p>
+<p> * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE </p>
+<p> * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL </p>
+<p> * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS </p>
+<p> * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) </p>
+<p> * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT </p>
+<p> * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY </p>
+<p> * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF </p>
+<p> * SUCH DAMAGE. </p>
+<p> * </p>
+<p> * </p>
+<p>@(#)COPYRIGHT </p>
+<p>8.1 (Berkeley) 3/16/94 </p>
+<p> */ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Safe Silence Verifier </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.4 </p>
+<p>based on template version 4.11.3 </p>
+<p>22 / 22 </p>
+<p><b>6 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p><b> </b></p>
+</body>
+</html>
+{% endraw %}

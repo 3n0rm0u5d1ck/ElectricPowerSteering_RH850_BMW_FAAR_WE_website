@@ -1,0 +1,673 @@
+---
+layout: default
+title: AN-ISC-8-1153_ThirdPartyModules
+nav_order: 40
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>Third Party Modules </b></p>
+<p><b>Version 1.0 </b></p>
+<p><b>2013-07-24 </b></p>
+<p><b>Application Note AN-ISC-8-1153 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Sven Hesselmann </p>
+<p>Restrictions </p>
+<p>Customer confidential - Vector decides </p>
+<p>Abstract </p>
+<p>Introduction how to integrate 3rd partly modules into the MICROSAR4 stack</p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2013 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector.com   or +49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview .......................................................................................................................................................... 1</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Integration in DaVinci Configurator 5 ............................................................................................................... 2</p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Configuration With CFG5 .............................................................................................................................. 2</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>Adding of BSWMD File ............................................................................................................................... 2</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>Adding a Module to the Current Project ..................................................................................................... 3</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>External Generation Step .............................................................................................................................. 4</p>
+<p> </p>
+<p>2.2.1</p>
+<p> </p>
+<p>Manual Set-Up ............................................................................................................................................ 5</p>
+<p> </p>
+<p>2.2.2</p>
+<p> </p>
+<p>Automatic Set-Up ........................................................................................................................................ 5</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Internal Behavior Description ........................................................................................................................ 5</p>
+<p> </p>
+<p>2.3.1</p>
+<p> </p>
+<p>Example for Internal Behavior Description ................................................................................................. 5</p>
+<p> </p>
+<p>2.3.2</p>
+<p> </p>
+<p>Templates for Internal Behavior Description .............................................................................................. 6</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>RTE configuration .......................................................................................................................................... 7</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>CDD Configuration ........................................................................................................................................ 7</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Settings.xml ..................................................................................................................................................... 8</p>
+<p> </p>
+<p>4.0</p>
+<p> </p>
+<p>Integration Into the Build Project ...................................................................................................................... 8</p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Compiler_Cfg.h ............................................................................................................................................. 9</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>MemMap.h .................................................................................................................................................... 9</p>
+<p> </p>
+<p>5.0</p>
+<p> </p>
+<p>Additional Resources ..................................................................................................................................... 10</p>
+<p> </p>
+<p>6.0</p>
+<p> </p>
+<p>Contacts ......................................................................................................................................................... 10</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note describes integration of third party modules (i.e. MCAL) into DaVinci Configurator Pro 5 </p>
+<p>(CFG5 for short) and the MICROSAR stack for AUTOSAR Release 4.x. </p>
+<p>This application note uses the MCU module as an example. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p> </p>
+<p>Figure 1 – Overview of BSWMD file of MCU </p>
+<p> </p>
+<p><b>2.0 </b></p>
+<p><b>Integration in DaVinci Configurator 5 </b></p>
+<p>For integration of a module into a MICROSAR stack, different things have to be done. </p>
+<p>If the module fulfills one of the following list points, check this chapter for the description. </p>
+<p>The module: </p>
+<p>•</p>
+<p> </p>
+<p>has parts, generated based on the configuration (i.e. ECUC file) </p>
+<p>•</p>
+<p> </p>
+<p>requires the SCHM API for Exclusive Area handling </p>
+<p>•</p>
+<p> </p>
+<p>has cyclic MainFunction calls </p>
+<p>•</p>
+<p> </p>
+<p>needs access to communication PDUs </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>Configuration With CFG5 </b></p>
+<p>If the module shall be configured within the CFG5, the tool requires its modules description in a BSWMD file (basis </p>
+<p>software module description). Also the module has to be added to the configuration. </p>
+<p><b>2.1.1 </b></p>
+<p><b>Adding of BSWMD File </b></p>
+<p>Provide an additional search path for BSWMD files within your configuration. The BSWMD file must end with </p>
+<p><b>.arxml </b>to be noticed by CFG5. </p>
+<p>Open <b>Project|Project Setting|Modules|Additional Definitions </b>and <b>Add </b>the path to the module’s BSWMD file as </p>
+<p>shown in the following screenshots.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p> </p>
+<p>Figure 2 – Modules|Additional Definitions </p>
+<p> </p>
+<p> </p>
+<p>Figure 3 – BSWMD added </p>
+<p> </p>
+<p>Now the CFG5 knows the module and it can be added to the configuration. But before the configuration has to be </p>
+<p>closed and opened again. </p>
+<p><b>2.1.2 </b></p>
+<p><b>Adding a Module to the Current Project </b></p>
+<p>For adding the module to the current configuration, open <b>Project|Project Settings|Modules </b>and <b>Add </b>it with the </p>
+<p>blue plus. If the path to the module is within the delivered SIP, you will find it in <b>Select from SIP </b>otherwise in </p>
+<p><b>Select additional definition </b>(see screenshots below). </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p> </p>
+<p>Figure 4 – Module Assistant </p>
+<p> </p>
+<p> </p>
+<p>Figure 5 – Module Definitions</p>
+<p> </p>
+<p> </p>
+<p>Now the module is within your project, configure it using the <b>Basic Editor</b>.  </p>
+<p><b>2.2 </b></p>
+<p><b>External Generation Step </b></p>
+<p>If the module has parts generated based on the configuration of the ECUC file and the generation shall be started </p>
+<p>from the CFG5, the generation list has to be extended. The configuration of the generation steps for third-party </p>
+<p>modules can either be done manually or by a configuration file, making it easier to reuse your module for further </p>
+<p>projects. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p><b>2.2.1 </b></p>
+<p><b>Manual Set-Up </b></p>
+<p>Open <b>Project|Project Settings|Code Generation|External Generation Steps </b>and <b>Add </b>the generation settings </p>
+<p>using the blue plus. </p>
+<p> </p>
+<p>Figure 6 – External Generation Steps </p>
+<p> </p>
+<p>Specify the module generator settings (i.e. parameters to be handed over). If the module generator also supports </p>
+<p>validation or requires a transformation of the input file, this can also be configured. For further information also see </p>
+<p>the Help Content of CFG5. </p>
+<p><b>2.2.2 </b></p>
+<p><b>Automatic Set-Up </b></p>
+<p>The settings described in 2.2.1 can also be done automatically by a so-called <b>Settings.xml</b>. For configuration </p>
+<p>options of the Settings.xml please refer to 3.0 Settings.xml. </p>
+<p><b>2.3 </b></p>
+<p><b>Internal Behavior Description </b></p>
+<p>Most AUTOSAR modules require Exclusive Area and / or MainFunction handling by the RTE. The MICROSAR </p>
+<p>RTE reads this information from the so-called Internal Behavior description, which is a part of a BSWMD file. This </p>
+<p>file has to be provided to the CFG5 by placing it into the folder for InternalBehavior files (default is </p>
+<p>./Config/InternalBehavior). </p>
+<p>The &lt;BSW-IMPLEMENTATION&gt; container within the BSWMD file must have a reference to the Internal Behavior </p>
+<p>(i.e. </p>
+<p>&lt;BEHAVIOR-REF DEST=&quot;BSW-INTERNAL-</p>
+<p>BEHAVIOR&quot;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu/McuBehavior&lt;/BEHAVIOR-REF&gt;</p>
+<p>, see also Figure 1). </p>
+<p>The RTE reads the Internal Behavior of the module from this file and provides a solving action to create an </p>
+<p>RteBswModuleInstance with this information. </p>
+<p><b>2.3.1 </b></p>
+<p><b>Example for Internal Behavior Description </b></p>
+<p>The following example for an Internal Behavior description defines an exclusive area called </p>
+<p>MCU_EXCLUSIVE_AREA_0</p>
+<p> </p>
+<p>and a MainFunction called </p>
+<p>Mcu_MainFunction</p>
+<p>, which has to be called with a cycle time of </p>
+<p>0.01</p>
+<p> seconds. The file </p>
+<p>should be placed into the folder for InternalBehavior files (default is ./Config/InternalBehavior) or the content can </p>
+<p>even be in the BSWMD file itself. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>6 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt; </p>
+<p>&lt;AUTOSAR xmlns=&quot;http://autosar.org/schema/r4.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </p>
+<p>xsi:schemaLocation=&quot;http://autosar.org/schema/r4.0 autosar_4-0-3.xsd&quot;&gt; </p>
+<p>  &lt;AR-PACKAGES&gt; </p>
+<p>    &lt;AR-PACKAGE&gt; </p>
+<p>      &lt;SHORT-NAME&gt;VendorX&lt;/SHORT-NAME&gt; </p>
+<p>      &lt;AR-PACKAGES&gt; </p>
+<p>        &lt;AR-PACKAGE&gt; </p>
+<p>          &lt;SHORT-NAME&gt;Mcu_ib_bswmd&lt;/SHORT-NAME&gt; </p>
+<p>          &lt;AR-PACKAGES&gt; </p>
+<p>            &lt;AR-PACKAGE&gt; </p>
+<p>              &lt;SHORT-NAME&gt;BswModuleDescriptions&lt;/SHORT-NAME&gt; </p>
+<p>              &lt;ELEMENTS&gt; </p>
+<p>                &lt;BSW-MODULE-DESCRIPTION&gt; </p>
+<p>                  &lt;SHORT-NAME&gt;Mcu&lt;/SHORT-NAME&gt; </p>
+<p>                  &lt;PROVIDED-ENTRYS&gt; </p>
+<p>                    &lt;BSW-MODULE-ENTRY-REF-CONDITIONAL&gt; </p>
+<p>                      &lt;BSW-MODULE-ENTRY-REF DEST=&quot;BSW-MODULE-</p>
+<p>ENTRY&quot;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu_MainFunction&lt;/BSW-MODULE-ENTRY-REF&gt; </p>
+<p>                    &lt;/BSW-MODULE-ENTRY-REF-CONDITIONAL&gt; </p>
+<p>                  &lt;/PROVIDED-ENTRYS&gt; </p>
+<p>                  &lt;INTERNAL-BEHAVIORS&gt; </p>
+<p>                    &lt;BSW-INTERNAL-BEHAVIOR&gt; </p>
+<p>                      &lt;SHORT-NAME&gt;McuBehavior&lt;/SHORT-NAME&gt; </p>
+<p>                      &lt;EXCLUSIVE-AREAS&gt; </p>
+<p>                        &lt;EXCLUSIVE-AREA&gt; </p>
+<p>                          &lt;SHORT-NAME&gt;MCU_EXCLUSIVE_AREA_0&lt;/SHORT-NAME&gt; </p>
+<p>                        &lt;/EXCLUSIVE-AREA&gt; </p>
+<p>                      &lt;/EXCLUSIVE-AREAS&gt; </p>
+<p>                      &lt;ENTITYS&gt; </p>
+<p>                        &lt;BSW-SCHEDULABLE-ENTITY&gt; </p>
+<p>                          &lt;SHORT-NAME&gt;Mcu_MainFunction&lt;/SHORT-NAME&gt; </p>
+<p>                          &lt;IMPLEMENTED-ENTRY-REF DEST=&quot;BSW-MODULE-</p>
+<p>ENTRY&quot;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu_MainFunction&lt;/IMPLEMENTED-ENTRY-REF&gt; </p>
+<p>                        &lt;/BSW-SCHEDULABLE-ENTITY&gt; </p>
+<p>                      &lt;/ENTITYS&gt; </p>
+<p>                      &lt;EVENTS&gt; </p>
+<p>                        &lt;BSW-TIMING-EVENT&gt; </p>
+<p>                          &lt;SHORT-NAME&gt;Mcu_MainFunctionTimingEvent0&lt;/SHORT-NAME&gt; </p>
+<p>                          &lt;STARTS-ON-EVENT-REF DEST=&quot;BSW-SCHEDULABLE-</p>
+<p>ENTITY&quot;&gt;/VendorX/Mcu_ib_bswmd/BswModuleDescriptions/Mcu/McuBehavior/Mcu_MainFunction&lt;/STARTS-ON-EVENT-REF&gt; </p>
+<p>                          &lt;PERIOD&gt;0.01&lt;/PERIOD&gt; </p>
+<p>                        &lt;/BSW-TIMING-EVENT&gt; </p>
+<p>                      &lt;/EVENTS&gt; </p>
+<p>                    &lt;/BSW-INTERNAL-BEHAVIOR&gt; </p>
+<p>                  &lt;/INTERNAL-BEHAVIORS&gt; </p>
+<p>                &lt;/BSW-MODULE-DESCRIPTION&gt; </p>
+<p>                &lt;BSW-MODULE-ENTRY&gt; </p>
+<p>                  &lt;SHORT-NAME&gt;Mcu_MainFunction&lt;/SHORT-NAME&gt; </p>
+<p>                  &lt;CALL-TYPE&gt;SCHEDULED&lt;/CALL-TYPE&gt; </p>
+<p>                  &lt;EXECUTION-CONTEXT&gt;TASK&lt;/EXECUTION-CONTEXT&gt; </p>
+<p>                &lt;/BSW-MODULE-ENTRY&gt; </p>
+<p>              &lt;/ELEMENTS&gt; </p>
+<p>            &lt;/AR-PACKAGE&gt; </p>
+<p>          &lt;/AR-PACKAGES&gt; </p>
+<p>        &lt;/AR-PACKAGE&gt; </p>
+<p>      &lt;/AR-PACKAGES&gt; </p>
+<p>    &lt;/AR-PACKAGE&gt; </p>
+<p>  &lt;/AR-PACKAGES&gt; </p>
+<p>&lt;/AUTOSAR&gt; </p>
+<p> </p>
+<p><b>2.3.2 </b></p>
+<p><b>Templates for Internal Behavior Description </b></p>
+<p>Some modules provided by a MICROSAR delivery are not developed by Vector and do not have an automatic </p>
+<p>Internal Behavior creation (i.e. MCALs). For easier integration some of them provide templates for the Internal </p>
+<p>Behavior description. If these files are available within the current delivery they are positioned at </p>
+<p>.\Misc\InternalBehaviorTemplates. Please remove the starting ‘_’ marking the files as templates, copy them to the </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>7 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p>InternalBehavior folder of your project and adapt them to your configuration (i.e. changing the cycle time of the </p>
+<p>MainFunction). </p>
+<p><b>2.4 </b></p>
+<p><b>RTE configuration </b></p>
+<p>If the Internal Behavior is configured as described in 2.3 the RTE will provide a solving action to automatically </p>
+<p>create the required RTE configuration. If a MainFunction has to be called by the RTE, perform the according Task </p>
+<p>Mapping afterwards. The RTE will then generate the Exclusive Area and MainFunction calls as described in the </p>
+<p>Internal Behavior. </p>
+<p><b>2.5 </b></p>
+<p><b>CDD Configuration </b></p>
+<p>For your own modules that need access to any PDU within the communication stack, use the so-called CDD </p>
+<p>module (Complex Device Driver), which is part of the SIP. For adding the CDD to the current configuration, open </p>
+<p><b>Project|Project Settings|Modules </b>and <b>Add </b>it via the blue plus. </p>
+<p> </p>
+<p>Figure 7 – Module Definitions CDD </p>
+<p> </p>
+<p>In the Basic Editor you can define, where the CDD shall be placed within the communication stack. </p>
+<p> </p>
+<p>Figure 8 – Configuring CDD </p>
+<p> </p>
+<p>For further information how to configure the CDD, please refer to its Technical Reference </p>
+<p>(TechnicalReference_Asr_CddCfg5.pdf). </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>8 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p><b>3.0 </b></p>
+<p><b>Settings.xml </b></p>
+<p>The <b>Settings.xml </b>is an open interface to the CFG5. With this file the following configuration can be done: </p>
+<p>•</p>
+<p> </p>
+<p>Settings for external validation and generation steps </p>
+<p> </p>
+<p>The file shall be placed to </p>
+<p>.\DaVinciConfigurator\Generators\&lt;Msn&gt; </p>
+<p>(i.e. </p>
+<p>C:\Vector\CBD1200333_D02_V85x\DaVinciConfigurator\Generators\Mcu\Settings_ExtGen_Mcu.xml</p>
+<p>) and is </p>
+<p>automatically known at start of the CFG5. </p>
+<p>The following example creates the same generator settings as the example in 2.2.1. </p>
+<p> </p>
+<p>&lt;Settings&gt; </p>
+<p>  &lt;!-- external generator --&gt; </p>
+<p>  &lt;Settings Name=&quot;com.vector.cfg.gui.core.generators.ExtGenSteps&quot;&gt; </p>
+<p>    &lt;Settings Name=&quot;ExtGenSettings_DrvMcu&quot;&gt; </p>
+<p>      &lt;Setting Name=&quot;Active&quot; Value=&quot;true&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;CommandLine&quot; Value=&quot;C:\Vector\CBD1200333_D01_V85x_AddOn\Mcu\Mcu.exe&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;GenerationParameters&quot; Value=&quot;$(GenDataFolder) $(ProcessingEcuCFile) --generate&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;SupportsStandAloneValidation&quot; Value=&quot;true&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;ValidationParameters&quot; Value=&quot;$(GenDataFolder) $(ProcessingEcuCFile) --validate&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;TransformationRequired&quot; Value=&quot;false&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;TransformationXsltFile&quot; Value=&quot;&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;TransformationOutput&quot; Value=&quot;&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;WorkingDir&quot; Value=&quot;C:\Vector\CBD1200333_D01_V85x_AddOn\Mcu&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;SpecificAsVersionRequired&quot; Value=&quot;true&quot;/&gt; </p>
+<p>      &lt;Setting Name=&quot;RequiredAsVersion&quot; Value=&quot;4.0.3&quot;/&gt; </p>
+<p>    &lt;/Settings&gt; </p>
+<p>  &lt;/Settings&gt;   </p>
+<p>&lt;/Settings&gt; </p>
+<p> </p>
+<p><b>4.0 </b></p>
+<p><b>Integration Into the Build Project </b></p>
+<p>AUTOSAR has introduced a mechanism to integrate standardized code into different µC and Compilers. To adapt </p>
+<p>the modules into a project with specific compiler and linker settings the files MemMap.h and Compiler_Cfg.h have </p>
+<p>been introduced. If the module that shall be integrated into a build project that makes use of those mechanisms, </p>
+<p>these files have to be adapted.  </p>
+<p>For further information on this topic please also refer to TechnicalReference_Asr_MemoryMapping.pdf within the </p>
+<p>SIP. </p>
+<p> </p>
+<p>Example code for the following chapters: </p>
+<p>#define MCU_START_SEC_VAR_INIT_8BIT </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>VAR (uint8, MCU_INIT_DATA) Mcu_InitStatus = 0; </p>
+<p> </p>
+<p>#define MCU_STOP_SEC_VAR_INIT_8BIT </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p> </p>
+<p>#define MCU_START_SEC_PUBLIC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_Init (P2CONST(Mcu_ConfigType, AUTOMATIC, MCU_APPL_CONST) ConfigPtr) </p>
+<p>{ </p>
+<p>… </p>
+<p>} </p>
+<p> </p>
+<p>#define MCU_STOP_SEC_PUBLIC_CODE </p>
+<p>#include &quot;MemMap.h&quot; </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>9 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p><b>4.1 </b></p>
+<p><b>Compiler_Cfg.h </b></p>
+<p>Add all used compiler abstraction defines from your module to this file, even if they are defined to nothing.  </p>
+<p>Required Compiler_Cfg.h content for above given example: </p>
+<p>#define MCU_PUBLIC_CODE </p>
+<p>#define MCU_APPL_CONST </p>
+<p>#define MCU_INIT_DATA </p>
+<p><b>4.2 </b></p>
+<p><b>MemMap.h </b></p>
+<p>Add all used memory abstraction defines from your module to this file. </p>
+<p>Required MemMap.h content for above given example: </p>
+<p>#ifdef MCU_START_SEC_VAR_INIT_8BIT </p>
+<p>  #undef MCU_START_SEC_VAR_INIT_8BIT </p>
+<p>  #define START_SEC_VAR_INIT_8BIT </p>
+<p>#endif </p>
+<p>#ifdef MCU_STOP_SEC_VAR_INIT_8BIT </p>
+<p>  #undef MCU_STOP_SEC_VAR_INIT_8BIT </p>
+<p>  #define STOP_SEC_VAR </p>
+<p>#endif  </p>
+<p> </p>
+<p>#ifdef MCU_START_SEC_PUBLIC_CODE </p>
+<p>  #undef MCU_START_SEC_PUBLIC_CODE </p>
+<p>  #define START_SEC_CODE </p>
+<p>#endif </p>
+<p>#ifdef MCU_STOP_SEC_PUBLIC_CODE </p>
+<p>  #undef MCU_STOP_SEC_PUBLIC_CODE </p>
+<p>  #define STOP_SEC_CODE </p>
+<p>#endif </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Third Party Modules</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>10 </b></p>
+<p><i>Application Note AN-ISC-8-1153 </i></p>
+<p> </p>
+<p><b>5.0 </b></p>
+<p><b>Additional Resources </b></p>
+<p>VECTOR TECHNICAL REFERENCES </p>
+<p>TechnicalReference_Asr_MemoryMapping.pdf </p>
+<p>TechnicalReference_Asr_CddCfg5.pdf </p>
+<p> </p>
+<p><b>6.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p> </p>
+<p><b>Germany  </b></p>
+<p><b>and all countries not named below: </b></p>
+<p><b> </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Str. 24 </p>
+<p>70499 Stuttgart </p>
+<p>GERMANY </p>
+<p>Phone: +49 711-80670-0 </p>
+<p>Fax: </p>
+<p>+49 711-80670-111 </p>
+<p>E-mail:  info@de.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>France, Belgium, Luxemburg: </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Vector France S.A.S. </b></p>
+<p>168, Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>FRANCE </p>
+<p>Phone: +33 1 42 31 40 00 </p>
+<p>Fax: </p>
+<p>+33 1 42 31 40 09 </p>
+<p>E-mail:  information@fr.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Sweden, Denmark, Norway,  </b></p>
+<p><b>Finland, Iceland: </b></p>
+<p><b> </b></p>
+<p><b>VecScan AB </b></p>
+<p>Theres Svenssons Gata 9 </p>
+<p>41755 Göteborg  </p>
+<p>SWEDEN </p>
+<p>Phone: +46 31 764 76 00 </p>
+<p>Fax: </p>
+<p>+46 31 764 76 19  </p>
+<p>E-mail:  info@se.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>United Kingdom, Ireland: </b></p>
+<p><b> </b></p>
+<p><b>Vector GB Ltd. </b></p>
+<p>Rhodium, Central Boulevard </p>
+<p>Blythe Valley Park </p>
+<p>Solihull, Birmingham </p>
+<p>West Midlands B90 8AS </p>
+<p>UNITED KINGDOM </p>
+<p>Phone: +44 121 50681-50 </p>
+<p>Fax: </p>
+<p>+44 121 50681-69 </p>
+<p> </p>
+<p>E-mail:  info@uk.vector.com </p>
+<p> </p>
+<p>  </p>
+<p><b>China: </b></p>
+<p><b> </b></p>
+<p><b>Vector Automotive Technology </b></p>
+<p><b>(Shanghai) Co., Ltd.  </b></p>
+<p>Sunyoung Center </p>
+<p>Room 1701, No.398 Jiangsu Road </p>
+<p>Changning District </p>
+<p>Shanghai 200050 </p>
+<p>P.R. CHINA </p>
+<p>Phone: +86 21 6432 53530 </p>
+<p>Fax:  </p>
+<p>+86 21 6432 5308 </p>
+<p>E-mail: info@cn.vector.com </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>India: </b></p>
+<p><b> </b></p>
+<p><b>Vector Informatik India Pvt. Ltd. </b></p>
+<p>4/1/1/1, Sutar Icon, Sus Road, </p>
+<p>Pashan, Pune - 411 021 </p>
+<p>INDIA </p>
+<p> </p>
+<p> </p>
+<p>Phone: +91 20 2587 2023 </p>
+<p>Fax:  </p>
+<p>+91 20 2587 2025 </p>
+<p> </p>
+<p>E-mail: info@in.vector.com </p>
+<p> </p>
+<p><b>USA, Canada, Mexico: </b></p>
+<p><b> </b></p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Place, Suite 550 </p>
+<p>Novi, MI  48375 </p>
+<p>USA </p>
+<p> </p>
+<p> </p>
+<p>Phone: +1 248 449 9290 </p>
+<p>Fax: </p>
+<p>+1 248 449 9704 </p>
+<p>E-mail:  info@us.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Japan: </b></p>
+<p><b> </b></p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Tennozu Yusen Bldg. 16F </p>
+<p>2-2-20 Higashi-shinagawa, </p>
+<p>Shinagawa-ku, </p>
+<p>Tokyo 140-0002 </p>
+<p>JAPAN </p>
+<p>Phone: +81 3 5769 7800 </p>
+<p>Fax: </p>
+<p>+81 3 5769 6975 </p>
+<p>E-mail:  info@jp.vector.com </p>
+<p> </p>
+<p> </p>
+<p><b>Korea: </b></p>
+<p><b> </b></p>
+<p><b>Vector Korea IT Inc.</b></p>
+<p><b> </b></p>
+<p>5F, Gomoas bldg. </p>
+<p>12 Hannam-daero 11-gil, Yongsan-gu </p>
+<p>Seoul, 140-889 </p>
+<p>REPUBLIC OF KOREA </p>
+<p> </p>
+<p>Phone: +82 2 807 0600 </p>
+<p>Fax: </p>
+<p>+82 2 807 0601 </p>
+<p>E-mail:  info@kr.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,641 @@
+---
+layout: default
+title: TechnicalReference_DaVinciConfigurator_Licenses
+nav_order: 87
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>DaVinci Configurator License Handling </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.5 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Michael Hoffmann </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>2 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Michael Hoffmann </p>
+<p>2014-01-02 </p>
+<p>1.0 </p>
+<p> </p>
+<p>Michael Hoffmann </p>
+<p>2014-02-14 </p>
+<p>1.1 </p>
+<p>Server Configuration in 3.1 </p>
+<p>changed </p>
+<p>Michael Hoffmann </p>
+<p>2015-02-10 </p>
+<p>1.2 </p>
+<p>Server Configuration in 3.1 </p>
+<p>changed; VTT option added </p>
+<p>Michael Hoffmann </p>
+<p>2015-04-27 </p>
+<p>1.3 </p>
+<p>DaVinci_CFG floating server </p>
+<p>option added </p>
+<p>Michael Hoffmann </p>
+<p>2015-05-21 </p>
+<p>1.4 </p>
+<p>Pool based licenses added </p>
+<p>Michael Hoffmann </p>
+<p>2016-02-01 </p>
+<p>1.5 </p>
+<p>Template update </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>3 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>License Information ...................................................................................................... 6</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>SIP Based License ............................................................................................. 6</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Software Based License .................................................................................... 6</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Hardware Based Licenses ................................................................................. 6</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>License Display .................................................................................................. 7</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Display of License Server Configuration and Options ........................................ 7</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>License Server Configuration ...................................................................................... 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Server Configuration .......................................................................................... 8</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Settings .............................................................................................. 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Server Option Usage Configuration ................................................................. 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Settings File Example ...................................................................................... 10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Pool Licence Handling ............................................................................................... 12</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Standard Licenses ........................................................................................... 12</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Adding License Options ................................................................... 12</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Return and Extend a Standard License ............................................ 12</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Sporadic Licenses ............................................................................................ 12</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>SIP License ................................................................................................................. 13</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>DaVinci Developer License ........................................................................................ 14</b></p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Abbreviations .............................................................................................................. 15</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 15</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 16</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>4 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Illustrations </b></p>
+<p><b>- </b></p>
+<p><b>Tables </b></p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>License appearance ................................................................................... 7</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Settings file locations .................................................................................. 8</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>License precedence.................................................................................... 9</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Server options .......................................................................................... 10</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>5 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>The  DaVinci  Configurator  application  can  be  activated  by  a  SIP  license  and  dongle  or </p>
+<p>FlexNet based license. Both, the dongle and the FlexNet based license, provide the .PRO </p>
+<p>option  +  supplemental  options.  These  options  activate  additional  product  functionality </p>
+<p>within the DaVinci Configurator.  </p>
+<p>This document describes in which order the available licenses are applied and used by the </p>
+<p>DaVinci Configurator. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>6 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>2 </b></p>
+<p><b>License Information </b></p>
+<p>Detailed  information  about  the  current  available  and  used  licenses  can  be  obtained  by </p>
+<p>starting  the  DaVinci  Configurator  application  and  opening  the  ‘Licenses’  dialog  (Help  &gt; </p>
+<p>Licenses). </p>
+<p>This dialog shows the current SIP license details (‘Show SIP License Details’ button) and </p>
+<p>the current tool license details (‘Show Tool License Details’). </p>
+<p>The tool license details dialog provides three sections: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>SIP-based licenses </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Software-based licenses </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Hardware-based licenses (USB-dongle) </p>
+<p><b>2.1 </b></p>
+<p><b>SIP Based License </b></p>
+<p>This section shows the currently available SIP license. A SIP license activates the BASE </p>
+<p>option of the DaVinci Configurator application. </p>
+<p><b>2.2 </b></p>
+<p><b>Software Based License </b></p>
+<p>This table  lists  all  available  FlexNet  license  information  (server  based  or  local)  that  can </p>
+<p>potentially be used by the DaVinci Configurator application. </p>
+<p>For server based licenses the floating licensing and the pool licensing model is supported </p>
+<p>(see 3.1 for details).  </p>
+<p>The actual used license model is shown in the label of the ‘License server’ property of the </p>
+<p>‘Licenses’  dialog.  It  can  be  ‘Pool’  or  ‘Floating’,  depending  on  which  license  model  is </p>
+<p>defined within the server configuration file (see chapter 3 for details). </p>
+<p><b>2.3 </b></p>
+<p><b>Hardware Based Licenses </b></p>
+<p>This section contains all dongle based licenses detected by the application. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Aladdin dongles (blue dongles) cannot be used in 64-Bit Windows with DaVinci </p>
+<p>Configurator executed in 64-Bit mode (which is the default on 64-Bit Windows). </p>
+<p>In that case the new Keyman dongles need to be used instead. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>7 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>2.4 </b></p>
+<p><b>License Display </b></p>
+<p>Each entry within the sections of the license details dialog will have  one of the following </p>
+<p>colors  indicating  whether  the  license  is  valid  or  not  and  used  or  not.  Refer  to  following </p>
+<p>table for details. </p>
+<p><b>License Appearance </b></p>
+<p><b> </b></p>
+<p><b>Color </b></p>
+<p><b>Description </b></p>
+<p>black </p>
+<p>License is valid. </p>
+<p>blue </p>
+<p>License is valid and used by the current running application instance. </p>
+<p>grey </p>
+<p>License is expired. </p>
+<p>Table 2-1  </p>
+<p>License appearance </p>
+<p><b>2.5 </b></p>
+<p><b>Display of License Server Configuration and Options </b></p>
+<p>In  case  a  FlexNet  license  server  is  configured  (see  3.1  for  details)  the  license  details </p>
+<p>dialog shows the server configuration details and the according option configuration below </p>
+<p>the software-based licenses grid. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>8 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3 </b></p>
+<p><b>License Server Configuration </b></p>
+<p>Flexnet  licenses  can  be  provided  by  using  a  license  server.  The  DaVinci  Configurator </p>
+<p>application only accesses these licenses when: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>No .PRO option is available at the local PC </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A valid license server connection is configured  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The </p>
+<p>DaVinci_CFG</p>
+<p> option within the settings.ini file is not explicitly set to ‘0’ (see also </p>
+<p>3.2 and 3.3 for details) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The pool license model is used and no .PRO option (provided by a single-seat license </p>
+<p>or dongle) is available at the local PC </p>
+<p>Otherwise the server isn’t accessed. </p>
+<p><b>3.1 </b></p>
+<p><b>Server Configuration </b></p>
+<p>The </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>application </p>
+<p>detects </p>
+<p>a </p>
+<p>license </p>
+<p>server </p>
+<p>connection </p>
+<p>if </p>
+<p>a </p>
+<p>Settings.ini</p>
+<p> file is either placed in the executable folder or in the common files folder </p>
+<p>for Vector applications.  </p>
+<p>The search order is identical to the order of appearance in table Table 3-1. </p>
+<p><b>Setting File Locations </b></p>
+<p><b>Location </b></p>
+<p><b>Environment </b></p>
+<p>DaVinciCFG.exe directory </p>
+<p>All </p>
+<p>%COMMONPROGRAMFILES(X86)%\Vector\DaVinci</p>
+<p> </p>
+<p>All </p>
+<p>Table 3-1  </p>
+<p>Settings file locations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>9 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.1.1 </b></p>
+<p><b>Settings </b></p>
+<p>Each server based license model has its own set of settings: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Floating: </p>
+<p>server based Flexnet licenses </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Pool:</p>
+<p> server based license pool Flexnet licenses </p>
+<p>For each license model an individual set of settings needs to be defined. Each consists of </p>
+<p>a defined number of optional server ‘option usage’ flags (described in 3.2) and the </p>
+<p>mandatory server connection configuration: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Host</p>
+<p>: License server network ID  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Port</p>
+<p>: License server port </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The Settings.ini file may contain both server configurations. In that case the Pool based </p>
+<p>license model is used. </p>
+<p><b>Defined in Settings.ini </b></p>
+<p><b>Used License Model </b></p>
+<p>Pool and Floating </p>
+<p>Pool </p>
+<p>Table 3-2  </p>
+<p>License precedence </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>10 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.2 </b></p>
+<p><b>Server Option Usage Configuration </b></p>
+<p>The usage of server license options which are available at the configured server can be </p>
+<p>defined for each option individually. </p>
+<p>By  default  all  options  available  at  the  server  are  used  by  the </p>
+<p>DaVinci  Configurator </p>
+<p>application.  To  restrict  this  usage  the  according  section  “</p>
+<p>Floating</p>
+<p>”  or  “</p>
+<p>Pool</p>
+<p>”  of  the </p>
+<p>settings file described in 3.1 may contain additional properties. One property is defined for </p>
+<p>each product option. </p>
+<p><b> </b></p>
+<p><b>Server Option Usage </b></p>
+<p><b>Property </b></p>
+<p><b>Value </b></p>
+<p><b>Description </b></p>
+<p>DaVinci_CFG_DEV</p>
+<p> </p>
+<p>{1|0} </p>
+<p>Allow or prevent locking a server based DaVinci Developer license to enable </p>
+<p>a RTE option within the DaVinci Configurator. </p>
+<p>DaVinci_CFG_MD</p>
+<p> </p>
+<p>{1|0}</p>
+<p> </p>
+<p>Allow or prevent using a server based .MD product option. </p>
+<p>DaVinci_CFG_RTE</p>
+<p> </p>
+<p>{1|0}</p>
+<p> </p>
+<p>Allow or prevent using a server based .RTE product option. </p>
+<p>DaVinci_CFG_WF </p>
+<p>{1|0}</p>
+<p> </p>
+<p>Allow or prevent using a server based .WF product option. </p>
+<p>DaVinci_CFG_VTT </p>
+<p>{1|0} </p>
+<p>Allow or prevent using a server based .VTT product option. </p>
+<p>DaVinci_CFG </p>
+<p>{1|0} </p>
+<p>Blocks access to all DaVinci Configurator server based licenses. The </p>
+<p>settings.ini file is used by the DaVinci Developer application too. With </p>
+<p>settings this flag to </p>
+<p>0</p>
+<p> the license server access of the DaVinci Configurator </p>
+<p>application is blocked.  </p>
+<p>Use this option when a specific PC should not use DaVinci Configurator </p>
+<p>licenses but is allowed to use DaVinci Developer server based licenses. </p>
+<p>Table 3-3  </p>
+<p>Server options </p>
+<p><b>3.3 </b></p>
+<p><b>Settings File Example </b></p>
+<p>Following exemplary settings file content demonstrates the structure of the file used by the </p>
+<p>DaVinci Configurator application. Note that the ‘Server Option Usage’ flags are optional. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Floating license example: </p>
+<p>[Floating] </p>
+<p>Host=yourFloatingLicenseServer </p>
+<p>Port=7777 </p>
+<p>DaVinci_CFG=1 </p>
+<p>DaVinci_CFG_DEV=0 </p>
+<p>DaVinci_CFG_MD=1 </p>
+<p>DaVinci_CFG_RTE=1 </p>
+<p>DaVinci_CFG_VTT=1 </p>
+<p>DaVinci_CFG_WF=0 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Pool license example:</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>11 </p>
+<p>based on template version 4.11.3 </p>
+<p>[Pool] </p>
+<p>Host=yourPoolLicenseServer </p>
+<p>Port=8888 </p>
+<p>DaVinci_CFG=1 </p>
+<p>DaVinci_CFG_DEV=0 </p>
+<p>DaVinci_CFG_MD=1 </p>
+<p>DaVinci_CFG_RTE=1 </p>
+<p>DaVinci_CFG_VTT=1 </p>
+<p>DaVinci_CFG_WF=0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>12 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>4 </b></p>
+<p><b>Pool Licence Handling </b></p>
+<p>Pool licenses can be used in following modes </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Sporadic </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Standard </p>
+<p><b>4.1 </b></p>
+<p><b>Standard Licenses </b></p>
+<p>Standard licenses can be retrieved from the server and are stored on the local PC until the </p>
+<p>minimum borrow period is expired. </p>
+<p><b>4.1.1 </b></p>
+<p><b>Adding License Options </b></p>
+<p>An existing and valid PRO standard license can be supplemented with additional license </p>
+<p>options.  </p>
+<p>To  add  one  or  more  options  the  ‘License  Activation’  dialog  must  be  opened  (Help  &gt; </p>
+<p>Licenses &gt; ‘Show SIP License Details’ &gt; ‘Show Pool license configuration…’). Select one </p>
+<p>or more of the available options and press ‘Get License’.  </p>
+<p>Added licenses become effective after restarting the application.  </p>
+<p><b>4.1.2 </b></p>
+<p><b>Return and Extend a Standard License </b></p>
+<p>Returning and extending standard licenses is possible after the minimum borrow time is </p>
+<p>expired.  These  operations  are  supported  by  the  ‘License  Activation’  dialog  available  at </p>
+<p>Help &gt; Licenses &gt; ‘Show SIP License Details’ &gt; ‘Show Pool license configuration…’. </p>
+<p><b>4.2 </b></p>
+<p><b>Sporadic Licenses </b></p>
+<p>Sporadic licenses are activated on usage at 24 days per year and user.  </p>
+<p>When  using  sporadic  licenses  the  DaVinci  Configurator  requests  the  user  to  select  a </p>
+<p>server based pool license for each session. A sporadic license is returned to the server </p>
+<p>after the application has been closed. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Sporadic licenses cannot be used with the command line version of the DaVinci </p>
+<p>Configurator (DVCmdCfg.exe).  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>13 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5 </b></p>
+<p><b>SIP License </b></p>
+<p>The DaVinci Configurator application can only be used in context of a specific SIP. This </p>
+<p>SIP provides a SIP license that activates the DaVinci Configurator BASE product. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>14 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6 </b></p>
+<p><b>DaVinci Developer License </b></p>
+<p>A DaVinci Developer license provided by a hardware dongle or FlexNet license is used to </p>
+<p>enable the .RTE option if a DaVinci Configurator Pro license is available. </p>
+<p>The usage of a floating DaVinci Developer license by the DaVinci Configurator application </p>
+<p>can be prevented by limiting the usage of server based licenses (see 3.2 for details).  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>15 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>7 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference DaVinci Configurator License Handling </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.5 </p>
+<p>16 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,264 @@
+---
+layout: default
+title: IntegrationManual_Srv
+nav_order: 1
+parent: Srv
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Integration Manual Srv</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 2</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2015-12-11</p>
+<p>Version</p>
+<p>3.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>3.1.0</p>
+<p>2015-12-</p>
+<p>11</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.0.1</p>
+<p>2015-03-</p>
+<p>13</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>No changes - only version update</p>
+<p>3.0.0</p>
+<p>2014-10-</p>
+<p>29</p>
+<p>Björn</p>
+<p>Sachsenberg</p>
+<p>Initial version (taken over from BAC4 1.2.x)</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 1 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>3</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>3</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>4</b></p>
+<p>3.1</p>
+<p>BMW Specifications</p>
+<p>4</p>
+<p>3.2</p>
+<p>AUTOSAR Specifications</p>
+<p>4</p>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p><b>5</b></p>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>6</b></p>
+<p>5.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>6</p>
+<p>5.2</p>
+<p>Dependencies on BMW modules</p>
+<p>6</p>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>7</b></p>
+<p>6.1</p>
+<p>Configuration of other Modules</p>
+<p>7</p>
+<p>6.2</p>
+<p>Configuration</p>
+<p>7</p>
+<p>6.2.1</p>
+<p>General</p>
+<p>7</p>
+<p>6.2.1.1</p>
+<p>HandleEccRam</p>
+<p>7</p>
+<p>6.2.1.2</p>
+<p>HandleEccRom</p>
+<p>7</p>
+<p>6.2.1.3</p>
+<p>MultiCpuEnable</p>
+<p>7</p>
+<p>6.2.1.4</p>
+<p>FeatureSet</p>
+<p>7</p>
+<p>6.3</p>
+<p>Configuration of the RTE</p>
+<p>8</p>
+<p>6.4</p>
+<p>Software Integration</p>
+<p>8</p>
+<p>6.4.1</p>
+<p>Startup/Initialisation</p>
+<p>8</p>
+<p>6.4.2</p>
+<p>Normal Operation</p>
+<p>8</p>
+<p>6.4.3</p>
+<p>Shutdown/Deactivation</p>
+<p>8</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 2 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>1.1</b></p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4 Platform Modules please refer to [1].</p>
+<p>This document only describes topics related to the SWT BAC4 Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW</p>
+<p>system function Srv.</p>
+<p><b>1.2</b></p>
+<p><b>Functional overview</b></p>
+<p>The Srv (Service) module contains some general purpose functions commonly used by other</p>
+<p>modules like Dlog, Prog and Bm. It is used in Application, Bootloader and Bootmanager.</p>
+<p><b>2</b></p>
+<p><b>Acronyms and Abbreviations</b></p>
+<p><b>Abbreviation/AcronymDescription</b></p>
+<p>AUTOSAR</p>
+<p>Automotive Open System Architecture</p>
+<p>BAC</p>
+<p>BMW AUTOSAR Core</p>
+<p>ECU</p>
+<p>Electronic Control Unit</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 3 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>3.1</b></p>
+<p><b>BMW Specifications</b></p>
+<p>[1]</p>
+<p>BAC4 General Concept for the Module Integration</p>
+<p>BAC4_General_Concepts_for_the_Module_Integration.pdf</p>
+<p><b>3.2</b></p>
+<p><b>AUTOSAR Specifications</b></p>
+<p>[2]</p>
+<p>Specification of Diagnostic Communication Manager</p>
+<p>AUTOSAR_SWS_DiagnosticCommunicationManager</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 4 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Limitations</b></p>
+<p>No limitations known.</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 5 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>5.1</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p><b>Dcm</b></p>
+<p>The module Dcm [2] is needed for the type definition Dcm_ProgConditionsType.</p>
+<p><b>5.2</b></p>
+<p><b>Dependencies on BMW modules</b></p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 6 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>6.1</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>Nothing to be done here.</p>
+<p><b>6.2</b></p>
+<p><b>Configuration</b></p>
+<p>The Srv configuration contains the following containers:</p>
+<p>Srv General</p>
+<p><b>6.2.1</b></p>
+<p><b>General</b></p>
+<p>This container contains the configuration (parameters) of the Srv module. Note that these</p>
+<p>configuration parameters also affect the configuration of other modules such as Dlog, Prog, etc.</p>
+<p><b>6.2.1.1</b></p>
+<p><b>HandleEccRam</b></p>
+<p>This should be enabled if the hardware handles ECC errors in RAM.</p>
+<p><b>6.2.1.2</b></p>
+<p><b>HandleEccRom</b></p>
+<p>This should be enabled if the hardware handles ECC errors in ROM.</p>
+<p><b>6.2.1.3</b></p>
+<p><b>MultiCpuEnable</b></p>
+<p>This should be enabled if a multi CPU ECU is used. Note that communication to the slave CPUs</p>
+<p>is done via integrator/user defined functions. Please consult the corresponding modules'</p>
+<p>integration manuals for details about those functions.</p>
+<p><b>6.2.1.4</b></p>
+<p><b>FeatureSet</b></p>
+<p>Defines the feature set that will be provided. For SRV_FS_BOOTMANAGER and SRV_FS_BLU</p>
+<p>it is reduced to save space in Bootmanager and Blu, respectively. Should be SRV_FS_FULL in</p>
+<p>Bootloader and Application.</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 7 of 8</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6.3</b></p>
+<p><b>Configuration of the RTE</b></p>
+<p>No RTE needed.</p>
+<p><b>6.4</b></p>
+<p><b>Software Integration</b></p>
+<p><b>6.4.1</b></p>
+<p><b>Startup/Initialisation</b></p>
+<p>Nothing to be done here.</p>
+<p><b>6.4.2</b></p>
+<p><b>Normal Operation</b></p>
+<p>Nothing to be done here.</p>
+<p><b>6.4.3</b></p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>Nothing to be done here.</p>
+<p>IntegrationManual_Srv, Version 3.1.0, Platform Software</p>
+<p>Page 8 of 8</p>
+</body>
+</html>
+{% endraw %}

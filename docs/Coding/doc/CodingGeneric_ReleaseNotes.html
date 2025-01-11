@@ -1,0 +1,349 @@
+---
+layout: default
+title: CodingGeneric_ReleaseNotes
+nav_order: 5
+parent: Coding
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes CodingGeneric</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.1</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.2.1</p>
+<p>2017-12-14</p>
+<p>BAC-6660, BAC-6704, BAC-6585, BAC-6736, BAC-6192</p>
+<p>5.2.0</p>
+<p>2017-11-09</p>
+<p>BAC-6434, BAC-6350</p>
+<p>5.1.0</p>
+<p>2017-10-12</p>
+<p>BAC-6402</p>
+<p>5.0.1</p>
+<p>2017-09-14</p>
+<p>BAC-6302, BAC-6239, BAC-6224, BAC-6073, BAC-6003,</p>
+<p>BAC-5170</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 1 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>The Coding system consists of a Coding module that is part of the ECU application and the Coder.</p>
+<p>Almost in the same manner as the Bootloader programs the ROM of an ECU, the Coding module codes</p>
+<p>the NV memory of an ECU with vehicle specific data derived from the vehicle description document e.g.</p>
+<p>type key, extra equipment, country specifics, year of model/construction stage, additional comments or</p>
+<p>service upgrade options.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.2.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6660</p>
+<p>CR Headline:</p>
+<p>Correct Misra- and Metric-violations</p>
+<p>Description of Issues:</p>
+<p>Correct Misra- and Metric-violations and compiler warnings.</p>
+<p>Description of Changes:</p>
+<p>Correct Misra- and Metric-violations and compiler warnings.</p>
+<p>Changed Files:</p>
+<p>generate/include/Coding_Cfg.h.pgen</p>
+<p>doc/CodingGeneric_RequirementsTable.pdf</p>
+<p>template/include/Coding_MemMap.h.sample</p>
+<p>generate/src/Coding_Function.c.pgen</p>
+<p>generate/include/Coding_Version.h.pgen</p>
+<p>generate/include/Coding_Function.h.pgen</p>
+<p>generate/src/Coding_Cfg.c.pgen</p>
+<p>include/Coding_CryptoAdapter.h</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>generate/pageinclude/Coding_Function_Types.pgen</p>
+<p>src/Coding.c</p>
+<p>include/Coding.h</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6704</p>
+<p>CR Headline:</p>
+<p>Activation of signature verification (RSA)</p>
+<p>Description of Issues:</p>
+<p>Changed Coding adapter to fit to the provided Crypto-Lib (RSA).</p>
+<p>Description of Changes:</p>
+<p>Changed Coding adapter to fit to the provided Crypto-Lib (RSA).</p>
+<p>Changed Files:</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>generate/src/Coding_Function.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6585</p>
+<p>CR Headline:</p>
+<p>Rework Coding_paramdef.arxml</p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 2 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>Add missing configuration parameters, provide human readable</p>
+<p>Coding function value input field and support tool based</p>
+<p>implementation type range check.</p>
+<p>Description of Changes:</p>
+<p>Added missing configuration parameters 'lowerlimit' and</p>
+<p>'upperlimit'. Use choice container for supported implementation</p>
+<p>data types. Updated PAGe include files to convert human readable</p>
+<p>Coding function values to Coding internal machine code.</p>
+<p>Changed Files:</p>
+<p>generate/pageinclude/Coding_Function_Types.pgen</p>
+<p>cfgdesc/Coding_paramdef.arxml</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6736</p>
+<p>CR Headline:</p>
+<p>Fix optional production error CEUD compile error</p>
+<p>Description of Issues:</p>
+<p>Deactivation of optional production error leads to compile error.</p>
+<p>Description of Changes:</p>
+<p>Add missing preprocessor directives.</p>
+<p>Changed Files:</p>
+<p>src/Coding.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6192</p>
+<p>CR Headline:</p>
+<p>Identical function names in different coding areas lead to</p>
+<p>generation of duplicate event names</p>
+<p>Description of Issues:</p>
+<p>Add Coding configuration plausibility check.</p>
+<p>Description of Changes:</p>
+<p>Check uniqueness of all Coding function names in Coding</p>
+<p>configuration.</p>
+<p>Changed Files:</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6434</p>
+<p>CR Headline:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of parameter definition files and SWCDs should be</p>
+<p>conform to AUTOSAR_4-3-0_STRICT_COMPACT.xsd.</p>
+<p>Description of Changes:</p>
+<p>Adapted parameter definition files and SWCDs to schema</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Coding_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6350</p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 3 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>CR Headline:</p>
+<p>RoutineSignal Arrays must be configured with</p>
+<p>VARIABLE_LENGTH</p>
+<p>Description of Issues:</p>
+<p>Routine signal arrays must be configured with</p>
+<p>VARIABLE_LENGTH.</p>
+<p>Description of Changes:</p>
+<p>Coding generic has to support an additional function parameter</p>
+<p>'dataLength' and Coding adapter has to support configuration with</p>
+<p>VARIABLE_LENGTH.</p>
+<p>Changed Files:</p>
+<p>src/Coding.c</p>
+<p>include/Coding.h</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6402</p>
+<p>CR Headline:</p>
+<p>Activation of signature verification</p>
+<p>Description of Issues:</p>
+<p>Customize the function calls according to specification. Support</p>
+<p>the provided Crypto-Lib.</p>
+<p>Description of Changes:</p>
+<p>Removed unnecessary function call from Coding module.</p>
+<p>Changed Coding adapter to fit to the provided Crypto-Lib on one</p>
+<p>side and to fullfill the specification requirements on the other side.</p>
+<p>Changed Files:</p>
+<p>generate/include/Coding_Cfg.h.pgen</p>
+<p>cfgdesc/Coding_paramdef.arxml</p>
+<p>include/Coding_CryptoAdapter.h</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>generate/pageinclude/Coding_Function_Types.pgen</p>
+<p>src/Coding.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6302</p>
+<p>CR Headline:</p>
+<p>Add look up table for type conversion</p>
+<p>Description of Issues:</p>
+<p>Provide look up table (adaptive platform and ara implementation</p>
+<p>data types) for PAGe.</p>
+<p>Description of Changes:</p>
+<p>Added look up table for adaptive platform and ara implementation</p>
+<p>data types in page include file.</p>
+<p>Changed Files:</p>
+<p>generate/pageinclude/Coding_Functions.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6239</p>
+<p>CR Headline:</p>
+<p>Improve requirements traceability</p>
+<p>Description of Issues:</p>
+<p>Improve generation of documents.</p>
+<p>Description of Changes:</p>
+<p>Replace special character and add reference information.</p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 4 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Changed Files:</p>
+<p>doc/Coding_RequirementsTable.pdf</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6224</p>
+<p>CR Headline:</p>
+<p>PublishedInformation of BMW modules is not modeled according</p>
+<p>to ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>Removed depricated ImplementationConfigClass from</p>
+<p>PublishedInformation and added ValueConfigClass instead.</p>
+<p>Description of Changes:</p>
+<p>File content was updated.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Coding_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6073</p>
+<p>CR Headline:</p>
+<p>Stop timeout monitoring during module shutdown</p>
+<p>Description of Issues:</p>
+<p>Stop timeout monitoring (Coding data qualification) during</p>
+<p>shutdown.</p>
+<p>Description of Changes:</p>
+<p>Added call: Coding_Timer_CancelTimer() in Coding_Shutdown()</p>
+<p>(sync branch) and in</p>
+<p>Coding_NvMFinishedCallbackWriteCodingData() (async branch).</p>
+<p>Changed Files:</p>
+<p>src/Coding.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6003</p>
+<p>CR Headline:</p>
+<p>Transformation rule must respect signedness of nvRam type</p>
+<p>Description of Issues:</p>
+<p>The Coding transformation rule mechanism does not consider that</p>
+<p>the Coding data are stored in an uint8 array when the user</p>
+<p>application requests an sint8 Coding value.</p>
+<p>Description of Changes:</p>
+<p>Add missing type cast when Coding data are extracted from uint8</p>
+<p>array.</p>
+<p>Changed Files:</p>
+<p>generate/src/Coding_Function.c.pgen</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5170</p>
+<p>CR Headline:</p>
+<p>Modules paramdef violates TPS_ECUC_06004</p>
+<p>Description of Issues:</p>
+<p>AdminData filed in ECU configuration parameter definition is</p>
+<p>required.</p>
+<p>Description of Changes:</p>
+<p>Added missing AdminData field.</p>
+<p>Changed Files:</p>
+<p>cfgdesc/Coding_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 5 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_CodingGeneric, Version 5.2.1, Software Platforms</p>
+<p>Page 6 of 6</p>
+</body>
+</html>
+{% endraw %}

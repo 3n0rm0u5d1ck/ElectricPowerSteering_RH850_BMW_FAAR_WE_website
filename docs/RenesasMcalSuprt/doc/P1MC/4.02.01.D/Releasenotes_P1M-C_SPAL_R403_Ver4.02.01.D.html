@@ -1,0 +1,774 @@
+---
+layout: default
+title: Releasenotes_P1M-C_SPAL_R403_Ver4.02.01.D
+nav_order: 20
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 1 of 15 </p>
+<p>Release Notes for RENESAS RH850/P1M-C </p>
+<p>RENESAS_SW-AUTOSAR-P1M-C: MCAL Ver4.02.01.D </p>
+<p>Beta Quality </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose </p>
+<p>To deliver AUTOSAR R4.0.3 MCAL software for P1M-C Ver4.02.01.D release using the </p>
+<p>following inputs. </p>
+<p>Device Manual:  </p>
+<p>r01uh0517ej0121-rh850p1x-c_Open.pdf </p>
+<p>Device File: </p>
+<p> </p>
+<p>DF-RH850P1x-C-EE_V121_1.zip </p>
+<p>Operating Precautions:   R01TU0087ED0103_RH850P1M-C.pdf </p>
+<p>Modules supported: </p>
+<p>DIO and PORT </p>
+<p>1.2</p>
+<p> </p>
+<p>Package information </p>
+<p><b>Product </b></p>
+<p>RH850/P1x-C </p>
+<p><b>Variant </b></p>
+<p>P1M-C </p>
+<p><b>Product Release Version </b></p>
+<p>Ver4.02.01.D </p>
+<p><b>AUTOSAR Specification Version </b></p>
+<p>R4.0.3 </p>
+<p><b>Device tested on </b></p>
+<p>R7F701372 </p>
+<p><b>Devices supported </b></p>
+<p>R7F701373, R7F701374 </p>
+<p><b>Release Date </b></p>
+<p>30-June-2017 </p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Tools </p>
+<p>1.3.1</p>
+<p> </p>
+<p>GHS </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>Green Hills Multi </p>
+<p>multi_616 </p>
+<p>Compiler: 2015.1.7 </p>
+<p>Executor Version: </p>
+<p>V2.21.00.06  </p>
+<p>X1X/common_platform/generic/compiler/4.0.3/gh</p>
+<p>s/make/ghs_rh850_r4.0.3_defs.mak </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 2 of 15 </p>
+<p>850eserv2 Version: V2.030 </p>
+<p>1.3.2</p>
+<p> </p>
+<p>Configuration code generator </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>ECU Spectrum </p>
+<p>4.0.14 </p>
+<p>-<i> </i></p>
+<p>1.3.3</p>
+<p> </p>
+<p>Additional software </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>AMDC </p>
+<p>1.0.13 </p>
+<p>- </p>
+<p>MCAL Gen </p>
+<p>2.06.03 </p>
+<p>- </p>
+<p>QAC source code Analyser </p>
+<p>8.1.1-R </p>
+<p>- </p>
+<p>1.4</p>
+<p> </p>
+<p>Generic Information </p>
+<p>1.4.1</p>
+<p> </p>
+<p>Release Target </p>
+<p><b>Processor </b></p>
+<p>R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>Generic </p>
+<p><b>Getting Started Document for P1x-C MCAL Driver </b></p>
+<p>R20UT3828EJ0101-AUTOSAR.pdf – V1.0.3 </p>
+<p><b>AUTOSAR Modules Overview </b></p>
+<p>R20UT3827EJ0101-AUTOSAR.pdf – V1.0.3 </p>
+<p><b>Date </b></p>
+<p>30-June-2017 </p>
+<p>1.4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>Common Files </b></p>
+<p>ComStack_Types.h </p>
+<p>1.0.0 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Std_Types.h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Platform_Types.h </p>
+<p>1.0.0 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>rh850_Types.h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p><b>Compiler Files </b></p>
+<p>MemMap.h </p>
+<p>1.0.4 </p>
+<p>Following changes are made in Ver4.02.01.D: </p>
+<p>1.</p>
+<p> </p>
+<p>As per ARDAAAF-2059, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 3 of 15 </p>
+<p>PREFIX and INIT POLICY are modified for the </p>
+<p>memory sections of RAMTST module. </p>
+<p>2.</p>
+<p> </p>
+<p>As per ARDAAAF-2175, Removed unwanted memory section </p>
+<p>RAMTST_START_SEC_CODE_FAST and added memory section </p>
+<p>RAMTST_59_RENESAS_START_SEC_APPL_CODE for </p>
+<p>RAMTST </p>
+<p>module. </p>
+<p>3.</p>
+<p> </p>
+<p>As per ARDAAAF-2053, NOININT sections are changed as </p>
+<p>NO_INIT and FR_59_RENESAS_START_SEC_DBTOC_DATA_ </p>
+<p>UNSPECIFIED has been changed as FR_59_RENESAS_START_ </p>
+<p>SEC_DBTOC_DATA_UNSPECIFIED. </p>
+<p>4.</p>
+<p> </p>
+<p>As per ARDAAAF-2177, following sections are removed </p>
+<p>FR_59_RENESAS_START_SEC_VAR_NO_INIT_BOOLEAN </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_BOOLEAN </p>
+<p>FR_59_RENESAS_START_SEC_VAR_FAST_BOOLEAN </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_FAST_BOOLEAN </p>
+<p>FR_59_RENESAS_START_SEC_VAR_8 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_8 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_NO_INIT_8 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_8 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_FAST_8 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_FAST_8 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_16 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_16 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_FAST_16 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_FAST_16 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_32 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_32 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_FAST_32 </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_FAST_32 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_NO_INIT_UNSPECIFIED </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_NO_INIT_UNSPECIFIED </p>
+<p>FR_59_RENESAS_START_SEC_VAR_POWER_ON_INIT_UNSP</p>
+<p>ECIFIED </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_POWER_ON_INIT_UNSPE</p>
+<p>CIFIED </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 4 of 15 </p>
+<p>FR_59_RENESAS_START_SEC_VAR_FAST_UNSPECIFIED </p>
+<p>FR_59_RENESAS_STOP_SEC_VAR_FAST_UNSPECIFIED </p>
+<p>FR_59_RENESAS_START_SEC_CONFIG_VAR_NO_INIT_UNS</p>
+<p>PECIFIED </p>
+<p>FR_59_RENESAS_STOP_SEC_CONFIG_VAR_NO_INIT_UNSP</p>
+<p>ECIFIED </p>
+<p>FR_59_RENESAS_START_SEC_CONST_BOOLEAN </p>
+<p>FR_59_RENESAS_STOP_SEC_CONST_BOOLEAN </p>
+<p>FR_59_RENESAS_START_SEC_CONST_8 </p>
+<p>FR_59_RENESAS_STOP_SEC_CONST_8 </p>
+<p>FR_59_RENESAS_START_SEC_CONST_16 </p>
+<p>FR_59_RENESAS_STOP_SEC_CONST_16 </p>
+<p>FR_59_RENESAS_START_SEC_CONFIG_CONST_UNSPECIFI</p>
+<p>ED </p>
+<p>FR_59_RENESAS_STOP_SEC_CONFIG_CONST_UNSPECIFIE</p>
+<p>D </p>
+<p>FR_59_RENESAS_START_SEC_DBTOC_CONFIG_CONST_UN</p>
+<p>SPECIFIED </p>
+<p>FR_59_RENESAS_STOP_SEC_DBTOC_CONFIG_CONST_UNS</p>
+<p>PECIFIED </p>
+<p>FR_59_RENESAS_START_SEC_CODE </p>
+<p>FR_59_RENESAS_STOP_SEC_CODE </p>
+<p>FR_59_RENESAS_START_SEC_STATIC_CODE </p>
+<p>FR_59_RENESAS_STOP_SEC_STATIC_CODE </p>
+<p>FR_59_RENESAS_START_SEC_CODE_FAST </p>
+<p>FR_59_RENESAS_STOP_SEC_CODE_FAST </p>
+<p>5.</p>
+<p> </p>
+<p>As per ARDAAAF-2050, NOINIT sections are changed as </p>
+<p>NO_INIT, PREFIX are added, </p>
+<p>ETH_59_RENESAS_START_SEC_DBTOC_DATA_UNSPECIFIE</p>
+<p>D </p>
+<p>has been changed as ETH_59_RENESAS_START_SEC_DATA_ </p>
+<p>UNSPECIFIED, ETH_59_START_SEC_APPL_CODE to </p>
+<p>ETH_59_RENESAS_START_SEC_CODE_FAST and following </p>
+<p>ROM </p>
+<p>memory tag updated: </p>
+<p>ETH_PUBLIC_CODE_ROM </p>
+<p>ETH_PRIVATE_CODE_ROM </p>
+<p>ETH_BUFFER_CODE_ROM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 5 of 15 </p>
+<p>6.</p>
+<p> </p>
+<p>As per ARDAAAF-2174, following sections are removed </p>
+<p>ETH_59_START_SEC_VAR_NOINIT_BOOLEAN </p>
+<p>ETH_59_START_SEC_VAR_FAST_BOOLEAN </p>
+<p>ETH_59_START_SEC_VAR_8 </p>
+<p>ETH_59_START_SEC_VAR_FAST_8 </p>
+<p>ETH_59_START_SEC_VAR_NOINIT_16 </p>
+<p>ETH_59_START_SEC_VAR_FAST_16 </p>
+<p>ETH_59_START_SEC_VAR_NOINIT_32 </p>
+<p>ETH_59_START_SEC_VAR_FAST_32 </p>
+<p>ETH_59_START_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED </p>
+<p>ETH_59_START_SEC_CONST_BOOLEAN </p>
+<p>ETH_59_START_SEC_CONST_8 </p>
+<p>ETH_59_START_SEC_CONST_16 </p>
+<p>ETH_59_START_SEC_CONST_32 </p>
+<p>ETH_59_START_SEC_SCHEDULER_CODE </p>
+<p>ETH_59_STOP_SEC_VAR_NOINIT_BOOLEAN </p>
+<p>ETH_59_STOP_SEC_VAR_FAST_BOOLEAN </p>
+<p>ETH_59_STOP_SEC_VAR_8 </p>
+<p>ETH_59_STOP_SEC_VAR_FAST_8 </p>
+<p>ETH_59_STOP_SEC_VAR_NOINIT_16 </p>
+<p>ETH_59_STOP_SEC_VAR_FAST_16 </p>
+<p>ETH_59_STOP_SEC_VAR_NOINIT_32 </p>
+<p>ETH_59_STOP_SEC_VAR_FAST_32 </p>
+<p>ETH_59_STOP_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED </p>
+<p>ETH_59_STOP_SEC_CONST_BOOLEAN </p>
+<p>ETH_59_STOP_SEC_CONST_8 </p>
+<p>ETH_59_STOP_SEC_CONST_16 </p>
+<p>ETH_59_STOP_SEC_CONST_32 </p>
+<p>ETH_59_STOP_SEC_SCHEDULER_CODE </p>
+<p>7.</p>
+<p> </p>
+<p>As per ARDAAAF-2178, following sections are removed </p>
+<p>FLSTST_START_SEC_VAR_BOOLEAN </p>
+<p>FLSTST_START_SEC_VAR_NOINIT_BOOLEAN </p>
+<p>FLSTST_START_SEC_VAR_FAST_BOOLEAN </p>
+<p>FLSTST_START_SEC_VAR_8 </p>
+<p>FLSTST_START_SEC_VAR_NOINIT_8 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 6 of 15 </p>
+<p>FLSTST_START_SEC_VAR_FAST_8 </p>
+<p>FLSTST_START_SEC_VAR_16 </p>
+<p>FLSTST_START_SEC_VAR_NOINIT_16 </p>
+<p>FLSTST_START_SEC_VAR_FAST_16 </p>
+<p>FLSTST_START_SEC_VAR_NOINIT_32 </p>
+<p>FLSTST_START_SEC_VAR_FAST_32 </p>
+<p>FLSTST_START_SEC_VAR_FAST_UNSPECIFIED </p>
+<p>FLSTST_START_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED </p>
+<p>FLSTST_START_SEC_SCHEDULER_CODE </p>
+<p>FLSTST_START_SEC_BUFFER_CODE </p>
+<p>FLSTST_STOP_SEC_VAR_BOOLEAN </p>
+<p>FLSTST_STOP_SEC_VAR_NOINIT_BOOLEAN </p>
+<p>FLSTST_STOP_SEC_VAR_FAST_BOOLEAN </p>
+<p>FLSTST_STOP_SEC_VAR_8 </p>
+<p>FLSTST_STOP_SEC_VAR_NOINIT_8 </p>
+<p>FLSTST_STOP_SEC_VAR_FAST_8 </p>
+<p>FLSTST_STOP_SEC_VAR_16 </p>
+<p>FLSTST_STOP_SEC_VAR_NOINIT_16 </p>
+<p>FLSTST_STOP_SEC_VAR_FAST_16 </p>
+<p>FLSTST_STOP_SEC_VAR_NOINIT_32 </p>
+<p>FLSTST_STOP_SEC_VAR_FAST_32 </p>
+<p>FLSTST_STOP_SEC_VAR_FAST_UNSPECIFIED </p>
+<p>FLSTST_STOP_SEC_CONFIG_VAR_NOINIT_UNSPECIFIED </p>
+<p>FLSTST_STOP_SEC_SCHEDULER_CODE </p>
+<p>FLSTST_STOP_SEC_BUFFER_CODE </p>
+<p>8.</p>
+<p> </p>
+<p>As per ARDAAAF-2052, </p>
+<p>PREFIX and INIT POLICY are modified for the </p>
+<p>memory sections of FLSTST module. </p>
+<p>9.</p>
+<p> </p>
+<p>As per ARDAAAF-2055, </p>
+<p>PREFIX and INIT POLICY are modified for the </p>
+<p>memory sections of LIN module. </p>
+<p>10.</p>
+<p> </p>
+<p>As per ARDAAAF-2176, </p>
+<p>LIN_START_SEC_DBTOC_DATA_UNSPECIFIED </p>
+<p>LIN_STOP_SEC_DBTOC_DATA_UNSPECIFIED was removed. </p>
+<p>11.</p>
+<p> </p>
+<p>As per ARDAAAF-2473, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 7 of 15 </p>
+<p>SPI_59_RENESAS_START_SEC_PUBLIC_CODE, </p>
+<p>SPI_59_RENESAS_START_SEC_PRIVATE_CODE and </p>
+<p>SPI_59_RENESAS_START_SEC_CODE_FAST were updated. </p>
+<p>Compiler.h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Compiler_Cfg.h </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Common Stubs </p>
+<p>- </p>
+<p>Stub files required to run the sample application of the driver. </p>
+<p><b>Getting Started MCAL Driver User Manual </b></p>
+<p>R20UT3828EJ0101-</p>
+<p>AUTOSAR.pdf </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p><b>Module Overview User Manual </b></p>
+<p>R20UT3827EJ0101-</p>
+<p>AUTOSAR.pdf </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>1.4.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the Fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.01.D.xlsx </p>
+<p>1.4.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the Known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 8 of 15 </p>
+<p>1.5</p>
+<p> </p>
+<p>Module Index </p>
+<p>DIO </p>
+<p> </p>
+<p>PORT </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 9 of 15 </p>
+<p> </p>
+<p>DIO </p>
+<p>2.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>R7F701373, R7F701374. </p>
+<p><b>Module </b></p>
+<p>DIO </p>
+<p><b>Software Version </b></p>
+<p>1.0.4 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3639EJ0102-AUTOSAR.pdf – V1.0.4 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3640EJ0102-AUTOSAR.pdf – V1.0.4 </p>
+<p><b>Date </b></p>
+<p>30-June-2017 </p>
+<p>2.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>File </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>Configuration Files </b></p>
+<p>R403_DIO_P1X-C_73.arxml </p>
+<p>1.0.1 </p>
+<p>1. As per ARDAAAF-2241,                             </p>
+<p>   DioChannelId and DioPortOffset ranges corrected. </p>
+<p>2. As per ARDAAAF-2475, updated description for     </p>
+<p>   DioMaskedWritePortApi and DioPortName            </p>
+<p>R403_DIO_P1X-C_74.arxml </p>
+<p>1.0.1 </p>
+<p>1. As per ARDAAAF-2241,                             </p>
+<p>   DioChannelId and DioPortOffset ranges corrected. </p>
+<p>2. As per ARDAAAF-2475, updated description for     </p>
+<p>   DioMaskedWritePortApi and DioPortName            </p>
+<p><b>Generation Files </b></p>
+<p>R403_DIO_P1x-C_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>SW-PATCH-VERSION is updated. </p>
+<p><b>Source Files </b></p>
+<p>Dio.c </p>
+<p>2.0.2 </p>
+<p>1. As per ARDAAAF-2475, </p>
+<p>a. Added access direction(Read/Write) for global </p>
+<p>variables    in the function banner of all API's. </p>
+<p>b. Added one space between if and opening parenthesis </p>
+<p>and added a space after comma in the argument list of </p>
+<p>the  macro </p>
+<p>DIO_CHECK_WRITE_VERIFY_RUNTIME inside </p>
+<p>the Dio_FlipChannel API to correct the style format. </p>
+<p>c. Corrected the alignment in Dio_WritePort API and </p>
+<p>in  revision history banner. </p>
+<p>d. Renamed Dio_SpConfigPtr to Dio_GpConfigPtr. </p>
+<p>e. Requirement IDs EAAR_PN0061_FR_0018 and  </p>
+<p>EAAR_PN0061_FR_0020 renamed as per new            </p>
+<p>MRS tag 1.7. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 10 of 15 </p>
+<p>f. Unwanted QAC messages removed. </p>
+<p>2. As per ARDAAAF-2510, UT Tag &quot;DIO_UT_001&quot; </p>
+<p>added for the uncovered parts of the code. </p>
+<p>Dio_Ram.c </p>
+<p>1.0.4 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Updated the QAC justification message for </p>
+<p>   Msg(2:3211). </p>
+<p>b. Corrected the alignment in revision history banner. </p>
+<p>c. Renamed Dio_SpConfigPtr to Dio_GpConfigPtr. </p>
+<p>Dio_Version.c </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<p>Dio.h </p>
+<p>1.0.4 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<p>Dio_Debug.h </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<p>Dio_RegWrite.h </p>
+<p>1.0.2 </p>
+<p> As per ARDAAAF-2475, </p>
+<p> a. Unused macro DIO_WV_DISABLE is removed. </p>
+<p>b. Added one space after if condition to correct the </p>
+<p>style format. </p>
+<p> c. Corrected the alignment of revision history banner. </p>
+<p>Dio_PBTypes.h </p>
+<p>1.0.4 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Added one space after the closing brace of structure </p>
+<p>inside the union Dio_PortData. </p>
+<p>b. Corrected the alignment in revision history banner. </p>
+<p>Dio_Ram.h </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Corrected the alignment in revision history banner. </p>
+<p>b. Renamed Dio_SpConfigPtr to Dio_GpConfigPtr. </p>
+<p>Dio_Version.h </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<p>Dio_Hardware_c </p>
+<p>1.0.4 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Updated the QAC justification message for </p>
+<p>Msg(2:3211). </p>
+<p>b. Corrected the alignment in revision history banner. </p>
+<p>Dio_Hardware_h </p>
+<p>1.0.4 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<p>Dio_Cfg_h </p>
+<p>1.0.4 </p>
+<p>1. As per ARDAAAF-2414, unwanted macros </p>
+<p>   DIO_MAXNOOFPORT, </p>
+<p>DIO_MAXNOOFCHANNEL,            and </p>
+<p>   DIO_INVALID_CHANNEL_GROUP are removed. </p>
+<p>2. As per ARDAAAF-2475, </p>
+<p>   a. Corrected the alignment in revision history banner. </p>
+<p>   b. Removed the unused macro </p>
+<p>   DIO_PNOT_OFFSET_NONJTAG. </p>
+<p>Dio_Cbk_h </p>
+<p>1.0.2 </p>
+<p>As per ARDAAAF-2475, Corrected the alignment in </p>
+<p>revision history banner. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 11 of 15 </p>
+<p>Dio_Lcfg_c </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Updated the QAC justification message </p>
+<p>   for Msg(2:3211). </p>
+<p>b. Corrected the alignment in revision history </p>
+<p>   banner.</p>
+<p> </p>
+<p>Dio_PBcfg_c </p>
+<p>1.0.4 </p>
+<p>1. As per ARDAAAF-2414, unwanted macro </p>
+<p>   DIO_INVALID_CHANNEL_GROUP are removed. </p>
+<p>2. As per ARDAAAF-2475, </p>
+<p>   a. Updated the QAC justification message </p>
+<p>      for Msg(2:3211). </p>
+<p>   b. Corrected the alignment in revision history </p>
+<p>      banner.</p>
+<p> </p>
+<p>Dio_Validate </p>
+<p>1.0.3 </p>
+<p>As per ARDAAAF-2475, </p>
+<p>a. Corrected the alignment in revision history banner. </p>
+<p>b. Corrected the description of error message </p>
+<p>   ERR_59_120_023. </p>
+<p><b>Sample Application Files </b></p>
+<p>App_DIO_P1x-C_Sample.c </p>
+<p>1.0.2 </p>
+<p> No change for release Ver4.02.01.D.       </p>
+<p>App_DIO_Device_Sample.h </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D.       </p>
+<p><b>User Manual Files </b></p>
+<p>R20UT3639EJ0102-AUTOSAR.pdf </p>
+<p>1.0.4 </p>
+<p>The following changes are made: </p>
+<p>1. Path of the PDF and Sample Application is updated </p>
+<p>in     </p>
+<p>section 13.2. </p>
+<p>2. Updated section 13.3 with latest memory </p>
+<p>consumption, stack  depth and throughput details. </p>
+<p>3. Updated the R number of the Tool User Manual in </p>
+<p>Chapter 3         </p>
+<p>and Chapter 9. </p>
+<p>4. Software version in the chapter 14 is updated. </p>
+<p>R20UT3640EJ0102-AUTOSAR.pdf </p>
+<p>1.0.4 </p>
+<p>1. Updated Table 8 1 to change the parameter type and  </p>
+<p>parameter range of the parameter DioWriteVerify'. </p>
+<p>2. Updated R number of the Component User Manual </p>
+<p>in Chapter 6</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the Fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.01.D.xlsx </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 12 of 15 </p>
+<p>2.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the Known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 13 of 15 </p>
+<p> </p>
+<p>PORT </p>
+<p>3.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>R7F701373, R7F701374. </p>
+<p><b>Module </b></p>
+<p>PORT </p>
+<p><b>Software Version </b></p>
+<p>1.0.4 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3653EJ0101-AUTOSAR.pdf – V1.0.4 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3654EJ0101-AUTOSAR.pdf – V1.0.4 </p>
+<p><b>Date </b></p>
+<p>30-June-2017 </p>
+<p>3.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>File </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>Configuration Files </b></p>
+<p>R403_PORT_P1X-C_73.arxml </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>R403_PORT_P1X-C_74.arxml </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D. </p>
+<p><b>Generation Files </b></p>
+<p>R403_PORT_P1x-C_BSWMDT.arxml </p>
+<p>1.0.4 </p>
+<p>Following change made </p>
+<p>1. SW-VERSION tag is updated. </p>
+<p><b>Source Files </b></p>
+<p>Port.c </p>
+<p>1.0.4 </p>
+<p>As part of ARDAAAF-2484, following changes are </p>
+<p>made: 1. Alignment and Spacing updated as per coding </p>
+<p>guidelines. </p>
+<p>2.</p>
+<p> </p>
+<p>LucReturnValue is initialized in </p>
+<p>Port_SetPinDirection, Port_SetPinMode, </p>
+<p>Port_SetPinDefaultMode, </p>
+<p>Port_SetPinDefaultDirection. </p>
+<p>3.</p>
+<p> </p>
+<p>LulPortDirectionLucMid, LucDnfaIndex, </p>
+<p>LucNoOfRegs, LucFclaIndex, LucFclaCTLindex </p>
+<p>initialized with PORT_ZERO. </p>
+<p>4.</p>
+<p> </p>
+<p>MISRA warning (4:2962) removed. </p>
+<p>5. Lucsize variable name changed to LucSize. </p>
+<p>Port_Ram.c </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D.                  </p>
+<p>Port_Version.c </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port.h </p>
+<p>1.0.4 </p>
+<p>As part of ARDAAAF-2484, following change made: </p>
+<p>1.</p>
+<p> </p>
+<p>Alignment and spacing corrected.. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 14 of 15 </p>
+<p>Port_Debug.h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_PBTypes.h </p>
+<p>1.0.4 </p>
+<p>As part of ARDAAAF-2484, following changes are </p>
+<p>made: </p>
+<p>1.</p>
+<p> </p>
+<p>Unused macros removed. </p>
+<p>2. Alignment and spacing corrected. </p>
+<p>3. Filter switch added for Port_GstFCLARegs and </p>
+<p>Port_GstDNFARegs. </p>
+<p>4. Removed array index from Port_HardwareReg </p>
+<p>array. </p>
+<p>Port_Ram.h </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Types.h </p>
+<p>1.0.3 </p>
+<p>As part of ARDAAAF-2484, following change made: </p>
+<p>1.PORT_ESDD_UD_113 added for </p>
+<p>Port_Pin_Direction union </p>
+<p>Port_Version.h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_RegWrite.h </p>
+<p>1.0.2 </p>
+<p>As part of ARDAAAF-2484, following change made: </p>
+<p>1. Spelling of replaced corrected in Msg(4:3453). </p>
+<p>CommonHelper </p>
+<p>0.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Hardware_c </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Hardware_h </p>
+<p>1.0.2 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Cfg_h </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Cbk_h </p>
+<p>1.0.1 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_PBcfg_c </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>Port_Validate </p>
+<p>1.0.3 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>config.xml </p>
+<p>- </p>
+<p>No change for release Ver4.02.01.D </p>
+<p><b>Sample Application Files </b></p>
+<p>App_PORT_P1x-C_Sample.c </p>
+<p>2.0.0 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p>App_PORT_Device_Sample.h </p>
+<p>2.0.0 </p>
+<p>No change for release Ver4.02.01.D </p>
+<p><b>User Manual Files </b></p>
+<p>R20UT3653EJ0102-AUTOSAR.pdf </p>
+<p>1.0.4 </p>
+<p>Following changes are made </p>
+<p>1. Memory and Throughput details updated in chapter </p>
+<p>13. </p>
+<p>2. R-Number updated. </p>
+<p>R20UT3654EJ0102-AUTOSAR.pdf </p>
+<p>1.0.4 </p>
+<p>Following changes are made </p>
+<p>1. R-Number updated. </p>
+<p>3.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Renesas Electronics </p>
+<p>Release Date: 30/June/2017</p>
+<p> </p>
+<p>Page 15 of 15 </p>
+<p>NA </p>
+<p>Please refer to the Fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.01.D.xlsx </p>
+<p>3.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the Known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW26_2017.xlsx </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

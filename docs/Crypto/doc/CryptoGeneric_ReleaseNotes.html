@@ -1,0 +1,316 @@
+---
+layout: default
+title: CryptoGeneric_ReleaseNotes
+nav_order: 4
+parent: Crypto Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes CryptoGeneric</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>BAC-6720, BAC-6588, BAC-6681, BAC-6671</p>
+<p>5.1.0</p>
+<p>2017-11-09</p>
+<p>BAC-6548, BAC-6508, BAC-6451</p>
+<p>5.0.0</p>
+<p>2017-10-12</p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>TODO</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.2.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6720</p>
+<p>CR Headline:</p>
+<p>Clean up Crypto</p>
+<p>Description of Issues:</p>
+<p>Clean up : - Removed pieces of unused code. - Fix warnings.</p>
+<p>Description of Changes:</p>
+<p>Removed unused code and comments. Fixed some warnings.</p>
+<p>Changed Files:</p>
+<p>src/Crypto_Keys.c</p>
+<p>src/Crypto_SHA256.c</p>
+<p>src/fp_mul.c</p>
+<p>src/fp_sqr.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6588</p>
+<p>CR Headline:</p>
+<p>Use tomfastmath for Crypto Math functions</p>
+<p>Description of Issues:</p>
+<p>Changed Big Number Math functions to gain speed.</p>
+<p>Description of Changes:</p>
+<p>Switched to Tomfastmath based functions. (Internal functions</p>
+<p>change only).</p>
+<p>Changed Files:</p>
+<p>src/fp_cmp_d.c</p>
+<p>generate/include/Crypto_Cfg.h.pgen</p>
+<p>src/fp_add.c</p>
+<p>cfgdesc/Crypto_paramdef.arxml</p>
+<p>src/fp_sqr_comba_20.c</p>
+<p>src/Crypto_Math.c</p>
+<p>src/fp_mod_2d.c</p>
+<p>src/fp_cmp.c</p>
+<p>CMakeLists.txt</p>
+<p>src/fp_lshd.c</p>
+<p>src/fp_mulmod.c</p>
+<p>src/fp_rshd.c</p>
+<p>src/s_fp_sub.c</p>
+<p>src/fp_montgomery_calc_normalization.c</p>
+<p>src/fp_mul_comba.c</p>
+<p>src/fp_mul_2d.c</p>
+<p>src/fp_mul_comba.h</p>
+<p>src/fp_2expt.c</p>
+<p>src/fp_mul_comba_small_set.c</p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>src/fp_sqr.c</p>
+<p>src/s_fp_add.c</p>
+<p>src/fp_div.c</p>
+<p>src/Crypto_Math_Intern.h</p>
+<p>src/Crypto_EccOperations.c</p>
+<p>src/fp_montgomery_setup.c</p>
+<p>src/fp_montgomery_reduce.c</p>
+<p>src/fp_reverse.c</p>
+<p>src/fp_invmod.c</p>
+<p>src/fp_mul_comba_20.c</p>
+<p>src/fp_sqr_comba_small_set.c</p>
+<p>src/Crypto_Common_Intern.h</p>
+<p>src/fp_sqr_comba_generic.c</p>
+<p>src/fp_div_2d.c</p>
+<p>src/fp_mod.c</p>
+<p>src/fp_mul_2.c</p>
+<p>src/fp_sqr_comba.h</p>
+<p>src/fp_set.c</p>
+<p>src/fp_count_bits.c</p>
+<p>src/mp_read_unsigned_bin.c</p>
+<p>src/fp_sqr_comba.c</p>
+<p>src/fp_mul.c</p>
+<p>src/fp_div_2.c</p>
+<p>src/Crypto_ECDSA.c</p>
+<p>src/Crypto_ECDSA_Intern.h</p>
+<p>src/fp_mul_d.c</p>
+<p>src/fp_cmp_mag.c</p>
+<p>src/fp_sub.c</p>
+<p>src/fp_to_unsigned_bin.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6681</p>
+<p>CR Headline:</p>
+<p>Fix or justify Misra warnings/errors</p>
+<p>Description of Issues:</p>
+<p>Some Misra warnings have to be corrected</p>
+<p>Description of Changes:</p>
+<p>Correct some MISRA warnings when possible.</p>
+<p>Changed Files:</p>
+<p>Corrected code to reduce number of MISRA warnings.</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6671</p>
+<p>CR Headline:</p>
+<p>Add functionalities for RSA Verifiy (PKCS1 V2)</p>
+<p>Description of Issues:</p>
+<p>RSA verification feature (PKCS1 V2) needs to be implemented</p>
+<p>Description of Changes:</p>
+<p>RSA verification feature is implemented. The corresponding</p>
+<p>interface has been added to the jumptable and the corresponding</p>
+<p>parameters are now present in the paramconf</p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Changed Files:</p>
+<p>generate/include/Crypto_Cfg.h.pgen</p>
+<p>src/Crypto_HashDescriptor.c</p>
+<p>include/Crypto_KeyManagement.h</p>
+<p>CMakeLists.txt</p>
+<p>src/zeromem.c</p>
+<p>include/Crypto_RSA.h</p>
+<p>src/Crypto_EccOperations.c</p>
+<p>cfgdesc/Crypto_paramdef.arxml</p>
+<p>src/Crypto_RSA.c</p>
+<p>src/Crypto_Math_Intern.h</p>
+<p>src/Crypto_KeyManagement_Intern.h</p>
+<p>include/Crypto_Hash.h</p>
+<p>src/Crypto_Keys.c</p>
+<p>include/Crypto_Common.h</p>
+<p>src/Crypto_Common_Intern.h</p>
+<p>include/Crypto.h</p>
+<p>src/fp_unsigned_bin_size.c</p>
+<p>src/Crypto_RSA_Intern.h</p>
+<p>src/mem_neq.c</p>
+<p>include/Crypto_ECDSA.h</p>
+<p>src/Crypto_ECDSA.c</p>
+<p>src/Crypto_ECDSA_Intern.h</p>
+<p>src/fp_exptmod.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.1.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6548</p>
+<p>CR Headline:</p>
+<p>Improve math functions performance by allowing inlining</p>
+<p>Description of Issues:</p>
+<p>BMW Math functions allow inlining (as defined in AUTOSAR) in</p>
+<p>order to improve performance.</p>
+<p>Description of Changes:</p>
+<p>Grouped Math functions in a file and declared the relevant as</p>
+<p>LOCAL_INLINE to allow optimization from the integrator.</p>
+<p>Changed Files:</p>
+<p>src/bn_mp_copy.c</p>
+<p>src/bn_mp_mul_d.c</p>
+<p>src/bn_mp_div_2.c</p>
+<p>src/bn_s_mp_add.c</p>
+<p>src/bn_mp_count_bits.c</p>
+<p>src/Crypto_Math.c</p>
+<p>src/bn_mp_2expt.c</p>
+<p>src/bn_mp_init_copy.c</p>
+<p>src/bn_mp_read_unsigned_bin.c.c</p>
+<p>src/bn_fast_mp_montgomery_reduce.c</p>
+<p>src/bn_mp_cmp_mag.c</p>
+<p>src/bn_mp_div.c</p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>src/bn_mp_montgomery_reduce.c</p>
+<p>src/bn_mp_montgomery_setup.c</p>
+<p>src/bn_mp_zero.c</p>
+<p>src/bn_mp_mod_2d.c</p>
+<p>src/bn_s_mp_sub.c</p>
+<p>src/bn_fast_s_mp_mul_digs.c</p>
+<p>src/bn_mp_invmod.c</p>
+<p>src/bn_mp_mod.c</p>
+<p>src/bn_fast_mp_invmod.c</p>
+<p>src/bn_s_mp_sqr.c</p>
+<p>src/bn_mp_cmp_d.c</p>
+<p>src/bn_mp_sqr.c</p>
+<p>src/bn_mp_set.c</p>
+<p>src/bn_mp_invmod_slow.c</p>
+<p>src/bn_mp_mul.c</p>
+<p>src/bn_mp_montgomery_calc_normalization.c</p>
+<p>src/bn_mp_mul_2.c</p>
+<p>src/bn_mp_exch.c</p>
+<p>src/bn_mp_sub.c</p>
+<p>src/bn_mp_rshd.c</p>
+<p>src/bn_mp_clamp.c</p>
+<p>src/bn_mp_lshd.c</p>
+<p>src/bn_mp_add.c</p>
+<p>src/bn_mp_mul_2d.c</p>
+<p>src/bn_mp_div_2d.c</p>
+<p>src/Crypto_Math_Intern.h</p>
+<p>src/bn_mp_mulmod.c</p>
+<p>src/bn_s_mp_mul_digs.c</p>
+<p>src/bn_mp_cmp.c</p>
+<p>CMakeLists.txt</p>
+<p>src/bn_mp_init_size.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6508</p>
+<p>CR Headline:</p>
+<p>Update jumptable generation to new Page version</p>
+<p>Description of Issues:</p>
+<p>Pgen files used to generate Crypto jumptable don't work with the</p>
+<p>new version of page.</p>
+<p>Description of Changes:</p>
+<p>Updated the files so the jumptable can be generated again.</p>
+<p>Changed Files:</p>
+<p>include/Crypto_Certificate.h</p>
+<p>src/Crypto_CertificateHandling.c</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6451</p>
+<p>CR Headline:</p>
+<p>Add functionalities Hashes SHA 384 and SHA512</p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 6</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>The hashes SHA 384 and SHA 512 are missing from the BMW</p>
+<p>Crypto library.</p>
+<p>Description of Changes:</p>
+<p>Functionalities have been added to the generic part. Jumptables</p>
+<p>have been adapted with new functions to allow access to said</p>
+<p>functionalities.</p>
+<p>Changed Files:</p>
+<p>template/include/Crypto_MemMap.h.sample</p>
+<p>include/Crypto_Hash.h</p>
+<p>src/Crypto_SHA256.c</p>
+<p>src/Crypto_BitOperations.h</p>
+<p>CMakeLists.txt</p>
+<p>src/Crypto_SHA512.c</p>
+<p>src/Crypto_SHA384.c</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p>ReleaseNotes_CryptoGeneric, Version 5.2.0, Software Platforms</p>
+<p>Page 6 of 6</p>
+</body>
+</html>
+{% endraw %}

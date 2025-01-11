@@ -1,0 +1,1215 @@
+---
+layout: default
+title: StdDiagClassic_IntegrationManual
+nav_order: 2
+parent: StdDiag
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>StdDiag Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.4.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.4.0</p>
+<p>2017-12-14</p>
+<p>BAC-6257: Add integration of functionality &quot;Application Data</p>
+<p>Transfer&quot; (ADT)</p>
+<p>5.3.0</p>
+<p>2017-11-09</p>
+<p>BAC-6249: Move SgbdIndex to adapter part and add post build</p>
+<p>support</p>
+<p>5.2.0</p>
+<p>2017-10-12</p>
+<p>Version Update</p>
+<p>5.1.0</p>
+<p>2017-08-10</p>
+<p>Version Update</p>
+<p>5.0.0</p>
+<p>2017-06-08</p>
+<p>Initial version for SP2021</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 1 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>4</b></p>
+<p>1.1</p>
+<p>Functional overview</p>
+<p>4</p>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p><b>6</b></p>
+<p>3.1</p>
+<p>Unreleased Dlt specification in AUTOSAR</p>
+<p>6</p>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>4.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>4.1.1</p>
+<p>RTE</p>
+<p>7</p>
+<p>4.1.2</p>
+<p>Det</p>
+<p>7</p>
+<p>4.1.3</p>
+<p>Dcm</p>
+<p>7</p>
+<p>4.1.4</p>
+<p>Dem</p>
+<p>7</p>
+<p>4.1.5</p>
+<p>BswM</p>
+<p>7</p>
+<p>4.1.6</p>
+<p>Dlt</p>
+<p>7</p>
+<p>4.1.7</p>
+<p>EcuC</p>
+<p>8</p>
+<p>4.2</p>
+<p>Dependencies to other modules</p>
+<p>8</p>
+<p>4.2.1</p>
+<p>Darh</p>
+<p>8</p>
+<p>4.2.2</p>
+<p>Omc</p>
+<p>8</p>
+<p>4.2.3</p>
+<p>Stm</p>
+<p>8</p>
+<p>4.2.4</p>
+<p>Other SWC</p>
+<p>8</p>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>9</b></p>
+<p>5.1</p>
+<p>Configuration of other Modules</p>
+<p>9</p>
+<p>5.1.1</p>
+<p>Dcm</p>
+<p>9</p>
+<p>5.1.1.1</p>
+<p>Read Data By Identifier</p>
+<p>9</p>
+<p>5.1.1.2</p>
+<p>RoutineControl</p>
+<p>11</p>
+<p>5.1.1.3</p>
+<p>Service Request Manufacturer Notification</p>
+<p>16</p>
+<p>5.1.1.4</p>
+<p>Service Handler for Upload Download Services</p>
+<p>16</p>
+<p>5.1.2</p>
+<p>Det</p>
+<p>17</p>
+<p>5.1.3</p>
+<p>Dem</p>
+<p>17</p>
+<p>5.1.4</p>
+<p>BswM</p>
+<p>17</p>
+<p>5.1.5</p>
+<p>EcuC</p>
+<p>20</p>
+<p>5.2</p>
+<p>Configuration of generic part</p>
+<p>20</p>
+<p>5.2.1</p>
+<p>StdDiagGeneral</p>
+<p>20</p>
+<p>5.2.1.1</p>
+<p>StdDiagDevErrorDetect</p>
+<p>20</p>
+<p>5.2.1.2</p>
+<p>StdDiagUserEstablishIntrinsicSafety</p>
+<p>20</p>
+<p>5.2.1.3</p>
+<p>StdDiagUserActiveSessionState</p>
+<p>21</p>
+<p>5.2.2</p>
+<p>StdDiagUserProgrammingPreconditionsCheck</p>
+<p>21</p>
+<p>5.2.2.1</p>
+<p>MaxNumberUserProgrammingPrecondition</p>
+<p>21</p>
+<p>5.2.3</p>
+<p>StdDiagProvideIDRL</p>
+<p>21</p>
+<p>5.2.3.1</p>
+<p>DIDTableFormatIdentifier</p>
+<p>22</p>
+<p>5.2.3.2</p>
+<p>IDRLClient</p>
+<p>22</p>
+<p>5.3</p>
+<p>Configuration of adapter part</p>
+<p>22</p>
+<p>5.3.1</p>
+<p>StdDiagGeneral</p>
+<p>22</p>
+<p>5.3.1.1</p>
+<p>StdDiagClearSecondaryErrorMemory</p>
+<p>22</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 2 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5.3.2</p>
+<p>StdDiagUserDefinedMemory</p>
+<p>23</p>
+<p>5.3.2.1</p>
+<p>StdDiagUserDefinedMemoryName</p>
+<p>23</p>
+<p>5.3.2.2</p>
+<p>StdDiagUserDefinedMemoryId</p>
+<p>23</p>
+<p>5.3.3</p>
+<p>StdDiagSgbdIndex</p>
+<p>23</p>
+<p>5.3.3.1</p>
+<p>SgbdIndex</p>
+<p>23</p>
+<p>5.3.4</p>
+<p>StdDiagApplicationDataTransfer</p>
+<p>24</p>
+<p>5.3.4.1</p>
+<p>ApplicationRoutineControlIdentifier</p>
+<p>24</p>
+<p>5.3.4.2</p>
+<p>RoutineIdentifierValue</p>
+<p>24</p>
+<p>5.3.4.3</p>
+<p>ApplicationSubRoutineControlIdentifier</p>
+<p>24</p>
+<p>5.3.4.4</p>
+<p>SubRoutineIdentifierValue</p>
+<p>24</p>
+<p>5.3.4.5</p>
+<p>controlIDs</p>
+<p>24</p>
+<p>5.3.5</p>
+<p>StdDiagProvideDLTSupport</p>
+<p>24</p>
+<p>5.3.5.1</p>
+<p>StdDiagNumberSupportedDLTLogChannels</p>
+<p>25</p>
+<p>5.4</p>
+<p>Configuration of the RTE</p>
+<p>25</p>
+<p>5.4.1</p>
+<p>Assembly Software Connectors</p>
+<p>25</p>
+<p>5.4.1.1</p>
+<p>Dcm</p>
+<p>25</p>
+<p>5.4.1.2</p>
+<p>Dem</p>
+<p>26</p>
+<p>5.4.1.3</p>
+<p>Det</p>
+<p>27</p>
+<p>5.4.1.4</p>
+<p>Darh</p>
+<p>27</p>
+<p>5.4.1.5</p>
+<p>Omc</p>
+<p>27</p>
+<p>5.4.1.6</p>
+<p>Stm</p>
+<p>27</p>
+<p>5.4.1.7</p>
+<p>BswM</p>
+<p>27</p>
+<p>5.4.1.8</p>
+<p>Other Application SWC</p>
+<p>28</p>
+<p>5.4.2</p>
+<p>Event Mapping</p>
+<p>29</p>
+<p>5.4.3</p>
+<p>Data Mapping</p>
+<p>29</p>
+<p>5.4.4</p>
+<p>Exclusive Areas</p>
+<p>29</p>
+<p>5.5</p>
+<p>Software Integration</p>
+<p>29</p>
+<p>5.5.1</p>
+<p>Startup/Initialization</p>
+<p>29</p>
+<p>5.5.2</p>
+<p>Normal Operation</p>
+<p>29</p>
+<p>5.5.3</p>
+<p>Shutdown/Deactivation</p>
+<p>29</p>
+<p>5.5.4</p>
+<p>Select Post Build Configuration</p>
+<p>29</p>
+<p>5.5.5</p>
+<p>SWCD</p>
+<p>30</p>
+<p>5.5.6</p>
+<p>Prevent sleep mode</p>
+<p>30</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 3 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>This Integration Manual describes the basic functionality of the BMW system function &quot;Standard</p>
+<p>Diagnostics&quot; (StdDiag), the configuration of the StdDiag module and of dependant modules, and the</p>
+<p>integration of the StdDiag module into BAC4 or aBAC.</p>
+<p><b>Functional overview</b></p>
+<p>The main functionality of the StdDiag module is to handling the active session states (&quot;subsessions&quot;) of</p>
+<p>the default diagnostic session and the extended diagnostic session. It ensures that the programming</p>
+<p>preparation process (i.e. the transition from the diagnostic default session via the extended diagnostic</p>
+<p>session to the programming session) is only successful, if the diagnostic requests are received in the</p>
+<p>correct sequence and all necessary preconditions are fulfilled. It also checks whether diagnostic requests</p>
+<p>shall be rejected or allowed in the different session states.</p>
+<p>The StdDiag module also provides diagnostic service handlers for</p>
+<p>clearing the secondary error memory</p>
+<p>reading the active session state</p>
+<p>reading the programming preconditions</p>
+<p>reading the SGBD-Index</p>
+<p>diagnostic communication loopback functionality</p>
+<p>handling Diagnostic Log and Trace settings</p>
+<p>handling IDRL basic functionality</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 4 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 5 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p><b>Unreleased Dlt specification in AUTOSAR</b></p>
+<p>StdDiag optionally uses services of the AUTOSAR BSW module Dlt (Diagnostic Log and Trace). The</p>
+<p>specification of the ClientServer-Interface &quot;DLTService&quot;, which provides the services used by StdDiag, is</p>
+<p>released with AUTOSAR 4.3.0. As required in the document &quot;AUTOSAR features for SP2021&quot;, projects</p>
+<p>using Dlt shall support Dlt based on AUTOSAR 4.3.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 6 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p>The current version of the Module StdDiag depends on the following BSW modules:</p>
+<p><b>RTE</b></p>
+<p>As a software component, the StdDiag module uses Rte client/server and sender/receiver communication</p>
+<p>to communicate with other SWCs and BSW modules.</p>
+<p><b>Det</b></p>
+<p>StdDiag optionally reports development errors to the Det.</p>
+<p><b>Dcm</b></p>
+<p>StdDiag is tightly coupled with the Dcm. The StdDiag implements several RDBI/WDBI and RC services,</p>
+<p>as well as services for upload download functionality. Dcm shall be configured in a way, that it dispatches</p>
+<p>theses jobs to the StdDiag SWC. In addition, the StdDiag requests information about the current</p>
+<p>diagnostic session.</p>
+<p>Moreover the StdDiag receives information about incoming requests and the corresponding result of the</p>
+<p>request via a Manufacturer Notification. The StdDiag uses this feature to accept / deny a number of</p>
+<p>requests, and to handle the active session state.</p>
+<p><b>Dem</b></p>
+<p>StdDiag sets an EnableCondition to allow / deny writing of error entries and clears DTCs in the secondary</p>
+<p>error memory.</p>
+<p><b>BswM</b></p>
+<p>StdDiag receives and requests mode switches from the BswM to switch the current StdDiag operational</p>
+<p>mode. It further requests Communication Control mode switches, and receives a mode switch from the</p>
+<p>BswM when the active diagnostic session has changed.</p>
+<p><b>Dlt</b></p>
+<p>StdDiag optionally receives diagnostic requests for Diagnostic Log and Trace control and forwards them</p>
+<p>to the Dlt service interface.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 7 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>EcuC</b></p>
+<p>StdDiag provides post build configurable parameters. If post build support is used, an EcuC configuration</p>
+<p>is needed to evaluate available variants.</p>
+<p><b>Dependencies to other modules</b></p>
+<p><b>Darh</b></p>
+<p>The StdDiag suspends / resumes sending Response on Events.</p>
+<p><b>Omc</b></p>
+<p>The StdDiag needs the current operating mode and extended operating mode from the Omc module. In</p>
+<p>addition, StdDiag provides a handler to allow / deny changing the operating mode.</p>
+<p><b>Stm</b></p>
+<p>The StdDiag reads the current PWF state from the Stm.</p>
+<p><b>Other SWC</b></p>
+<p>The StdDiag optionally calls another Application Software Component to establish intrinsic safety and to</p>
+<p>check the users programming preconditions.</p>
+<p>The StdDiag optionally calls another Application Software Component to get the active session state in</p>
+<p>Sessions that have their own active session handling.</p>
+<p>The StdDiag calls another Application Software Component (e.g. PiaClient) to read, write or reset the</p>
+<p>individual data, if the feature &quot;Individual Data Recovery Light&quot; (IDRL) is activated.</p>
+<p>The StdDiag calls another Application Software Component (e.g. Bs) to upload or download application</p>
+<p>data, if the feature &quot;Application Data Transfer&quot; (ADT) is activated.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 8 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before this module can be generated, compiled and linked.</p>
+<p><b>Dcm</b></p>
+<p><b>Read Data By Identifier</b></p>
+<p>The following RDBI-requests shall be configured in the Dcm module:</p>
+<p><b>Read Active Session State (0x22 0xF1 0x00)</b></p>
+<p><b>[IM_StdDiagClassic_0007]<i></b> d</i>The following parameters have to be configured:<i> c</i>(FL896, FL897,</p>
+<p>FL898, FL899)</p>
+<p>a container &quot;DcmDspData&quot; with</p>
+<p>a &quot;DcmDspDataSize&quot; of 32 bit (4 bytes)</p>
+<p>&quot;DcmDspDataType&quot; = UINT8_N</p>
+<p>&quot;DcmDspDataUsePort&quot; = USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>&quot;DcmDspDataConditionCheckReadFncUsed&quot; = TRUE</p>
+<p>a container &quot;DcmDspDid&quot; with</p>
+<p>&quot;DcmDspDidIdentifier&quot; = 0xF100</p>
+<p>only read-access, without session or security restrictions</p>
+<p>one DID Signal &quot;DcmDspDidSignal&quot; with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;DcmDspData&quot; container configured before.</p>
+<p><b>Read SGBD Index (0x22 0xF1 0x50)</b></p>
+<p><b>[IM_StdDiagClassic_0006]<i></b> d</i>The following parameters have to be configured:<i> c</i>(DK_T3_318)</p>
+<p>a container &quot;DcmDspData&quot; with</p>
+<p>a &quot;DcmDspDataSize&quot; of 24 bit (3 bytes)</p>
+<p>&quot;DcmDspDataType&quot; = UINT8_N</p>
+<p>&quot;DcmDspDataUsePort&quot; = USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>&quot;DcmDspDataConditionCheckReadFncUsed&quot; = FALSE</p>
+<p>a container &quot;DcmDspDid&quot; with</p>
+<p>&quot;DcmDspDidIdentifier&quot; = 0xF150</p>
+<p>only read-access, without session or security restrictions</p>
+<p>one DID Signal &quot;DcmDspDidSignal&quot; with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;DcmDspData&quot; container configured before.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 9 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Read Individual Data Identifier Table (0x22 0x17 0x34)</b></p>
+<p>This request is needed, if the configuration container &quot;StdDiagProvideIDRL&quot; is available. The response to</p>
+<p>this request contains the table format identifier (2 byte) and the individual data IDs that are configured in</p>
+<p>the parameter &quot;DIDValue&quot; of the StdDiag configuration. The response has a fixed length that is calculated</p>
+<p>with the lengths of the table format and of the individual data IDs.</p>
+<p><b>[IM_StdDiagClassic_0008]<i></b> d</i>The following parameters have to be configured:<i> c</i>(ADUE_3927,</p>
+<p>ADUE_3929)</p>
+<p>a container &quot;DcmDspData&quot; with</p>
+<p>a &quot;DcmDspDataSize&quot;: 16 bit for the format identifier plus 16 bit for each configured individual data ID.</p>
+<p>&quot;DcmDspDataType&quot; = UINT8_N</p>
+<p>&quot;DcmDspDataUsePort&quot; = USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>&quot;DcmDspDataConditionCheckReadFncUsed&quot; = FALSE</p>
+<p>a container &quot;DcmDspDid&quot; with</p>
+<p>&quot;DcmDspDidIdentifier&quot; = 0x1734</p>
+<p>only read-access, only allowed in extended diagnostic session</p>
+<p>one DID Signal &quot;DcmDspDidSignal&quot; with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;DcmDspData&quot; container configured before.</p>
+<p>Note: If IDRL clients with individual data IDs are configured (see parameter &quot;DIDValue&quot;), the user shall</p>
+<p>configure the following for each individual data ID:</p>
+<p>a container &quot;DcmDspData&quot; describing the individual data with</p>
+<p>a &quot;DcmDspDataSize&quot;: the maximum length of the individual data in bit (see parameter</p>
+<p>&quot;MaxDataSize&quot;).</p>
+<p>&quot;DcmDspDataType&quot; = UINT8_DYN</p>
+<p>&quot;DcmDspDataUsePort&quot; = USE_DATA_ASYNCH_CLIENT_SERVER</p>
+<p>&quot;DcmDspDataConditionCheckReadFncUsed&quot; = TRUE</p>
+<p>a container &quot;DcmDspDid&quot; with</p>
+<p>&quot;DcmDspDidIdentifier&quot; is the individual data ID &quot;DIDValue&quot; configured in the DID table of the StdDiag.</p>
+<p>read/write-access, only allowed in extended diagnostic session</p>
+<p>one DID Signal &quot;DcmDspDidSignal&quot; with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;DcmDspData&quot; container configured before.</p>
+<p><b>Read log channel names for Dlt (0x22 0x18 0x28)</b></p>
+<p><b>[IM_StdDiagClassic_0017]<i></b> d</i>This request is only needed, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The response to this request contains the log channel names</p>
+<p>supported by Dlt module. The response has a fix length that is derived from the number of configured log</p>
+<p>channels in the Dlt.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1637, DK_T3_1639)</p>
+<p>a container &quot;DcmDspData&quot; with</p>
+<p>a &quot;DcmDspDataSize&quot;: 32 bit for each configured DLT Log Channel.</p>
+<p>&quot;DcmDspDataType&quot; = UINT8_N</p>
+<p>&quot;DcmDspDataUsePort&quot; = USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 10 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>&quot;DcmDspDataConditionCheckReadFncUsed&quot; = FALSE</p>
+<p>a container &quot;DcmDspDid&quot; with</p>
+<p>&quot;DcmDspDidIdentifier&quot; = 0x1828</p>
+<p>only read-access, without session or security restrictions</p>
+<p>one DID Signal &quot;DcmDspDidSignal&quot; with Data Position = 0 and a Data Reference to the</p>
+<p>&quot;DcmDspData&quot; container configured before.</p>
+<p><b>RoutineControl</b></p>
+<p>The following RoutineControl-requests shall be configured in the Dcm module:</p>
+<p><b>Diagnostic Communication Loopback (0x31 0x01 0x03 0x03)</b></p>
+<p><b>[IM_StdDiagClassic_0004]<i></b> d</i>This request has a variable request length and a variable response length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_792, DK_T3_799, DK_T3_800)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x0303</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalLength&quot; = max. diagnostic buffer size (e.g. 8192 bits)</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = VARIABLE_LENGTH</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineOut&quot; with</p>
+<p>a &quot;StartRoutineOutSignal&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalLength&quot; = max. diagnostic buffer size (e.g. 8192 bits)</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = VARIABLE_LENGTH</p>
+<p><b>[IM_StdDiagClassic_0003]<i></b> d</i>Note: According to the &quot;LH Diagnose Part 3&quot; this request shall handle a</p>
+<p>variable data length in a range from 0 bytes up to the maximum length that the diagnostic buffer can</p>
+<p>handle. In this example configuration the value is set to 1024 bytes (8192 bits).<i> c</i>(DK_T3_794)</p>
+<p><b>Check Programming Preconditions (0x31 0x01 0x02 0x03)</b></p>
+<p><b>[IM_StdDiagClassic_0019]<i></b> d</i>This request has no input signals, and a variable response length.</p>
+<p>Therefore, it is sufficient to configure only an Out-Signal, but no In-Signal:<i> c</i>(FL1082, FL1083)</p>
+<p><b>[IM_StdDiagClassic_0001]<i></b> d</i>This request shall be available in all sessions.<i> c</i>(FL194)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x0203</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a reference to &quot;DcmDspCommonAuthorization&quot; which references all (or none) diagnostic sessions</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineOut&quot; with</p>
+<p>a &quot;StartRoutineOutSignal&quot; with</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 11 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><i>∗</i> &quot;DcmDspRoutineSignalLength&quot; = 8 bit for each programming precondition specified for the ECU</p>
+<p>(max. 255 preconditions, i.e. 2048 bits)</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = VARIABLE_LENGTH</p>
+<p><b>Reset individual data (0x31 0x01 0x10 0x1A)</b></p>
+<p><b>[IM_StdDiagClassic_0009]<i></b> d</i>This request is supported, if the configuration container</p>
+<p>&quot;StdDiagProvideIDRL&quot; is available. The request has no input signals, and a fixed response length. The</p>
+<p>response contains the routine result (1 byte). If all resets of individual data are successful, the routine</p>
+<p>result is 0x00. Otherwise, the routine result is 0x01. Therefore, it is sufficient to configure only an</p>
+<p>Out-Signal, but no In-Signal:<i> c</i>(ADUE_3981, ADUE_3982)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x101A</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a reference to &quot;DcmDspCommonAuthorization&quot; with a reference to the extended diagnostic session</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineOut&quot; with</p>
+<p>a &quot;StartRoutineOutSignal&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Clear DTCs Secondary Error Memory (0x31 0x01 0x0F 0x06)</b></p>
+<p><b>[IM_StdDiagClassic_0005]<i></b> d</i>This diagnostic request has to be configured only, if the ECU supports</p>
+<p>DTCs in the secondary error memory. The configuration container StdDiagClearSecondaryErrorMemory</p>
+<p>has to be available. This request has no input signals and no output signals.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_862, DK_T3_863, DK_T3_864, DK_T3_865)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x0F06</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>no further sub-containers configured</p>
+<p><b>Upload/Download Pre/Post-Processing (0x31 0x01 0x70 0x00)</b></p>
+<p><b>[IM_StdDiagClassic_0023]<i></b> d</i>This request is supported, if the configuration container</p>
+<p>&quot;StdDiagApplicationDataTransfer&quot; is available. The request has a variable request length, and a fixed</p>
+<p>response length. The response contains the routine result (1 byte):<i> c</i>(ADUE_2773, ADUE_2774,</p>
+<p>ADUE_3618)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x7000</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 12 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>a reference to &quot;DcmDspCommonAuthorization&quot; with a reference to the extended diagnostic session,</p>
+<p>but no reference to default or programming session</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;Data&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalLength&quot; = 64 bit - 2184 bit (see note below)</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = VARIABLE_LENGTH</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineOut&quot; with</p>
+<p>a &quot;StartRoutineOutSignal&quot; named &quot;Result&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Note:</b> Request data consists of 3 byte fix + size of memoryObjectIdentifier + size of</p>
+<p>applicationSpecificParameter. According to &quot;LH Applikationsdatenuebertragung&quot; the</p>
+<p>memoryObjectIdentifier size is in range 5 byte to 15 byte, applicationSpecificParameter size is in range 0</p>
+<p>byte to 255 byte. So minimum value for &quot;DcmDspRoutineSignalLength&quot; is 64 bit (8 byte), maximum value</p>
+<p>is 2184 bit (273 byte).</p>
+<p><b>Note:</b> This RoutineControl (RID 0x7000) is a common job for all ADT clients. &quot;LH</p>
+<p>Applikationsdatenuebertragung&quot; requires further Routine Control jobs for each application specific</p>
+<p>routine control identifier. These jobs are not part of StdDiag.</p>
+<p><b>Set log level for Dlt (0x31 0x01 0x10 0x90)</b></p>
+<p><b>[IM_StdDiagClassic_0010]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1583, DK_T3_1586)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1090</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;applicationId&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT32</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;contextId&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 32</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT32</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newLogLevel&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 64</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Reset Dlt to default configuration (0x31 0x01 0x10 0x91)</b></p>
+<p><b>[IM_StdDiagClassic_0011]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has neither input nor output signals.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 13 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1590, DK_T3_1592)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1091</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>no further sub-containers configured</p>
+<p><b>Set message filtering state for Dlt (0x31 0x01 0x10 0x92)</b></p>
+<p><b>[IM_StdDiagClassic_0012]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1596, DK_T3_1599)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1092</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newFilterStatus&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Set log channel threshold for Dlt (0x31 0x01 0x10 0x93)</b></p>
+<p><b>[IM_StdDiagClassic_0022]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1603, DK_T3_1606)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1093</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;logChannelName&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT32</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newLogLevelThreshold&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 32</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newTraceStatus&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 40</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 14 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Store Dlt configuration persistently (0x31 0x01 0x10 0x94)</b></p>
+<p><b>[IM_StdDiagClassic_0013]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has neither input nor output signals.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1610, DK_T3_1612)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1094</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>no further sub-containers configured</p>
+<p><b>Set trace state for Dlt (0x31 0x01 0x10 0x95)</b></p>
+<p><b>[IM_StdDiagClassic_0014]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1616, DK_T3_1619)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1095</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;applicationId&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT32</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;contextId&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 32</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT32</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newTraceStatus&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 64</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Set default log level for Dlt (0x31 0x01 0x10 0x96)</b></p>
+<p><b>[IM_StdDiagClassic_0015]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1623, DK_T3_1626)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1096</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newDefaultLogLevel&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 15 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Set default trace state for Dlt (0x31 0x01 0x10 0x97)</b></p>
+<p><b>[IM_StdDiagClassic_0016]<i></b> d</i>This request is only supported, if the configuration container</p>
+<p>&quot;StdDiagProvideDLTSupport&quot; is available. The request has only input signals, and a fixed request length.</p>
+<p>The following parameters have to be configured:<i> c</i>(DK_T3_1630, DK_T3_1633)</p>
+<p>a container &quot;DcmDspRoutine&quot; with</p>
+<p>&quot;DcmDspRoutineIdentifier&quot; = 0x1097</p>
+<p>&quot;DcmDspRoutineUsePort&quot; = TRUE</p>
+<p>a subcontainer &quot;DcmDspStartRoutine&quot; and &quot;DcmDspStartRoutineIn&quot; with</p>
+<p>a &quot;StartRoutineInSignal&quot; named &quot;newDefaultTraceStatus&quot; with</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalPos&quot; = 0</p>
+<p><i>∗</i> &quot;DcmDspRoutineSignalType&quot; = UINT8</p>
+<p><b>Service Request Manufacturer Notification</b></p>
+<p>A StdDiag Service Request Manufacturer Notification shall be configured in the container</p>
+<p>&quot;DcmDsdServiceRequestManufacturerNotification&quot;. The Mapping to the StdDiag module is done by</p>
+<p>connecting the corresponding ports.</p>
+<p><b>Service Handler for Upload Download Services</b></p>
+<p>To implement the functionality &quot;Application Data Transfer&quot; (ADT, german</p>
+<p>&quot;Applikationsdatenuebertragung, ADUE) (see LH &quot;Applikationsdatenuebertragung&quot;), the UDS Services</p>
+<p>0x34 (RequestDownload), 0x35 (RequestUpload), 0x36 (TransferData) and 0x37 (RequestTransferExit)</p>
+<p>are necessary. For these services AUTOSAR Dcm basically provides callouts like</p>
+<p>&quot;Dcm_ProcessRequestDownload&quot; and &quot;Dcm_WriteMemory&quot;, which has two constraints: The parameter</p>
+<p>MemoryAddress within these APIs is of type uint32, i.e. values are restricted to 4 bytes. ADT needs at</p>
+<p>least 5 byte for the memory object identifier, which is ISO-14229 compliant. Furthermore Dcm currently</p>
+<p>only provides C-API callouts, but no Service Interface. For these reasons StdDiag requires the following</p>
+<p>configuration:</p>
+<p>configure container &quot;DcmDspService&quot; for service &quot;RequestDownload&quot; with</p>
+<p>&quot;DcmDsdSidTabServiceId&quot; = 0x34</p>
+<p>&quot;DcmDsdSidTabSubfuncAvail&quot; = 0</p>
+<p>&quot;DcmDsdSidTabFnc&quot; = StdDiag_RequestDownload</p>
+<p>configure container &quot;DcmDspService&quot; for service &quot;RequestUpload&quot; with</p>
+<p>&quot;DcmDsdSidTabServiceId&quot; = 0x35</p>
+<p>&quot;DcmDsdSidTabSubfuncAvail&quot; = 0</p>
+<p>&quot;DcmDsdSidTabFnc&quot; = StdDiag_RequestUpload</p>
+<p>configure container &quot;DcmDspService&quot; for service &quot;TransferData&quot; with</p>
+<p>&quot;DcmDsdSidTabServiceId&quot; = 0x36</p>
+<p>&quot;DcmDsdSidTabSubfuncAvail&quot; = 0</p>
+<p>&quot;DcmDsdSidTabFnc&quot; = StdDiag_TransferData</p>
+<p>configure container &quot;DcmDspService&quot; for service &quot;RequestTransferExit&quot; with</p>
+<p>&quot;DcmDsdSidTabServiceId&quot; = 0x37</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 16 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>&quot;DcmDsdSidTabSubfuncAvail&quot; = 0</p>
+<p>&quot;DcmDsdSidTabFnc&quot; = StdDiag_RequestTransferExit</p>
+<p><b>Det</b></p>
+<p>A StdDiag entry shall be added to the Software Component List from Det. This is only necessary, if the</p>
+<p>parameter &quot;StdDiagDevErrorDetect&quot; is set to &quot;true&quot;.</p>
+<p><b>Dem</b></p>
+<p><b>[IM_StdDiagClassic_0002]<i></b> d</i>In the container &quot;DemEnableCondition&quot; a new Enable Condition has to</p>
+<p>be configured (StdDiag Enable Condition). This Enable condition has to be referenced by each Enable</p>
+<p>Condition Group configured in the container &quot;DemEnableConditionGroup&quot;. In addition, each configured</p>
+<p>Event (&quot;DemEventParameter&quot;) has to refer to an Enable Condition Group</p>
+<p>(&quot;DemEnableConditionGroupRef&quot;) in its Event Class (&quot;DemEventClass&quot;).<i> c</i>(FL257)</p>
+<p>Exceptions: The Events related to the DTCs &quot;CODING_EVENT_NOT_CODED&quot; (see</p>
+<p>IntegrationManual_Coding.pdf) and &quot;Energy saving mode active&quot; (see IntegrationManual_Omc.pdf) shall</p>
+<p>not be locked by the StdDiag Enable Condition. These Events shall refer to either no Enable Condition</p>
+<p>Group, or to an Enable Condition Group that does not include the StdDiag Enable Condition.</p>
+<p><b>BswM</b></p>
+<p>The following<b> BswMModeRequestPorts</b> have to be configured in the BswM:</p>
+<p><b>Port_StdDiag_LifeCycle</b></p>
+<p>This port shall have a BswMModeRequestSource of type &quot;BswMSwcModeNotification&quot;, and receives</p>
+<p>mode switch notifications of the ModeDeclarationGroup &quot;StdDiag_LifeCycle&quot; from the StdDiag module.</p>
+<p><b>Port_StdDiag_ComControlModeRequest</b></p>
+<p>This port shall have a BswMModeRequestSource of type &quot;BswMSwcModeRequest&quot;, and receives mode</p>
+<p>requests of the ModeDeclarationGroup &quot;StdDiag_NormalCommunicationModeGroup&quot; from the StdDiag</p>
+<p>module.</p>
+<p><b>Port_Dcm_CommunicationControl</b></p>
+<p>This port shall have a BswMModeRequestSource of type &quot;BswMDcmComModeRequest&quot;, and shall</p>
+<p>receive the current communication mode of the ModeDeclarationGroup</p>
+<p>&quot;Dcm_CommunicationControl_&lt;Channel&gt;&quot; defined by the Dcm.</p>
+<p><b>Port_Dcm_SessionControl</b></p>
+<p>This port shall have a BswMModeRequestSource of type &quot;BswMSwcModeNotification&quot;, and shall receive</p>
+<p>the current diagnostic session of the ModeDeclarationGroup &quot;Dcm_DiagnosticSessionControl&quot; defined</p>
+<p>by the Dcm.</p>
+<p>The following<b> BswMRteModeRequestPort</b> have to be configured in the BswM:</p>
+<p><b>StdDiagLifeCycleRequestPort</b></p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 17 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>To request modes of the ModeDeclarationGroup &quot;StdDiag_LifeCycle&quot;, this port shall have a</p>
+<p>BswMRteModeRequestPortInterfaceRef to the variable data prototype &quot;requestMode&quot; related to the Port</p>
+<p>&quot;LifeCycle&quot; of the StdDiag module.</p>
+<p>The following<b> BswMSwitchPorts</b> have to be configured in the BswM:</p>
+<p><b>StdDiagSessionChangeIndicationPort</b></p>
+<p>To switch modes of the ModeDeclarationGroup &quot;StdDiag_SessionModeGroup&quot;, this port shall have a</p>
+<p>BswMModeSwitchInterfaceRef to the ModeSwitchInterface &quot;SessionChangeIndicationInterface&quot; of the</p>
+<p>StdDiag module.</p>
+<p><b>StdDiagComControlNormalNotificationPort</b></p>
+<p>To switch modes of the ModeDeclarationGroup &quot;StdDiag_NormalCommunicationModeGroup&quot;, this port</p>
+<p>shall have a BswMModeSwitchInterfaceRef to the ModeSwitchInterface</p>
+<p>&quot;ComControlNormalNotificationInterface&quot; of the StdDiag module.</p>
+<p>The following<b> Rules</b> have to be configured in the BswM:</p>
+<p><b>LifeCycle handling</b>:</p>
+<p>To initialize the StdDiag module the BswM has to provide a rule, that results in an action that requests the</p>
+<p>mode &quot;STDDIAG_INITIALIZED&quot; of the mode declaration group &quot;StdDiag_LifeCycle&quot;.</p>
+<p>To set the StdDiag module to normal operation mode the BswM has to provide a rule, that results in an</p>
+<p>action that requests the mode &quot;STDDIAG_RUNNING&quot; of the mode declaration group</p>
+<p>&quot;StdDiag_LifeCycle&quot;. This rule is triggered by a mode switch to the mode &quot;STDDIAG_INITIALIZED&quot; by</p>
+<p>the StdDiag module itself. When the StdDiag module is in normal operation mode, the StdDiag module</p>
+<p>switches the mode to &quot;STDDIAG_RUNNING&quot;.</p>
+<p>To deactivate the StdDiag module the BswM has to provide a rule, that results in an action that requests</p>
+<p>the mode &quot;STDDIAG_STOPPED&quot; of the mode declaration group &quot;StdDiag_LifeCycle&quot;.</p>
+<p>For details on how to initialize / deactivate the StdDiag module, please refer to chapter 5.5.</p>
+<p><b>Diagnostic Session handling:</b></p>
+<p>To notify the StdDiag module when the DefaultSession is entered, the BswM has to provide a rule, that</p>
+<p>results in an action that switches the mode of the mode declaration group &quot;StdDiag_SessionModeGroup&quot;</p>
+<p>to &quot;STDDIAG_DEFAULT_SESSION&quot; via BswMSwitchPort &quot;StdDiagSessionChangeIndicationPort&quot; (see</p>
+<p>above), when the Dcm module indicates a mode switch of the mode declaration group</p>
+<p>&quot;DcmDiagnosticSessionControl&quot; to &quot;DefaultSession&quot; via BswMModeRequestPort</p>
+<p>&quot;Port_Dcm_SessionControl&quot;.</p>
+<p>To notify the StdDiag module when the DefaultSession is left, the BswM has to provide a rule, that results</p>
+<p>in an action that switches the mode of the mode declaration group &quot;StdDiag_SessionModeGroup&quot; to</p>
+<p>&quot;STDDIAG_OTHER_SESSION&quot; via BswMSwitchPort &quot;StdDiagSessionChangeIndicationPort&quot; (see</p>
+<p>above), when the Dcm module indicates a mode switch of the mode declaration group</p>
+<p>&quot;DcmDiagnosticSessionControl&quot; to any other than the &quot;DefaultSession&quot; via BswMModeRequestPort</p>
+<p>&quot;Port_Dcm_SessionControl&quot;.</p>
+<p><b>Communication Control handling:</b></p>
+<p>To notify the StdDiag module about a change of the normal communication mode, the BswM has to</p>
+<p>provide rules that result in actions that switch the corresponding mode of the mode declaration group</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 18 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>&quot;StdDiag_NormalCommunicationModeGroup&quot; via BswMSwitchPort</p>
+<p>&quot;StdDiagComControlNormalNotificationPort&quot; (see above).</p>
+<p>These rules have to be triggered either when the Dcm switches the mode of the mode declaration group</p>
+<p>&quot;DcmCommunicationControl_&lt;Channel&gt;&quot;, or when the StdDiag module itself requests a mode of the</p>
+<p>mode declaration group &quot;StdDiag_NormalCommunicationModeGroup&quot;.</p>
+<p>(<b>Note:</b> These rules also have to result in actions that enable / disable the corresponding Pdu-Groups)</p>
+<p>To achieve a correct combination of the two request sources StdDiag and Dcm, the following four rules</p>
+<p>should be configured:</p>
+<p><b>BswMRule_ComControl_Enable_Rx_Enable_Tx</b></p>
+<p>if ( (LogEx_Enable_Rx == TRUE) &amp;&amp; (LogEx_Enable_Tx == TRUE))</p>
+<p>{</p>
+<p>Switch StdDiagComControlNormalNotificationPort to ENABLE_RX_AND_TX_NORMAL</p>
+<p>}</p>
+<p><b>BswMRule_ComControl_Enable_Rx_Disable_Tx</b></p>
+<p>if ( (LogEx_Enable_Rx == TRUE) &amp;&amp; (LogEx_Disable_Tx == TRUE))</p>
+<p>{</p>
+<p>Switch StdDiagComControlNormalNotificationPort to ENABLE_RX_DISABLE_TX_NORMAL</p>
+<p>}</p>
+<p><b>BswMRule_ComControl_Disable_Rx_Enable_Tx</b></p>
+<p>if ( (LogEx_Disable_Rx == TRUE) &amp;&amp; (LogEx_Enable_Tx == TRUE))</p>
+<p>{</p>
+<p>Switch StdDiagComControlNormalNotificationPort to DISABLE_RX_ENABLE_TX_NORMAL</p>
+<p>}</p>
+<p><b>BswMRule_ComControl_Disable_Rx_Disable_Tx</b></p>
+<p>if ( (LogEx_Disable_Rx == TRUE) &amp;&amp; (LogEx_Disable_Tx == TRUE))</p>
+<p>{</p>
+<p>Switch StdDiagComControlNormalNotificationPort to DISABLE_RX_AND_TX_NORMAL</p>
+<p>}</p>
+<p>The corresponding<b> locigal expressions</b> are defined as follows:</p>
+<p>Both StdDiag and Dcm allow to enable Rx:</p>
+<p><b>LogEx_Enable_Rx</b> = (LogEx_Enable_Rx_StdDiag) &amp;&amp; (LogEx_Enable_Rx_Dcm)</p>
+<p>Both StdDiag and Dcm allow to enable Tx:</p>
+<p><b>LogEx_Enable_Tx</b> = (LogEx_Enable_Tx_StdDiag) &amp;&amp; (LogEx_Enable_Tx_Dcm)</p>
+<p>Either StdDiag or Dcm want to disable Rx:</p>
+<p><b>LogEx_Disable_Rx</b> = !((LogEx_Enable_Rx_StdDiag) &amp;&amp; (LogEx_Enable_Rx_Dcm))</p>
+<p>Either StdDiag or Dcm want to disable Tx:</p>
+<p><b>LogEx_Disable_Tx</b> = !((LogEx_Enable_Tx_StdDiag) &amp;&amp; (LogEx_Enable_Tx_Dcm))</p>
+<p><b>LogEx_Enable_Rx_StdDiag</b> =</p>
+<p>Port_StdDiag_ComControlModeRequest == ENABLE_RX_AND_TX_NORMAL ||</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 19 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Port_StdDiag_ComControlModeRequest == ENABLE_RX_DISABLE_TX_NORMAL</p>
+<p><b>LogEx_Enable_Rx_Dcm</b> =</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_TX_NORM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_DISABLE_TX_NORM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_TX_NORM_NM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_DISABLE_TX_NORM_NM</p>
+<p><b>LogEx_Enable_Tx_StdDiag</b> =</p>
+<p>Port_StdDiag_ComControlModeRequest == ENABLE_RX_AND_TX_NORMAL ||</p>
+<p>Port_StdDiag_ComControlModeRequest == DISABLE_RX_ENABLE_TX_NORMAL</p>
+<p><b>LogEx_Enable_Tx_Dcm</b> =</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_TX_NORM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_DISABLE_RX_ENABLE_TX_NORM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_ENABLE_RX_TX_NORM_NM ||</p>
+<p>Port_Dcm_CommunicationControl == DCM_DISABLE_RX_ENABLE_TX_NORM_NM</p>
+<p><b>EcuC</b></p>
+<p>If post build support is needed, the EcuC configuration shall provide a collection of toplevel</p>
+<p>PostBuildSelectable variants in containers &quot;EcucPostBuildVariants&quot;. These containers shall refer to</p>
+<p>predefined variants, which in turn refer to post build variant criterion value sets. During the generation</p>
+<p>process, PAGe evaluates all available variants whether the criterion value matches the value given in the</p>
+<p>variation point of the post build selectable configuration parameter.</p>
+<p><b>Configuration of generic part</b></p>
+<p><b>StdDiagGeneral</b></p>
+<p>This container contains the configuration parameters of the generic part of the StdDiag module</p>
+<p><b>StdDiagDevErrorDetect</b></p>
+<p>This parameter activates/deactivates the Development Error Detection and Notification.</p>
+<p>If set to true: Development Error Detection and Notification is activated.</p>
+<p>If set to false: Development Error Detection and Notification is deactivated.</p>
+<p><b>StdDiagUserEstablishIntrinsicSafety</b></p>
+<p><b>[IM_StdDiag_0001]<i></b> d</i>During UDS Routine Service 0x31 01 0F 0C 03 (set EnergyMode = Flash) an</p>
+<p>ECU shall establish intrinsic safety. StdDiag checks whether the PWF status is</p>
+<p>&quot;PruefenAnalyseDiagnose&quot;, which is mandatory for all ECUs. During UDS Routine Service 0x31 01 0F 0C</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 20 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>00 (set EnergyMode = Normal), if flash mode was active before, an ECU shall revert all actions taken to</p>
+<p>establish intrinsic safety. If there are more actions to be taken by the ECU to establish or revert intrinsic</p>
+<p>safety, this parameter has to be set to &quot;true&quot;.<i> c</i>(FL215, FL216, FL217, FL283, FL284, FL285)</p>
+<p>If set to true: StdDiag calls a user specific function to establish or revert intrinsic safety.</p>
+<p>If set to false: StdDiag only checks for correct PWF state.</p>
+<p><b>StdDiagUserActiveSessionState</b></p>
+<p>The positive response on UDS service 0x22 F1 00 provides the active session state in its second byte.</p>
+<p>StdDiag provides the active session state within the application default session and the application</p>
+<p>extended diagnostic session. For all other sessions StdDiag sets the active session state to &quot;0&quot;, or</p>
+<p>optionally calls a user specific application that provides this information.</p>
+<p>If set to true: StdDiag call a user specific function that provides the active session state.</p>
+<p>If set to false: StdDiag uses the default value &quot;0&quot; for the active session state.</p>
+<p><b>StdDiagUserProgrammingPreconditionsCheck</b></p>
+<p><b>[IM_StdDiag_0002]<i></b> d</i>To evaluate EUC specific programming preconditions, StdDiag optionally</p>
+<p>provides a callout to a user specific application. If an ECU has to evaluate programming preconditions, the</p>
+<p>integrator shall provide this configuration container and configure its parameters. This container defines</p>
+<p>whether a user specific function for checking additional programming preconditions is used.<i> c</i>(FL191,</p>
+<p>FL193)</p>
+<p><b>MaxNumberUserProgrammingPrecondition</b></p>
+<p>This parameter defines the maximum number of failed user programming preconditions.</p>
+<p><b>StdDiagProvideIDRL</b></p>
+<p>This configuration container defines if the StdDiag module shall provide the IDRL feature.</p>
+<p>Container is available: StdDiag provides the IDRL feature Container is not available: StdDiag does not</p>
+<p>provide the IDRL feature</p>
+<p>If this container is available, the following parameters and subcontainers, which are part of this container,</p>
+<p>shall be configured.</p>
+<p>The user has at least to configure the format identifier of the DID table.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 21 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>DIDTableFormatIdentifier</b></p>
+<p>This parameter defines the format identifier of the individual DID table. According to LH ADUE this</p>
+<p>parameter has to be set to 0x0001.</p>
+<p><b>IDRLClient</b></p>
+<p>This container defines the name of an application software component that implements an IDRL client,</p>
+<p>i.e. that provides individual data. This container has a subcontainer IndivData. This container shall be</p>
+<p>configured once for each application component implementing an IDRL client.</p>
+<p><b>IndivData</b></p>
+<p>The container IndivData defines the individual data of an IDRL client. The configured name of this</p>
+<p>container represents a symbolic name for the individual data. This container has a configuration</p>
+<p>parameter DIDValue.</p>
+<p><b>DIDValue</b></p>
+<p>Each individual data has a 2 bytes data identifier. This identifier shall be configured in parameter DIDValue.</p>
+<p><b>MaxDataSize</b></p>
+<p>This parameter defines the maximum size of individual data for the corresponding DIDValue.</p>
+<p><b>Configuration of adapter part</b></p>
+<p><b>StdDiagGeneral</b></p>
+<p>This container contains the configuration parameters of the classic adapter of the StdDiag module.</p>
+<p><b>StdDiagClearSecondaryErrorMemory</b></p>
+<p>This parameter defines if the StdDiag module provides a service handler to clear the secondary error</p>
+<p>memory via the UDS service 0x31 01 0F 06. true: StdDiag provides a service handler false: StdDiag does</p>
+<p>not provide a service handler</p>
+<p>If the ECU supports DTCs in the secondary error memory, this parameter shall be set to &quot;true&quot;, and the</p>
+<p>following configuration container &quot;StdDiagUserDefinedMemory&quot; as well as the two parameters, which are</p>
+<p>part of this container, shall be configured.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 22 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>StdDiagUserDefinedMemory</b></p>
+<p>This configuration container and the parameters within this container have to be configured, if the</p>
+<p>parameter &quot;StdDiagClearSecondaryErrorMemory&quot; is set to 'true'</p>
+<p><b>StdDiagUserDefinedMemoryName</b></p>
+<p>This string parameter shall be set to the short-name of the Dem configuration container</p>
+<p>DemUserDefinedMemory, which represents the secondary error memory. To clear the secondary error</p>
+<p>memory, StdDiag calls the operation &quot;ClearDTC&quot; of the Interface &quot;CddIf&quot; with Parameter &quot;DTCOrigin&quot; set</p>
+<p>to &quot;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&quot;, where &quot;XX&quot; is the short-name of</p>
+<p>DemUserDefinedMemory. StdDiag uses the parameter &quot;StdDiagUserDefinedMemoryName&quot; to replace</p>
+<p>&quot;XX&quot; here.</p>
+<p><b>StdDiagUserDefinedMemoryId</b></p>
+<p>This parameter shall be set to the value of &quot;Dem_DTCOriginType&quot; (i.e. the value of the compu-scale</p>
+<p>&quot;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&quot;), which represents the secondary error memory.</p>
+<p>Basically this is the value of the Dem parameter &quot;DemUserDefinedMemoryIdentifier&quot;. According to</p>
+<p>AUTOSAR 4.2.2 the value of the Dem parameter is restricted to a range 16..255. As BMW requires a</p>
+<p>value of 0x01 for the parameter &quot;MemorySelection&quot; of UDS-Service 0x19 with subfunctions 0x17, 0x18</p>
+<p>or 0x19, some Stack vendors might provide different workarounds to realize this. StdDiag provides the</p>
+<p>configuration parameter &quot;StdDiagUserDefinedMemoryId&quot; to configure the value of the compu-scale</p>
+<p>&quot;DEM_DTC_ORIGIN_USERDEFINED_MEMORY_XX&quot; according to the stack specific implementation.</p>
+<p>With RfC70370 the range of &quot;DemUserDefinedMemoryIdentifier&quot; will be changed to 0..255.</p>
+<p><b>StdDiagSgbdIndex</b></p>
+<p><b>[IM_StdDiagClassic_0020]<i></b> d</i>This container defines the SGBD-Index which is read out by UDS service</p>
+<p>0x22 F1 50.<i> c</i>(DK_T3_312, DK_T3_316)</p>
+<p><b>SgbdIndex</b></p>
+<p><b>[IM_StdDiagClassic_0021]<i></b> d</i>This parameter shall be set to the value of the SGBD-Index. This value</p>
+<p>shall be in range 0x000000 to 0xFFFFFF.<i> c</i>(DK_T3_312, DK_T3_316)</p>
+<p><b>Note:</b> The parameter &quot;SgbdIndex&quot; is post build configurable. If a post build selectable SgbdIndex is</p>
+<p>needed, the parameter &quot;SgbdIndex&quot; shall be configured once for each variant. Each instance of</p>
+<p>&quot;SgbdIndex&quot; shall have a variation point with a post build variant condition, that specifies the necessary</p>
+<p>value of the corresponding post build variant criterion.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 23 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>StdDiagApplicationDataTransfer</b></p>
+<p>This configuration container and its parameters and subcontainers has to be configured to enable</p>
+<p>functionality application data transfer (ADT). ADT is necessary to support e.g. certificate and key</p>
+<p>managemet of system function &quot;Basic Security&quot; (BS).</p>
+<p><b>ApplicationRoutineControlIdentifier</b></p>
+<p>This configuration container shall exist for each supported applicationRoutineControlIdentifier.</p>
+<p><b>RoutineIdentifierValue</b></p>
+<p>This parameter shall be set to the value of the applicationRoutineControlIdentifier (e.g. 0x10AA for BS).</p>
+<p><b>ApplicationSubRoutineControlIdentifier</b></p>
+<p>This configuration container shall exist for each supported applicationSubRoutineControlIdentifier. If no</p>
+<p>applicationSubRoutineControlIdentifier is needed, this container shall be configured anyway, and</p>
+<p>parameter SubRoutineIdentifierValue shall be set to 0x0000.</p>
+<p><b>SubRoutineIdentifierValue</b></p>
+<p>This parameter shall be set to the value of the applicationSubRoutineControlIdentifier (e.g. 0x0000 for</p>
+<p>BS).</p>
+<p><b>controlIDs</b></p>
+<p>This parameter has a multiplicity of 1..n. For each cntrlID of the corresponding combination</p>
+<p>applicationRoutineControlIdentifier/applicationSubRoutineControlIdentifier one instance of this parameter</p>
+<p>shall exist, and shall be set to the value of the cntrlID (e.g. one instance with value 0x00 for BS).</p>
+<p><b>StdDiagProvideDLTSupport</b></p>
+<p>This configuration container defines if the StdDiag module shall provide the implementation for BMW</p>
+<p>specific support of Diagnostic Log and Trace (DLT).</p>
+<p>container is available: StdDiag provides the DLT feature container is not available: StdDiag does not</p>
+<p>provide the DLT feature</p>
+<p>If this container is available, the following parameter, which is part of this container, shall be configured.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 24 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>StdDiagNumberSupportedDLTLogChannels</b></p>
+<p>This parameter defines the number of supported DLT log channels. This has to be equal to the number</p>
+<p>of DltLogChannel containers in Dlt module configuration.</p>
+<p><b>Configuration of the RTE</b></p>
+<p>After performing the steps indicated in chapters 5.1, 5.2 and 5.3, the RTE configuration can be started. In</p>
+<p>other way, the RTE will report an interface incompatibility error.</p>
+<p><b>Assembly Software Connectors</b></p>
+<p>The ports of the StdDiag module have to be connected with ports of other modules as follows:</p>
+<p><b>Dcm</b></p>
+<p><b>ActiveSessionState &lt;-&gt; DataServices_&lt;Data&gt;</b></p>
+<p>where &lt;Data&gt; is the name of the corresponding container &quot;DcmDspData&quot; describing the active Session</p>
+<p>State configured in the Dcm module according to chapter 5.1.1.</p>
+<p><b>SgbdIndex &lt;-&gt; DataServices_&lt;Data&gt;</b></p>
+<p>where &lt;Data&gt; is the name of the corresponding container &quot;DcmDspData&quot; describing the SGBD Index</p>
+<p>configured in the Dcm module according to chapter 5.1.1.</p>
+<p><b>DiagCommLoopback &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1.</p>
+<p><b>CheckProgrammingPreconditions &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1.</p>
+<p><b>ClearSecondaryErrorMemory &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1. (Only necessary when configuration container</p>
+<p>&quot;StdDiagClearSecondaryErrorMemory&quot; is available, see chapter 5.3.)</p>
+<p><b>ServiceRequestManufacturerNotificationPort &lt;-&gt; ServiceRequestNotification_&lt;Name&gt;</b></p>
+<p>where &lt;Name&gt; is the name of the corresponding container</p>
+<p>&quot;DcmDslServiceRequestManufacturerNotification&quot; configured in the Dcm module according to chapter</p>
+<p>5.1.1.</p>
+<p><b>DCMServicesPort &lt;-&gt; DCMServices</b></p>
+<p>If the configuration container &quot;StdDiagProvideIDRL&quot; is available (see chapter 5.2), the following ports of</p>
+<p>the StdDiag module have to be connected with the ports of DCM as follows:</p>
+<p><b>IdrlDidTable &lt;-&gt; DataServices_&lt;Data&gt;</b></p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 25 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>where &lt;Data&gt; is the name of the corresponding container &quot;DcmDspData&quot; configured in the Dcm module</p>
+<p>according to chapter 5.1.1.</p>
+<p><b>ResetIdrlData &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1.</p>
+<p>If the configuration container &quot;StdDiagProvideIDRL&quot; is available, and the IDRL clients and the individual</p>
+<p>data IDs are also configured (see chapter 5.2), the following ports of the StdDiag module have to be</p>
+<p>connected with the ports of DCM as follows:</p>
+<p><b>IdrlData&lt;IDRLClient&gt;&lt;DID&gt; &lt;-&gt; DataServices_&lt;Data&gt;</b></p>
+<p>where &lt;IDRLClient&gt; is the name of an IDRL client configured in container IDRLClient, &lt;DID&gt; is the</p>
+<p>symbolic name of the individual data configured in container IndivData, and &lt;Data&gt; is the name of the</p>
+<p>corresponding container &quot;DcmDspData&quot; configured in the Dcm module according to Note of chapter</p>
+<p>5.1.1.</p>
+<p>If the configuration container &quot;StdDiagApplicationDataTransfer&quot; is available (see chapter 5.3), the</p>
+<p>following port of the StdDiag module has to be connected with the port of DCM as follows:</p>
+<p><b>UpDownloadPrePostProcessingPort &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1.</p>
+<p>If the configuration container &quot;StdDiagProvideDLTSupport&quot; is available (see chapter 5.3), the following</p>
+<p>ports of the StdDiag module have to be connected with the ports of DCM as follows:</p>
+<p><b>DltReadLogChannelNames &lt;-&gt; DataServices_&lt;Data&gt;</b></p>
+<p>where &lt;Data&gt; is the name of the corresponding container &quot;DcmDspData&quot; configured in the Dcm module</p>
+<p>according to chapter 5.1.1.</p>
+<p><b>DltSetLoglevel &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltResetToDefault &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltSetMessagefilteringstate &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltSetLogchannelThreshold &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltStoreConfiguration &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltSetTracestate &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltSetDefaultLoglevel &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p><b>DltSetDefaultTracestate &lt;-&gt; RoutineServices_&lt;Routine&gt;</b></p>
+<p>where &lt;Routine&gt; is the name of the corresponding container &quot;DcmDspRoutine&quot; configured in the Dcm</p>
+<p>module according to chapter 5.1.1.</p>
+<p><b>Dem</b></p>
+<p><b>EnableConditionPort &lt;-&gt; EnableCond_&lt;Name&gt;</b></p>
+<p>where &lt;Name&gt; is the name of the corresponding container &quot;DemEnableCondition&quot; configured in the</p>
+<p>Dem module according to chapter 5.1.3.</p>
+<p><b>ClearDTCPort&lt;-&gt; Dem_Cdd</b></p>
+<p>(Only necessary when configuration container &quot;StdDiagClearSecondaryErrorMemory&quot; is available, see</p>
+<p>chapter 5.3)</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 26 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Det</b></p>
+<p><b>ReportErrorPort &lt;-&gt; DS&lt;xxx&gt;</b></p>
+<p>where &lt;xxx&gt; is an identifier of the StdDiag configured in the Det module (see chapter 5.1.2).</p>
+<p><b>Darh</b></p>
+<p><b>RoEStatePort &lt;-&gt; RoeStatePort</b></p>
+<p><b>Omc</b></p>
+<p><b>OperatingModeControlPort &lt;-&gt; operatingModeSwitchPort</b></p>
+<p><b>ExtendedOperatingModeControlPort &lt;-&gt; extendedOperatingModeSwitchPort</b></p>
+<p><b>AllowOpModeChangePort &lt;-&gt; StdDiag AllowOpModeChangeCbkPort &lt;-&gt; StdDiagCbk</b></p>
+<p><b>Stm</b></p>
+<p><b>VehicleStatePort &lt;-&gt; VehicleStateSP2015ModeSwitchPort</b></p>
+<p><b>BswM</b></p>
+<p><b>LifeCycle &lt;-&gt; BswMModeRequestPort_xxx</b></p>
+<p>where BswMModeRequestPort_xxx means the R-Port of the BswM that receives a mode switch of the</p>
+<p>ModeDeclarationGroup &quot;StdDiag_LifeCycle&quot; from the StdDiag module. (see &quot;Port_StdDiag_LifeCycle&quot; in</p>
+<p>chapter 5.1.4)</p>
+<p><b>LifeCycleRequest &lt;-&gt; RteModeRequestPort_xxx</b></p>
+<p>where RteModeRequestPort_xxx means the P-Port of the BswM that provides a mode requret of the</p>
+<p>ModeDeclarationGroup &quot;StdDiag_LifeCycle&quot; to the StdDiag module. (see</p>
+<p>&quot;StdDiagLifeCycleRequestPort&quot; in chapter 5.1.4)</p>
+<p><b>SessionChangeIndicationPort &lt;-&gt; ModeSwitchPort_xxx</b></p>
+<p>where ModeSwitchPort_xxx means the P-Port of the BswM that provides a mode switch of the</p>
+<p>ModeDeclarationGroup &quot;StdDiag_SessionModeGroup&quot; to the StdDiag module. (see</p>
+<p>&quot;StdDiagSessionChangeIndicationPort&quot; in chapter 5.1.4)</p>
+<p><b>ComControlNormalModeAccessPort &lt;-&gt; ModeSwitchPort_xxx</b></p>
+<p>where ModeSwitchPort_xxx means the P-Port of the BswM that provides a mode switch of the</p>
+<p>ModeDeclarationGroup &quot;StdDiag_NormalCommunicationModeGroup&quot; to the StdDiag module. (see</p>
+<p>&quot;StdDiagComControlNormalNotificationPort&quot; in chapter 5.1.4)</p>
+<p><b>ComControlModeRequestPort &lt;-&gt; ModeRequestPort_xxx</b></p>
+<p>where ModeRequestPort_xxx means the R-Port of the BswM that receives a mode request of the</p>
+<p>ModeDeclarationGroup &quot;StdDiag_NormalCommunicationModeGroup&quot; from the StdDiag module. (see</p>
+<p>&quot;Port_StdDiag_ComControlModeRequest&quot; in chapter 5.1.4)</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 27 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Other Application SWC</b></p>
+<p><b>UserEstablishIntrinsicSafetyPort &lt;-&gt; ApplicationPort</b></p>
+<p>where ApplicationPort means the P-Port of an Application SWC that establishes intrinsic safety. (Only</p>
+<p>necessary when parameter &quot;StdDiagUserEstablishIntrinsicSafety&quot; is set to 'true', see chapter 5.2.)</p>
+<p><b>UserEstablishIntrinsicSafetyCbkPort &lt;-&gt; ApplicationPort</b></p>
+<p>where ApplicationPort means the R-Port of an Application SWC that notifies StdDiag when intrinsic</p>
+<p>safety is established. (Only necessary when parameter &quot;StdDiagUserEstablishIntrinsicSafety&quot; is set to</p>
+<p>'true', see chapter 5.2.)</p>
+<p><b>UserProgrammingPreconditionsCheckPort &lt;-&gt; ApplicationPort</b></p>
+<p>where ApplicationPort means the P-Port of an Application SWC that provides a user programming</p>
+<p>precondition check. (Only necessary when parameter &quot;UserProgrammingPreconditionsCheck&quot; is set to</p>
+<p>'true', see chapter 5.2.)</p>
+<p><b>UserActiveSessionStatePort &lt;-&gt; ApplicationPort</b></p>
+<p>where ApplicationPort means the P-Port of an Application SWC that provides the active session state for</p>
+<p>HDD Update Session. (Only necessary when parameter &quot;StdDiagUserActiveSessionState&quot; is set to 'true',</p>
+<p>see chapter 5.2.)</p>
+<p>If the configuration container &quot;StdDiagProvideIDRL&quot; is available, and the IDRL clients and the individual</p>
+<p>data IDs are also configured (see chapter 5.2), the following ports of the StdDiag module have to be</p>
+<p>connected with the ports of the IDRL clients as follows:</p>
+<p><b>IdrlDataSwc&lt;IDRLClient&gt;&lt;DID&gt; &lt;-&gt; ApplicationPort</b></p>
+<p>where &lt;IDRLClient&gt; is the name of an IDRL client configured in container IDRLClient, and &lt;DID&gt; is the</p>
+<p>symbolic name of the individual data configured in container IndivData (see chapter 5.2).</p>
+<p><b>ResetIdrlData&lt;IDRLClient&gt; &lt;-&gt; ApplicationPort</b></p>
+<p>where &lt;IDRLClient&gt; is the name of an IDRL client configured in container IDRLClient (see chapter 5.2).</p>
+<p>If the configuration container &quot;StdDiagApplicationDataTransfer&quot; is available, and the</p>
+<p>applicationRoutineControlIdentifer, applicationSubRoutineControlIdentifer and cntrlIDs are also</p>
+<p>configured (see chapter 5.3), the following ports of the StdDiag module have to be connected with the</p>
+<p>ports of the ADT clients as follows:</p>
+<p><b>Adt_&lt;applRID&gt;_&lt;applSubRID&gt;_CtrlID_&lt;cntrlID&gt; &lt;-&gt; ApplicationPort</b></p>
+<p>where ApplicationPort means the P-Port of an Application SWC that implements an ADT client (e.g. port</p>
+<p>&quot;StdDiag_AdueCertificates&quot; of module Bs), and where &lt;applRID&gt; is the name of the container</p>
+<p>&quot;ApplicationRoutineControlIdentifier&quot;, &lt;applSubRID&gt; is the name of the container</p>
+<p>&quot;ApplicationSubRoutineControlIdentifier&quot;, and &lt;cntrlID&gt; is the hex representation of parameter</p>
+<p>&quot;controlIDs&quot; (see chapter 5.3).</p>
+<p><b>Note:</b></p>
+<p>&lt;applSubRID&gt; is an empty string if corresponding parameter &quot;SubRoutineIdentifierValue&quot; is 0.</p>
+<p><b>Adt_&lt;applRID&gt;_&lt;applSubRID&gt;_CtrlID_&lt;cntrlID&gt;_Cbk &lt;-&gt; ApplicationPort</b></p>
+<p>This is the corresponding optional callback port connection, which is only necessary if an ADT client</p>
+<p>handles requests asynchronously.</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 28 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Event Mapping</b></p>
+<p>The mode switch events &quot;Event_SessionChange_DefaultSession&quot; and</p>
+<p>&quot;Event_SessionChange_OtherSession&quot; have to be mapped to an os-task.</p>
+<p><b>Data Mapping</b></p>
+<p>No Data Mapping necessary for the StdDiag module.</p>
+<p><b>Exclusive Areas</b></p>
+<p>No Exclusive Area available in the StdDiag module.</p>
+<p><b>Software Integration</b></p>
+<p><b>Startup/Initialization</b></p>
+<p>Before initialization of the StdDiag module, the modules Det, Dcm, Dem, Omc, Darh and the RTE have to</p>
+<p>be initialized. To initialize the StdDiag module, the BswM shall request the mode</p>
+<p>&quot;STDDIAG_INITIALIZED&quot; of the mode declaration group &quot;StdDiag_LifeCycle&quot;.</p>
+<p>When initialization of the StdDiag has been finished successfully, the StdDiag module switches the mode</p>
+<p>to &quot;STDDIAG_INITIALIZED&quot;.</p>
+<p><b>Normal Operation</b></p>
+<p>When the StdDiag module switches the mode to &quot;STDDIAG_INITIALIZED&quot;, the BswM shall request the</p>
+<p>mode &quot;STDDIAG_RUNNING&quot;. There are no further conditions that have to be considered. When the</p>
+<p>StdDiag module switches the mode to &quot;STDDIAG_RUNNING&quot;, the module is in normal operation mode.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>To deactivate the StdDiag module, the BswM has to request to the mode &quot;STDDIAG_STOPPED&quot;. There</p>
+<p>are no further conditions that have to be considered. When the StdDiag module switches the mode to</p>
+<p>&quot;STDDIAG_STOPPED&quot;, the module is deactivated.</p>
+<p><b>Select Post Build Configuration</b></p>
+<p>If the configuration parameter &quot;SgbdIndex&quot; is configured for two or more variants, the integrator shall call</p>
+<p>the API</p>
+<p>StdDiag_SetConfiguration(const StdDiag_PBConfigType</p>
+<p>*</p>
+<p>selectedConfig)</p>
+<p>,</p>
+<p>with parameter</p>
+<p>selectedConfig</p>
+<p>set to the desired post build variant. Possible variants and necessary</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 29 of 30</p>
+<h1 style="page-break-before:always; "></h1>
+<p>type definitions are available in the generated header file</p>
+<p>StdDiagClassic_PBCfg.h</p>
+<p>. If only one</p>
+<p>SgbdIndex is configured, this configuration is used by default, i.e. it is not necessary to call this API.</p>
+<p><b>SWCD</b></p>
+<p>After generating the Dcm SWC description files the integrator shall perform changes within</p>
+<p>StdDiag_ext_interface.arxml.pgen to make the Rte interfaces between Dcm and StdDiag compatible from</p>
+<p>Rte point of view. Within the StdDiag_ext_interface.arxml.pgen the &lt;ARRAY-SIZE&gt; of the parameters</p>
+<p>Indication_ArrayType and DiagCommLoopback_ArrayType shall be set to the values given by Dcm. If the</p>
+<p>RTE importer still complains about incompatible interfaces, please check the compatibility of the StdDiag</p>
+<p>configuration and the Dcm configuration.</p>
+<p><b>Prevent sleep mode</b></p>
+<p><b>[IM_StdDiagClassic_0018]<i></b> d</i>LH Fahrzeugprogrammierung (10505691-000-02) requires in FL247</p>
+<p>that an ECU shall not go into sleep mode as long as EnergyMode is set to &quot;Flash&quot;. This has to be ensured</p>
+<p>by the integrator, and can be acheived in different ways. One possibility is the following:</p>
+<p>Evaluate the current operating mode (=EnergyMode) provided by module &quot;Omc&quot; via Port</p>
+<p>&quot;operatingModeSwitchPort&quot;</p>
+<p>Create BswM-Rules that realize the following items</p>
+<p>If the operating mode equals &quot;Flash&quot; (0x03), trigger communication request for Partial Network</p>
+<p>&quot;Fahrzeug Infrastruktur&quot;</p>
+<p>If the operating mode does not equal &quot;Flash&quot; (0x03), release communication request for Partial</p>
+<p>Network &quot;Fahrzeug Infrastruktur&quot;</p>
+<p>For details on the operating mode refer to OmcClassic_IntegrationManual.pdf<i> c</i>(FL247)</p>
+<p>StdDiagClassic_IntegrationManual.pdf, Version 5.4.0, Software Platforms</p>
+<p>Page 30 of 30</p>
+</body>
+</html>
+{% endraw %}

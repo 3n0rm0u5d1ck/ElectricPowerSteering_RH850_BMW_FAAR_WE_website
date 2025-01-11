@@ -1,0 +1,567 @@
+---
+layout: default
+title: ReleaseNotes_Artt_Generator
+nav_order: 2
+parent: Artt (TL105A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Page 1 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p>BMW Package Release Notes</p>
+<p>Artt_Generator-2.0.2</p>
+<p>Package Status:</p>
+<p>Released</p>
+<p>Author:</p>
+<p>BMW Group</p>
+<p>Version:</p>
+<p>2.0.2</p>
+<p>Release Date:</p>
+<p>23-Nov-2011</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 2 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>1 Revision History</b></p>
+<p>1.0.1</p>
+<p>03-Oct-2008</p>
+<p>Initial revision. CR70051, CR70068.</p>
+<p>1.0.2</p>
+<p>29-Jun-2009</p>
+<p>Support of more BAC2.1 templates. CR70168, </p>
+<p>CR70166, CR70167, CR70195, CR70237, </p>
+<p>CR70267.</p>
+<p>1.0.3</p>
+<p>27-Oct-2009</p>
+<p>Performance optimization CR70341.</p>
+<p>1.1.0</p>
+<p>11-Nov-2009</p>
+<p>User friendliness and portability CR70397, </p>
+<p>CR70343.</p>
+<p>1.1.1</p>
+<p>27-May-2010</p>
+<p>CR70519.</p>
+<p>1.2.0</p>
+<p>30-Jun-2010</p>
+<p>New validation feature CR70359, CR .</p>
+<p>1.3.0</p>
+<p>11-Oct-2010</p>
+<p>AUTOSAR 4.0 schema CR .</p>
+<p>2.0.0</p>
+<p>15-Mar-2011</p>
+<p>Behaviour of ValueOf() changed CR71004, </p>
+<p>CR71005.</p>
+<p>2.0.1</p>
+<p>14-Apr-2011</p>
+<p>Method ModuleConfAtDefRefTo() added CR71008.</p>
+<p>2.0.2</p>
+<p>23-Nov-2011</p>
+<p>CR71146, CR71147.</p>
+<p><b>Revision</b></p>
+<p><b>Date</b></p>
+<p><b>Remarks</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 3 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>2 Package Enumeration Scheme</b></p>
+<p><b>3 Package Description</b></p>
+<p>artt is a command line application allowing to generate text files, including source code, from </p>
+<p>AUTOSAR descriptions. As input data artt uses a template file describing static content and </p>
+<p>structure of the desired output and one or more AUTOSAR descriptions, which are serving as </p>
+<p>provider for dynamic content. Since AUTOSAR descriptions are XML files, templates for artt </p>
+<p>typically use XPATH expressions referring to certain elements in the input file.</p>
+<p>This package is maintained by BMW AUTOSAR Core Support, via Request Tracker (https://sc-</p>
+<p>support.bader-muenchen.de/rt3/) or telephone hotline (+49-89-382-32233).</p>
+<p>Every package carries a 3-digit version number. The following table explains how compatibility </p>
+<p>between versions can be determined from the version number:</p>
+<p>Minor Version</p>
+<p>ĺ</p>
+<p>A new feature was added. New version is </p>
+<p>backwards compatible to old version.</p>
+<p>Major Version</p>
+<p>ĺ</p>
+<p>API of package changed. Versions are not </p>
+<p>compatible. If the new package is used, other </p>
+<p>packages must be changed as well.</p>
+<p>Patch Version</p>
+<p>ĺ</p>
+<p>A defect has been fixed. Versions are fully </p>
+<p>compatible.</p>
+<p><b>Changed Version</b></p>
+<p><b>Example</b></p>
+<p><b>Compatibility</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 4 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>4 Revisions and Modifications</b></p>
+<p><b>Revision 2.0.2 [Released]</b></p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>Description of Changes:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Description of Issues:</p>
+<p>Changed Files:</p>
+<p>Helper.tt</p>
+<p>Compatibility:</p>
+<p>Fully compatible</p>
+<p>Description of Changes:</p>
+<p>Changed the implementation to use the correct artt internal </p>
+<p>implicit bool operator to map a ValueNode to a bool.</p>
+<p>Marked the helper function BoolValueOf and its wrapper Enabled</p>
+<p>() as being obsolete since these helpers can simply be substuitted </p>
+<p>with core artt functions.</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>71147</p>
+<p>CR Headline:</p>
+<p>Wrong implementation of BoolValueOf</p>
+<p>Description of Issues:</p>
+<p>The included template utility file Helper.tt contained a helper </p>
+<p>function BoolValueOf. This implementation was wrong since it did </p>
+<p>not respect the various representations of bool-values allowed by </p>
+<p>the autosar schema.</p>
+<p>Changed Files:</p>
+<p>artt.chm</p>
+<p>Compatibility:</p>
+<p>Fully compatible</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Extended the documentation of ChangeContext method in </p>
+<p>ArGtcBase to reflect that a call to ChangeContext(null) will </p>
+<p>successfully reset the context to the root context AND return false. </p>
+<p>(although one could expect that it returns true because the context </p>
+<p>change was successfull.</p>
+<p>CR ID:</p>
+<p>71146</p>
+<p>CR Headline:</p>
+<p>ARTT ChangeContext returns false when called with null as </p>
+<p>parameter.</p>
+<p>Description of Issues:</p>
+<p>Misleading documentation</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 5 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 2.0.1 [Stable]</b></p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>no restrictions to older AUTOSAR versions</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Creates XPATH to the &lt;c&gt;MODULE-CONFIGURATION&lt;/c&gt; node </p>
+<p>(for AUTOSAR versions before 4.0) </p>
+<p>or the &lt;c&gt;ECUC-MODULE-CONFIGURATION-VALUES&lt;/c&gt; </p>
+<p>node (starting with AUTOSAR version 4.0) of the module </p>
+<p>configuration that is based on the module definition with the given </p>
+<p>shortname.</p>
+<p>CR ID:</p>
+<p>71008</p>
+<p>CR Headline:</p>
+<p>new method ModuleConfAtDefRefTo()</p>
+<p>Description of Issues:</p>
+<p>New method ModuleConfAtDefRefTo() added.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 6 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 2.0.0 [Stable]</b></p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>Instead of writing:</p>
+<p>boolean blub = &lt;#= ValueOf(&lt;xpath to BOOLEAN-VALUE&gt;) #&gt;</p>
+<p>now it has to be written:</p>
+<p>boolean blub = &lt;#= (ValueOf(&lt;xpath to BOOLEAN-VALUE&gt;) == </p>
+<p>true ? “TRUE” : “FALSE”) #&gt;</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>The method ValueOf() now always returns just the string found  in </p>
+<p>the template file without an interpretation of it.</p>
+<p>CR ID:</p>
+<p>71005</p>
+<p>CR Headline:</p>
+<p>ValueOf-Method shall not try to interprete ECUC-BOOLEAN-</p>
+<p>VALUE</p>
+<p>Description of Issues:</p>
+<p>In versions less the 2 the ValueOf() method returned the string </p>
+<p>found in the tt-file if it was not a boolean value. In case of a </p>
+<p>boolean value, it retruned &quot;TRUE&quot; or &quot;FALSE&quot;.</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>no restrictions to older AUTOSAR versions</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Also in case of a thrown exception in template file an output file is </p>
+<p>generated.</p>
+<p>CR ID:</p>
+<p>71004</p>
+<p>CR Headline:</p>
+<p>artt generator shall write output file even in case of error</p>
+<p>Description of Issues:</p>
+<p>Also for Environment.Exit in template file an outputfile is </p>
+<p>generated.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 7 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 1.3.0 [Released]</b></p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>no restrictions to older AUTOSAR versions</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Changed tags of AUTOSAR V4.0 are supported now. Depending </p>
+<p>on the URL given in the template or via the commandline, the tag </p>
+<p>name of AUTOSAR 2.x, 3.x or 4.x is used.</p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Handling of the changed tags in AUTOSAR 4.0 schema.</p>
+<p>Description of Issues:</p>
+<p>- ECUC-MODULE-CONFIGURATION-VALUES instead of </p>
+<p>MODULE-CONFIGURATION (in AR &lt; V3.x)</p>
+<p>- ECUC- PARAM-CONF-CONTAINER-DEF instead of PARAM-</p>
+<p>CONF-CONTAINER-DEF (in AR &lt; V3.x)</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 8 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 1.2.0 [Stable]</b></p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>New set of functions added to manipulate the context using a </p>
+<p>stack: PushContext(), PopContext(), ClearContextStack().</p>
+<p>See user guide for more information.</p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Push- / PopContext functionality</p>
+<p>Description of Issues:</p>
+<p>Functionality was needed for Validation of AUTOSAR </p>
+<p>descriptions.</p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Implemented validation of AUTOSAR description (EPC) against </p>
+<p>AUTOSAR definition (BMD). Validation can be triggered by </p>
+<p>specifiying the AUTOSAR definition file on the command line. See </p>
+<p>user guide for more information.</p>
+<p>CR ID:</p>
+<p>70359</p>
+<p>CR Headline:</p>
+<p>Validation of AUTOSAR descriptions</p>
+<p>Description of Issues:</p>
+<p>The ARTT generator has no ability to validate the given EPC file </p>
+<p>against the BMD. This has the following disadvantages:</p>
+<p>- Existence of nodes can not be ensured</p>
+<p>- MIN/MAX/RANGE tags can not be evaluated</p>
+<p>- Type checks of variables can not be done</p>
+<p>- Uniqueness of container entries can not be verified</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 9 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 1.1.1 [Released]</b></p>
+<p>Changed Files:</p>
+<p>logger.tt</p>
+<p>Compatibility:</p>
+<p>Description of Changes:</p>
+<p>Artt-Generator does not return value if successfull generated.&lt;&gt; 0.</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>70519</p>
+<p>CR Headline:</p>
+<p>Artt-Generator continous generating even if verify failed</p>
+<p>Description of Issues:</p>
+<p>Artt-Generator returns success of generation.</p>
+<p><b>Revision 1.1.0 [Stable]</b></p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>Description of Changes:</p>
+<p>It is now possible to declare an search path for the includes given </p>
+<p>in an template via command line parameter -i.</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>70343</p>
+<p>CR Headline:</p>
+<p>Include search path</p>
+<p>Description of Issues:</p>
+<p>The usage of the templates with includes in build systems with </p>
+<p>different folder structures was not possilbe.</p>
+<p>artt.exe</p>
+<p>Changed Files:</p>
+<p>artt.chm</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Help file extened with the information, that a not existing output </p>
+<p>folder is created.</p>
+<p>In case of a wrong command line parameter, the program returns </p>
+<p>an errorlevel &lt;&gt; 0.</p>
+<p>CR ID:</p>
+<p>70397</p>
+<p>CR Headline:</p>
+<p>Improve user friendliness</p>
+<p>Description of Issues:</p>
+<p>In some cases of wrong command line parameters the return </p>
+<p>value was an errorlevel of 0.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 10 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 1.0.2 [Stable]</b></p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>artt.chm</p>
+<p>SswcT4EngineHost.dll</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>ARTT: Missing Include Directives.</p>
+<p>CR ID:</p>
+<p>70168</p>
+<p>Description of Changes:</p>
+<p>Added support for T4 &lt;#@include #&gt; directive.</p>
+<p>Description of Issues:</p>
+<p>Although ARTT documentation references MS T4 documentation </p>
+<p>(which ARTT is based on), ARTT currently does not support </p>
+<p>Template Include directives.</p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Fixed issue with expressions other than non-verbatim string </p>
+<p>literals being used in LOOP macros. Now all expressions are </p>
+<p>possible.</p>
+<p>CR ID:</p>
+<p>70166</p>
+<p>CR Headline:</p>
+<p>ARTT: String variables as XPATH-Expression in LOOP.</p>
+<p>Description of Issues:</p>
+<p>Currently only String Literals in the form &quot;xxx&quot; are accepted as a X</p>
+<p>-PATH expression in a LOOP-statement.</p>
+<p><b>Revision 1.0.3 [Stable]</b></p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p>Description of Changes:</p>
+<p>Performance optimizations done with different means.</p>
+<p>- Caches for Autosar shortnames to xpaths.</p>
+<p>- Working with compiled xpaths.</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>70341</p>
+<p>CR Headline:</p>
+<p>ARTT Performance Issue</p>
+<p>Description of Issues:</p>
+<p>For large .epc files the template generation takes a long time </p>
+<p>because of the xpath search.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 11 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Warnings no longer result in a generation error, i.e. the calling </p>
+<p>code will no longer abort the build in case of template warnings.</p>
+<p>CR ID:</p>
+<p>70167</p>
+<p>CR Headline:</p>
+<p>ARTT: Warnings shall not abort the generation process.</p>
+<p>Description of Issues:</p>
+<p>The ARTT generator aborts the generation process if warnings </p>
+<p>(like &quot;unused variables&quot;)  are encountered.</p>
+<p>artt.chm</p>
+<p>artt.exe</p>
+<p>*.dll removed</p>
+<p>artt.exe</p>
+<p>artt.config (removed)</p>
+<p>Changed Files:</p>
+<p>AutosarDirectiveProcessor.dll</p>
+<p>artt.chm</p>
+<p>SswcT4EngineHost.dll</p>
+<p>artt.exe</p>
+<p>artt.exe</p>
+<p>artt.chm</p>
+<p>Compatibility:</p>
+<p>An old artt.config will not be used and therefore has no influence </p>
+<p>on the application.</p>
+<p>CR ID:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>Number of processed AUTOSAR files no longer limited.</p>
+<p>Description of Changes:</p>
+<p>The number of AUTOSAR description files is no longer limited. As </p>
+<p>consequence the configuration file artt.config, which specified the </p>
+<p>used upper limit is no longer required.</p>
+<p>Description of Issues:</p>
+<p>Number of AUTOSAR descriptions was limited.</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 12 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>New XPathFactory.ContainerAtDefRefTo(): Creates XPath for a </p>
+<p>certain container node.</p>
+<p>Change function XPathFactory.ModuleConf(): Return absolute </p>
+<p>XPath instead of relative.</p>
+<p>New function FormatBin(): format integer to binary format with </p>
+<p>variable length.</p>
+<p>new commandlineswitches for overwrite the name of the </p>
+<p>generated file and the namespace URI in the template</p>
+<p>CR ID:</p>
+<p>70237</p>
+<p>CR Headline:</p>
+<p>Extension of XPathFactory functionality</p>
+<p>Description of Issues:</p>
+<p>Better usablility.</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>AutosarDirectiveProcessor.dll</p>
+<p>artt.chm</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>ARTT-Generator: New convenience functions for template </p>
+<p>creation.</p>
+<p>CR ID:</p>
+<p>70195</p>
+<p>Description of Changes:</p>
+<p>A number of new functions have been added. In order to fit </p>
+<p>existing architecture, original function names were used as </p>
+<p>suggestion and were adapted as specified below.</p>
+<p>The following utility functions have been added to artt: BitTest(), </p>
+<p>Xp.DefRefTo(), Xp.ValueAtDefRefTo(), Xp.ValueRefAtDefRefTo(), </p>
+<p>LastValueSegmentOf(), ModuleConf(), Xp.ShortNamePath(), </p>
+<p>Assert(), FormatHex(), AsBool(), RefExists().</p>
+<p>See user guide for detailed information about the functionality of </p>
+<p>new and existing methods.</p>
+<p>Description of Issues:</p>
+<p>The functions of interest are:</p>
+<p>- RefValueExists() (a combination of the existing functions Exists() </p>
+<p>and RefValueOf())</p>
+<p>- AppendTrailingSpaces()</p>
+<p>- LastStringAfterSlash(string xpath)</p>
+<p>- bool BitTest(int val, bitNo)</p>
+<p>- xpath creators (ShortName(), DefRef(), ...)</p>
+<p>- ToHex(...)</p>
+<p>- BoolFromString()</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 13 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p><b>Revision 1.0.1 [Stable]</b></p>
+<p>AutosarDirectiveProcessor.dll</p>
+<p>artt.chm</p>
+<p>SswcT4EngineHost.dll</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Microsoft.VisualStudio.TextTemplating.dll</p>
+<p>Compatibility:</p>
+<p>CR ID:</p>
+<p>70051</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>Artt-Generator: Failure when called from network drive.</p>
+<p>Description of Changes:</p>
+<p>artt executable and all required libraries were signed with a BMW </p>
+<p>signature. The signature can be imported on Windows machines </p>
+<p>that need to call artt from a network path.</p>
+<p>Description of Issues:</p>
+<p>When called from a network drive, artt cannot be executed due to </p>
+<p>a .NET runtime exception.</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>artt.chm</p>
+<p>AutosarDirectiveProcessor.dll</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>Support of relative XPATH references.</p>
+<p>CR ID:</p>
+<p>Description of Changes:</p>
+<p>A new feature supporting relative XPATH references has been </p>
+<p>added through the ChangeContext() command.</p>
+<p>Description of Issues:</p>
+<p>artt.chm</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>Description of Changes:</p>
+<p>Function to validate the .epc files against a via commandline </p>
+<p>given .xsd schema.</p>
+<p>CR ID:</p>
+<p>70267</p>
+<p>CR Headline:</p>
+<p>Validation of the given XML against a schema</p>
+<p>Description of Issues:</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Page 14 of 14</p>
+<p>Copyright (c) 2010 by BMW Group. All rights reserved.</p>
+<p>Changed Files:</p>
+<p>artt.exe</p>
+<p>artt.chm</p>
+<p>AutosarDirectiveProcessor.dll</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR Headline:</p>
+<p>LOOP processing of XML nodes.</p>
+<p>CR ID:</p>
+<p>70068</p>
+<p>Description of Changes:</p>
+<p>A new feature was added to support looping over a set of </p>
+<p>referenced XML nodes through the LOOP command.</p>
+<p>Description of Issues:</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,2652 @@
+---
+layout: default
+title: TechnicalReference_Fee_30_SmallSector
+nav_order: 2
+parent: Fee_30_SmallSector
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Fee </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Small Sector </p>
+<p>Version 1.1.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Michael Goß </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>virgmi </p>
+<p>2016-06-22 </p>
+<p>1.00.00 </p>
+<p>Initial version </p>
+<p>virgmi </p>
+<p>2016-08-23 </p>
+<p> </p>
+<p>2016-09-21 </p>
+<p>1.01.00 </p>
+<p>Chapter ‘Requirements and </p>
+<p>Recommendations’ was added. </p>
+<p>Reference to ProductInformation of </p>
+<p>SmallSectorFee was added. </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_FlashEEPROMEmulation.pdf </p>
+<p>V2.0.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>V3.2.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_BasicSoftwareModules.pdf </p>
+<p>V1.0.0 </p>
+<p>[4] </p>
+<p> Vector </p>
+<p>ProductInformation_8_MICROSARSmallSectorFee.pdf </p>
+<p>V1.0.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 11</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations from AUTOSAR R4.0.3 ................................................... 11</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Recommendations ........................................................................................... 12</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 13</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>States .............................................................................................................. 13</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Module States .................................................................................. 13</p>
+<p> </p>
+<p>3.4.2</p>
+<p> </p>
+<p>Job States ........................................................................................ 13</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 14</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Processing of a Read Job ................................................................ 14</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Processing of a Write Job ................................................................ 14</p>
+<p> </p>
+<p>3.5.3</p>
+<p> </p>
+<p>Processing of an InvalidateBlock Job ............................................... 15</p>
+<p> </p>
+<p>3.5.4</p>
+<p> </p>
+<p>Processing of an EraseImmediateBlock Job .................................... 15</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 15</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 15</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 16</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Partitions .......................................................................................................... 17</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Service for handling under-voltage situations ................................................... 17</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>MainFunction Triggering ................................................................................... 18</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 19</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 19</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 19</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 20</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Migration from FEE to SmallSectorFEE ........................................................... 20</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 23</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 23</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services provided by FEE ................................................................................ 23</p>
+<p> </p>
+<p>5.2.1</p>
+<p> </p>
+<p>Fee_30_SmallSector_Init ................................................................. 23</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>Fee_30_SmallSector_SetMode ....................................................... 23</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>Fee_30_SmallSector_Read ............................................................. 24</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>Fee_30_SmallSector_Write ............................................................. 25</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p>5.2.5</p>
+<p> </p>
+<p>Fee_30_SmallSector_Cancel ........................................................... 26</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>Fee_30_SmallSector_GetStatus ...................................................... 26</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>Fee_30_SmallSector_GetJobResult ................................................ 27</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>Fee_30_SmallSector_InvalidateBlock .............................................. 28</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>Fee_30_SmallSector_GetVersionInfo .............................................. 29</p>
+<p> </p>
+<p>5.2.10</p>
+<p> </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock ................................... 29</p>
+<p> </p>
+<p>5.2.11</p>
+<p> </p>
+<p>Fee_30_SmallSector_MainFunction ................................................ 30</p>
+<p> </p>
+<p>5.2.12</p>
+<p> </p>
+<p>Fee_30_SmallSector_SuspendWrites .............................................. 31</p>
+<p> </p>
+<p>5.2.13</p>
+<p> </p>
+<p>Fee_30_SmallSector_ResumeWrites ............................................... 31</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services used by FEE ...................................................................................... 32</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 32</p>
+<p> </p>
+<p>5.4.1</p>
+<p> </p>
+<p>Fee_30_SmallSector_JobEndNotification ........................................ 32</p>
+<p> </p>
+<p>5.4.2</p>
+<p> </p>
+<p>Fee_30_SmallSector_JobErrorNotification ....................................... 33</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 34</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 35</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 35</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Configuration with DaVinci Configurator ........................................................... 35</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>Configuring Flash API Services ........................................................ 35</p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>Partition Configuration ...................................................................... 36</p>
+<p> </p>
+<p>6.2.3</p>
+<p> </p>
+<p>Block Configuration .......................................................................... 36</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Overhead Calculation ...................................................................................... 37</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Requirements and Recommendations ...................................................................... 39</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Requirements for the User System .................................................................. 39</p>
+<p> </p>
+<p>7.1.1</p>
+<p> </p>
+<p>General Requirements ..................................................................... 39</p>
+<p> </p>
+<p>7.1.2</p>
+<p> </p>
+<p>Write-Related ................................................................................... 39</p>
+<p> </p>
+<p>7.1.3</p>
+<p> </p>
+<p>Read/Compare-Related ................................................................... 39</p>
+<p> </p>
+<p>7.1.4</p>
+<p> </p>
+<p>Erase-Related .................................................................................. 39</p>
+<p> </p>
+<p>7.1.5</p>
+<p> </p>
+<p>BlankCheck-Related ........................................................................ 39</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Recommendations ........................................................................................... 39</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Abbreviations .............................................................................................................. 41</b></p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 42</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>AUTOSAR 3.x Architecture Overview ......................................................... 9</p>
+<p> </p>
+<p>Figure 2-3</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the FEE ............................................... 10</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Update references of BSWMD file ............................................................ 21</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>Example PartitionConfiguration after updating BSWMD references .......... 21</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>DaVinci Configurator signals incorrect definition of configuration </p>
+<p>elements ................................................................................................... 22</p>
+<p> </p>
+<p>Figure 4-4</p>
+<p> </p>
+<p>Choose solving action to delete all erroneous definitions .......................... 22</p>
+<p> </p>
+<p>Figure 6-1</p>
+<p> </p>
+<p>Configuring FeeFlsApi container ............................................................... 36</p>
+<p> </p>
+<p>Figure 6-2</p>
+<p> </p>
+<p>SmallSectorFee Partition Configuration example (RH850)........................ 36</p>
+<p> </p>
+<p>Figure 6-3</p>
+<p> </p>
+<p>Block Configuration................................................................................... 37</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ..................................... 11</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ............................... 12</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 12</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Module States ........................................................................................... 13</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Job States ................................................................................................ 14</p>
+<p> </p>
+<p>Table 3-6 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 16</p>
+<p> </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 16</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 20</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 20</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Fee_30_SmallSector_Init.......................................................................... 23</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Fee_30_SmallSector_SetMode ................................................................ 24</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Services used by the FEE......................................................................... 32</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>Fee_30_SmallSector_JobEndNotification ................................................. 33</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 41</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>Initial version of SmallSectorFee  </p>
+<p>1.01.00 </p>
+<p>Chapter ‘Requirements and Recommendations’ was added </p>
+<p>Reference to SmallSectorFee’s ProductInformation was added </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module FEE as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>3, 4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>FEE_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>FEE_MODULE_ID   </p>
+<p>21 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the detailed functional specification please also refer to the corresponding AUTOSAR SWS. </p>
+<p> </p>
+<p> </p>
+<p>The FEE enables you to access a dedicated flash area for storing data persistently. It is </p>
+<p>intended to be used exclusively either by the NVRAM Manager or on SW instance within a </p>
+<p>Flash-Boot-Loader. </p>
+<p>This module  is especially  designed  for  Flash  devices  with  small  sector  and  page  sizes, </p>
+<p>e.g.  RH850’s  internal data flash  RV40F  with  64  Byte  sectors and 4  Byte pages.  Due to </p>
+<p>these  hardware  properties  a  static  addressing  scheme  can  be  applied  with  reasonable </p>
+<p>small overhead. Consequently, the main advantage is a significantly easier handling of all </p>
+<p>jobs due to the static addressing scheme compared to the dynamic block addressing of </p>
+<p>‘standard’ FEE. </p>
+<p>Further on, the module depends on some other modules like DET for error handling, the </p>
+<p>underlying Flash driver for hardware access and the MEMIF for consistent types. </p>
+<p>For further information about basic SmallSectorFee mechanisms and functionality refer to </p>
+<p>[4]. This  product  information  gives  a  brief  overview  of  relevant  aspects  concerning flash </p>
+<p>memory and informs about SmallSectorFee implementation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the FEE is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>AUTOSAR 3.x Architecture Overview   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p>The next figure shows the interfaces to adjacent modules of the FEE. These interfaces are </p>
+<p>described in chapter 5.  </p>
+<p> </p>
+<p>Figure 2-3 </p>
+<p>Interfaces to adjacent modules of the FEE </p>
+<p><b> cmp Architecture ov erv iew</b></p>
+<p><b>FeeSmallSector</b></p>
+<p>Fee_30_SmallSector_GetVersionInfo</p>
+<p>Fee_30_SmallSector_SuspendWrites</p>
+<p>Fee_30_SmallSector_ResumeWrites</p>
+<p><b>MemIf</b></p>
+<p><b>Nv M</b></p>
+<p><b>Fls</b></p>
+<p><b>DET</b></p>
+<p><b>EcuM</b></p>
+<p><b>AUTOSAR OS</b></p>
+<p>«use»</p>
+<p>Fee_30_SmallSector_Read</p>
+<p>Fee_30_SmallSector_Write</p>
+<p>Fee_30_SmallSector_InvalidateBlock</p>
+<p>Fee_30_SmallSector_EraseImmediateBlock</p>
+<p>Fee_30_SmallSector_Cancel</p>
+<p>Fee_30_SmallSector_GetStatus</p>
+<p>Fee_30_SmallSector_GetJobResult</p>
+<p>Fee_30_SmallSector_SetMode</p>
+<p>Det_ReportError</p>
+<p>Fee_30_SmallSector_Init</p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p>Fls_Read</p>
+<p>Fls_Write</p>
+<p>Fls_Erase</p>
+<p>Fls_Compare</p>
+<p>Fls_BlankCheck</p>
+<p>Fls_GetStatus</p>
+<p>Fls_GetJobResult</p>
+<p>NvM_JobEndNotification</p>
+<p>NvM_JobErrorNotification</p>
+<p>Fee_30_SmallSector_JobEndNotification</p>
+<p>Fee_30_SmallSector_JobErrorNotification</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>FEE. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further FEE functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>FEE provides a service for reading blocks from Flash </p>
+<p>FEE provides a service for writing blocks to Flash </p>
+<p>FEE provides a service for invalidating blocks in Flash </p>
+<p>FEE provides a service for erasing blocks which contain immediate data </p>
+<p>FEE provides a service to initialize the module </p>
+<p>FEE provides a service to cancel pending jobs </p>
+<p>FEE provides a service to query the module status and job result </p>
+<p>FEE provides a service to query its version information. </p>
+<p>FEE provides a mechanism to spread the erase/write accesses such that the physical device is </p>
+<p>not overstressed, if the underlying Flash device does not provide at least the configured number </p>
+<p>of erase/write cycles per physical memory cell. </p>
+<p>FEE provides a mechanism to manage each block’s information, whether this block is “correct” </p>
+<p>from the point of view of the FEE. </p>
+<p>FEE provides development error detection to check API parameters. </p>
+<p>The Flash driver can either be polled by the FEE for its current state or the Flash driver can </p>
+<p>provide its state to the FEE module via a callback mechanism. </p>
+<p>The FEE can be polled by the NVM or the FEE provides the result of a job to the upper layer via </p>
+<p>a callback mechanism. </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations from AUTOSAR R4.0.3</b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Alignment of logical blocks via FeeVirtualPageSize is not supported. Instead, alignment of logical </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>blocks is provided via partition specific alignments. Therefore see Table 3-3  </p>
+<p>Features provided </p>
+<p>beyond the AUTOSAR standard. </p>
+<p>FEE does not provide debugging support. </p>
+<p>FEE does not report any errors to DEM. </p>
+<p>FEE does not support the usage of FeeBlockOverhead parameter, because the amount of </p>
+<p>management overhead is an internal detail, which shall not be configurable. </p>
+<p>FEE does not support the usage of FeeMaximumBlockingTime parameter because FEE does not </p>
+<p>have any time base. </p>
+<p>FEE does not support to set the mode of the underlying Flash driver, because handling of set </p>
+<p>mode API is not clearly specified. </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>FEE supports the usage of multiple Flash devices. </p>
+<p>FEE supports the usage of Fls_BlankCheck API. </p>
+<p>FEE provides the configuration of partitions, in order to separate independent contents/devices </p>
+<p>from each other. </p>
+<p>FEE provides partition specific address alignments to which all logical blocks of a partition are </p>
+<p>aligned. Address alignment is configurable separately for each partition. Address alignment </p>
+<p>usually corresponds to the Flash device’s sector size. </p>
+<p>FEE provides partition specific write alignments which usually correspond to the Flash device’s </p>
+<p>page size. </p>
+<p>FEE provides verification of data which has been written recently to the Flash. This feature can </p>
+<p>be configured block specifically. </p>
+<p>FEE provides detection and correction of single bit flips in a block’s management information. </p>
+<p>FEE supports two main function triggering modes. Main function of FEE can either be called </p>
+<p>cyclically with a fixed cycle time or in a background task. </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2 </b></p>
+<p><b>Recommendations </b></p>
+<p>It’s recommended to use this FEE module only with Flash devices with reasonable small </p>
+<p>sector  and  page  sizes.  This  means  that  the  size  of  one  user  block  should  not  be </p>
+<p>significantly  smaller  than  one  physical  Flash  sector.  Due  to  the  fact  that  for  every  user </p>
+<p>block  at  least  one  physical  Flash  sector  is  reserved,  the  overhead  of  unused  Flash </p>
+<p>memory  strongly  depends  on  the  relation  between  block  size  and  Flash  sector  size. </p>
+<p>Another aspect concerns the page size of a Flash device: In order to keep the overhead </p>
+<p>small, the Flash device’s page size should be small as well. </p>
+<p>For instance it’s recommended to use this FEE module with internal data flash RV40F of </p>
+<p>Renesas’ RH850 microcontroller platform. This Flash device features physical sectors with </p>
+<p>64 Byte and physical pages with 4 Byte. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.3 </b></p>
+<p><b>Initialization </b></p>
+<p>The </p>
+<p>FEE </p>
+<p>is </p>
+<p>initialized </p>
+<p>and </p>
+<p>operational </p>
+<p>after </p>
+<p>the </p>
+<p>API </p>
+<p>service </p>
+<p>Fee_30_SmallSector_Init()</p>
+<p> was called. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The FEE is driven asynchronously, if a job has been requested to it. I.e. the jobs are </p>
+<p>finally processed by calls of FEE’s main function. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.4 </b></p>
+<p><b>States </b></p>
+<p>FEE can change to different states during runtime which are described in the tables below. </p>
+<p><b>3.4.1 </b></p>
+<p><b>Module States </b></p>
+<p> </p>
+<p><b>Module States </b></p>
+<p><b>Point in Time </b></p>
+<p>MEMIF_UNINIT </p>
+<p>The API service </p>
+<p>Fee_30_SmallSector_Init() </p>
+<p>has not been called yet. </p>
+<p>The service </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> returns the value </p>
+<p>MEMIF_UNINIT</p>
+<p>. </p>
+<p>MEMIF_IDLE </p>
+<p>The API service </p>
+<p>Fee_30_SmallSector_Init()</p>
+<p> has been called and </p>
+<p>finished successfully. No job has currently been requested to the FEE. The </p>
+<p>service </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> returns the value </p>
+<p>MEMIF_IDLE</p>
+<p>. </p>
+<p>MEMIF_BUSY </p>
+<p>The API services </p>
+<p>Fee_30_SmallSector_Read()</p>
+<p>,</p>
+<p>Fee_30_SmallSector_Write()</p>
+<p>,</p>
+<p>Fee_30</p>
+<p>_SmallSector_InvalidateBlock()</p>
+<p> or </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock()</p>
+<p> have been called </p>
+<p>previously and the job is not yet finished. The service </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> returns the value </p>
+<p>MEMIF_BUSY</p>
+<p>. </p>
+<p>Table 3-4  </p>
+<p>Module States </p>
+<p><b>3.4.2 </b></p>
+<p><b>Job States </b></p>
+<p><b>Job State </b></p>
+<p><b>Correlating </b></p>
+<p><b>Module State </b></p>
+<p><b>Point in Time </b></p>
+<p>MEMIF_JOB_OK </p>
+<p>MEMIF_IDLE </p>
+<p>After successfully finished job </p>
+<p>MEMIF_JOB_PENDING </p>
+<p>MEMIF_BUSY </p>
+<p>After a job has been started </p>
+<p>MEMIF_JOB_CANCELLED </p>
+<p>MEMIF_IDLE </p>
+<p>After </p>
+<p>Fee_30_SmallSector_Cancel()</p>
+<p>, if </p>
+<p>previous state was </p>
+<p>MEMIF_JOB_PENDING</p>
+<p> </p>
+<p>MEMIF_BLOCK_INVALID </p>
+<p>MEMIF_IDLE </p>
+<p>After a read job has been finished and an </p>
+<p>invalidated block was found or if block was </p>
+<p>erased. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p>MEMIF_BLOCK_INCONSISTENT  MEMIF_IDLE </p>
+<p>After reading a block, which wasn’t finished </p>
+<p>successfully. </p>
+<p>MEMIF_JOB_FAILED </p>
+<p>MEMIF_IDLE </p>
+<p>After a job wasn’t finished successfully. </p>
+<p>Table 3-5  </p>
+<p>Job States </p>
+<p><b>3.5 </b></p>
+<p><b>Main Functions </b></p>
+<p>All </p>
+<p>jobs </p>
+<p>(Read, </p>
+<p>Write, </p>
+<p>InvalidateBlock </p>
+<p>or </p>
+<p>EraseImmediateBlock) </p>
+<p>will </p>
+<p>be </p>
+<p>executed </p>
+<p>asynchronously  and  are  processed  by  a  job  state  machine.  This  means  that  after  an </p>
+<p>asynchronous </p>
+<p>API </p>
+<p>call </p>
+<p>(e.g. </p>
+<p>Fee_30_SmallSector_Write()</p>
+<p>) </p>
+<p>the </p>
+<p>job </p>
+<p>and </p>
+<p>its </p>
+<p>parameters are internally stored and will be processed by the main function later on. </p>
+<p>The  function </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p>  can  either  be  called  cyclically </p>
+<p>with  a  fixed  cycle  time  by  the  OS  or  in  a  background  task. The  mode  of  main  function </p>
+<p>triggering is pre-compile configurable via </p>
+<p>FeeMainFunctionTriggering</p>
+<p> parameter. </p>
+<p>Only one asynchronous job (Read, Write, InvalidateBlock or EraseImmediateBlock) can be </p>
+<p>processed at a time. FEE does not provide a queue for any jobs that are requested while </p>
+<p>the module is busy processing a job. The module state needs to be </p>
+<p>MEMIF_IDLE</p>
+<p> before a </p>
+<p>new job can be requested. The current module state can be queried by calling the service </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p>.  Usually,  the  upper  layer  module  (i.e.  NVM)  is </p>
+<p>responsible for synchronizing and queueing the pending jobs and assigning it to the FEE </p>
+<p>consecutively, </p>
+<p>whereas </p>
+<p>in </p>
+<p>the </p>
+<p>Flash </p>
+<p>Boot </p>
+<p>Loader </p>
+<p>use-case </p>
+<p>the </p>
+<p>Flash </p>
+<p>Boot </p>
+<p>Loader </p>
+<p>application is responsible for doing this. </p>
+<p><b>3.5.1 </b></p>
+<p><b>Processing of a Read Job </b></p>
+<p>FEE  provides  the  service </p>
+<p>Fee_30_SmallSector_Read()</p>
+<p>  for  reading  a  block.  This </p>
+<p>service reads the latest data of the block specified by a block number. </p>
+<p>This asynchronous job is initiated with the API function </p>
+<p>Fee_30_SmallSector_Read()</p>
+<p> </p>
+<p>and is processed by subsequent calls of </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p> until </p>
+<p>the FEE returns back to idle state, which means that the job was finished. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>The FEE will always read the block, which was written last. Consequently, if writing a </p>
+<p>block fails (e.g. due to reset) a subsequent read job for this block will lead to the result </p>
+<p>MEMIF_BLOCK_INCONSISTENT</p>
+<p>. The FEE does not look for the most recent valid </p>
+<p>instance of this block, because it can’t be assured that there is any. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>3.5.2 </b></p>
+<p><b>Processing of a Write Job </b></p>
+<p>FEE provides the service </p>
+<p>Fee_30_SmallSector_Write()</p>
+<p> for writing a block specified </p>
+<p>by a block number. The FEE searches for the next free position in the specified block’s </p>
+<p>memory area and requests a job to the underlying Flash driver to write a new instance of </p>
+<p>the block. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p>This asynchronous job is initiated with the API function </p>
+<p>Fee_30_SmallSector_Write()</p>
+<p> </p>
+<p>and is processed by subsequent calls of </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p> until </p>
+<p>the FEE returns back to idle state, which means that the job was finished. </p>
+<p><b>3.5.3 </b></p>
+<p><b>Processing of an InvalidateBlock Job </b></p>
+<p>FEE provides the service </p>
+<p>Fee_30_SmallSector_InvalidateBlock()</p>
+<p> for invalidating </p>
+<p>block content specified by a block number. The FEE module marks the block as invalid </p>
+<p>and reports the job result </p>
+<p>MEMIF_BLOCK_INVALID</p>
+<p> if such a block will be read after the </p>
+<p>invalidation process. </p>
+<p>This </p>
+<p>asynchronous </p>
+<p>job </p>
+<p>is </p>
+<p>initiated </p>
+<p>with </p>
+<p>the </p>
+<p>API </p>
+<p>function </p>
+<p>Fee_30_SmallSector_InvalidateBlock()</p>
+<p> and is processed by subsequent calls of </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p> until the FEE returns back to idle state, which </p>
+<p>means that the job was finished. </p>
+<p><b>3.5.4 </b></p>
+<p><b>Processing of an EraseImmediateBlock Job </b></p>
+<p>FEE provides the service </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock()</p>
+<p> to erase a </p>
+<p>block  containing  immediate  data.  Hereupon  an  invalidation  of  the  specified  block  is </p>
+<p>performed,  because  erasing  the  block’s  memory  area  will  not  accomplish  the  intended </p>
+<p>goal, that writing of immediate data is speeded-up by a preceding erase operation.  </p>
+<p>This </p>
+<p>asynchronous </p>
+<p>job </p>
+<p>is </p>
+<p>initiated </p>
+<p>with </p>
+<p>the </p>
+<p>API </p>
+<p>function </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock()</p>
+<p>  and  is  processed  by  subsequent </p>
+<p>calls  of </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p>  until  the  FEE  returns  back  to  idle </p>
+<p>state, which means that the job was finished. </p>
+<p> </p>
+<p><b>3.6 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.6.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [2],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>FEE_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported FEE ID is 21. </p>
+<p>The  reported  service  IDs  identify  the  services  which  are  described  in  5.2. The following </p>
+<p>table presents the service IDs and the related services: </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x00 </p>
+<p>Fee_30_SmallSector_Init </p>
+<p>0x01 </p>
+<p>Fee_30_SmallSector_SetMode </p>
+<p>0x02 </p>
+<p>Fee_30_SmallSector_Read </p>
+<p>0x03 </p>
+<p>Fee_30_SmallSector_Write </p>
+<p>0x04 </p>
+<p>Fee_30_SmallSector_Cancel </p>
+<p>0x05 </p>
+<p>Fee_30_SmallSector_GetStatus </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>0x06 </p>
+<p>Fee_30_SmallSector_GetJobResult </p>
+<p>0x07 </p>
+<p>Fee_30_SmallSector_InvalidateBlock </p>
+<p>0x08 </p>
+<p>Fee_30_SmallSector_GetVersionInfo </p>
+<p>0x09 </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock </p>
+<p>0x10 </p>
+<p>Fee_30_SmallSector_JobEndNotification </p>
+<p>0x11 </p>
+<p>Fee_30_SmallSector_JobErrorNotification </p>
+<p>0x12 </p>
+<p>Fee_30_SmallSector_MainFunction </p>
+<p>Table 3-6  </p>
+<p>Service IDs </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>UNINIT </p>
+<p>API service (except for </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p>,</p>
+<p>Fee_30_SmallSect</p>
+<p>or_GetVersionInfo()</p>
+<p> and </p>
+<p>Fee_30_SmallSector_Init()</p>
+<p>) called although the FEE is </p>
+<p>not yet initialized </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>INVALID_BLOCK_NO </p>
+<p>API service called with invalid block number </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>INVALID_BLOCK_OFS </p>
+<p>API service </p>
+<p>Fee_30_SmallSector_Read()</p>
+<p> called with </p>
+<p>invalid block offset. </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>INVALID_DATA_POINTER </p>
+<p>API service (</p>
+<p>Fee_30_SmallSector_Read()</p>
+<p> or </p>
+<p>Fee_30_SmallSector_Write()</p>
+<p>) called with null pointer as </p>
+<p>pointer to data buffer. API service </p>
+<p>Fee_30_SmallSector_GetVersionInfo()</p>
+<p> called with null </p>
+<p>pointer. </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>INVALID_BLOCK_LEN </p>
+<p>API service </p>
+<p>Fee_30_SmallSector_Read()</p>
+<p> called with </p>
+<p>invalid block length. </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>BUSY </p>
+<p>API service is called while currently a job is being processed. </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>BUSY_INTERNAL </p>
+<p>Not used. </p>
+<p>FEE_30_SMALL_SECTOR_E_</p>
+<p>INVALID_CANCEL </p>
+<p>API service </p>
+<p>Fee_30_SmallSector_Cancel()</p>
+<p> is called while </p>
+<p>module is not busy. </p>
+<p>Table 3-7  </p>
+<p>Errors reported to DET </p>
+<p> </p>
+<p><b>3.6.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>FEE does not report any production errors to DEM because the AUTOSAR specification </p>
+<p>does not specify any error which shall be reported in production mode. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.7 </b></p>
+<p><b>Partitions </b></p>
+<p>FEE employs a concept of partitions. A partition can be thought of an emulation space that </p>
+<p>is managed separately from other ones: </p>
+<p></p>
+<p> </p>
+<p>Multiple Flash devices / Flash drivers are supported by using separate partitions in </p>
+<p>FEE module </p>
+<p></p>
+<p> </p>
+<p>Alignments, such as write, read and address alignment, can be configured for each </p>
+<p>partition specifically </p>
+<p></p>
+<p> </p>
+<p>Errors in one partition do not affect data in other ones </p>
+<p></p>
+<p> </p>
+<p>Each partition has its own start address and size. Next partition  does not have to </p>
+<p>start at the end of the previous partition. There can be gaps between the partitions. </p>
+<p></p>
+<p> </p>
+<p>Partitions do not overlap each other </p>
+<p></p>
+<p> </p>
+<p>Block with smallest Block ID has the smallest address in the partition. Each block </p>
+<p>has to be assigned to a partition </p>
+<p></p>
+<p> </p>
+<p>A  partition’s  address  alignment  must  be  identical  or  an  integer  multiple  of  its </p>
+<p>referenced Flash’s sector size </p>
+<p></p>
+<p> </p>
+<p>A partition’s write alignment must be identical or an integer multiple of its referenced </p>
+<p>Flash’s page size </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>FEE configurations for FBL and Application do not need to share all partitions. E.g. a </p>
+<p>partition containing only application data may remain unknown to the FBL. However, </p>
+<p>shared partitions must refer to identical Fls configurations (FlsConfigSet container), and </p>
+<p>they must match in address and size, as well as in alignment settings. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.8 </b></p>
+<p><b>Service for handling under-voltage situations </b></p>
+<p>The FEE provides a set of functions to handle under-voltage situations properly. </p>
+<p>Fee_30_SmallSector_SuspendWrites()</p>
+<p> is intended to react on actual under-voltage </p>
+<p>situation detected via dedicated monitoring circuitry. Usually there is some amount of time </p>
+<p>(few  milliseconds)  to  react  on  such  conditions  until  a  low  voltage  reset  occurs.  Its </p>
+<p>counterpart, </p>
+<p>Fee_30_SmallSector_ResumeWrites()</p>
+<p> </p>
+<p>was </p>
+<p>introduced </p>
+<p>in </p>
+<p>order </p>
+<p>to </p>
+<p>prevent from stalling, if voltage reaches normal range, without any reset. </p>
+<p>As  long  as  writes  are  suspended  the  FEE  no  longer  requests  any  write-class  job  from </p>
+<p>underlying  Flash  driver  (e.g. </p>
+<p>Fls_Write, Fls_Erase</p>
+<p>)  due  to  high  risk  of  a  reset.  A </p>
+<p>currently pending write job of FEE will be paused until writes are resumed again. If FEE is </p>
+<p>currently  idle  when  writes  are  suspended,  FEE  write  jobs  are  accepted  but  will  not  be </p>
+<p>processed until writes are resumed again. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.9 </b></p>
+<p><b>MainFunction Triggering </b></p>
+<p>In  AUTOSAR  release  4.x  an  additional  option  is  introduced  to  be  able  to  call  the </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> in a cyclic task or in a background task. </p>
+<p>The cyclic task (default configuration) is used when the main function shall be triggered </p>
+<p>periodically. Typically the cycle time needs to be defined, for example 10ms. </p>
+<p>If the </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> shall be accessed quicker without periodic </p>
+<p>time base, the function can also be called in a background task. The background task runs </p>
+<p>when the system has nothing else to do. The </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> is </p>
+<p>called as often as the available CPU load allows. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>If the system is overloaded, it may happen that the background task is no longer called. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> should not be triggered faster than </p>
+<p>Fls_MainFunction</p>
+<p> because the FEE must wait for the FLS. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR  FEE into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the FEE contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2: </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fee_30_SmallSector.c </p>
+<p>Contains the implementation of the FEE interfaces.</p>
+<p> </p>
+<p>Fee_30_SmallSector.h </p>
+<p>Declares the interfaces of the FEE. </p>
+<p>Fee_30_SmallSector_Cbk.h </p>
+<p>Declares the callback functions of the FEE.</p>
+<p> </p>
+<p>Fee_30_SmallSector_PartitionHandler.c </p>
+<p>Responsible for partition relevant data. </p>
+<p>Fee_30_SmallSector_PartitionHandler.h </p>
+<p>Declares the interface of PartitionHandler. </p>
+<p>Fee_30_SmallSector_BlockHandler.c </p>
+<p>Responsible for block relevant data. </p>
+<p>Fee_30_SmallSector_BlockHandler.h </p>
+<p>Declares the interface of BlockHandler. </p>
+<p>Fee_30_SmallSector_DatasetHandler.c </p>
+<p>Responsible for dataset relevant data. </p>
+<p>Fee_30_SmallSector_DatasetHandler.h </p>
+<p>Declares the interface of DatasetHandler. </p>
+<p>Fee_30_SmallSector_InstanceHandler.c </p>
+<p>Responsible for instance relevant data. </p>
+<p>Fee_30_SmallSector_InstanceHandler.h </p>
+<p>Declares the interface of InstanceHandler. </p>
+<p>Fee_30_SmallSector_TaskManager.c </p>
+<p>Responsible for coordinating internal sub-</p>
+<p>components. </p>
+<p>Fee_30_SmallSector_TaskManager.h </p>
+<p>Declares the interface of TaskManager. </p>
+<p>Fee_30_SmallSector_FlsCoordinator.c </p>
+<p>Provides access to Flash driver’s services. </p>
+<p>Fee_30_SmallSector_FlsCoordinator.h </p>
+<p>Declares the interface of FlsCoordinator. </p>
+<p>Fee_30_SmallSector_Layer1_Read.c </p>
+<p>Internal layer 1 sub-component for read jobs. </p>
+<p>Fee_30_SmallSector_Layer1_Read.h </p>
+<p>Declares the interface of layer 1 read sub-</p>
+<p>component. </p>
+<p>Fee_30_SmallSector_Layer1_Write.c </p>
+<p>Internal layer 1 sub-component for write, invalidate </p>
+<p>and erase jobs. </p>
+<p>Fee_30_SmallSector_Layer1_Write.h </p>
+<p>Declares the interface of layer 1 write sub-</p>
+<p>component. </p>
+<p>Fee_30_SmallSector_Layer2_WriteInstan</p>
+<p>ce.c </p>
+<p>Internal layer 2 sub-component for writing instances. </p>
+<p>Fee_30_SmallSector_Layer2_WriteInstan</p>
+<p>ce.h </p>
+<p>Declares the interface of layer 2 write instance sub-</p>
+<p>component. </p>
+<p>Fee_30_SmallSector_Layer2_InstanceFin</p>
+<p>der.c </p>
+<p>Internal layer 2 sub-component for finding instances. </p>
+<p>Fee_30_SmallSector_Layer2_InstanceFin</p>
+<p>der.h </p>
+<p>Declares the interface of layer 2 instance finder sub-</p>
+<p>component. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fee_30_SmallSector_Layer2_DatasetEra</p>
+<p>ser.c </p>
+<p>Internal layer 2 sub-component for erasing datasets. </p>
+<p>Fee_30_SmallSector_Layer2_DatasetEra</p>
+<p>ser.h </p>
+<p>Declares the interface of layer 2 dataset eraser sub-</p>
+<p>component. </p>
+<p>Fee_30_SmallSector_Layer3_ReadMana</p>
+<p>gementBytes.c </p>
+<p>Internal layer 3 sub-component for reading </p>
+<p>management information of instances. </p>
+<p>Fee_30_SmallSector_Layer3_ReadMana</p>
+<p>gementBytes.h </p>
+<p>Declares the interface of layer 3 read management </p>
+<p>bytes sub-component. </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fee_30_SmallSector_Cfg.c </p>
+<p>Contains definitions of the configuration, e.g. partition </p>
+<p>configuration and block configuration </p>
+<p>Fee_30_SmallSector_Cfg.h </p>
+<p>Contains declarations of the configuration and macro definitions. </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Migration from FEE to SmallSectorFEE </b></p>
+<p>When  it  comes  to  an  update  of  a  project,  where  MICROSAR  FEE  (“Standard”  FEE)  is </p>
+<p>replaced </p>
+<p>by </p>
+<p>MICROSAR </p>
+<p>SmallSectorFEE, </p>
+<p>this </p>
+<p>section </p>
+<p>shows </p>
+<p>how </p>
+<p>to </p>
+<p>migrate </p>
+<p>the </p>
+<p>consisting FEE configuration to SmallSectorFEE configuration. </p>
+<p><b>1. </b></p>
+<p><b>Update SIP with SmallSectorFEE description and generator </b></p>
+<p>The SIP of the updated project should only contain SmallSectorFEE parts. Description and </p>
+<p>Generator of “Standard” FEE shall be removed from the project. </p>
+<p><b>2. </b></p>
+<p><b>Update BSWMD references </b></p>
+<p>Upon next start of Configurator it will be detected that the BSWMD file of “Standard” FEE </p>
+<p>is  missing  and  SmallSectorFEE’s  BSWMD  is  found  instead,  according  to  Figure  4-1</p>
+<p> </p>
+<p>Update references of BSWMD file.  </p>
+<p>Select </p>
+<p>OK </p>
+<p>in </p>
+<p>order </p>
+<p>to </p>
+<p>choose </p>
+<p>the </p>
+<p>alternative </p>
+<p>module </p>
+<p>definition </p>
+<p>/MICROSAR/Fee_30_SmallSector/Fee_Impl for the current definition /MICROSAR/Fee. </p>
+<p>The DaVinci Configurator 5 then takes care of replacing the references within the project, </p>
+<p>so that as much information as possible is retained. Parameters which are identical in both </p>
+<p>the </p>
+<p>previous </p>
+<p>and  the </p>
+<p>new </p>
+<p>definition  are </p>
+<p>matched </p>
+<p>easily, </p>
+<p>which </p>
+<p>is </p>
+<p>applicable </p>
+<p>to </p>
+<p>all </p>
+<p>AUTOSAR parameters. Due to the fact that even most of the vendor specific parameters, </p>
+<p>e.g.  FeePartitionConfiguration  parameters,  haven’t  changed  significantly  there’s  no  real </p>
+<p>data loss. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Update references of BSWMD file </p>
+<p><b>3. </b></p>
+<p><b>Remove incorrect definitions </b></p>
+<p>After </p>
+<p>updating </p>
+<p>the </p>
+<p>BSWMD </p>
+<p>file </p>
+<p>and </p>
+<p>after </p>
+<p>starting </p>
+<p>the </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>all </p>
+<p>the </p>
+<p>parameters  are  marked  with  a  small  info  icon  which  could  not  be  assigned  to  the  new </p>
+<p>definition.  </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>Example PartitionConfiguration after updating BSWMD references </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p>Figure 4-2 </p>
+<p>Example  PartitionConfiguration  after  updating  BSWMD  references  depicts </p>
+<p>an example PartitionConfiguration with some parameters greyed out, which are no longer </p>
+<p>available  after  updating  the  FEE  module  definition.  The  DaVinci  Configurator  5  shows </p>
+<p>appropriate information in the Validation view, as depicted in Figure 4-3 </p>
+<p>DaVinci </p>
+<p>Configurator signals incorrect definition of configuration elements. </p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>DaVinci Configurator signals incorrect definition of configuration elements </p>
+<p>To  remove  all  incorrect  definitions  a  solving  action  can  be  processed  from  the  context </p>
+<p>menu of the top element as shown in Figure 4-4 Choose </p>
+<p>solving </p>
+<p>action </p>
+<p>to </p>
+<p>delete </p>
+<p>all </p>
+<p>erroneous definitions. </p>
+<p> </p>
+<p>Figure 4-4 </p>
+<p>Choose solving action to delete all erroneous definitions </p>
+<p><b>4. </b></p>
+<p><b>Solve appearing errors </b></p>
+<p>After the erroneous definitions were removed, still some errors may be present because of </p>
+<p>incorrect parameter configuration. In order to solve these configuration issues please refer </p>
+<p>to </p>
+<p>error </p>
+<p>descriptions </p>
+<p>in </p>
+<p>Validation </p>
+<p>view </p>
+<p>of </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>and </p>
+<p>to </p>
+<p>section </p>
+<p>6.2 </p>
+<p>Configuration with DaVinci Configurator in order to get some hints for configuration. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-3. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The FEE does not specify any API data types. </p>
+<p><b>5.2 </b></p>
+<p><b>Services provided by FEE </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>Fee_30_SmallSector_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_Init</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service initializes the FEE module and all necessary internal variables. </p>
+<p>The FEE module doesn’t support any runtime configuration. Hence, a pointer to the configuration structure </p>
+<p>is not needed by this service. </p>
+<p>The FEE does not initialize the underlying Flash driver. This shall be done separately, e.g. by the ECUM </p>
+<p>module. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This service shall not be called during a pending job. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-1  </p>
+<p>Fee_30_SmallSector_Init </p>
+<p><b>5.2.2 </b></p>
+<p><b>Fee_30_SmallSector_SetMode </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_SetMode</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Mode </p>
+<p>Parameter is not used. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This service will not be supported by current implementation of FEE module because SetMode handling is </p>
+<p>not clearly specified by AUTOSAR. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This service has no effect at all </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-2  </p>
+<p>Fee_30_SmallSector_SetMode </p>
+<p><b>5.2.3 </b></p>
+<p><b>Fee_30_SmallSector_Read </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_Read</b></p>
+<p> </p>
+<p>( </p>
+<p>uint16 BlockNumber, uint16 BlockOffset, uint8* DataBufferPtr, uint16 Length)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>BlockNumber </p>
+<p>Handle of a logical block (depending on block configuration) </p>
+<p>BlockOffset </p>
+<p>Read address offset inside the block </p>
+<p>DataBufferPtr </p>
+<p>Pointer to data buffer </p>
+<p>Length </p>
+<p>Number of bytes to read </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Read job has been accepted </p>
+<p>E_NOT_OK </p>
+<p>Read job has been rejected </p>
+<p><b>Functional Description </b></p>
+<p>This service invokes the read processing of the specified block. After the job has been processed by the </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> the requested data has been read and passed to the caller. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The job processing is asynchronous. Hence, it is necessary to poll the FEE about its </p>
+<p>current status by calling the function </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> to check </p>
+<p>if the job was completed. Finally, the result of the finished job can be queried by calling </p>
+<p>the function </p>
+<p>Fee_30_SmallSector_GetJobResult()</p>
+<p>. Accordingly, it is possible to </p>
+<p>notify the upper layer (usually the NVM) via the callback mechanism.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-3  </p>
+<p>Fee_30_SmallSector_Read </p>
+<p><b>5.2.4 </b></p>
+<p><b>Fee_30_SmallSector_Write </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_Write</b></p>
+<p> </p>
+<p>( </p>
+<p>uint16 BlockNumber, uint8* DataBufferPtr)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>BlockNumber </p>
+<p>Handle of a logical block (depending on block configuration) </p>
+<p>DataBufferPtr </p>
+<p>Pointer to data buffer </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Write job has been accepted </p>
+<p>E_NOT_OK </p>
+<p>Write job has been rejected </p>
+<p><b>Functional Description </b></p>
+<p>This service invokes the write processing of the specified block. After the job has been processed by the </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> the requested data has been written to the non-volatile memory. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The job processing is asynchronous. Hence, it is necessary to poll the FEE about its </p>
+<p>current status by calling the function </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> to check </p>
+<p>if the job was completed. Finally, the result of the finished job can be queried by calling </p>
+<p>the function </p>
+<p>Fee_30_SmallSector_GetJobResult()</p>
+<p>. Accordingly, it is possible to </p>
+<p>notify the upper layer (usually the NVM) via the callback mechanism.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>26 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-4  </p>
+<p>Fee_30_SmallSector_Write </p>
+<p><b>5.2.5 </b></p>
+<p><b>Fee_30_SmallSector_Cancel </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_Cancel</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service cancels a currently pending job. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This service is a synchronous call and does not have to be triggered by the </p>
+<p>Fee_30_SmallSector_MainFunction()</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The status of the FEE will be set to </p>
+<p>MEMIF_IDLE</p>
+<p> and the job result will be set to </p>
+<p>MEMIF_JOB_CANCELLED</p>
+<p>, if a job was currently pending. </p>
+<p> </p>
+<p>If the FEE is currently </p>
+<p>MEMIF_IDLE</p>
+<p>, calling this service is without any effect. A </p>
+<p>development error will be reported to the DET module in this case, if development error </p>
+<p>detection is enabled. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-5  </p>
+<p>Fee_30_SmallSector_Cancel </p>
+<p><b>5.2.6 </b></p>
+<p><b>Fee_30_SmallSector_GetStatus </b></p>
+<p><b>Prototype </b></p>
+<p>MemIf_StatusType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_GetStatus</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>27 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Return code </b></p>
+<p>MEMIF_UNINIT </p>
+<p>The FEE is currently not initialized. </p>
+<p>Fee_30_SmallSector_Init()</p>
+<p> must be </p>
+<p>called to use the functionality of FEE. </p>
+<p>MEMIF_IDLE </p>
+<p>The FEE is currently idle. No asynchronous job is pending. </p>
+<p>MEMIF_BUSY </p>
+<p>The FEE is currently busy. An asynchronous job is currently being processed </p>
+<p>by the FEE. </p>
+<p><b>Functional Description </b></p>
+<p>This service returns synchronously the current module state of the FEE. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-6  </p>
+<p>Fee_30_SmallSector_GetStatus </p>
+<p><b>5.2.7 </b></p>
+<p><b>Fee_30_SmallSector_GetJobResult </b></p>
+<p><b>Prototype </b></p>
+<p>MemIf_JobResultType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_GetJobResult</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>MEMIF_JOB_OK </p>
+<p>The last job has been finished successfully. </p>
+<p>MEMIF_JOB_PENDING </p>
+<p>The last requested job is waiting for execution or is currently being </p>
+<p>executed. </p>
+<p>MEMIF_JOB_CANCELLED </p>
+<p>The last job has been canceled via the </p>
+<p>Fee_30_SmallSector_Cancel()</p>
+<p> service. </p>
+<p>MEMIF_JOB_FAILED </p>
+<p>The Flash driver reported an error or the FEE could not achieve the </p>
+<p>requested job due to hardware errors (e.g. memory cells defect) </p>
+<p>MEMIF_BLOCK_INCONSISTENT </p>
+<p>The requested block’s management information is inconsistent; hence it </p>
+<p>may contain corrupt data. This result happens if a write job has not </p>
+<p>been completed (e.g. due to voltage drop) or if bit flips in the </p>
+<p>management information occurred and can’t be corrected. Furthermore, </p>
+<p>if write-verify for a specific block is enabled and the verification of the </p>
+<p>written data fails, the job result is set to </p>
+<p>INCONSISTENT</p>
+<p>. </p>
+<p>MEMIF_BLOCK_INVALID </p>
+<p>The requested block has been invalidated previously via the service </p>
+<p>Fee_30_SmallSector_InvalidateBlock()</p>
+<p> or it is erased (e.g. by </p>
+<p>calling </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock()</p>
+<p>).  </p>
+<p><b>Functional Description </b></p>
+<p>This service returns the job result of the last job which was executed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>28 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-7  </p>
+<p>Fee_30_SmallSector_GetJobResult </p>
+<p><b>5.2.8 </b></p>
+<p><b>Fee_30_SmallSector_InvalidateBlock </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_InvalidateBlock</b>( uint16 BlockNumber )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>BlockNumber </p>
+<p>Handle of a logical block (depending on block configuration) </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Invalidate job has been accepted </p>
+<p>E_NOT_OK </p>
+<p>Invalidate job has been rejected </p>
+<p><b>Functional Description </b></p>
+<p>This service invokes the invalidate processing of the specified block. After the job has been processed by </p>
+<p>the </p>
+<p>Fee_30_SmallSector_MainFunction</p>
+<p> the requested block is marked as </p>
+<p>INVALID</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The job processing is asynchronous. Hence, it is necessary to poll the FEE about its </p>
+<p>current status by calling the function </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> to check </p>
+<p>if the job was completed. Finally, the result of the finished job can be queried by calling </p>
+<p>the function </p>
+<p>Fee_30_SmallSector_GetJobResult()</p>
+<p>. Accordingly, it is possible to </p>
+<p>notify the upper layer (usually the NVM) via the callback mechanism.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>29 </p>
+<p>based on template version 6.0.1 </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-8  </p>
+<p>Fee_30_SmallSector_InvalidateBlock </p>
+<p><b>5.2.9 </b></p>
+<p><b>Fee_30_SmallSector_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_GetVersionInfo</b></p>
+<p> </p>
+<p>( Std_VersionInfoType *VersionInfoPtr )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>VersionInfoPtr </p>
+<p>Pointer to where to store the version information of this module. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service returns the version information of this module. The version information </p>
+<p>includes: </p>
+<p><b>&gt; </b></p>
+<p>Module ID </p>
+<p><b>&gt; </b></p>
+<p>Vendor ID </p>
+<p><b>&gt; </b></p>
+<p>Vendor specific version numbers </p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p><b>&gt; </b></p>
+<p>This service is can be en-/disabled via configuration parameter </p>
+<p>FeeVersionInfoApi</p>
+<p> </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-9  </p>
+<p>Fee_30_SmallSector_GetVersionInfo </p>
+<p><b>5.2.10 </b></p>
+<p><b>Fee_30_SmallSector_EraseImmediateBlock </b></p>
+<p><b>Prototype </b></p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_EraseImmediateBlock</b>( uint16 BlockNumber )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>BlockNumber </p>
+<p>Handle of a logical block (depending on block configuration) </p>
+<p><b>Return code </b></p>
+<p>E_OK </p>
+<p>Erase job has been accepted </p>
+<p>E_NOT_OK </p>
+<p>Erase job has been rejected </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>30 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This function doesn’t erase flash memory. </p>
+<p>The addressed block is marked as invalid, thus a subsequent read request on the invalidated block </p>
+<p>completes with </p>
+<p>MEMIF_BLOCK_INVALID</p>
+<p>. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The job processing is asynchronous. Hence, it is necessary to poll the FEE about its </p>
+<p>current status by calling the function </p>
+<p>Fee_30_SmallSector_GetStatus()</p>
+<p> to check </p>
+<p>if the job was completed. Finally, the result of the finished job can be queried by calling </p>
+<p>the function </p>
+<p>Fee_30_SmallSector_GetJobResult()</p>
+<p>. Accordingly, it is possible to </p>
+<p>notify the upper layer (usually the NVM) via the callback mechanism.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is asynchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-10  </p>
+<p>Fee_30_SmallSector_EraseImmediateBlock </p>
+<p><b>5.2.11 </b></p>
+<p><b>Fee_30_SmallSector_MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_MainFunction</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service triggers the processing of internal state machine and handles the </p>
+<p>asynchronous job and management operations. </p>
+<p>The complete handling of the job and the detection of invalidated or inconsistent blocks </p>
+<p>will be done in the internal job state machine. </p>
+<p>Additionally, if development mode is configured, parameter checks are performed and in </p>
+<p>case of failure they are reported to the DET with according service ID and the reason of </p>
+<p>occurrence (refer to 3.6.1). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>31 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs'  </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called at interrupt level </p>
+<p>Table 5-11  </p>
+<p>Fee_30_SmallSector_MainFunction </p>
+<p><b>5.2.12 </b></p>
+<p><b>Fee_30_SmallSector_SuspendWrites </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_SuspendWrites</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service instructs FEE to block all write class jobs (writing, invalidating and erasing).  </p>
+<p>Pending jobs will be paused, i.e. they won’t be finished. FEE will enter a safe state (by </p>
+<p>means of Flash content). Once such state was reached, FEE does not issue new write </p>
+<p>requests to FLS. </p>
+<p>Multiple subsequent calls of this service don’t have additional effects, i.e. to re-enable </p>
+<p>write accesses only one call of </p>
+<p>Fee_30_SmallSector_ResumeWrites</p>
+<p> is necessary. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Expected to be called in application context. </p>
+<p>Table 5-12  </p>
+<p>Fee_30_SmallSector_SuspendWrites </p>
+<p><b>5.2.13 </b></p>
+<p><b>Fee_30_SmallSector_ResumeWrites </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_ResumeWrites</b></p>
+<p> </p>
+<p>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>32 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Functional Description </b></p>
+<p>This service instructs FEE to allow all write class jobs (writing, invalidating and erasing), </p>
+<p>after being suspended by </p>
+<p>Fee_30_SmallSector_SuspendWrites</p>
+<p>. </p>
+<p>Multiple calls of this service don’t have any additional effects, i.e. to disable write class </p>
+<p>jobs only </p>
+<p>Fee_30_SmallSector_SuspendWrites</p>
+<p> needs to be called only once. </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>May be called at interrupt level </p>
+<p>Table 5-12  </p>
+<p>Fee_30_SmallSector_ResumeWrites </p>
+<p> </p>
+<p><b>5.3 </b></p>
+<p><b>Services used by FEE </b></p>
+<p>In the following table services provided by other components, which are used by the FEE </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>FLS </p>
+<p>Fls_Read </p>
+<p>Fls_Write </p>
+<p>Fls_Compare </p>
+<p>Fls_Erase </p>
+<p>Fls_BlankCheck (if configured) </p>
+<p>Fls_GetJobResult </p>
+<p>Fls_GetStatus </p>
+<p>NVM </p>
+<p>NvM_JobEndNotification (if configured) </p>
+<p>NvM_JobErrorNotification (if configured) </p>
+<p>Table 5-13  </p>
+<p>Services used by the FEE </p>
+<p><b>5.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p>This chapter describes the callback functions that are implemented by the FEE and can be </p>
+<p>invoked  by  other  modules. The  prototypes  of  the  callback  functions  are  provided  in  the </p>
+<p>header file </p>
+<p>Fee_30_SmallSector_Cbk.h</p>
+<p> by the FEE. </p>
+<p><b>5.4.1 </b></p>
+<p><b>Fee_30_SmallSector_JobEndNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_JobEndNotification</b>( void )</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>33 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This routine shall be called by the underlying flash driver to report the successful end of an asynchronous </p>
+<p>operation. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is configurable at pre-compile time using the parameter </p>
+<p>FeePollingMode.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This routine might be called on interrupt level, depending on the calling function </p>
+<p>Table 5-14  </p>
+<p>Fee_30_SmallSector_JobEndNotification </p>
+<p><b>5.4.2 </b></p>
+<p><b>Fee_30_SmallSector_JobErrorNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>Fee_30_SmallSector_JobErrorNotification</b>( void )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>-- </p>
+<p>-- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This routine shall be called by the underlying flash driver to report the failure of an asynchronous operation. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This function is configurable at pre-compile time using the parameter </p>
+<p>FeePollingMode.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>34 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Service ID: see table 'Service IDs' </p>
+<p><b>&gt; </b></p>
+<p>This function is synchronous.  </p>
+<p><b>&gt; </b></p>
+<p>This function is non-reentrant.  </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>This routine might be called on interrupt level, depending on the calling function </p>
+<p>Table 5-15  </p>
+<p>Fee_30_SmallSector_JobErrorNotification </p>
+<p> </p>
+<p><b>5.5 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>API </b></p>
+<p><b>Description </b></p>
+<p>Function </p>
+<p>Fee_30_SmallSector_GetVersionInfo</p>
+<p> </p>
+<p>This function can be enabled/disabled by the </p>
+<p>configuration switch ‘Version Information API’ </p>
+<p>Table 5-16  </p>
+<p>Configurable Interfaces </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>35 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p>In the FEE the attributes can be configured according with the following methods: </p>
+<p><b>&gt; </b> DaVinci Configurator 5, domain “Memory” (AUTOSAR 4 packages only). Parameters </p>
+<p>are explained within the tool. Parameters described in this chapter might not directly </p>
+<p>correspond to parameters visible in Configurator 5’s GUI. </p>
+<p><b>&gt; </b> DaVinci Configurator 4 (AUTOSAR 3 packages only; for a detailed description see </p>
+<p>this chapter) </p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The FEE supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the FEE parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the  </p>
+<p><b>&gt; </b></p>
+<p>Fee_30_SmallSector_bswmd_Asr3.2.1.arxml (AUTOSAR 3 use-case) </p>
+<p><b>&gt; </b></p>
+<p>Fee_30_SmallSector_bswmd_Asr4.0.3.arxml (AUTOSAR 4 use-case) </p>
+<p><b>6.2 </b></p>
+<p><b>Configuration with DaVinci Configurator </b></p>
+<p>Configuration parameters are well described within the tool, thus this section should point </p>
+<p>out the key elements of configuration. </p>
+<p><b>6.2.1 </b></p>
+<p><b>Configuring Flash API Services </b></p>
+<p>By </p>
+<p>default </p>
+<p>SmallSectorFee </p>
+<p>assumes </p>
+<p>the </p>
+<p>Flash’s </p>
+<p>API </p>
+<p>services </p>
+<p>declared </p>
+<p>like </p>
+<p>Fls_&lt;Operation&gt; (i.e. Fls_Read, Fls_Write, Fls_Erase, etc.). </p>
+<p>If declaration of Flash’s API services differs from this default, e.g. Fls_&lt;VendorInfix&gt;_Read </p>
+<p>an according FeeGeneral/FeeFlsApi container shall be instantiated and the service names </p>
+<p>shall be entered manually as shown in Figure 6-1  Configuring FeeFlsApi container. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>36 </p>
+<p>based on template version 6.0.1 </p>
+<p>Figure 6-1 </p>
+<p>Configuring FeeFlsApi container </p>
+<p>Figure 6-1 </p>
+<p>Configuring FeeFlsApi containerdepicts an example with Flash API services </p>
+<p>(here: Fls_Spi_&lt;operation&gt;) differing from default. The parameter ‘Device Index’ shall be </p>
+<p>set to FlsGeneral container of the corresponding FLS module in configuration.  </p>
+<p>If  the  FLS  driver  does  not  provide  a  BlankCheck-API,  the  content  of  this  configuration </p>
+<p>parameter is not relevant and will be ignored. Nevertheless it shouldn’t be left empty. </p>
+<p><b>6.2.2 </b></p>
+<p><b>Partition Configuration </b></p>
+<p>For each partition three different alignment parameters can be configured. This is due to </p>
+<p>the  fact  that  theoretically  each  partition  could  reference  a  separate  FLS  module  with </p>
+<p>different hardware properties. </p>
+<p><b>&gt; </b></p>
+<p>AddressAlignment shall be configured to the same size of referenced FLS module’s </p>
+<p>physical sector </p>
+<p><b>&gt; </b></p>
+<p>WriteAlignment  shall  be  configured  to  the  same  size  of  referenced  FLS  module’s </p>
+<p>physical page </p>
+<p><b>&gt; </b></p>
+<p>ReadAlignment shall be configured as small as possible in order to avoid reading </p>
+<p>overhead. For example RH850’s RV40F data flash allows 1 byte read accesses. </p>
+<p> </p>
+<p>Figure 6-2 </p>
+<p>SmallSectorFee Partition Configuration example (RH850) </p>
+<p>The  connection  between  a  FeePartition  and  a  FLS  module  shall  be  established  via </p>
+<p>‘Partition Device’ parameter, which holds the reference to FLS’ FlsConfigSet container. </p>
+<p>Both  ‘Partition  Start  Address’  and  ‘Partition  Size’  needs  to  be  aligned  to  the  partition’s </p>
+<p>AddressAlignment. </p>
+<p>In case the referenced FLS driver provides a Fls_BlankCheck API, it’s recommended to </p>
+<p>enable the configuration parameter ‘Fls Blank Check API’, so that FEE can make use of </p>
+<p>this API service. Especially if Renesas RH850 is used with internal data flash RV40F, this </p>
+<p>parameter shall be enabled. </p>
+<p><b>6.2.3 </b></p>
+<p><b>Block Configuration </b></p>
+<p>In BlockConfiguration the number of instances is mentionable. It’s calculated automatically </p>
+<p>using </p>
+<p>the </p>
+<p>parameters </p>
+<p>‘Number </p>
+<p>Of </p>
+<p>Write </p>
+<p>Cycles’ </p>
+<p>and </p>
+<p>FlsSpecifiedEraseCycles </p>
+<p>in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>37 </p>
+<p>based on template version 6.0.1 </p>
+<p>FlsPublishedInformation. FEE uses a walking block mechanism to spread write jobs over </p>
+<p>several instances in order to prevent the Flash cells from getting overstressed.  </p>
+<p> </p>
+<p>Figure 6-3 </p>
+<p>Block Configuration </p>
+<p>The </p>
+<p>‘Number </p>
+<p>Of </p>
+<p>Instances’ </p>
+<p>is </p>
+<p>equal </p>
+<p>to </p>
+<p>‘Number </p>
+<p>Of </p>
+<p>Write </p>
+<p>Cycles’ </p>
+<p>divided </p>
+<p>by </p>
+<p>FlsSpecifiedEraseCycles rounded up to the next integer value. </p>
+<p><b>6.3 </b></p>
+<p><b>Overhead Calculation </b></p>
+<p>Since addressing scheme of SmallSectorFEE is statically, the overhead for each block in </p>
+<p>configuration can be calculated. Overhead can therefore be split into two groups: </p>
+<p><b>&gt; </b></p>
+<p>Fixed overhead due to management information of a block </p>
+<p><b>&gt; </b></p>
+<p>Overhead due to page and physical sector alignments </p>
+<p>The  user  of  SmallSectorFEE  can  only  influence  alignment-related  overhead,  because </p>
+<p>overhead for management information is unavoidable. </p>
+<p>A FEE block consists of at least one FEE dataset. A FEE dataset consists of at least one </p>
+<p>FEE instance. In the following the algorithms are introduced to calculate the size of these </p>
+<p>entities depending on configured data length and expected number of writes. </p>
+<p><b>Explanation of terms: </b></p>
+<p><b>Name </b></p>
+<p><b>Description </b></p>
+<p>FeeMgmtSize </p>
+<p>1 Byte (Fixed value in implementation) </p>
+<p>FeeInstanceSize </p>
+<p>Size of one instance for a configured FEE block </p>
+<p>FeeNrInstances </p>
+<p>Configured number of instances for FEE block. Depends on expected </p>
+<p>number of writes of FEE block and flash device’s specified erase </p>
+<p>cycles </p>
+<p>FeeNrDatasets </p>
+<p>Configured number of datasets for FEE block. </p>
+<p>DataLength </p>
+<p>Configured size of user data for FEE block </p>
+<p>FlsPageSize </p>
+<p>Size of smallest writeable unit of flash device. Should be identical to </p>
+<p>FEE’s write alignment. </p>
+<p>FlsSectorSize </p>
+<p>Size of smallest erasable unit of flash device Should be identical to </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>38 </p>
+<p>based on template version 6.0.1 </p>
+<p>FEE’s address alignment. </p>
+<p><i>align</i>(value, alignment) </p>
+<p>If  ‘value’  is  already  aligned  to  ‘alignment’,  ‘value’  is  returned. </p>
+<p>Otherwise </p>
+<p>the </p>
+<p>next </p>
+<p>greater </p>
+<p>value </p>
+<p>aligned </p>
+<p>to </p>
+<p>‘alignment’ </p>
+<p>is </p>
+<p>returned. </p>
+<p>Table 6-1  </p>
+<p>Explanation of terms used in algorithms </p>
+<p>1. </p>
+<p>Calculation of size for one instance of FEE block: </p>
+<p>FeeInstanceSize = <i>align</i>( 2 * FlsPageSize + FeeMgmtSize + DataLength, FlsPageSize) </p>
+<p> </p>
+<p>2. </p>
+<p>Calculation of size for one dataset of FEE block: </p>
+<p>FeeDatasetSize = <i>align</i>(FlsPageSize + FeeInstanceSize * FeeNrInstances, FlsSectorSize) </p>
+<p> </p>
+<p>3. </p>
+<p>Calculation of size for one FEE block: </p>
+<p>FeeBlockSize = FeeDatasetSize * FeeNrDatasets </p>
+<p> </p>
+<p>It becomes clear that overhead due to alignment appears two times.  FEE instances are </p>
+<p>aligned to flash device’s page boundaries and FEE datasets are aligned to flash device’s </p>
+<p>sector  boundaries.  By  adjusting  the  parameters  DataLength  and  FeeNrInstances  it  is </p>
+<p>possible  to  reduce  alignment-related  overhead.  Both  parameters should  be  chosen  in  a </p>
+<p>way  that  the  number  of  padding  bytes  is  minimalized  to  fill  the  entity  up  to  the  next </p>
+<p>alignment boundary. It should be considered to reduce the size of DataLength in order to </p>
+<p>decrease the total size of FeeDataSize. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>39 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Requirements and Recommendations </b></p>
+<p>This  section  shall  point  out  requirements  the  user  system  needs  to  comply  with  when </p>
+<p>using  this  FEE  module.  Additionally,  recommendations  are  made  for  use-case  of  this </p>
+<p>module and its configuration with regard to limitations of FEE. </p>
+<p><b>7.1 </b></p>
+<p><b>Requirements for the User System </b></p>
+<p>The following requirements are focused on FEE’s underlying layers: Flash driver and Flash </p>
+<p>memory hardware. </p>
+<p><b>7.1.1 </b></p>
+<p><b>General Requirements </b></p>
+<p><b>&gt; </b></p>
+<p>Only addressed flash pages and sectors shall be affected during a job </p>
+<p><b>7.1.2 </b></p>
+<p><b>Write-Related </b></p>
+<p><b>&gt; </b></p>
+<p>Only if intended data was  written successfully  and persistently  to flash memory, FLS </p>
+<p>driver shall return with MEMIF_JOB_OK </p>
+<p><b>&gt; </b></p>
+<p>Only erased flash cells shall be writeable </p>
+<p><b>&gt; </b></p>
+<p>Successfully written flash cells shall not alter their values over time </p>
+<p><b>&gt; </b></p>
+<p>Write aborts (e.g. due to reset) shall only affect the flash page which is currently being </p>
+<p>written </p>
+<p><b>7.1.3 </b></p>
+<p><b>Read/Compare-Related </b></p>
+<p><b>&gt; </b></p>
+<p>Only if intended data was read/compared successfully from flash memory, FLS driver </p>
+<p>shall return with MEMIF_JOB_OK </p>
+<p><b>&gt; </b></p>
+<p>If FLS driver does not support a BlankCheck API, erased flash cells shall contain FLS’ </p>
+<p>erased value </p>
+<p><b>7.1.4 </b></p>
+<p><b>Erase-Related </b></p>
+<p><b>&gt; </b></p>
+<p>Only if intended flash area was erased successfully and persistently, FLS driver shall </p>
+<p>return with MEMIF_JOB_OK </p>
+<p><b>&gt; </b></p>
+<p>Erased flash cells shall remain erased over time until a write job is performed </p>
+<p><b>&gt; </b></p>
+<p>Erase  aborts  (e.g.  due  to  reset)  shall  only  affect  the  flash  sector  which  is  currently </p>
+<p>being erased </p>
+<p><b>7.1.5 </b></p>
+<p><b>BlankCheck-Related </b></p>
+<p><b>&gt; </b></p>
+<p>Only  if  all  flash  cells  in  intended  flash  area  are  erased,  FLS  driver  shall  return  with </p>
+<p>MEMIF_JOB_OK </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Recommendations </b></p>
+<p>The following items shall serve as basis for general considerations regarding use-case and </p>
+<p>FEE configuration. </p>
+<p><b>&gt; </b></p>
+<p>The SmallSectorFEE shall be used with flash devices with reasonable small physical </p>
+<p>sectors. This means that sector size shall not exceed the size of single configured </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>40 </p>
+<p>based on template version 6.0.1 </p>
+<p>blocks by far. SmallSectorFEE assigns every configured block to separate flash </p>
+<p>sectors, thus overhead is kept small if block size is about the size of a flash sector or a </p>
+<p>multiple of it.  </p>
+<p><b>&gt; </b></p>
+<p>It’s recommended to use this FEE module with internal data flash RV40F of Renesas’ </p>
+<p>RH850 platform because of its 64 byte physical flash sectors. </p>
+<p><b>&gt; </b></p>
+<p>If erase state of flash cells can’t be determined via Read service but BlankCheck </p>
+<p>service, using the FLS’ BlankCheck service shall be enabled in </p>
+<p>FeePartitionConfiguration. </p>
+<p><b>&gt; </b></p>
+<p>‘AddressAlignment’ parameter in FeePartitionConfiguration shall be identical to </p>
+<p>referenced FlsSector’s sector size. </p>
+<p><b>&gt; </b></p>
+<p>‘WriteAlignment’ parameter in FeePartitionConfiguration shall be identical to referenced </p>
+<p>FlsSector’s page size. </p>
+<p><b>&gt; </b></p>
+<p>‘ReadAlignment’ parameter in FeePartitionConfiguration shall be configured as small </p>
+<p>as FLS driver and flash hardware allows in order to keep reading overhead small. </p>
+<p><b>&gt; </b></p>
+<p>In FeeBlockConfiguration the number of instances for a block is calculated by ‘Number </p>
+<p>Of Write Cycles’ and FLS module’s ‘Specified Erase Cycles’. If the expected ‘Number </p>
+<p>Of Write Cycles’ for a block is nearly as large as a multiple of FLS module’s ‘Specified </p>
+<p>Erase Cycles’ it should be considered to increase the expected ‘Number Of Write </p>
+<p>Cycles’ so that one additional instance is allocated for this block. This way enough </p>
+<p>reserve is established to prevent the flash area for this block from getting overstressed. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>41 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>8 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>EEPROM </p>
+<p>Electrically Erasable Programmable Read-Only Memory </p>
+<p>FEE </p>
+<p>Flash EEPROM Emulation </p>
+<p>FLS </p>
+<p>Flash module </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>NVM </p>
+<p>Non-Volatile RAM Manager </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>SIP </p>
+<p>Software Integration Package </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 8-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fee </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 1.1.0 </p>
+<p>42 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>9 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

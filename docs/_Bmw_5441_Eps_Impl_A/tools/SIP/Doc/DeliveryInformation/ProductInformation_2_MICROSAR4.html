@@ -1,0 +1,1841 @@
+---
+layout: default
+title: ProductInformation_2_MICROSAR4
+nav_order: 61
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR 4 </b></p>
+<p>Product Information </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.02.12 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Hannes Haas </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>2 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................................................... 4</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>General Information ....................................................................................................... 5</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Compiler Warnings ................................................................................................... 5</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>64-bit Microcontroller Support .................................................................................. 5</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Delivery of Beta Modules/Features ........................................................................... 5</p>
+<p> </p>
+<p>2.4</p>
+<p> </p>
+<p>Delivery of Stub Modules.......................................................................................... 5</p>
+<p> </p>
+<p>2.5</p>
+<p> </p>
+<p>Delivery of Code Templates ...................................................................................... 6</p>
+<p> </p>
+<p>2.6</p>
+<p> </p>
+<p>Delivery of Example Code ........................................................................................ 6</p>
+<p> </p>
+<p>2.7</p>
+<p> </p>
+<p>Usage of Features that are not Licensed .................................................................. 6</p>
+<p> </p>
+<p>2.8</p>
+<p> </p>
+<p>Test Report ............................................................................................................... 7</p>
+<p> </p>
+<p>2.9</p>
+<p> </p>
+<p>MISRA ...................................................................................................................... 7</p>
+<p> </p>
+<p>2.10</p>
+<p> </p>
+<p>Test of External Hardware ........................................................................................ 7</p>
+<p> </p>
+<p>2.11</p>
+<p> </p>
+<p>Test of 3</p>
+<p>rd</p>
+<p> Party Modules .......................................................................................... 7</p>
+<p> </p>
+<p>2.12</p>
+<p> </p>
+<p>Issue Handling ......................................................................................................... 7</p>
+<p> </p>
+<p>2.12.1</p>
+<p> </p>
+<p>Issue Reporting for 3</p>
+<p>rd</p>
+<p> Party Software ............................................................. 8</p>
+<p> </p>
+<p>2.12.2</p>
+<p> </p>
+<p>Issue Reporting for DaVinci Tools .................................................................... 8</p>
+<p> </p>
+<p>2.13</p>
+<p> </p>
+<p>Warranty ................................................................................................................... 8</p>
+<p> </p>
+<p>2.13.1</p>
+<p> </p>
+<p>3</p>
+<p>rd</p>
+<p> Party Modules ............................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Modules and Options ..................................................................................................... 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>vDBG (XCP-based) .................................................................................................. 9</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>DLT (XCP-based) ..................................................................................................... 9</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>DLT (AUTOSAR) ...................................................................................................... 9</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Drivers (CAN, LIN, FR, ETH, MCAL) ........................................................................ 9</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>vETM........................................................................................................................ 9</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>FEE ........................................................................................................................ 10</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Generic Modules .................................................................................................... 10</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>IDM - Variant Handling / Post-Build Selectable ....................................................... 10</p>
+<p> </p>
+<p>3.9</p>
+<p> </p>
+<p>MCAL Integration Package ..................................................................................... 11</p>
+<p> </p>
+<p>3.10</p>
+<p> </p>
+<p>OS Option: Schedule Table Synchronization .......................................................... 12</p>
+<p> </p>
+<p>3.11</p>
+<p> </p>
+<p>PBL - Post-Build Loadable ..................................................................................... 12</p>
+<p> </p>
+<p>3.12</p>
+<p> </p>
+<p>RTE ........................................................................................................................ 13</p>
+<p> </p>
+<p>3.13</p>
+<p> </p>
+<p>vRTM ..................................................................................................................... 13</p>
+<p> </p>
+<p>3.14</p>
+<p> </p>
+<p>WDGM ................................................................................................................... 13</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Services ........................................................................................................................ 14</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>MICROSAR Getting Started V2G ........................................................................... 14</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>3 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>SIP Extensions ............................................................................................................. 15</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Customer Hardware ............................................................................................... 15</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Start Application ..................................................................................................... 15</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>vVIRTUALtarget (VTT) ........................................................................................... 16</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Components .................................................................................................. 16</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Limitations ..................................................................................................... 17</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>Required Software ........................................................................................ 18</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Definition of SLP/HLP/SIP, Maintenance and Release Types .................................... 19</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Software License Package (SLP) ........................................................................... 19</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Hardware License Package (HLP) ......................................................................... 19</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Software Integration Package (SIP) ....................................................................... 20</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>Mini SIP .................................................................................................................. 20</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>SIP Types ............................................................................................................... 20</p>
+<p> </p>
+<p>6.5.1</p>
+<p> </p>
+<p>Beta .............................................................................................................. 20</p>
+<p> </p>
+<p>6.5.2</p>
+<p> </p>
+<p>Production ..................................................................................................... 20</p>
+<p> </p>
+<p>6.5.3</p>
+<p> </p>
+<p>Update .......................................................................................................... 20</p>
+<p> </p>
+<p>6.5.4</p>
+<p> </p>
+<p>Prototype ....................................................................................................... 20</p>
+<p> </p>
+<p>6.5.5</p>
+<p> </p>
+<p>Overview SIP Types ...................................................................................... 21</p>
+<p> </p>
+<p>6.5.6</p>
+<p> </p>
+<p>Usage of Non-Production Deliveries .............................................................. 21</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>Maintenance........................................................................................................... 22</p>
+<p> </p>
+<p>6.6.1</p>
+<p> </p>
+<p>SLP Maintenance .......................................................................................... 22</p>
+<p> </p>
+<p>6.6.2</p>
+<p> </p>
+<p>HLP Maintenance .......................................................................................... 22</p>
+<p> </p>
+<p>6.6.3</p>
+<p> </p>
+<p>SIP Maintenance ........................................................................................... 22</p>
+<p> </p>
+<p>6.6.4</p>
+<p> </p>
+<p>Differentiation of warranty versus maintenance ............................................. 23</p>
+<p> </p>
+<p>6.7</p>
+<p> </p>
+<p>Release Types ....................................................................................................... 23</p>
+<p> </p>
+<p>6.7.1</p>
+<p> </p>
+<p>QuickFix ........................................................................................................ 23</p>
+<p> </p>
+<p>6.7.2</p>
+<p> </p>
+<p>Development ................................................................................................. 24</p>
+<p> </p>
+<p>6.7.3</p>
+<p> </p>
+<p>Pre Production .............................................................................................. 24</p>
+<p> </p>
+<p>6.7.4</p>
+<p> </p>
+<p>Production ..................................................................................................... 24</p>
+<p> </p>
+<p>6.7.5</p>
+<p> </p>
+<p>Production (Safety-ready) ............................................................................. 24</p>
+<p> </p>
+<p>6.7.6</p>
+<p> </p>
+<p>Production (Safe) .......................................................................................... 24</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact.......................................................................................................................... 25</b></p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>4 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>All modules and options are described in the general Product Information (please refer to </p>
+<p>the link “Product Descriptions”). </p>
+<p>In addition to the general Product Information, this document provides additional details to </p>
+<p>the offered items. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>5 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2 </b></p>
+<p><b>General Information </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This chapter provides important information that applies for using MICROSAR basic </p>
+<p>software. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>2.1 </b></p>
+<p><b>Compiler Warnings </b></p>
+<p>Due  to  the  use  of  standard  software  modules  for  a  huge  number  of  different  hardware </p>
+<p>platforms and different compilers it is not possible to avoid compiler warnings completely. </p>
+<p>Vector tries to keep its software free of warnings, but in some cases it is not possible or it </p>
+<p>may decrease performance. </p>
+<p>Vector provides a list of known compiler warnings with each delivery of a Production SIP. </p>
+<p><b>2.2 </b></p>
+<p><b>64-bit Microcontroller Support </b></p>
+<p>Due  to  limitations  given  by  underlying  specifications  (ASAM,  ISO, AUTOSAR…)  not  all </p>
+<p>address  based  services  can  be  used  on  64-bit  controllers  without  limitations.  A  typical </p>
+<p>limitation can be that only the lower half of the 64-bit address range can be accessed. </p>
+<p><b>2.3 </b></p>
+<p><b>Delivery of Beta Modules/Features </b></p>
+<p>Deliveries  may  contain  Beta  Modules  and/or  Beta  Features.  Beta  Modules  and  Beta </p>
+<p>Features are basically operable, but not sufficiently tested, verified and/or qualified for use </p>
+<p>in </p>
+<p>series </p>
+<p>production  and/or </p>
+<p>in </p>
+<p>vehicles </p>
+<p>operating </p>
+<p>on  public </p>
+<p>or </p>
+<p>non-public </p>
+<p>roads. </p>
+<p>In </p>
+<p>particular, </p>
+<p>without </p>
+<p>limitation, </p>
+<p>the </p>
+<p>Beta </p>
+<p>Modules </p>
+<p>and </p>
+<p>Beta </p>
+<p>Features </p>
+<p>may </p>
+<p>cause </p>
+<p>unpredictable  ECU  behavior,  may  not  provide  all  functions  necessary  for  use  in  series </p>
+<p>production </p>
+<p>and/or </p>
+<p>may </p>
+<p>not </p>
+<p>comply </p>
+<p>with </p>
+<p>quality </p>
+<p>requirements </p>
+<p>which </p>
+<p>are </p>
+<p>necessary </p>
+<p>according  to  the  state  of  the  art.  Beta  Modules  and  Beta  Features must  not be used  in </p>
+<p>series production. </p>
+<p>Beta  Modules  and  Beta  Features  are  listed  in  chapter  2.4  of  the  issue  report  which  is </p>
+<p>provided  with  the  delivery.  Moreover,  the  issue  report  contains  information  on  how  to </p>
+<p>deactivate the Beta Feature for series production projects. </p>
+<p><b>2.4 </b></p>
+<p><b>Delivery of Stub Modules  </b></p>
+<p>The delivery (SIP) may include implementations for BSW modules which are only sample </p>
+<p>code intended for illustrating an example of a possible BSW implementation (hereinafter </p>
+<p>“Stub Modules”). Stub Modules are not part of the ordered BSW modules and have been </p>
+<p>added by Vector voluntarily and free of charge solely to enable the customer to perform a </p>
+<p>preliminary assembly and test of the BSW modules.</p>
+<p> </p>
+<p>The Stub Modules have not passed any quality control measures and may be incomplete. </p>
+<p>The Stub Modules are neither intended nor qualified for use in series production without </p>
+<p>applying suitable quality measures. The Stub Modules as well as any of their modifications </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>6 </p>
+<p>based on template version 6.0.1 </p>
+<p>and/or implementations must be tested with diligent care and must comply with all quality </p>
+<p>requirements which are necessary according to the state of the art before their use. </p>
+<p>Stub  Modules  can be  identified  by  the  comment  section  “SAMPLE  CODE  ONLY” in  the </p>
+<p>implementation </p>
+<p>files. </p>
+<p>The </p>
+<p>implementation </p>
+<p>of </p>
+<p>Stub </p>
+<p>Modules </p>
+<p>can </p>
+<p>be </p>
+<p>found </p>
+<p>in </p>
+<p>BSW\&lt;Msn&gt;_Stub. Generated files are located in the generator “Source” folder using the </p>
+<p>naming convention &lt;Msn&gt;_Stub.c/h. </p>
+<p><b>2.5 </b></p>
+<p><b>Delivery of Code Templates </b></p>
+<p>The delivery may contain files that must be adapted during BSW integration. The Technical </p>
+<p>References  of  BSW  modules  lists  the  files  that  require  to  be  adapted.  This  can  be </p>
+<p>dedicated  Template  Areas  or  Complete  Template  Files  (hereinafter  collectively  &quot;Code </p>
+<p>Template&quot;). </p>
+<p>Code Templates are incomplete and only intended for providing a signature and an empty </p>
+<p>implementation.  Code  Templates  are  neither  intended  nor  qualified  for  use  in  series </p>
+<p>production without applying suitable quality measures.  </p>
+<p>Each Code Template must be completed as described in the Technical Reference and/or in </p>
+<p>the  respective  Code  Template  file.  The  completed  implementation  must  be  tested  with </p>
+<p>diligent care and must comply with all quality requirements which are necessary according </p>
+<p>to the state of the art before its use. </p>
+<p><b>2.6 </b></p>
+<p><b>Delivery of Example Code </b></p>
+<p>The delivery (SIP) may include a Start Application and/or a Demo (hereinafter collectively </p>
+<p>“Example  Code”).  The  Example  Code  is  only  intended  for  illustrating  an  example  of  a </p>
+<p>possible BSW integration and BSW configuration. </p>
+<p> </p>
+<p>The Example Code has not passed any quality control measures and may be incomplete. </p>
+<p>The Example Code is neither intended nor qualified for use in series production. </p>
+<p>The  Example  Code  as  well  as  any  of  its  modifications  and/or  implementations  must  be </p>
+<p>tested </p>
+<p>with </p>
+<p>diligent </p>
+<p>care </p>
+<p>and </p>
+<p>must </p>
+<p>comply </p>
+<p>with </p>
+<p>all </p>
+<p>quality </p>
+<p>requirements </p>
+<p>which </p>
+<p>are </p>
+<p>necessary according to the state of the art before their use. </p>
+<p>The Start Application is located in the folder .\StartApplication of the SIP. </p>
+<p>The Demo is located in the folder .\Demo of the SIP. </p>
+<p><b>2.7 </b></p>
+<p><b>Usage of Features that are not Licensed </b></p>
+<p>BSW features that are not explicitly listed in the order confirmation are not licensed. If the </p>
+<p>BSW configuration enables a feature that has not been licensed a warning message will </p>
+<p>be shown or the build or generation process will abort with an error. (e.g. issued at code </p>
+<p>generation time). </p>
+<p>In case of a warning message the feature remains fully functional. The license violation will </p>
+<p>be  communicated  in  the  format  “License  Violation”  and  an  additional  description  that </p>
+<p>describes the kind of violation. </p>
+<p>If the build or generation process yields such a “License Violation” the feature may be </p>
+<p>used for evaluation purposes but must not be used for serial production as: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>7 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>the feature is not licensed for serial production purposes  </p>
+<p><b>&gt; </b></p>
+<p>the feature may include code that is incomplete and/or only partly tested </p>
+<p><b>&gt; </b></p>
+<p>there will be no issue tracking, no remedy of defects and no liability for the feature  </p>
+<p>To avoid the “License Violation” for serial production either: </p>
+<p><b>&gt; </b></p>
+<p>Contact Vector and request an update which includes the license for the feature. </p>
+<p><b>&gt; </b></p>
+<p>Modify the configuration in such a way that does not violate the license. </p>
+<p><b>2.8 </b></p>
+<p><b>Test Report </b></p>
+<p>Each delivery of a Production SIP includes a report about executed tests and their results. </p>
+<p>Test  specifications  are  not  part  of  a  delivery,  but  they  can  be  reviewed  at  Vector  upon </p>
+<p>request. </p>
+<p><b>2.9 </b></p>
+<p><b>MISRA </b></p>
+<p>The offered basic software modules will be checked for compliance with the MISRA rules </p>
+<p>(MISRA-C:2004, QAC 7.0) based on typical configurations. On request we will send you </p>
+<p>the list of exceptions. </p>
+<p>A test report based on the customer’s configuration has to be ordered explicitly. </p>
+<p><b>2.10 </b></p>
+<p><b>Test of External Hardware </b></p>
+<p>Delivery  tests  are  able  to  incorporate  testing  of  external  hardware  such  as  EEPROM, </p>
+<p>watchdog or transceiver devices, which are connected to the micro controller e.g. through </p>
+<p>SPI or DIO pins. </p>
+<p>As DIO driver and SPI driver controlling the external devices are part of the MCAL, it is a </p>
+<p>prerequisite to order the SIP position “MCAL Integration” when external devices shall be </p>
+<p>tested during delivery tests. </p>
+<p><b>2.11 </b></p>
+<p><b>Test of 3</b></p>
+<p><b>rd</b></p>
+<p><b> Party Modules </b></p>
+<p>As part of the integration 3</p>
+<p>rd</p>
+<p> party modules are configured, compiled and linked with the </p>
+<p>test and/or demo setup. Runtime integration tests focus on Vector’s modules. Therefore, </p>
+<p>the  functionality  of  the  3</p>
+<p>rd</p>
+<p>  party  modules  is  only  tested  implicitly,  as  far  as  needed  for </p>
+<p>Vector’s modules to run properly. </p>
+<p><b>2.12 </b></p>
+<p><b>Issue Handling </b></p>
+<p>Issue tracking  and  remedy  of  defects  will be  granted only  for the  last delivered  version. </p>
+<p>Therefore, all earlier delivered software packages and versions will not be traced for issue </p>
+<p>tracking. Additional issue tracking for already delivered software packages can be offered </p>
+<p>as a separate line item. </p>
+<p>As long as the SIP is under maintenance, Vector provides an active issue reporting for the </p>
+<p>delivered  BSW  modules  and  the  RTE  including  their  code  generators. The  issue  report </p>
+<p>contains all open issues and is sent periodically to the provided email contacts. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>8 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>2.12.1 </b></p>
+<p><b>Issue Reporting for 3</b></p>
+<p><b>rd</b></p>
+<p><b> Party Software </b></p>
+<p>Issues of 3rd party software integrated by Vector are not part of the issue reports send by </p>
+<p>Vector. </p>
+<p>Vector is not able to report 3rd party issues due to several reasons such as: </p>
+<p><b>&gt; </b></p>
+<p>NDAs between Vector and the 3rd party software vendor </p>
+<p><b>&gt; </b></p>
+<p>Differing release and update cycles of the 3rd party software </p>
+<p><b>&gt; </b></p>
+<p>3rd party software can be updated by the customer without involving Vector </p>
+<p>If 3rd party software is included in the SIP, a documentation of the issue reporting process </p>
+<p>of </p>
+<p>the </p>
+<p>3rd </p>
+<p>party </p>
+<p>software </p>
+<p>is </p>
+<p>included </p>
+<p>in </p>
+<p>the </p>
+<p>SIP </p>
+<p>folder </p>
+<p>.\Doc\DeliveryInformation\IssueHandling_&lt;Name&gt;.pdf. </p>
+<p><b>2.12.2 </b></p>
+<p><b>Issue Reporting for DaVinci Tools </b></p>
+<p>Issues of the DaVinci tools are not part of the active issue reporting. The issue lists can be </p>
+<p>downloaded from our internet portal:  </p>
+<p>DaVinci Developer Link </p>
+<p>DaVinci Configurator Link </p>
+<p><b>2.13 </b></p>
+<p><b>Warranty </b></p>
+<p>Vector grants warranty for all modules, which have been licensed by Vector. These are the </p>
+<p>modules  developed  by  Vector.  For  modules  developed  by  3</p>
+<p>rd</p>
+<p>  party  vendors  reduced </p>
+<p>warranty is granted. Please see below for details.</p>
+<p> </p>
+<p><b>2.13.1 </b></p>
+<p><b>3</b></p>
+<p><b>rd</b></p>
+<p><b> Party Modules </b></p>
+<p>Vector  does  not  provide  any  warranty,  liability  or  issue  tracking  for  3</p>
+<p>rd</p>
+<p>  party  modules. </p>
+<p>These topics have to be stipulated with the 3</p>
+<p>rd</p>
+<p> party supplier directly. </p>
+<p>If  the  3</p>
+<p>rd</p>
+<p>  party  modules  are  configured  using  DaVinci  Configurator,  warranty  and  issue </p>
+<p>tracking will be given only for the correct integration into the tool, i.e. correct mapping of </p>
+<p>GUI item to ECUC item and correct control of the generation process. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>9 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3 </b></p>
+<p><b>Modules and Options </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This chapter defines important constraints and limitations of MICROSAR BSW modules </p>
+<p>and options that may have been offered or delivered. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.1 </b></p>
+<p><b>vDBG (XCP-based) </b></p>
+<p>MICROSAR  vDBG  (XCP-based)  provides  access  to  selected  internal  state  variables  of </p>
+<p>BSW modules. As communication protocol XCP is used (unlike specified by AUTOSAR). </p>
+<p>This allows usage of existing XCP standard tools such as CANoe.AMD or CANape.  </p>
+<p><b>3.2 </b></p>
+<p><b>DLT (XCP-based) </b></p>
+<p>MICROSAR DLT (XCP-based) uses XCP as communication protocol (unlike specified by </p>
+<p>AUTOSAR). This results in a more efficient implementation and allows usage of existing </p>
+<p>XCP standard tools such as CANoe.AMD or CANape. MICROSAR DLT (XCP-based) does </p>
+<p>not </p>
+<p>support </p>
+<p>the </p>
+<p>DLT </p>
+<p>protocol, </p>
+<p>in </p>
+<p>particular </p>
+<p>the </p>
+<p>module </p>
+<p>is </p>
+<p>subject </p>
+<p>to </p>
+<p>the </p>
+<p>following </p>
+<p>restrictions:  </p>
+<p><b>&gt; </b></p>
+<p>Only the payload of DLT messages (without DLT header) is accessible through XCP. </p>
+<p><b>&gt; </b></p>
+<p>DLT control messages are not supported. </p>
+<p>If these DLT features are required, MICROSAR DLT (AUTOSAR) has to be used. </p>
+<p><b>3.3 </b></p>
+<p><b>DLT (AUTOSAR) </b></p>
+<p>MICROSAR </p>
+<p>DLT </p>
+<p>(AUTOSAR) </p>
+<p>implements </p>
+<p>the </p>
+<p>AUTOSAR </p>
+<p>DLT </p>
+<p>protocol. </p>
+<p>The </p>
+<p>DLT </p>
+<p>communication  interface  supports  PDU  transmission  and  reception  through  SOAD  only. </p>
+<p>Please note that a test client is needed which supports the AUTOSAR DLT protocol. </p>
+<p><b>3.4 </b></p>
+<p><b>Drivers (CAN, LIN, FR, ETH, MCAL) </b></p>
+<p><b>&gt; </b></p>
+<p>Support of Different Modes </p>
+<p>On those microcontrollers, which support different modes like user mode and </p>
+<p>privileged mode or supervisor mode, the driver’s implementation is designed to run in </p>
+<p>privileged or supervisor mode. Rationale: Full access to all registers assigned to the </p>
+<p>corresponding hardware unit controller is required. </p>
+<p><b>&gt; </b></p>
+<p>Support of FR Controllers </p>
+<p>Some platform derivatives include 2 FlexRay controllers. MICROSAR will explicitly </p>
+<p>support only one of the available FlexRay controllers, with up to 2 FlexRay channels. </p>
+<p><b>3.5 </b></p>
+<p><b>vETM </b></p>
+<p>vETM  is  intended  for  ECU  test  purposes  and  is  therefore  basically  operable,  but  not </p>
+<p>sufficiently tested, verified and/or qualified for use in series production and/or in vehicles </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>10 </p>
+<p>based on template version 6.0.1 </p>
+<p>operating on public or non-public roads. In particular, without limitation, the usage of vETM </p>
+<p>may cause unpredictable ECU behavior and/or may not comply with quality requirements </p>
+<p>which are necessary according to the state of the art. For serial production, the vETM must </p>
+<p>either </p>
+<p>be </p>
+<p>removed </p>
+<p>from </p>
+<p>the </p>
+<p>ECU </p>
+<p>or </p>
+<p>be </p>
+<p>deactivated </p>
+<p>as </p>
+<p>described </p>
+<p>in </p>
+<p>TechnicalReference_Etm.pdf by using the provided vETM APIs. </p>
+<p><b>3.6 </b></p>
+<p><b>FEE </b></p>
+<p>Caused  by  physical  restrictions  of  flash  memory  devices,  MICROSAR  FEE  offers  two </p>
+<p>alternative  implementation  concepts.  Each  has  distinct  advantages  and  drawbacks.  At </p>
+<p>configuration time one has to be chosen per memory block: </p>
+<p><b>&gt; </b></p>
+<p>Single Sector Usage</p>
+<p> </p>
+<p>This concept ensures robustness against a high number of reset events but requires a </p>
+<p>higher number of erase and write cycles on the flash memory device shortening its life </p>
+<p>time. </p>
+<p><b>&gt; </b></p>
+<p>Parallel Sector Usage</p>
+<p> </p>
+<p>This concept reduces the number of erase and write cycles but leaves a low risk of </p>
+<p>data loss. </p>
+<p><b>3.7 </b></p>
+<p><b>Generic Modules </b></p>
+<p>The modules are delivered as Code Templates and must be completed by the customer.</p>
+<p> </p>
+<p>The  Code  Template  is  incomplete  and  only  intended  for  providing  an  example  of  a </p>
+<p>signature and of an empty implementation. The Code Template has not passed any quality </p>
+<p>control measures and is neither intended nor qualified for use in series production.  </p>
+<p>The  Code  Template  must  be  completed  as  described  in  the  Technical  Reference.  The </p>
+<p>completed  Code  Template  must  be  tested  with  diligent  care  and  must  comply  with  all </p>
+<p>quality requirements which are necessary according to the state of the art before its use. </p>
+<p><b>3.8 </b></p>
+<p><b>IDM - Variant Handling / Post-Build Selectable </b></p>
+<p>By  default,  MICROSAR  supports  the  configuration  variant  Pre-Compile  without  variant </p>
+<p>handling. The option MICROSAR Identity Manager (IDM) implements post-build selectable </p>
+<p>which  allows  choosing  between  several  ECU  behaviors  at  startup  time.  Variants  are </p>
+<p>defined pre-compile time. </p>
+<p>If variant handling is requested the option IDM lists the clusters that  will support variant </p>
+<p>handling. If not defined otherwise, variant handling is available for  modules that support </p>
+<p>variant handling (POST-BUILD) according to AUTOSAR. </p>
+<p>Please note the following constraints when using the option (IDM): </p>
+<p><b>&gt; </b></p>
+<p>IDM (COM, DIAG): Transformers are excluded </p>
+<p><b>&gt; </b></p>
+<p>IDM (DIAG): DCM supports the communication side only. Variance of diagnostic </p>
+<p>services is modelled as a superset in the input files. Using DCM APIs it is possible to </p>
+<p>enabled/disable services at runtime. </p>
+<p><b>&gt; </b></p>
+<p>IDM (DIAG): Features are limited to selected features: </p>
+<p><b>&gt; </b></p>
+<p>Variant specific enabling of DTCs and definition of OBD relevance </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>11 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>Variance of selected DTC properties with respect to Priority, Aging, Healing and </p>
+<p>Confirmation </p>
+<p><b>&gt; </b></p>
+<p>Variance of Events and selected pre-debouncing properties using the same type </p>
+<p><b>&gt; </b></p>
+<p>Variance of enable- and storage conditions </p>
+<p><b>&gt; </b></p>
+<p>Variance of DID IDs and snapshot assignment </p>
+<p><b>&gt; </b></p>
+<p>Variant specific existence of DCM diagnostic services, sub-services, DIDs, RIDs, </p>
+<p>PIDs, MIDs, TIDs, VIDs and memory-ranges </p>
+<p><b>&gt; </b></p>
+<p>Variant specific in ECU composition of OBD “supported DIDs, RIDs, PIDs, MIDs, </p>
+<p>TIDs and VIDs” response bit mask value </p>
+<p><b>&gt; </b></p>
+<p>Variance in the DCM communication interface </p>
+<p><b>&gt; </b></p>
+<p>IDM (CAN, FR, SYS): &lt;Bus&gt;TSyn modules and STBM are excluded </p>
+<p><b>&gt; </b></p>
+<p>IDM (RTE): Limited to data mapping variance </p>
+<p><b>&gt; </b></p>
+<p>It is assumed that all BSW modules are used in all variants. It is not possible to not </p>
+<p>use a module in one or more variants. </p>
+<p>To ensure  that  the  required  use-cases are supported, please  provide  your use-cases  to </p>
+<p>Vector. </p>
+<p><b>3.9 </b></p>
+<p><b>MCAL Integration Package  </b></p>
+<p>An MCAL integration is only possible if </p>
+<p><b>&gt; </b></p>
+<p>the MCAL version is communicated to Vector as part of the answer to the </p>
+<p>Questionnaire Step II at the latest 6 weeks before the planned delivery date. </p>
+<p><b>&gt; </b></p>
+<p>the specified MCAL is available in general. </p>
+<p>On most HW platforms the MCAL integration will result in the delivery of two artefacts as </p>
+<p>part of the SIP: </p>
+<p><b>&gt; </b></p>
+<p>MCAL Integration Helper Tool: This tool allows placing a 3rd party MCAL into the SIP </p>
+<p>as self-service as well as MCAL specific maintenance activities such as derivative </p>
+<p>selection and supports the user in up-grading or down-grading the MCAL version. </p>
+<p><b>&gt; </b></p>
+<p>Included 3rd party MCAL: The Questionnaire Step II will contain an upload link where </p>
+<p>the customer can send MCAL files to Vector to proof ownership. If the customer sends </p>
+<p>the MCAL (which has to match the specified MCAL version from Questionnaire Step II </p>
+<p>and which must encompass all artefacts including implementation, tooling and license </p>
+<p>files) not later than 6 weeks before the planned delivery date, Vector will use these </p>
+<p>files during testing and also include them in the delivery. If the MCAL is not sent in </p>
+<p>time, the SIP will not contain an MCAL and the customer will have to include the MCAL </p>
+<p>using the MCAL Integration Helper Tool.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>12 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>3.10 </b></p>
+<p><b>OS Option: Schedule Table Synchronization </b></p>
+<p>Schedule table synchronization will be done with the accuracy of the system counter. If a </p>
+<p>better  precision  of  the  synchronization  is  required  the  operating  system  add-on  “High </p>
+<p>Resolution Timer &amp; Synchronization” has to be ordered. </p>
+<p><b>3.11 </b></p>
+<p><b>PBL - Post-Build Loadable </b></p>
+<p>By </p>
+<p>default, </p>
+<p>MICROSAR </p>
+<p>supports </p>
+<p>the </p>
+<p>configuration </p>
+<p>variant </p>
+<p>Pre-Compile, </p>
+<p>without </p>
+<p>the </p>
+<p>possibility  to  update  the  ECU  configuration  at  post-build  time.  The  option  Post-Build </p>
+<p>Loadable (PBL) provides support for a post-build time update. </p>
+<p>If post-build loadable is requested the option PBL lists the clusters that support a post-build </p>
+<p>time update of the configuration. Post-build loadable allows changing aspects of the ECU’s </p>
+<p>communication matrix after the software has been downloaded to the ECU. The post-build </p>
+<p>time </p>
+<p>update </p>
+<p>process </p>
+<p>does </p>
+<p>not </p>
+<p>require </p>
+<p>the </p>
+<p>usage </p>
+<p>of </p>
+<p>a </p>
+<p>compiler. </p>
+<p>Only </p>
+<p>post-build </p>
+<p>configuration data (e.g. a dedicated flash page) are downloaded to the ECU. </p>
+<p>Deliveries </p>
+<p>supporting </p>
+<p>post-build </p>
+<p>loadable </p>
+<p>include </p>
+<p>a </p>
+<p>special </p>
+<p>license </p>
+<p>for </p>
+<p>the </p>
+<p>DaVinci </p>
+<p>Configurator that will allow the OEM to perform an update at post-build time without the </p>
+<p>need of own tool licenses. </p>
+<p>If  post-build  loadable  is  requested  the  option  PBL  lists  the  supported  clusters.  If  not </p>
+<p>defined </p>
+<p>otherwise, </p>
+<p>post-build </p>
+<p>loadable </p>
+<p>is </p>
+<p>available </p>
+<p>for </p>
+<p>modules </p>
+<p>that </p>
+<p>POST-BUILD </p>
+<p>according to AUTOSAR. </p>
+<p>Please note the following constraints when using the option PBL: </p>
+<p><b>&gt; </b></p>
+<p>A check if the chosen compiler and compiler options are supported by the post-build </p>
+<p>time update process is performed as part of the Software Integration Package (SIP) </p>
+<p><b>&gt; </b></p>
+<p>PBL (COM, DIAG): Transformers are excluded </p>
+<p><b>&gt; </b></p>
+<p>PBL (COM): Deleting signals at post-build time is only possible for signals that have </p>
+<p>been added during post-build phase. </p>
+<p><b>&gt; </b></p>
+<p>PBL (ETH): Only selected features of SD and SOAD support PBL </p>
+<p><b>&gt; </b></p>
+<p>PBL (DIAG): Features are limited to selected features such as: </p>
+<p><b>&gt; </b></p>
+<p>Disabling of DTCs as well as removing the OBD relevance at post-build time </p>
+<p><b>&gt; </b></p>
+<p>Adding new DTCs for existing events </p>
+<p><b>&gt; </b></p>
+<p>Modification of selected DTC properties with respect to Priority, Aging, Healing and </p>
+<p>Confirmation </p>
+<p><b>&gt; </b></p>
+<p>Disable existing events </p>
+<p><b>&gt; </b></p>
+<p>Modification of selected event properties such as pre-debouncing properties using </p>
+<p>the same debouncing type </p>
+<p><b>&gt; </b></p>
+<p>Modification of the event enable- and storage conditions using existing conditions </p>
+<p><b>&gt; </b></p>
+<p>Modification of DID IDs and snapshot assignment </p>
+<p><b>&gt; </b></p>
+<p>Modification of the DCM communication interface </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>13 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>PBL (CAN, FR, SYS): &lt;Bus&gt;TSyn modules and STBM are excluded </p>
+<p><b>&gt; </b></p>
+<p>PBL (SYS): WDG stack is excluded </p>
+<p><b>&gt; </b></p>
+<p>The post-build loadable update of an ECU is typically performed by the OEM. As a </p>
+<p>prerequisite, the Tier1 needs to forward the MICROSAR SIP and his DaVinci ECU </p>
+<p>configuration project to the OEM. The forwarded SIP must not include any c-files which </p>
+<p>have to be deleted by the Tier1 in advance. </p>
+<p><b>&gt; </b></p>
+<p>With respect to the System Description the following limitations apply: </p>
+<p><b>&gt; </b></p>
+<p>ComIPdu </p>
+<p><b>&gt; </b></p>
+<p>Pdu.shortName has to unique </p>
+<p><b>&gt; </b></p>
+<p>The Pdu is referenced by only one PduToFrameMapping in a frame with only one </p>
+<p>triggering for each direction </p>
+<p><b>&gt; </b></p>
+<p>ComSignal, ComSignalGroup, ComGroupSignal: </p>
+<p><b>&gt; </b></p>
+<p>ISignalToIPduMapping.shortName has to be unique </p>
+<p><b>&gt; </b></p>
+<p>Only one triggering for each direction  </p>
+<p><b>&gt; </b></p>
+<p>Usage of PBL in Safety related projects is not recommended. Details are given in </p>
+<p>ProductInformation_2_MSR4-MICROSARSafe.pdf chapter 2.5.2 “Process”. </p>
+<p>To ensure  that  the  required  use-cases are supported, please  provide  your use-cases  to </p>
+<p>Vector. </p>
+<p><b>3.12 </b></p>
+<p><b>RTE </b></p>
+<p>The  MICROSAR  RTE  uses  the  AUTOSAR  4.3  APIs  Interrupt  Source  and  Hardware </p>
+<p>Peripheral Access  to  allow  hardware  specific  components  to  safely  access  peripherals. </p>
+<p>The MICROSAR OS provides this APIs. If a non MICROSAR OS is used, these APIs need </p>
+<p>to be provided either by the OS or by integrator code. </p>
+<p><b>3.13 </b></p>
+<p><b>vRTM </b></p>
+<p>To make use of this module, CANoe.AMD is required with version 8.1 or later. </p>
+<p><b>3.14 </b></p>
+<p><b>WDGM </b></p>
+<p>The  default  implementation  of  the  WDGM  supports  only  “Alive  Supervision”.  In  case </p>
+<p>“Deadline  Supervision”  or  “Logical  Supervision”  (control  flow  monitoring)  functionality  is </p>
+<p>required  (e.g.  in  safety  projects  due  to  IEC  61508  or  ISO26262),  it  is  supported  by  the </p>
+<p>SafeWatchdog module. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>14 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>4 </b></p>
+<p><b>Services </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This chapter defines requirements of MICROSAR services that may have been offered </p>
+<p>or ordered.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>4.1 </b></p>
+<p><b>MICROSAR Getting Started V2G </b></p>
+<p>The following requirements must be prepared and provided by the customer for the getting </p>
+<p>started  session.  Missing  artefacts  can  result  in  missing  the  getting  started  objectives  or </p>
+<p>can be the root cause for additional costs. </p>
+<p><b>&gt; </b></p>
+<p>Hardware (e.g. evaluation board) with integrated and working BSW stack. Including: </p>
+<p><b>&gt; </b></p>
+<p>Working BSW integration with at least the following modules </p>
+<p><b>&gt; </b></p>
+<p>SPI, NVM stack, ETH stack incl. bus communication </p>
+<p><b>&gt; </b></p>
+<p>OS: Providing an initialization task as well as a 5ms cyclic preemptive task </p>
+<p><b>&gt; </b></p>
+<p>QCA7000\7005 being integrated and fully functional  </p>
+<p><b>&gt; </b></p>
+<p>Recommended: QCA interrupt handling via ICU </p>
+<p><b>&gt; </b></p>
+<p>At least one PC that can be used during the workshop </p>
+<p><b>&gt; </b></p>
+<p>Two free Ethernet ports. For PnC: three ports plus one switch/hub </p>
+<p><b>&gt; </b></p>
+<p>MS Windows. Version must be compatible with the used tools </p>
+<p><b>&gt; </b></p>
+<p>IPv6 must be enabled and the firewall must be deactivated or configurable </p>
+<p><b>&gt; </b></p>
+<p>Working and mastered development environment for the chosen hardware </p>
+<p><b>&gt; </b></p>
+<p>E.g. Compiler, debugger, build environment, licenses </p>
+<p><b>&gt; </b></p>
+<p>CANoe.Ethernet 8.2 or later and Smart Charging Package 1.5.5 or later </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Configurator Pro 5 installed and license available </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>15 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>5 </b></p>
+<p><b>SIP Extensions </b></p>
+<p>The following extensions are available as product services, carried out by Vector. </p>
+<p><b>5.1 </b></p>
+<p><b>Customer Hardware </b></p>
+<p>Integration  and  test  of  the  Software  Integration  Package  (SIP)  is done  on  the  customer </p>
+<p>specific  hardware  instead  of  an  evaluation  board.  Prerequisite  is  the  provision  of  the </p>
+<p>complete development environment: </p>
+<p><b>&gt; </b></p>
+<p>ECU or customer hardware  </p>
+<p><b>&gt; </b></p>
+<p>Additionally, required hardware, e.g. wiring harness, etc.  </p>
+<p><b>&gt; </b></p>
+<p>IDE/compiler, linker and workbench incl. license (if not available at Vector) </p>
+<p><b>&gt; </b></p>
+<p>Debugger (incl. license) &amp; connector (if not available at Vector) </p>
+<p><b>&gt; </b></p>
+<p>If applicable: POSIX operating system including the hardware specific boards support </p>
+<p>package </p>
+<p>It is the customer's responsibility to ensure that the hardware is running. This may require </p>
+<p>that necessary software has to be handed over to Vector. All required drivers to setup the </p>
+<p>hardware must be available for integration. In case the SIP includes generic drivers (e.g. </p>
+<p>Transceiver,  SBC,  etc.)  it  is  the  responsibility  of  the  customer  to  provide  the  concrete </p>
+<p>software implementation for such hardware. In case the software drivers are not available </p>
+<p>in time or do not work properly, Vector will not be able to setup the system and will not be </p>
+<p>able to perform the required tests. </p>
+<p>At project start, the detailed requirements will be clarified with the customer. </p>
+<p>After initial operation of the hardware has been achieved, the different software modules </p>
+<p>are integrated and the integration tests are performed. </p>
+<p>Please be aware that the SIP lead time is based on the following milestones: </p>
+<p><b>&gt; </b></p>
+<p>to provide the development environment within 2 weeks after purchase order </p>
+<p><b>&gt; </b></p>
+<p>to get the development environment running within 1 week. </p>
+<p><b>5.2 </b></p>
+<p><b>Start Application </b></p>
+<p>The  initial  delivery  of a  project  includes  a free  of  charge  Start Application  (including  the </p>
+<p>complete build environment). The Start Application is based on the ECU specific input data </p>
+<p>for communication (e.g. ECU Extract) and diagnostics (e.g. ECUC). It demonstrates basic </p>
+<p>SIP functionality based on the ordered modules. Some examples are listed below. </p>
+<p><b>&gt; </b></p>
+<p>Communication: The SWCs included in the Start Application demonstrate the </p>
+<p>reception and transmission of one signal on runnable level. The BSW is configured in </p>
+<p>a way that the system gets initialized and communicates on all communication busses </p>
+<p>defined in the input data. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>16 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>Diagnostics: The SWCs included in the Start Application will be extended by a sample </p>
+<p>implementation of an RDBI/WDBI service on runnable level. Moreover it offers the </p>
+<p>possibility to trigger a DTC. </p>
+<p><b>&gt; </b></p>
+<p>Memory: The SWCs included in the Start Application will be extended by a sample </p>
+<p>implementation to store data in a NV-Block. </p>
+<p><b>Preconditions </b></p>
+<p>A Start Application can be provided by Vector if the following preconditions are met: </p>
+<p><b>&gt; </b></p>
+<p>The order contains a complete MICROSAR Basic Software stack (incl. 3</p>
+<p>rd</p>
+<p> party MCAL </p>
+<p>&amp; MICROSAR RTE) </p>
+<p><b>&gt; </b></p>
+<p>The customer provides the databases for communication &amp; diagnostics prior to the </p>
+<p>project start. </p>
+<p><b>Deliverables </b></p>
+<p><b>&gt; </b></p>
+<p>SIP Modules </p>
+<p><b>&gt; </b></p>
+<p>Start Application  </p>
+<p><b>Test reports </b></p>
+<p><b>&gt; </b></p>
+<p>Vector test reports </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The delivered configuration and source code is for demonstration purpose only. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>5.3 </b></p>
+<p><b>vVIRTUALtarget (VTT) </b></p>
+<p>vVIRTUALtarget (VTT) is a virtual integration platform to run and test a MICROSAR stack </p>
+<p>on  the </p>
+<p>PC. </p>
+<p>MICROSAR </p>
+<p>VTT </p>
+<p>realizes </p>
+<p>the </p>
+<p>embedded </p>
+<p>aspect </p>
+<p>of </p>
+<p>vVIRTUALtarget </p>
+<p>by </p>
+<p>providing </p>
+<p>VTT </p>
+<p>modules </p>
+<p>for </p>
+<p>MCAL </p>
+<p>and </p>
+<p>OS </p>
+<p>that </p>
+<p>are </p>
+<p>designed </p>
+<p>to </p>
+<p>run </p>
+<p>in </p>
+<p>the </p>
+<p>virtual </p>
+<p>environment. </p>
+<p><b>5.3.1 </b></p>
+<p><b>Components </b></p>
+<p>MICROSAR VTT provides the following BSW modules: </p>
+<p><b>&gt; </b></p>
+<p>VTT OS</p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>VTT communication drivers for </p>
+<p><b>&gt; </b></p>
+<p>CAN </p>
+<p><b>&gt; </b></p>
+<p>LIN </p>
+<p><b>&gt; </b></p>
+<p>FlexRay </p>
+<p><b>&gt; </b></p>
+<p>Ethernet </p>
+<p><b>&gt; </b></p>
+<p>SPI </p>
+<p><b>&gt; </b></p>
+<p>VTT I/O drivers for </p>
+<p><b>&gt; </b></p>
+<p>ICU </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>17 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p>PWM </p>
+<p><b>&gt; </b></p>
+<p>ADC </p>
+<p><b>&gt; </b></p>
+<p>DIO </p>
+<p><b>&gt; </b></p>
+<p>PORT </p>
+<p><b>&gt; </b></p>
+<p>VTT memory drivers for </p>
+<p><b>&gt; </b></p>
+<p>EEPROM </p>
+<p><b>&gt; </b></p>
+<p>Flash </p>
+<p><b>&gt; </b></p>
+<p>VTT microcontroller drivers for </p>
+<p><b>&gt; </b></p>
+<p>MCU </p>
+<p><b>&gt; </b></p>
+<p>Watchdog </p>
+<p><b>&gt; </b></p>
+<p>GPT </p>
+<p>The set of VTT modules that are actually delivered depends on the configuration of the </p>
+<p>customer's  Software  Integration  Package  (SIP),  e.g.,  if  MICROSAR  FR  is  part  of  your </p>
+<p>delivery, then the VTT FlexRay driver will be delivered. </p>
+<p>The scalability class and the support for multi-core configurations in the VTT OS depend </p>
+<p>on the customer’s SIP and the OS that is delivered for the hardware. </p>
+<p><b>5.3.2 </b></p>
+<p><b>Limitations </b></p>
+<p>Due to the fact that a virtual ECU in  vVIRTUALtarget is executed on the PC it does not </p>
+<p>provide an accurate simulation of a microcontroller. In particular, the runtime behavior of </p>
+<p>the virtual ECU may deviate from the behavior on the target hardware. </p>
+<p>Please note the following main limitations when using vVIRTUALtarget: </p>
+<p><b>&gt; </b></p>
+<p><b>Memory Protection (SC3) </b></p>
+<p>The protection mechanism is not executed, even if memory protection (SC3) can be </p>
+<p>configured in the OS (depends on your SIP). </p>
+<p><b>&gt; </b></p>
+<p><b>Post-Build Loadable </b></p>
+<p>Post-build loadable can be selected as implementation variant in VTT modules, </p>
+<p>however, the post-build time flash process is not supported and will have to be tested </p>
+<p>on the hardware. </p>
+<p><b>&gt; </b></p>
+<p><b>Precision Time Protocol </b></p>
+<p>As VTT does not provide an accurate timing simulation, time synchronization protocols </p>
+<p>are not supported. </p>
+<p><b>&gt; </b></p>
+<p><b>Ethernet Hardware Time Stamping </b></p>
+<p>Ethernet hardware time stamping is not supported in VTT. </p>
+<p><b>&gt; </b></p>
+<p><b>Ethernet Driver Features </b></p>
+<p>The Ethernet features Quality of Service (QoS) and Forwarding and Queuing for Time-</p>
+<p>Sensitive Streams (FQTSS) are not supported in VTT.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>18 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>&gt; </b></p>
+<p><b>Limited Transceiver Functionality </b></p>
+<p>Transceiver drivers have limited functionality; in particular, VTT does not support </p>
+<p>simulation of partial networking for selective wake-up of an ECU. </p>
+<p><b>&gt; </b></p>
+<p><b>SPI Communication </b></p>
+<p>VTT does not support SPI transmission functionality, i.e., the VTT SPI driver only </p>
+<p>serves as a stub. </p>
+<p><b>&gt; </b></p>
+<p><b>Multiple Instances of Modules </b></p>
+<p>VTT modules cannot be instantiated multiple times in a single configuration project. </p>
+<p><b>&gt; </b></p>
+<p><b>CRY Hardware Support </b></p>
+<p>VTT does not support hardware CRY. </p>
+<p><b>&gt; </b></p>
+<p><b>SoAd BSD Socket </b></p>
+<p>VTT does not support BSD Socket. </p>
+<p><b>5.3.3 </b></p>
+<p><b>Required Software </b></p>
+<p>To run VTT on a PC the following software must be installed: </p>
+<p><b>&gt; </b></p>
+<p>CANoe 8.5 or later is used as runtime environment. A license of all used bus systems </p>
+<p>is mandated. </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Configurator Pro 5 is needed to enable the configuration of VTT modules.  </p>
+<p><b>&gt; </b></p>
+<p>Licensed vVIRTUALtarget basic is an editor for VTT projects. Basic features are: </p>
+<p><b>&gt; </b></p>
+<p>Configuration of source code files, including paths and static libraries </p>
+<p><b>&gt; </b></p>
+<p>Configuration of simulation parameters </p>
+<p><b>&gt; </b></p>
+<p>Generation of configuration codes for the virtual ECU </p>
+<p><b>&gt; </b></p>
+<p>Generation of a Microsoft Visual Studio solution </p>
+<p><b>&gt; </b></p>
+<p>Microsoft Visual Studio (2013, free Express edition is sufficient) </p>
+<p><b>&gt; </b></p>
+<p>Microsoft Windows 7 (64-bit) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>19 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6 </b></p>
+<p><b>Definition of SLP/HLP/SIP, Maintenance and Release Types </b></p>
+<p><b>6.1 </b></p>
+<p><b>Software License Package (SLP) </b></p>
+<p>The SLP includes the license and usage rights (see quotation) for a hardware-independent </p>
+<p>module (e.g. a COM layer) based on a defined specification. </p>
+<p>Depending  on  the  type  of module,  the  software  will  be  based  on  the following  technical </p>
+<p>specifications: </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR, ASAM, OSEK/VDX, ISO, HIS, etc. </p>
+<p><b>&gt; </b></p>
+<p>OEM requirements (for OEM-specific deliveries) </p>
+<p><b>&gt; </b></p>
+<p>Customer-specific requirements (optional) </p>
+<p>The following work products are licensed by purchase of an SLP: </p>
+<p><b>&gt; </b></p>
+<p>The module as source code </p>
+<p><b>&gt; </b></p>
+<p>Detailed technical documentation </p>
+<p><b>&gt; </b></p>
+<p>Generator plug-in to generate ANSI C code </p>
+<p><b>&gt; </b></p>
+<p>Configuration files for convenient configuration with Vector configuration tools </p>
+<p>The module will be tested using a component test suite on a standard hardware platform </p>
+<p>(CANoe  Emulation).  Integration  testing  on  the  specific  µController  and  delivery  will  be </p>
+<p>performed when a SIP is purchased (see section 6.3). </p>
+<p><b>6.2 </b></p>
+<p><b>Hardware License Package (HLP) </b></p>
+<p>The HLP includes the license and usage rights (see quotation) for a hardware-dependent </p>
+<p>module (e.g. CAN Driver) and is valid for a combination of compiler (version independent), </p>
+<p>microcontroller family and relevant hardware (e.g. CAN cell). </p>
+<p> </p>
+<p>Depending  on  the  type  of module,  the  software  will  be  based  on  the following  technical </p>
+<p>specifications: </p>
+<p><b>&gt; </b></p>
+<p>AUTOSAR, ASAM, OSEK, ISO, HIS, etc. </p>
+<p><b>&gt; </b></p>
+<p>OEM requirements (for OEM-specific deliveries) </p>
+<p><b>&gt; </b></p>
+<p>Customer-specific requirements (optional) </p>
+<p><b>&gt; </b></p>
+<p>Specification of microcontroller and compiler </p>
+<p>The following work products are licensed by purchase of an HLP:  </p>
+<p><b>&gt; </b></p>
+<p>The module as source code </p>
+<p><b>&gt; </b></p>
+<p>Detailed technical documentation </p>
+<p><b>&gt; </b></p>
+<p>Generator plug-in to generate ANSI C code </p>
+<p><b>&gt; </b></p>
+<p>Configuration files for convenient configuration with Vector configuration tools. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>20 </p>
+<p>based on template version 6.0.1 </p>
+<p>The </p>
+<p>module </p>
+<p>will </p>
+<p>be </p>
+<p>tested </p>
+<p>using </p>
+<p>a </p>
+<p>component </p>
+<p>test </p>
+<p>suite </p>
+<p>on </p>
+<p>a </p>
+<p>derivative </p>
+<p>of </p>
+<p>the </p>
+<p>microcontroller  family  which  is  defined  by  Vector. </p>
+<p>Integration  testing  on  the  specific </p>
+<p>µController and delivery will be performed when a SIP is purchased (see section 6.3). </p>
+<p><b>6.3 </b></p>
+<p><b>Software Integration Package (SIP) </b></p>
+<p>The SIP includes integration, test, release and delivery of the modules that are licensed by </p>
+<p>an SLP and/or an HLP.  </p>
+<p>To  perform  integration  and  closely  test  the  customer's  use  case,  the  following  must  be </p>
+<p>defined in accordance with the customer: </p>
+<p><b>&gt; </b></p>
+<p>Microcontroller derivative </p>
+<p><b>&gt; </b></p>
+<p>Compiler, compiler version, and compiler options </p>
+<p><b>&gt; </b></p>
+<p>Use case (e.g. number of CAN channels) </p>
+<p><b>&gt; </b></p>
+<p>Car manufacturer (regarding communication description, pre-configuration…) </p>
+<p>For each  SIP,  all  delivered  work products  will  be  added  to  a  configuration  management </p>
+<p>system, thus allowing redeliveries for a minimum of 10 years (excluding the Beta SIPs). </p>
+<p><b>6.4 </b></p>
+<p><b>Mini SIP </b></p>
+<p>The Mini SIP includes the delivery of individual modules. The software is tested on module </p>
+<p>level. The delivery is not tested on the target hardware and compiler. But Vector provides </p>
+<p>remedy of defects if they are based on defined processor and compiler mentioned in the </p>
+<p>quote. </p>
+<p><b>6.5 </b></p>
+<p><b>SIP Types </b></p>
+<p><b>6.5.1 </b></p>
+<p><b>Beta </b></p>
+<p>A Beta SIP can only be ordered in combination with a Production SIP. Depending on the </p>
+<p>agreement </p>
+<p>with </p>
+<p>the </p>
+<p>customer, </p>
+<p>the </p>
+<p>software </p>
+<p>may </p>
+<p>include </p>
+<p>the </p>
+<p>complete </p>
+<p>or </p>
+<p>reduced </p>
+<p>functionality. The software is only preliminary integrated and tested. The usage of a Beta </p>
+<p>SIP for serial production is prohibited. The Beta SIP software may only be used for test </p>
+<p>purposes.  Vector  grants  no  warranty  and/or  liability  to  the  extent  permitted  by  law  or </p>
+<p>statute. </p>
+<p><b>6.5.2 </b></p>
+<p><b>Production </b></p>
+<p>A Production SIP is a package which includes the release for serial production. </p>
+<p><b>6.5.3 </b></p>
+<p><b>Update  </b></p>
+<p>An Update SIP is a package which replaces a previous Production SIP. An Update SIP is </p>
+<p>necessary if an additional delivery is needed because of modified requirements (compiler </p>
+<p>version,  options,  functionality,  etc.).  The  delivery  will  be  performed  according  to  the </p>
+<p>existing contractual agreement and must be scheduled with Vector. </p>
+<p><b>6.5.4 </b></p>
+<p><b>Prototype </b></p>
+<p>A Prototype SIP is a special package which may only be purchased by a Tier 1. The use is </p>
+<p>limited  to  a  defined  application  area,  e.g.  prototyping.  The  software  is  only  preliminary </p>
+<p>integrated and tested. The SIP is only available for platforms which are already supported </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>21 </p>
+<p>based on template version 6.0.1 </p>
+<p>by Vector. License packages (HLP, SLP) are not necessary. An upgrade to a Production </p>
+<p>SIP is only possible if identical technical features are used and the Prototype SIP is not </p>
+<p>older than one year. Vector grants no warranty and/or liability to the extent permitted by </p>
+<p>law or statute. </p>
+<p><b>6.5.5 </b></p>
+<p><b>Overview SIP Types </b></p>
+<p>The following table lists the scope of services, deliverables and release types for each SIP </p>
+<p>Type </p>
+<p><b>SIP Type /  </b></p>
+<p><b>Mini SIP  </b></p>
+<p>Beta </p>
+<p>Production </p>
+<p>Update </p>
+<p>Prototype </p>
+<p>Scope of </p>
+<p>Services </p>
+<p>Integration and test of selected </p>
+<p>modules </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Delivery </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Remedy of defects </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Deliverables </p>
+<p>Software (Source or object code </p>
+<p>dependent on the contractual </p>
+<p>agreement - NDA) </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Documentation </p>
+<p>   </p>
+<p></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>  </p>
+<p></p>
+<p>1</p>
+<p> </p>
+<p>Test report </p>
+<p> </p>
+<p>  </p>
+<p></p>
+<p>4</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Demo application </p>
+<p>  </p>
+<p></p>
+<p>2</p>
+<p> </p>
+<p>   </p>
+<p></p>
+<p>2,4</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Release </p>
+<p>Types</p>
+<p>3</p>
+<p> </p>
+<p>Quickfix</p>
+<p>5</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Development</p>
+<p>5</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Pre Production</p>
+<p>5</p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Production </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Production (Safety-ready) </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>Production (Safe) </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>1 The documentation is not necessarily complete  </p>
+<p>2  Depends on the OEM package  </p>
+<p>3  Release Types are described in detail on page 6  </p>
+<p>4  Not part of the Mini SIP </p>
+<p>5  Non-production delivery, please refer to 6.5.6 </p>
+<p>Table 6-1  </p>
+<p>Overview SIP Types </p>
+<p><b>6.5.6 </b></p>
+<p><b>Usage of Non-Production Deliveries </b></p>
+<p>Non-Production Deliveries are basically operable, but not sufficiently tested, verified and/or </p>
+<p>qualified for use in series production and/or in vehicles operating on public or non-public </p>
+<p>roads. </p>
+<p>In </p>
+<p>particular, </p>
+<p>without </p>
+<p>limitation, </p>
+<p>the </p>
+<p>Non-Production </p>
+<p>Deliveries </p>
+<p>may </p>
+<p>cause </p>
+<p>unpredictable  ECU  behavior,  may  not  provide  all  functions  necessary  for  use  in  series </p>
+<p>production </p>
+<p>and/or </p>
+<p>may </p>
+<p>not </p>
+<p>comply </p>
+<p>with </p>
+<p>quality </p>
+<p>requirements </p>
+<p>which </p>
+<p>are </p>
+<p>necessary </p>
+<p>according  to  the  state  of  the  art.  Non-Production  Deliveries  must  not  be  used  in  series </p>
+<p>production. </p>
+<p>The  Release Type  of a  delivery  is defined  in  the  Delivery  Description  that  is part  of  the </p>
+<p>delivery. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>22 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6.6 </b></p>
+<p><b>Maintenance </b></p>
+<p>Maintenance  of </p>
+<p>Vector </p>
+<p>embedded </p>
+<p>software </p>
+<p>is  available  for  the  SLP, </p>
+<p>HLP  and  SIP. </p>
+<p>Maintenance generally includes bug-fixing.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Only the latest delivered version will be maintained. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.6.1 </b></p>
+<p><b>SLP Maintenance </b></p>
+<p>The maintenance of the SLP includes the adaptation of the appropriate working products </p>
+<p>(components, documentation, generators …). The SLP Maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by “minor“ or “patch“-version modifications of the related </p>
+<p>AUTOSAR specification. In case of new functions, the extension of the licensed </p>
+<p>functionality has to be discussed with Vector. </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by comparable changes of other specifications based on Vector’s </p>
+<p>assessment. </p>
+<p><b>&gt; </b></p>
+<p>Registered RfCs for the AUTOSAR Specification are included as far as they are </p>
+<p>required by the OEM. </p>
+<p>Deliveries are not included as part of SLP maintenance; they are part of SIP maintenance. </p>
+<p>The SLP maintenance period begins with the first delivery. </p>
+<p><b>6.6.2 </b></p>
+<p><b>HLP Maintenance </b></p>
+<p>The  maintenance  of  the  HLP  includes  the  adaptation  of  the  appropriate  work  products </p>
+<p>(components, documentation, generators …). The HLP maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Adaptations caused by “minor“ or “patch“-version modifications of the related </p>
+<p>AUTOSAR specification. In case of new functions, the extension of the licensed </p>
+<p>functionality has to be discussed with Vector. </p>
+<p><b>&gt; </b></p>
+<p>Adaptation caused by comparable changes of other specifications based on Vector’s </p>
+<p>assessment. </p>
+<p><b>&gt; </b></p>
+<p>Adaptation caused by minor hardware changes based on Vector’s assessment. </p>
+<p><b>&gt; </b></p>
+<p>The implementation of simple workarounds for hardware issues. </p>
+<p>Deliveries  are  not  included  as  part  of  HLP </p>
+<p>maintenance;  they  are  part  of  the  SIP </p>
+<p>maintenance. </p>
+<p>The HLP maintenance period begins with the first delivery. </p>
+<p><b>6.6.3 </b></p>
+<p><b>SIP Maintenance </b></p>
+<p>The SIP Standard Maintenance includes: </p>
+<p><b>&gt; </b></p>
+<p>Reporting about known issues (“Active Issue Reporting“). </p>
+<p><b>&gt; </b></p>
+<p>One delivery per year (Update SIP or update of a Beta SIP) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>23 </p>
+<p>based on template version 6.0.1 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This update will be delivered on customer request. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>&gt; </b></p>
+<p>If a bug-fix delivery is needed on short notice such a delivery will be performed without </p>
+<p>comprehensive tests. In this case the status of the delivery will be a Beta or Pre </p>
+<p>Production (see Release Types in chapter 6.7). </p>
+<p>A Production Release has to be scheduled with Vector separately. </p>
+<p>The  SIP  maintenance  period  starts  with  the  first  delivery  of  the  product  (Beta  SIP  or </p>
+<p>Production SIP). </p>
+<p>In addition to the SIP Standard Maintenance, Vector offers SIP Extended Maintenance and </p>
+<p>SIP Production Maintenance. </p>
+<p>SIP Extended Maintenance contains the same features as SIP Standard Maintenance. It </p>
+<p>includes one further delivery per year (Update SIP or Beta SIP). </p>
+<p>SIP  Production  Maintenance  only  includes  reporting  about  known  issues  (“Active  Issue </p>
+<p>Reporting“). But Vector provides remedy of defects in case of high or critical issues.  SIP </p>
+<p>Production  Maintenance  requires  Standard  or  Extended  Maintenance  for  more  than  2 </p>
+<p>years. </p>
+<p><b>6.6.4 </b></p>
+<p><b>Differentiation of warranty versus maintenance </b></p>
+<p>The </p>
+<p>table </p>
+<p>shows </p>
+<p>the </p>
+<p>scope </p>
+<p>of </p>
+<p>services </p>
+<p>depending </p>
+<p>on </p>
+<p>validity </p>
+<p>of </p>
+<p>warranty </p>
+<p>and/or </p>
+<p>maintenance:  </p>
+<p><b> </b></p>
+<p><b>SIP Maintenance </b></p>
+<p><b>running </b></p>
+<p><b>SIP Maintenance </b></p>
+<p><b>expired </b></p>
+<p><b>Warranty period running </b></p>
+<p>Bugfixing    </p>
+<p> </p>
+<p> </p>
+<p>✓</p>
+<p> </p>
+<p>Bugfixing </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>✓</p>
+<p> </p>
+<p>Issue reporting   </p>
+<p>✓</p>
+<p> </p>
+<p>Issue reporting  </p>
+<p>✓</p>
+<p> </p>
+<p><b>Warranty period expired </b></p>
+<p>Bugfixing    </p>
+<p> </p>
+<p> </p>
+<p>✓</p>
+<p> </p>
+<p>Bugfixing </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Issue reporting   </p>
+<p>✓</p>
+<p> </p>
+<p>Issue reporting  </p>
+<p></p>
+<p> </p>
+<p>Table 6-2  </p>
+<p>Scope of services  </p>
+<p><b>6.7 </b></p>
+<p><b>Release Types </b></p>
+<p>The release type gives information about the scope of function, quality and application field </p>
+<p>restrictions of the delivered software. The release type depends on the delivered Software </p>
+<p>Integration Package and is defined in the delivery description. </p>
+<p><b>6.7.1 </b></p>
+<p><b>QuickFix </b></p>
+<p>A  QuickFix  delivery  is  an  immediate  reaction  on  customer  requests.  The  content  of  a </p>
+<p>QuickFix delivery is individually agreed with the customer. Only available as supplement to </p>
+<p>a development release. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>24 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>6.7.2 </b></p>
+<p><b>Development </b></p>
+<p>The software includes operational standard functions. Feature extensions of the software </p>
+<p>are not verified finally and the development process is not fully implemented. The usage of </p>
+<p>the software is intended for development phase or prototyping. </p>
+<p><b>6.7.3 </b></p>
+<p><b>Pre Production </b></p>
+<p>The  software  is  operational  but  verification  measures  have  not  been  completed.  The </p>
+<p>usage of the software is intended for development and preproduction phase.  </p>
+<p><b>6.7.4 </b></p>
+<p><b>Production </b></p>
+<p>For </p>
+<p>all </p>
+<p>features </p>
+<p>included </p>
+<p>in </p>
+<p>the </p>
+<p>software </p>
+<p>planned </p>
+<p>verification </p>
+<p>measures </p>
+<p>have </p>
+<p>been </p>
+<p>completed  and  all  known  issues  are  documented. The  software  can  be  used  for  series </p>
+<p>production as QM software if the documented issues are considered. </p>
+<p><b>6.7.5 </b></p>
+<p><b>Production (Safety-ready) </b></p>
+<p>For </p>
+<p>all </p>
+<p>features </p>
+<p>included </p>
+<p>in </p>
+<p>the </p>
+<p>software </p>
+<p>planned </p>
+<p>verification </p>
+<p>measures </p>
+<p>have </p>
+<p>been </p>
+<p>completed and all known issues are documented.  </p>
+<p>Safety  activities  for  components  required  as  ASIL  have  been  completed.  The  delivery </p>
+<p>includes  the  Safety  Manual  as  well  as  all  required  tools  (e.g.  MICROSAR  Safe  Silence </p>
+<p>Verifier and RTE Analyzer) in a released version. </p>
+<p>The software can be used for series production as QM software if the documented issues </p>
+<p>are considered. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The Safety Case has to be ordered separately in order to receive a delivery with </p>
+<p>Release Type Production (Safe). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>6.7.6 </b></p>
+<p><b>Production (Safe) </b></p>
+<p>This  delivery  comprises  the  Safety  Case  documentation.  The  Safety  Case  is  created </p>
+<p>based on the delivery with release type Production (Safety-ready). </p>
+<p>The  components  listed  in  the  Safety  Case  can  be  used  as  ASIL  software  in  series </p>
+<p>production if the documented issues and the Safety Manual are considered. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Product Information MICROSAR 4 </p>
+<p>© 2018 Vector Informatik GmbH </p>
+<p>Version 1.02.12 </p>
+<p>25 </p>
+<p>based on template version 6.0.1 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

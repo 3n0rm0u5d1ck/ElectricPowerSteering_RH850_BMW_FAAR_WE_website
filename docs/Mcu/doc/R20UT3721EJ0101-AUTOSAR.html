@@ -1,0 +1,2320 @@
+---
+layout: default
+title: R20UT3721EJ0101-AUTOSAR
+nav_order: 4
+parent: MCU Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MCU Driver Component Ver.1.0.8 </p>
+<p> </p>
+<p>Generation Tool User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.1.01 Feb 2017</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>2 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>3 </p>
+<p> </p>
+<p>                                                                     Notice </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses </p>
+<p>and damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical </p>
+<p>information described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application </p>
+<p>examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas </p>
+<p>Electronics disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, </p>
+<p>modification, copy or otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and </p>
+<p>undersea repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics </p>
+<p>disclaims any and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics </p>
+<p>product for which the product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the </p>
+<p>ranges specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation </p>
+<p>characteristics, installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of </p>
+<p>the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your </p>
+<p>products/system. Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the </p>
+<p>final products or systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each </p>
+<p>Renesas Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, </p>
+<p>including without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all </p>
+<p>these applicable laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your </p>
+<p>noncompliance with applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or </p>
+<p>sale is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or </p>
+<p>technologies for (1) any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, </p>
+<p>such as nuclear weapons, chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering </p>
+<p>such weapons, (2) any purpose relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of </p>
+<p>disturbing international peace and security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or </p>
+<p>technologies to any third party whether directly or indirectly with knowledge or reason to know that the third party or any other party will </p>
+<p>engage in the activities described above. When exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall </p>
+<p>comply with any applicable export control laws and regulations promulgated and administered by the governments of the countries asserting </p>
+<p>jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from </p>
+<p>your resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>BSWMDT</p>
+<p> </p>
+<p>Basic Software Module Description Template</p>
+<p> </p>
+<p>DEM</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>ECM </p>
+<p>Error Control Module </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>Id</p>
+<p> </p>
+<p>Identifier</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>Micro Controller Abstraction Layer</p>
+<p> </p>
+<p>MCU</p>
+<p> </p>
+<p>Micro Controller Unit</p>
+<p> </p>
+<p>MHz </p>
+<p>Mega Hertz </p>
+<p>MSN </p>
+<p>Module Specific Name </p>
+<p>SPAL</p>
+<p> </p>
+<p>Standard Peripheral Abstraction Layer</p>
+<p> </p>
+<p>XML</p>
+<p> </p>
+<p>eXtensible Mark-up Language</p>
+<p> </p>
+<p>Rev. </p>
+<p>Revision </p>
+<p>RUCG </p>
+<p>Renesas Unified Code Generator </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Terminology</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>BSWMDT File</p>
+<p> </p>
+<p>This file is the template for the Basic Software Module Description.</p>
+<p> </p>
+<p>Configuration XML File (.cfgxml)</p>
+<p> </p>
+<p>This file contains the setting of command line options.</p>
+<p> </p>
+<p>ECU Configuration Description </p>
+<p>File(.arxml)</p>
+<p> </p>
+<p>Input file to MCU Driver Generation Tool. It is generated by </p>
+<p>ECU Configuration Editor.</p>
+<p> </p>
+<p>Sl.No</p>
+<p> </p>
+<p>Serial Number.</p>
+<p> </p>
+<p>Translation XML File (.trxml)</p>
+<p> </p>
+<p>This file contains the translation and device specific header file path.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>6 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>7 </p>
+<p><b>Table of Contents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................... 9</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview .......................................................................................................... 9</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference ...................................................................................... 11</b></p>
+<p> </p>
+<p><b>2.1.</b></p>
+<p> </p>
+<p><b>Reference Documents .................................................................................................... 11</b></p>
+<p> </p>
+<p><b>2.2.</b></p>
+<p> </p>
+<p><b>Trademark Notice ............................................................................................................ 11</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>MCU Driver Generation Tool Overview ....................................... 13</b></p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Input Files ..................................................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Output Files .................................................................................. 17</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Precautions ................................................................................... 19</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>User Configuration Validation ..................................................... 21</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>Messages ...................................................................................... 23</b></p>
+<p> </p>
+<p><b>8.1</b></p>
+<p> </p>
+<p><b>Error Messages ................................................................................................................ 23</b></p>
+<p> </p>
+<p><b>8.2</b></p>
+<p> </p>
+<p><b>Warning Messages .......................................................................................................... 32</b></p>
+<p> </p>
+<p><b>8.3</b></p>
+<p> </p>
+<p><b>Information Messages .................................................................................................... 33</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Notes ............................................................................................. 35</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>8 </p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>Overview of MCU Driver Generation Tool ........................................................................... 13</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Generator Concept Flow Chart ............................................................................................ 14</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 5-1 </p>
+<p>Output Files Description .......................................................................................................... 17 </p>
+<p>Table 8-1 </p>
+<p>Parameters and Container related to error ERR101004 ......................................................... 23 </p>
+<p>Table 8-2 </p>
+<p>Parameters and containers related to error ERR101005 ........................................................ 26 </p>
+<p>Table 8-3 </p>
+<p>Parameter and Container related to error ERR101017 ........................................................... 27 </p>
+<p>Table 8-4 </p>
+<p>Parameters and Container related to error ERR101026 ......................................................... 28 </p>
+<p>Table 8-5 </p>
+<p>Parameters and Container related to error ERR101032 ......................................................... 29 </p>
+<p>Table 8-6 </p>
+<p>Parameters and Containers related to error ERR101041 ....................................................... 30 </p>
+<p>Table 8-7 </p>
+<p>Parameters and Container related to error ERR101042 ......................................................... 31 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Introduction </b></p>
+<p><b>Chapter 1 </b></p>
+<p> </p>
+<p>9 </p>
+<p><b>Chapter 1  Introduction </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The MCU Driver component provides services for basic microcontroller </p>
+<p>initialization, Error Control Module (ECM), reset and microcontroller </p>
+<p>specific functions required from other SPAL components. </p>
+<p> </p>
+<p> </p>
+<p>The MCU Driver Component comprises of two sections i.e., Embedded </p>
+<p>Software and Generation Tool to achieve scalability and configurability. </p>
+<p> </p>
+<p> </p>
+<p>The document describes the features of the MCU Driver Generation Tool. </p>
+<p>MCU Driver Generation Tool is a command line tool that extracts information </p>
+<p>from ECU Configuration Description File, BSWMDT File and generates MCU </p>
+<p>Driver C source and C header files (Mcu_PBcfg.c, Mcu_Reg.h, Mcu_Cbk.h </p>
+<p>and Mcu_Cfg.h). </p>
+<p> </p>
+<p> </p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>This user manual is organized as given in the table below: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section 1 (Introduction)</p>
+<p> </p>
+<p>Provides an introduction to the document and explains how information </p>
+<p>is organized in this manual.</p>
+<p> </p>
+<p>Section 2 (Reference)</p>
+<p> </p>
+<p>Provides a list of documents referred while developing this document.</p>
+<p> </p>
+<p>Section 3 (MCU Driver </p>
+<p>Generation Tool Overview)</p>
+<p> </p>
+<p>Provides the MCU Driver Generation Tool Overview.</p>
+<p> </p>
+<p>Section 4 (Input Files)</p>
+<p> </p>
+<p>Provides information about ECU Configuration Description File.</p>
+<p> </p>
+<p>Section 5 (Output Files)</p>
+<p> </p>
+<p>Explains the output files that are generated by the MCU Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 6 (Precautions)</p>
+<p> </p>
+<p>Contains precautions to be taken during configuration of ECU </p>
+<p>Configuration Description File.</p>
+<p> </p>
+<p>Section 7 (User Configuration </p>
+<p>Validation)</p>
+<p> </p>
+<p>Describes about user configuration validation done by the MCU Driver </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 8 (Messages)</p>
+<p> </p>
+<p>Describes all the Error/Warning/Information messages of R4.0.3 which </p>
+<p>helps the user to understand the probable reason for </p>
+<p>the same.</p>
+<p> </p>
+<p>Section 9 (Notes)</p>
+<p> </p>
+<p>Provides notes to help the user to understand this document better.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 1                                                                                                                              Introduction </b></p>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Reference </b></p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p> </p>
+<p>11 </p>
+<p> </p>
+<p><b>Chapter 2  Reference </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1. </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p>The following table lists the documents referred to develop this document: </p>
+<p> </p>
+<p><b>Sl. No </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>1. </p>
+<p><b>Autosar R4.0 </b></p>
+<p><b> </b></p>
+<p>AUTOSAR_SWS_</p>
+<p>MCUDriver</p>
+<p>.pdf </p>
+<p>3.2.0 </p>
+<p>2. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p><b> </b></p>
+<p>R403_MCU_P1M_04_05.arxml </p>
+<p><b> </b></p>
+<p>1.1.9 </p>
+<p>3. </p>
+<p><b>P1x Parameter Definition File </b></p>
+<p><b> </b></p>
+<p>R403_MCU_P1M_10_to_15_18_to_23.arxml </p>
+<p>1.0.6 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.2. </b></p>
+<p><b>Trademark Notice </b></p>
+<p> </p>
+<p> </p>
+<p>Microsoft and Windows are trademarks/registered trademarks of Microsoft </p>
+<p>Corporation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 2                                                                                                                                  Reference </b></p>
+<p> </p>
+<p>12 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>MCU Driver Generation Tool Overview </b></p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p> </p>
+<p>13 </p>
+<p><b> </b></p>
+<p><b>Chapter 3  MCU Driver Generation Tool Overview </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MCU Driver Generation Tool overview is shown below. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ECU </b></p>
+<p><b>Configuration </b></p>
+<p><b>Description File, </b></p>
+<p><b>Translation XML </b></p>
+<p><b>File, BSWMDT File, </b></p>
+<p><b>Configuration </b></p>
+<p><b>XML File and  </b></p>
+<p><b>Mcu_P1x.dll </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>RUCG tool </b></p>
+<p> </p>
+<p> </p>
+<p><b>Mcu_Cfg.h, </b></p>
+<p><b>Mcu_Reg.h, </b></p>
+<p><b>Mcu_Cbk.h, </b></p>
+<p><b>Mcu_PBcfg.c </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-1 </b></p>
+<p><b>Overview of MCU Driver Generation Tool </b></p>
+<p> </p>
+<p>Renesas Unified Code Generator (RUCG) tool shall be used for MCU driver       </p>
+<p>configuration generation. </p>
+<p> </p>
+<p>MCU Driver Generation Tool is a command line tool that extracts, analyzes </p>
+<p>the configuration details provided in the input file and validates correctness of </p>
+<p>the data and provides scalability and configurability for MCU Driver module. It </p>
+<p>accepts ECU Configuration Description File(s), Translation XML File, </p>
+<p>BSWMDT File and Configuration XML File as input and displays appropriate </p>
+<p>context sensitive error messages for wrong input and exits. Tool creates the </p>
+<p>Log file (Mcu.log) that contains the list of Error/Warning/Information messages </p>
+<p>in the output directory. </p>
+<p> </p>
+<p>For the error free input file, the tool generates the following output files: </p>
+<p>Mcu_Cfg.h, Mcu_Reg.h, Mcu_Cbk.h and Mcu_PBcfg.c. </p>
+<p> </p>
+<p>Mcu_Cfg.h, Mcu_Reg.h and Mcu_Cbk.h will be compiled and linked with </p>
+<p>MCU Driver Module. Mcu_PBcfg.c will be compiled and linked separately </p>
+<p>from the other C Source files and placed in flash. </p>
+<p> </p>
+<p>ECU Configuration Description File can be created or edited using ECU </p>
+<p>Configuration Editor. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 3                                                                                   MCU Driver Generation Tool Overview </b></p>
+<p> </p>
+<p>14 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 3-2 </b></p>
+<p><b>Generator Concept Flow Chart </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark</b> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>In case of errors the generation tool returns a 1, in case of no errors the </p>
+<p>generation tool returns a 0. </p>
+<p> </p>
+<p>• </p>
+<p>MCU Driver Generation Tool uses “Common Published Information” from </p>
+<p>MCU module specific BSWMDT File. MCU module specific BSWMDT File </p>
+<p>should not be updated manually since it is “Static Configuration” file.</p>
+<p> </p>
+<p><b>Cfg.arxml </b></p>
+<p> </p>
+<p><b>*.trxml </b></p>
+<p> </p>
+<p><b>Transaltion_X1x.h </b></p>
+<p><b>&lt;MSN&gt;_X1x.dll &amp; </b></p>
+<p><b>RUCG.exe </b></p>
+<p><b>-o </b></p>
+<p><b>folder </b></p>
+<p><b>src </b></p>
+<p> </p>
+<p><b>Device Header File </b></p>
+<p>.h </p>
+<p><b>Translation XML </b></p>
+<p><b>inc </b></p>
+<p><b>Configuration </b></p>
+<p><b>*.c </b></p>
+<p><b>*.h </b></p>
+<p><b>Parameter definition file </b></p>
+<p><b>Output folder </b></p>
+<p> </p>
+<p><b>Pdf.arxml </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Input Files </b></p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p> </p>
+<p>15 </p>
+<p><b> </b></p>
+<p><b>Chapter 4  Input Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>RUCG Tool accepts ECU Configuration Description File(s), Translation XML </p>
+<p>File, BSWMDT File Configuration XML File and Mcu_P1x.dll as input. MCU </p>
+<p>Driver Generation Tool needs information about MCU Driver module. Hence </p>
+<p>ECU Configuration Description File should contain configuration of MCU </p>
+<p>Driver module. Generation Tool ignores any other AUTOSAR component </p>
+<p>configured in the ECU Configuration Description File. ECU Configuration </p>
+<p>Description File can be generated using configuration editor. </p>
+<p> </p>
+<p> </p>
+<p>ECU Configuration Description File must comply with AUTOSAR standard </p>
+<p>ECU Configuration Description File format. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The detailed explanation about the parameters and containers are found in </p>
+<p>Parameter Definition File mentioned in Reference Documents section. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 4                                                                                                                                Input Files </b></p>
+<p> </p>
+<p>16 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Output Files </b></p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p> </p>
+<p>17 </p>
+<p> </p>
+<p><b>Chapter 5  Output Files </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MCU Driver Generation Tool generates configuration details in C Header and </p>
+<p>C Source files Mcu_Cfg.h, Mcu_Reg.h, Mcu_Cbk.h and Mcu_PBcfg.c. </p>
+<p> </p>
+<p> </p>
+<p>The content of each output file is given in the table below:</p>
+<p> </p>
+<p> </p>
+<p><b>Table 5-1 </b></p>
+<p><b>Output Files Description </b></p>
+<p> </p>
+<p><b>Output File</b></p>
+<p> </p>
+<p><b>Details</b></p>
+<p> </p>
+<p>Mcu_Cfg.h</p>
+<p> </p>
+<p>This file contains pre-compile time parameters.</p>
+<p> </p>
+<p>Mcu_Reg.h</p>
+<p> </p>
+<p>This file contains the definitions for addresses of the hardware registers used in the </p>
+<p>MCU Driver Module.</p>
+<p> </p>
+<p>Mcu_Cbk.h</p>
+<p> </p>
+<p>This file contains callback function prototype declarations to be used by application.</p>
+<p> </p>
+<p>Mcu_PBcfg.c</p>
+<p> </p>
+<p>This file contains post-build configuration data.</p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Output files generated by MCU Driver Generation Tool should not be modified </p>
+<p>or edited manually. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 5                                                                                                                             Output Files </b></p>
+<p> </p>
+<p>18 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Precautions </b></p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p> </p>
+<p>19 </p>
+<p> </p>
+<p><b>Chapter 6  Precautions </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ECU Configuration Description File and BSWMDT File must comply with </p>
+<p>AUTOSAR standard for R4.0.3 ECU Configuration Description File and </p>
+<p>BSWMDT File respectively. </p>
+<p> </p>
+<p>• </p>
+<p>The input file must contain MCU Driver and DEM component related </p>
+<p>configuration. </p>
+<p> </p>
+<p>• </p>
+<p>Default Translation XML File (Mcu_P1x.trxml) should be present in same </p>
+<p>location of Mcu_P1x.dll and RUCG.exe when the variant specific trxml file </p>
+<p>is not given as input in command line. </p>
+<p> </p>
+<p>• </p>
+<p>Default Configuration XML File (Mcu_P1x.cfgxml) must be present in same </p>
+<p>location of Mcu_P1x.dll. </p>
+<p> </p>
+<p>• </p>
+<p>If </p>
+<p>Translation </p>
+<p>XML </p>
+<p>File </p>
+<p>is </p>
+<p>not </p>
+<p>provided </p>
+<p>on </p>
+<p>the </p>
+<p>command </p>
+<p>line, </p>
+<p>Mcu_P1x.trxml </p>
+<p>which </p>
+<p>is </p>
+<p>present </p>
+<p>in </p>
+<p>same </p>
+<p>location </p>
+<p>of </p>
+<p>Mcu_P1x.dll </p>
+<p>is </p>
+<p>considered as ‘default’ Translation XML File. </p>
+<p> </p>
+<p>• </p>
+<p>If Configuration XML File is not provided on the command line, </p>
+<p>Mcu_P1x.cfgxml which is present in same location of Mcu_P1x.dll is </p>
+<p>considered as ‘default’ Configuration XML File. </p>
+<p> </p>
+<p>• </p>
+<p>Translation XML File should contain the file extension ‘.trxml’. </p>
+<p> </p>
+<p>• </p>
+<p>Configuration XML File should contain the file extension ‘.cfgxml’. </p>
+<p> </p>
+<p>• </p>
+<p>All the function names and the string values configured should follow C </p>
+<p>syntax for variables. It can only contain alphanumeric characters and “_”. It </p>
+<p>should start with an alphabet. </p>
+<p> </p>
+<p>• </p>
+<p>If the output files generated by MCU Driver Generation Tool are modified </p>
+<p>externally, then they may not produce the expected results or may lead to </p>
+<p>error/warning/Information messages. </p>
+<p> </p>
+<p>• </p>
+<p>Short Name for a container should be unique within a name space. </p>
+<p> </p>
+<p>• </p>
+<p>An error free ECU Configuration Description File generated from </p>
+<p>configuration editor has to be provided as input to the MCU Driver </p>
+<p>Generation Tool. Otherwise Tool may not produce the expected results or </p>
+<p>may lead to errors/warnings/information messages. </p>
+<p> </p>
+<p>• </p>
+<p>User has to make sure that the respective device specific configuration file </p>
+<p>is used. Otherwise Tool may not produce the expected results or may lead </p>
+<p>to errors/warnings/information messages.  </p>
+<p> </p>
+<p>• </p>
+<p>The description file should always be generated using AUTOSAR specified </p>
+<p>configuration editor and it should not be edited manually. </p>
+<p> </p>
+<p>• </p>
+<p>There is a limitation to the number of instances of the generator tools </p>
+<p>running in parallel. Up to 15 instances of the generator tool will run in </p>
+<p>parallel without any problem. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Please refer the MCU Component User Manual for deviations from AUTOSAR </p>
+<p>specifications, if any. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 6                                                                                                                              Precautions </b></p>
+<p> </p>
+<p>20 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>User Configuration Validation </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p>21 </p>
+<p> </p>
+<p><b>Chapter 7  User Configuration Validation </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>This section provides help to analyze the error, warning and information </p>
+<p>messages displayed during the execution of MCU Driver Generation Tool. It </p>
+<p>ensures conformance of input file with syntax and semantics. It also performs </p>
+<p>validation on the input file for correctness of the data. </p>
+<p> </p>
+<p> </p>
+<p>For more details on list of Error/Warning/Information messages that are </p>
+<p>displayed as a result of input file(s) validation, refer Chapter 8 “<i>Messages</i>”. </p>
+<p> </p>
+<p> </p>
+<p>The Generation Tool displays error or warning or information when the user </p>
+<p>has configured incorrect inputs. The format of Error/Warning/Information </p>
+<p>message is as shown below. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>ERR/WRN/INF&lt;mid&gt;&lt;xxx&gt;: &lt;Error/Warning/Information Message&gt;.  </p>
+<p> </p>
+<p>where, </p>
+<p>&lt;mid&gt;: 101 - MCU Driver Module Id (101) for user configuration checks. </p>
+<p> </p>
+<p>000 - for command line checks. </p>
+<p> </p>
+<p>&lt;xxx&gt;: 001-999 - Message Id. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>File Name: Name of the file in which the error has occurred. </p>
+<p> </p>
+<p>• </p>
+<p>Path: Absolute path of the container in which the parameter is present. </p>
+<p> </p>
+<p> </p>
+<p>‘File Name’ and ‘Path’ need not be present for all Error/Warning/Information </p>
+<p>messages. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 7                                                                                                User Configuration Validation </b></p>
+<p><b> </b></p>
+<p>22 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>23 </p>
+<p><b>Chapter 8  Messages </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The messages help to identify the syntax or semantic errors in the ECU </p>
+<p>Configuration Description File. Hence it ensures validity and correctness of the </p>
+<p>information available in the ECU Configuration Description File. </p>
+<p> </p>
+<p>The following section gives the list of error, warning and information messages </p>
+<p>displayed by the Generation Tool. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.1 </b></p>
+<p><b>Error Messages </b></p>
+<p> </p>
+<p> </p>
+<p><b>ERR101001: Number of fields is not same for the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the number of fields is not same in the structure that is to </p>
+<p>be generated in the output file. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101002: Field 'Field Name' is empty in the entity 'Structure Name'. </b></p>
+<p> </p>
+<p>This error occurs, if the structure fields that are to be generated in the output </p>
+<p>file are empty. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101003: 'MCU Driver' or 'DEM Driver' Component is not present in the </b></p>
+<p><b>input file(s). </b></p>
+<p> </p>
+<p>This error occurs, if MCU Driver or DEM Driver component is not present in </p>
+<p>the input ECU Configuration Description File(s). </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101004: The parameter 'parameter name' in the container 'container </b></p>
+<p><b>name' should be configured. </b></p>
+<p> </p>
+<p>This error occurs, if any of the mandatory configuration parameter(s) </p>
+<p>mentioned below is (are) not configured in ECU Configuration Description File. </p>
+<p>The list of mandatory parameters with respect to container is listed below: </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Parameters and Container related to error ERR101004 </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>McuVersionCheckExternalModules </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>   McuGeneralConfiguration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuDevErrorDetect </p>
+<p>McuGetRamStateApi </p>
+<p>McuInitClock </p>
+<p>McuNoPll </p>
+<p>McuPerformResetApi </p>
+<p>McuVersionInfoApi </p>
+<p>McuCriticalSectionProtection </p>
+<p>McuSwResetCallApi </p>
+<p>McuEcmDelayTimerOverflowValue </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                                Messages </b></p>
+<p> </p>
+<p>24 </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>McuEcmErrorOutputMode </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuGeneralConfiguration</p>
+<p> </p>
+<p>McuEcmErrorOutTimer </p>
+<p>McuRamSectorSetting </p>
+<p>McuDeviceName    </p>
+<p>McuClm0Operation </p>
+<p>McuClm0MonitoringClockAccuracy </p>
+<p>McuClm0SamplingClockAccuracy </p>
+<p>McuClm1Operation </p>
+<p>McuClm1MonitoringClockAccuracy </p>
+<p>McuClm1SamplingClockAccuracy </p>
+<p>McuClm2Operation </p>
+<p>McuClm2MonitoringClockAccuracy </p>
+<p>McuClm2SamplingClockAccuracy </p>
+<p>McuClm3Operation </p>
+<p>McuClm3MonitoringClockAccuracy </p>
+<p>McuClm3SamplingClockAccuracy </p>
+<p>McuCvmSelfDiagnosticTest </p>
+<p>McuClma0SelfDiagnosticTest </p>
+<p>McuClma1SelfDiagnosticTest </p>
+<p>McuClma2SelfDiagnosticTest </p>
+<p>McuClma3SelfDiagnosticTest </p>
+<p>McuEcmSelfDiagnosticTest </p>
+<p>McuLoopCount</p>
+<p> </p>
+<p>McuLockStepSelfDiagnosticTest </p>
+<p>McuStartUpSWResetTest </p>
+<p>McuStartUpECMResetTest </p>
+<p>McuInterruptConsistencyCheck </p>
+<p>McuWriteVerify </p>
+<p>McuClockSrcFailureNotification </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuModuleConfiguration </p>
+<p>McuLviDetectionLevel </p>
+<p>McuLviResetMask </p>
+<p>McuNumberOfMcuModes </p>
+<p>McuRamSectors </p>
+<p>McuCvmOutMaskFbist </p>
+<p>McuCvmOutMaskDiag </p>
+<p>McuCvmOutputFilter </p>
+<p>McuCvmDiagLockBit </p>
+<p>McuCvmResetEnable </p>
+<p>McuClockSettingId   </p>
+<p> </p>
+<p> </p>
+<p>McuClockSettingConfig </p>
+<p>McuMainOsciFrequency   </p>
+<p>McuCpuMainSysClk    </p>
+<p>McuUnitName  </p>
+<p> </p>
+<p>McuUnitName </p>
+<p> </p>
+<p>McuHighspeedPeriClk </p>
+<p>McuPeripheralClock </p>
+<p>McuUnitName </p>
+<p> </p>
+<p>McuLowspeedPeriClk </p>
+<p>McuPeripheralClock </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>25 </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p>McuWdtCounterDivider </p>
+<p> </p>
+<p>McuWdtacounterClk </p>
+<p>McuUnitName </p>
+<p>McuPeripheralClock </p>
+<p>McuExternalClk0SourceSel </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuExternalClkOutSetting </p>
+<p>McuExternalClk0DividerSel </p>
+<p>McuExternalClock0 </p>
+<p>McuExternalClk1SourceSel </p>
+<p>McuExternalClk1DividerSel </p>
+<p>McuExternalClock1 </p>
+<p>McuDivClockSel </p>
+<p> </p>
+<p>  McuAdcClk </p>
+<p>McuUnitName </p>
+<p>McuPeripheralClock </p>
+<p>McuEcmErrorMaskableInterrupt </p>
+<p> </p>
+<p> </p>
+<p>McuEcmErrorSource0 to McuEcmErrorSource42 </p>
+<p>(except McuEcmErrorSource2, </p>
+<p>McuEcmErrorSource3, McuEcmErrorSource13, </p>
+<p>McuEcmErrorSource25 and  </p>
+<p>McuEcmErrorSource35) </p>
+<p> </p>
+<p>McuEcmErrorNonMaskableInterrupt </p>
+<p>McuEcmErrorInternalReset </p>
+<p>McuEcmErrorNMIDelayTimer </p>
+<p>McuEcmErrorMIDelayTimer </p>
+<p>McuEcmErrorOutputMask </p>
+<p>McuEcmErrorInternalReset </p>
+<p>  </p>
+<p>McuEcmErrorSource129 </p>
+<p>McuEcmErrorOutputMask </p>
+<p>MCU_E_CLOCK_FAILURE </p>
+<p>    </p>
+<p>McuDemEventParameterRefs </p>
+<p>MCU_E_WRITE_TIMEOUT_FAILURE </p>
+<p>McuModeType </p>
+<p> </p>
+<p>McuModeSettingConf </p>
+<p>McuMode </p>
+<p>McuRamDefaultValue </p>
+<p> </p>
+<p> </p>
+<p>McuRamSectorSettingConf </p>
+<p>McuRamSectionBaseAddress </p>
+<p>McuRamSectionSize </p>
+<p>McuRamTypeSel </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuResetReason  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuRstRsnConfPowOnClr </p>
+<p>McuRstRsnConfPinRst </p>
+<p>McuRstRsnConfSwRst </p>
+<p>McuRstRsnConfWdta </p>
+<p>McuRstRsnConfLockStepCompare </p>
+<p>McuRstRsnConfClkMonUprLimErMosc </p>
+<p>McuRstRsnConfClkMonLwrLimErMosc </p>
+<p>McuRstRsnConfClkMonUprLimErWdt </p>
+<p>McuRstRsnConfClkMonLwrLimErWdt </p>
+<p>McuRstRsnConfClkMonUprLimErPclk </p>
+<p>McuRstRsnConfClkMonLwrLimErPclk </p>
+<p>McuRstRsnConfClkMonUprLimErPe1 </p>
+<p>McuRstRsnConfClkMonLwrLimErPe1 </p>
+<p>McuRstRsnConfLRamEcc2AddPrty </p>
+<p>McuRstRsnConfInstCacheRamEcc2 </p>
+<p>McuRstRsnConfCodeFlsEcc2AddPrty </p>
+<p>McuRstRsnConfDataFlsEcc2 </p>
+<p>McuRstRsnConfDtsRamEcc2 </p>
+<p>McuRstRsnConfCsihRamEcc2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                                Messages </b></p>
+<p> </p>
+<p>26 </p>
+<p><b>Parameter Name</b></p>
+<p> </p>
+<p><b>Container Name</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuResetReason</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuRstRsnConfCanRamEcc2 </p>
+<p>McuRstRsnConfFrRamEcc2 </p>
+<p>McuRstRsnConfFlsProgMode </p>
+<p>McuRstRsnConfTestMode </p>
+<p>McuRstRsnConfSingChipModInact </p>
+<p>McuRstRsnConfPeGuard </p>
+<p>McuRstRsnConfPBusGuard </p>
+<p>McuRstRsnConfSarAdcPrty </p>
+<p>McuRstRsnConfBusDataPrty </p>
+<p>McuRstRsnConfEcmCompare </p>
+<p>McuRstRsnConfLvi </p>
+<p>McuRstRsnConfTempSensor </p>
+<p>McuRstRsnConfDmaTrans </p>
+<p>McuRstRsnConfDmaViol </p>
+<p>McuRstRsnConfLRamEcc1 </p>
+<p>McuRstRsnConfCodeFlsEcc1 </p>
+<p>McuRstRsnConfDataFlsEcc1 </p>
+<p>McuRstRsnConfDtsRamEcc1 </p>
+<p>McuRstRsnConfPeriRamEcc1 </p>
+<p>McuRstRsnConfBistCodeEcc1 </p>
+<p>McuRstRsnConfBistCodeEcc2 </p>
+<p>McuRstRsnConfFaci </p>
+<p>McuRstRsnConfEcmDelayOverFlow </p>
+<p>McuRstRsnConfRstUndefined </p>
+<p>McuRstRsnConfRstUnknown </p>
+<p>McuRstRsnConfCvmRst </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR101005: The value for parameter ‘parameter name’ present in the </b></p>
+<p><b>container 'container name' should be same across multiple </b></p>
+<p><b>configuration set 'McuModuleConfiguration'. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value configured for the following parameter present </p>
+<p>in the respective container is not same across multiple configuration set </p>
+<p>McuModuleConfiguration.</p>
+<p> </p>
+<p>The validation for McuWdtCounterDivider </p>
+<p>parameter will be carried out only if McuClma2operation is TRUE. </p>
+<p> </p>
+<p><b>Table 8-2 </b></p>
+<p><b>Parameters and containers related to error ERR101005 </b></p>
+<p> </p>
+<p>        <b>Parameter </b></p>
+<p><b>  Container </b></p>
+<p> McuMainOsciFrequency </p>
+<p>  McuClockSettingConfig </p>
+<p> McuWdtCounterDivider </p>
+<p>  McuWdtacounterClk </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101006: The value of the parameter </b></p>
+<p><b>'McuEcmErrorMaskableInterrupt' should configure as &lt;true&gt; since the </b></p>
+<p><b>'McuMiNotification' parameter is configured in container &lt;Configured </b></p>
+<p><b>ecm error source container&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value of the parameter </p>
+<p>McuEcmErrorMaskableInterrupt is not configure as true, since the </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>27 </p>
+<p>McuMiNotification parameter is configured in container &lt;Configured ecm </p>
+<p>error source container&gt;.  </p>
+<p><b> </b></p>
+<p><b>ERR101007: The configured value in 'McuPeripheralClock'  in container </b></p>
+<p><b>'McuWdtacounterClk' should be equal to &lt;8000000/configured value of </b></p>
+<p><b>McuWdtCounterDivider parameter&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the configured value in McuPeripheralClock in container </p>
+<p>McuWdtacounterClk is not equal to &lt;8000000/configured value of </p>
+<p>McuWdtCounterDivider parameter&gt;. </p>
+<p><b> </b></p>
+<p><b>ERR101008: The configured value in 'McuExternalClockX' in container </b></p>
+<p><b>'McuExternalClkOutSetting' should be equal to </b></p>
+<p><b>&lt;McuExternalClkXSourceSel/McuExternalClkXDividerSel&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the configured value in McuExternalClockX in container </p>
+<p>McuExternalClkOutSetting is not equal to </p>
+<p>&lt;McuExternalClkXSourceSel/McuExternalClkXDividerSel&gt;.<b>  </b></p>
+<p><b>                      </b></p>
+<p><b>                                         Remark   </b>Where X=0 or 1 </p>
+<p><b> </b></p>
+<p><b>ERR101009: The value of the parameter </b></p>
+<p><b>'McuEcmErrorNonMaskableInterrupt' should configure as &lt;true&gt;  since </b></p>
+<p><b>the 'McuNmiNotification' parameter is configured in container </b></p>
+<p><b>&lt;Configured ecm error source container&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value for parameter  </p>
+<p>McuEcmErrorNonMaskableInterrupt is not configure as true, since the </p>
+<p>McuNmiNotification parameter is configured in container &lt;Configured ecm </p>
+<p>error source container&gt;. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR101017: The value for parameter 'parameter name' configured in </b></p>
+<p><b>container 'container name' should be &lt;expected value of parameter&gt;. In </b></p>
+<p><b>general per configuration set, the value of 'parameter name' parameter </b></p>
+<p><b>should start with &lt;0&gt; and should be sequential without any gaps.  </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the following parameter in the </p>
+<p>respective container does not start with 0 and not sequential in multiple </p>
+<p>configurations set container McuModuleConfiguration. </p>
+<p> </p>
+<p><b>Table 8-3 </b></p>
+<p><b>Parameter and Container related to error ERR101017 </b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Container</b></p>
+<p> </p>
+<p>McuClockSettingId</p>
+<p> </p>
+<p>McuClockSettingConfig</p>
+<p> </p>
+<p>                       </p>
+<p>                                         <b>Remark</b>    As issue raised in Bugzilla: 54536 Autosar parameter                  </p>
+<p>McuClockSettingId in McuClockSettingConfig container range is changed to 0 </p>
+<p>to 255 instead of 1 to 255. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR101020: The value for parameter ' McuRamSectionBaseAddress ' in </b></p>
+<p><b>container ' McuRamSectorSettingConf ' should be in the range. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if value for parameter McuRamSectionBaseAddress in </p>
+<p>container McuRamSectorSettingConf is not in the range of &lt;configured value </p>
+<p>for McuRamTypeSel&gt;. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                                Messages </b></p>
+<p> </p>
+<p>28 </p>
+<p><b> </b></p>
+<p><b>ERR101022: Atleast one 'McuRamSectorSettingConf' container should be </b></p>
+<p><b>configured. Since 'McuRamSectorSetting' parameter in </b></p>
+<p><b>'McuGeneralConfiguration' container is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if no McuRamSectorSettingConf container is configured and </p>
+<p>parameter McuRamSectorSetting in McuGeneralConfiguration container is </p>
+<p>configured as &lt;true&gt;. </p>
+<p><b> </b></p>
+<p><b>ERR101026: The reference path &lt;McuDemEventParameterRefs&gt; provided </b></p>
+<p><b>for the parameter 'Parameter Name' within the container 'Container Name' </b></p>
+<p><b>is incorrect. </b></p>
+<p> </p>
+<p>This error occurs, if the reference path &lt;McuDemEventParameterRefs&gt; </p>
+<p>provided for the following parameters in McuDemEventParameterRefs </p>
+<p>container is not correct. </p>
+<p> </p>
+<p><b>Table 8-4 </b></p>
+<p><b>Parameters and Container related to error ERR101026 </b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Container</b></p>
+<p> </p>
+<p>MCU_E_CLOCK_FAILURE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>McuDemEventParameterRefs</p>
+<p> </p>
+<p>MCU_E_WRITE_TIMEOUT_FAILURE </p>
+<p>MCU_E_CVM_SELFDIAG_FAILURE </p>
+<p>MCU_E_CLM_SELFDIAG_FAILURE </p>
+<p>MCU_E_ECM_SELFDIAG_FAILURE </p>
+<p>MCU_E_LOCKSTEP_SELFDIAG_FAILURE </p>
+<p>MCU_E_RESETCONTROLLER_STARTUP_FAILURE </p>
+<p>MCU_E_INT_INCONSISTENT </p>
+<p>MCU_E_REG_WRITE_VERIFY </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>ERR101027: The short name of the container 'McuClockSettingConfig' </b></p>
+<p><b>should be same for clock having 'McuClockSettingId' &lt;value of </b></p>
+<p><b>McuClockSettingId&gt; across multiple configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the short name of the container McuClockSettingConfig is </p>
+<p>not same for clock having same McuClockSettingId across multiple </p>
+<p>configuration sets. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101029: The value for parameter 'McuLviResetMask' present in </b></p>
+<p><b>container 'McuModuleConfiguration' should be same across multiple </b></p>
+<p><b>configurations set. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value for parameter McuLviResetMask present in </p>
+<p>container McuModuleConfiguration is not same across multiple configurations </p>
+<p>set. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR101031: The value for parameter 'McuInitClock' present in container </b></p>
+<p><b>'McuGeneralConfiguration' should not be configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameter McuInitClock present in container </p>
+<p>McuGeneralConfiguration is configured as false. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>29 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>ERR101032: The value for the parameter 'Parameter Name' present in the </b></p>
+<p><b>container 'Container Name' should be same across multiple </b></p>
+<p><b>configuration set 'McuModuleConfiguration'. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the following parameters in </p>
+<p>McuDemEventParameterRefs container is not same across multiple </p>
+<p>configuration set container McuModuleConfiguration. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Table 8-5 </b></p>
+<p><b>Parameters and Container related to error ERR101032 </b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Container</b></p>
+<p> </p>
+<p>MCU_E_CLOCK_FAILURE </p>
+<p> </p>
+<p> </p>
+<p>  </p>
+<p> </p>
+<p>   </p>
+<p>              </p>
+<p> </p>
+<p> </p>
+<p>  McuDemEventParameterRefs </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MCU_E_WRITE_TIMEOUT_FAILURE </p>
+<p>MCU_E_CVM_SELFDIAG_FAILURE </p>
+<p>MCU_E_CLM_SELFDIAG_FAILURE </p>
+<p>MCU_E_ECM_SELFDIAG_FAILURE </p>
+<p>MCU_E_LOCKSTEP_SELFDIAG_FAILURE </p>
+<p>MCU_E_RESETCONTROLLER_STARTUP_FAILURE </p>
+<p>MCU_E_INT_INCONSISTENT </p>
+<p>MCU_E_REG_WRITE_VERIFY </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101035: The value for parameter 'McuClockSettingId' present in </b></p>
+<p><b>container 'McuClockSettingConfig' should be same across multiple </b></p>
+<p><b>configurations set container 'McuModuleConfiguration'. </b></p>
+<p> </p>
+<p>This error occurs, if the value for parameter McuClockSettingId present in </p>
+<p>container McuClockSettingConfig does not same across multiple configurations </p>
+<p>set container McuModuleConfiguration. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101036: Parameter 'MCU_E_CVM_SELFDIAG_FAILURE' should be </b></p>
+<p><b>configured, since parameter 'McuCvmSelfDiagnosticTest' inside </b></p>
+<p><b>container ‘McuGeneralConfiguration' is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>This error occurs, if parameter 'MCU_E_CVM_SELFDIAG_FAILURE' is not </p>
+<p>configured, since parameter 'McuCvmSelfDiagnosticTest' inside container </p>
+<p>‘McuGeneralConfiguration' is configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101037: Parameter 'MCU_E_CLM_SELFDIAG_FAILURE' should be </b></p>
+<p><b>configured, since one or more of parameters </b></p>
+<p><b>'McuClma0SelfDiagnosticTest', 'McuClma1SelfDiagnosticTest', </b></p>
+<p><b>'McuClma2SelfDiagnosticTest' and 'McuClma3SelfDiagnosticTest' inside </b></p>
+<p><b>container ‘McuGeneralConfiguration’ is configured as &lt;true&gt;.  </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>This error occurs, if parameter 'MCU_E_CLM_SELFDIAG_FAILURE' is not </p>
+<p>configured, since one or more of parameters 'McuClma0SelfDiagnosticTest', </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                                Messages </b></p>
+<p> </p>
+<p>30 </p>
+<p>'McuClma1SelfDiagnosticTest', 'McuClma2SelfDiagnosticTest' and </p>
+<p>'McuClma3SelfDiagnosticTest' inside container ‘McuGeneralConfiguration’ is </p>
+<p>configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101038: Parameter 'MCU_E_ECM_SELFDIAG_FAILURE' should be </b></p>
+<p><b>configured, since parameter 'McuEcmSelfDiagnosticTest' inside </b></p>
+<p><b>container  'McuGeneralConfiguration' is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>This error occurs, if parameter 'MCU_E_ECM_SELFDIAG_FAILURE' is not </p>
+<p>configured, since parameter 'McuEcmSelfDiagnosticTest' inside container </p>
+<p>‘McuGeneralConfiguration' is configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101039: Parameter 'MCU_E_LOCKSTEP_SELFDIAG_FAILURE' </b></p>
+<p><b>should be configured, since parameter 'McuLockStepSelfDiagnosticTest' </b></p>
+<p><b>inside container 'McuGeneralConfiguration' is configured as &lt;true&gt;.   </b></p>
+<p><b> </b></p>
+<p>This error occurs, if parameter 'MCU_E_LOCKSTEP_SELFDIAG_FAILURE' is </p>
+<p>not configured, since parameter 'McuLockStepSelfDiagnosticTest' inside </p>
+<p>container ‘McuGeneralConfiguration' is configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101040: The value for parameters 'McuEcmErrorNMIDelayTimer' and </b></p>
+<p><b>'McuEcmErrorMIDelayTimer' should not be configured as &lt;true&gt; for </b></p>
+<p><b>containers 'McuEcmErrorSource4 to McuEcmErrorSource11'. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value for parameter 'McuEcmErrorNMIDelayTimer' and </p>
+<p>'McuEcmErrorMIDelayTimer' are configured as true for containers </p>
+<p>'McuEcmErrorSource4 to McuEcmErrorSource11'. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101041: The value for parameter  ‘Parameter Name’ present in </b></p>
+<p><b>container McuGeneralConfiguration' should be configured as &lt;true&gt; </b></p>
+<p><b>since parameter 'Parameter Name' is configured as &lt;true&gt; &quot;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value configured for parameter on left column of </p>
+<p>following table present in container McuGeneralConfiguration is true but value </p>
+<p>configured for parameter on right column of following table is configured as </p>
+<p>false. </p>
+<p> </p>
+<p><b>Table 8-6 </b></p>
+<p><b>Parameters and Containers related to error ERR101041 </b></p>
+<p> </p>
+<p> <b>The Parameter which is configured as &lt;true&gt; </b></p>
+<p> <b>Parameter that should be configured </b></p>
+<p><b>as &lt;true&gt; </b></p>
+<p> McuClma0SelfDiagnosticTest </p>
+<p> McuClm0Operation </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> McuClma1SelfDiagnosticTest </p>
+<p> McuClm1Operation </p>
+<p> McuClma2SelfDiagnosticTest </p>
+<p> McuClm2Operation </p>
+<p> McuClma3SelfDiagnosticTest </p>
+<p> McuClm3Operation </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101042: The value for the parameters 'parameter name' and </b></p>
+<p><b>'parameter name' present in the container 'McuDemEventParameterRefs' </b></p>
+<p><b>should be unique. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if the value configured for the following parameters in </p>
+<p>McuDemEventParameterRefs container is not unique. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>31 </p>
+<p> </p>
+<p> </p>
+<p><b>Table 8-7 </b></p>
+<p><b>Parameters and Container related to error ERR101042 </b></p>
+<p><b> </b></p>
+<p> <b>Parameter </b></p>
+<p> <b>Container </b></p>
+<p> MCU_E_CLOCK_FAILURE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> McuDemEventParameterRefs </p>
+<p> MCU_E_WRITE_TIMEOUT_FAILURE </p>
+<p> MCU_E_CVM_SELFDIAG_FAILURE </p>
+<p> MCU_E_CLM_SELFDIAG_FAILURE </p>
+<p> MCU_E_ECM_SELFDIAG_FAILURE </p>
+<p> MCU_E_LOCKSTEP_SELFDIAG_FAILURE </p>
+<p> MCU_E_RESETCONTROLLER_STARTUP_FAILURE </p>
+<p> MCU_E_INT_INCONSISTENT </p>
+<p>MCU_E_REG_WRITE_VERIFY </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101043: At least one ‘McuWdtacounterClk’ container should be </b></p>
+<p><b>configured. Since ‘McuClm2Operation’ parameter in </b></p>
+<p><b>'McuGeneralConfiguration' container is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if container McuWdtacounterClk is not configured since </p>
+<p>parameter McuClm2Operation of container McuGeneralConfiguration is </p>
+<p>configured as true. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101044: The configured value for parameter ‘McuExternalClockX’ in </b></p>
+<p><b>container 'McuExternalClkOutSetting’ should be equal to 0 when </b></p>
+<p><b>McuExternalClkXSourceSel is MCU_NO_OUTPUT. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameter McuExternalClockX </p>
+<p>in container  McuExternalClkOutSetting is not equal to 0. </p>
+<p> </p>
+<p>                                         Remark   Where X=0 or 1 </p>
+<p><b>ERR101045: The value for parameters ‘McuEcmErrorMaskableInterrupt’ </b></p>
+<p><b>or ‘McuEcmErrorNonMaskableInterrupt’ should be &lt;true&gt; in all container </b></p>
+<p><b>McuEcmErrorSource&lt;12 and 34&gt; since ‘McuGetRamStateApi’ is </b></p>
+<p><b>configured as &lt;true&gt; in ‘McuGeneralConfiguration’ container. </b></p>
+<p> </p>
+<p>This error occurs, if the value configured for the parameters </p>
+<p>McuEcmErrorMaskableInterrupt or should be &lt;true&gt; in all containers </p>
+<p>McuEcmErrorSource&lt;12 and 34&gt; when  McuGetRamStateApi’ is configured as </p>
+<p>&lt;true&gt; in ‘McuGeneralConfiguration’ container.</p>
+<p><b> </b></p>
+<p> </p>
+<p><b>ERR101046: The order of container 'McuRamSectorSettingConf' </b></p>
+<p><b>configuration and their short names should be same across multiple </b></p>
+<p><b>configuration sets. </b></p>
+<p> </p>
+<p>This error occurs, if the order of container 'McuRamSectorSettingConf' </p>
+<p>configuration and their short are not same across multiple configuration </p>
+<p> </p>
+<p><b>ERR101047:</b></p>
+<p> </p>
+<p><b>The number of 'McuRamSectorSettingConf' containers </b></p>
+<p><b>should be same across multiple configuration sets. </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8                                                                                                                                Messages </b></p>
+<p> </p>
+<p>32 </p>
+<p>This error occurs, if the number of 'McuRamSectorSettingConf' containers are </p>
+<p>not same across multiple configuration sets. </p>
+<p> </p>
+<p> </p>
+<p><b>ERR101048:</b></p>
+<p> </p>
+<p><b>The configured value for ‘McuPeripheralClock’ in container </b></p>
+<p><b>‘McuAdcClk’ should be equal to &lt;20000000, 40000000&gt; since parameter </b></p>
+<p><b>‘McuDivClockSel’</b></p>
+<p> </p>
+<p><b>is configured as &lt;CLK_LSB, CLK_LSB_BY_2&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if there is a mismatch in the setting of parameters </p>
+<p>‘McuPeripheralClock’ and ‘McuDivClockSel’ in ‘McuAdcClk’ container. </p>
+<p> </p>
+<p><b>ERR101049: Parameter </b></p>
+<p><b>'MCU_E_RESETCONTROLLER_STARTUP_FAILURE' should be </b></p>
+<p><b> configured, since parameter 'McuStartUpSWResetTest' inside  </b></p>
+<p><b> container  'McuGeneralConfiguration' is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if parameter </p>
+<p>‘MCU_E_RESETCONTROLLER_STARTUP_FAILURE’ is not configured, </p>
+<p>since parameter ‘McuStartUpSWResetTest’  inside container </p>
+<p>‘McuGeneralConfiguration' is configured as true. </p>
+<p> </p>
+<p><b>ERR101050: Parameter ‘MCU_E_INT_INCONSISTENT’ should be </b></p>
+<p><b>configured, since parameter ‘McuInterruptConsistencyCheck’ inside </b></p>
+<p><b>container 'McuGeneralConfiguration' is configured as &lt;true&gt;.   </b></p>
+<p><b> </b></p>
+<p>This error occurs, if parameter ‘MCU_E_INT_INCONSISTENT’ is not </p>
+<p>configured, since parameter ‘McuInterruptConsistencyCheck’  inside container </p>
+<p>‘McuGeneralConfiguration' is configured as true. </p>
+<p> </p>
+<p><b>ERR101051: Parameter 'Mcu_UseWVErrorInterface' should be </b></p>
+<p><b>configured, since parameter 'McuWriteVerify' inside container </b></p>
+<p><b>'McuGeneralConfiguration' is configured as &lt;true&gt;. </b></p>
+<p><b> </b></p>
+<p>This error occurs, if parameter Mcu_UseWVErrorInterface is not configured, </p>
+<p>when parameter McuWriteVerify inside McuGeneralConfiguration is </p>
+<p>configured as true. </p>
+<p>  </p>
+<p><b>ERR101052: Parameter 'McuWVErrorNotification' should be configured, </b></p>
+<p><b>since parameter 'Mcu_UseWVErrorInterface' inside container </b></p>
+<p><b> 'McuGeneralConfiguration' is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This error occurs, if parameter McuWVErrorNotification is not configured, </p>
+<p>when parameter 'Mcu_UseWVErrorInterface inside McuGeneralConfiguration </p>
+<p>is configured as true. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>8.2 </b></p>
+<p><b>Warning Messages </b></p>
+<p> </p>
+<p><b>WRN101001: The value of the parameters </b></p>
+<p><b>'McuEcmErrorNonMaskableInterrupt' and </b></p>
+<p><b>'McuEcmErrorMaskableInterrupt' should not be &lt;true&gt; since the </b></p>
+<p><b>parameter 'McuEcmErrorInternalReset' of the container &lt;configured </b></p>
+<p><b>Ecm error sources&gt;is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This warning occurs, if the value of the parameters </p>
+<p>McuEcmErrorNonMaskableInterrupt and McuEcmErrorMaskableInterrupt is </p>
+<p>&lt;true&gt; since the parameter McuEcmErrorInternalReset of the container </p>
+<p>&lt;configured Ecm error sources&gt;is configured as &lt;true&gt;. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>WRN101002: The value of the parameter </b></p>
+<p><b>'McuEcmErrorMaskableInterrupt' should not be &lt;true&gt; since the </b></p>
+<p><b>parameter 'McuEcmErrorNonMaskableInterrupt' of the container </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Messages </b></p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>33 </p>
+<p><b>&lt;configured Ecm error sources&gt; is configured as &lt;true&gt;. </b></p>
+<p> </p>
+<p>This warning occurs, if the value of the parameter </p>
+<p>McuEcmErrorMaskableInterrupt is &lt;true&gt; since the parameter </p>
+<p>McuEcmErrorNonMaskableInterrupt of the container &lt;configured Ecm error </p>
+<p>sources&gt;is configured as &lt;true&gt;. </p>
+<p> </p>
+<p><b>WRN101003: The configured External Clock value for </b></p>
+<p><b>McuExternalClockx  exceeds 20Mhz </b></p>
+<p> </p>
+<p>This warning occurs, if the configured External Clock value for </p>
+<p>McuExternalClockx (x = 0 or 1) exceeds 20Mhz.  </p>
+<p> </p>
+<p> </p>
+<p><b>8.3 </b></p>
+<p><b>Information Messages </b></p>
+<p> </p>
+<p><b>INF101001: The configured ‘McuRamSectorSettingConf’ container is not </b></p>
+<p><b>used. Since ‘McuRamSectorSetting’ parameter in </b></p>
+<p><b>‘McuGeneralConfiguration’ container is configured as &lt;false&gt;. </b></p>
+<p> </p>
+<p>This information occurs, if McuRamSectorSettingConf container is configured </p>
+<p>and parameter McuRamSectorSetting in McuGeneralConfiguration container is </p>
+<p>configured as &lt;false&gt;. </p>
+<p> </p>
+<p> </p>
+<p><b>INF101002: The configured value for parameter ‘McuExternalClockX' will </b></p>
+<p><b>be ignored if parameter 'McuExternalClkXSourceSel' is configured as </b></p>
+<p><b>'MCU_NO_OUTPUT'. </b></p>
+<p><b> </b></p>
+<p>This information occurs, if the configured value of parameter </p>
+<p>McuExternalClockX is ignored when parameter McuExternalClkXSourceSel  is </p>
+<p>configured as MCU_NO_OUTPUT. </p>
+<p> </p>
+<p>                                         Remark   Where X=0 or 1 </p>
+<p> </p>
+<p><b>INF101003: The parameter ‘McuEcmErrorMIDelayTimer’ / ’</b></p>
+<p> </p>
+<p><b>McuEcmErrorNMIDelayTimer’ does not have any effect since the </b></p>
+<p><b>corresponding interrupt ‘McuEcmErrorMaskableInterrupt’ / </b></p>
+<p><b>‘McuEcmErrorNonMaskableInterrupt’ is configured as &lt;false&gt; in </b></p>
+<p><b>container ‘McuEcmErrorSource’ . </b></p>
+<p><b> </b></p>
+<p>This information occurs, if the parameter McuEcmErrorMIDelayTimer is </p>
+<p>configured when McuEcmErrorMaskableInterrupt is configured as false in </p>
+<p>same or the parameter McuEcmErrorNMIDelayTimer is configured when </p>
+<p>McuEcmErrorNonMaskableInterrupt is configured as false.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>      Chapter 8 </b></p>
+<p><b>   Messages </b></p>
+<p>      34 </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>      Notes </b></p>
+<p><b>   Chapter 9</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>35 </p>
+<p> </p>
+<p><b>Chapter 9  Notes </b></p>
+<p> </p>
+<p>“Generation Tool” and “Tool” terminologies are used interchangeably to refer </p>
+<p>                                          MCU Driver Generation Tool.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>      Chapter 9 </b></p>
+<p><b>            Notes </b></p>
+<p>36 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>37 </p>
+<p> </p>
+<p><b> Revision History </b></p>
+<p> </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>18-Oct-2013</p>
+<p> </p>
+<p>2 </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR101004 is updated in section 8.1 to add </p>
+<p>the parameter McuRamSectorSetting,  McuRamTypeSel,  </p>
+<p>McuModeType and McuLockStepSelfDiagnosticTest and to </p>
+<p>remove the parameters </p>
+<p>MCU_E_CVM_SELFDIAG_FAILURE, </p>
+<p>MCU_E_CLM_SELFDIAG_FAILURE and </p>
+<p>MCU_E_ECM_SELFDIAG_FAILURE. </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR101020,  ERR101022, ERR101036, </p>
+<p>ERR101037, ERR101038, ERR101039, ERR101040, </p>
+<p>ERR101041, ERR101042, ERR101043 and  ERR101044 are </p>
+<p>added newly in section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Information message INF101001 and INF101002 is added </p>
+<p>newly in section 8.3. </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR101026 and ERR101032 are updated in </p>
+<p>section 8.1. </p>
+<p>1.0.1 </p>
+<p>15-Apr-2014 </p>
+<p>3 </p>
+<p>Following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Error message ERR101004 is updated in section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Reference Documents section is updated for adding </p>
+<p>Parameter Definition Files. </p>
+<p> </p>
+<p>• </p>
+<p>Chapter 6 Precautions is updated.  </p>
+<p> </p>
+<p>• </p>
+<p>Remark of Chapter 4 Input Files is updated for PDF </p>
+<p>reference. </p>
+<p> </p>
+<p>• </p>
+<p>Error messages ERR101045, ERR101046 and ERR101047 </p>
+<p>are added newly in section 8.1. </p>
+<p> </p>
+<p>• </p>
+<p>Information message INF101003 is added newly in section </p>
+<p>8.3. </p>
+<p> </p>
+<p>• </p>
+<p>McuRstRsnConfCvmRst container is added in error message </p>
+<p>ERR101004 table.  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.0.2 </p>
+<p>30-Oct-2014 </p>
+<p>4 </p>
+<p>The following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Pdf name and version are updated in  Section 2.1 </p>
+<p> </p>
+<p>• </p>
+<p>Updated version and copyright year. </p>
+<p> </p>
+<p>1.0.3 </p>
+<p>28-Apr-2015 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>38 </p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>5 </p>
+<p>The following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Figure 3-2 Generator Concept Flow Chart is added. </p>
+<p> </p>
+<p>• </p>
+<p>Chapter 6 Precautions is updated. </p>
+<p> </p>
+<p>• </p>
+<p>Table numbers are added for tables present in Chapter 8.1 </p>
+<p>Error Messages. </p>
+<p> </p>
+<p>• </p>
+<p>In table 8.1 Parameters and Container related to error </p>
+<p>ERR101004, parameters of containers </p>
+<p>McuModuleConfiguration and McuAdcClk are updated. </p>
+<p> </p>
+<p>• </p>
+<p>Added Error message ERR101048, ERR101049 and </p>
+<p>ERR101050. </p>
+<p>1.0.4 </p>
+<p>08-Jan-2016 </p>
+<p>6 </p>
+<p>The following changes are made: </p>
+<p> </p>
+<p>• </p>
+<p>Error ERR101045 is updated. </p>
+<p> </p>
+<p>• </p>
+<p>Warning WRN101003 is added. </p>
+<p> </p>
+<p>• </p>
+<p>Copyright information is updated. </p>
+<p> </p>
+<p>1.0.5 </p>
+<p>25-Mar-2016 </p>
+<p>7 </p>
+<p>The following changes are made: </p>
+<p>• </p>
+<p>Errors ERR101051, ERR101052 added in section 8.1. </p>
+<p>• </p>
+<p>R number updated. </p>
+<p>• </p>
+<p>ERR101005, ERR101049 description updated. </p>
+<p>• </p>
+<p>McuCvmDiagLockBit added in McuModuleConfiguration </p>
+<p>container under table Table 8-1. </p>
+<p>1.0.6 </p>
+<p>28-Jun-2016 </p>
+<p>8 </p>
+<p>Following changes are made; </p>
+<p>• </p>
+<p>Reference document version updated. </p>
+<p>1.0.7 </p>
+<p>06-Sep-2016 </p>
+<p>9 </p>
+<p>The following changes are made: </p>
+<p></p>
+<p> </p>
+<p>Updated Abbreviations and Acronyms. </p>
+<p></p>
+<p> </p>
+<p>Updated Error ERR101044. </p>
+<p></p>
+<p> </p>
+<p>Updated R number. </p>
+<p></p>
+<p> </p>
+<p>Updated Notice and Copyright information. </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>1.0.8 </p>
+<p>07-Feb-2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>39 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>MCU Driver Component Ver.1.0.8 </b></p>
+<p><b>Generation Tool User's Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.1.01, February 07, 2017 </p>
+<p> </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 4.1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3721EJ0101 </p>
+</body>
+</html>
+{% endraw %}

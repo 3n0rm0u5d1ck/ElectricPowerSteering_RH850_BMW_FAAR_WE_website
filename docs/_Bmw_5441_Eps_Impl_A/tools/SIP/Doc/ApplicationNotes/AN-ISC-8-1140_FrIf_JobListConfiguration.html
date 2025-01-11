@@ -1,0 +1,636 @@
+---
+layout: default
+title: AN-ISC-8-1140_FrIf_JobListConfiguration
+nav_order: 39
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>JobList Configuration of FlexRay Interface </b></p>
+<p><b>Version 1.2 </b></p>
+<p><b>2014-03-19 </b></p>
+<p><b>Application Note  AN-ISC-8-1140 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Oliver, Reineke; Drescher, Markus </p>
+<p>Restrictions </p>
+<p>Customer confidential - AUTOSAR only </p>
+<p>Abstract </p>
+<p>This application notes describes how the FlexRay Interface JobList is configured.</p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p> </p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2014 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector-informatik.com   or ++49-711-80 670-0 </b></p>
+<p> </p>
+<p>1.0</p>
+<p> </p>
+<p>Overview .......................................................................................................................................................... 1</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>What is the Job List about? ........................................................................................................................... 1</p>
+<p> </p>
+<p>1.1.1</p>
+<p> </p>
+<p>Communication Jobs .................................................................................................................................. 1</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Job List Configuration .................................................................................................................................... 2</p>
+<p> </p>
+<p>1.2.1</p>
+<p> </p>
+<p>Scheduling Algorithm – Default .................................................................................................................. 2</p>
+<p> </p>
+<p>1.2.2</p>
+<p> </p>
+<p>Scheduling Algorithm – Concatenated Jobs ............................................................................................... 3</p>
+<p> </p>
+<p>1.2.3</p>
+<p> </p>
+<p>Scheduling Algorithm – User Defined ......................................................................................................... 3</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Synchronisation of BSW main functions ....................................................................................................... 3</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Configuration aspects ...................................................................................................................................... 4</p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>PDUs with decoupled transmission ............................................................................................................... 5</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>Optimal BSW main function placement ...................................................................................................... 5</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>Wrong FRIFJob configurations ................................................................................................................... 8</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>PDUs with immediate transmission ............................................................................................................... 9</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Contacts ......................................................................................................................................................... 10</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>The following application note describes how to configure the FRIF Job List. </p>
+<p><b>1.1 </b></p>
+<p><b>What is the Job List about? </b></p>
+<p>Receive and transmit buffers of the FlexRay CC (communication controller) may only be accessed at well defined </p>
+<p>points in time in order to avoid concurrent access to the buffers by the hardware and the software. To provide this </p>
+<p>synchronous access, the FlexRay Interface defines a FlexRay Job List for each cluster. The cluster’s FlexRay Job </p>
+<p>List is executed by its Job List Execution (JLE) function using an absolute timer of the FlexRay CC. </p>
+<p><b>1.1.1 </b></p>
+<p><b>Communication Jobs </b></p>
+<p>A FlexRay Job List is a list of communication jobs that are sorted according to the time when they shall be </p>
+<p>executed. This start time defines when the respective JLE function shall be called. The communication operations </p>
+<p>specify the actual actions to process within the communication job. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p>According the AUTOSAR SWS the FlexRay Interface supports the following communication operations that can be </p>
+<p>performed for each receive or transmit buffer: </p>
+<p>•</p>
+<p> </p>
+<p>Decoupled Transmission </p>
+<p>•</p>
+<p> </p>
+<p>Receive and Indicate </p>
+<p>•</p>
+<p> </p>
+<p>Tx Confirmation </p>
+<p> </p>
+<p><b>1.2 </b></p>
+<p><b>Job List Configuration  </b></p>
+<p>As the FRIF Job List configuration is difficult and error-prone, GENy offers the possibility to calculate the </p>
+<p>scheduling of the communication operations. The FlexRay Interface supports the following configuration </p>
+<p>mechanisms (SchedulingAlgorithms) in GENy: </p>
+<p>•</p>
+<p> </p>
+<p>Default  </p>
+<p>•</p>
+<p> </p>
+<p>Concatenated Jobs </p>
+<p>•</p>
+<p> </p>
+<p>User Defined </p>
+<p><b>1.2.1 </b></p>
+<p><b>Scheduling Algorithm – Default </b></p>
+<p>The <b>default </b>scheduling algorithm divides the FlexRay cycle into x segments of the same size, where x is the </p>
+<p>number of Tx or Rx jobs. Depending on the start slot and end slot of these segments the start time of the </p>
+<p>corresponding task and the maximum ISR delay is automatically calculated. </p>
+<p>Example:  </p>
+<p>For a cycle with a length of 5000 macro ticks which is divided into a static segment of 3000 macro ticks length and </p>
+<p>a dynamic segment of 2000 macro ticks length, the following segments (Segment 0 and Segment 1 in Figure 1) </p>
+<p>arise: </p>
+<p> </p>
+<p> </p>
+<p>Figure 1 – <b>Default </b>Scheduling Algorithm </p>
+<p> </p>
+<p>Note: </p>
+<p>A TxConf job is needed if a Tx job performs the decoupled transmission for a FlexRay frame with </p>
+<p>at least one PDU that shall be confirmed to the upper layer component. The Default Scheduling </p>
+<p>Algorithm takes the first job after the last slot of the Tx job as TxConf job.  </p>
+<p> </p>
+<p>In the example above Rx1 is the TxConf job for Tx1 (because it is the first job after Segment 0) and </p>
+<p>Rx0 is the TxConf job for Tx0 (because it is the first Job after Segment 1). </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p><b>1.2.2 </b></p>
+<p><b>Scheduling Algorithm – Concatenated Jobs </b></p>
+<p>In contrast to the default algorithm the <b>Concatenated Jobs </b>algorithm configures the start time of an Rx and the </p>
+<p>following Tx FRIF job to the same macrotick parameter and enables the Job Concatenation Enable option. As one </p>
+<p>timer interrupt is used to activate an Rx and Tx FRIF job, this algorithm can be used to reduce the interrupt load of </p>
+<p>the FlexRay Interface. </p>
+<p><b> </b></p>
+<p>Figure 2 – <b>Concatenated Jobs </b>Scheduling Algorithm </p>
+<p> </p>
+<p>Note: </p>
+<p>Due to the job concatenation it is not possible to achieve both shortest possible indication times </p>
+<p>after reception and latest data for transmission. </p>
+<p> </p>
+<p>For example in the picture above the concatenated jobs Rx0 and Tx0 can either be placed at the </p>
+<p>beginning of the cycle with the consequence that the data indications for frames in Segment 1 will </p>
+<p>be given to the upper layer components as soon as possible. Or Rx0 and Tx0 can be placed just </p>
+<p>before the start of Segment 1 to reduce the age of the transmitted data. </p>
+<p> </p>
+<p><b>1.2.3 </b></p>
+<p><b>Scheduling Algorithm – User Defined </b></p>
+<p>Beside the automated job placement GENy offers the possibility to configure the following job parameters </p>
+<p>manually: </p>
+<p>•</p>
+<p> </p>
+<p>Start Slot and End Slot (or assignment of single frames to a Job) </p>
+<p>•</p>
+<p> </p>
+<p>Macrotick </p>
+<p>•</p>
+<p> </p>
+<p>Maximum permissible ISR delay </p>
+<p>•</p>
+<p> </p>
+<p>TxConf Job </p>
+<p> </p>
+<p><b>1.3 </b></p>
+<p><b>Synchronisation of BSW main functions </b></p>
+<p>For deterministic communication behaviour on FlexRay it is necessary to synchronize the main function of FlexRay </p>
+<p>relevant BSW modules to the global time of the FlexRay CC. If the main functions are not synchronized it is </p>
+<p>possible that obsolete data is received or updated PDUs are not transmitted during the FlexRay cycle.  </p>
+<p> </p>
+<p>For example if an application task shall receive PDU data at the beginning of the FlexRay cycle and the response </p>
+<p>should be transmitted at the end of the same cycle, it is necessary that this ApplTask is scheduled between the Rx </p>
+<p>receive slot and the Tx transmit slot. If the task is not synchronised and the task drift causes the application to </p>
+<p>transmit PDU data after the FlexRay slot is expired, the PDU will be transmitted in the next cycle as shown in </p>
+<p>Figure 3. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 3 – Unsynchronized application behaviour on FlexRay </p>
+<p> </p>
+<p>There are several ways to synchronize BSW modules to the FlexRay global time: </p>
+<p>1. </p>
+<p>Using synchronized schedule tables of the AUTOSAR OS </p>
+<p>2. </p>
+<p>Cancel and set relative alarms in the FlexRay timer or cycle start ISR (like the MICROSAR SCHM does) </p>
+<p>3. </p>
+<p>Calling the BSW main function directly in the context of the FlexRay timer or cycle start ISR </p>
+<p> </p>
+<p>Note: </p>
+<p>Calling the BSW main function only in the context of the FlexRay timer or cycle start ISR has the </p>
+<p>disadvantage that the main function won’t be called if the FlexRay bus loses synchronization.  </p>
+<p><b>2.0 </b></p>
+<p><b>Configuration aspects </b></p>
+<p>For optimal BSW behaviour some configuration aspects shall be considered by the integrator as described in this </p>
+<p>section. Using the example of FRTP this chapter explains the details of: </p>
+<p>•</p>
+<p> </p>
+<p>FRIF job placement and configuration </p>
+<p>•</p>
+<p> </p>
+<p>Main function placement </p>
+<p>•</p>
+<p> </p>
+<p>FRIF PDU settings </p>
+<p>•</p>
+<p> </p>
+<p>Task priorities and interruptibilities </p>
+<p>•</p>
+<p> </p>
+<p>Duration of critical sections or resource locks </p>
+<p>•</p>
+<p> </p>
+<p>SystemTimer tick time </p>
+<p> </p>
+<p>Note: </p>
+<p>These settings are also relevant for non-FRTP modules like COM, PDUR, FRNM and FRXCP </p>
+<p> </p>
+<p>Note: </p>
+<p>Some FRNM specific details are also provided where applicable. </p>
+<p>In the following example the FRTP PDUs are all transmitted and received during the dynamic segment of the </p>
+<p>FlexRay cycle as depicted below. The corresponding frames have a cycle repetition 1 (meaning that they could be </p>
+<p>sent every cycle). </p>
+<p> </p>
+<p>Note: </p>
+<p>With AUTOSAR 3.2.2 FRTP only the last Tx PDU of a PDU pool is confirmed by the FlexRay </p>
+<p>Interface to reduce the CPU and interrupt load. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>2.1 </b></p>
+<p><b>PDUs with decoupled transmission </b></p>
+<p>If FRTP PDUs are configured to use decoupled transmission, the transmission rate of the FlexRay Transport Layer </p>
+<p>strongly depends on the positioning of the FRTP main function and the Rx, Tx and TxConf FRIFJobs of the FRTP </p>
+<p>frames. </p>
+<p>Note: </p>
+<p>If the FRTP PDUs are sent with immediate transmission (the message buffers are written in the </p>
+<p>context of the FRTP main function) only the start times of the Rx and TxConf jobs are relevant for </p>
+<p>the placement of the FRTP main function. </p>
+<p><b>2.1.1 </b></p>
+<p><b>Optimal BSW main function placement </b></p>
+<p><b>2.1.1.1 </b></p>
+<p><b>FRTP Main Function placement </b></p>
+<p>To achieve optimal throughput for segmented TP transmission it is recommended to place the SCHM Task which </p>
+<p>executes the FRTP main function between the Rx and the Tx FRIFJob of the TP frames. The Rx FRIFJob should </p>
+<p>handle the TxConfirmation as depicted in Figure 4. </p>
+<p>In this scenario the TP Tx PDUs in the dynamic segment are sent in cycle n and in the following cycle these PDUs </p>
+<p>are confirmed and the FRTP Rx PDUs (i.e. flow control or tester response) are received. Hence the first </p>
+<p>consecutive frame is sent in the next cycle after the flow control and each consecutive frame is sent every cycle </p>
+<p>(according the cycle repetition in ECUC database). </p>
+<p> </p>
+<p>Figure 4 – <b>FRTP Scenario 1 </b>– optimal FrTp main function placement for TP frames in the dynamic segment </p>
+<p> </p>
+<p>Note: </p>
+<p>The FRTP main function must be called at least once per FlexRay cycle (between two Rx job </p>
+<p>activations that handle the FRTP PDUs). Otherwise data loss is imminent.  </p>
+<p><b>2.1.1.2 </b></p>
+<p><b>FRNM Main Function placement </b></p>
+<p>For the moment when the FRNM main function shall be executed, the SCHM task that calls the FRNM main </p>
+<p>function should be placed between the Rx FRIF job that receives the last NM vote and the first Tx FRIF job that </p>
+<p>sends one of the FRNM Tx PDUs. This can be seen in Figure 5.  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>6 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5 – FRNM Main Function – Window for task activation </p>
+<p> </p>
+<p>The FRNM Task function should always be executed either at the beginning of a FlexRay Cycle or at the end of a </p>
+<p>FlexRay cycle. If it shall be executed at the beginning of a FlexRay Cycle, the configuration parameter ‘Main </p>
+<p>Across Fr Cycle’ needs to be TRUE, otherwise FALSE. Note that this parameter is usually defined by the OEM. </p>
+<p>It is necessary that all NM Vote and Data PDUs have been received until the FRNM main function is called </p>
+<p>(Moment A in the figure). It is also necessary that the FRNM main function has finished execution before the </p>
+<p>Moment B in the figure where the FRIF TX Job is started. At this point of time, the data of the TX NM PDUs needs </p>
+<p>to be provided to the FRIF. </p>
+<p>Note: </p>
+<p>If the NM PDUs are in the dynamic segment (e.g. ‘Pdu Schedule Variant’ is 2) but not at the </p>
+<p>beginning of the dynamic segment the corresponding FRIF job is always scheduled in the next FR </p>
+<p>cycle. This means in this case the ‘Main Across Fr Cycle’ must be set to TRUE.  </p>
+<p> </p>
+<p>If ‘Main Across Fr Cycle’ is set to FALSE, the FRNM PDUs must be at the beginning of the </p>
+<p>dynamic segment. In this case an additional Rx job is necessary where the ‘End Slot’ attribute of is </p>
+<p>set to the slot ID of the last FRNM frame. The start time of this Rx Job in ‘Macrotick’ should be </p>
+<p>scheduled after the last FRNM frame and before the FRNM main function in the same cycle.  </p>
+<p>Note that it is difficult to determine Moment A in the figure, because it depends on the worst-case execution time </p>
+<p>(WCET) of the Rx Job that processes the last NM PDU. This Rx Job can be identified in GENy using the ‘Is Last </p>
+<p>FrIf Rx Task for Nm’ attribute. This WCET should be measured by the integrator because the jobs runtime is </p>
+<p>affected by the application behaviour in the RX Indication functions. </p>
+<p>The latest point in time for Moment A in the figure starting from the beginning of a FlexRay Cycle boundary can be </p>
+<p>determined by the following settings of the FRIF RX Job <i>j </i>that processes the last NM PDU in one FlexRay Cycle: </p>
+<p><i>Macrotick(j) </i>+ <i>Max Isr Delay(j) </i>+ <i>t</i></p>
+<p><i>WCET</i></p>
+<p><i>(j) </i></p>
+<p>where <i>t</i></p>
+<p><i>WCET</i></p>
+<p><i>(j) </i>denotes the worst-Case execution time of the FrIf_JobListExec_0() routine. </p>
+<p>Note: </p>
+<p>The FRNM Main Function has to be called once in each FlexRay cycle. </p>
+<p>In the dual channel use case for ‘Sync PDU Wake-up Master’ nodes, the send requests of the FRNM Sync PDUs</p>
+<p>1</p>
+<p> </p>
+<p>are also issued by the FRNM Main Function. These send requests, if required, are issued in a certain cycle of each </p>
+<p>FRNM Voting Cycle called the ‘Sync Pdu Tx Request Cycle Offset’. </p>
+<p>The following constraints have to be considered for ‘Sync PDU Wake-up Master’ nodes about the configuration: </p>
+<p>                                                           </p>
+<p>1</p>
+<p> This feature is OEM-specific and may not be available and/or relevant in your delivery </p>
+<p>FlexRay Cycle N</p>
+<p>FlexRay Cycle N + 1</p>
+<p>FrNm Task</p>
+<p>activation window</p>
+<p>FrNM Task</p>
+<p>FrIf Rx</p>
+<p>Time</p>
+<p>FrIf Tx</p>
+<p>Time</p>
+<p>A</p>
+<p>B</p>
+<p>A</p>
+<p>Point in time where all NM PDUs</p>
+<p>are available</p>
+<p>B</p>
+<p>Point in time where the own NM</p>
+<p>PDU must be provided</p>
+<p>Frame without NM PDU</p>
+<p>Frame with other NM PDU (Rx)</p>
+<p>Frame with own NM PDU (Tx)</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>7 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p>•</p>
+<p> </p>
+<p>In each ‘Sync Pdu Tx Request Cycle Offset’ cycle, all FRNM PDUs of other nodes in the current Voting </p>
+<p>Cycle have been received after the Rx Job List has been executed and before the FRNM Main Function </p>
+<p>has been executed. </p>
+<p>•</p>
+<p> </p>
+<p>The ‘Sync Pdu Tx Request Cycle Offset’ needs to be configured to a cycle offset in the Voting Cycle, so </p>
+<p>that the transmission request of the NM Sync PDUs can be issued in that cycle in order to send the NM </p>
+<p>Sync PDUs in the same Voting Cycle. </p>
+<p>These constraints are illustrated by an example in Figure 6. </p>
+<p> </p>
+<p>Figure 6 – FRNM Scheduling for Sync PDU Wake-up Master node </p>
+<p> </p>
+<p>As it can be seen, two FlexRay cycles are shown in the example. These FRNM configuration parameters apply </p>
+<p>here: ‘Voting Cycle’ = ‘Data Cycle’ = 8, ‘Main Across Fr Cycle’ = FALSE, ‘Sync Pdu Tx Request Cycle Offset’ = 6. </p>
+<p>After NM PDUs may have been sent/received in the beginning of the Dynamic Segment in Cycle 6 and the RX Job </p>
+<p>for FRNM PDUs in the FrIf RX Joblist has been executed, the FrNm_MainFunction_X may be executed and within </p>
+<p>this context, the transmit request for the NM Sync PDUs may be issued. It has to be assured that execution of the </p>
+<p>FRNM Main Function has been finished before the cycle end (because of ‘Main Across Fr Cycle’ = FALSE). </p>
+<p><b> sd Scheduling in Detail</b></p>
+<p><b>FrNm_MainFunction_X</b></p>
+<p><b>Running</b></p>
+<p><b>Idle</b></p>
+<p><b>FrIf Joblists</b></p>
+<p><b>Tx Job List</b></p>
+<p><b>Rx Job List</b></p>
+<p><b>None</b></p>
+<p><b>Cycle</b></p>
+<p><b>Cycle 6 (Decision Cycle)</b></p>
+<p><b>Cycle 7</b></p>
+<p><b>Cycle 0</b></p>
+<p><b>NM Slots</b></p>
+<p><b>Nm Sync</b></p>
+<p><b>Nm</b></p>
+<p><b>None</b></p>
+<p><b>Segment</b></p>
+<p><b>Static</b></p>
+<p><b>Dynamic</b></p>
+<p><b>Static</b></p>
+<p><b>Dynamic</b></p>
+<p><b>Static</b></p>
+<p>Moment for the decision to send the NM Sync PDUs</p>
+<p>New Voting Cycle</p>
+<p><b>FrNm_MainFunction_X</b></p>
+<p><b>Running</b></p>
+<p><b>Idle</b></p>
+<p><b>FrIf Joblists</b></p>
+<p><b>Tx Job List</b></p>
+<p><b>Rx Job List</b></p>
+<p><b>None</b></p>
+<p><b>Cycle</b></p>
+<p><b>Cycle 6 (Decision Cycle)</b></p>
+<p><b>Cycle 7</b></p>
+<p><b>Cycle 0</b></p>
+<p><b>NM Slots</b></p>
+<p><b>Nm Sync</b></p>
+<p><b>Nm</b></p>
+<p><b>None</b></p>
+<p><b>Segment</b></p>
+<p><b>Static</b></p>
+<p><b>Dynamic</b></p>
+<p><b>Static</b></p>
+<p><b>Dynamic</b></p>
+<p><b>Static</b></p>
+<p>Moment for the decision to send the NM Sync PDUs</p>
+<p>New Voting Cycle</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>8 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p>Afterwards the FrIf TX Joblist may be processed in the next FlexRay Cycle and the Transmission of the NM Sync </p>
+<p>PDUs may take place at the beginning of the Dynamic Segment in Cycle 7. </p>
+<p>In this example it must be ensured that all NM RX PDUs from Cycle 0 to 6 have been received and processed by </p>
+<p>FRNM when the ‘Moment for the decision to send the NM Sync PDUs’ arrives. Because the send request for the </p>
+<p>NM Sync PDUs is issued at the end of Cycle 6 FrIf can transmit them in the next cycle. </p>
+<p>For details about the FRNM Main Function usage and details about the ‘Sync PDU Wake-up Master’ also refer to </p>
+<p>the ‘AUTOSAR FlexRay Network Management Technical Reference’ document. </p>
+<p><b>2.1.2 </b></p>
+<p><b>Wrong FRIFJob configurations </b></p>
+<p>For optimal FRTP throughput the integrator should ensure that task preemption by a high prior interrupt and/or jitter </p>
+<p>of the SCHM task does not cause the FRTP main function to be called after the Tx job or before the Rx job as </p>
+<p>shown in Figure 7.  </p>
+<p>The jitter of the SCHM task is affected by non-preemptive tasks (even if they have lower priority), long duration of </p>
+<p>critical sections with locked interrupts/resources or large OS SystemTimer tick times. If the jitter or the preemption </p>
+<p>cannot be avoided it is recommended to draw the FRIFJobs manually apart. </p>
+<p> </p>
+<p> </p>
+<p>Figure 7 – <b>FRTP Scenario 2 </b>suboptimal FRTP main function placement caused large task jitter or preemption </p>
+<p> </p>
+<p>Note: </p>
+<p>It is not possible to achieve optimal FRTP transmission rates with the scheduling algorithm </p>
+<p>Concatenated Jobs because the FRTP main function cannot be placed between the Rx and Tx job </p>
+<p>as depicted in Figure 8. </p>
+<p> </p>
+<p> </p>
+<p>Figure 8 – <b>FRTP Scenario 3 </b>suboptimal TP (decoupled) transmission rates due to job concatenation </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>9 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p>For example if additionally Rx Job 1 in Figure 9 is configured to handle the Tx confirmations for Tx0 FRIFJob the </p>
+<p>consecutive frames of a segmented TP transfer will only be send every second FRTP main function cycle because </p>
+<p>the Tx confirmations for the TP frames in the dynamic segment are given in cycle n+1 and not in the same cycle of </p>
+<p>the FRTP main function. The reason is that in this case the TxConf job polls the transmission state before the </p>
+<p>FlexRay slot has been transmitted by the communication controller. </p>
+<p> </p>
+<p>Figure 9 – <b>FRTP Scenario 4 </b>suboptimal TxConf job configuration  </p>
+<p>Please ensure that the TxConf job for FRTP PDUs is not scheduled after the Rx job of the FRTP PDUs as depicted </p>
+<p>in Figure . Otherwise it is possible that during segmented transmission the FRTP state machine handles the </p>
+<p>reception of a flow control frame before the first frames is confirmed and the transmission of the consecutive </p>
+<p>frames is delayed. Hence the FRTP transmission rates and OBD response times are affected negatively. </p>
+<p> </p>
+<p>Figure 10 – <b>FRTP Scenario 4.1 </b>TxConf Task before Rx Task  </p>
+<p> </p>
+<p>Note: </p>
+<p>If a Rx job handles the Tx confirmation for a Tx job the FlexRay Interface component ensures that </p>
+<p>the confirmations will be handled before the Rx indications are given to the upper layer </p>
+<p>components. </p>
+<p><b>2.2 </b></p>
+<p><b>PDUs with immediate transmission </b></p>
+<p>If FRTP PDUs are configured to use immediate transmission, the transmission rate of the FlexRay Transport Layer </p>
+<p>only depends on the positioning of the FRTP main function and the Rx and TxConf FRIFJobs of the FRTP frames.  </p>
+<p>The  position  of  the  Tx  FRIFJob  does  not  matter  because  the message buffers are  written  in the context  of the </p>
+<p>FRTP main function. For example in Figure 11 the FRTP PDUs in the dynamic segment will be transmitted in the </p>
+<p>same cycle as long as the FRTP main function is called before the FlexRay frames are sent on the bus. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>JobList Configuration of FlexRay Interface</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>10 </b></p>
+<p><i>Application Note  AN-ISC-8-1140 </i></p>
+<p> </p>
+<p> </p>
+<p><i>  </i></p>
+<p>Figure 11 – <b>FRTP Scenario 5 </b>Tx FRIF jobs don’t matter for PDUs with immediate transmission </p>
+<p> </p>
+<p>Note: </p>
+<p>FRIF PDUs can only be configured for immediate transmission if the PDU is the only one within the </p>
+<p>FlexRay frame. Frames with more than one FRIF PDU always use decoupled transmission. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>3.0 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

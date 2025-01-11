@@ -1,0 +1,1323 @@
+---
+layout: default
+title: TechnicalReference_Crc
+nav_order: 82
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR CRC </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 4.03.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Michael Goß </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>2 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Tobias Schmid </p>
+<p>2006-12-13 </p>
+<p>1.0 </p>
+<p>Initial Version </p>
+<p>Tobias Schmid </p>
+<p>2008-01-21 </p>
+<p>3.00.00 </p>
+<p>Update to ASR 2.1 </p>
+<p>Changed versioning to new notation </p>
+<p>Claudia Mausz </p>
+<p>2008-05-19 </p>
+<p>4.00.00 </p>
+<p>Update to ASR 3 </p>
+<p>Add Crc8 calculation </p>
+<p>Michael Goß </p>
+<p>2014-11-18 </p>
+<p>4.01.00 </p>
+<p>Update to ASR 4 </p>
+<p>Add Crc8H2F calculation </p>
+<p>Michael Goß </p>
+<p>2015-05-08 </p>
+<p>4.02.00 </p>
+<p>SafeBSW </p>
+<p>Add Crc32P4 calculation </p>
+<p>Michael Goß </p>
+<p>2016-11-24 </p>
+<p>4.03.00 </p>
+<p>Add Crc64 calculation </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CRCLibrary.pdf </p>
+<p>V4.2.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CRCLibrary.pdf </p>
+<p>V4.3.0 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>V1.6.0 </p>
+<p><b>Scope of the Document  </b></p>
+<p>This  technical  reference  describes  the  general  use  of  the  CRC  library  basis  software. </p>
+<p>There are no aspects which are controller specific. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>3 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ...................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ........................................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 9</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features ............................................................................................................ 9</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations .......................................................................................... 9</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 10</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 10</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Main Functions ................................................................................................ 10</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 10</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 10</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 10</p>
+<p> </p>
+<p>3.5.3</p>
+<p> </p>
+<p>Parameter Checking ........................................................................ 10</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 11</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 11</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 11</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 11</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Include Structure .............................................................................................. 11</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 12</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 12</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Interrupt Service Routines provided by CRC .................................................... 12</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services provided by CRC ............................................................................... 12</p>
+<p> </p>
+<p>5.3.1</p>
+<p> </p>
+<p>Crc_CalculateCRC8 ......................................................................... 12</p>
+<p> </p>
+<p>5.3.2</p>
+<p> </p>
+<p>Crc_CalculateCRC8H2F .................................................................. 13</p>
+<p> </p>
+<p>5.3.3</p>
+<p> </p>
+<p>Crc_CalculateCRC16 ....................................................................... 14</p>
+<p> </p>
+<p>5.3.4</p>
+<p> </p>
+<p>Crc_CalculateCRC32 ....................................................................... 15</p>
+<p> </p>
+<p>5.3.5</p>
+<p> </p>
+<p>Crc_CalculateCRC32P4 .................................................................. 17</p>
+<p> </p>
+<p>5.3.6</p>
+<p> </p>
+<p>Crc_CalculateCRC64 ....................................................................... 18</p>
+<p> </p>
+<p>5.3.7</p>
+<p> </p>
+<p>Crc_GetVersionInfo .......................................................................... 19</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Services used by CRC ..................................................................................... 19</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 20</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 20</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>Notifications ..................................................................................... 20</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 20</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>4 </p>
+<p>based on template version 5.9.0 </p>
+<p>5.6.3</p>
+<p> </p>
+<p>Hook Functions ................................................................................ 20</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Configuration .............................................................................................................. 21</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Configuration Variants ...................................................................................... 21</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 22</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 22</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 22</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 23</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>5 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR 4.x Architecture Overview ......................................................... 8</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Include structure ....................................................................................... 11</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 6</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Supported AUTOSAR standard conform features ....................................... 9</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Not supported AUTOSAR standard conform features ................................. 9</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Features provided beyond the AUTOSAR standard .................................. 10</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 11</p>
+<p> </p>
+<p>Table 4-2 </p>
+<p> </p>
+<p>Generated files ......................................................................................... 11</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Type definitions ......................................................................................... 12</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Std_VersionInfoType ................................................................................. 12</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>SAE-J1850 CRC8 Standard ..................................................................... 13</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>Crc_CalculateCRC8 ................................................................................. 13</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>CRC calculation based on 0x2F polynomial .............................................. 14</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>Crc_CalculateCRC8H2F ........................................................................... 14</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>CCITT CRC16 Standard ........................................................................... 15</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>Crc_CalculateCRC16 ............................................................................... 15</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>IEEE-802.3 CRC32 Ethernet Standard ..................................................... 16</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>Crc_CalculateCRC32 ............................................................................... 16</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>CRC32 calculation based on 0xF4ACFB13 polynomial (E2E Protection </p>
+<p>Profile 4) ................................................................................................... 17</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>Crc_CalculateCRC32P4 ........................................................................... 17</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>Crc_GetVersionInfo .................................................................................. 19</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 22</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 22</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>6 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>4.00.00 </p>
+<p>Update to AUTOSAR Version 3 </p>
+<p>Add Crc8 calculation </p>
+<p>4.01.00 </p>
+<p>Update to AUTOSAR Version 4 </p>
+<p>Add Crc8 calculation based on 0x2F polynomial </p>
+<p>4.02.00 </p>
+<p>Crc32 E2E Profile 4 routine was added due to SafeBSW </p>
+<p>4.03.00 </p>
+<p>Crc64 (ECMA) E2E Profile 7 routine was added </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>7 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module CRC as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile </p>
+<p><b>Vendor ID: </b></p>
+<p>CRC_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>CRC_MODULE_ID   </p>
+<p>201 decimal </p>
+<p>(according to ref. [3]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p> </p>
+<p>This component implements service functions in ANSI C for calculating CRC checksums. </p>
+<p>The module allows pre-compile configuration of the calculation method, which is used to </p>
+<p>compute the CRC values. The six possible methods are table based or runtime calculation </p>
+<p>of CRC values. </p>
+<p>There are six different CRC calculation services available: </p>
+<p><b>&gt; </b></p>
+<p>Two different services for checksum calculation of 8bit CRC value from a buffer  </p>
+<p><b>&gt; </b></p>
+<p>Checksum calculation of 16bit CRC value from a buffer  </p>
+<p><b>&gt; </b></p>
+<p>Two different services for checksum calculation of 32bit CRC value from a buffer  </p>
+<p><b>&gt; </b></p>
+<p>Checksum calculation of 64bit CRC value from a buffer </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>8 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the CRC is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR 4.x Architecture Overview   </p>
+<p>No interface from other module is required. The CRC component is a service module. It </p>
+<p>can be called from any module or application (e.g. NVRAM Manager).  </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>9 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>CRC. </p>
+<p>The AUTOSAR  standard  functionality  is  specified  in  [1],  the  corresponding  features  are </p>
+<p>listed in the tables </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1   Supported AUTOSAR standard conform features  </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2   Not supported AUTOSAR standard conform features </p>
+<p>Vector Informatik provides further CRC functionality beyond the AUTOSAR standard. The </p>
+<p>corresponding features are listed in the table </p>
+<p><b>&gt; </b></p>
+<p>Table 3-3   Features provided beyond the AUTOSAR standard </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>Crc8 calculation based on the SAE-J1850 CRC8 Standard </p>
+<p>Crc8 calculation based on 0x2F polynomial </p>
+<p>Crc16 calculation based on the CCITT CRC16 Standard </p>
+<p>Crc32 calculation based on the IEEE-802.3 Ethernet Standard </p>
+<p>Crc32 calculation based on 0xF4ACFB13 polynomial (E2E Profile 4)</p>
+<p> </p>
+<p>Crc64 calculation based on 0x42F0E1EBA9EA3693 polynomial (E2E Profile 7) </p>
+<p>For all CRC calculations following methods can be used: </p>
+<p><b>&gt; </b></p>
+<p>Table based calculation: results in fast execution, but increases code size (ROM </p>
+<p>table) </p>
+<p><b>&gt; </b></p>
+<p>Runtime calculation: results in smaller code size, but slower execution time </p>
+<p>All routines are re-entrant and can be used by multiple applications at the same time. </p>
+<p>Table 3-1  </p>
+<p>Supported AUTOSAR standard conform features </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p><b> </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Hardware based CRC calculation </p>
+<p>Debugging concept </p>
+<p>Table 3-2  </p>
+<p>Not supported AUTOSAR standard conform features </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>10 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>The following features are provided beyond the AUTOSAR standard: </p>
+<p><b>Features Provided Beyond The AUTOSAR Standard </b></p>
+<p>none </p>
+<p>Table 3-3  </p>
+<p>Features provided beyond the AUTOSAR standard </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>No initialization is necessary. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>This component does not contain any state machine. </p>
+<p><b>3.4 </b></p>
+<p><b>Main Functions </b></p>
+<p>This component does not have a main function. It only contains the routines to calculate </p>
+<p>the </p>
+<p>checksums. </p>
+<p>These  API </p>
+<p>functions </p>
+<p>are </p>
+<p>called </p>
+<p>from </p>
+<p>other </p>
+<p>modules, </p>
+<p>e.g. </p>
+<p>NVRAM </p>
+<p>Manager. </p>
+<p><b>3.5 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>Module CRC does not provide any development error detection mechanism. </p>
+<p><b>3.5.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>Module CRC does not provide any production error detection mechanism. </p>
+<p> </p>
+<p><b>3.5.3 </b></p>
+<p><b>Parameter Checking </b></p>
+<p>Module CRC’s functions do not perform any parameter checks. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>11 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR CRC into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the CRC contains the files which are described in the chapters 4.1.1 and </p>
+<p>4.1.2. </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Crc.c </p>
+<p>Implementation of the CRC routines</p>
+<p> </p>
+<p>Crc.h </p>
+<p>Header file of the CRC routines </p>
+<p>Table 4-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool DaVinci Configurator. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Crc_Cfg.h </p>
+<p>Configuration of the CRC routines </p>
+<p>Table 4-2  </p>
+<p>Generated files </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>Include Structure </b></p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Include structure </p>
+<p><b>cmp Component View</b></p>
+<p>Crc.h</p>
+<p>Crc.c</p>
+<p>Crc_Cfg.h</p>
+<p>application / other BSW module</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«use»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>12 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the CRC are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>Crc_DataRefType </p>
+<p>P2CONST </p>
+<p>Pointer type for pointers </p>
+<p>to data buffers, from </p>
+<p>which the CRC value is to </p>
+<p>be calculated. </p>
+<p>0-255 (uint8)</p>
+<p> </p>
+<p>Table 5-1  </p>
+<p>Type definitions </p>
+<p><b> Std_VersionInfoType </b></p>
+<p><b>Struct Element Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>Std_VersionInfoType </p>
+<p>Struct </p>
+<p>Returns the version </p>
+<p>information </p>
+<p>uint16 vendorID </p>
+<p>uint16 moduleID </p>
+<p>uint8 sw_major_version </p>
+<p>uint8 sw_minor_version </p>
+<p>uint8 sw_patch_version </p>
+<p>Table 5-2  </p>
+<p>Std_VersionInfoType </p>
+<p><b>5.2 </b></p>
+<p><b>Interrupt Service Routines provided by CRC  </b></p>
+<p>The CRC component does not provide any interrupt service routines. </p>
+<p><b>5.3 </b></p>
+<p><b>Services provided by CRC </b></p>
+<p><b>5.3.1 </b></p>
+<p><b>Crc_CalculateCRC8 </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>Crc_CalculateCRC8</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, uint8 </p>
+<p>Crc_StartValue8, boolean Crc_IsFirstCall )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue8 </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start from initial </p>
+<p>value, ignore Crc_StartValue8. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue8 is interpreted to </p>
+<p>be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>8 bit result of CRC calculation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>13 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC8 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue8. The CRC8 routine is based on the SAE-J1850 </p>
+<p>CRC8 Standard: </p>
+<p><b>SAE-J1850 CRC8  Standard </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>8 bits </p>
+<p>Polynomial </p>
+<p>1Dh </p>
+<p>Initial value </p>
+<p>FFh </p>
+<p>Input data reflected </p>
+<p>No </p>
+<p>Result data reflected </p>
+<p>No </p>
+<p>XOR value </p>
+<p>FFh </p>
+<p>Check </p>
+<p>4Bh </p>
+<p>Magic check </p>
+<p>C4h </p>
+<p>Table 5-3  </p>
+<p>SAE-J1850 CRC8 Standard </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method </p>
+<p>should be configured in order to decrease the calculation time. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-4  </p>
+<p>Crc_CalculateCRC8 </p>
+<p> </p>
+<p><b>5.3.2 </b></p>
+<p><b>Crc_CalculateCRC8H2F </b></p>
+<p><b>Prototype </b></p>
+<p>uint8</p>
+<p> </p>
+<p><b>Crc_CalculateCRC8H2F</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, </p>
+<p>uint8 Crc_StartValue8H2F, boolean Crc_IsFirstCall )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue8H2F </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start from initial </p>
+<p>value, ignore Crc_StartValue8H2F. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue8H2F is </p>
+<p>interpreted to be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint8 </p>
+<p>8 bit result of CRC calculation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>14 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC8 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue8H2F. The CRC8 routine is based on the generator </p>
+<p>polynomial 0x2F: </p>
+<p><b>CRC8 routine based on 0x2F polynomial </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>8 bits </p>
+<p>Polynomial </p>
+<p>2Fh </p>
+<p>Initial value </p>
+<p>FFh </p>
+<p>Input data reflected </p>
+<p>No </p>
+<p>Result data reflected </p>
+<p>No </p>
+<p>XOR value </p>
+<p>FFh </p>
+<p>Check </p>
+<p>DFh </p>
+<p>Magic check </p>
+<p>42h </p>
+<p>Table 5-5  </p>
+<p>CRC calculation based on 0x2F polynomial </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method </p>
+<p>should be configured in order to decrease the calculation time. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-6  </p>
+<p>Crc_CalculateCRC8H2F </p>
+<p> </p>
+<p><b>5.3.3 </b></p>
+<p><b>Crc_CalculateCRC16 </b></p>
+<p><b>Prototype </b></p>
+<p>uint16</p>
+<p> </p>
+<p><b>Crc_CalculateCRC16</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, </p>
+<p>uint16 Crc_StartValue16, boolean Crc_IsFirstCall )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue16 </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start from initial </p>
+<p>value, ignore Crc_StartValue16. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue16 is interpreted to </p>
+<p>be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint16 </p>
+<p>16 bit result of CRC calculation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>15 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC16 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue16. The CRC16 routine is based on the CCITT </p>
+<p>CRC16 Standard: </p>
+<p><b>CCITT CRC16  Standard </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>16 bits </p>
+<p>Polynomial </p>
+<p>1021h </p>
+<p>Initial value </p>
+<p>FFFFh </p>
+<p>Input data reflected </p>
+<p>No </p>
+<p>Result data reflected </p>
+<p>No </p>
+<p>XOR value </p>
+<p>0000h </p>
+<p>Check </p>
+<p>29B1h </p>
+<p>Magic check </p>
+<p>0000h </p>
+<p>Table 5-7  </p>
+<p>CCITT CRC16 Standard </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method </p>
+<p>should be configured in order to decrease the calculation time. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-8  </p>
+<p>Crc_CalculateCRC16 </p>
+<p> </p>
+<p><b>5.3.4 </b></p>
+<p><b>Crc_CalculateCRC32 </b></p>
+<p><b>Prototype </b></p>
+<p>uint32</p>
+<p> </p>
+<p><b>Crc_CalculateCRC32</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, </p>
+<p>uint32 Crc_StartValue32, boolean Crc_IsFirstCall)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue32 </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start from initial </p>
+<p>value, ignore Crc_StartValue32. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue32 is interpreted to </p>
+<p>be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint32 </p>
+<p>32 bit result of CRC calculation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>16 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC32 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue32. The CRC32 routine is based on the IEEE-802.3 </p>
+<p>CRC32 Ethernet Standard: </p>
+<p><b>IEEE-802.3 CRC32 Ethernet Standard </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>32 bits </p>
+<p>Polynomial </p>
+<p>04C11DB7h </p>
+<p>Initial value </p>
+<p>FFFFFFFFh </p>
+<p>Input data reflected </p>
+<p>Yes </p>
+<p>Result data reflected </p>
+<p>Yes </p>
+<p>XOR value </p>
+<p>FFFFFFFFh </p>
+<p>Check </p>
+<p>CBF43926h </p>
+<p>Magic check* </p>
+<p>DEBB20E3h </p>
+<p>Table 5-9  </p>
+<p>IEEE-802.3 CRC32 Ethernet Standard </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>*Important note </b></p>
+<p>To match the magic check value, the CRC must be appended in little endian format, </p>
+<p>i.e. low significant byte first. This is due to the reflections of the input and the result. </p>
+<p>Example of magic check: calculation of IEEE-802.3 CRC32 over data bytes 31h 32h </p>
+<p>33h 34h 35h 36h 37h 38h 39h: </p>
+<p><b>&gt; </b></p>
+<p>CRC generation: CRC over 31h 32h 33h 34h 35h 36h 37h 38h 39h, </p>
+<p>initial value FFFFFFFFh: </p>
+<p><b>&gt; </b></p>
+<p>CRC-result: CBh F4h 39h 26h (See check value) </p>
+<p><b>&gt; </b></p>
+<p>CRC check: CRC over 31h 32h 33h 34h 35h 36h 37h 38h 39h 26h 39h </p>
+<p>F4h CBh (CRC-result was appended to data bytes in little endian </p>
+<p>format), initial value FFFFFFFFh: </p>
+<p><b>&gt; </b></p>
+<p>CRC-result: 21h 44h DFh 1Ch </p>
+<p><b>&gt; </b></p>
+<p>Magic check = CRC-result XORed with ‘XOR value’: </p>
+<p>DEBB20E3h = 2144DF1Ch xor FFFFFFFFh </p>
+<p> </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method </p>
+<p>should be configured in order to decrease the calculation time. </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-10  </p>
+<p>Crc_CalculateCRC32 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>17 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.3.5 </b></p>
+<p><b>Crc_CalculateCRC32P4 </b></p>
+<p><b>Prototype </b></p>
+<p>uint32</p>
+<p> </p>
+<p><b>Crc_CalculateCRC32P4</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, </p>
+<p>uint32 Crc_StartValue32, boolean Crc_IsFirstCall) </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue32 </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start from initial </p>
+<p>value, ignore Crc_StartValue32. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue32 is interpreted to </p>
+<p>be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint32 </p>
+<p>32 bit result of CRC calculation </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC32 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue32. The CRC32 routine is based on the 0xF4ACFB13 </p>
+<p>polynomial (E2E Protection Profile 4): </p>
+<p> </p>
+<p><b>CRC 32 routine based on 0xF4ACFB13 </b></p>
+<p><b>polyonmial </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>32 bits </p>
+<p>Polynomial </p>
+<p>F4ACFB13h </p>
+<p>Initial value </p>
+<p>FFFFFFFFh </p>
+<p>Input data reflected </p>
+<p>Yes </p>
+<p>Result data reflected </p>
+<p>Yes </p>
+<p>XOR value </p>
+<p>FFFFFFFFh </p>
+<p>Check </p>
+<p>1697D06Ah </p>
+<p>Magic check </p>
+<p>6FB32240h </p>
+<p>Table 5-11  </p>
+<p>CRC32 calculation based on 0xF4ACFB13 polynomial (E2E Protection Profile 4) </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method should be </p>
+<p>configured in order to decrease the calculation time. </p>
+<p>Call context </p>
+<p><b>&gt; </b></p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-12  </p>
+<p>Crc_CalculateCRC32P4 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>18 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.3.6 </b></p>
+<p><b>Crc_CalculateCRC64 </b></p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>uint64</p>
+<p> </p>
+<p><b>Crc_CalculateCRC64</b></p>
+<p> </p>
+<p>(Crc_DataRefType Crc_DataPtr, uint32 Crc_Length, </p>
+<p>uint64 Crc_StartValue64, boolean Crc_IsFirstCall)</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Crc_DataPtr </p>
+<p>Pointer to start address of data block to be calculated </p>
+<p>Crc_Length </p>
+<p>Length of data to be calculated (in bytes) </p>
+<p>Crc_StartValue64 </p>
+<p>Value the algorithm starts with </p>
+<p>Crc_IsFirstCall </p>
+<p>TRUE: First call in a sequence or individual CRC calculation; start </p>
+<p>from initial value, ignore Crc_StartValue64. </p>
+<p>FALSE: Subsequent call in a call sequence; Crc_StartValue64 is </p>
+<p>interpreted to be the return value of the previous function call. </p>
+<p><b>Return code </b></p>
+<p>uint64 </p>
+<p>64 bit result of CRC calculation </p>
+<p><b>Functional Description </b></p>
+<p>This service performs a CRC64 calculation synchronously on Crc_Length data bytes, pointed to by </p>
+<p>Crc_DataPtr, with the starting value of Crc_StartValue64. The CRC64 routine is based on the ECMA </p>
+<p>Standard used by E2E Profile 7: </p>
+<p><b>ECMA Standard </b></p>
+<p><b>value </b></p>
+<p>CRC result width </p>
+<p>64 bits </p>
+<p>Polynomial </p>
+<p>42F0E1EBA9EA3693h </p>
+<p>Initial value </p>
+<p>FFFFFFFFFFFFFFFFh </p>
+<p>Input data reflected </p>
+<p>Yes </p>
+<p>Result data reflected </p>
+<p>Yes </p>
+<p>XOR value </p>
+<p>FFFFFFFFFFFFFFFFh </p>
+<p>Check </p>
+<p>995DC9BBDF1939FAh </p>
+<p>Magic check* </p>
+<p>49958C9ABD7D353Fh </p>
+<p>Table 5-13  </p>
+<p>IEEE-802.3 CRC32 Ethernet Standard </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>*Important note </b></p>
+<p>To match the magic check value, the CRC must be appended in little endian format, </p>
+<p>i.e. low significant byte first. This is due to the reflections of the input and the result. </p>
+<p>Example of magic check: calculation of ECMA CRC64 over data bytes 31h 32h 33h </p>
+<p>34h 35h 36h 37h 38h 39h: </p>
+<p><b>&gt; </b></p>
+<p>CRC generation: CRC over 31h 32h 33h 34h 35h 36h 37h 38h 39h, </p>
+<p>initial value FFFFFFFFFFFFFFFFh: </p>
+<p><b>&gt; </b></p>
+<p>CRC-result: 99h 5Dh C9h BBh DFh19h 39h FAh (See check value) </p>
+<p><b>&gt; </b></p>
+<p>CRC check: CRC over 31h 32h 33h 34h 35h 36h 37h 38h 39h FAh 39h </p>
+<p>19h DFh BBh C9h 5Dh 99h (CRC-result was appended to data bytes in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>19 </p>
+<p>based on template version 5.9.0 </p>
+<p>little endian format), initial value FFFFFFFFFFFFFFFFh: </p>
+<p><b>&gt; </b></p>
+<p>CRC-result: B6h 6Ah 73h 65h 42h 82h CAh C0h </p>
+<p><b>&gt; </b></p>
+<p>Magic check = CRC-result XORed with ‘XOR value’: </p>
+<p>49958C9ABD7D353Fh = B66A73654282CAC0h XOR </p>
+<p>FFFFFFFFFFFFFFFFh </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>If large data blocks have to be calculated (&gt;32 bytes), the table based calculation method should be </p>
+<p>configured in order to decrease the calculation time. </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>There is no specific caller. CRC can be called from anywhere. </p>
+<p>Table 5-14  </p>
+<p>Crc_CalculateCRC64 </p>
+<p> </p>
+<p> </p>
+<p><b>5.3.7 </b></p>
+<p><b>Crc_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>Crc_GetVersionInfo </b>( Std_VersionInfoType *Versioninfo )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>Versioninfo </p>
+<p>Pointer to where to store the version information of this module </p>
+<p><b>Return code </b></p>
+<p>None </p>
+<p>-- </p>
+<p><b>Functional Description </b></p>
+<p>This service returns the version information of the module. The version information includes: </p>
+<p><b>&gt; </b></p>
+<p>Module ID </p>
+<p><b>&gt; </b></p>
+<p>Vendor ID </p>
+<p><b>&gt; </b></p>
+<p>Vendor specific version numbers </p>
+<p>This function is pre-compile time configurable On/Off by the configuration parameter </p>
+<p>CrcVersionInfoApi.</p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>None </p>
+<p>Expected Caller Context </p>
+<p><b>&gt; </b></p>
+<p>Application </p>
+<p>Table 5-15  </p>
+<p>Crc_GetVersionInfo </p>
+<p><b>5.4 </b></p>
+<p><b>Services used by CRC </b></p>
+<p>The CRC component does not use services from other modules. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>20 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>5.5 </b></p>
+<p><b>Callback Functions </b></p>
+<p>Module CRC’s functions do not provide any callback functions. </p>
+<p><b>5.6 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>5.6.1 </b></p>
+<p><b>Notifications </b></p>
+<p>The CRC module does not provide notifications for upper layers. The CRC routines return </p>
+<p>the checksum; this value will be evaluated by application or other modules. </p>
+<p><b>5.6.2 </b></p>
+<p><b>Callout Functions  </b></p>
+<p>The CRC module does not provide callout functions. </p>
+<p><b>5.6.3 </b></p>
+<p><b>Hook Functions  </b></p>
+<p>The CRC module does not provide hook functions. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>21 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>6 </b></p>
+<p><b>Configuration </b></p>
+<p><b>6.1 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>The CRC supports the configuration variants </p>
+<p><b>&gt; </b></p>
+<p>VARIANT-PRE-COMPILE </p>
+<p>The configuration classes of the CRC parameters depend on the supported configuration </p>
+<p>variants. For their definitions please see the Crc_bswmd.arxml file. </p>
+<p>CRC can be configured using the following tool: </p>
+<p><b>&gt; </b></p>
+<p>DaVinci Configurator 5 (AUTOSAR 4 packages only). Parameters are explained within </p>
+<p>the tool. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>22 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>CRC </p>
+<p>Cyclic Redundancy Check </p>
+<p>Table 7-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CCITT </p>
+<p>Commité Consultatif Internationale Télégrafique et Téléfonique </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>E2E </p>
+<p>End to End </p>
+<p>ECMA </p>
+<p>European Computer Manufacturers Association </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>IEEE </p>
+<p>Institute of Electrical and Electronics Engineers </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>NVRAM Manager </p>
+<p>Non Volatile Random Access Memory Manager </p>
+<p>ROM </p>
+<p>Read Only Memory </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SAE </p>
+<p>Society of Automotive Engineers </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR CRC </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 4.03.00 </p>
+<p>23 </p>
+<p>based on template version 5.9.0 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

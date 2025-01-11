@@ -1,0 +1,1375 @@
+---
+layout: default
+title: TechnicalReference_Asr_MemoryMapping
+nav_order: 74
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Memory Mapping </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>  </p>
+<p>Version 1.3.0 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Eugen Stripling </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>2 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Eugen Stripling </p>
+<p>2013-04-12 </p>
+<p>1.00.00 </p>
+<p>Creation - ESCAN00064655 </p>
+<p>Eugen Stripling </p>
+<p>2013-05-29 </p>
+<p>1.00.01 </p>
+<p>Some typos corrected </p>
+<p>Eugen Stripling </p>
+<p>2016-09-27 </p>
+<p>1.01.00 </p>
+<p>FEATC-317 / FEAT-2002: 64-bit memory </p>
+<p>section keywords added </p>
+<p>Eugen Stripling </p>
+<p>2017-01-16 </p>
+<p>1.02.00 </p>
+<p>ESCAN00093572: 2.1.4 chapter added </p>
+<p>Eugen Stripling </p>
+<p>2017-07-18 </p>
+<p>1.03.00 </p>
+<p>Chapters 2.1 and 2.1.4 adapted due to </p>
+<p>ESCAN00095756 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>1.4.0 </p>
+<p>[2] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>4.2.2 </p>
+<p>[3] </p>
+<p> AUTOSAR </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>3.2.0 </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>3 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................. 6</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Memory section keywords .................................................................................. 6</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>Declaration of code and data segments in AUTOSAR ........................ 7</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>Mapping of code and data segments to a dedicated memory area ..... 8</p>
+<p> </p>
+<p>2.1.3</p>
+<p> </p>
+<p>Example: Mapping of data to a post-build memory section................. 9</p>
+<p> </p>
+<p>2.1.4</p>
+<p> </p>
+<p>Usage of AUTOSAR 4.2.2 BSW module .......................................... 11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Appendix ..................................................................................................................... 12</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Sub-keywords used in the memory section and compiler specific keywords .... 12</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Memory section keywords ................................................................................ 12</p>
+<p> </p>
+<p>3.2.1</p>
+<p> </p>
+<p>Memory section keywords for code .................................................. 13</p>
+<p> </p>
+<p>3.2.2</p>
+<p> </p>
+<p>Memory section keywords for constants ........................................... 13</p>
+<p> </p>
+<p>3.2.3</p>
+<p> </p>
+<p>Memory section keywords for variables............................................ 14</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Compiler specific keywords .............................................................................. 17</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 19</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 19</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 20</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>4 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p> Files: MemMap.h, MemMap_Common.h and Compiler_Cfg.h ................... 7</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Explanation of sub-keywords used in the memory section and compiler </p>
+<p>specific keywords ..................................................................................... 12</p>
+<p> </p>
+<p>Table 3-2 </p>
+<p> </p>
+<p>Memory sections for code ......................................................................... 13</p>
+<p> </p>
+<p>Table 3-3 </p>
+<p> </p>
+<p>Memory sections for constants ................................................................. 13</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Change of memory section keywords for constants in ASR 4.0.3 ............. 14</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p> </p>
+<p>Memory sections for variables .................................................................. 15</p>
+<p> </p>
+<p>Table 3-6</p>
+<p> </p>
+<p>Change of memory section keywords for variables in ASR 4.0.3 .............. 17</p>
+<p> </p>
+<p>Table 3-7 </p>
+<p> </p>
+<p>Compiler specific keywords and the related memory sections they used </p>
+<p>for ............................................................................................................. 18</p>
+<p> </p>
+<p>Table 4-1 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 19</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>5 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>This document gives an overview about the functionality of memory mapping as specified </p>
+<p>by AUTOSAR according to the Vector specific implementation (MICROSAR). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>6 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>2 </b></p>
+<p><b>Functional Description </b></p>
+<p>In the following chapters the following two expressions are used: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>memory section keyword </b></p>
+<p>and  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p><b>memory area</b>. </p>
+<p>A </p>
+<p><b>memory </b></p>
+<p><b>section </b></p>
+<p><b>keyword </b></p>
+<p>describes  a </p>
+<p>memory </p>
+<p>section </p>
+<p>according </p>
+<p>to  AUTOSAR </p>
+<p>symbolically.  All  available </p>
+<p>corresponding  keywords  are  described  in  chapter </p>
+<p>3.2.  By </p>
+<p><b>memory area </b>a memory section in hardware at all is meant. </p>
+<p>By using of expression <b>build-toolchain </b>the functionality covered by a compiler, linker and  </p>
+<p>locator is meant. </p>
+<p>In addition the abbreviations </p>
+<p>MSN</p>
+<p>1</p>
+<p> and </p>
+<p>Msn</p>
+<p>1</p>
+<p> respectively are used as placeholders for the </p>
+<p>short </p>
+<p>name </p>
+<p>of </p>
+<p>any </p>
+<p>BSW module. </p>
+<p>However </p>
+<p>AUTOSAR </p>
+<p>itself </p>
+<p>prefers </p>
+<p>to </p>
+<p>use </p>
+<p>the </p>
+<p>abbreviations </p>
+<p>MIP</p>
+<p>2</p>
+<p> and </p>
+<p>Mip</p>
+<p>2</p>
+<p> respectively. Both abbreviations mean the same. </p>
+<p><b>2.1 </b></p>
+<p><b>Memory section keywords </b></p>
+<p>The keywords of memory sections of all BSW modules which are implemented according </p>
+<p>to </p>
+<p>AUTOSAR 4.0.3 </p>
+<p>are </p>
+<p>located </p>
+<p>in </p>
+<p>the </p>
+<p>file </p>
+<p>MemMap.h</p>
+<p>. </p>
+<p>BSW </p>
+<p>modules </p>
+<p>implemented </p>
+<p>according to AUTOSAR 4.0.3 include this general file. However BSW modules which are </p>
+<p>implemented according to AUTOSAR 4.2.2 have their own specific </p>
+<p>&lt;Msn&gt;_MemMap.h</p>
+<p> file </p>
+<p>and  include  generally  only  their  own  file.  For  more  information  about  usage  of  BSW </p>
+<p>modules which are implemented according to AUTOSAR 4.2.2 please see chapter 2.1.4.  </p>
+<p>The </p>
+<p>file </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>contains </p>
+<p>additional </p>
+<p>compiler </p>
+<p>specific </p>
+<p>keywords. </p>
+<p>These </p>
+<p>keywords are used to describe the memory location of variables, constants and pointers. </p>
+<p>In case of pointers additional keywords are defined to describe the memory location the </p>
+<p>pointer points to.  </p>
+<p>All  files  are  provided  as  templates  and  may  be  modified  and  extended  by  the  user  if </p>
+<p>required. </p>
+<p>The </p>
+<p>files </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>and </p>
+<p>Compiler_Cfg.h</p>
+<p> </p>
+<p>are </p>
+<p>named </p>
+<p>_MemMap.h</p>
+<p> </p>
+<p>and </p>
+<p>_Compiler_Cfg.h </p>
+<p>initially.  Before  using  both  files  have  to  be  renamed  to </p>
+<p>MemMap.h</p>
+<p> </p>
+<p>and to </p>
+<p>Compiler_Cfg.h</p>
+<p> respectively.  </p>
+<p>The following figure shows descriptively the relationship between the mentioned files. </p>
+<p>                                            </p>
+<p>1</p>
+<p> Module Short Name </p>
+<p>2</p>
+<p> Module Implementation Prefix </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>7 </p>
+<p>based on template version 5.6.0 </p>
+<p> </p>
+<p>Figure 2-1   Files: MemMap.h, MemMap_Common.h and Compiler_Cfg.h </p>
+<p> </p>
+<p>Each BSW module has its own set of compiler specific and memory section keywords with </p>
+<p>the pre-fix &lt;MSN&gt;. By default all the memory section keywords are mapped to the same </p>
+<p>default memory section keyword defined in file </p>
+<p>MemMap_Common.h</p>
+<p>. If required the default </p>
+<p>mapping  can  be  modified  by  the  BSW  integrator.  Detailed  information  concerning  the </p>
+<p>provided </p>
+<p>memory </p>
+<p>section </p>
+<p>keywords </p>
+<p>can </p>
+<p>be </p>
+<p>found </p>
+<p>in </p>
+<p>the </p>
+<p>chapter </p>
+<p>3.2. </p>
+<p>For </p>
+<p>detailed </p>
+<p>information about the compiler specific keywords please see the chapter 3.3. </p>
+<p> </p>
+<p><b>2.1.1 </b></p>
+<p><b>Declaration of code and data segments in AUTOSAR </b></p>
+<p>The declaration of all kinds of variables including constants, pointers and the code itself is </p>
+<p>performed in the following way. </p>
+<p>1. </p>
+<p><b>Opening of the memory section: </b>The memory section where e.g. a variable shall </p>
+<p>be stored in is opened by defining of the corresponding memory section keyword </p>
+<p>(s. chapter 3.2).  </p>
+<p>2. </p>
+<p><b>Including of file </b></p>
+<p><b>MemMap.h/&lt;Msn&gt;_MemMap.h</b></p>
+<p><b>: </b>In this step the previously defined </p>
+<p>BSW module specific memory section keyword is redefined to the default keyword </p>
+<p>of the corresponding memory section. Additionally if specified the corresponding </p>
+<p>#pragma</p>
+<p>-command is activated. This command tells the build-toolchain to put the </p>
+<p>following data or code segments to intended memory area. </p>
+<p><b>3. </b></p>
+<p><b>Declaration of data and code segments: </b>In this step any kind of data or code </p>
+<p>itself is declared. </p>
+<p>4. </p>
+<p><b>Closing of the memory section: </b>In the last step the previously opened memory </p>
+<p>section is closed by defining of the STOP-keyword of the corresponding memory </p>
+<p>section keyword and by including of file </p>
+<p>MemMap.h/&lt;Msn&gt;_MemMap.h</p>
+<p> once again. </p>
+<p><b> </b></p>
+<p><b>class TechnicalReference_Asr_MemoryMapping</b></p>
+<p>MemMap.h</p>
+<p>MemMap_Common.h</p>
+<p>&lt;Msn&gt;_MemMap.h</p>
+<p>Compiler_Cfg.h</p>
+<p>Contains compiler </p>
+<p>specific keywords for </p>
+<p>description of location </p>
+<p>of variables, constants </p>
+<p>and pointers.</p>
+<p>Contains the default </p>
+<p>memory sections at all </p>
+<p>and the re-definitions </p>
+<p>to them and if required </p>
+<p>the #pragma </p>
+<p>commands.</p>
+<p>Contains the version </p>
+<p>defines and the memory </p>
+<p>sections of all BSW </p>
+<p>modules which are </p>
+<p>implemented according </p>
+<p>to AUTOSAR 4.0.3. The </p>
+<p>re-definition to default </p>
+<p>memory sections takes </p>
+<p>place within the file </p>
+<p>&quot;MemMap_Common.h&quot;.</p>
+<p>BSW module</p>
+<p>[AUTOSAR 4.2.2]</p>
+<p>BSW module</p>
+<p>[AUTOSAR 4.0.3]</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<p>«include»</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>8 </p>
+<p>based on template version 5.6.0 </p>
+<p>By this step the build-toolchain shall be told to switch back to the default memory </p>
+<p>section. </p>
+<p>The following example shall clarify the mentioned steps. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>… </p>
+<p>1.</p>
+<p> </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_8BIT </p>
+<p>2.</p>
+<p> </p>
+<p>#include “MemMap.h” </p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>CONST(uint8, &lt;MSN&gt;_CONST) &lt;Msn&gt;_Constant = 0xFAu; </p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>&lt;MSN&gt;_STOP_SEC_CONST_8BIT </p>
+<p>4. #include “MemMap.h </p>
+<p>…</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>2.1.2 </b></p>
+<p><b>Mapping of code and data segments to a dedicated memory area </b></p>
+<p>In order to map a code segment or a data segment to a dedicated memory area you need </p>
+<p>to follow the following four steps: </p>
+<p>1. </p>
+<p><b>Selection of memory section keywords: </b>In this step the keywords of memory </p>
+<p>sections which are intended to be mapped to a dedicated memory area have to be </p>
+<p>picked out. All available memory section keywords are mentioned in chapter 3.2. </p>
+<p>2. </p>
+<p><b>Adaption of the linker / locator command file: </b>In this step the memory areas which </p>
+<p>are intended to be used for certain segments of code or data have to be defined in the </p>
+<p>linker / locator command file. By this way the defined memory areas are labeled with </p>
+<p>unique keywords. These keywords in combination with a </p>
+<p>#pragma</p>
+<p>-command can be </p>
+<p>used later to tell the build-toolchain to put code or data segments to a specific memory </p>
+<p>area. </p>
+<p>3. </p>
+<p><b>Adding of </b></p>
+<p><b>#pragma</b></p>
+<p><b>-commands to selected memory section keywords: </b>In this </p>
+<p>step </p>
+<p>#pragma</p>
+<p>-commands together with memory area keywords defined in step 2 are </p>
+<p>added to the corresponding memory section keywords picked out in step 1. The </p>
+<p>adaptions are performed in file </p>
+<p>MemMap_Common.h</p>
+<p> directly. </p>
+<p>4. </p>
+<p><b>Adaption of compiler specific keywords: </b>This step is optional. The applying or not </p>
+<p>applying of this step depends on the used compiler and the memory model of used </p>
+<p>hardware. If required, in this step the compiler specific keywords which are required for </p>
+<p>correct access of code and data have to be adapted according to the corresponding </p>
+<p>memory mapping (steps: 1 till 3).  For more information see chapter 3.3. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>9 </p>
+<p>based on template version 5.6.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>In case of using a </p>
+<p>#pragma</p>
+<p>-command at any </p>
+<p>START_SEC</p>
+<p>-keyword ensure that </p>
+<p>at the corresponding </p>
+<p>STOP_SEC</p>
+<p>-keyword the </p>
+<p>#pragma</p>
+<p>-command is defined </p>
+<p>which switches back to the default memory section. Otherwise the once opened </p>
+<p>memory section won’t be closed and all data segments which follow the </p>
+<p>#pragma</p>
+<p>-command will be mapped to the still opened memory section </p>
+<p>unintentionally.   </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>This depends on the used compiler e.g. a DiabData-compiler does not </p>
+<p>need any </p>
+<p>#pragma</p>
+<p>-command at the </p>
+<p>STOP_SEC</p>
+<p>-keyword</p>
+<p> to switch  </p>
+<p>back to the default memory section. Therefrom please check the  </p>
+<p>technical reference of used compiler. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>For an example please see the following chapter. </p>
+<p> </p>
+<p><b>2.1.3 </b></p>
+<p><b>Example: Mapping of data to a post-build memory section </b></p>
+<p>There are three post-build sections: two for ROM and one for RAM. The related keywords </p>
+<p>are: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>START_SEC_PBCFG_GLOBALROOT </p>
+<p>and</p>
+<p> START_SEC_CONST_PBCFG</p>
+<p> (ROM) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>START_SEC_VAR_PBCFG</p>
+<p> (RAM)</p>
+<p> </p>
+<p>The corresponding </p>
+<p>STOP</p>
+<p>-sections are </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>STOP_SEC_CONST</p>
+<p> (ROM) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>STOP_SEC_VAR</p>
+<p> (RAM)</p>
+<p> </p>
+<p> </p>
+<p>At the position of mentioned keywords in file </p>
+<p>MemMap_Common.h</p>
+<p> the appropriate compiler </p>
+<p>specific </p>
+<p>#pragma</p>
+<p>-commands have to be added in order to tell the compiler to put the </p>
+<p>related data segments to the intended memory area. In case of platform V850 and GHS </p>
+<p>compiler see the following example. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>10 </p>
+<p>based on template version 5.6.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b>The following example applies on platform V850 and GHS-compiler.<b> </b></p>
+<p> </p>
+<p>1. </p>
+<p>Labels for memory areas which are intended to be used are defined in the </p>
+<p>linker / locator command file: </p>
+<p>… </p>
+<p>   $(ECHO) &quot;  .pb_ecum_global_root 0x001C0000  :&gt;.     /* Start post-build ROM area  */             &quot; &gt;&gt; $@; \ </p>
+<p>   $(ECHO) &quot;  .pb_tscpb_data align(4)                      :&gt;.     /* post-build ROM area */                       &quot; &gt;&gt; $@; \ </p>
+<p>   $(ECHO) &quot;  .pb_ram               0xfedfa000             :&gt;.     /*  post-build RAM area */                       &quot; &gt;&gt; $@; \ </p>
+<p>… </p>
+<p>2. </p>
+<p>The defined labels can now be used for the </p>
+<p>#pragma</p>
+<p>-commands at the </p>
+<p>corresponding memory section keywords in file </p>
+<p>MemMap_Common.h</p>
+<p>: </p>
+<p>…</p>
+<p>  </p>
+<p>#elif defined START_SEC_CONST_PBCFG                    </p>
+<p># define CONST_SEC_OPEN </p>
+<p>/* Enter here a #pragma command for opening the specified section */ </p>
+<p># pragma ghs section rodata=&quot;.pb_tscpb_data&quot; </p>
+<p># undef START_SEC_CONST_PBCFG </p>
+<p># undef MEMMAP_ERROR </p>
+<p># ifdef MEMMAP_DETECT_ANY_ERROR </p>
+<p>#  error &quot;The DEFINE: &quot;START_SEC_CONST_PBCFG&quot; is the obsolete one!&quot; </p>
+<p># endif         </p>
+<p> </p>
+<p>#elif defined START_SEC_PBCFG_GLOBALROOT               </p>
+<p># define CONST_SEC_OPEN </p>
+<p>/* Enter here a #pragma command for opening the specified section */ </p>
+<p># pragma ghs section rodata=&quot;.pb_ecum_global_root&quot; </p>
+<p># undef START_SEC_PBCFG_GLOBALROOT </p>
+<p># undef MEMMAP_ERROR </p>
+<p># ifdef MEMMAP_DETECT_ANY_ERROR </p>
+<p>#  error &quot;The DEFINE: &quot;START_SEC_PBCFG_GLOBALROOT&quot; is the obsolete one!&quot; </p>
+<p># endif  </p>
+<p>… </p>
+<p>#elif defined STOP_SEC_CONST </p>
+<p># if defined CONST_SEC_OPEN </p>
+<p>#  undef CONST_SEC_OPEN </p>
+<p>/* Enter here a #pragma command for closing the specified section */ </p>
+<p>/* This should switch back to the default section */ </p>
+<p>#  pragma ghs section rodata=default </p>
+<p>#  undef STOP_SEC_CONST </p>
+<p>#  undef MEMMAP_ERROR </p>
+<p># else </p>
+<p>#  error &quot;MemMap_Common.h: Const section closed but not opened one. Please close </p>
+<p>a const section [== usage of *_STOP_SEC_CONST_*] only if you have opened one [== </p>
+<p>usage of *_START_SEC_CONST_*]!&quot; </p>
+<p># endif </p>
+<p>… </p>
+<p>#elif defined START_SEC_VAR_PBCFG                      </p>
+<p># define VAR_SEC_OPEN </p>
+<p>/* Enter here a #pragma command for opening the specified section */ </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>11 </p>
+<p>based on template version 5.6.0 </p>
+<p># pragma ghs section bss=&quot;.pb_ram&quot; </p>
+<p># undef START_SEC_VAR_PBCFG </p>
+<p># undef MEMMAP_ERROR </p>
+<p># ifdef MEMMAP_DETECT_ANY_ERROR </p>
+<p>#  error &quot;The DEFINE: &quot;START_SEC_VAR_PBCFG&quot; is the obsolete one!&quot; </p>
+<p># endif </p>
+<p>… </p>
+<p>#elif defined STOP_SEC_VAR </p>
+<p># if defined VAR_SEC_OPEN </p>
+<p>#  undef VAR_SEC_OPEN </p>
+<p>/* Enter here a #pragma command for closing the specified section */ </p>
+<p>/* This should switch back to the default section */ </p>
+<p>#  pragma ghs section bss=default </p>
+<p>#  undef STOP_SEC_VAR </p>
+<p>#  undef MEMMAP_ERROR </p>
+<p># else </p>
+<p>#  error &quot;MemMap_Common.h: Var section closed but not opened one. Please close a </p>
+<p>var section [== usage of *_STOP_SEC_VAR_*] only if you have opened one [== usage </p>
+<p>of *_START_SEC_VAR_*]!&quot; </p>
+<p># endif </p>
+<p>… </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>2.1.4 </b></p>
+<p><b>Usage of AUTOSAR 4.2.2 BSW module  </b></p>
+<p>The Vector specific implementation of memory mapping [MICROSAR] complies with both </p>
+<p>AUTOSAR 4.0.3  and AUTOSAR 4.2.2.  Due  to fact  that  the AUTOSAR 4.2.2  defines  that </p>
+<p>each </p>
+<p>BSW </p>
+<p>module </p>
+<p>must </p>
+<p>include </p>
+<p>an </p>
+<p>own </p>
+<p>memory </p>
+<p>mapping </p>
+<p>header </p>
+<p>file </p>
+<p>[see SWS_MemMap_00032] one manual adaption is required for BSW modules which are </p>
+<p>implemented according  to AUTOSAR  4.2.2 and  are  intended  to be  used  in  combination </p>
+<p>with the Vector specific implementation of memory mapping especially in case of using of </p>
+<p>default memory sections. The required adaption is described below. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Add the following code at the very bottom to the BSW module specific memory </p>
+<p>mapping header file </p>
+<p>&lt;Msn&gt;_MemMap.h</p>
+<p>: </p>
+<p>#include “MemMap_Common.h” </p>
+<p>[see Figure 2-1]</p>
+<p>.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>12 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>3 </b></p>
+<p><b>Appendix </b></p>
+<p><b>3.1 </b></p>
+<p><b>Sub-keywords used in the memory section and compiler specific keywords </b></p>
+<p>The memory section and compiler specific keywords mentioned in the following chapters </p>
+<p>3.2  and  3.3  generally  have  self-explanatory  names.  Despite  this fact  the  following  table </p>
+<p>gives more information about used sub-keywords. </p>
+<p> </p>
+<p><b>Sub-keyword </b></p>
+<p><b>Kind of memory section which is meant </b></p>
+<p>CODE </p>
+<p>Memory section for code (ROM) </p>
+<p>CONST </p>
+<p>Memory section for constant data (ROM) </p>
+<p>VAR </p>
+<p>Memory section for variables (RAM) </p>
+<p>FAST </p>
+<p>Memory section with fast read and write accesses (ROM / </p>
+<p>RAM) </p>
+<p>ISR </p>
+<p>Memory section for interrupt service routines (generally ROM) </p>
+<p>8BIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>8</p>
+<p>) </p>
+<p>Memory section for one byte data (ROM / RAM) </p>
+<p>16BIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>16</p>
+<p>) </p>
+<p>Memory section for  two bytes data (ROM / RAM) </p>
+<p>32BIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>32</p>
+<p>) </p>
+<p>Memory section for four bytes data (ROM / RAM) </p>
+<p>64BIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>64</p>
+<p>) </p>
+<p>Memory section for eight bytes data (ROM / RAM) </p>
+<p>UNSPECIFIED </p>
+<p>Memory section for data (ROM / RAM) which type is variable, </p>
+<p>depends on configuration and is determined only at compile </p>
+<p>time (e.g. enumeration, boolean, structure) </p>
+<p>PBCFG_GLOBALROOT </p>
+<p>The top of the memory section for post-build ROM data. Only </p>
+<p>the table </p>
+<p>EcuM_GlobalConfigRoot</p>
+<p> shall be placed into this </p>
+<p>section.  </p>
+<p>(</p>
+<p>CONST_</p>
+<p>)</p>
+<p>PBCFG </p>
+<p>Memory section for post-build ROM data.  </p>
+<p>NOTE: The data which resides in this section may change at </p>
+<p>post-build time. </p>
+<p>INIT </p>
+<p>Memory section for pre-initialized variables (RAM) e.g. by the </p>
+<p>start-up code  </p>
+<p>NOINIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>NO_INIT</p>
+<p>) </p>
+<p>Memory section for not pre-initialized variables (RAM) </p>
+<p>ZERO_INIT</p>
+<p> (since ASR 4.0.3: </p>
+<p>CLEARED</p>
+<p>) </p>
+<p>Memory section for pre-initialized variables with zeros </p>
+<p>VAR_PBCFG </p>
+<p>Memory section for post-build RAM variables </p>
+<p>NOTE: The allocation of this memory area can change at </p>
+<p>post-build time. </p>
+<p>Table 3-1  </p>
+<p>Explanation of sub-keywords used in the memory section and compiler specific keywords </p>
+<p><b>3.2 </b></p>
+<p><b>Memory section keywords </b></p>
+<p>The  following  tables  listed  below  give  an  overview  about  pre-defined  memory  section </p>
+<p>keywords used by the BSW modules. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>13 </p>
+<p>based on template version 5.6.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The memory section keywords listed below are the default ones. Apart from </p>
+<p>these ones if required each BSW module may define further own ones. Please </p>
+<p>see the files </p>
+<p>&lt;Msn&gt;_MemMap.h </p>
+<p>[in case of an AUTOSAR 4.2.2 BSW module] or </p>
+<p>MemMap.h </p>
+<p>[in case of an AUTOSAR 4.0.3 BSW module]</p>
+<p> included in your delivery. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.2.1 </b></p>
+<p><b>Memory section keywords for code </b></p>
+<p> </p>
+<p><b>BSW specific memory section keyword </b></p>
+<p><b>Default memory section keyword </b></p>
+<p>&lt;MSN&gt;_START_SEC_CODE </p>
+<p>START_SEC_CODE </p>
+<p>&lt;MSN&gt;_START_SEC_CODE_FAST </p>
+<p>START_SEC_CODE_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_CODE_ISR </p>
+<p>START_SEC_CODE_ISR </p>
+<p>Table 3-2  </p>
+<p>Memory sections for code </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>For  each </p>
+<p>START</p>
+<p>-section  keyword  a  corresponding </p>
+<p>STOP</p>
+<p>-section  keyword  is </p>
+<p>defined </p>
+<p>e.g. </p>
+<p>&lt;MSN&gt;_STOP_SEC_CODE</p>
+<p>. </p>
+<p>By </p>
+<p>default </p>
+<p>all </p>
+<p>these </p>
+<p>STOP</p>
+<p>-section </p>
+<p>keywords  are  mapped  to  the  same  keyword </p>
+<p>STOP_SEC_CODE</p>
+<p>.  Hence  use  a </p>
+<p>#pragma</p>
+<p> command to switch back to the default section for code. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.2.2 </b></p>
+<p><b>Memory section keywords for constants </b></p>
+<p> </p>
+<p><b>BSW specific memory section keyword </b></p>
+<p><b>Default memory section keyword </b></p>
+<p>&lt;MSN&gt;_START_SEC_CONST_8BIT </p>
+<p>START_SEC_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_16BIT </p>
+<p>START_SEC_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_32BIT </p>
+<p>START_SEC_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_64BIT </p>
+<p>START_SEC_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_UNSPECIFIED </p>
+<p>START_SEC_CONST_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT </p>
+<p>START_SEC_FAST_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT </p>
+<p>START_SEC_FAST_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT </p>
+<p>START_SEC_FAST_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT </p>
+<p>START_SEC_FAST_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_UNSPECIFIED </p>
+<p>START_SEC_FAST_CONST_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_PBCFG_GLOBALROOT </p>
+<p>START_SEC_PBCFG_GLOBALROOT </p>
+<p>&lt;MSN&gt;_START_SEC_PBCFG </p>
+<p>START_SEC_CONST_PBCFG </p>
+<p>Table 3-3  </p>
+<p>Memory sections for constants </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>14 </p>
+<p>based on template version 5.6.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>For  each  START-section  keyword  a  corresponding  STOP-section  keyword  is </p>
+<p>defined </p>
+<p>e.g. </p>
+<p>&lt;MSN&gt;_STOP_SEC_CONST_32BIT</p>
+<p>. </p>
+<p>By </p>
+<p>default </p>
+<p>all </p>
+<p>these </p>
+<p>STOP-section keywords are mapped to the same keyword </p>
+<p>STOP_SEC_CONST</p>
+<p>. </p>
+<p>Hence  use  a </p>
+<p>#pragma</p>
+<p>  command  to  switch  back  to  the  default  section  for </p>
+<p>constants. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The  mentioned  BSW module  specific  keywords  conform  to AUTOSAR  releases  3.x.x  till </p>
+<p>4.0.1.  Since  release  4.0.3  the  naming  convention  of  some  keywords  has  changed. The </p>
+<p>following table shows the related changes. </p>
+<p> </p>
+<p><b>Keyword in AUTOSAR 3.x.x till 4.0.1 </b></p>
+<p><b>Keyword in AUTOSAR 4.0.3 </b></p>
+<p>&lt;MSN&gt;_START_SEC_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_8 </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_16 </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_32 </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_64 </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_8 </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_16 </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_32 </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_64 </p>
+<p>Table 3-4  </p>
+<p>Change of memory section keywords for constants in ASR 4.0.3 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Although names of some keywords have changed most of ASR </p>
+<p>4.0.3 BSW modules provided by Vector Informatik GmbH still use the old </p>
+<p>naming convention of memory section keywords. The BSW module </p>
+<p>MemMap</p>
+<p> at </p>
+<p>all provided by Vector Informatik GmbH accepts both naming conventions. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>3.2.3 </b></p>
+<p><b>Memory section keywords for variables </b></p>
+<p> </p>
+<p><b>BSW specific memory section keyword </b></p>
+<p><b>Default memory section keyword </b></p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT </p>
+<p>START_SEC_VAR_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT </p>
+<p>START_SEC_VAR_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT </p>
+<p>START_SEC_VAR_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT </p>
+<p>START_SEC_VAR_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_UNSPECIFIED </p>
+<p>START_SEC_VAR_INIT_UNSPECIFIED </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>15 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>BSW specific memory section keyword </b></p>
+<p><b>Default memory section keyword </b></p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT </p>
+<p>START_SEC_VAR_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT </p>
+<p>START_SEC_VAR_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT </p>
+<p>START_SEC_VAR_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT </p>
+<p>START_SEC_VAR_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_PBCFG </p>
+<p>START_SEC_VAR_PBCFG </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT </p>
+<p>START_SEC_VAR_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT </p>
+<p>START_SEC_VAR_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT </p>
+<p>START_SEC_VAR_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT </p>
+<p>START_SEC_VAR_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED  START_SEC_VAR_ZERO_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT </p>
+<p>START_SEC_VAR_FAST_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT </p>
+<p>START_SEC_VAR_FAST_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT </p>
+<p>START_SEC_VAR_FAST_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT </p>
+<p>START_SEC_VAR_FAST_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED  START_SEC_VAR_FAST_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT </p>
+<p>START_SEC_VAR_FAST_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT </p>
+<p>START_SEC_VAR_FAST_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT </p>
+<p>START_SEC_VAR_FAST_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT </p>
+<p>START_SEC_VAR_FAST_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFI</p>
+<p>ED </p>
+<p>START_SEC_VAR_FAST_NOINIT_UNSPECIFIE</p>
+<p>D </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT </p>
+<p>START_SEC_VAR_FAST_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT </p>
+<p>START_SEC_VAR_FAST_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT </p>
+<p>START_SEC_VAR_FAST_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT </p>
+<p>START_SEC_VAR_FAST_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPEC</p>
+<p>IFIED </p>
+<p>START_SEC_VAR_FAST_ZERO_INIT_UNSPECI</p>
+<p>FIED </p>
+<p>Table 3-5  </p>
+<p>Memory sections for variables </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>16 </p>
+<p>based on template version 5.6.0 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>For  each  START-section  keyword  a  corresponding </p>
+<p>STOP</p>
+<p>-section  keyword  is </p>
+<p>defined </p>
+<p>e.g. </p>
+<p>&lt;MSN&gt;_STOP_SEC_VAR_INIT_32BIT</p>
+<p>. </p>
+<p>By </p>
+<p>default </p>
+<p>all </p>
+<p>these </p>
+<p>STOP</p>
+<p>-section  keywords  are  mapped  to  the  same  keyword </p>
+<p>STOP_SEC_VAR</p>
+<p>. </p>
+<p>Hence  use  a </p>
+<p>#pragma</p>
+<p>  command  to  switch  back  to  the  default  section  for </p>
+<p>variables. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The  mentioned  BSW module  specific  keywords  conform  to AUTOSAR  releases  3.x.x  till </p>
+<p>4.0.1.  Since  release  4.0.3  the  naming  convention  of  some  keywords  has  changed. The </p>
+<p>following table shows the related changes. </p>
+<p> </p>
+<p><b>Keyword in AUTOSAR 3.x.x till 4.0.1 </b></p>
+<p><b>Keyword in AUTOSAR 4.0.3 </b></p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NO_INIT_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NO_INIT_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NO_INIT_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NO_INIT_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NO_INIT_UNSPECIF</p>
+<p>IED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_CLEARED_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_CLEARED_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_CLEARED_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_CLEARED_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_CLEARED_UNSPECIF</p>
+<p>IED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPEC</p>
+<p>IFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFI</p>
+<p>ED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NO_INIT_UNS</p>
+<p>PECIFIED </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>17 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>Keyword in AUTOSAR 3.x.x till 4.0.1 </b></p>
+<p><b>Keyword in AUTOSAR 4.0.3 </b></p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_</p>
+<p> </p>
+<p>CLEARED_8 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_16 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_32 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_64 </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPEC</p>
+<p>IFIED </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_CLEARED_UNS</p>
+<p>PECIFIED </p>
+<p>Table 3-6 </p>
+<p>Change of memory section keywords for variables in ASR 4.0.3 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Although names of some keywords have changed most of AUTOSAR </p>
+<p>4.0.3 BSW modules provided by Vector Informatik GmbH still use the old </p>
+<p>naming convention of memory section keywords. The BSW module </p>
+<p>MemMap</p>
+<p> at </p>
+<p>all provided by Vector Informatik GmbH accepts both naming conventions. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>3.3 </b></p>
+<p><b>Compiler specific keywords </b></p>
+<p>The following table gives an overview about available compiler specific keywords. These </p>
+<p>keywords are required to tell the compiler the memory location of the corresponding code </p>
+<p>and </p>
+<p>data </p>
+<p>segments. </p>
+<p>This </p>
+<p>information </p>
+<p>allows </p>
+<p>the </p>
+<p>compiler </p>
+<p>to </p>
+<p>create </p>
+<p>correct </p>
+<p>access </p>
+<p>instructions  for  corresponding  data  and  code  segments.      The  need  of  usage  of  these </p>
+<p>keywords depends on the used compiler and the memory model of used hardware.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The compiler specific keywords listed below are the default ones. Apart from </p>
+<p>these ones if required each BSW module may define further own ones. Please </p>
+<p>see file </p>
+<p>Compiler_Cfg.h</p>
+<p> included in your delivery. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Compiler specific keyword </b></p>
+<p><b>Memory section the compiler specific keyword used for </b></p>
+<p>&lt;MSN&gt;_CODE </p>
+<p>&lt;MSN&gt;_START_SEC_CODE </p>
+<p>&lt;MSN&gt;_CODE_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_CODE_FAST </p>
+<p>&lt;MSN&gt;_CODE_ISR </p>
+<p>&lt;MSN&gt;_START_SEC_CODE_ISR </p>
+<p>&lt;MSN&gt;_CONST </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_CONST_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_FAST_CONST_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_PBCFG </p>
+<p>&lt;MSN&gt;_START_SEC_PBCFG_GLOBALROOT </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>18 </p>
+<p>based on template version 5.6.0 </p>
+<p>&lt;MSN&gt;_START_SEC_CONST_PBCFG </p>
+<p>&lt;MSN&gt;_VAR_PBCFG </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_PBCFG </p>
+<p>&lt;MSN&gt;_VAR_INIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_VAR_NOINIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_VAR_ZERO_INIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_ZERO_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_VAR_INIT_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_INIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_VAR_NOINIT_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_NOINIT_UNSPECIFIED </p>
+<p>&lt;MSN&gt;_VAR_ZERO_INIT_FAST </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_8BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_16BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_32BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_64BIT </p>
+<p>&lt;MSN&gt;_START_SEC_VAR_FAST_ZERO_INIT_UNSPECIFIED </p>
+<p>Table 3-7  </p>
+<p>Compiler specific keywords and the related memory sections they used for </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>19 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>4 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>4.1 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>ASR </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>GHS </p>
+<p>Greenhills </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>MIP/Mip </p>
+<p>Module Implementation Prefix </p>
+<p>MSN/Msn </p>
+<p>Module Short Name </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>ROM </p>
+<p>Read Only Memory </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 4-1  </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Memory Mapping </p>
+<p>© 2017 Vector Informatik GmbH </p>
+<p>Version 1.3.0 </p>
+<p>20 </p>
+<p>based on template version 5.6.0 </p>
+<p><b>5 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>News </p>
+<p><b>&gt; </b></p>
+<p>Products </p>
+<p><b>&gt; </b></p>
+<p>Demo software </p>
+<p><b>&gt; </b></p>
+<p>Support </p>
+<p><b>&gt; </b></p>
+<p>Training data </p>
+<p><b>&gt; </b></p>
+<p>Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

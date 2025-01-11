@@ -1,0 +1,4254 @@
+---
+layout: default
+title: TechnicalReference_BswM
+nav_order: 2
+parent: BSW Mode Manager
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR BswM  </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p>Version 7.00.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Leticia  Garcia  Herrera,  Thomas  Kuhl,  Philipp  Ritter, </p>
+<p>Jochen Vorreiter </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>2 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Leticia Garcia, Thomas Kuhl </p>
+<p>2012-08-02 </p>
+<p>1.00.00 </p>
+<p>Creation of document.  </p>
+<p>Leticia Garcia, Thomas Kuhl </p>
+<p>2012-09-27 </p>
+<p>1.01.00 </p>
+<p>Addition of feature, support of </p>
+<p>EthSM . Chapters 3.1, 4.1, </p>
+<p>5.2and 6.3. </p>
+<p>Leticia Garcia, Thomas Kuhl </p>
+<p>2013-01-31 </p>
+<p>1.02.00 </p>
+<p>Addition of feature, support of </p>
+<p>NvM. Chapter 3.1, 4.1, 5.2 </p>
+<p>and 5.3. </p>
+<p>Leticia Garcia, Thomas Kuhl </p>
+<p>2012-03-26 </p>
+<p>1.03.00 </p>
+<p>Support of Post-build variant. </p>
+<p>Chapters 4.1, 4.2, 5.1and 5.2. </p>
+<p> </p>
+<p>Deviation from AUTOSAR. </p>
+<p>Header included:  </p>
+<p>Com_Types.h. Chapter 6.1 </p>
+<p>Leticia Garcia </p>
+<p>2013-10-21 </p>
+<p>2.00.00 </p>
+<p>Addition of extension in </p>
+<p>chapter 6.2.  </p>
+<p>Deletion of limitations in </p>
+<p>chapter 6.3.  </p>
+<p>DET errors added in chapter </p>
+<p>3.6.1.  </p>
+<p>Dynamic files added in </p>
+<p>chapter 4.1.2.  </p>
+<p>Chapter 4.2 was changed. </p>
+<p>Chapter 4.3 was added. </p>
+<p>Leticia Garcia </p>
+<p>2013-12-04 </p>
+<p>2.00.01 </p>
+<p>Chapter 3.3 was extended. </p>
+<p>Chapter  3.4.2 was added. </p>
+<p>Chapter 3.6.1 error code </p>
+<p>added.  </p>
+<p>Chapter 4.5 was extended </p>
+<p>Chapter 6.2 was extended. </p>
+<p>Leticia Garcia </p>
+<p>2013-02-18 </p>
+<p>2.01.00 </p>
+<p>Extended chapters: 3.1, 3.1.2, </p>
+<p>3.6.1, 4.1.1, 5.2.15, 5.2.16, </p>
+<p>5.2.33, 5.2.34, 5.2.35, 5.2.36 </p>
+<p>5.3 and 6.2.1. </p>
+<p>Added chapters: 4.3.3, 5.6, </p>
+<p>and 6.2.2. Removed deviation </p>
+<p>about </p>
+<p>Com_IpduGroupControl </p>
+<p>usage. </p>
+<p>Philipp Ritter </p>
+<p>2014-06-13 </p>
+<p>3.00.00 </p>
+<p>Extended chapters: 3.1.2, 3.5, </p>
+<p>5.6.1, 6.2.1, 6.2.8 </p>
+<p>Added chapters: 5.2.37, </p>
+<p>6.2.10, 6.2.11 </p>
+<p>Updated Figures: Figure 3-2, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>3 </p>
+<p>based on template version 4.11.3 </p>
+<p>Figure 3-3 </p>
+<p>Philipp Ritter </p>
+<p>2014-10-22 </p>
+<p>4.00.00 </p>
+<p>Extended Chapters: 3.1, </p>
+<p>3.6.1, 4.1.1, 4.3.3, 5.2.4 </p>
+<p>Added chapters: 5.2.38 </p>
+<p>Philipp Ritter </p>
+<p>2015-02-02 </p>
+<p>5.00.00 </p>
+<p>Extended chapters: 3.6.1, </p>
+<p>4.3.3, 6.3.3, 6.3.4 </p>
+<p>Added chapters: 5.2.19 </p>
+<p>Removed: Limitation for </p>
+<p>multiple configurations </p>
+<p>Philipp Ritter </p>
+<p>2015-07-29 </p>
+<p>6.00.00 </p>
+<p>Extended chapters: 3.1, 3.1.2, </p>
+<p>3.6.1, 4.3.3, 5.3 </p>
+<p>Added chapters:  4.3.4, </p>
+<p>5.2.23, 5.2.27, 5.2.28, 5.2.29, </p>
+<p>5.2.30, 5.2.31, 5.2.32 </p>
+<p>Philipp Ritter </p>
+<p>2015-12-10 </p>
+<p>6.00.01 </p>
+<p>Updated Figure 4-6 </p>
+<p>Jochen Vorreiter </p>
+<p>2016-11-15 </p>
+<p>7.00.00 </p>
+<p>Added chapters: 5.2.8 and </p>
+<p>5.2.12 </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_SWS_BSWModeManager.pdf </p>
+<p>1.4.0 </p>
+<p>[2] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_EXP_ModemanagementGuide </p>
+<p>2.1.0 </p>
+<p>[3] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>3.2.0 </p>
+<p>[4] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_TR_BSWModuleList.pdf </p>
+<p>1.6.0 </p>
+<p>[5] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_SWS_DiagnosticEventManager.pdf </p>
+<p>4.2.0 </p>
+<p>[6] </p>
+<p> </p>
+<p>Vector </p>
+<p>TechnicalReference_Rte.pdf </p>
+<p>see delivery </p>
+<p>[7] </p>
+<p> </p>
+<p>Vector </p>
+<p>TechnicalReference_PostBuildLoadable.pdf </p>
+<p>see delivery </p>
+<p>[8] </p>
+<p> </p>
+<p>Vector </p>
+<p>TechnicalReference_Com.pdf </p>
+<p>see delivery </p>
+<p>[9] </p>
+<p> </p>
+<p>Vector </p>
+<p>TechnicalReference_IdentityManager.pdf </p>
+<p>see delivery </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>4 </p>
+<p>based on template version 4.11.3 </p>
+<p>Scope of the Document </p>
+<p>This  technical  reference  describes  the  general  use  of  the  AUTOSAR  Basic  Software </p>
+<p>module BSW Mode Manager (BswM). </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector’s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>5 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History .................................................................................................... 10</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction................................................................................................................. 11</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Architecture Overview ...................................................................................... 11</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description ............................................................................................... 13</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 13</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Deviations ........................................................................................ 14</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................... 14</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initialization ...................................................................................................... 14</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>States .............................................................................................................. 14</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Mode Management .......................................................................................... 16</p>
+<p> </p>
+<p>3.4.1</p>
+<p> </p>
+<p>Immediate Mode Handling ............................................................... 17</p>
+<p> </p>
+<p>3.4.2</p>
+<p> </p>
+<p>Forced Immediate Mode Handling ................................................... 17</p>
+<p> </p>
+<p>3.4.3</p>
+<p> </p>
+<p>Deferred Mode Handling .................................................................. 17</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Execution of Action Lists .................................................................................. 20</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Error Handling .................................................................................................. 20</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Development Error Reporting ........................................................... 20</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>Production Code Error Reporting ..................................................... 22</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Integration ................................................................................................................... 23</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Scope of Delivery ............................................................................................. 23</p>
+<p> </p>
+<p>4.1.1</p>
+<p> </p>
+<p>Static Files ....................................................................................... 23</p>
+<p> </p>
+<p>4.1.2</p>
+<p> </p>
+<p>Dynamic Files .................................................................................. 24</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Initialization of Other Software Modules ........................................................... 24</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Using the Basic Editor ...................................................................... 24</p>
+<p> </p>
+<p>4.2.2</p>
+<p> </p>
+<p>Using the Comfort View.................................................................... 26</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Support of Preconfigured State Machines (Auto-Configuration) ....................... 26</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>Initialization ...................................................................................... 27</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>ECU State Handling ......................................................................... 29</p>
+<p> </p>
+<p>4.3.3</p>
+<p> </p>
+<p>Communication Control .................................................................... 31</p>
+<p> </p>
+<p>4.3.4</p>
+<p> </p>
+<p>Service Discovery Control ................................................................ 33</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Critical Sections ............................................................................................... 33</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Cyclic Task ....................................................................................................... 33</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>NvM – BswM configuration .............................................................................. 33</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>API Description ........................................................................................................... 34</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................... 34</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Services Provided by BswM ............................................................................. 35</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>6 </p>
+<p>based on template version 4.11.3 </p>
+<p>5.2.1</p>
+<p> </p>
+<p>BswM_InitMemory ........................................................................... 35</p>
+<p> </p>
+<p>5.2.2</p>
+<p> </p>
+<p>BswM_Init ........................................................................................ 35</p>
+<p> </p>
+<p>5.2.3</p>
+<p> </p>
+<p>BswM_Deinit .................................................................................... 36</p>
+<p> </p>
+<p>5.2.4</p>
+<p> </p>
+<p>BswM_GetVersionInfo ...................................................................... 36</p>
+<p> </p>
+<p>5.2.5</p>
+<p> </p>
+<p>BswM_RequestMode ....................................................................... 37</p>
+<p> </p>
+<p>5.2.6</p>
+<p> </p>
+<p>BswM_ComM_CurrentMode ............................................................ 37</p>
+<p> </p>
+<p>5.2.7</p>
+<p> </p>
+<p>BswM_ComM_CurrentPNCMode ..................................................... 38</p>
+<p> </p>
+<p>5.2.8</p>
+<p> </p>
+<p>BswM_ComM_InitiateReset ............................................................. 38</p>
+<p> </p>
+<p>5.2.9</p>
+<p> </p>
+<p>BswM_Dcm_ApplicationUpdated ..................................................... 39</p>
+<p> </p>
+<p>5.2.10</p>
+<p> </p>
+<p>BswM_Dcm_CommunicationMode_CurrentState ............................ 39</p>
+<p> </p>
+<p>5.2.11</p>
+<p> </p>
+<p>BswM_CanSM_CurrentState ........................................................... 40</p>
+<p> </p>
+<p>5.2.12</p>
+<p> </p>
+<p>BswM_EthIf_PortGroupLinkStateChg .............................................. 40</p>
+<p> </p>
+<p>5.2.13</p>
+<p> </p>
+<p>BswM_EthSM_CurrentState ............................................................ 41</p>
+<p> </p>
+<p>5.2.14</p>
+<p> </p>
+<p>BswM_FrSM_CurrentState .............................................................. 41</p>
+<p> </p>
+<p>5.2.15</p>
+<p> </p>
+<p>BswM_J1939DcmBroadcastStatus .................................................. 42</p>
+<p> </p>
+<p>5.2.16</p>
+<p> </p>
+<p>BswM_J1939Nm_StateChangeNotification ...................................... 42</p>
+<p> </p>
+<p>5.2.17</p>
+<p> </p>
+<p>BswM_LinSM_CurrentState ............................................................. 43</p>
+<p> </p>
+<p>5.2.18</p>
+<p> </p>
+<p>BswM_LinSM_CurrentSchedule....................................................... 43</p>
+<p> </p>
+<p>5.2.19</p>
+<p> </p>
+<p>BswM_LinSM_ScheduleEndNotification........................................... 44</p>
+<p> </p>
+<p>5.2.20</p>
+<p> </p>
+<p>BswM_LinTp_RequestMode ............................................................ 44</p>
+<p> </p>
+<p>5.2.21</p>
+<p> </p>
+<p>BswM_EcuM_CurrentState .............................................................. 45</p>
+<p> </p>
+<p>5.2.22</p>
+<p> </p>
+<p>BswM_EcuM_CurrentWakeup ......................................................... 45</p>
+<p> </p>
+<p>5.2.23</p>
+<p> </p>
+<p>BswM_EcuM_RequestedState ......................................................... 46</p>
+<p> </p>
+<p>5.2.24</p>
+<p> </p>
+<p>BswM_MainFunction ........................................................................ 46</p>
+<p> </p>
+<p>5.2.25</p>
+<p> </p>
+<p>BswM_NvM_CurrentBlockMode....................................................... 47</p>
+<p> </p>
+<p>5.2.26</p>
+<p> </p>
+<p>BswM_NvM_CurrentJobMode ......................................................... 47</p>
+<p> </p>
+<p>5.2.27</p>
+<p> </p>
+<p>BswM_PduR_RxIndication ............................................................... 48</p>
+<p> </p>
+<p>5.2.28</p>
+<p> </p>
+<p>BswM_PduR_TpRxIndication ........................................................... 48</p>
+<p> </p>
+<p>5.2.29</p>
+<p> </p>
+<p>BswM_PduR_TpStartOfReception ................................................... 49</p>
+<p> </p>
+<p>5.2.30</p>
+<p> </p>
+<p>BswM_PduR_TpTxConfirmation ...................................................... 49</p>
+<p> </p>
+<p>5.2.31</p>
+<p> </p>
+<p>BswM_PduR_Transmit ..................................................................... 50</p>
+<p> </p>
+<p>5.2.32</p>
+<p> </p>
+<p>BswM_PduR_TxConfirmation .......................................................... 50</p>
+<p> </p>
+<p>5.2.33</p>
+<p> </p>
+<p>BswM_Sd_EventHandlerCurrentState ............................................. 51</p>
+<p> </p>
+<p>5.2.34</p>
+<p> </p>
+<p>BswM_Sd_ClientServiceCurrentState .............................................. 51</p>
+<p> </p>
+<p>5.2.35</p>
+<p> </p>
+<p>BswM_Sd_ConsumedEventGroupCurrentState ............................... 52</p>
+<p> </p>
+<p>5.2.36</p>
+<p> </p>
+<p>BswM_Nm_StateChangeNotification ............................................... 53</p>
+<p> </p>
+<p>5.2.37</p>
+<p> </p>
+<p>BswM_RuleControl .......................................................................... 54</p>
+<p> </p>
+<p>5.2.38</p>
+<p> </p>
+<p>BswM_WdgM_RequestPartitionReset ............................................. 54</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Services Used by BswM .................................................................................. 55</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Callback Functions ........................................................................................... 56</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configurable Interfaces .................................................................................... 56</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>7 </p>
+<p>based on template version 4.11.3 </p>
+<p>5.5.1</p>
+<p> </p>
+<p>Callout Functions ............................................................................. 56</p>
+<p> </p>
+<p>5.6</p>
+<p> </p>
+<p>Service Ports ................................................................................................... 57</p>
+<p> </p>
+<p>5.6.1</p>
+<p> </p>
+<p>BswMSwcModeRequest (R-Port) ..................................................... 57</p>
+<p> </p>
+<p>5.6.2</p>
+<p> </p>
+<p>BswMSwcModeNotification (R- Port) ............................................... 57</p>
+<p> </p>
+<p>5.6.3</p>
+<p> </p>
+<p>BswMSwitchPort (P- Port) ................................................................ 58</p>
+<p> </p>
+<p>5.6.4</p>
+<p> </p>
+<p>BswMRteModeRequestPort (P-Ports) .............................................. 58</p>
+<p> </p>
+<p>5.6.5</p>
+<p> </p>
+<p>BswMModeDeclaration .................................................................... 58</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>AUTOSAR Standard Compliance............................................................................... 59</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Deviations ........................................................................................................ 59</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Inclusion of the header Com_Types.h .............................................. 59</p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Port Names ...................................................................................... 59</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Additions/ Extensions ....................................................................................... 59</p>
+<p> </p>
+<p>6.2.1</p>
+<p> </p>
+<p>Optional Interfaces ........................................................................... 59</p>
+<p> </p>
+<p>6.2.2</p>
+<p> </p>
+<p>Nm Indication ................................................................................... 60</p>
+<p> </p>
+<p>6.2.3</p>
+<p> </p>
+<p>User Condition Functions ................................................................. 60</p>
+<p> </p>
+<p>6.2.4</p>
+<p> </p>
+<p>Creation of Mode Declarations ......................................................... 61</p>
+<p> </p>
+<p>6.2.5</p>
+<p> </p>
+<p>Timers .............................................................................................. 61</p>
+<p> </p>
+<p>6.2.6</p>
+<p> </p>
+<p>Generic Symbolic Values ................................................................. 61</p>
+<p> </p>
+<p>6.2.7</p>
+<p> </p>
+<p>Generic Actions ................................................................................ 61</p>
+<p> </p>
+<p>6.2.8</p>
+<p> </p>
+<p>Immediate request in BswM_Init() .................................................... 61</p>
+<p> </p>
+<p>6.2.9</p>
+<p> </p>
+<p>Mode Handling Forced Immediate ................................................... 61</p>
+<p> </p>
+<p>6.2.10</p>
+<p> </p>
+<p>Rule Control ..................................................................................... 61</p>
+<p> </p>
+<p>6.2.11</p>
+<p> </p>
+<p>Support of Com ASR3 IPduGroup APIs............................................ 62</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Limitations........................................................................................................ 62</p>
+<p> </p>
+<p>6.3.1</p>
+<p> </p>
+<p>Configurable interfaces that are not supported ................................. 62</p>
+<p> </p>
+<p>6.3.1.1</p>
+<p> </p>
+<p>EcuM Indication for EcuM Flex ...................................... 62</p>
+<p> </p>
+<p>6.3.2</p>
+<p> </p>
+<p>Optional Interfaces ........................................................................... 62</p>
+<p> </p>
+<p>6.3.3</p>
+<p> </p>
+<p>Configuration Variants ...................................................................... 63</p>
+<p> </p>
+<p>6.3.4</p>
+<p> </p>
+<p>BSW Modules .................................................................................. 63</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ...................................................................................... 64</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 64</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................... 64</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Contact ........................................................................................................................ 66</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>8 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Illustrations </b></p>
+<p>Figure 2-1</p>
+<p> </p>
+<p>AUTOSAR Architecture............................................................................. 11</p>
+<p> </p>
+<p>Figure 2-2</p>
+<p> </p>
+<p>Interfaces to adjacent modules of the BswM ............................................. 12</p>
+<p> </p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>States of the BswM ................................................................................... 16</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>Sequence Immediate Processing ............................................................. 18</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>Sequence Deferred Mode ......................................................................... 19</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>Auto-configured state machines................................................................ 27</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>Configure module initialization .................................................................. 28</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>Edit initialization order ............................................................................... 29</p>
+<p> </p>
+<p>Figure 4-4</p>
+<p> </p>
+<p>Restore default sequence ......................................................................... 29</p>
+<p> </p>
+<p>Figure 4-5</p>
+<p> </p>
+<p>Configuration of the features for ECU State Handling ............................... 30</p>
+<p> </p>
+<p>Figure 4-6</p>
+<p> </p>
+<p>State Machine of the ECU State Handling ................................................ 31</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Existing callout functions .......................................................................... 56</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Generate prototype of callout functions..................................................... 56</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1</p>
+<p> </p>
+<p>Component history.................................................................................... 10</p>
+<p> </p>
+<p>Table 3-1</p>
+<p> </p>
+<p>Supported AUTOSAR Standard Conform Features .................................. 13</p>
+<p> </p>
+<p>Table 3-2</p>
+<p> </p>
+<p>Not Supported AUTOSAR Standard Conform Features ............................ 14</p>
+<p> </p>
+<p>Table 3-3</p>
+<p> </p>
+<p>Features Provided Beyond the AUTOSAR Standard ................................ 14</p>
+<p> </p>
+<p>Table 3-4 </p>
+<p> </p>
+<p>Service IDs ............................................................................................... 21</p>
+<p> </p>
+<p>Table 3-5</p>
+<p> </p>
+<p>Errors reported to DET ............................................................................. 22</p>
+<p> </p>
+<p>Table 4-1</p>
+<p> </p>
+<p>Static Files ................................................................................................ 24</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>Dynamic Files ........................................................................................... 24</p>
+<p> </p>
+<p>Table 5-1</p>
+<p> </p>
+<p>Type definitions ......................................................................................... 34</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>BswM_InitMemory .................................................................................... 35</p>
+<p> </p>
+<p>Table 5-3 </p>
+<p> </p>
+<p>BswM_Init ................................................................................................. 35</p>
+<p> </p>
+<p>Table 5-4 </p>
+<p> </p>
+<p>BswM_Deinit............................................................................................. 36</p>
+<p> </p>
+<p>Table 5-5 </p>
+<p> </p>
+<p>BswM_GetVersionInfo .............................................................................. 36</p>
+<p> </p>
+<p>Table 5-6 </p>
+<p> </p>
+<p>BswM_RequestMode ................................................................................ 37</p>
+<p> </p>
+<p>Table 5-7 </p>
+<p> </p>
+<p>BswM_ComM_CurrentMode ..................................................................... 37</p>
+<p> </p>
+<p>Table 5-8 </p>
+<p> </p>
+<p>BswM_ComM_CurrentPNCMode ............................................................. 38</p>
+<p> </p>
+<p>Table 5-9 </p>
+<p> </p>
+<p>BswM_ComM_InitiateReset ...................................................................... 38</p>
+<p> </p>
+<p>Table 5-10 </p>
+<p> </p>
+<p>BswM_Dcm_ApplicationUpdated .............................................................. 39</p>
+<p> </p>
+<p>Table 5-11 </p>
+<p> </p>
+<p>BswM_Dcm_CommunicationMode_CurrentState ..................................... 39</p>
+<p> </p>
+<p>Table 5-12 </p>
+<p> </p>
+<p>BswM_CanSM_CurrentState .................................................................... 40</p>
+<p> </p>
+<p>Table 5-13 </p>
+<p> </p>
+<p>BswM_EthIf_PortGroupLinkStateChg ....................................................... 40</p>
+<p> </p>
+<p>Table 5-14 </p>
+<p> </p>
+<p>BswM_EthSM_CurrentState ..................................................................... 41</p>
+<p> </p>
+<p>Table 5-15 </p>
+<p> </p>
+<p>BswM_FrSM_CurrentState ....................................................................... 41</p>
+<p> </p>
+<p>Table 5-16 </p>
+<p> </p>
+<p>BswM_J1939DcmBroadcastStatus ........................................................... 42</p>
+<p> </p>
+<p>Table 5-17 </p>
+<p> </p>
+<p>BswM_J1939Nm_StateChangeNotification .............................................. 42</p>
+<p> </p>
+<p>Table 5-18 </p>
+<p> </p>
+<p>BswM_LinSM_CurrentState ...................................................................... 43</p>
+<p> </p>
+<p>Table 5-19 </p>
+<p> </p>
+<p>BswM_LinSM_CurrentSchedule ............................................................... 43</p>
+<p> </p>
+<p>Table 5-20 </p>
+<p> </p>
+<p>BswM_LinSM_ScheduleEndNotification ................................................... 44</p>
+<p> </p>
+<p>Table 5-21 </p>
+<p> </p>
+<p>BswM_LinTp_RequestMode ..................................................................... 44</p>
+<p> </p>
+<p>Table 5-22 </p>
+<p> </p>
+<p>BswM_EcuM_CurrentState ....................................................................... 45</p>
+<p> </p>
+<p>Table 5-23 </p>
+<p> </p>
+<p>BswM_EcuM_CurrentWakeup .................................................................. 45</p>
+<p> </p>
+<p>Table 5-24 </p>
+<p> </p>
+<p>BswM_EcuM_RequestedState ................................................................. 46</p>
+<p> </p>
+<p>Table 5-25 </p>
+<p> </p>
+<p>BswM_MainFunction ................................................................................ 46</p>
+<p> </p>
+<p>Table 5-26 </p>
+<p> </p>
+<p>BswM_NvM_CurrentBlockMode ............................................................... 47</p>
+<p> </p>
+<p>Table 5-27 </p>
+<p> </p>
+<p>BswM_NvM_CurrentJobMode .................................................................. 48</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>9 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-28 </p>
+<p> </p>
+<p>BswM_PduR_RxIndication ....................................................................... 48</p>
+<p> </p>
+<p>Table 5-29 </p>
+<p> </p>
+<p>BswM_PduR_TpRxIndication ................................................................... 48</p>
+<p> </p>
+<p>Table 5-30 </p>
+<p> </p>
+<p>BswM_PduR_TpStartOfReception ............................................................ 49</p>
+<p> </p>
+<p>Table 5-31 </p>
+<p> </p>
+<p>BswM_PduR_TpTxConfirmation ............................................................... 50</p>
+<p> </p>
+<p>Table 5-32 </p>
+<p> </p>
+<p>BswM_PduR_Transmit ............................................................................. 50</p>
+<p> </p>
+<p>Table 5-33 </p>
+<p> </p>
+<p>BswM_PduR_TxConfirmation ................................................................... 50</p>
+<p> </p>
+<p>Table 5-34 </p>
+<p> </p>
+<p>BswM_Sd_EventHandlerCurrentState ...................................................... 51</p>
+<p> </p>
+<p>Table 5-35 </p>
+<p> </p>
+<p>BswM_Sd_ClientServiceCurrentState ...................................................... 52</p>
+<p> </p>
+<p>Table 5-36 </p>
+<p> </p>
+<p>BswM_Sd_ConsumedEventGroupCurrentState ....................................... 52</p>
+<p> </p>
+<p>Table 5-37 </p>
+<p> </p>
+<p>BswM_Nm_StateChangeNotification ........................................................ 53</p>
+<p> </p>
+<p>Table 5-38 </p>
+<p> </p>
+<p>BswM_RuleControl ................................................................................... 54</p>
+<p> </p>
+<p>Table 5-39 </p>
+<p> </p>
+<p>BswM_WdgM_RequestPartitionReset ...................................................... 54</p>
+<p> </p>
+<p>Table 5-40 </p>
+<p> </p>
+<p>Services used by the BswM ...................................................................... 55</p>
+<p> </p>
+<p>Table 5-41</p>
+<p> </p>
+<p>User Callout .............................................................................................. 57</p>
+<p> </p>
+<p>Table 7-1</p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 65</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>10 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component. </p>
+<p> </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>1.00.00 </p>
+<p>Creation  </p>
+<p>1.01.00 </p>
+<p>Support of Ethernet components was added </p>
+<p>1.02.00 </p>
+<p>Support to NvM.  </p>
+<p>1.03.00 </p>
+<p>Post-Build loadable support. SWC mode requests support </p>
+<p>2.00.00 </p>
+<p>Support of timers and user conditions as request ports </p>
+<p>Generic modes handling extended. </p>
+<p>Initialization automation and preconfigured state machine to emulate the </p>
+<p>behavior of EcuM in ASR 3. </p>
+<p>2.00.01 </p>
+<p>Forced Immediate mode handling was added. </p>
+<p>2.01.00 </p>
+<p>Support for NM, J1939Nm, J1939Dcm and Service Discovery (Sd), R </p>
+<p>Request Port of type SwcModeRequest, SwcModeNotification support </p>
+<p>immediate request processing and Support of P-Ports </p>
+<p>(BswMRteModeRequestPort). </p>
+<p>3.00.00 </p>
+<p>Mode Arbitration algorithm changed (first arbitrate all rules, execute action </p>
+<p>lists afterwards), disabling of rules (Rule Control), support of Com ASR3 </p>
+<p>IPduGroup APIs, prioritization of action list execution order. </p>
+<p>4.00.00 </p>
+<p>Support for Post-Build selectable and WdgMPartitionReset. </p>
+<p>5.00.00 </p>
+<p>Support of LinScheduleEndNotification </p>
+<p>6.00.00 </p>
+<p>Support of BswM_EcuM_RequestedState, BswM_PduR_RxIndication, </p>
+<p>BswM_PduR_TpRxIndication, BswM_PduR_TpStartOfReception, </p>
+<p>BswM_PduR_TpTxConfirmation, BswM_PduR_Transmit, </p>
+<p>BswM_PduR_TxConfirmation </p>
+<p>7.00.00 </p>
+<p>Support of BswM_ComM_InitiateReset and </p>
+<p>BswM_EthIf_PortGroupLinkStateChg </p>
+<p>Table 1-1 </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>11 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module BswM as specified in [1].  </p>
+<p> </p>
+<p><b>Supported AUTOSAR Release*: </b></p>
+<p>4 </p>
+<p><b>Supported Configuration Variants: </b></p>
+<p>pre-compile, post-build, post-build-selectable </p>
+<p><b>Vendor ID: </b></p>
+<p>BSWM_VENDOR_ID </p>
+<p>30 decimal </p>
+<p>(= Vector-Informatik, </p>
+<p>according to HIS) </p>
+<p><b>Module ID: </b></p>
+<p>BSWM_MODULE_ID   </p>
+<p>42 decimal </p>
+<p>(according to ref.[4]) </p>
+<p>* For the precise AUTOSAR Release 4.x please see the release specific documentation.  </p>
+<p> </p>
+<p>The  BSW  Mode  Manager  is  the  module  that  implements  the  part  of  the  Vehicle  Mode </p>
+<p>Management and Application Mode Management concept that resides in the BSW.  </p>
+<p>Its responsibility is to arbitrate mode requests from application layer SW-Cs or other  </p>
+<p>BSW modules based on simple rules, and perform actions based on the arbitration result. </p>
+<p><b>2.1 </b></p>
+<p><b>Architecture Overview </b></p>
+<p>The following figure shows where the BswM is located in the AUTOSAR architecture. </p>
+<p> </p>
+<p>Figure 2-1 </p>
+<p>AUTOSAR Architecture </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>12 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p> </p>
+<p>The next figure shows the interfaces to adjacent modules of the BswM. These interfaces </p>
+<p>are described in chapter 5. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-2 </p>
+<p>Interfaces to adjacent modules of the BswM </p>
+<p><b> class Architecture</b></p>
+<p><b>CanSM</b></p>
+<p><b>Com</b></p>
+<p><b>EcuM</b></p>
+<p><b>FrSm</b></p>
+<p><b>Nm</b></p>
+<p><b>ComM</b></p>
+<p><b>LinSm</b></p>
+<p><b>BswM</b></p>
+<p><b>SchM</b></p>
+<p><b>Det</b></p>
+<p><b>Dcm</b></p>
+<p><b>Application</b></p>
+<p><b>LinIf</b></p>
+<p><b>EthSm</b></p>
+<p><b>PduR</b></p>
+<p><b>Dem</b></p>
+<p><b>RTE</b></p>
+<p><b>Nv M</b></p>
+<p><b>J1939Dcm</b></p>
+<p><b>J1939Nm</b></p>
+<p><b>Sd</b></p>
+<p><b>J1939Rm</b></p>
+<p><b>EthIf</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>13 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p>This chapter describes the general function of the BswM. </p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The features listed in the following tables cover the complete functionality specified for the </p>
+<p>BswM. </p>
+<p>The AUTOSAR standard functionality  is  specified  in  [1]. The  corresponding features  are </p>
+<p>listed in the tables: </p>
+<p><b>&gt; </b></p>
+<p>Table 3-1 Supported AUTOSAR Standard Conform Features </p>
+<p><b>&gt; </b></p>
+<p>Table 3-2 Not Supported AUTOSAR Standard Conform Features </p>
+<p> </p>
+<p>The following features specified in [1] are supported: </p>
+<p><b>Supported AUTOSAR Standard Conform Features </b></p>
+<p>CanSM mode arbitration </p>
+<p>ComM mode arbitration </p>
+<p>Dcm mode arbitration </p>
+<p>EcuM mode arbitration </p>
+<p>EthSM mode arbitration </p>
+<p>FrSM mode arbitration </p>
+<p>J1939Dcm mode arbitration </p>
+<p>J1939Nm mode arbitration </p>
+<p>LinSM mode arbitration </p>
+<p>LinTp mode arbitration </p>
+<p>NvM mode arbitration </p>
+<p>Sd mode arbitration </p>
+<p>Application mode arbitration </p>
+<p>I-PDU Group handling (activation/deactivation/deadline monitoring) </p>
+<p>Action to handle PduR routing path groups </p>
+<p>Nested rule execution </p>
+<p>Rte Mode Notification and Switches </p>
+<p>Rte Mode Request Interfaces and Ports </p>
+<p>Watchdog Manager </p>
+<p>Post-Build Loadable </p>
+<p>MICROSAR Identity Manager using Post-Build Selectable [9] </p>
+<p>Table 3-1 </p>
+<p>Supported AUTOSAR Standard Conform Features </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>14 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.1.1 </b></p>
+<p><b>Deviations </b></p>
+<p>The following features specified in [1] are not supported: </p>
+<p><b>Not Supported AUTOSAR Standard Conform Features </b></p>
+<p>Available Action: BswM_TriggerStartUpPhase2 </p>
+<p>Available Actions: BswM_TriggerSlaveRTEStop  </p>
+<p>Table 3-2 </p>
+<p>Not Supported AUTOSAR Standard Conform Features </p>
+<p>See Chapter 6.1 for detailed information about other deviations. </p>
+<p> </p>
+<p><b>3.1.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p><b>Features Provided Beyond the AUTOSAR Standard </b></p>
+<p>Timers as mode request ports </p>
+<p>Nm as mode request port </p>
+<p>User conditions as mode request ports </p>
+<p>Generic mode switch as available action </p>
+<p>Timer control as available action </p>
+<p>Creation of user callouts in BswM_Callout_Stubs.c </p>
+<p>Preconfigured State Machines (Communication, Initialization, Service Discovery and ECU State </p>
+<p>Handling) </p>
+<p>Arbitration of rules on initialization values of immediate mode request ports </p>
+<p>Rule Control (deactivation of rules during runtime)  </p>
+<p>Prioritization of Action List Execution Order </p>
+<p>Support of ASR3 IPduGroup APIS </p>
+<p>PduR mode request ports </p>
+<p>EthIf mode arbitration </p>
+<p>Table 3-3 </p>
+<p>Features Provided Beyond the AUTOSAR Standard </p>
+<p><b>3.2 </b></p>
+<p><b>Initialization </b></p>
+<p>The  BswM  is  initialized  via  the  service  function </p>
+<p>BswM_Init</p>
+<p>  (refer  to  chapter  5.2.2).On </p>
+<p>platforms  in  which  the  Random Access  Memory  (RAM)  is  not  initialized  to  zero  by  the </p>
+<p>start-up  code  the  function </p>
+<p>BswM_InitMemory </p>
+<p>has  to  be  called  first  and  then  a  call  to</p>
+<p> </p>
+<p>BswM_Init </p>
+<p>can be realized</p>
+<p>. </p>
+<p>All available modes are set to the configured initialization </p>
+<p>state, which can either be undefined or set to a specific value. If the initialization state is </p>
+<p>undefined the mode is not arbitrated until the mode request/indication function occurs for </p>
+<p>the first time. </p>
+<p><b>3.3 </b></p>
+<p><b>States </b></p>
+<p>The state machine diagram in Figure 3-1 shows the general handling of the BswM. Each </p>
+<p>state is described as follows: </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>15 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_INIT </b></p>
+<p>The BswM is initialized and ready for immediate mode arbitration requests. Deferred mode </p>
+<p>arbitration is done within the cyclically called function </p>
+<p>BswM_MainFunction</p>
+<p>. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_WAIT_IMMEDIATE_REQUEST </b></p>
+<p>In this state the BswM waits for a mode arbitration request. The state is left if immediate </p>
+<p>mode arbitration is requested or when </p>
+<p>BswM_MainFunction</p>
+<p> is called. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_MAIN_FUNCTION </b></p>
+<p>This </p>
+<p>state </p>
+<p>is </p>
+<p>entered </p>
+<p>when </p>
+<p>the </p>
+<p>BswM_MainFunction</p>
+<p> </p>
+<p>is </p>
+<p>called. </p>
+<p>Within </p>
+<p>BswM_MainFunction</p>
+<p> the deferred mode arbitration is done. Immediate mode arbitration </p>
+<p>requests which occur during the execution of </p>
+<p>BswM_MainFunction</p>
+<p> are queued and will </p>
+<p>be executed at the end of </p>
+<p>BswM_MainFunction</p>
+<p>, when all deferred mode arbitration and </p>
+<p>control  is finished.  Mode arbitration  requests  of  type  “forced  immediate” are not  queued </p>
+<p>and interrupt the deferred mode arbitration. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_MODE_ARBITRATION_AND_CONTROL </b></p>
+<p>In this state the configured mode rule arbitration is done and the true-/false-action lists are </p>
+<p>executed.  New  mode  arbitration  requests  of  type  “immediate”  are  queued,  arbitration </p>
+<p>requests of type “forced immediate” are arbitrated immediately. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_EMPTY_QUEUE </b></p>
+<p>In this state the queued mode arbitration requests are executed.  </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p><b>BSWM_DEINIT </b></p>
+<p>This  state  is  entered  when  the  function </p>
+<p>BswM_Deinit</p>
+<p>  is  called.  No  mode  arbitration </p>
+<p>requests are accepted and no mode processing is done. This state can only be left when </p>
+<p>function </p>
+<p>BswM_Init</p>
+<p> is called. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>16 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>States of the BswM </p>
+<p><b>3.4 </b></p>
+<p><b>Mode Management </b></p>
+<p>The  BswM  manages  user  defined  modes,  whose  behavior  is  completely  defined  by  its </p>
+<p>configuration. A mode consists of the following parts: </p>
+<p><b>stm State_Machine</b></p>
+<p>Ini ti al</p>
+<p><b>BSWM_INIT</b></p>
+<p>EntryPoint</p>
+<p><b>BSWM_WAIT_IMMEDIATE_REQUEST</b></p>
+<p><b>BSWM_DEINIT</b></p>
+<p><b>BSWM_MAIN_FUNCTION</b></p>
+<p><b>BSWM_MODE_ARBITRATION_AND_CONTROL</b></p>
+<p><b>BSWM_EMPTY_QUEUE</b></p>
+<p>[BswM_Deinit]</p>
+<p>/stop any mode request arbitration</p>
+<p>[Deferred Request]</p>
+<p>[deferred finished]</p>
+<p>[Immediate request]</p>
+<p>/queue request</p>
+<p>[immediate request]</p>
+<p>[queue is empty]</p>
+<p>[queued immediate request]</p>
+<p>[BswM_MainFunction]</p>
+<p>[immediate request] /ignore</p>
+<p>[BswM_Init]</p>
+<p>[Immediate Request]</p>
+<p>/queue request</p>
+<p>[immediate request]</p>
+<p>/queue request</p>
+<p>[MainFunctionEnd]</p>
+<p>[Immediate finished]</p>
+<p>[BswM_MainFunction]</p>
+<p>/no deferred mode request arbitration</p>
+<p>[queued main fct call]</p>
+<p>[BswM_Init]</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>17 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p><b>Mode Source: </b>this is the trigger for the mode arbitration, a trigger can either be an </p>
+<p>application indication/request function or a BSW indication/request function or the </p>
+<p>BswM_MainFunction()</p>
+<p>. </p>
+<p><b>&gt; </b></p>
+<p><b>Mode Arbitration: </b>when the mode source trigger occurs the BswM will arbitrate a </p>
+<p>mode </p>
+<p>specific </p>
+<p>rule </p>
+<p>either </p>
+<p>immediately </p>
+<p>or </p>
+<p>deferred </p>
+<p>within </p>
+<p>the </p>
+<p>BswM_MainFunction()</p>
+<p>.  The  mode  arbitration  types  are  described  in  detail  in </p>
+<p>chapters 3.4.1 and 3.4.3. </p>
+<p><b>&gt; </b></p>
+<p><b>Mode  Rule: </b> a  rule  is  a  logical  Boolean  expression  which  consists  of  specific </p>
+<p>conditions which use different operators. The rule is arbitrated by the  BswM to be </p>
+<p>either  true  or  false.  Dependent  on  the  evaluation  result  the  BswM  executes  the </p>
+<p>configured mode action(s) (true-action(s) or false-action(s)). </p>
+<p><b>&gt; </b></p>
+<p><b>Mode Actions: </b> these  are  either BSW service  function  calls,  user callout function </p>
+<p>calls or calls to nested rules or action lists which are executed by the BswM after </p>
+<p>the Mode Arbitration. </p>
+<p> </p>
+<p><b>3.4.1 </b></p>
+<p><b>Immediate Mode Handling </b></p>
+<p>The </p>
+<p>immediate </p>
+<p>mode </p>
+<p>arbitration </p>
+<p>is </p>
+<p>done </p>
+<p>directly </p>
+<p>upon </p>
+<p>the </p>
+<p>mode </p>
+<p>request/indication </p>
+<p>function.  If  another  mode  request/indication  occurs  during  mode  arbitration  the  BswM </p>
+<p>queues  this  mode  arbitration  request.  The  mode  request  queue  is  emptied  when  the </p>
+<p>current  mode  arbitration  is  finished.  The  sequence  diagram  in  Figure  3-2  shows  this </p>
+<p>procedure. </p>
+<p> </p>
+<p><b>3.4.2 </b></p>
+<p><b>Forced Immediate Mode Handling </b></p>
+<p>The forced immediate mode arbitration is done directly upon the mode request/indication </p>
+<p>function. The forced  immediate  request triggers immediate mode  arbitration,  interrupting </p>
+<p>any  other  immediate  mode  arbitration  or  deferred  rule  processing  in  the  main  function. </p>
+<p>This type of mode handling is not queued.  </p>
+<p> </p>
+<p><b>3.4.3 </b></p>
+<p><b>Deferred Mode Handling </b></p>
+<p>The </p>
+<p>deferred </p>
+<p>mode </p>
+<p>arbitration </p>
+<p>is </p>
+<p>done </p>
+<p>cyclically </p>
+<p>within </p>
+<p>the </p>
+<p>execution </p>
+<p>of </p>
+<p>the </p>
+<p>BswM_MainFunction()</p>
+<p>. </p>
+<p>If </p>
+<p>another </p>
+<p>mode </p>
+<p>request/indication </p>
+<p>occurs </p>
+<p>during </p>
+<p>mode </p>
+<p>arbitration  the  BswM  queues  this mode  arbitration  request. The  mode  request  queue  is </p>
+<p>emptied at the end of the </p>
+<p>BswM_MainFunction()</p>
+<p>. The sequence diagram in Figure 3-3 </p>
+<p>shows this procedure. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>18 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>Sequence Immediate Processing </p>
+<p>Module</p>
+<p>BswM</p>
+<p>Module</p>
+<p>BSW/SWC</p>
+<p><b>loop ov er all rules which depend on the requested mode</b></p>
+<p><b>loop ov er marked actionlists</b></p>
+<p><b>opt </b></p>
+<p><b>loop ov er all actions of action list</b></p>
+<p><b>loop as long as queued request present</b></p>
+<p>After locking semaphore, all new </p>
+<p>immediate requests will be queued</p>
+<p>After unlocking semaphore, new </p>
+<p>immediate requests will be processed in </p>
+<p>mode request context</p>
+<p><b>alt </b></p>
+<p>[deferred request]</p>
+<p>[immediate request and locked semaphore]</p>
+<p>[unlocked sempahore or forced immediate]</p>
+<p>Reentrant mode request call - Will be processed in same way</p>
+<p><b>opt </b></p>
+<p>[sempahore was locked above]</p>
+<p>Nothing to do for deferred request. Depending rules will be </p>
+<p>arbitrated in BswM_MainFunction</p>
+<p>Mode Request()</p>
+<p>Store Mode Value()</p>
+<p>Queue Request()</p>
+<p>Lock Semaphore()</p>
+<p>Aribtrate rule and mark resulting action list for execution()</p>
+<p>Execute Action Lists()</p>
+<p>Call Action()</p>
+<p>Mode Request()</p>
+<p>Process  Queued Request()</p>
+<p>Unlock Semaphore()</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>19 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>Sequence Deferred Mode </p>
+<p> </p>
+<p>Module</p>
+<p>BswM</p>
+<p>Module</p>
+<p>BSW/SWC</p>
+<p>Module</p>
+<p>SchM</p>
+<p><b>loop ov er all rules which depend on a deferred request port</b></p>
+<p><b>loop ov er marked actionlists</b></p>
+<p><b>opt </b></p>
+<p><b>loop ov er all actions of action list</b></p>
+<p><b>loop as long as queued request present</b></p>
+<p>After locking semaphore, all new </p>
+<p>immediate requests will be queued</p>
+<p>After unlocking semaphore, new </p>
+<p>immediate requests will be processed in </p>
+<p>mode request context</p>
+<p></p>
+<p>Deferred Request will be arbitrated in next BswM_MainFunction</p>
+<p></p>
+<p>Immediate Request will be queued</p>
+<p></p>
+<p>Forced Immediate Request will be processed immediately</p>
+<p><b>opt </b></p>
+<p>[sempahore was locked above]</p>
+<p>BswM_MainFunction()</p>
+<p>Lock Semaphore()</p>
+<p>Aribtrate rule and mark resulting action list for execution()</p>
+<p>Execute Action Lists()</p>
+<p>Call Action()</p>
+<p>Mode Request()</p>
+<p>Process  Queued Request()</p>
+<p>Unlock Semaphore()</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>20 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>3.5 </b></p>
+<p><b>Execution of Action Lists </b></p>
+<p>The  execution  of actions  is done  after the  rule  arbitration  phase. Whether  an  action  list </p>
+<p>shall be executed depends on the arbitration result (true or false). There are two ways to </p>
+<p>execute an action list based on evaluation of rules: either it is executed every time the rule </p>
+<p>is evaluated with the corresponding result (so called <i>conditional execution</i>), or only when </p>
+<p>the  evaluation  result  has  changed  from  the  previous  evaluation  (so  called </p>
+<p><i>triggered </i></p>
+<p><i>execution</i>). This execution type is defined via configuration. If arbitration of a rule leads to </p>
+<p>the execution of an action list, this action list is marked for execution. All marked action </p>
+<p>lists are executed by their prioritization after the rules have been arbitrated. </p>
+<p><b>3.6 </b></p>
+<p><b>Error Handling </b></p>
+<p><b>3.6.1 </b></p>
+<p><b>Development Error Reporting </b></p>
+<p>By </p>
+<p>default, </p>
+<p>development </p>
+<p>errors </p>
+<p>are </p>
+<p>reported </p>
+<p>to </p>
+<p>the </p>
+<p>DET </p>
+<p>using </p>
+<p>the </p>
+<p>service </p>
+<p>Det_ReportError()</p>
+<p>  as  specified  in  [3],  if development  error reporting  is  enabled  (i.e. </p>
+<p>pre-compile parameter </p>
+<p>BSWM_DEV_ERROR_DETECT==STD_ON</p>
+<p>). </p>
+<p>If  another  module  is  used  for  development  error  reporting,  the  function  prototype  for </p>
+<p>reporting the error can be configured by the integrator, but must have the same signature </p>
+<p>as the service </p>
+<p>Det_ReportError()</p>
+<p>. </p>
+<p>The reported BswM ID is 42. </p>
+<p>The reported service IDs identify the services which are described in chapter  5.2. Table </p>
+<p>3-4 presents the service IDs and the related services. </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>BSWM_INITMEMORY_ID </p>
+<p>(0x80) </p>
+<p>BswM_InitMemory() </p>
+<p>BSWM_INIT_ID </p>
+<p>(0x00) </p>
+<p>BswM_Init() </p>
+<p>BSWM_GETVERSIONINFO_ID </p>
+<p>(0x01) </p>
+<p>BswM_GetVersionInfo() </p>
+<p>BSWM_REQUESTMODE_ID </p>
+<p>(0x02) </p>
+<p>BswM_RequestMode() </p>
+<p>BSWM_MAINFUNCTION_ID </p>
+<p>(0x03) </p>
+<p>BswM_MainFunction() </p>
+<p>BSWM_DEINIT_ID </p>
+<p>(0x04) </p>
+<p>BswM_Deinit() </p>
+<p>BSWM_CANSM_CURRENTSTATE_ID </p>
+<p>(0x05) </p>
+<p>BswM_CanSM_CurrentState() </p>
+<p>BSWM_DCM_COMMUNICATION_STATE_ID  (0x06) </p>
+<p>BswM_Dcm_CommunicationMode_CurrentState() </p>
+<p>BSWM_LINSM_CURRENTSTATE_ID </p>
+<p>(0x09) </p>
+<p>BswM_LinSM_CurrentState() </p>
+<p>BSWM_LINSM_CURRENTSCHEDULE_ID </p>
+<p>(0x0A) </p>
+<p>BswM_LinSM_CurrentSchedule() </p>
+<p>BSWM_LINTP_REQUESTMODE_ID </p>
+<p>(0x0B) </p>
+<p>BswM_LinTp_RequestMode() </p>
+<p>BSWM_FRSM_CURRENTSTATE_ID </p>
+<p>(0x0C) </p>
+<p>BswM_FrSM_CurrentState() </p>
+<p>BSWM_ETHSM_CURRENTMODE_ID </p>
+<p>(0x0D) </p>
+<p>BswM_EthSM_CurrentState() </p>
+<p>BSWM_COMM_CURRENTMODE_ID </p>
+<p>(0x0E) </p>
+<p>BswM_ComM_CurrentMode() </p>
+<p>BSWM_ECUM_CURRENTSTATE_ID </p>
+<p>(0x0F) </p>
+<p>BswM_EcuM_CurrentState() </p>
+<p>BSWM_ECUM_CURRENTWAKEUP_ID </p>
+<p>(0x10) </p>
+<p>BswM_EcuM_CurrentWakeup() </p>
+<p>BSWM_WDGM_REQUESTPARTITIONRESET_ID </p>
+<p> </p>
+<p>(0x11) </p>
+<p>BswM_WdgM_RequestPartitionReset() </p>
+<p>BSWM_DCM_APPLICATION_UPDATED_ID </p>
+<p>(0x14) </p>
+<p>BswM_Dcm_ApplicationUpdated() </p>
+<p>BSWM_COMM_PNC_CURRENTMODE_ID </p>
+<p>(0x15) </p>
+<p>BswM_ComM_CurrentPNCMode() </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>21 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Service ID </b></p>
+<p><b>Service </b></p>
+<p>BSWM_NVM_CURRENTBLOCKMODE_ID </p>
+<p>(0x16) </p>
+<p>BswM_NvM_CurrentBlockMode() </p>
+<p>BSWM_NVM_CURRENTJOBMODE_ID  </p>
+<p>(0x17) </p>
+<p>BswM_NvM_CurrentJobMode() </p>
+<p>BSWM_J1939NM_STATE_ID </p>
+<p>(0x18) </p>
+<p>BswM_J1939Nm_StateChangeNotification() </p>
+<p>BSWM_J1939DCM_BROADCASTSTATUS_ID (0x1b) </p>
+<p>BswM_J1939DcmBroadcastStatus() </p>
+<p>BSWM_SD_CLIENTSERVICE_CURRENT_ID (0x1f) </p>
+<p>BswM_Sd_ClientServiceCurrentState() </p>
+<p>BSWM_SD_EVENTHANDLER_CURRENT_ID (0x20) </p>
+<p>BswM_Sd_EventHandlerCurrentState() </p>
+<p>BSWM_SD_CONSUMEDEVENTGROUP_ID </p>
+<p>(0x21) </p>
+<p>BswM_Sd_ConsumedEventGroupCurrentState() </p>
+<p>BSWM_COMM_INITIATERESET_ID </p>
+<p>(0x22) </p>
+<p>BswM_ComM_InitiateReset() </p>
+<p>BSWM_ECUM_REQUESTEDSTATE_ID </p>
+<p>(0x23) </p>
+<p>BswM_EcuM_RequestedState()</p>
+<p> </p>
+<p>BSWM_NM_STATE_CHANGE_ID </p>
+<p>(0x81) </p>
+<p>BswM_Nm_StateChangeNotification() </p>
+<p>BSWM_SWCNOTIFICATION_ID </p>
+<p>(0x82) </p>
+<p>BswM_Notification_&lt;SWC Notification Name&gt; </p>
+<p>BSWM_SWCREQUESTMODE_ID </p>
+<p>(0x83) </p>
+<p>BswM_Read_&lt;SWC Mode Request Name&gt; </p>
+<p>BSWM_SETRULESTATE_ID </p>
+<p>(0x84) </p>
+<p>BswM_RuleControl() </p>
+<p>BSWM_LINSM_SCHEDULEENDNOTIFICATION_ID</p>
+<p> </p>
+<p>(0x85) </p>
+<p>BswM_LinSM_ScheduleEndNotification() </p>
+<p>BSWM_PDUR_RXINDICATION_ID </p>
+<p>(0x86) </p>
+<p>BswM_PduR_RxIndication() </p>
+<p>BSWM_PDUR_TPRXINDICATION_ID </p>
+<p>(0x87) </p>
+<p>BswM_PduR_TpRxIndication() </p>
+<p>BSWM_PDUR_TPSTARTOFRECEPTION_ID  (0x88) </p>
+<p>BswM_PduR_TpStartOfReception() </p>
+<p>BSWM_PDUR_TPTXCONFIRMATION_ID </p>
+<p>(0x89) </p>
+<p>BswM_PduR_TpTxConfirmation() </p>
+<p>BSWM_PDUR_TRANSMIT_ID </p>
+<p>(0x8A) </p>
+<p>BswM_PduR_Transmit() </p>
+<p>BSWM_PDUR_TXCONFIRMATION_ID </p>
+<p>(0x8B) </p>
+<p>BswM_PduR_TxConfirmation() </p>
+<p>BSWM_ETHIF_PORTGROUPLINKSTATECHANGE_ID </p>
+<p> </p>
+<p>(0x8C) </p>
+<p>BswM_EthIf_PortGroupLinkStateChg() </p>
+<p>Table 3-4  </p>
+<p>Service IDs  </p>
+<p> </p>
+<p>The errors reported to DET are described in the following table: </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>0x01 </p>
+<p>BSWM_E_NO_INIT </p>
+<p>Service function is called while BswM is not initialized. </p>
+<p>0x02 </p>
+<p>BSWM_E_NULL_POINTER </p>
+<p>Service function is called with a null pointer as an </p>
+<p>argument. </p>
+<p>0x03 </p>
+<p>BSWM_E_PARAM_INVALID </p>
+<p>The given parameter is invalid. </p>
+<p>0x04 </p>
+<p>BSWM_E_REQ_USER_OUT_OF_RANGE </p>
+<p>A requesting user is out of range. </p>
+<p>0x05 </p>
+<p>BSWM_E_REQ_MODE_OUT_OF_RANGE </p>
+<p>A requested mode is out of range. </p>
+<p>0x06 </p>
+<p>BSWM_E_PARAM_CONFIG </p>
+<p>The provided configuration is inconsistent.</p>
+<p><b> </b></p>
+<p>0xA0 </p>
+<p>BSWM_E_ALREADY_QUEUED </p>
+<p>An immediate request was made before the last </p>
+<p>request of the same port was processed. </p>
+<p>In most cases this error occurs due to an incorrect </p>
+<p>configuration, i.e. port shall be arbitrated on its </p>
+<p>initialization value of port but initialization value of rule </p>
+<p>is incorrect. If configuration is correct and loss of the </p>
+<p>earlier mode request is acceptable, this error can be </p>
+<p>ignored for this port. Otherwise, processing of port </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>22 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Error Code </b></p>
+<p><b>Description </b></p>
+<p>can be changed to BSWM_FORCED_IMMEDIATE.</p>
+<p> </p>
+<p>Table 3-5 </p>
+<p>Errors reported to DET </p>
+<p><b>3.6.2 </b></p>
+<p><b>Production Code Error Reporting </b></p>
+<p>By  default,  production  code  related  errors  are  reported  to  the  DEM  using  the  service </p>
+<p>Dem_ReportErrorStatus()</p>
+<p> as specified in [5]. </p>
+<p> </p>
+<p>The module BswM does not report any DEM error itself. However, it can be configured that </p>
+<p>an action member of an action list reports a DEM error when it fails.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>23 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>4 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR BswM into </p>
+<p>an application environment of an ECU. </p>
+<p><b>4.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The  delivery  of  the  BswM  contains  the  files  which  are  described  in  chapters  4.1.1  and </p>
+<p>4.1.2: </p>
+<p> </p>
+<p><b>4.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Source </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Object </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Description </b></p>
+<p>BswM.c </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>This is the source file of the BswM. It contains the </p>
+<p>initialization function, the deinitialization function, the </p>
+<p>cyclic main function and all the BSW mode indication </p>
+<p>functions.</p>
+<p> </p>
+<p>BswM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This is the header file of the BswM. It contains the </p>
+<p>interfaces to the BswM API functions. </p>
+<p>BswM_CanSM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the CAN State Manager. </p>
+<p>BswM_ComM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Communication Manager. </p>
+<p>BswM_Dcm.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Diagnostic Communication Manager. </p>
+<p>BswM_EcuM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Electronic Control Unit State Manager. </p>
+<p>BswM_EthSm.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Ethernet State Manager. </p>
+<p>BswM_FrSM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the FlexRay State Manager. </p>
+<p>BswM_J1939Dc</p>
+<p>m.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the J1939Dcm module. </p>
+<p>BswM_J1939Nm</p>
+<p>.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the J1939Nm module. </p>
+<p>BswM_LinSM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the LIN State Manager. </p>
+<p>BswM_LinTp.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the LIN Transport Protocol. </p>
+<p>BswM_Nm.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Network Manager. </p>
+<p>BswM_NvM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Non Volatile Random-access memory </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>24 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>File Name </b></p>
+<p><b>Source </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Object </b></p>
+<p><b>Code </b></p>
+<p><b>Delivery </b></p>
+<p><b>Description </b></p>
+<p>Manager. </p>
+<p>BswM_PduR.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Pdu Router module. </p>
+<p>BswM_Sd.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Service Discovery module. </p>
+<p>BswM_WdgM.h </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>This header file contains the prototypes of the callback </p>
+<p>functions of the Watchdog Manager module. </p>
+<p>Table 4-1 </p>
+<p>Static Files </p>
+<p> </p>
+<p><b>4.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>The dynamic files are generated by the configuration tool. </p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>BswM_Lcfg.c </p>
+<p>This file contains the configuration parameters for pre-compile and for post-</p>
+<p>build variant.  </p>
+<p>BswM_Cfg.h </p>
+<p>This header file contains general and configuration definitions for pre-compile </p>
+<p>and post-build variant. </p>
+<p>BswM_Private_</p>
+<p>Cfg.h </p>
+<p>This file contains the necessary includes and the declarations of libraries and </p>
+<p>variables used by the BswM. </p>
+<p>BswM_PBcfg.c </p>
+<p>This file contains the variables used for mode arbitration in post-build variant. </p>
+<p>BswM_Callout_</p>
+<p>Stubs.c </p>
+<p>This file contains the definitions of the call back functions which were </p>
+<p>configured to be created. </p>
+<p>Table 4-2 </p>
+<p>Dynamic Files </p>
+<p><b>4.2 </b></p>
+<p><b>Initialization of Other Software Modules </b></p>
+<p>The BswM is able to initialize software components through User Callout functions. The </p>
+<p>BswM can realize the initialization after the EcuM has finished its “post OS sequence”, in </p>
+<p>which it initializes the operating system, the Schedule Manager and the BswM.  </p>
+<p><b>4.2.1 </b></p>
+<p><b>Using the Basic Editor </b></p>
+<p>In order to configure the BswM to initialize other modules: </p>
+<p></p>
+<p> </p>
+<p>Create “Actions” of type “User Callout” which contain the initialization functions. </p>
+<p></p>
+<p> </p>
+<p>Create an “Action List” which contains the before mentioned “User Callout” actions. </p>
+<p></p>
+<p> </p>
+<p>Click on the container “BswMModeControl”, to make the “Init Action List Reference” </p>
+<p>visible. </p>
+<p></p>
+<p> </p>
+<p>Add a reference to the action list that contains the initialization callouts of the other </p>
+<p>modules. </p>
+<p></p>
+<p> </p>
+<p>These actions will be called at the end of BswM_Init. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>25 </p>
+<p>based on template version 4.11.3 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>It  is  important  that  the  execution  of  the  initialization  is  not  interrupted  by  any </p>
+<p>other  main function. The  initialization  of  all the  configured  modules  should be </p>
+<p>concluded before any other function is called.  </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Illustratively, a list of initialization functions is listed below, as exemplified in the Guide to </p>
+<p>Mode Management [2] (This guide can be also consulted for further Mode management </p>
+<p>information).  Note  that  this  list  is  not  complete  and  depends  on  the  BSW  modules  you </p>
+<p>have in your delivery. </p>
+<p> </p>
+<p> </p>
+<p>Initialization of basic drivers to access the NVRAM: </p>
+<p> Spi_Init(NULL_PTR); </p>
+<p> Eep_Init(NULL_PTR); </p>
+<p> Fls_Init(NULL_PTR); </p>
+<p> NvM_Init(NULL_PTR); </p>
+<p> NvM_ReadAll(); </p>
+<p> </p>
+<p>After the </p>
+<p>NvM_ReadAll()</p>
+<p> job is finished the initialization of the remaining modules can </p>
+<p>continue:</p>
+<p> </p>
+<p> Can_Init(NULL_PTR); </p>
+<p> CanIf_Init(NULL_PTR); </p>
+<p> CanSM_Init(NULL_PTR); </p>
+<p> CanTp_Init(NULL_PTR); </p>
+<p> Lin_Init(NULL_PTR); </p>
+<p> LinIf_Init(NULL_PTR); </p>
+<p> LinSM_Init(NULL_PTR); </p>
+<p> LinTp_Init(NULL_PTR); </p>
+<p> Fr_Init(NULL_PTR); </p>
+<p> FrIf_Init(NULL_PTR); </p>
+<p> FrSm_Init(NULL_PTR); </p>
+<p> FrTp_Init(NULL_PTR); </p>
+<p> StbM_Init(); </p>
+<p> PduR_Init(NULL_PTR); </p>
+<p> CanNm_Init(NULL_PTR); </p>
+<p> LinNM_Init(NULL_PTR); </p>
+<p> FrNm_Init(NULL_PTR); </p>
+<p> Nm_Init(NULL_PTR); </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>26 </p>
+<p>based on template version 4.11.3 </p>
+<p> IpduM_Init(NULL_PTR); </p>
+<p> Com_Init(NULL_PTR); </p>
+<p> ComM_Init(NULL_PTR); </p>
+<p> Dcm_Init(NULL_PTR); </p>
+<p> Dem_Init(NULL_PTR); </p>
+<p> RteStart(); </p>
+<p> </p>
+<p>Note  that  when  in  Post-Build  variant,  the  previous  initialization  functions  could  contain </p>
+<p>post-build specific parameters. For detailed information see document [7], chapter: BSW </p>
+<p>Module Initialization, which summarizes the steps required to initialize post-build loadable </p>
+<p>BSW modules. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Note that the parameters of the initialization functions used in the example may differ </p>
+<p>from the actual expected parameters of the corresponding modules depending on the </p>
+<p>configuration. Please refer to the Technical Reference of each module for the proper </p>
+<p>initialization call. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>4.2.2 </b></p>
+<p><b>Using the Comfort View </b></p>
+<p>In  order  to  facilitate  the  configuration  of  the  initialization  of  other  modules,  the  “Auto </p>
+<p>Configuration: Module Initialization” can be used. For further information see chapters 4.3 </p>
+<p>and 4.3.1. </p>
+<p><b>4.3 </b></p>
+<p><b>Support of Preconfigured State Machines (Auto-Configuration) </b></p>
+<p>The BswM supports preconfigured state machines. The content of these state machines is </p>
+<p>based on the currrent configuration. The state machines can be activated and modified by </p>
+<p>the user. They can be found in the “Mode Management” view of the DaVinci Configurator 5 </p>
+<p>Pro. To make use of the auto configured state machines: </p>
+<p>1. </p>
+<p>In the configuration editor click on “Mode Management”. </p>
+<p>2. </p>
+<p>Open “BSW Management” window. </p>
+<p>3. </p>
+<p>Click on “Auto Configuration: &lt;Name of the State Machine&gt;”.   </p>
+<p>4. </p>
+<p>Click on the link “Configure Module Initialization” to start configuring. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Created Rules, Actions, Conditions, etc. are only an advice and may be edited by the </p>
+<p>integrator. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>27 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>Auto-configured state machines </p>
+<p><b>4.3.1 </b></p>
+<p><b>Initialization </b></p>
+<p>The BswM has knowledge of how to initialize several modules: which function to call, with </p>
+<p>which parameters and which header to include. These modules are listed in the “known </p>
+<p>modules” list. However, the preconfigured initialization functions and include headers can </p>
+<p>be changed/adapted by the integrator. </p>
+<p> </p>
+<p>The  “foreign  modules”  list  contains  modules  unknown  to  the  BswM.  An  initialization </p>
+<p>function </p>
+<p>and </p>
+<p>an </p>
+<p>include </p>
+<p>header </p>
+<p>are </p>
+<p>suggested, </p>
+<p>but </p>
+<p>it </p>
+<p>is </p>
+<p>necessary </p>
+<p>to </p>
+<p>assure </p>
+<p>the </p>
+<p>correctness of the preconfigured parameters and adapt them in case it is necessary. The </p>
+<p>foreign modules will be initialized after the known modules by default. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>28 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>Configure module initialization </p>
+<p>The list of modules shows them in alphabetical order. But the initialization function calls </p>
+<p>are generated according to the internal logic of the generator. In order to see the actual </p>
+<p>order  in  which  the  functions  will  be  generated,  click  on  Auto  Configuration:  Module </p>
+<p>Initialization -&gt; Action Lists-&gt; INIT_AL_Initialize. </p>
+<p>A list of items is shown in the order in which they are generated. The order of the items </p>
+<p>can be changed manually. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>29 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>Edit initialization order </p>
+<p>If the module initialization is edited with the configuration window again, the default order </p>
+<p>of the items will be restored and the changes previously made in the action list items order </p>
+<p>will be lost. </p>
+<p> </p>
+<p>To  avoid  changing  the  already  edited action  list  items  order,  it  is necessary  to  clear the </p>
+<p>“Restore Default Sequence” checkbox when configuring again.   </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-4 </p>
+<p>Restore default sequence </p>
+<p><b>4.3.2 </b></p>
+<p><b>ECU State Handling </b></p>
+<p>The  BswM  is  able  to  create  rules  and  actions  which  take  care  of  starting  and  shutting </p>
+<p>down the ECU. This behavior is similar to EcuM in ASR 3. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>30 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 4-5 </p>
+<p>Configuration of the features for ECU State Handling </p>
+<p>The  following  features  can  be  activated:  DEM  initialization  and  shut-down  generation, </p>
+<p>enabling and disabling of ComM communication, activation of NvM handling, notifications </p>
+<p>of the RTE about mode changes and transition call outs are enabled. </p>
+<p> </p>
+<p>Furthermore, the number of users that request run request and post-run request and the </p>
+<p>period of time that the state machine spends in the run mode state can be configured.  </p>
+<p> </p>
+<p>The state machine of the ECU state Handling is illustrated in Figure 4-6 </p>
+<p>State  Machine  of </p>
+<p>the ECU State Handling. The rectangular states are notified to the RTE if synchronisation </p>
+<p>is enabled. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>31 </p>
+<p>based on template version 4.11.3 </p>
+<p> </p>
+<p>Figure 4-6 </p>
+<p>State Machine of the ECU State Handling </p>
+<p> </p>
+<p><b>4.3.3 </b></p>
+<p><b>Communication Control </b></p>
+<p>The BswM is able to create rules and actions which take care of starting and stopping the </p>
+<p>communication of an ECU.  </p>
+<p>The features supported by the auto configuration of the Communication Control are: </p>
+<p>WAKEUP</p>
+<p>SHUTDOWN</p>
+<p>POSTRUN</p>
+<p>RUN</p>
+<p>STARTUP</p>
+<p>Initial</p>
+<p><b>Init</b></p>
+<p><b>Run</b></p>
+<p><b>PostRun</b></p>
+<p><b>Prepare Shutdown</b></p>
+<p><b>Wait for NvM</b></p>
+<p><b>Sleep - &quot;Virtual&quot;</b></p>
+<p><b>Shutdown &quot;virtual&quot;</b></p>
+<p><b>WakeUp</b></p>
+<p><b>[No Nv M indication pending or</b></p>
+<p><b>the Nv M_WriteAllTimer is</b></p>
+<p><b>expired]</b></p>
+<p><b>/EcuM_GoPoll</b></p>
+<p><b>EcuM_GoHalt</b></p>
+<p><b>[No run request and no</b></p>
+<p><b>communication in all channels]</b></p>
+<p><b>/Disallow Communication</b></p>
+<p><b>EcuM_ClearValidatedWakeupEv ent</b></p>
+<p><b>[Run requested or v alid</b></p>
+<p><b>wake-up ev ent or</b></p>
+<p><b>pending communication</b></p>
+<p><b>request]</b></p>
+<p><b>/Allow communication</b></p>
+<p><b>[No Nv M indication pending,</b></p>
+<p><b>Nv M_CancelWriteAllTimer is expired]</b></p>
+<p><b>/Allow communication</b></p>
+<p><b>Dem_Init</b></p>
+<p><b>Start Self Run Request Timer</b></p>
+<p><b>[postrun request ==  released]</b></p>
+<p><b>/Dem_Shutdow n()</b></p>
+<p><b>[Valid wakeup ev ent]</b></p>
+<p><b>/Stop WriteAllTimer</b></p>
+<p><b>Start CancelWriteAllTimer</b></p>
+<p><b>Nv M_CancelWriteAll</b></p>
+<p><b>[RTE mode notification]</b></p>
+<p><b>/Nv M write All</b></p>
+<p><b>Start Nv M_WriteAllTimer</b></p>
+<p><b>[No Nv M indication pending or the Nv M_WriteAllTimer is expired]</b></p>
+<p><b>/WriteAllTimer_Stop</b></p>
+<p><b>EcuM_GoDown</b></p>
+<p><b>[NO Wakeup was v alid]</b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>32 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p>Configuration I-PDU groups switching of CAN, ETH, LIN, FR and J1939 as long as </p>
+<p>the I-PDUs belong to only one channel.  </p>
+<p></p>
+<p> </p>
+<p>In case the I-PDU Group has I-PDUs from different channels, it will be listed </p>
+<p>as “Not available” and the configuration has to be realized manually. </p>
+<p><b>&gt; </b></p>
+<p>Reinitialization of transmission (TX) and reception (RX) I-PDUs is possible.  </p>
+<p></p>
+<p> </p>
+<p>In  case  of  CAN,  the  reinitialization  will only  be  performed  in  the  Bus  State </p>
+<p>transition from NO_COM to FULL _COM, in case of BUS_OFF or SILENT no </p>
+<p>reinitialization will be performed. </p>
+<p><b>&gt; </b></p>
+<p>Enabling and disabling of the NM for CAN, ETH and FlexRay bus, if NM is present </p>
+<p>in that channel.  </p>
+<p><b>&gt; </b></p>
+<p>Consideration  of  the  DCM  Modes  when  switching  I-PDU  Groups  that  belong  to </p>
+<p>CAN, ETH or to FlexRay bus. </p>
+<p><b>&gt; </b></p>
+<p>Consideration of selected Nm States when switching TX I-PDU Groups that belong </p>
+<p>to a CAN bus. </p>
+<p><b>&gt; </b></p>
+<p>Configuration of Partial Networking (PNC) is supported for CAN, ETH and FlexRay </p>
+<p>bus. </p>
+<p></p>
+<p> </p>
+<p>If a I-PDU Group can be assigned to a PNC, the I-PDU Group is listed as a </p>
+<p>sub feature of the corresponding PNC and it is switched on or off depending </p>
+<p>on the PNC Status.  </p>
+<p></p>
+<p> </p>
+<p>Consider  that  the  PCN  can  only  be  determined  if  there  are  PNC-Mapping </p>
+<p>entries in the System-Description. </p>
+<p><b>&gt; </b></p>
+<p>Configuration of the J1939 module. </p>
+<p></p>
+<p> </p>
+<p>Standard rules will be configured which consider the state of the J1939Nm </p>
+<p>for the rule condition. As action lists the states of the modules J1939Dcm and </p>
+<p>J1939Rm are set. </p>
+<p></p>
+<p> </p>
+<p> The  I-PDU  Groups  which  contains  only  I-PDUs  of  the  same  Node  will  be </p>
+<p>switched on or off depending on the Node status. </p>
+<p></p>
+<p> </p>
+<p>The  I-PDU </p>
+<p>Groups  which </p>
+<p>are </p>
+<p>determined  as  broadcast </p>
+<p>groups  will  be </p>
+<p>switched on or off depending on the Dcm broadcast status. </p>
+<p></p>
+<p> </p>
+<p>Enabling and disabling of Routing-Pathes in PduR depending on the channel </p>
+<p>and node state. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Switching of LIN I-PDU groups.  </p>
+<p></p>
+<p> </p>
+<p>The I-PDU Groups which contains only I-PDUs of the same Schedule will be </p>
+<p>switched on or off depending on the schedule status. </p>
+<p></p>
+<p> </p>
+<p>Setting a start schedule table. </p>
+<p>  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>33 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>4.3.4 </b></p>
+<p><b>Service Discovery Control </b></p>
+<p>The  BswM  is  able  to  create  the  necessary  ports  to  control  the  Service  Discovery  by </p>
+<p>application. </p>
+<p>The  auto </p>
+<p>configuration, </p>
+<p>which </p>
+<p>is </p>
+<p>only </p>
+<p>available </p>
+<p>if  the </p>
+<p>Sd  module </p>
+<p>is </p>
+<p>in </p>
+<p>the </p>
+<p>current </p>
+<p>configuration, supports the following features: </p>
+<p><b>&gt; </b></p>
+<p>Creation </p>
+<p>of </p>
+<p>a </p>
+<p>BswMSwitchPort </p>
+<p>(P- </p>
+<p>Port) </p>
+<p>for </p>
+<p>each </p>
+<p>selected </p>
+<p>SdClientService, </p>
+<p>SdEventHandler or SdConsumedEventGroup to provide its state to the application. </p>
+<p><b>&gt; </b></p>
+<p>Creation of a BswMSwcModeRequest (R-Port) for each selected SdClientService, </p>
+<p>SdServerService or SdConsumedEventGroup to catch the request from application </p>
+<p>and forward it to the Sd. </p>
+<p><b>4.4 </b></p>
+<p><b>Critical Sections </b></p>
+<p>The BswM has code sections which must not be interrupted by incoming mode requests. </p>
+<p>Therefore the BswM uses one exclusive area which requires a global interrupt lock: </p>
+<p>BSWM_EXCLUSIVE_AREA_0 </p>
+<p>The  main  functions  of  the  BSW  modules  that  use  BswM  to  provide  mode  indications </p>
+<p>should not interrupt each other.  </p>
+<p> </p>
+<p> </p>
+<p><b>4.5 </b></p>
+<p><b>Cyclic Task </b></p>
+<p>The BswM has one cyclic main function </p>
+<p>BswM_MainFunction()</p>
+<p> which must be called </p>
+<p>cyclically  if  either  a  deferred  mode  request  port  exists,  a  timer  is  used  or  a  RTE  mode </p>
+<p>switch action is configured. The cyclic time is up to the user but must be considered for </p>
+<p>deferred mode handling. </p>
+<p> </p>
+<p><b>4.6 </b></p>
+<p><b>NvM – BswM configuration </b></p>
+<p>When configuring NvM request ports in BswM it is necessary that the general configuration </p>
+<p>of the NvM has the necessary boxes checked. </p>
+<p> </p>
+<p>In NvMCommon check the box: “Multiblock Job status Information” </p>
+<p>In NVMConfigBlock check the box “Block status information” </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Refer to [6] for details about exclusive areas. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>34 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5 </b></p>
+<p><b>API Description </b></p>
+<p>For an interfaces overview please see Figure 2-2. </p>
+<p><b>5.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the BswM are described in this chapter. </p>
+<p><b>Type Name </b></p>
+<p><b>C-Type </b></p>
+<p><b>Description </b></p>
+<p><b>Value Range </b></p>
+<p>BswM_ConfigType </p>
+<p>struct  </p>
+<p> </p>
+<p>Used for the pointers of </p>
+<p>post-build configurations </p>
+<p>during the initialization of </p>
+<p>the BswM. </p>
+<p>In pre-compile, it is not </p>
+<p>used. </p>
+<p> </p>
+<p>BswM_ModeType </p>
+<p>uint16 </p>
+<p>Data type that identifies </p>
+<p>the modes that can be </p>
+<p>requested by BswM </p>
+<p>Users </p>
+<p>0 … 65535  </p>
+<p>Used if the total number of </p>
+<p>modes is greater than 255. </p>
+<p>BswM_UserType </p>
+<p>uint16 </p>
+<p>Data type that identifies a </p>
+<p>BswM User that makes </p>
+<p>mode requests to the </p>
+<p>BswM. </p>
+<p>0 … 65535  </p>
+<p>Used if the total number of </p>
+<p>users is greater than 255. </p>
+<p>BswM_HandleType </p>
+<p>uint8 / uint16 </p>
+<p>Data type which is used </p>
+<p>for action list and rule IDs. </p>
+<p>0 … 65535  </p>
+<p>Depends on number of action </p>
+<p>lists and rules.</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p>Type definitions </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>35 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2 </b></p>
+<p><b>Services Provided by BswM </b></p>
+<p><b>5.2.1 </b></p>
+<p><b>BswM_InitMemory </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_InitMemory </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the BSW Mode Manager module variables in case an initializing startup code is not used. This </p>
+<p>function sets the BswM into an uninitialized state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>If this function is used it shall be called before any other BSWM function after startup. </p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task context. </p>
+<p>Table 5-2  </p>
+<p>BswM_InitMemory </p>
+<p><b>5.2.2 </b></p>
+<p><b>BswM_Init </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Init </b>(const BswM_ConfigType *ConfigPtr) </p>
+<p><b>Parameter </b></p>
+<p>ConfigPtr </p>
+<p>Pointer to post-build configuration data. For the pre-compile case a NULL </p>
+<p>pointer shall be used. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Initializes the BSW Mode Manager. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task context. </p>
+<p>Table 5-3  </p>
+<p>BswM_Init </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>36 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.3 </b></p>
+<p><b>BswM_Deinit </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Deinit </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Deinitializes the BSW Mode Manager. All pending requests are cleared and no further mode requests are </p>
+<p>accepted by the BswM. This state can only be left by calling the function </p>
+<p>BswM_Init()</p>
+<p>. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task context. </p>
+<p>Table 5-4  </p>
+<p>BswM_Deinit </p>
+<p><b>5.2.4 </b></p>
+<p><b>BswM_GetVersionInfo </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_GetVersionInfo </b>(Std_VersionInfoType *VersionInfo) </p>
+<p><b>Parameter </b></p>
+<p>VersionInfo </p>
+<p>Pointer to address where the version information shall be copied to. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>None </p>
+<p><b>Functional Description </b></p>
+<p>Returns the version information of this module.  </p>
+<p>The versions are BCD-coded. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>The caller must ensure to allocate a variable of the type Std_VersionInfoType before the function call. </p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-5  </p>
+<p>BswM_GetVersionInfo </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>37 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.5 </b></p>
+<p><b>BswM_RequestMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_RequestMode </b>(BswM_UserType requesting_user, </p>
+<p> </p>
+<p>BswM_ModeType requested_mode) </p>
+<p><b>Parameter </b></p>
+<p>requesting_user </p>
+<p>The user that requests the mode. </p>
+<p>requested_mode </p>
+<p>The requested mode. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Generic function call to request modes. This function shall only be used by other BSW modules that do not </p>
+<p>have a specific mode request interface and/or for generic mode requests. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different users. </p>
+<p>&gt; </p>
+<p>This function is only allowed to be used by applications for generic mode requests. Otherwise, </p>
+<p>applications must not use this function. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-6  </p>
+<p>BswM_RequestMode </p>
+<p><b>5.2.6 </b></p>
+<p><b>BswM_ComM_CurrentMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_ComM_CurrentMode </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>ComM_ModeType RequestedMode)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The ComM communication channel that the indicated state corresponds to. </p>
+<p>RequestedMode </p>
+<p>The current state of the ComM communication channel </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by ComM to indicate the current communication mode of a ComM channel. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>Must only be called by the ComM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-7  </p>
+<p>BswM_ComM_CurrentMode </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>38 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.7 </b></p>
+<p><b>BswM_ComM_CurrentPNCMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_ComM_CurrentPNCMode </b>( PNCHandleType PNC, </p>
+<p> </p>
+<p>ComM_PncModeType RequestedMode)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>PNC </p>
+<p>The handle of the PNC for which the current state is reported. </p>
+<p>RequestedMode </p>
+<p>The current mode of the PNC. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by ComM to indicate the current mode of the PNC. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different PNCs. </p>
+<p>&gt; </p>
+<p>Must only be called by the ComM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-8  </p>
+<p>BswM_ComM_CurrentPNCMode </p>
+<p><b>5.2.8 </b></p>
+<p><b>BswM_ComM_InitiateReset </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_ComM_InitiateReset </b>(void)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by ComM to request a ECU reset. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>Must only be called by the ComM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-9  </p>
+<p>BswM_ComM_InitiateReset </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>39 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.9 </b></p>
+<p><b>BswM_Dcm_ApplicationUpdated </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Dcm_ApplicationUpdated </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by DCM to inform the BswM that the application has being updated. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant. </p>
+<p>&gt; </p>
+<p>Must only be called by the Dcm. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-10  </p>
+<p>BswM_Dcm_ApplicationUpdated </p>
+<p><b>5.2.10 </b></p>
+<p><b>BswM_Dcm_CommunicationMode_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Dcm_CommunicationMode_CurrentState </b></p>
+<p>(NetworkHandleType Network, Dcm_CommunicationModeType RequestedMode) </p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The communication channel that the diagnostic mode corresponds to. </p>
+<p>RequestedMode </p>
+<p>The requested diagnostic communication mode. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by DCM to inform the BswM about the current state of the communication mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>Must only be called by the Dcm. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-11  </p>
+<p>BswM_Dcm_CommunicationMode_CurrentState </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>40 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.11 </b></p>
+<p><b>BswM_CanSM_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_CanSM_CurrentState </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>CanSM_BswMCurrentStateType CurrentState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The CAN channel that the indicated state corresponds to. </p>
+<p>CurrentState </p>
+<p>The current state of the CAN channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by CanSM to indicate its current state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>Must only be called by the CanSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-12  </p>
+<p>BswM_CanSM_CurrentState </p>
+<p><b>5.2.12 </b></p>
+<p><b>BswM_EthIf_PortGroupLinkStateChg </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_EthIf_PortGroupLinkStateChg </b>( EthIf_SwitchPortGroupIdxType </p>
+<p>PortGroupIdx,  </p>
+<p>EthTrcv_LinkStateType PortGroupState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>PortGroupIdx </p>
+<p>The port group index in the context of the Ethernet Interface. </p>
+<p>PortGroupState </p>
+<p>The current state of the port group. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by EthIf to indicate the link state change of a certain ethernet switch port group. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different ethernet port groups. </p>
+<p>&gt; </p>
+<p>Must only be called by the EthIf. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-13  </p>
+<p>BswM_EthIf_PortGroupLinkStateChg </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>41 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.13 </b></p>
+<p><b>BswM_EthSM_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_EthSM_CurrentState </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>EthSM_NetworkModeStateType CurrentState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The Ethernet channel that the indicated state corresponds to. </p>
+<p>CurrentState </p>
+<p>The current state of the Ethernet channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by EthSM to indicate its current state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>Must only be called by the EthSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-14  </p>
+<p>BswM_EthSM_CurrentState </p>
+<p><b>5.2.14 </b></p>
+<p><b>BswM_FrSM_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_FrSM_CurrentState </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>FrSM_BswM_StateType CurrentState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The FlexRay cluster that the indicated state corresponds to. </p>
+<p>CurrentState </p>
+<p>The current state of the FlexRay cluster. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by FrSM to indicate its current state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by the FrSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-15  </p>
+<p>BswM_FrSM_CurrentState </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>42 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.15 </b></p>
+<p><b>BswM_J1939DcmBroadcastStatus </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_J1939DcmBroadcastStatus </b>( uint16 NetworkMask)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>NetworkMask </p>
+<p>Mask  containing  one  bit  for  each  available  network.  1:Network enabled  </p>
+<p>0: Network disabled. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>This  API  tells  the  BswM  the  desired  communication  status  of  the  available networks. The status will </p>
+<p>typically be activated via COM I-PDU group switches. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function must only be called by the J1939Dcm. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-16  </p>
+<p>BswM_J1939DcmBroadcastStatus </p>
+<p><b>5.2.16 </b></p>
+<p><b>BswM_J1939Nm_StateChangeNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_J1939Nm_StateChangeNotification </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>uint8 Node, Nm_StateType NmState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>Identification of the J1939 channel. </p>
+<p>Node </p>
+<p>Identification of the J1939 node </p>
+<p>NmState </p>
+<p>Current (new) state of the J1939 node </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Notification of current J1939Nm state after state changes. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different combinations of network and node. </p>
+<p>&gt; </p>
+<p>This function must only be called by the J1939Nm. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-17  </p>
+<p>BswM_J1939Nm_StateChangeNotification </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>43 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.17 </b></p>
+<p><b>BswM_LinSM_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_LinSM_CurrentState </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>LinSM_ModeType CurrentState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The LIN channel that the indicated state corresponds to. </p>
+<p>CurrentState </p>
+<p>The current state of the LIN channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by LinSM to indicate its current state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by the LinSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-18  </p>
+<p>BswM_LinSM_CurrentState </p>
+<p><b>5.2.18 </b></p>
+<p><b>BswM_LinSM_CurrentSchedule </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_LinSM_CurrentSchedule </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>LinIf_SchHandleType CurrentSchedule)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The LIN channel that the indicated schedule corresponds to. </p>
+<p>CurrentSchedule </p>
+<p>The currently active schedule table of the LIN channel. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by LinSM to indicate its current schedule. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by the LinSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-19  </p>
+<p>BswM_LinSM_CurrentSchedule </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>44 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.19 </b></p>
+<p><b>BswM_LinSM_ScheduleEndNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_LinSM_ScheduleEndNotification </b>(NetworkHandleType Network, </p>
+<p> </p>
+<p>LinIf_SchHandleType Schedule)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The LIN channel that the indicated schedule corresponds to. </p>
+<p>Schedule </p>
+<p>The schedule table of the LIN channel wich has ended. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by LinSM to notify the end of a schedule. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by the LinSM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-20  </p>
+<p>BswM_LinSM_ScheduleEndNotification </p>
+<p><b>5.2.20 </b></p>
+<p><b>BswM_LinTp_RequestMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_LinTp_RequestMode </b>( NetworkHandleType Network, </p>
+<p> </p>
+<p>LinTp_Mode LinTpRequestedMode)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>Network </p>
+<p>The LIN channel that the LIN TP mode request corresponds to. </p>
+<p>LinTpRequestedMode </p>
+<p>The requested LIN TP mode. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by LinTp to request a mode for the corresponding LIN channel. The LinTp_Mode mainly </p>
+<p>correlates to the LIN schedule table that should be used. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by the LinTp. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-21  </p>
+<p>BswM_LinTp_RequestMode </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>45 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.21 </b></p>
+<p><b>BswM_EcuM_CurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_EcuM_CurrentState </b>(EcuM_StateType CurrentState) </p>
+<p><b>Parameter </b></p>
+<p>CurrentState </p>
+<p>The requested ECU Operation Mode </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by EcuM to indicate the current ECU Operation Mode. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>Must only be called by the EcuM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-22  </p>
+<p>BswM_EcuM_CurrentState </p>
+<p><b>5.2.22 </b></p>
+<p><b>BswM_EcuM_CurrentWakeup </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_EcuM_CurrentWakeup </b>( EcuM_WakeupSourceType source, </p>
+<p> </p>
+<p>EcuM_WakeupStateType state)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>source </p>
+<p>Wakeup source(s) that changed state. </p>
+<p>state </p>
+<p>The new state of the wakeup source(s). </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by EcuM to indicate the current state of a wakeup source. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different sources. </p>
+<p>&gt; </p>
+<p>Must only be called by the EcuM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-23  </p>
+<p>BswM_EcuM_CurrentWakeup </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>46 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.23 </b></p>
+<p><b>BswM_EcuM_RequestedState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_</b></p>
+<p> </p>
+<p><b>EcuM_RequestedState </b>( EcuM_StateType State, </p>
+<p> </p>
+<p>EcuM_RunStatusType CurrentStatus)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>State </p>
+<p>The requested state by EcuMFlex. </p>
+<p>CurrentStatus </p>
+<p>The new result of the Run Request Protocol. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by EcuM to indicate the request of a run request protocol state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different states. </p>
+<p>&gt; </p>
+<p>Must only be called by the EcuM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-24  </p>
+<p>BswM_EcuM_RequestedState </p>
+<p><b>5.2.24 </b></p>
+<p><b>BswM_MainFunction </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_MainFunction </b>(void) </p>
+<p><b>Parameter </b></p>
+<p>None </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Main function of the BswM. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is non-reentrant. </p>
+<p>&gt; </p>
+<p>This function must be called with the configured cycle time by the SchM [6]. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task context. </p>
+<p>Table 5-25  </p>
+<p>BswM_MainFunction </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>47 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.25 </b></p>
+<p><b>BswM_NvM_CurrentBlockMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_NvM_CurrentBlockMode</b>(NvM_BlockIdType Block, </p>
+<p> </p>
+<p>NvM_RequestResultType CurrentBlockMode) </p>
+<p><b>Parameter </b></p>
+<p>Block </p>
+<p>The Block that the new NvM Mode corresponds to. </p>
+<p>CurrentBlockMode </p>
+<p>The current block mode of the NvM block. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function  called  by  NvM  to  indicate  the  current  block  mode  of  an  NvM  block. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different blocks. </p>
+<p>&gt; </p>
+<p>This function must only be called by NvM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-26  </p>
+<p>BswM_NvM_CurrentBlockMode </p>
+<p><b>5.2.26 </b></p>
+<p><b>BswM_NvM_CurrentJobMode </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_NvM_CurrentJobMode</b>(uint8 ServiceId, </p>
+<p> </p>
+<p>NvM_RequestResultType CurrentJobMode) </p>
+<p><b>Parameter </b></p>
+<p>ServiceId </p>
+<p>Indicates  whether  the  callback  refers  to  multi  block  services  </p>
+<p>NvM_ReadAll or NvM_WriteAll. </p>
+<p>CurrentJobMode </p>
+<p>Current  state  of  the  multi  block  job  indicated  by  parameter  </p>
+<p>ServiceId. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by NvM to inform the BswM about the current state of a multi block job. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different services. </p>
+<p>&gt; </p>
+<p>This function must only be called by NvM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>48 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-27  </p>
+<p>BswM_NvM_CurrentJobMode </p>
+<p><b>5.2.27 </b></p>
+<p><b>BswM_PduR_RxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_RxIndication</b>(PduIdType RxPduId, </p>
+<p> </p>
+<p>const PduInfoType *PduInfoPtr)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>RxPduId </p>
+<p>The PduR ID of received PDU. </p>
+<p>PduInfoPtr </p>
+<p>Pointer which stores all informations about the PDU. Not used by current </p>
+<p>implementation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about a received PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for a RxPduId which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-28  </p>
+<p>BswM_PduR_RxIndication </p>
+<p><b>5.2.28 </b></p>
+<p><b>BswM_PduR_TpRxIndication </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_TpRxIndication</b>(PduIdType id, Std_ReturnType result) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>The PduR ID of received PDU. </p>
+<p>result </p>
+<p>Result of the reception. Not used by current implementation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about a received TP PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for an id which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-29  </p>
+<p>BswM_PduR_TpRxIndication </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>49 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.29 </b></p>
+<p><b>BswM_PduR_TpStartOfReception </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_TpStartOfReception </b>( PduIdType id, PduInfoType *info, </p>
+<p> </p>
+<p>PduLengthType TpSduLength,PduLengthType *bufferSizePtr) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>The PduR ID of received PDU. </p>
+<p> </p>
+<p>info </p>
+<p>Pointer which stores all informations about the PDU. Not used by current </p>
+<p>implementation. </p>
+<p>TpSduLength </p>
+<p>Total length of the I-PDU to be received. Not used by current implementation. </p>
+<p>bufferSizePtr </p>
+<p>Pointer to the receive buffer. Not used by current implementation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about the start of TP PDU Reception. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for an id which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-30  </p>
+<p>BswM_PduR_TpStartOfReception </p>
+<p><b>5.2.30 </b></p>
+<p><b>BswM_PduR_TpTxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_TpTxConfirmation</b>(PduIdType id, Std_ReturnType result) </p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>The PduR ID of sent TP PDU. </p>
+<p>result </p>
+<p>Result of the transmission. Not used by current implementation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about a sent TP PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for an id which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>50 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-31  </p>
+<p>BswM_PduR_TpTxConfirmation </p>
+<p><b>5.2.31 </b></p>
+<p><b>BswM_PduR_Transmit </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_Transmit</b>( PduIdType id, const PduInfoType *PduInfoPtr)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>id </p>
+<p>The PduR ID of PDU to transmit. </p>
+<p>PduInfoPtr </p>
+<p>Pointer which stores all informations about the PDU. Not used by current </p>
+<p>implementation. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about a PDU Transmit Event </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for an id which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-32  </p>
+<p>BswM_PduR_Transmit </p>
+<p><b>5.2.32 </b></p>
+<p><b>BswM_PduR_TxConfirmation </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_PduR_TxConfirmation</b>( PduIdType TxPduId ) </p>
+<p><b>Parameter </b></p>
+<p>TxPduId </p>
+<p>The PduR ID of sent PDU. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by PduR to inform the BswM about a sent PDU. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for a TxPduId which does not belong to the same configured port. </p>
+<p>&gt; </p>
+<p>This function must only be called by the PduR. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-33  </p>
+<p>BswM_PduR_TxConfirmation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>51 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.33 </b></p>
+<p><b>BswM_Sd_EventHandlerCurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void BswM_Sd_EventHandlerCurrentState(uint16 SdEventHandlerHandleId, </p>
+<p> </p>
+<p>Sd_EventHandlerCurrentStateType EventHandlerStatus )<b> </b></p>
+<p><b>Parameter </b></p>
+<p>SdEventHandlerHandleId </p>
+<p>HandleId to identify the EventHandler </p>
+<p>EventHandlerStatus </p>
+<p>Status of the EventHandler </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function  called  by  Service  Discovery  to  indicate  current  status  of  the EventHandler </p>
+<p>(requested/released). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different handles. </p>
+<p>&gt; </p>
+<p>This function must only be called by Sd. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-34  </p>
+<p>BswM_Sd_EventHandlerCurrentState </p>
+<p> </p>
+<p><b>5.2.34 </b></p>
+<p><b>BswM_Sd_ClientServiceCurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Sd_ClientServiceCurrentState</b>(uint16 SdClientServiceHandleId, </p>
+<p> </p>
+<p>Sd_ClientServiceCurrentStateType CurrentClientState) </p>
+<p><b>Parameter </b></p>
+<p>SdClientServiceHandleId </p>
+<p>HandleId to identify the ClientService. </p>
+<p>CurrentClientState </p>
+<p>Current state of the ClientService. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by Service Discovery to indicate current state of the Client Service (available/down). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different handles. </p>
+<p>&gt; </p>
+<p>This function must only be called by Sd. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>52 </p>
+<p>based on template version 4.11.3 </p>
+<p>Table 5-35  </p>
+<p>BswM_Sd_ClientServiceCurrentState </p>
+<p><b>5.2.35 </b></p>
+<p><b>BswM_Sd_ConsumedEventGroupCurrentState </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Sd_ConsumedEventGroupCurrentState</b>( </p>
+<p> </p>
+<p>uint16 SdConsumedEventGroupHandleId, </p>
+<p> </p>
+<p>Sd_ConsumedEventGroupCurrentStateType ConsumedEventGroupState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>SdConsumedEventGroupHandleId </p>
+<p>HandleId  to  identify  the  Consumed Eventgroup. </p>
+<p>ConsumedEventGroupState </p>
+<p>Status of the Consumed Eventgroup. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by Service Discovery to indicate current status of the Consumed Eventgroup </p>
+<p>(available/down). </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different handles. </p>
+<p>&gt; </p>
+<p>This function must only be called by Sd. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-36  </p>
+<p>BswM_Sd_ConsumedEventGroupCurrentState </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>53 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.36 </b></p>
+<p><b>BswM_Nm_StateChangeNotification </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_Nm_StateChangeNotification</b>(NetworkHandleType nmNetworkHandle, </p>
+<p> </p>
+<p>Nm_StateType nmPreviousState,<b> </b></p>
+<p> </p>
+<p>Nm_StateType nmCurrentState)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>nmNetworkHandle </p>
+<p>Identification of the NM-channel </p>
+<p>nmPreviousState </p>
+<p>Previous state of the NM-channel (Parameter not used) </p>
+<p>nmCurrentState </p>
+<p>Current (new) state of the NM-channel </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called by Nm to inform the BswM about its current state. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different networks. </p>
+<p>&gt; </p>
+<p>This function must only be called by Nm. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-37  </p>
+<p>BswM_Nm_StateChangeNotification </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>54 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.2.37 </b></p>
+<p><b>BswM_RuleControl </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_RuleControl </b>(BswM_HandleType ruleId, uint8 state)<b> </b></p>
+<p><b>Parameter </b></p>
+<p>ruleId </p>
+<p>The external ID of the rule which shall be changed. Symbolic Name Define </p>
+<p>shall be used. </p>
+<p>state </p>
+<p>The new rule state. Following values are valid: </p>
+<p>Disable Rule: </p>
+<p>BSWM_DEACTIVATED</p>
+<p> </p>
+<p>Enable Rule:  </p>
+<p>BSWM_UNDEFINED</p>
+<p>, </p>
+<p>BSWM_TRUE</p>
+<p> or </p>
+<p>BSWM_FALSE</p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Sets a new state to a given rule whereby rule can be enabled or disabled. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant for different rules. </p>
+<p>&gt; </p>
+<p>This function should be called by an action of BswM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-38  </p>
+<p>BswM_RuleControl </p>
+<p><b>5.2.38 </b></p>
+<p><b>BswM_WdgM_RequestPartitionReset </b></p>
+<p><b>Prototype </b></p>
+<p>void <b>BswM_WdgM_RequestPartitionReset </b>(ApplicationType Application) </p>
+<p><b>Parameter </b></p>
+<p>Application </p>
+<p>The Block that the new NvM Mode corresponds to. </p>
+<p><b>Return code </b></p>
+<p>void </p>
+<p>- </p>
+<p><b>Functional Description </b></p>
+<p>Function called  by  WdgM  to request a reset of the corresponding partition of given application. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>&gt; </p>
+<p>This function is synchronous. </p>
+<p>&gt; </p>
+<p>This function is reentrant. </p>
+<p>&gt; </p>
+<p>This function must only be called by WdgM. </p>
+<p>Call Context </p>
+<p>&gt; </p>
+<p>This function can be called from task and interrupt context. </p>
+<p>Table 5-39  </p>
+<p>BswM_WdgM_RequestPartitionReset </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>55 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.3 </b></p>
+<p><b>Services Used by BswM </b></p>
+<p>In the following table services provided by other components, which are used by the BswM </p>
+<p>are listed. For details about prototype and functionality refer to the documentation of the </p>
+<p>providing component. </p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>ComM </p>
+<p>ComM_CommunicationAllowed </p>
+<p>ComM </p>
+<p>ComM_LimitChannelToNoComMode </p>
+<p>ComM </p>
+<p>ComM_RequestComMode </p>
+<p>Com </p>
+<p>Com_IpduGroupControl </p>
+<p>Com </p>
+<p>Com_ReceptionDMControl </p>
+<p>Com </p>
+<p>Com_SetIpduGroup </p>
+<p>Com </p>
+<p>Com_SwitchIpduTxMode </p>
+<p>Com </p>
+<p>Com_TriggerIPDUSend </p>
+<p>DEM </p>
+<p>Dem_Init </p>
+<p>DEM </p>
+<p>Dem_Shutdown </p>
+<p>DET </p>
+<p>Det_ReportError </p>
+<p>EcuM </p>
+<p>EcuM_GoDown </p>
+<p>EcuM </p>
+<p>EcuM_GoHalt </p>
+<p>EcuM </p>
+<p>EcuM_GoPoll </p>
+<p>EcuM </p>
+<p>EcuM_SelectShutdownTarget </p>
+<p>EcuM </p>
+<p>EcuM_SetState </p>
+<p>EcuM </p>
+<p>EcuM_ClearValidatedWakeupEvent </p>
+<p>J1939Dcm </p>
+<p>J1939Dcm_SetState </p>
+<p>J1939Rm </p>
+<p>J1939Rm_SetState </p>
+<p>LinSM </p>
+<p>LinSM_ScheduleRequest </p>
+<p>Nm </p>
+<p>Nm_DisableCommunication </p>
+<p>Nm </p>
+<p>Nm_EnableCommunication </p>
+<p>NvM </p>
+<p>NvM_WriteAll </p>
+<p>NvM </p>
+<p>NvM_CancelWriteAll </p>
+<p>PduR </p>
+<p>PduR_EnableRouting </p>
+<p>PduR </p>
+<p>PduR_DisableRouting </p>
+<p>RTE </p>
+<p>Rte mode switch. The API name is configurable.  </p>
+<p>SchM </p>
+<p>SchM_Enter_BswM_BSWM_EXCLUSIVE_AREA_0 </p>
+<p>SchM </p>
+<p>SchM_Exit_BswM_BSWM_EXCLUSIVE_AREA_0 </p>
+<p>Sd </p>
+<p>Sd_ConsumedEventGroupSetState </p>
+<p>Sd </p>
+<p>Sd_ClientServiceSetState </p>
+<p>Sd </p>
+<p>Sd_ServerServiceSetState </p>
+<p>Table 5-40  </p>
+<p>Services used by the BswM </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>56 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>5.4 </b></p>
+<p><b>Callback Functions </b></p>
+<p>There are no callback functions in the BswM. </p>
+<p><b>5.5 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p> </p>
+<p><b>5.5.1 </b></p>
+<p><b>Callout Functions </b></p>
+<p>A User Callout Function can be used as an item of an Action List. If the declaration of the </p>
+<p>callout  function  already  exists,  the  integrator  must  provide  an  extern  declaration  of  the </p>
+<p>function via a user include file.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>Existing callout functions </p>
+<p> </p>
+<p>If the BswM is to generate the user callout prototype: the checkbox “Create Callout” should </p>
+<p>be set and the parameter prototypes should be defined in the given field as list separated </p>
+<p>with semicolons. The function prototype is generated in “BswM_Callout_Stubs.c” </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>Generate prototype of callout functions </p>
+<p>The BswM callout function declaration is described in the following table: </p>
+<p><b>Prototype </b></p>
+<p>void</p>
+<p> </p>
+<p><b>[Callout Function Name]</b></p>
+<p> </p>
+<p>( &lt;parameters&gt; )</p>
+<p> </p>
+<p><b>Parameter </b></p>
+<p>- </p>
+<p>- </p>
+<p><b>Return code </b></p>
+<p>- </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>57 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>Functional Description </b></p>
+<p>If a User Callout is configured as an item of an Action List the BswM calls this function in the context of the </p>
+<p>appropriate rule. </p>
+<p><b>Particularities and Limitations </b></p>
+<p>- </p>
+<p>Call context </p>
+<p>&gt; </p>
+<p>Interrupt or task context, depends on the mode/rule configuration in which the callout is used. </p>
+<p>Table 5-41 </p>
+<p>User Callout </p>
+<p><b>5.6 </b></p>
+<p><b>Service Ports </b></p>
+<p>The BswM has a service component which depends on the following containers: </p>
+<p><b>&gt; </b></p>
+<p>BswMSwcModeRequest  </p>
+<p><b>&gt; </b></p>
+<p>BswMSwcModeNotification </p>
+<p><b>&gt; </b></p>
+<p>BswMSwitchPort </p>
+<p><b>&gt; </b></p>
+<p>BswMModeDeclaration </p>
+<p>These containers are described in the following chapters. </p>
+<p> </p>
+<p><b>5.6.1 </b></p>
+<p><b>BswMSwcModeRequest (R-Port) </b></p>
+<p>BswM is able to receive modes by Sender-Receiver mode ports (Require Port). This can </p>
+<p>be done by using BswMSwcModeRequest. </p>
+<p>The BswMSwcModeRequest has a reference to a Mode-Declaration-Group-Prototype and </p>
+<p>an Instance-Reference to a VARIABLE-DATA-PROTOTYPE. If the reference to the Mode-</p>
+<p>Declaration-Group-Prototype is configured, it is not possible to determine a relationship to </p>
+<p>a Sender-Receiver-Interface. Therefore, it is necessary to create a new  Sender-Receiver-</p>
+<p>Interface.  The  given  BswMModeRequestDataElementPrototypeName  will  be  used  as </p>
+<p>DataElement name.  </p>
+<p>Sender-Receiver-Interfaces are named  </p>
+<p><b>&gt; </b></p>
+<p>BswM_SRI_{  Mode-Switch-Interface  Name}_{  Mode-Declaration-Group-Prototype </p>
+<p>Name} </p>
+<p>If the Instance-Reference to a VARIABLE-DATA-PROTOTYPE is used, BswM reuses the </p>
+<p>existing Sender-Receiver interface. </p>
+<p>In both cases, created Ports are named: </p>
+<p><b>&gt; </b></p>
+<p>Receive_{Name of BswMSwcModeRequest} </p>
+<p> </p>
+<p><b>5.6.2 </b></p>
+<p><b>BswMSwcModeNotification (R- Port) </b></p>
+<p>BswM is able to receive modes by Mode-Switch mode ports (Require Port). This can be </p>
+<p>done by using BswMSwcModeNotification. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>58 </p>
+<p>based on template version 4.11.3 </p>
+<p>The BswM has a reference to a Mode-Declaration-Group-Prototype. From this prototype it </p>
+<p>is possible to determine a Mode-Switch-Interface which will be reused for the created port.  </p>
+<p>Created ports are named: </p>
+<p><b>&gt; </b></p>
+<p>Notification_{ BswMSwcModeNotification Name } </p>
+<p> </p>
+<p><b>5.6.3 </b></p>
+<p><b>BswMSwitchPort (P- Port) </b></p>
+<p>BswM  is able  to  switch  modes by  Mode-Switch  mode ports  (Provide  Port). This  can be </p>
+<p>done  by  using  a  BswMSwitchPort.  The  BswM  has  a  reference  to  a  Mode  Declaration </p>
+<p>Group Prototype. From this prototype it is possible to determine a Mode-Switch-Interface </p>
+<p>which will be reused for the created port.  </p>
+<p>Created ports are named: </p>
+<p><b>&gt; </b></p>
+<p>Switch_{ BswMSwitchPort Name } </p>
+<p> </p>
+<p><b>5.6.4 </b></p>
+<p><b>BswMRteModeRequestPort (P-Ports) </b></p>
+<p>BswM is able to send modes by Sender-Receiver mode ports (Require Port). This can be </p>
+<p>done  by  using  a  port  of  type  BswMRteModeRequestPort  in  a  BswMRteModeRequest </p>
+<p>action.  The  BswM  uses  an  Instance-Reference  to  a  VARIABLE-DATA-PROTOTYPE, </p>
+<p>which represents the DataElement of an already existing Sender-Receiver-Interface. This </p>
+<p>interface is used by the created P-Port. </p>
+<p>Created ports are named: </p>
+<p><b>&gt; </b></p>
+<p>Provide_{ BswMRteModeRequestPort Name } </p>
+<p> </p>
+<p><b>5.6.5 </b></p>
+<p><b>BswMModeDeclaration  </b></p>
+<p>To facilitate SWC ModeRequest Handling, the BswM is able to provide Mode-Declarations </p>
+<p>by itself. To use this, a BswMModeDeclaration container with corresponding modes can be </p>
+<p>created. </p>
+<p>The </p>
+<p>BswM </p>
+<p>SWC </p>
+<p>Validation </p>
+<p>creates </p>
+<p>automatically </p>
+<p>a </p>
+<p>Mode-Declaration, </p>
+<p>the </p>
+<p>corresponding </p>
+<p>Implementation-Type </p>
+<p>and </p>
+<p>a </p>
+<p>Mode-Switch-Interface </p>
+<p>with </p>
+<p>a </p>
+<p>Mode-</p>
+<p>Declaration-Group-Prototype.  </p>
+<p>The Mode-Switch-Interface is named: </p>
+<p><b>&gt; </b></p>
+<p>BswM_MSI_{Name of BswMModeDeclaration} </p>
+<p>The corresponding Mode-Declaration-Group-Prototype is named: </p>
+<p><b>&gt; </b></p>
+<p>BswM_MDGP_{Name of BswmModeDeclaration} </p>
+<p>The Implementation-Type is named: </p>
+<p><b>&gt; </b></p>
+<p>BswM_{Name of BswMModeDeclaration} </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>59 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6 </b></p>
+<p><b>AUTOSAR Standard Compliance </b></p>
+<p><b>6.1 </b></p>
+<p><b>Deviations </b></p>
+<p> </p>
+<p><b>6.1.1 </b></p>
+<p><b>Inclusion of the header Com_Types.h </b></p>
+<p>A  non-AUTOSAR header is  used  within  the  code. The  source file  BswM_Cfg.h  includes </p>
+<p>Com_Types.h. </p>
+<p>This </p>
+<p>header </p>
+<p>has </p>
+<p>been </p>
+<p>included </p>
+<p>because </p>
+<p>it </p>
+<p>defines </p>
+<p>the </p>
+<p>type</p>
+<p> </p>
+<p>Com_IpduGroupIdType. </p>
+<p>In case the project in use does not contain a MICROSAR Com module, it is necessary to </p>
+<p>add </p>
+<p>a </p>
+<p>header </p>
+<p>file </p>
+<p>with </p>
+<p>the </p>
+<p>name </p>
+<p>“Com_Types.h”, </p>
+<p>which </p>
+<p>defines </p>
+<p>the </p>
+<p>type </p>
+<p>“Com_IpduGroupIdType”.  </p>
+<p> </p>
+<p><b>6.1.2 </b></p>
+<p><b>Port Names </b></p>
+<p>Notice that in the BswM AUTOSAR SWS the name of the ports is specified as: </p>
+<p>modeNotificationPort_{Name} </p>
+<p>modeRequestPort_{Name} </p>
+<p>modeSwitchPort_{Name} </p>
+<p> </p>
+<p>However, the structure of the name port is as follows: </p>
+<p>Notification_{Name} </p>
+<p>Request_{Name} </p>
+<p>Switch_{Name} </p>
+<p> </p>
+<p>Furthermore, BswMRteModeRequestPort are named: </p>
+<p>Provide_{Name} </p>
+<p><b>6.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p><b>6.2.1 </b></p>
+<p><b>Optional Interfaces </b></p>
+<p>The BswM supports the following “Optional Interfaces” defined in [1] [BswM0008]:  </p>
+<p><b>&gt; </b></p>
+<p>ComM_LimitChannelToNoComMode </p>
+<p><b>&gt; </b></p>
+<p>ComM_RequestComMode </p>
+<p><b>&gt; </b></p>
+<p>Com_ClearIpduGroupVector  </p>
+<p><b>&gt; </b></p>
+<p>Com_IpduGroupControl </p>
+<p><b>&gt; </b></p>
+<p>Com_ReceptionDMControl </p>
+<p><b>&gt; </b></p>
+<p>Com_SetIpduGroup </p>
+<p><b>&gt; </b></p>
+<p>Com_IpduGroupStart </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>60 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>&gt; </b></p>
+<p>Com_IpduGroupStop </p>
+<p><b>&gt; </b></p>
+<p>Com_EnableReceptionDM </p>
+<p><b>&gt; </b></p>
+<p>Com_DisableReceptionDM </p>
+<p><b>&gt; </b></p>
+<p>Com_SwitchIpduTxMode </p>
+<p><b>&gt; </b></p>
+<p>Det_ReportError </p>
+<p><b>&gt; </b></p>
+<p>EcuM_GoDown </p>
+<p><b>&gt; </b></p>
+<p>EcuM_GoHall </p>
+<p><b>&gt; </b></p>
+<p>EcuM_GoPoll </p>
+<p><b>&gt; </b></p>
+<p>EcuM_SelectShutdownTarget </p>
+<p><b>&gt; </b></p>
+<p>J1939Dcm_SetState </p>
+<p><b>&gt; </b></p>
+<p>J1939Rm_SetState </p>
+<p><b>&gt; </b></p>
+<p>LinSM_ScheduleRequest </p>
+<p><b>&gt; </b></p>
+<p>Nm_DisableCommunication </p>
+<p><b>&gt; </b></p>
+<p>Nm_EnableCommunication </p>
+<p><b>&gt; </b></p>
+<p>Sd_ClientServiceSetState </p>
+<p><b>&gt; </b></p>
+<p>Sd_ConsumedEventGroupSetState </p>
+<p><b>&gt; </b></p>
+<p>Sd_ServerServiceSetState </p>
+<p> </p>
+<p> </p>
+<p><b>6.2.2 </b></p>
+<p><b>Nm Indication </b></p>
+<p>BswM supports the NM indication by using the API “BswM_Nm_StateChangeNotification”. </p>
+<p>The mode request source is of type “BswMNMIndication”. In order to use this feature the </p>
+<p>Nm module must be configured as follows: </p>
+<p><b>&gt; </b></p>
+<p>NmStateChangeIndEnabled must be set to true </p>
+<p><b>&gt; </b></p>
+<p>NmStateChangeIndCallback must be set to “BswM_Nm_StateChangeNotification” </p>
+<p><b>&gt; </b></p>
+<p>NmCallbacksPrototypeHeader must be set to  “BswM_Nm.h” (or any other header </p>
+<p>which includes BswM_Nm.h) </p>
+<p> </p>
+<p><b>6.2.3 </b></p>
+<p><b>User Condition Functions </b></p>
+<p>A User Condition Function can be used in a Rule Condition. The integrator must provide </p>
+<p>an extern declaration of the function via an application header file.  </p>
+<p>In  the  same  manner,  with  the  request  port  of  type  “User  Condition”,  it  is  possible  to </p>
+<p>compare any variable. </p>
+<p>The integrator must make sure that the return value of the function is compatible with the </p>
+<p>value to compare with. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>61 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6.2.4 </b></p>
+<p><b>Creation of Mode Declarations </b></p>
+<p>The  BswM  is  able  to  provide  Mode  Declarations  by  itself  in  order  to  facilitate  the  SWC </p>
+<p>Mode Request Handling. For further information see 5.6.5. </p>
+<p> </p>
+<p><b>6.2.5 </b></p>
+<p><b>Timers </b></p>
+<p>A  Timer  offers  the  possibility  to  execute  action  time  dependently.  Therefore,  a  Mode </p>
+<p>Request Port of type BswMTimer must be created. This port represents a timer which can </p>
+<p>be started and stopped by a BswMTimerControl Action. The value for the timer start can </p>
+<p>be set in the TimerControlAction.  </p>
+<p>The timer should be a multiple of the BswMMainFunctionPeriod (timer is decreased in the </p>
+<p>MainFunction).  In  case  the  timer  is  not  multiple  of  the  main  function  period,  it  will  be </p>
+<p>rounded up.  The timer must be used in a condition to trigger the corresponding actions. </p>
+<p>The state of a timer can be STARTED, STOPPED or EXPIRED. </p>
+<p> </p>
+<p><b>6.2.6 </b></p>
+<p><b>Generic Symbolic Values </b></p>
+<p>Generic ports offer the possibility to define Symbolic Values. In order to realize this, create </p>
+<p>a BswMGenericRequestMode inside the BswMGenericRequest container. These Symbolic </p>
+<p>Values are necessary for the Generic Actions (see chapter 6.2.7). </p>
+<p> </p>
+<p><b>6.2.7 </b></p>
+<p><b>Generic Actions </b></p>
+<p>BswM </p>
+<p>supports </p>
+<p>setting </p>
+<p>a </p>
+<p>generic </p>
+<p>mode </p>
+<p>by </p>
+<p>an </p>
+<p>action. </p>
+<p>In </p>
+<p>order </p>
+<p>to </p>
+<p>configure </p>
+<p>it, </p>
+<p>a </p>
+<p>BswMGenericModeSwitch  action  must  be  created.  Here,  the  generic  mode  and  the </p>
+<p>corresponding value can be chosen. </p>
+<p> </p>
+<p><b>6.2.8 </b></p>
+<p><b> Immediate request in BswM_Init() </b></p>
+<p>All  configured  immediate  request  are  processed  once  within  the  function  BswM_Init,  in </p>
+<p>order  to  arbitrate  the  initial  states.  This  behavior  can  be  changed  for  each  port  in  the </p>
+<p>configuration. </p>
+<p> </p>
+<p><b>6.2.9 </b></p>
+<p><b>Mode Handling Forced Immediate </b></p>
+<p>The  additional  mode  handling  type  “Forced  Immediate”  allows  mode  requests  to  be </p>
+<p>executed immediately interrupting other requests. For more information see chapter 3.4.2. </p>
+<p> </p>
+<p><b>6.2.10 </b></p>
+<p><b>Rule Control </b></p>
+<p>If Rule Control is used, rules can be activated or deactivated during runtime. Furthermore, </p>
+<p>rules  can  be  deactivated  in  configuration  by  using </p>
+<p>BSWM_DEACTIVATED</p>
+<p>  as  initialization </p>
+<p>value. For further information see 5.2.37. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>62 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6.2.11 </b></p>
+<p><b>Support of Com ASR3 IPduGroup APIs </b></p>
+<p>If Microsar Com is used and Com is configured to use ASR3 IPduGroup APIs, BswM will </p>
+<p>use the following APIs in its IPduGroup actions instead of the ASR4 APIs: </p>
+<p><b>&gt; </b></p>
+<p>Com_IpduGroupStart </p>
+<p><b>&gt; </b></p>
+<p>Com_IpduGroupStop </p>
+<p><b>&gt; </b></p>
+<p>Com_EnableReceptionDM </p>
+<p><b>&gt; </b></p>
+<p>Com_DisableReceptionDM </p>
+<p>For further information see [8]. </p>
+<p><b>6.3 </b></p>
+<p><b>Limitations </b></p>
+<p><b>6.3.1 </b></p>
+<p><b>Configurable interfaces that are not supported  </b></p>
+<p><b>6.3.1.1 </b></p>
+<p><b>EcuM Indication for EcuM Flex </b></p>
+<p>The ModeRequestPort of type EcuMIndication is not supported for MICROSAR EcuM Flex </p>
+<p>without  enabled  ModeHandling.  This  is  due  to  the  fact,  that  BswM  calls  most  of  EcuM </p>
+<p>Function itself. So, the notifications from EcuM to BswM will be done in the context of the </p>
+<p>BswM and this leads to a queued processing of mode changes. </p>
+<p>If EcuM notifies more than one mode change, previously notified mode changes get lost </p>
+<p>and Rules which should be triggered to this mode will be skipped. As this is not the desired </p>
+<p>behavior, the EcuM Indication is no longer supported during configuration of the module. </p>
+<p> </p>
+<p><b>6.3.2 </b></p>
+<p><b>Optional Interfaces </b></p>
+<p>Within </p>
+<p>the </p>
+<p>predefined </p>
+<p>actions, </p>
+<p>the </p>
+<p>BswM </p>
+<p>does </p>
+<p>not </p>
+<p>support </p>
+<p>the </p>
+<p>following </p>
+<p>“Optional </p>
+<p>Interfaces” defined by [1] [BswM0008]:  </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetCurrentComMode  </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetInhibitionStatus  </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetMaxComMode </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetRequestedComMode </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetStatus </p>
+<p><b>&gt; </b></p>
+<p>ComM_GetVersionInfo </p>
+<p><b>&gt; </b></p>
+<p>ComM_LimitECUToNoComMode </p>
+<p><b>&gt; </b></p>
+<p>ComM_MainFunction_&lt;Channel_Id&gt; </p>
+<p><b>&gt; </b></p>
+<p>ComM_PreventWakeUp </p>
+<p><b>&gt; </b></p>
+<p>ComM_ReadInhibitCounter </p>
+<p><b>&gt; </b></p>
+<p>ComM_ResetInhibitCounter </p>
+<p><b>&gt; </b></p>
+<p>ComM_SetECUGroupClassification </p>
+<p><b>&gt; </b></p>
+<p>ControlIdle </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>63 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>6.3.3 </b></p>
+<p><b>Configuration Variants </b></p>
+<p>Configuration variant Link-Time is not supported. </p>
+<p> </p>
+<p><b>6.3.4 </b></p>
+<p><b>BSW Modules </b></p>
+<p>Only  these  BSW  Modules  are  supported  for  mode  indications  and  arbitrations:  CanSM, </p>
+<p>ComM, Dcm, EcuM, EthIf, EthSm, FrSM, J1939Dcm, J1939Nm, LinSM, LinTp, Nm, NvM , </p>
+<p>Sd, WdgM and RTE. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>64 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>7 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>7.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>DaVinci Configurator </p>
+<p>Generation tool for MICROSAR components </p>
+<p> </p>
+<p><b>7.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CAN </p>
+<p>Controller Area Network </p>
+<p>Com </p>
+<p>Communication (AUTOSAR BSW) </p>
+<p>ComM </p>
+<p>Communication Manager </p>
+<p>CanSM </p>
+<p>CAN State Manager </p>
+<p>DCM </p>
+<p>Diagnostic Communication Manager </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>ECUM </p>
+<p>ECU Manager </p>
+<p>EthIf </p>
+<p>Ethernet Interface </p>
+<p>EthSM </p>
+<p>Ethernet State Management </p>
+<p>Fr </p>
+<p>FlexRay </p>
+<p>FrSM </p>
+<p>FlexRay State Manager </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>I-PDU </p>
+<p>Interaction Layer Protocol Data Unit </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>J1939Dcm </p>
+<p>J1939 Diagnostic Communication Manager </p>
+<p>J1939Nm </p>
+<p>J1939 Network Manager </p>
+<p>J1939Rm </p>
+<p>J1939 Request Manager </p>
+<p>LIN </p>
+<p>Local Interconnect Network </p>
+<p>LinIf </p>
+<p>LIN Interface </p>
+<p>LinSM </p>
+<p>LIN State Manager </p>
+<p>LinTp </p>
+<p>LIN Transport Protocol </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>Nm </p>
+<p>Network Manager </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>65 </p>
+<p>based on template version 4.11.3 </p>
+<p>NvM </p>
+<p>Non-Volatile RAM Manager </p>
+<p>PduR </p>
+<p>Protocol Data Unit Router </p>
+<p>PNC </p>
+<p>Partial Networking Cluster </p>
+<p>RAM </p>
+<p>Random Access Memory </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>Sd </p>
+<p>Service Discovery </p>
+<p>SchM </p>
+<p>Schedule Manager </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 7-1 </p>
+<p>Abbreviations </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Basic Software Mode Manager </p>
+<p>© 2016 Vector Informatik GmbH </p>
+<p>Version 7.00.00 </p>
+<p>66 </p>
+<p>based on template version 4.11.3 </p>
+<p><b>8 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>News </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Products </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Demo Software </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Support </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Training data </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+</body>
+</html>
+{% endraw %}

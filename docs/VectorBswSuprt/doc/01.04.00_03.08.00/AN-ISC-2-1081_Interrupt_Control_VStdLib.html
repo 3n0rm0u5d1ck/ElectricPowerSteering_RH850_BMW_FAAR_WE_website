@@ -1,0 +1,637 @@
+---
+layout: default
+title: AN-ISC-2-1081_Interrupt_Control_VStdLib
+nav_order: 1
+parent: Vector Basic Software Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>Application Interrupt Control with VStdLib </b></p>
+<p><b>Version 1.0 </b></p>
+<p><b>2008-08-06 </b></p>
+<p><b>Application Note  AN-ISC-2-1081 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Patrick Markl </p>
+<p>Restrictions </p>
+<p>Restricted Membership </p>
+<p>Abstract </p>
+<p>This application note explains how the application can control interrupt handling via the </p>
+<p>VStdLib and which constraints apply. </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2008 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector-informatik.com   or ++49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview ..........................................................................................................................................................1</p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Introduction....................................................................................................................................................1</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>Interrupt Control by Application .......................................................................................................................3</p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Constraints ....................................................................................................................................................3</p>
+<p> </p>
+<p>2.1.1</p>
+<p> </p>
+<p>Constraint 1: Nested Calls ..........................................................................................................................3</p>
+<p> </p>
+<p>2.1.2</p>
+<p> </p>
+<p>Constraint 2: Recursive Calls when Disabling CAN Interrupts...................................................................3</p>
+<p> </p>
+<p>2.1.3</p>
+<p> </p>
+<p>Constraint 3: No Locking when Disabling CAN Interrupts..........................................................................3</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>Solution ............................................................................................................................................................6</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Nested Calls................................................................................................................................................6</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>No Locking of Interrupts..............................................................................................................................7</p>
+<p> </p>
+<p>4.0</p>
+<p> </p>
+<p>Referenced Documents .................................................................................................................................12</p>
+<p> </p>
+<p>5.0</p>
+<p> </p>
+<p>Contacts .........................................................................................................................................................13</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note describes how the user can configure the interrupt control options of the VStdLib. Some </p>
+<p>applications provide their own lock/unlock functions, which better fulfill the application’s needs. Because of this the </p>
+<p>VStdLib provides a means which allows the application to use it’s own lock/unlock functions, instead of the </p>
+<p>implementation provided by the VStdLib.  </p>
+<p>This application note describes the handling of this use case in more detail. </p>
+<p><b>1.1 </b></p>
+<p><b>Introduction </b></p>
+<p>The VStdLib provides functions to lock/unlock interrupts. There are three options to be set in the configuration tool, </p>
+<p>as shown in figure1. The first  option (Default) lets the VStdLib lock global interrupts. Depending on the hardware </p>
+<p>plattform it is also possible to lock interrupts to a certain level. The lock is implemented by the VStdLib itself.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 1: Possible configuration options for VStdLib interrupt control </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>2 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p> </p>
+<p>The second option (OSEK) is to configure the VStdLib in a way that locking of interrupts is done by means of </p>
+<p>OSEK OS functions. The third and last option (User defined) requires the application to perform the </p>
+<p>locking/unlocking functionality within callback functions. </p>
+<p>This application note focusses mainly on the third option. It describes the way the application has to implement the </p>
+<p>callback functions required by the VStdLib.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 2: Configuration of interrupt control by application </p>
+<p> </p>
+<p>Figure 2 shows the VStdLib configuration dialog, if interrupt control by application is configured. The user has to </p>
+<p>enter the names of two functions in the dialog, which will be called by the VStdLib in order to lock/unlock interrupts. </p>
+<p>If the user has specified the callback function names as shown in figure 2, the application must provide the </p>
+<p>implementations of these two two functions. The prototypes are: </p>
+<p> </p>
+<p>void ApplNestedDisable(void); </p>
+<p>void ApplNestedRestore(void); </p>
+<p> </p>
+<p>From now on these two function names will be used within this application note. </p>
+<p>These two functions are called by the VStdLib, in case any Vector component requests a lock for a critical section. </p>
+<p>The user has to make sure that the locking mechanism within these two functions is sufficient to protect data. This </p>
+<p>depends heavily on the architecture of the application. The more priority levels exists, which call Vector functions, </p>
+<p>the more restrictive the lock must be. </p>
+<p> </p>
+<p> </p>
+<p>Please check the technical references of the other Vector components for restrictions regarding the call </p>
+<p>context of the API functions. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>2.0 </b></p>
+<p><b>Interrupt Control by Application </b></p>
+<p>This configuration option is usually used, if a global lock is not desired by the user or special lock mechanisms are </p>
+<p>used. Once this option is configured, there are two functions to be provided by the application. The user can </p>
+<p>specify the names of these functions in the configuration dialog of the VStdLib. The VStdLib calls these functions </p>
+<p>instead of directly locking/unlocking interrupts. This means, if any Vector component requests an interrupt lock, it is </p>
+<p>finally performed by the application provided functions. </p>
+<p>The first function is called, in order to perform a lock operation. It is expected, that the application function stores </p>
+<p>the current interrupt state(or any other), in order to restore it later. The second function is to restore the previously </p>
+<p>saved lock state.  </p>
+<p>The implementation of these two functions is up to the user. The user may lock just certain interrupt sources or set </p>
+<p>a mutex, semaphore or whatever ensures consistent data and fulfills the call context requirements, described in the </p>
+<p>Vector component specific technical references. </p>
+<p><b>2.1 </b></p>
+<p><b>Constraints </b></p>
+<p>The usage of Interrupt Control by Application has some constraints, which have to be taken into account. The </p>
+<p>following chapters describe them. </p>
+<p><b>2.1.1 </b></p>
+<p><b>Constraint 1: Nested Calls </b></p>
+<p>It is expected that the two callback functions (ApplNestedDisable()/-Restore()) are implemented in a way that </p>
+<p>nested calls are possible. This means if the function ApplNestedDisable() was called by some software component </p>
+<p>it may happen that this function is called again from somewhere else. This has to be taken into account when </p>
+<p>saving and restoring the interrupt state! The implementer of these two function can assume that the number of lock </p>
+<p>and unlock calls is identical and nesting is balanced. </p>
+<p><b>2.1.2 </b></p>
+<p><b>Constraint 2: Recursive Calls when Disabling CAN Interrupts </b></p>
+<p>Instead of implementing an own lock mechanism, the user could configure interrupt control by application and call </p>
+<p>the CAN driver’s CanCanInterruptDisable()/-Restore() functions. These two function simply disable CAN interrupts </p>
+<p>for the given CAN channel. These two CAN driver functions protect the access to their state variables by means of </p>
+<p>the VStdLib’s lock mechanism, which would again be implemented by the callbacks provided by the application. </p>
+<p>This would cause an indirect recursion. </p>
+<p> </p>
+<p> </p>
+<p>Please note that CanCanInterruptDisable()/Restore() shall not be called from </p>
+<p>ApplNestedDisable()/Restore(). This application note does not provide a solution for this use case! </p>
+<p> </p>
+<p><b>2.1.3 </b></p>
+<p><b>Constraint 3: No Locking when Disabling CAN Interrupts </b></p>
+<p>One could think of letting the application directly modify the interrupt flags of the CAN controller, to overcome the </p>
+<p>recursion, described in the previous chapter. But this would cause the CAN interrupts to be never locked, when </p>
+<p>CanCanInterruptDisable() is called, by any component. The reason is that the application’s interrupt lock code </p>
+<p>would interfere with the code in the CAN driver’s function CanCanInterruptDisable(). The following pseudo code </p>
+<p>shows the way CanCanInterruptDisable() is implemented. It is assumed that ApplNestedDisable()/-Restore() are </p>
+<p>implemented to allow nested calls. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p> </p>
+<p>/* CAN Interrupt will be never locked in this example!!! */ </p>
+<p>void CanCanInterruptDisable(CAN_CHANNEL_CANTYPE_ONLY) </p>
+<p>{ </p>
+<p>  ApplNestedDisable(); </p>
+<p>  Lock CAN interrupts </p>
+<p>  ApplNestedRestore(); </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedDisable(void) </p>
+<p>{ </p>
+<p>  Save current CAN interrupt state(); </p>
+<p>  Lock CAN Interrupts(); </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedRestore(void) </p>
+<p>{ </p>
+<p>  Restore CAN interrupts to previous state(); </p>
+<p>} </p>
+<p> </p>
+<p>Figure 3 shows what happens in this case. The function CanCanInterruptDisable() calls ApplNestedDisable() in </p>
+<p>order to protect an internal counter. This lock function disables the CAN interrupts, afterwards the CAN driver’s </p>
+<p>function locks the CAN interrupts too. The next thing is to call ApplNestedRestore() which again is implemented by </p>
+<p>the application and restores the previous CAN interrupt state – in this case enables the CAN interrupts. Now an </p>
+<p>inconsistency exists. The code which called CanCanInterruptDisable() assumes locked CAN interrupts, but they </p>
+<p>aren’t </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>5 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>sd FailedLock</b></p>
+<p>Component</p>
+<p>CAN Driver</p>
+<p>Application</p>
+<p>CAN Controller</p>
+<p>CanCanInterruptDisable</p>
+<p>VStdGlobalInterruptDisable</p>
+<p>Lock CAN Interrupt</p>
+<p>Lock CAN Interrupt</p>
+<p>VStdGlobalInterruptRestore</p>
+<p>Unlock CAN Interrupt</p>
+<p> </p>
+<p>Figure 3: Sequence diagram of CanCanInterruptDisable() </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>6 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>3.0 </b></p>
+<p><b>Solution </b></p>
+<p>This chapter proposes a solution and a code examples, to overcome the constraints 1 and 3 described in the </p>
+<p>previous chapters. </p>
+<p><b>3.1.1 </b></p>
+<p><b>Nested Calls </b></p>
+<p>Solving the first issue – nested calls – is simply done by introducation of a nesting counter. The callbacks </p>
+<p>implemented by the application need to manage this counter. The counter is to be incremented, if the function to </p>
+<p>lock interrupts is called and decremented if the unlock function is called. The application has to take care to </p>
+<p>initialize this counter, before any Vector function is called, in order to ensure a consistent interrupt locking. </p>
+<p>The interrupt state is to be modified only if the counter has the value zero. If the value is greater than zero, the </p>
+<p>counter is just maintained. The following code example shows, how this nested counter could be implemented. </p>
+<p> </p>
+<p>/* Global variable as nesting counter */ </p>
+<p>vuint8 gApplNestingCounter; </p>
+<p> </p>
+<p>/* Must be called before the Vector components are initialized! */ </p>
+<p>void SomeApplicationInitFunction(void) </p>
+<p>{ </p>
+<p>  gApplNestingCounter = (vuint8)0; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedDisable(void) </p>
+<p>{ </p>
+<p>  /* check counter – lock if counter is 0 */ </p>
+<p>  if((vuint8)0 == gApplNestingCounter) </p>
+<p>  {  </p>
+<p>    /* Save current state and perform lock  */ </p>
+<p>    ApplicationSpecificSaveStateAndLock(); </p>
+<p>  } </p>
+<p>  /* increment counter – do not disable if nested, because already done */ </p>
+<p>  gApplNestingCounter++; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedRestore(void) </p>
+<p>{ </p>
+<p>  gApplNestingCounter--; </p>
+<p>  if((vuint8)0 == gApplNestingCounter) </p>
+<p>  { </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>7 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p>    ApplicationSpecificRestoreToPreviousState(); </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p><b>3.1.2 </b></p>
+<p><b>No Locking of Interrupts </b></p>
+<p>Constraint 3 described a situation, in which the CAN interrupts are not locked at all. This is because the application </p>
+<p>implements a lock function, which modifes the CAN interrupt registers with own code. To overcome this issue, a </p>
+<p>global flag needs to be implemented. This global flag tells the application, when to lock or unlock CAN interrupts. </p>
+<p>The flag is set within two additional callback functions to be implemented by the application. The prototypes of the </p>
+<p>additional callbacks are: </p>
+<p> </p>
+<p>void ApplCanAddCanInterruptDisable(CanChannelHandle channel); </p>
+<p>void ApplCanAddCanInterruptRestore(CanChannelHandle channel); </p>
+<p> </p>
+<p>The callback functions are called by the CAN driver from within the functions CanCanInterruptDisable() and </p>
+<p>CanCanInterruptRestore() and have to be enabled by means of the preprocessor define </p>
+<p>C_ENABLE_INTCTRL_ADD_CAN_FCT. This is done, by creating a user config file, which contains this definition. </p>
+<p>More information about these two functions can be found in [1]. </p>
+<p>The sequence diagrams in figure 4 and figure 5 show the lock and unlocking procedure respectively. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>8 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>sd InterruptControlByApplication_Lock</b></p>
+<p>CAN Driver</p>
+<p>Component</p>
+<p>VStdLib</p>
+<p>Application</p>
+<p>CanCanInterruptDisable</p>
+<p>CanNestedGlobalInterruptDisable</p>
+<p>ApplDisableFunc</p>
+<p>Lock if</p>
+<p>Flag</p>
+<p>cleared</p>
+<p>Lock CAN Interrupts</p>
+<p>ApplCanAddCanInterruptDisable</p>
+<p>Set</p>
+<p>Global</p>
+<p>Flag</p>
+<p>CanNestedGlobalInterruptRestore</p>
+<p>ApplRestoreFunc</p>
+<p>Unlock</p>
+<p>if Flag</p>
+<p>cleared</p>
+<p> </p>
+<p>Figure 4: Sequence diagram for locking just CAN interrupts. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>9 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>sd InterruptControlByApplication_UnLock</b></p>
+<p>Component</p>
+<p>CAN Driver</p>
+<p>VStdLib</p>
+<p>Application</p>
+<p>CanCanInterruptRestore</p>
+<p>VStdGlobalInterruptDisable</p>
+<p>ApplDisableFunc</p>
+<p>Lock if</p>
+<p>Flag</p>
+<p>cleared</p>
+<p>Restore CAN Interrupts</p>
+<p>ApplCanAddCanInterruptRestore</p>
+<p>Clear Global Flag</p>
+<p>VStdGlobalInterruptRestore</p>
+<p>ApplRestoreFunc</p>
+<p>Unlock</p>
+<p>if Flag</p>
+<p>cleared</p>
+<p> </p>
+<p>Figure 5: Sequence diagram for unlocking just CAN interrupts </p>
+<p> </p>
+<p>The following code example shows how to implement the handling of the global flag. If the function </p>
+<p>CanCanInterruptDisable() is called, it calls the ApplNestedDisable(), in order to protect a counter. This function </p>
+<p>locks CAN interrupts using own code. When ApplNestedDisable() returns, the CAN driver locks CAN interrupts too. </p>
+<p>Afterwards ApplCanAddCanInterruptDisable() is called. This function is implemented by the application and sets </p>
+<p>the global flag. Before the function CanCanInterruptDisable() returns, it calls ApplNestedRestore(). The application, </p>
+<p>which implements the restore callback function has to check, if the global flag is set. If yes, the CAN interrupts </p>
+<p>must not be unlocked! </p>
+<p>If the function CanCanInterruptRestore() is called, first ApplNestedDisable() is called again. Then the CAN driver </p>
+<p>unlocks the CAN interrupts (if its nesting counter reached the value zero) and calls the function </p>
+<p>ApplCanAddCanInterruptRestore(). Within this function the flag is cleared. If ApplNestedRestore() is called now, </p>
+<p>the flag is not set anymore and the restore of the CAN interrupts is performed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>10 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p>Note that the application needs to implement also a nesting counter, if it uses own code to lock CAN interrupts, in </p>
+<p>order to avoid the issue described by constraint 1. The following code example shows, how to implement the </p>
+<p>nesting counter and the flag. </p>
+<p> </p>
+<p> </p>
+<p>vuint8 gCanLockFlag; </p>
+<p>vuint8 gApplNestingCounter; </p>
+<p> </p>
+<p>void ApplicationInitFunction(void) </p>
+<p>{ </p>
+<p>  /* initialize the flags */ </p>
+<p>  gCanLockFlag = (vuint8)0; </p>
+<p>  gApplNestingCounter = (vuint8)0; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedDisable(void) </p>
+<p>{ </p>
+<p>  if((vuint8)0 == gApplNestingCounter) </p>
+<p>  { </p>
+<p>    if((vuint8)0 == gCanLockFlag) </p>
+<p>    { </p>
+<p>      Save current CAN interrupt state(); </p>
+<p>      Lock CAN Interrupts(); </p>
+<p>    } </p>
+<p>  } </p>
+<p>  gApplNestingCounter++; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplNestedRestore (void) </p>
+<p>{ </p>
+<p>  gApplNestingCounter--; </p>
+<p>  if((vuint8)0 == gApplNestingCounter) </p>
+<p>  { </p>
+<p>    if((vuint8)0 == gCanLockFlag) </p>
+<p>    { </p>
+<p>      Restore CAN interrupts to previous state(); </p>
+<p>    } </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>11 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p>  } </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanAddCanInterruptDisable(CanChannelHandle channel) </p>
+<p>{ </p>
+<p>  gCanLockFlag = (vuint8)1; </p>
+<p>} </p>
+<p> </p>
+<p>void ApplCanAddCanInterruptRestore(CanChannelHandle channel) </p>
+<p>{ </p>
+<p>  gCanLockFlag = (vuint8)0; </p>
+<p>} </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>12 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>4.0 </b></p>
+<p><b>Referenced Documents </b></p>
+<p>The following table contains the referenced documents. </p>
+<p> </p>
+<p><b>Referenced Documents </b></p>
+<p>[1] TechnicalReference_CANDriver.pdf </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Application Interrupt Control with VStdLib</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>13 </b></p>
+<p><i>Application Note  AN-ISC-2-1081 </i></p>
+<p> </p>
+<p><b>5.0 </b></p>
+<p><b>Contacts </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Vector Informatik GmbH </b></p>
+<p>Ingersheimer Straße 24 </p>
+<p>70499 Stuttgart </p>
+<p>Germany </p>
+<p>Tel.: +49 711-80670-0 </p>
+<p>Fax: +49 711-80670-111 </p>
+<p>Email: info@vector-informatik.de </p>
+<p> </p>
+<p> </p>
+<p><b>Vector CANtech, Inc. </b></p>
+<p>39500 Orchard Hill Pl., Ste 550 </p>
+<p>Novi, MI  48375 </p>
+<p>USA </p>
+<p>Tel:  +1-248-449-9290 </p>
+<p>Fax: +1-248-449-9704 </p>
+<p>Email: info@vector-cantech.com </p>
+<p> </p>
+<p><b>VecScan AB </b></p>
+<p>Lindholmspiren 5 </p>
+<p>402 78 Göteborg  </p>
+<p>Sweden </p>
+<p>Tel:  +46 (0)31 764 76 00 </p>
+<p>Fax: +46 (0)31 764 76 19  </p>
+<p>Email: info@vecscan.com </p>
+<p><b>Vector France SAS </b></p>
+<p>168 Boulevard Camélinat </p>
+<p>92240 Malakoff  </p>
+<p>France </p>
+<p>Tel:  +33 (0)1 42 31 40 00 </p>
+<p>Fax: +33 (0)1 42 31 40 09 </p>
+<p>Email: information@vector-france.fr </p>
+<p> </p>
+<p><b>Vector Japan Co. Ltd. </b></p>
+<p>Seafort Square Center Bld. 18F </p>
+<p>2-3-12, Higashi-shinagawa, </p>
+<p>Shinagawa-ku </p>
+<p>J-140-0002 Tokyo </p>
+<p>Tel.: +81 3 5769 6970    </p>
+<p>Fax: +81 3 5769 6975 </p>
+<p>Email: info@vector-japan.co.jp </p>
+<p><b>Vector Korea IT Inc.</b></p>
+<p><b> </b></p>
+<p>Daerung Post Tower III, 508</p>
+<p> </p>
+<p>Guro-gu, Guro-dong, 182-4</p>
+<p> </p>
+<p>Seoul, 152-790</p>
+<p> </p>
+<p>Republic of Korea</p>
+<p> </p>
+<p>Tel.: +82-2-2028-0600</p>
+<p> </p>
+<p>Fax:   +82-2-2028-0604</p>
+<p> </p>
+<p>Email: info@vector-korea.com </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

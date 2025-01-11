@@ -1,0 +1,457 @@
+---
+layout: default
+title: TechnicalReference_DiagA2lGen
+nav_order: 89
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Diag A2l Gen </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>A2l fragment file generator for DEM, DCM and FIM </p>
+<p>Version 1.02.00 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Alexander Ditte </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>2 / 10 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Alexander Ditte </p>
+<p>2012-04-13 </p>
+<p>01.00.00 </p>
+<p>initial version </p>
+<p>Alexander Ditte </p>
+<p>2013-06-12 </p>
+<p>01.01.00 </p>
+<p>added support for AR4 DCM </p>
+<p>Alexander Ditte </p>
+<p>2013-09-25 </p>
+<p>01.01.01 </p>
+<p>update of chapter 3.1 </p>
+<p>Alexander Ditte </p>
+<p>2017-03-03 </p>
+<p>01.02.00 </p>
+<p>added chapter 4 Limitations </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Scope of the Document  </p>
+<p>This  technical  reference  describes  the  specific  use  of  the  diagnostic  A2l  fragment  file </p>
+<p>generator for the DEM, DCM and FIM modules. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>3 / 10 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Component History ........................................................................................................ 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................................................... 6</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Functional Description .................................................................................................. 7</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Features .......................................................................................................... 7</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Limitations ...................................................................................................................... 8</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>DEM ................................................................................................................ 8</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations .......................................................................................... 9</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Glossary .......................................................................................................... 9</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Abbreviations .................................................................................................. 9</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Contact .......................................................................................................................... 10</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>4 / 10 </p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 5</p>
+<p> </p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Supported components and specifications .................................................. 6</p>
+<p> </p>
+<p>Table 3-1</p>
+<p> </p>
+<p>Command line arguments ........................................................................... 7</p>
+<p> </p>
+<p>Table 5-1 </p>
+<p> </p>
+<p>Glossary ..................................................................................................... 9</p>
+<p> </p>
+<p>Table 5-2 </p>
+<p> </p>
+<p>Abbreviations .............................................................................................. 9</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>5 / 10 </p>
+<p><b>1 </b></p>
+<p><b>Component History </b></p>
+<p>The </p>
+<p>component </p>
+<p>history </p>
+<p>gives </p>
+<p>an </p>
+<p>overview </p>
+<p>over </p>
+<p>the </p>
+<p>important </p>
+<p>milestones </p>
+<p>that </p>
+<p>are </p>
+<p>supported in the different versions of the component.  </p>
+<p><b>Component Version </b></p>
+<p><b>New Features </b></p>
+<p>01.00.00 </p>
+<p><b>&gt; </b></p>
+<p>Initial version  </p>
+<p>01.01.00 </p>
+<p><b>&gt; </b></p>
+<p>Added support for selective generation of measurement or calibration </p>
+<p>fragment content only </p>
+<p>01.02.00 </p>
+<p><b>&gt; </b></p>
+<p>Added support for AUTOSAR 4 DCM </p>
+<p><b>&gt; </b></p>
+<p>Type definition template is generated in an own file </p>
+<p>Table 1-1  </p>
+<p>Component history </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>6 / 10 </p>
+<p><b>2 </b></p>
+<p><b>Introduction </b></p>
+<p>This  document  describes  the  functionality,  API  and  configuration  of  the  diagnostic  A2l </p>
+<p>fragment generator module. </p>
+<p>This generator shall support the customer to calibrate pre-defined symbols of the following </p>
+<p>modules: </p>
+<p> </p>
+<p><b>Specification </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Component </b></p>
+<p>MICROSAR 3 </p>
+<p>MICROSAR 4 </p>
+<p>DEM </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>DCM </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>FIM </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Table 2-1  </p>
+<p>Supported components and specifications </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>7 / 10 </p>
+<p><b>3 </b></p>
+<p><b>Functional Description </b></p>
+<p><b>3.1 </b></p>
+<p><b>Features </b></p>
+<p>The generator can be controlled via command line options. It scans the given source code </p>
+<p>folders for configuration files of the supported modules. If a known symbol is available and </p>
+<p>also the correct size could be resolved an entry in the A2l fragment file will be generated. </p>
+<p>For  a  list  of  the  supported  calibratable  and  measurable  symbols  refer  to  the  technical </p>
+<p>reference of the respective module. </p>
+<p>For this tool to work correctly all paths for the configuration files (header and source) and </p>
+<p>the static files must be passed. </p>
+<p> </p>
+<p>The following command line options are supported:  </p>
+<p><b>Argument </b></p>
+<p><b>Optional </b></p>
+<p><b>Description </b></p>
+<p><b>Default </b></p>
+<p>[-c Component] </p>
+<p>Yes </p>
+<p>Only the specified component is </p>
+<p>taken into account </p>
+<p>Dem: Diagnostic Event Manager </p>
+<p>only                                                                                 </p>
+<p>Dcm: Diagnostic Communication </p>
+<p>Manager only                                                                                </p>
+<p>FiM: Function Inhibition Manager </p>
+<p>only </p>
+<p>All components are </p>
+<p>taken into account </p>
+<p>[-f] </p>
+<p>Yes </p>
+<p>Overwrite an existing output a2l </p>
+<p>fragment file without confirmation </p>
+<p>A confirmation from the </p>
+<p>user is required </p>
+<p>[-h] </p>
+<p>Yes </p>
+<p>Shows a help message </p>
+<p>- </p>
+<p>[input …] </p>
+<p>No </p>
+<p>Source code folder(s) to scan </p>
+<p>Please add the folders for the </p>
+<p>static and generated files </p>
+<p>- </p>
+<p>[-l] </p>
+<p>Yes </p>
+<p>Write a log file </p>
+<p>no file is generated </p>
+<p>[-mc </p>
+<p>MeasurementCalibration] </p>
+<p>Yes </p>
+<p>Set the content of the output file.  </p>
+<p>0: Measurement and Calibration                                                                                                             </p>
+<p>1: Measurement only                                                                                                             </p>
+<p>2: Calibration only </p>
+<p>Measurement and </p>
+<p>Calibration symbols  </p>
+<p>[-nr] </p>
+<p>Yes </p>
+<p>If set the given folders are not </p>
+<p>recursively scanned  </p>
+<p>- </p>
+<p>[-o Out] </p>
+<p>Yes </p>
+<p>Output directory for the generated </p>
+<p>file </p>
+<p>Current working </p>
+<p>directory </p>
+<p>[-v] </p>
+<p>Yes </p>
+<p>Print additional information during </p>
+<p>program execution </p>
+<p>- </p>
+<p>Table 3-1 </p>
+<p>Command line arguments </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>8 / 10 </p>
+<p><b>4 </b></p>
+<p><b>Limitations </b></p>
+<p><b>4.1 </b></p>
+<p><b>DEM </b></p>
+<p>Measurement symbol generation only supported if no Satellites are configured. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>9 / 10 </p>
+<p><b>5 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>5.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>EAD </p>
+<p>Embedded Architecture Designer; generation tool for MICROSAR </p>
+<p>components </p>
+<p>GENy </p>
+<p>Generation tool for CANbedded and MICROSAR components </p>
+<p>Table 5-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPort </p>
+<p>Provide Port </p>
+<p>RPort </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 5-2  </p>
+<p>Abbreviations </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Diag A2l Gen </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.02.00 </p>
+<p>based on template version 4.8.3 </p>
+<p>10 / 10 </p>
+<p><b>6 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p>www.vector.com </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

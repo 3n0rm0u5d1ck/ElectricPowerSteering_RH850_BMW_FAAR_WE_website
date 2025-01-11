@@ -1,0 +1,3520 @@
+---
+layout: default
+title: TechnicalReference_DataTypes_AR4
+nav_order: 10
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>1 / 80 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Autosar 4.0 - DataTypes </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p>Version 1.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Thomas Bruni </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>2 / 80 </p>
+<p><b>Document Information </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Thomas Bruni </p>
+<p>11.11.2013 </p>
+<p>0.1 </p>
+<p>Document creation </p>
+<p>Thomas Bruni </p>
+<p>14.01.2014 </p>
+<p>0.2 </p>
+<p>Changes: </p>
+<p>3.4 Platform types </p>
+<p> </p>
+<p>Thomas Bruni </p>
+<p>27.01.2014 </p>
+<p>0.3 </p>
+<p>Corrections </p>
+<p>in </p>
+<p>3.4 </p>
+<p>Platform </p>
+<p>types </p>
+<p>Thomas Bruni </p>
+<p>29.01.2014 </p>
+<p>0.4 </p>
+<p>Creation  of  2  new  chapters: </p>
+<p>3.4 Data type mapping </p>
+<p>5.4 </p>
+<p>Data </p>
+<p>type </p>
+<p>mapping </p>
+<p>assistant </p>
+<p>5.5 Type emitter </p>
+<p>Thomas Bruni </p>
+<p>21.02.2014 </p>
+<p>1.0 </p>
+<p>Release version </p>
+<p>Thomas Bruni </p>
+<p>14.03.2014 </p>
+<p>1.1 </p>
+<p>Changes </p>
+<p>for </p>
+<p>Mode </p>
+<p>Declaration </p>
+<p>Group </p>
+<p>mapping: </p>
+<p>chapters 3.4 and 4.4. </p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Source </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_TPS_SoftwareComponentTemplate </p>
+<p>4.2.0 </p>
+<p>[2] </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>AUTOSAR_SWS_PlatformTypes </p>
+<p>2.5.0 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>3 / 80 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................................................... 6</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Data Types and Data Prototypes ................................................................................... 7</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Design of data prototypes in DaVinci tool chain .......................................................... 8</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Data prototypes ........................................................................................................ 8</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Application data types ............................................................................................ 10</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Implementation data types ..................................................................................... 11</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Data type mapping ................................................................................................. 14</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Platform types ........................................................................................................ 15</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Definitions ..................................................................................................... 15</p>
+<p> </p>
+<p>3.5.1.1</p>
+<p> </p>
+<p>Autosar Standard Types ......................................................................... 15</p>
+<p> </p>
+<p>3.5.1.2</p>
+<p> </p>
+<p>Platform Types ....................................................................................... 15</p>
+<p> </p>
+<p>3.5.1.3</p>
+<p> </p>
+<p>Valid C expression .................................................................................. 15</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Practice ......................................................................................................... 16</p>
+<p> </p>
+<p>3.5.2.1</p>
+<p> </p>
+<p>Abstraction of SW from platform ............................................................. 16</p>
+<p> </p>
+<p>3.5.2.2</p>
+<p> </p>
+<p>Dependency between SW and platform ................................................. 17</p>
+<p> </p>
+<p>3.5.2.3</p>
+<p> </p>
+<p>Platform types and Vector DaVinci Tool suite .......................................... 18</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Generation ............................................................................................................. 22</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Design examples .......................................................................................................... 23</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Primitive data element ............................................................................................ 23</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Complex data element ........................................................................................... 36</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Enumeration ........................................................................................................... 48</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>Application level ............................................................................................ 48</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>Implementation level ..................................................................................... 52</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Mode declaration .................................................................................................... 55</p>
+<p> </p>
+<p>4.4.1</p>
+<p> </p>
+<p>Mode declaration group in DaVinci Developer ............................................... 55</p>
+<p> </p>
+<p>4.4.2</p>
+<p> </p>
+<p>Mode service port in BswM configuration ...................................................... 59</p>
+<p> </p>
+<p>4.4.3</p>
+<p> </p>
+<p>Mode request port and mapping .................................................................... 62</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Implementation data type examples ....................................................................... 66</p>
+<p> </p>
+<p>4.5.1</p>
+<p> </p>
+<p>Type reference .............................................................................................. 66</p>
+<p> </p>
+<p>4.5.2</p>
+<p> </p>
+<p>Value ............................................................................................................. 67</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Additional information ................................................................................................. 69</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Compatibility and conversion .................................................................................. 69</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Measurement and calibration ................................................................................. 70</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Symbols ................................................................................................................. 72</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>Data type mapping assistant .................................................................................. 73</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>4 / 80 </p>
+<p>5.5</p>
+<p> </p>
+<p>Type emitter ........................................................................................................... 78</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ........................................................................................ 79</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Glossary ................................................................................................................. 79</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Abbreviations ......................................................................................................... 79</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact.......................................................................................................................... 80</b></p>
+<p> </p>
+<p> </p>
+<p><b>Illustrations </b></p>
+<p>Figure 3-1</p>
+<p> </p>
+<p>S/R port interface element .......................................................................... 9</p>
+<p> </p>
+<p>Figure 3-2</p>
+<p> </p>
+<p>S/R port interface element init value ........................................................... 9</p>
+<p> </p>
+<p>Figure 3-3</p>
+<p> </p>
+<p>DaVinci Developer – workspace library ..................................................... 10</p>
+<p> </p>
+<p>Figure 3-4</p>
+<p> </p>
+<p>Application data type categories ............................................................... 10</p>
+<p> </p>
+<p>Figure 3-5</p>
+<p> </p>
+<p>Application data type Value property dialog .............................................. 11</p>
+<p> </p>
+<p>Figure 3-6</p>
+<p> </p>
+<p>Implementation data type categories ........................................................ 12</p>
+<p> </p>
+<p>Figure 3-7</p>
+<p> </p>
+<p>Implementation data type Value property dialog ....................................... 13</p>
+<p> </p>
+<p>Figure 3-8</p>
+<p> </p>
+<p>2 ways of modelling platform independent implementation data types ...... 17</p>
+<p> </p>
+<p>Figure 3-9</p>
+<p> </p>
+<p>Modelling a platform specific implementation data type ............................ 18</p>
+<p> </p>
+<p>Figure 3-10</p>
+<p> </p>
+<p>Platform Types in DaVinci Developer ........................................................ 19</p>
+<p> </p>
+<p>Figure 3-11</p>
+<p> </p>
+<p>Implementation data type referencing a platform type ............................... 19</p>
+<p> </p>
+<p>Figure 3-12</p>
+<p> </p>
+<p>Native declaration: Autosar Standard Type ............................................... 20</p>
+<p> </p>
+<p>Figure 3-13</p>
+<p> </p>
+<p>Native declaration: valid C expression ...................................................... 21</p>
+<p> </p>
+<p>Figure 4-1</p>
+<p> </p>
+<p>New Value application data type ............................................................... 24</p>
+<p> </p>
+<p>Figure 4-2</p>
+<p> </p>
+<p>My_TemperatureType ............................................................................... 25</p>
+<p> </p>
+<p>Figure 4-3</p>
+<p> </p>
+<p>My_TemperatureType_CompuMethod ...................................................... 25</p>
+<p> </p>
+<p>Figure 4-4</p>
+<p> </p>
+<p>Celsius unit ............................................................................................... 26</p>
+<p> </p>
+<p>Figure 4-5</p>
+<p> </p>
+<p>Physical to Internal linear scale ................................................................ 26</p>
+<p> </p>
+<p>Figure 4-6</p>
+<p> </p>
+<p>Physical constraint .................................................................................... 27</p>
+<p> </p>
+<p>Figure 4-7</p>
+<p> </p>
+<p>Type mapping set creation ........................................................................ 28</p>
+<p> </p>
+<p>Figure 4-8</p>
+<p> </p>
+<p>Type mapping set naming ......................................................................... 28</p>
+<p> </p>
+<p>Figure 4-9</p>
+<p> </p>
+<p>Add a data type mapping to a type mapping set ....................................... 29</p>
+<p> </p>
+<p>Figure 4-10</p>
+<p> </p>
+<p>My_TemperatureInterface ......................................................................... 30</p>
+<p> </p>
+<p>Figure 4-11</p>
+<p> </p>
+<p>My_TemperatureElement .......................................................................... 30</p>
+<p> </p>
+<p>Figure 4-12</p>
+<p> </p>
+<p>SWC_Sender modeling ............................................................................ 31</p>
+<p> </p>
+<p>Figure 4-13</p>
+<p> </p>
+<p>SWC_Receiver modeling .......................................................................... 32</p>
+<p> </p>
+<p>Figure 4-14</p>
+<p> </p>
+<p>Connection of My_TemperatureInterface ports ......................................... 33</p>
+<p> </p>
+<p>Figure 4-15</p>
+<p> </p>
+<p>Missing data type mapping error message ............................................... 33</p>
+<p> </p>
+<p>Figure 4-16</p>
+<p> </p>
+<p>Reference a type mapping set in a SWC .................................................. 34</p>
+<p> </p>
+<p>Figure 4-17</p>
+<p> </p>
+<p>My_SpeedType settings ........................................................................... 36</p>
+<p> </p>
+<p>Figure 4-18</p>
+<p> </p>
+<p>New Record application data type ............................................................ 37</p>
+<p> </p>
+<p>Figure 4-19</p>
+<p> </p>
+<p>Record type creation with 2 record elements ............................................ 38</p>
+<p> </p>
+<p>Figure 4-20</p>
+<p> </p>
+<p>New Record implementation data type ..................................................... 39</p>
+<p> </p>
+<p>Figure 4-21</p>
+<p> </p>
+<p>Set a record implementation data type...................................................... 40</p>
+<p> </p>
+<p>Figure 4-22</p>
+<p> </p>
+<p>Record type mapping ................................................................................ 41</p>
+<p> </p>
+<p>Figure 4-23</p>
+<p> </p>
+<p>Sender/receiver port interface with record element ................................... 42</p>
+<p> </p>
+<p>Figure 4-24</p>
+<p> </p>
+<p>Record manual init – part 1 ....................................................................... 43</p>
+<p> </p>
+<p>Figure 4-25</p>
+<p> </p>
+<p>Record manual init – part 2 ....................................................................... 44</p>
+<p> </p>
+<p>Figure 4-26</p>
+<p> </p>
+<p>Record constant creation .......................................................................... 45</p>
+<p> </p>
+<p>Figure 4-27</p>
+<p> </p>
+<p>Referencing a record constant as init value .............................................. 46</p>
+<p> </p>
+<p>Figure 4-28</p>
+<p> </p>
+<p>My_RecordInterface port connection ........................................................ 46</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>5 / 80 </p>
+<p>Figure 4-29</p>
+<p> </p>
+<p>My_Enumeration type ............................................................................... 48</p>
+<p> </p>
+<p>Figure 4-30</p>
+<p> </p>
+<p>My_EnumerationType_CompuMethod ...................................................... 49</p>
+<p> </p>
+<p>Figure 4-31</p>
+<p> </p>
+<p>Enumeration text table setting .................................................................. 49</p>
+<p> </p>
+<p>Figure 4-32</p>
+<p> </p>
+<p>Enumeration constraint ............................................................................. 50</p>
+<p> </p>
+<p>Figure 4-33</p>
+<p> </p>
+<p>My_Enumeration mapping to uint8 ........................................................... 50</p>
+<p> </p>
+<p>Figure 4-34</p>
+<p> </p>
+<p>“My_EnumerationInterface” ...................................................................... 50</p>
+<p> </p>
+<p>Figure 4-35</p>
+<p> </p>
+<p>My_EnumerationImplType ........................................................................ 52</p>
+<p> </p>
+<p>Figure 4-36</p>
+<p> </p>
+<p>My_EnumerationImplType_CompuMethod ............................................... 52</p>
+<p> </p>
+<p>Figure 4-37</p>
+<p> </p>
+<p>My_EnumerationImplType_CompuMethod text table ................................ 53</p>
+<p> </p>
+<p>Figure 4-38</p>
+<p> </p>
+<p>My_EnumerationImplInterface .................................................................. 53</p>
+<p> </p>
+<p>Figure 4-39</p>
+<p> </p>
+<p>New mode declaration group .................................................................... 55</p>
+<p> </p>
+<p>Figure 4-40</p>
+<p> </p>
+<p>My_ModeDeclarationGroup ...................................................................... 56</p>
+<p> </p>
+<p>Figure 4-41 </p>
+<p> </p>
+<p>My ModePortInterface .............................................................................. 56</p>
+<p> </p>
+<p>Figure 4-42</p>
+<p> </p>
+<p>Mode ports connection ............................................................................. 57</p>
+<p> </p>
+<p>Figure 4-43</p>
+<p> </p>
+<p>Mode port access ..................................................................................... 57</p>
+<p> </p>
+<p>Figure 4-44</p>
+<p> </p>
+<p>BswM configuration .................................................................................. 59</p>
+<p> </p>
+<p>Figure 4-45</p>
+<p> </p>
+<p>BswM import in DaVinci Developer ........................................................... 59</p>
+<p> </p>
+<p>Figure 4-46</p>
+<p> </p>
+<p>Mode declaration group import in DaVinci Developer ............................... 60</p>
+<p> </p>
+<p>Figure 4-47</p>
+<p> </p>
+<p>ComM mode declaration group ................................................................. 60</p>
+<p> </p>
+<p>Figure 4-48</p>
+<p> </p>
+<p>My_ModeDeclarationGroup ...................................................................... 62</p>
+<p> </p>
+<p>Figure 4-49</p>
+<p> </p>
+<p>My_ModeDeclarationGroup_IType ........................................................... 63</p>
+<p> </p>
+<p>Figure 4-50</p>
+<p> </p>
+<p>Mode declaration group mapping.............................................................. 63</p>
+<p> </p>
+<p>Figure 4-51</p>
+<p> </p>
+<p>My_ModeRequestInterface ....................................................................... 64</p>
+<p> </p>
+<p>Figure 4-52</p>
+<p> </p>
+<p>My_ModeRequestPort .............................................................................. 64</p>
+<p> </p>
+<p>Figure 4-53</p>
+<p> </p>
+<p>Type mapping set reference for mode request .......................................... 64</p>
+<p> </p>
+<p>Figure 4-54</p>
+<p> </p>
+<p>New type reference................................................................................... 66</p>
+<p> </p>
+<p>Figure 4-55</p>
+<p> </p>
+<p>Value implementation data type ................................................................ 67</p>
+<p> </p>
+<p>Figure 4-56</p>
+<p> </p>
+<p>My_ImplValue_base base type ................................................................. 68</p>
+<p> </p>
+<p>Figure 4-57</p>
+<p> </p>
+<p>Implementation type constraint ................................................................. 68</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>Info Message #40286 ............................................................................... 69</p>
+<p> </p>
+<p>Figure 5-2</p>
+<p> </p>
+<p>Rte configuration for A2L generation ......................................................... 70</p>
+<p> </p>
+<p>Figure 5-3</p>
+<p> </p>
+<p>A2L generation folder................................................................................ 70</p>
+<p> </p>
+<p>Figure 5-4</p>
+<p> </p>
+<p>Symbol field for implementation data type ................................................ 72</p>
+<p> </p>
+<p>Figure 5-5</p>
+<p> </p>
+<p>Data type mapping assistant opening ....................................................... 73</p>
+<p> </p>
+<p>Figure 5-6</p>
+<p> </p>
+<p>Data type mapping assistant ..................................................................... 73</p>
+<p> </p>
+<p>Figure 5-7</p>
+<p> </p>
+<p>New mapping............................................................................................ 75</p>
+<p> </p>
+<p>Figure 5-8</p>
+<p> </p>
+<p>Existing mapping ...................................................................................... 75</p>
+<p> </p>
+<p>Figure 5-9</p>
+<p> </p>
+<p>Created after new mapping ....................................................................... 76</p>
+<p> </p>
+<p>Figure 5-10</p>
+<p> </p>
+<p>New mapping with implementation data type creation .............................. 76</p>
+<p> </p>
+<p>Figure 5-11</p>
+<p> </p>
+<p>Existing mapping with implementation data type creation ......................... 77</p>
+<p> </p>
+<p>Figure 5-12</p>
+<p> </p>
+<p>Created after new mapping with implementation data type creation ......... 77</p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>6 / 80 </p>
+<p><b>1 </b></p>
+<p><b>Introduction </b></p>
+<p>This technical reference aims at presenting Data Type modeling with Vector DaVinci tool </p>
+<p>chain in Autosar 4.0.3 context. </p>
+<p>   </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>7 / 80 </p>
+<p><b>2 </b></p>
+<p><b>Data Types and Data Prototypes </b></p>
+<p>Embedded </p>
+<p>software </p>
+<p>uses </p>
+<p>data </p>
+<p>elements, </p>
+<p>which </p>
+<p>are </p>
+<p>entities </p>
+<p>containing </p>
+<p>information </p>
+<p>computed by algorithms, carried between application blocks, used as reference value, etc. </p>
+<p>Data  elements  are  designed  according  to  the  information  they  need  to  represent.  The </p>
+<p>structure definition of a data element is called data type. </p>
+<p>In Autosar specification (see [1]) data elements are called data prototypes because they </p>
+<p>are  the  prototype  or  the  instance  of  a  certain  data  type  that  they  reference.  Data </p>
+<p>prototypes </p>
+<p>can </p>
+<p>be </p>
+<p>variable </p>
+<p>elements </p>
+<p>of </p>
+<p>a </p>
+<p>sender/receiver </p>
+<p>port </p>
+<p>interface, </p>
+<p>operation </p>
+<p>arguments  of  a  client/server  interface,  modes  of  a  mode  switch  interface,  calibration </p>
+<p>parameters, per instance memory parameters, inter-runnable variables, etc. </p>
+<p>Data  prototypes  may  have  different  levels  of  representation. They  may  have  a  physical </p>
+<p>meaning,  like  speed  information,  or  temperature  information.  They  also  must  have  an </p>
+<p>internal meaning which is used at code level, like 8 bit integer, or Boolean. </p>
+<p>In order to carry these different levels of representation Autosar defines application data </p>
+<p>types </p>
+<p>and </p>
+<p>implementation </p>
+<p>data </p>
+<p>types. </p>
+<p>Application </p>
+<p>data </p>
+<p>types </p>
+<p>define </p>
+<p>data </p>
+<p>structure </p>
+<p>corresponding to the physical world. Implementation data types define data structure used </p>
+<p>in embedded code. </p>
+<p>For </p>
+<p>a </p>
+<p>data </p>
+<p>prototype </p>
+<p>the </p>
+<p>application </p>
+<p>data </p>
+<p>type </p>
+<p>level </p>
+<p>is </p>
+<p>optional, </p>
+<p>whereas </p>
+<p>the </p>
+<p>implementation  data  type  level  is  mandatory.  Autosar  allows  2  ways  of  modeling  data </p>
+<p>prototypes: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>With a reference to an application data type: </p>
+<p>In  case  a  data  prototype  has  a  physical  meaning,  it  shall  reference  an  application  data </p>
+<p>type. In that case, in order to also define the structure of the data prototype at code level, </p>
+<p>the  application  data  type  must  be  mapped  to  an  implementation  data  type  in  a  type </p>
+<p>mapping set. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>With a reference to an implementation data type: </p>
+<p>If a data prototype does not have any physical meaning, it is possible to reference directly </p>
+<p>an implementation data type. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>During  the  design  phase  of  a  project,  the  architect  models  the  data  prototypes  and </p>
+<p>maps them to data types. According to Autosar philosophy it is recommended to use as </p>
+<p>much  application  data  types  as  possible  and  to  reuse  implementation  data  types  in </p>
+<p>data  type  mapping.  It  allows  staying  at  application  level  during  design  and  avoids </p>
+<p>creating too many implementation data types in the code.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>8 / 80 </p>
+<p><b>3 </b></p>
+<p><b>Design of data prototypes in DaVinci tool chain </b></p>
+<p>Design is realized in DaVinci Developer. In the following chapters, figures and examples </p>
+<p>are presented from DaVinci Developer version 3.5.19 (SP1) and MICROSAR RTE 4.01.01. </p>
+<p> </p>
+<p><b>3.1 </b></p>
+<p><b>Data prototypes </b></p>
+<p> </p>
+<p>Data  prototypes  take  several  different  forms  in  an  Autosar  ECU  project.  It  can  be  an </p>
+<p>element of a sender/receiver interface, an argument of a client/server interface operation, </p>
+<p>an  inter-runnable  variable,  a  per-instance-memory  variable,  a  calibration  parameter…  In </p>
+<p>general  a  data  prototype  contains  the  following  attributes  (see  Figure  3-1  with  S/R </p>
+<p>interface element example): </p>
+<p> </p>
+<p>- </p>
+<p>Reference to an application data type or implementation data type: </p>
+<p>This reference defines the type of the data element. </p>
+<p>In  case  an  application  data  type  is  chosen,  this  application  data  type  must  be </p>
+<p>mapped to an implementation data type in a type mapping set. This mapping set </p>
+<p>must be referenced by the application SWCs, which are using the data element. </p>
+<p>In  case  an  implementation  data  type  is  chosen,  no  mapping  is  necessary.  The </p>
+<p>implementation data type will be used in the code as type of the data element. </p>
+<p> </p>
+<p>- </p>
+<p>Measurement and calibration access: </p>
+<p>In  case  the  data  element  is  intended  to  be  accessed  via  measurement  and </p>
+<p>calibration, the access type (ReadOnly or ReadWrite) shall be set here. </p>
+<p>If no access is necessary, NotAccessible shall be set. </p>
+<p> </p>
+<p>- </p>
+<p>Init value (not for per-instance-memory and not for operation arguments): </p>
+<p>The init value field defines the initial value that the data element will take at startup </p>
+<p>of the software execution. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note</b> </p>
+<p>The init value of a sender/receiver interface element is defined in the Com spec of each </p>
+<p>port prototype referencing the interface (see Figure 3-2). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>9 / 80 </p>
+<p>- </p>
+<p>Invalid value handling (for sender/receiver interface elements): </p>
+<p>It is possible to specify how invalid value shall be handled: </p>
+<p>o</p>
+<p> </p>
+<p>None: no specific handling is defined </p>
+<p>o</p>
+<p> </p>
+<p>Keep:  an  invalidate  function  is  provided  by  the  Rte  to  the  SWCs  that  are </p>
+<p>sending the data element. The SWCs can report that the value is invalid by </p>
+<p>calling this function. The invalid value is kept, and a flag is set to inform the </p>
+<p>receivers that the value is invalid. </p>
+<p>o</p>
+<p> </p>
+<p>Replace: an invalidate function is provided by the Rte to the SWCs that are </p>
+<p>sending the data element. The SWCs can report that the value is invalid by </p>
+<p>calling this function. The invalid value is replaced by the init value.   </p>
+<p> </p>
+<p>- </p>
+<p>Data constraints (for server/receiver interface elements): </p>
+<p>o</p>
+<p> </p>
+<p>It is possible to define data constraints at data element level. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-1 </p>
+<p>S/R port interface element </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-2 </p>
+<p>S/R port interface element init value </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>10 / 80 </p>
+<p><b>3.2 </b></p>
+<p><b>Application data types </b></p>
+<p> </p>
+<p>In DaVinci Developer tool, it is possible to create application data types in the “Data Types” </p>
+<p>library under “Application Data Types” (see Figure 3-3). </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-3 </p>
+<p>DaVinci Developer – workspace library </p>
+<p>It is possible to choose the application data type category among Boolean, Value, String, </p>
+<p>Array and Record (see Figure 3-4). </p>
+<p> </p>
+<p>Figure 3-4 </p>
+<p>Application data type categories </p>
+<p>An  application  data  type  contains  several  attributes  (see  Figure  3-5  a  Value  category </p>
+<p>example): </p>
+<p> </p>
+<p>- </p>
+<p>Compu Method:  </p>
+<p>The  computation  method  defines  the  conversion  from  internal  representation  to </p>
+<p>physical representation, in other words from code perspective to physical meaning.  </p>
+<p>It  is  possible  to  define  linear,  scale-linear,  text  table,  scale-linear  &amp;  text  table </p>
+<p>conversions from internal to physical and/or from physical to internal. </p>
+<p> </p>
+<p>- </p>
+<p>Unit: </p>
+<p>The unit instance defines the physical unit.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>11 / 80 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If  a  Compu  Method  is  provided,  it  is  recommended  to  set  the  unit  in  the  Compu </p>
+<p>Method.  If  no  Compu  Method  is  provided,  the  unit  can  be  entered  directly  in  the </p>
+<p>application data type property dialog. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>- </p>
+<p>Constraint: </p>
+<p>With a constraint instance it is possible to define the internal and/or physical valid </p>
+<p>range of data values.  </p>
+<p> </p>
+<p>- </p>
+<p>Invalid value: </p>
+<p>An invalid value may be defined. It however has no impact on the code. It is only set </p>
+<p>as information in DaVinci Developer. To invalidate a data element value, the sender </p>
+<p>SWC must call the invalidate function provided by the Rte. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-5 </p>
+<p>Application data type Value property dialog </p>
+<p>More details and examples are presented in chapter 4. </p>
+<p> </p>
+<p><b>3.3 </b></p>
+<p><b>Implementation data types </b></p>
+<p> </p>
+<p>In DaVinci Developer tool it is possible to create implementation data types in the “Data </p>
+<p>Types” library under “Implementation Data Types” (see Figure 3-3). </p>
+<p> </p>
+<p>It  is  possible  to  choose  the  implementation  data  type  category  among  Value,  Type </p>
+<p>Reference, Data Reference, Array and Record (see Figure 3-6). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>12 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-6 </p>
+<p>Implementation data type categories </p>
+<p>An  implementation  data  type  contains  several  attributes  (see  Figure  3-7  with  a  Value </p>
+<p>category example): </p>
+<p> </p>
+<p>- </p>
+<p>Base type reference: </p>
+<p>o</p>
+<p> </p>
+<p>This  reference  must  be  provided  in  implementation  data  types  of  category </p>
+<p>Value in order to define the corresponding base type. </p>
+<p>o</p>
+<p> </p>
+<p>Base types may be created manually in the “Data Types” library under “Base </p>
+<p>Types”.  </p>
+<p>o</p>
+<p> </p>
+<p>It  is  also </p>
+<p>possible  to </p>
+<p>link </p>
+<p>the  implementation  data  type </p>
+<p>to </p>
+<p>an  existing </p>
+<p>implementation data type (e.g. to a platform type) by choosing the category </p>
+<p>Type Reference.  </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In  case  a  new  implementation  data type  is  based  on  a type  that  does not  exist,  the </p>
+<p>designer may need to create a new base type.  </p>
+<p>If an existing type corresponds to the need of the designer, it is recommended to create </p>
+<p>a Type Reference and reference an existing type. In particular it is recommended to </p>
+<p>reference the platform types (see chapter 3.5). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>- </p>
+<p>Compu method: </p>
+<p>It is possible to define a computation method in the implementation data type.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>As  defined  by  Autosar  the  compu  method  of  an  implementation  data  type  is  not </p>
+<p>intended to provide any physical meaning (this is the role of application data type). For </p>
+<p>an  implementation  data  type,  only  TextTable  conversion  is  allowed  which  generates </p>
+<p>enumeration strings in the code that are used instead of the numerical value.  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>13 / 80 </p>
+<p>- </p>
+<p>Constraint: </p>
+<p>It is possible to define constraints at implementation level. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>A constraint at implementation level will be used generally to define the valid internal </p>
+<p>range. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 3-7 </p>
+<p>Implementation data type Value property dialog </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>14 / 80 </p>
+<p><b>3.4 </b></p>
+<p><b>Data type mapping </b></p>
+<p> </p>
+<p>As  previously  written,  application  data  types  must  be  mapped  to  implementation  data </p>
+<p>types. For this purpose data type mapping sets containing data type mappings must be </p>
+<p>created. Data type mappings contain two references, one to the application data type and </p>
+<p>one to the implementation data type. </p>
+<p> </p>
+<p>In  order  to  let  the  Rte  generator  access  the  right  data  type  mapping  for  each  data </p>
+<p>prototype needing a data type mapping, data type mapping sets must be referenced by the </p>
+<p>SWCs using the corresponding data prototypes. </p>
+<p> </p>
+<p>Mode </p>
+<p>declaration </p>
+<p>groups </p>
+<p>may </p>
+<p>also </p>
+<p>be </p>
+<p>mapped </p>
+<p>to </p>
+<p>implementation </p>
+<p>data </p>
+<p>types </p>
+<p>in </p>
+<p>ModeRequestTypeMap  contained  also  in  data  type  mapping  sets.  The  purpose  of  this </p>
+<p>mapping is not the representation of the mode declaration group in the code because the </p>
+<p>type used in the code for mode declaration groups is generated automatically by the Rte </p>
+<p>generator  according  to  the  number  of  mode  declarations:  uint8  for  1  to  256  mode </p>
+<p>declarations, uint16 for 257 till  65536 mode declarations, and so on...  </p>
+<p>The purpose of a ModeRequestTypeMap is to be able to create mode request ports. As </p>
+<p>specified by Autosar a  component  that  requests  mode  changes  to  a  mode master shall </p>
+<p>implement a sender/receiver P-Port on which the requests will be sent. The corresponding </p>
+<p>port interface’s data element shall be typed by an implementation data type referencing a </p>
+<p>compu </p>
+<p>method </p>
+<p>containing </p>
+<p>an </p>
+<p>enumeration </p>
+<p>of </p>
+<p>the </p>
+<p>corresponding </p>
+<p>modes. </p>
+<p>That </p>
+<p>implementation data type shall be mapped to the corresponding mode declaration group.   </p>
+<p> </p>
+<p>Examples are presented in chapter 4. </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>15 / 80 </p>
+<p><b>3.5 </b></p>
+<p><b>Platform types </b></p>
+<p> </p>
+<p><b>3.5.1 </b></p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>3.5.1.1 </b></p>
+<p><b>Autosar Standard Types </b></p>
+<p> </p>
+<p>Autosar Standard Types are the following symbols used in C code: </p>
+<p>   </p>
+<p><b>&gt; </b></p>
+<p>uint8 </p>
+<p><b>&gt; </b></p>
+<p>uint16 </p>
+<p><b>&gt; </b></p>
+<p>uint32 </p>
+<p><b>&gt; </b></p>
+<p>sint8 </p>
+<p><b>&gt; </b></p>
+<p>sint16 </p>
+<p><b>&gt; </b></p>
+<p>sint32 </p>
+<p><b>&gt; </b></p>
+<p>boolean </p>
+<p><b>&gt; </b></p>
+<p>float </p>
+<p><b>&gt; </b></p>
+<p>float32 </p>
+<p> </p>
+<p><b>3.5.1.2 </b></p>
+<p><b>Platform Types </b></p>
+<p> </p>
+<p>Platform  types are  implementation  data types  which  have  an Autosar Standard Type  as </p>
+<p>name. </p>
+<p>Platform types, as subset of implementation data types, are part of the model. </p>
+<p> </p>
+<p><b>3.5.1.3 </b></p>
+<p><b>Valid C expression </b></p>
+<p> </p>
+<p>A valid C expression is a C type optionally combined to a C size qualifier and/or a C sign </p>
+<p>qualifier. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>C types are: char, int, float, double, void </p>
+<p><b>&gt; </b></p>
+<p>C size qualifiers are: short, long </p>
+<p><b>&gt; </b></p>
+<p>C sign qualifiers are: signed, unsigned </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>16 / 80 </p>
+<p><b>3.5.2 </b></p>
+<p><b>Practice </b></p>
+<p> </p>
+<p>Implementation data types need to be generated in C code and represented at CPU level. </p>
+<p>For this purpose 2 ways can be followed: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>With abstraction of SW from platform </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>With dependency between SW and platform </p>
+<p> </p>
+<p><b>3.5.2.1 </b></p>
+<p><b>Abstraction of SW from platform </b></p>
+<p> </p>
+<p>This way of representing implementation data types at CPU level is advised, because it </p>
+<p>follows the Autosar philosophy of independency between SW and platform. </p>
+<p> </p>
+<p>It consists in linking implementation data types to Platform Types, which are represented </p>
+<p>by Autosar Standard Types in C code. </p>
+<p> </p>
+<p>Each implementation data type shall finally be linked to Platform Types. This may be done </p>
+<p>in 2 ways: </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The implementation data type’s name is an Autosar Standard Type.  In this case the </p>
+<p>implementation data type is implicitly the corresponding Platform Type. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The implementation data type references a Platform Type. The implementation data is </p>
+<p>in this case of category “Type Reference” and references directly an implementation </p>
+<p>data type which is a Platform Type or which is referencing a Platform Type itself. </p>
+<p>Such a reference will generate a “typedef” where the implementation data type will be </p>
+<p>defined by the Autosar Standard Type. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Implementation data type name: MyImplementationDataType </p>
+<p>Platform Type name: uint8 </p>
+<p>Generation: </p>
+<p>typedef uint8 MyImplementationDataType;</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>As  defined  in  [2],  a  Platform_Types.h  file  must  be  integrated  into  the  project  and  shall </p>
+<p>contain the platform specific and/or compiler specific definition of Autosar Standard Types. </p>
+<p>In other words, this file contains a typedef for each Autosar Standard Type mapping it to a </p>
+<p>valid C expression. </p>
+<p>Platform_Types.h is thus the link between SW and platform which are independent from </p>
+<p>each other. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>17 / 80 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Platform_Types.h </p>
+<p>also </p>
+<p>contains </p>
+<p>3 </p>
+<p>parameters </p>
+<p>which </p>
+<p>are </p>
+<p>CPU </p>
+<p>specific: </p>
+<p>CPU_BIT_ORDER, to define bit alignment, CPU_BYTE_ORDER, to define Byte order, </p>
+<p>and CPU_TYPE, to define the processor bit length. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>Figure 3-8 summarizes these 2 ways of modelling: </p>
+<p> </p>
+<p>Figure 3-8 </p>
+<p>2 ways of modelling platform independent implementation data types </p>
+<p> </p>
+<p> </p>
+<p><b>3.5.2.2 </b></p>
+<p><b>Dependency between SW and platform </b></p>
+<p> </p>
+<p>In a same way as for Complex Device Drivers, Autosar gives also the chance to break this </p>
+<p>abstraction by setting CPU and/or compiler specific information in base types: </p>
+<p> </p>
+<p>An  implementation  data  type  of  category  Value  must  reference  a  base  type,  which </p>
+<p>contains a native declaration parameter. Setting a valid C expression as native declaration </p>
+<p>will generate a typedef defining the implementation data type as this valid C expression in </p>
+<p>Rte_Type.h. </p>
+<p> </p>
+<p>In this way, the implementation data type and the SWCs using this implementation data </p>
+<p>type are platform specific. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>18 / 80 </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p>Implementation data type name: MyImplementationDataType </p>
+<p>Native declaration in base type: unsigned char </p>
+<p>Generation: </p>
+<p>typedef unsigned char MyImplementationDataType;</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>Figure 3-9 summarizes this modelling: </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-9 </p>
+<p>Modelling a platform specific implementation data type </p>
+<p> </p>
+<p><b>3.5.2.3 </b></p>
+<p><b>Platform types and Vector DaVinci Tool suite </b></p>
+<p> </p>
+<p>Vector DaVinci Developer provides the Platform Types in the Implementation Data Types </p>
+<p>library at workspace creation (see Figure 3-10). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>19 / 80 </p>
+<p> </p>
+<p>Figure 3-10 </p>
+<p>Platform Types in DaVinci Developer </p>
+<p> </p>
+<p>According to Autosar it is advised to do the following: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Use directly Platform Types as implementation data types. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Create an own implementation data type of category “Type Reference” referencing a </p>
+<p>Platform Type:  </p>
+<p>Creating MyImplementationDataType as Type Reference pointing on uint8 (see Figure </p>
+<p>3-11) Platform type will generate in Rte_Type.h:  </p>
+<p>typedef uint8 MyImplementationDataType; </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-11 </p>
+<p>Implementation data type referencing a platform type  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>20 / 80 </p>
+<p>However other ways are possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It is possible to write the name of an Autosar Standard Type as native declaration in </p>
+<p>the  BaseType </p>
+<p>referenced </p>
+<p>by </p>
+<p>MyImplementationDataType </p>
+<p>of </p>
+<p>category </p>
+<p>Value </p>
+<p>(see </p>
+<p>Figure 3-12). This way is however not very pretty because its intention is to model a </p>
+<p>“Type  Reference”  without expressing  it  formally  in  the  model.  In  this  case the  same </p>
+<p>typedef will be generated:  </p>
+<p>typedef uint8 MyImplementationDataType; </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-12 </p>
+<p>Native declaration: Autosar Standard Type </p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>BaseType  with  C  native  declaration:  it  is  possible  to  generate  the  platform  specific </p>
+<p>definition  of  an  implementation  data  type  using  the  native  declaration  field.  In  the </p>
+<p>provided example (see Figure 3-13), the following will be generated: </p>
+<p>typedef unsigned char MyImplementationDataType; </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>21 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-13 </p>
+<p>Native declaration: valid C expression </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>22 / 80 </p>
+<p><b>3.6 </b></p>
+<p><b>Generation </b></p>
+<p> </p>
+<p>The following is generated out of the data type design: </p>
+<p> </p>
+<p>- </p>
+<p>In code: </p>
+<p>o</p>
+<p> </p>
+<p>Implementation data types are provided in the generated code as typedef. </p>
+<p>o</p>
+<p> </p>
+<p>From application data types are generated: </p>
+<p></p>
+<p> </p>
+<p>Init values: they are calculated from the init value and the computation </p>
+<p>method settings. </p>
+<p></p>
+<p> </p>
+<p>Lower and upper range limits as defines: they are calculated out of the </p>
+<p>constraint range and the computation method. </p>
+<p></p>
+<p> </p>
+<p>Invalid value handling: the way of treating invalid values depends on </p>
+<p>the </p>
+<p>handling </p>
+<p>setting. </p>
+<p>The </p>
+<p>corresponding </p>
+<p>invalidate </p>
+<p>function </p>
+<p>is </p>
+<p>implemented </p>
+<p>in </p>
+<p>the </p>
+<p>Rte </p>
+<p>and </p>
+<p>provided </p>
+<p>to </p>
+<p>SWC </p>
+<p>that </p>
+<p>send </p>
+<p>the </p>
+<p>corresponding data element.  </p>
+<p></p>
+<p> </p>
+<p>Enumeration:  if  the  defined  computation  method  is  a  text  table,  an </p>
+<p>enumeration is provided. </p>
+<p> </p>
+<p>- </p>
+<p>For measurement and calibration: </p>
+<p>o</p>
+<p> </p>
+<p>An A2L file can be generated with data prototype access: </p>
+<p></p>
+<p> </p>
+<p>The read and write access is defined by the attribute specified at data </p>
+<p>element  level.  It  overrides  the  attribute  provided  in  application  or </p>
+<p>implementation data types. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>23 / 80 </p>
+<p><b>4 </b></p>
+<p><b>Design examples </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Caution </b></p>
+<p>Each ECU project is specific and has its own needs.  </p>
+<p>The examples presented in this chapter aim at showing how to use DaVinci Developer </p>
+<p>tool chain and what is generated out of the example configuration.  </p>
+<p>Not all possible configurations are presented here, and it is up to the ECU designer to </p>
+<p>choose the appropriate configuration settings depending on the needs of the project. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>4.1 </b></p>
+<p><b>Primitive data element </b></p>
+<p> </p>
+<p>This  example  shows  the  design  of  a  primitive  application  data  type  referenced  by  a </p>
+<p>sender/receiver port interface data element. </p>
+<p> </p>
+<p>A sender/receiver port interface is designed to send a temperature value in Celsius. </p>
+<p>The physical values can be in the range [-50°C; +150°C] with 0,5°C resolution. In other </p>
+<p>words, the values can be -50°C, -49,5°,…, +149,5°C, +150°C. </p>
+<p>In order to model the values at code level, a type covering such a range shall be defined. </p>
+<p>In  this  case  it  is  necessary  to  cover  401  values.  An  8  bit  integer  will  not  be  sufficient </p>
+<p>because  it  covers only  256  values. A 16 bit  integer  (uint16  or sint16)  can  be used. The </p>
+<p>conversion  function  will  be  adjusted  to  this  choice.  In  this  example  sint16  is  chosen. A </p>
+<p>linear  conversion  from  physical  to  internal  with  factor  2  and  offset  0  (f(x)=2.x+0)  will  be </p>
+<p>used. The corresponding internal range will be [-100; +300]. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>An application data type is created to model the physical part of the data type: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>Creation of a new Value application data type: </p>
+<p><b>&gt; </b></p>
+<p>Right click on the “Application Data Types” library is done and “Value” is selected </p>
+<p>(see Figure 4-1). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>24 / 80 </p>
+<p> </p>
+<p>Figure 4-1 </p>
+<p>New Value application data type </p>
+<p><b>&gt; </b></p>
+<p>The application data type attributes are filled (see Figure 4-1): </p>
+<p><b>&gt; </b></p>
+<p>A name is given: “My_TemperatureType” </p>
+<p><b>&gt; </b></p>
+<p>A </p>
+<p>computation </p>
+<p>method </p>
+<p>is </p>
+<p>created: </p>
+<p>“My_TemperatureType_CompuMethod” </p>
+<p>(see </p>
+<p>Figure 4-3): </p>
+<p></p>
+<p> </p>
+<p>Category is set to linear </p>
+<p></p>
+<p> </p>
+<p>A  “Celsius” unit  is  created  (see  Figure  4-4) and  is  referenced  in  the </p>
+<p>compu method </p>
+<p></p>
+<p> </p>
+<p>“Physical to internal” conversion is chosen </p>
+<p></p>
+<p> </p>
+<p>The  physical  to  internal  linear  scale  is  configured  with  factor  2  and </p>
+<p>offset 0 over the physical range [-50;+150] (see Figure 4-5) </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>A physical constraint is created: “My_TemperatureType_Contraint” (see Figure 4-6):  </p>
+<p></p>
+<p> </p>
+<p>It defines the physical range with boundary inclusions: [-50;+150] </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The physical to internal conversion is also used for internal to physical conversion in </p>
+<p>case the defined function is invertible. It is the case in this example, so it is enough to </p>
+<p>specify only the physical to internal conversion. </p>
+<p>The </p>
+<p>linear </p>
+<p>conversion </p>
+<p>factor </p>
+<p>and </p>
+<p>offset </p>
+<p>are </p>
+<p>used </p>
+<p>in </p>
+<p>the </p>
+<p>following </p>
+<p>way: </p>
+<p>With Xi representing the internal value and Xp the physical one. </p>
+<p>- </p>
+<p>Physical to internal: factor Fp and offset Op: </p>
+<p>Xi = Fp.(Xp + Op) </p>
+<p>- </p>
+<p>Internal to physical: factor Fi and offset Oi: </p>
+<p>Xp = Fi.Xi + Oi </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>25 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-2 </p>
+<p>My_TemperatureType </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-3 </p>
+<p>My_TemperatureType_CompuMethod </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>26 / 80 </p>
+<p> </p>
+<p>Figure 4-4 </p>
+<p>Celsius unit </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-5 </p>
+<p>Physical to Internal linear scale </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>27 / 80 </p>
+<p> </p>
+<p>Figure 4-6 </p>
+<p>Physical constraint </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The internal part of the data type is modeled with the existing platform type sint16. </p>
+<p> </p>
+<p>It is thus not necessary to create a new implementation data type. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In order to finish the data type modeling, a data type mapping set has to be used to </p>
+<p>specify the mapping between “My_TemperatureType” and sint16. </p>
+<p><b>&gt; </b></p>
+<p>A new type mapping set is created: </p>
+<p><b>&gt; </b></p>
+<p>Right click on the Type Mapping Sets library is done and “New Type Mapping Set…” </p>
+<p>is selected (see Figure 4-7). </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It is not necessary to create a new type mapping set for each data type mapping. A </p>
+<p>single type mapping set can contain several data type mappings. </p>
+<p>It  is  even  recommended  to  gather  data  type  mappings  in  type  mapping  sets,  not  to </p>
+<p>have too many data type mapping set. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>A name is given to the type mapping set (see Figure 4-8). </p>
+<p><b>&gt; </b></p>
+<p>The data type mapping is done in the “Data Type Maps” tab of the type mapping set </p>
+<p>property dialog (the steps are described Figure 4-9) </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>28 / 80 </p>
+<p> </p>
+<p>Figure 4-7 </p>
+<p>Type mapping set creation </p>
+<p> </p>
+<p>Figure 4-8 </p>
+<p>Type mapping set naming </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>29 / 80 </p>
+<p> </p>
+<p>Figure 4-9 </p>
+<p>Add a data type mapping to a type mapping set </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>30 / 80 </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In the Data Type Map dialog a check box is available to filter only the compatible data </p>
+<p>types. It is checked by default. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Now that the data type for the temperature data elements is modeled, it can be used. </p>
+<p> </p>
+<p>In this example a sender/receiver port interface containing a temperature data element is </p>
+<p>designed. The port interface “My_TemperatureInterface” is created (see Figure 4-10) and </p>
+<p>“My_TemperatureElement” is created inside (see Figure 4-11). </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-10 </p>
+<p>My_TemperatureInterface </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-11 </p>
+<p>My_TemperatureElement </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>31 / 80 </p>
+<p>Two  SWCs  implementing  port  prototypes  referencing  this  port  interface  are  created. </p>
+<p>SWC_Sender </p>
+<p>is </p>
+<p>writing </p>
+<p>“My_TemperatureElement” </p>
+<p>in </p>
+<p>“SWC_SenderRunnable” </p>
+<p>and </p>
+<p>“SWC_Receiver”  is  reading  it  in  “SWC_ReceiverRunnable”  (see  Figure  4-12  and  Figure </p>
+<p>4-13). The init value on both sides is set to 20. </p>
+<p> </p>
+<p>Figure 4-12 </p>
+<p>SWC_Sender modeling </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>32 / 80 </p>
+<p> </p>
+<p>Figure 4-13 </p>
+<p>SWC_Receiver modeling </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>33 / 80 </p>
+<p>Both ports are connected via a SWConnector in the graphical editor (see Figure 4-14). </p>
+<p> </p>
+<p>Figure 4-14 </p>
+<p>Connection of My_TemperatureInterface ports </p>
+<p>If the configuration is left like this a “missing data type mapping” error message will appear </p>
+<p>(see Figure 4-15). It is due to the fact that at SWC level “My_TemperatureElement”, typed </p>
+<p>by the application data type “My_TemperatureType”, is not mapped to any implementation </p>
+<p>data type. Even if the mapping was realized in “My_TypeMappingSet”, this mapping is not </p>
+<p>known by the SWCs until it is explicitly referenced. </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-15 </p>
+<p>Missing data type mapping error message </p>
+<p>Each SWC using a data element, typed by an application data type, must reference the </p>
+<p>corresponding  type  mapping  set,  where  the  corresponding  implementation  data  type  is </p>
+<p>specified. </p>
+<p>“My_TypeMappingSet” shall be referenced in SWC_Sender and SWC_Receiver property </p>
+<p>dialog (see Figure 4-16). </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>It is possible to reference several type mapping sets in a same SWC. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>If the project requires a different mapping depending on a certain context, it is possible </p>
+<p>to  map  the  same  application  data  type  to  different  implementation  data  types  using </p>
+<p>several type mapping sets. </p>
+<p>For instance it could be possible to map “My_TemperatureType” to sint32 in a second </p>
+<p>type mapping set, which could be used by 2 other SWCs. In the context of these 2 new </p>
+<p>SWCs “My_TemperatureType” would be mapped to sint32. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>34 / 80 </p>
+<p> </p>
+<p>Figure 4-16 </p>
+<p>Reference a type mapping set in a SWC </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>35 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The system description resulting from the configuration done in DaVinci Developer is </p>
+<p>imported </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>Pro. </p>
+<p>There </p>
+<p>the </p>
+<p>Rte </p>
+<p>generation </p>
+<p>and </p>
+<p>the </p>
+<p>SWC </p>
+<p>generation are performed. </p>
+<p> </p>
+<p>The following code is generated: </p>
+<p> </p>
+<p>In SWC_Sender.c: </p>
+<p>Std_ReturnType Rte_Write_<b>My_TemperatureInterface</b>_<b>My_TemperatureElement</b>(<b>sint16 </b>data) </p>
+<p> </p>
+<p>In SWC_Receiver.c: </p>
+<p>Std_ReturnType Rte_Read_<b>My_TemperatureInterface</b>_<b>My_TemperatureElement</b>(<b>sint16 </b>*data) </p>
+<p> </p>
+<p> </p>
+<p>In Rte_SWC_Sender.h and Rte_SWC_Receiver.h: </p>
+<p>#  define Rte_InitValue_<b>My_TemperatureInterface</b>_<b>My_TemperatureElement </b>(<b>40</b>) </p>
+<p> </p>
+<p> </p>
+<p>In Rte_SWC_Sender_Type.h and Rte_SWC_Receiver_Type.h: </p>
+<p>#  define <b>My_TemperatureType</b>_LowerLimit (-100) </p>
+<p>#  define <b>My_TemperatureType</b>_UpperLimit (300) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The data element of the read and write function is typed by sint16. </p>
+<p>The init value is 40 (internal value of configured physical value 20). </p>
+<p>The generated lower limit is -100 and upper limit 300. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>In  the  Rte  generator  version  (4.01.01)  the  generated  negative  included  limits  are </p>
+<p>shifted by +1. If both limits are negative, the lower and upper limits are inverted. </p>
+<p>These two issues are known and will be fixed in a future version. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>36 / 80 </p>
+<p><b>4.2 </b></p>
+<p><b>Complex data element  </b></p>
+<p> </p>
+<p>This  example  shows  the  design  of  a  complex  application  data  type  referenced  by  a </p>
+<p>sender/receiver port interface data element. </p>
+<p> </p>
+<p>A  sender/receiver  port  interface  is  designed  to  send  a  record  containing  a  temperature </p>
+<p>value in Celsius as first element and a speed value in km/h as second element. </p>
+<p> </p>
+<p>The temperature value is modeled as in chapter 4.1. </p>
+<p> </p>
+<p>The  speed  physical  values  can  be  in  the  range  [0  km/h;  300  km/h]  with  0,5  km/h </p>
+<p>resolution. In other words, the values can be 0 km/h, 0,5 km/h,…, 299,5 km/h, 300 km/h. </p>
+<p>In the same way as the temperature, speed needs an implementation type covering the </p>
+<p>possible  values  at  code  level.  Uint16  is  chosen.  A  linear  conversion  from  physical  to </p>
+<p>internal with factor 2 and offset 0 (f(x)=2.x+0)  is used. The corresponding internal range </p>
+<p>will be [0; 600]. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A Value application data type (“My_SpeedType”) is created and mapped to uint16 (see </p>
+<p>Figure 4-17). For details about primitive data type creation refer to chapter 4.1. </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-17 </p>
+<p>My_SpeedType settings </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A  Record  application  data  type  (“My_RecordType”)  is  created  with  a  temperature </p>
+<p>element as first element and a speed element as second element: </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>37 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Right click on “Application Data Type” library is done and “New Record…” is selected </p>
+<p>(see Figure 4-18). </p>
+<p> </p>
+<p>Figure 4-18 </p>
+<p>New Record application data type </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Enter the name of the record application data type and create 2 record elements (see </p>
+<p>Figure 4-19). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>38 / 80 </p>
+<p> </p>
+<p>Figure 4-19 </p>
+<p>Record type creation with 2 record elements </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>39 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The corresponding implementation data type is created: </p>
+<p>The corresponding implementation data type shall have a structure corresponding to the </p>
+<p>application </p>
+<p>data </p>
+<p>type </p>
+<p>so </p>
+<p>that </p>
+<p>each </p>
+<p>sub </p>
+<p>element </p>
+<p>of </p>
+<p>the </p>
+<p>application </p>
+<p>level </p>
+<p>has </p>
+<p>a </p>
+<p>corresponding element at implementation level. In this example a record implementation </p>
+<p>data type with 2 sub elements is used. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Right  click  on  “Implementation  Data  Type”  library  is  done  and  “New  Record…”  is </p>
+<p>selected (see Figure 4-20). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The record data type is configured (see Figure 4-21): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>  </p>
+<p>The name is set: “My_RecordImplementationType” </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In  the  “Record  Elements”  tab,  a  record  element  matching  with  temperature  at </p>
+<p>implementation level is created: </p>
+<p>The name “TemperatureImplementationRecordElement” is set. </p>
+<p>The </p>
+<p>element </p>
+<p>type </p>
+<p>is </p>
+<p>set </p>
+<p>to </p>
+<p>“Type </p>
+<p>Reference” </p>
+<p>in </p>
+<p>order </p>
+<p>not </p>
+<p>to </p>
+<p>create </p>
+<p>a </p>
+<p>new </p>
+<p>implementation data type, but to use an existing one. </p>
+<p>The property button is clicked to open the dialog where this reference is set. The </p>
+<p>type  sint16  is  chosen  corresponding  to  the  implementation  data  type  mapped  to </p>
+<p>“My_TemperatureType”. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In a similar way a record matching with speed at implementation level is created: </p>
+<p>The name “SpeedImplementationRecordElement” is set. </p>
+<p>The </p>
+<p>element </p>
+<p>type </p>
+<p>is </p>
+<p>set </p>
+<p>to </p>
+<p>“Type </p>
+<p>Reference” </p>
+<p>in </p>
+<p>order </p>
+<p>not </p>
+<p>to </p>
+<p>create </p>
+<p>a </p>
+<p>new </p>
+<p>implementation data type, but to use an existing one. </p>
+<p>The property button is clicked to open the dialog where this reference is set. The </p>
+<p>type  uint16  is  chosen  corresponding  to  the  implementation  data  type  mapped  to </p>
+<p>“My_SpeedType”.  </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-20 </p>
+<p>New Record implementation data type </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>40 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-21 </p>
+<p>Set a record implementation data type </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The record application data type is now mapped with the record implementation data </p>
+<p>type (see Figure 4-22). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>41 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-22 </p>
+<p>Record type mapping </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>When the 2 record types are mapped, the “only show compatible Implementation Data </p>
+<p>Types” is very useful for 2 reasons: </p>
+<p>- </p>
+<p>It provides a reduced list of available types, which makes the selection easier </p>
+<p>- </p>
+<p>It already gives the information if the 2 records types are compatible or not. In </p>
+<p>case the desired implementation data type does not appear in the selection list, </p>
+<p>then the designer has already the information that the types do not match and </p>
+<p>that the configuration is not correct. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A </p>
+<p>sender/receiver </p>
+<p>port </p>
+<p>interface </p>
+<p>is </p>
+<p>created, </p>
+<p>where </p>
+<p>the </p>
+<p>data </p>
+<p>element </p>
+<p>is </p>
+<p>named </p>
+<p>„RecordElement” and typed by „My_RecordType“ (see Figure 4-23). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>42 / 80 </p>
+<p> </p>
+<p>Figure 4-23 </p>
+<p>Sender/receiver port interface with record element </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A P-Port prototype referencing „My_RecordInterface” is created in SWC_Sender and </p>
+<p>accessed by „SWC_SenderRunnable”. A similar R-Port is created at SWC_Receiver </p>
+<p>and accessed by “SWC_ReceiverRunnable”. </p>
+<p> </p>
+<p>For both ports an init value shall be set in the com spec. Two ways can be followed to </p>
+<p>set the init values: </p>
+<p><b>&gt; </b></p>
+<p>Manually at the port (see Figure 4-24 and Figure 4-25). </p>
+<p><b>&gt; </b></p>
+<p>With  a  constant:  a  constant  is  created  (see  Figure  4-26)  and  this  constant  is </p>
+<p>referenced as init value (see Figure 4-27). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>43 / 80 </p>
+<p> </p>
+<p>Figure 4-24 </p>
+<p>Record manual init – part 1 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>44 / 80 </p>
+<p> </p>
+<p>Figure 4-25 </p>
+<p>Record manual init – part 2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>45 / 80 </p>
+<p> </p>
+<p>Figure 4-26 </p>
+<p>Record constant creation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>46 / 80 </p>
+<p> </p>
+<p>Figure 4-27 </p>
+<p>Referencing a record constant as init value  </p>
+<p>The 2 ports are then connected (see Figure 4-28). </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-28 </p>
+<p>My_RecordInterface port connection </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>47 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>“My_TypeMappingSet”  has  to  be  referenced  by  SWC_Sender  and  SWC_Receiver, </p>
+<p>which was already done in chapter 4.1. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The system description resulting from the configuration done in DaVinci Developer is </p>
+<p>imported </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>Pro. </p>
+<p>There </p>
+<p>the </p>
+<p>Rte </p>
+<p>generation </p>
+<p>and </p>
+<p>the </p>
+<p>SWC </p>
+<p>generation are performed. </p>
+<p> </p>
+<p>The following code is generated: </p>
+<p> </p>
+<p>In SWC_Sender.c: </p>
+<p>Std_ReturnType Rte_Write_<b>My_RecordInterface</b>_<b>RecordElement</b>(const <b>My_RecordImplementationType </b>*data) </p>
+<p> </p>
+<p>In SWC_Receiver.c: </p>
+<p>Std_ReturnType Rte_Read_<b>My_RecordInterface</b>_<b>RecordElement</b>(<b>My_RecordImplementationType </b>*data) </p>
+<p> </p>
+<p> </p>
+<p>In Rte_Type.h: </p>
+<p># define Rte_TypeDef_<b>My_RecordImplementationType </b></p>
+<p>typedef struct </p>
+<p>{ </p>
+<p>  sint16 <b>TemperatureImplementationRecordElement; </b></p>
+<p>  uint16 <b>SpeedImplementationRecordElement</b>; </p>
+<p>} <b>My_RecordImplementationType</b>; </p>
+<p> </p>
+<p> </p>
+<p>In Rte.c: </p>
+<p>CONST(<b>My_RecordImplementationType</b>, RTE_CONST) Rte_C_<b>My_RecordImplementationType</b>_0 = { </p>
+<p>  40, 0U </p>
+<p>}; </p>
+<p> </p>
+<p>CONST(<b>My_RecordImplementationType</b>, RTE_CONST) Rte_<b>My_RecordConstant </b>= { </p>
+<p>  40, 0U </p>
+<p>}; </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The record data element is typed by My_RecordImplementationType. </p>
+<p>The </p>
+<p>record </p>
+<p>type </p>
+<p>has </p>
+<p>2  elements,  TemperatureImplementationRecordElement </p>
+<p>of  type </p>
+<p>sint16 and SpeedImplementationRecordElement of type uint16. </p>
+<p>Two constants are generated for the init values: Rte_My_RecordConstant corresponding </p>
+<p>to the constant created in DaVinci Developer and Rte_C_MyRecordImplementationType_0 </p>
+<p>corresponding to the init value set manually. </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>48 / 80 </p>
+<p><b>4.3 </b></p>
+<p><b>Enumeration </b></p>
+<p> </p>
+<p>Two  enumeration  examples  are  described  in  this  chapter.  The  first  one  (see </p>
+<p>4.3.1) </p>
+<p>corresponds </p>
+<p>to </p>
+<p>enumeration </p>
+<p>created </p>
+<p>at </p>
+<p>application </p>
+<p>level. </p>
+<p>The </p>
+<p>second </p>
+<p>one </p>
+<p>(see </p>
+<p>0) </p>
+<p>corresponds to enumeration created at implementation level. </p>
+<p> </p>
+<p><b>4.3.1 </b></p>
+<p><b>Application level </b></p>
+<p> </p>
+<p>In this example an enumeration application data type is created. It defines  3 text values </p>
+<p>and is mapped to uint8. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A  new  Value  application  data  type  is  created:  “My_EnumerationType”  (see  Figure </p>
+<p>4-29): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It </p>
+<p>references </p>
+<p>“My_EnumerationType_CompuMethod” </p>
+<p>which </p>
+<p>defines </p>
+<p>a </p>
+<p>text </p>
+<p>table </p>
+<p>conversion (see Figure 4-30). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>This text table contains 3 values (see Figure 4-31): </p>
+<p> </p>
+<p>- Text_00 corresponding to numerical value 0 (range [0;0]) </p>
+<p> </p>
+<p>- Text_01 corresponding to numerical value 1 (range [1;1]) </p>
+<p> </p>
+<p>- Text_02 corresponding to numerical value 2 (range [2;2]) </p>
+<p> </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>“My_EnumerationType” </p>
+<p>references </p>
+<p>“My_EnumerationType_Constraint” </p>
+<p>which </p>
+<p>specifies [0;2] as physical range (see Figure 4-32). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>„My_EnumerationType is then mapped to uint8 in „My_TypeMappingSet” (see Figure </p>
+<p>4-33). </p>
+<p> </p>
+<p>Figure 4-29 </p>
+<p>My_Enumeration type </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>49 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-30 </p>
+<p>My_EnumerationType_CompuMethod </p>
+<p>   </p>
+<p> </p>
+<p>Figure 4-31 </p>
+<p>Enumeration text table setting </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>50 / 80 </p>
+<p> </p>
+<p>Figure 4-32 </p>
+<p>Enumeration constraint </p>
+<p> </p>
+<p>Figure 4-33 </p>
+<p>My_Enumeration mapping to uint8 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A sender/receiver port interface “My_EnumerationInterface” is created. It contains one </p>
+<p>data element of type “My_EnumerationType” “(see Figure 4-34).  </p>
+<p> </p>
+<p>Figure 4-34 </p>
+<p>“My_EnumerationInterface” </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>51 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A P-Port is created on the SWC_Sender with write access to the data element in the </p>
+<p>SWC_SenderRunnable, a R-Port is created on the SWC_Receiver with read access to </p>
+<p>the  data  element  in  the  SWC_ReceiverRunnable,  init  values  are  specified  and  both </p>
+<p>ports are connected. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>“My_TypeMappingSet”  has  to  be  referenced  by  SWC_Sender  and  SWC_Receiver, </p>
+<p>which was already done in chapter 4.1. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The system description resulting from the configuration done in DaVinci Developer is </p>
+<p>imported </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>Pro. </p>
+<p>There </p>
+<p>the </p>
+<p>Rte </p>
+<p>generation </p>
+<p>and </p>
+<p>the </p>
+<p>SWC </p>
+<p>generation are performed. </p>
+<p> </p>
+<p>The following code is generated: </p>
+<p> </p>
+<p>In SWC_Sender.c: </p>
+<p>Std_ReturnType Rte_Write_<b>My_EnumerationInterface</b>_<b>My_EnumerationElement</b>(uint8 data) </p>
+<p> </p>
+<p>In SWC_Receiver.c: </p>
+<p>Std_ReturnType Rte_Read_<b>My_EnumerationInterface</b>_<b>My_EnumerationElement</b>(uint8 *data) </p>
+<p> </p>
+<p>In Rte_SWC_Sender_Type.h and Rte_SWC_Receiver_Type.h: </p>
+<p>#  define <b>My_EnumerationType</b>_LowerLimit (0U) </p>
+<p>#  define <b>My_EnumerationType</b>_UpperLimit (2U) </p>
+<p> </p>
+<p>#  ifndef Text_00 </p>
+<p>#   define <b>Text_00 </b>(0U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>#  ifndef Text_01 </p>
+<p>#   define <b>Text_01 </b>(1U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>#  ifndef Text_02 </p>
+<p>#   define <b>Text_02 </b>(2U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>The data element is typed by uint8. </p>
+<p>The lower limit is 0 and upper limit is 2. </p>
+<p>Each enumeration text is defined with the corresponding uint8 value </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>52 / 80 </p>
+<p><b>4.3.2 </b></p>
+<p><b>Implementation level </b></p>
+<p> </p>
+<p>In  this  example  an  enumeration  implementation  data  type  is  created.  It  defines  3  text </p>
+<p>values and has uint8 as reference type. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A  new  Reference  implementation  data  type  is  created:  “My_EnumerationImplType” </p>
+<p>(see Figure 4-35): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It  references  “My_EnumerationImplType_CompuMethod”  which  defines  a  text  table </p>
+<p>conversion (see Figure 4-36). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>This text table contains 3 values, Text_00 for value 0 (range [0;0]), Text_01 for value </p>
+<p>1 (range [1;1]) and Text_02 for value 2 (range [2;2]) (see Figure 4-37). </p>
+<p> </p>
+<p>Figure 4-35 </p>
+<p>My_EnumerationImplType </p>
+<p> </p>
+<p>Figure 4-36 </p>
+<p>My_EnumerationImplType_CompuMethod </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>53 / 80 </p>
+<p>  </p>
+<p> </p>
+<p>Figure 4-37 </p>
+<p>My_EnumerationImplType_CompuMethod text table </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A sender/receiver port interface “My_EnumerationImplInterface” is created. It contains </p>
+<p>one data element of type “My_EnumerationImplType“ (see Figure 4-38).  </p>
+<p> </p>
+<p>Figure 4-38 </p>
+<p>My_EnumerationImplInterface </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A P-Port is created on the SWC_Sender with write access to the data element in the </p>
+<p>SWC_SenderRunnable, an R-Port is created on the SWC_Receiver with read access </p>
+<p>to the data element in the SWC_ReceiverRunnable, init values are specified and both </p>
+<p>ports are connected. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The system description resulting from the configuration done in DaVinci Developer is </p>
+<p>imported </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>Configurator </p>
+<p>Pro. </p>
+<p>There </p>
+<p>the </p>
+<p>Rte </p>
+<p>generation </p>
+<p>and </p>
+<p>the </p>
+<p>SWC </p>
+<p>generation are performed. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>54 / 80 </p>
+<p> </p>
+<p>The following code is generated: </p>
+<p> </p>
+<p>In SWC_Sender.c: </p>
+<p>Std_ReturnType </p>
+<p>Rte_Write_<b>My_EnumerationImplInterface</b>_<b>My_EnumerationImplElement</b>(<b>My_EnumerationImplType </b>data) </p>
+<p> </p>
+<p>* Enumeration Types: </p>
+<p> * ================== </p>
+<p> * My_EnumerationImplType: Enumeration of integer in interval [0...255] with enumerators </p>
+<p> *   <b>Text_00 </b>(0U) </p>
+<p> *   <b>Text_01 </b>(1U) </p>
+<p> *   <b>Text_02 </b>(2U) </p>
+<p> </p>
+<p>In SWC_Receiver.c: </p>
+<p>Std_ReturnType Rte_Read_<b>My_EnumerationImplInterface</b>_<b>My_EnumerationImplElement</b>(<b>My_EnumerationImplType </b></p>
+<p>*data) </p>
+<p> </p>
+<p>* Enumeration Types: </p>
+<p> * ================== </p>
+<p> * My_EnumerationImplType: Enumeration of integer in interval [0...255] with enumerators </p>
+<p> *   <b>Text_00 </b>(0U) </p>
+<p> *   <b>Text_01 </b>(1U) </p>
+<p> *   <b>Text_02 </b>(2U) </p>
+<p> </p>
+<p> </p>
+<p>In Rte_SWC_Sender_Type.h and Rte_SWC_Receiver_Type.h: </p>
+<p>#  define <b>My_EnumerationType</b>_LowerLimit (0U) </p>
+<p>#  define <b>My_EnumerationType</b>_UpperLimit (2U) </p>
+<p> </p>
+<p>#  ifndef Text_00 </p>
+<p>#   define <b>Text_00 </b>(0U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>#  ifndef Text_01 </p>
+<p>#   define <b>Text_01 </b>(1U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>#  ifndef Text_02 </p>
+<p>#   define <b>Text_02 </b>(2U) </p>
+<p>#  endif </p>
+<p> </p>
+<p>In Rte_Type.h: </p>
+<p># define Rte_TypeDef_<b>My_EnumerationImplType </b></p>
+<p>typedef uint8 <b>My_EnumerationImplType</b>; </p>
+<p> </p>
+<p>The data element is typed by My_EnumerationImplType which is defined as uint8. </p>
+<p>Each enumeration text is defined with the corresponding uint8 value </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>55 / 80 </p>
+<p><b>4.4 </b></p>
+<p><b>Mode declaration </b></p>
+<p> </p>
+<p>A  mode  transmitted  via  mode  switch  port  interfaces  is  a  data  element  that  can  take  its </p>
+<p>values in a corresponding mode declaration group. </p>
+<p>Mode declaration groups can be created in two different ways. The first one is to create a </p>
+<p>mode declaration group manually in DaVinci Developer, which will then be used in a mode </p>
+<p>switch port interface by SWCs and/or by BswM (see 4.4.1). The second one is to create a </p>
+<p>mode  service  port  in  the  BswM  configuration  in  DaVinci  Configurator  Pro,  which  will </p>
+<p>automatically create a corresponding mode declaration group (see 4.4.2).  </p>
+<p> </p>
+<p><b>4.4.1 </b></p>
+<p><b>Mode declaration group in DaVinci Developer </b></p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It is possible to create mode declaration groups in DaVinci Developer by right-clicking </p>
+<p>“Mode Declaration Group” library and selecting “New Mode Declaration Group…” (see </p>
+<p>Figure 4-39). </p>
+<p> </p>
+<p>Figure 4-39 </p>
+<p>New mode declaration group </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The mode declaration group is configured (see Figure 4-40): </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The name is given </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The </p>
+<p>category </p>
+<p>is </p>
+<p>set: </p>
+<p>alphabetic </p>
+<p>or </p>
+<p>explicit. </p>
+<p>Alphabetic </p>
+<p>means </p>
+<p>that </p>
+<p>the </p>
+<p>mode </p>
+<p>declaration  internal values  will  be  attributed automatically  in  the alphabetical order. </p>
+<p>Explicit means that the designer can set these values himself.  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The mode declarations are entered. </p>
+<p>The internal values of mode declarations and transition may be entered, but are not </p>
+<p>mandatory (see the note below). </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The  Rte  generator  supports  currently  only  alphabetic  category.  That  means,  even  if </p>
+<p>“Explicit” is set and values are attributed by the designer to the mode declarations, the </p>
+<p>mode declaration internal values are automatically generated following the alphabetical </p>
+<p>order. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>56 / 80 </p>
+<p> </p>
+<p>Figure 4-40 </p>
+<p>My_ModeDeclarationGroup </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A </p>
+<p>mode </p>
+<p>port </p>
+<p>interface </p>
+<p>called </p>
+<p>“My_ModePortInterface” </p>
+<p>is </p>
+<p>created. </p>
+<p>It </p>
+<p>transmits </p>
+<p>“My_Mode” of mode declaration group “My_ModeDeclarationGroup” (see Figure 4-41). </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-41  My ModePortInterface </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In  this  example  SWC_Sender  is  the  mode  master  and  SWC_Receiver  is  the  mode </p>
+<p>user.  </p>
+<p>SWC_Sender resp. SWC_Receiver implements a sender resp. sender port prototype </p>
+<p>referencing  “My_ModePortInterface”.  They  are  connected  to  each  other  (see  Figure </p>
+<p>4-42).  SWC_SenderRunnable  has  “Send  Mode  Switches”  port  access  on  the  mode </p>
+<p>switch  port,  SWC_ReceiverRunnable  has  “Read  Mode”  port  access  on  the  mode </p>
+<p>switch port (see Figure 4-43). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>57 / 80 </p>
+<p> </p>
+<p>Figure 4-42 </p>
+<p>Mode ports connection </p>
+<p> </p>
+<p>       </p>
+<p> </p>
+<p>Figure 4-43 </p>
+<p>Mode port access </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The type for the mode declaration group in the code is automatically the corresponding </p>
+<p>platform  type:  if  the  number  of  mode  declarations  is  lower  than  256,  then  the  mode </p>
+<p>declaration group is mapped automatically to uint8. If this number is bigger than 256 </p>
+<p>and lower than 65536, then it is mapped to uint16, and so on… </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>The  system  description  resulting  from  the  configuration  done  in  DaVinci  Developer  is </p>
+<p>imported in DaVinci Configurator Pro. There the Rte generation and the SWC generation </p>
+<p>are performed. </p>
+<p> </p>
+<p>The following code is generated: </p>
+<p> </p>
+<p>In SWC_Sender.c: </p>
+<p>* Mode Interfaces: </p>
+<p> * ================ </p>
+<p> * </p>
+<p> </p>
+<p> </p>
+<p>Std_ReturnType </p>
+<p>Rte_Switch_My_ModePortInterface_My_Mode(Rte_ModeType_My_ModeDeclarationGroup </p>
+<p>mode) </p>
+<p> *   Modes of Rte_ModeType_My_ModeDeclarationGroup: </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_A_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_B_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_C_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_D_Mode </p>
+<p> *   - RTE_TRANSITION_My_ModeDeclarationGroup </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>58 / 80 </p>
+<p> </p>
+<p>In SWC_Receiver.c: </p>
+<p>* Mode Interfaces: </p>
+<p> * ================ </p>
+<p> * </p>
+<p> </p>
+<p> </p>
+<p>Rte_ModeType_My_ModeDeclarationGroup </p>
+<p>Rte_Mode_My_ModePortInterface_My_Mode(void) </p>
+<p> *   Modes of Rte_ModeType_My_ModeDeclarationGroup: </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_A_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_B_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_C_Mode </p>
+<p> *   - RTE_MODE_My_ModeDeclarationGroup_My_D_Mode </p>
+<p> *   - RTE_TRANSITION_My_ModeDeclarationGroup </p>
+<p> * </p>
+<p> </p>
+<p> </p>
+<p>In Rte_Type.h: </p>
+<p> </p>
+<p>typedef uint8 Rte_ModeType_My_ModeDeclarationGroup; </p>
+<p> </p>
+<p># define RTE_MODE_My_ModeDeclarationGroup_My_A_Mode (0U) </p>
+<p># define RTE_MODE_My_ModeDeclarationGroup_My_B_Mode (1U) </p>
+<p># define RTE_MODE_My_ModeDeclarationGroup_My_C_Mode (2U) </p>
+<p># define RTE_MODE_My_ModeDeclarationGroup_My_D_Mode (3U) </p>
+<p># define RTE_TRANSITION_My_ModeDeclarationGroup (4U) </p>
+<p> </p>
+<p>The mode declaration group is typed by uint8. </p>
+<p>The mode declaration values are attributed in the alphabetical order. </p>
+<p>  </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>59 / 80 </p>
+<p><b>4.4.2 </b></p>
+<p><b>Mode service port in BswM configuration </b></p>
+<p> </p>
+<p>In  DaVinci  Configurator  Pro,  the  BswM  BSWMD  offers  the  possibility  to  create  mode </p>
+<p>switch ports referencing pre-defined mode declaration groups. </p>
+<p>For  instance  it  is  possible  to  create  a  BswM  switch  port  referencing  the  ComM  mode </p>
+<p>declaration group (see Figure 4-44). </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-44 </p>
+<p>BswM configuration </p>
+<p> </p>
+<p>After configuring the BswM in DaVinci Configurator Pro, it is possible to import its service </p>
+<p>component description in DaVinci Developer. As shown Figure 4-45 BswM is imported in </p>
+<p>the “Service Component Types” library, the mode switch interface referencing the ComM </p>
+<p>mode in the “Service Port Interfaces” library.  </p>
+<p> </p>
+<p>Figure 4-45 </p>
+<p>BswM import in DaVinci Developer </p>
+<p> </p>
+<p>The mode declaration group ComMMode is also imported in the “Mode Declaration Group” </p>
+<p>library (see Figure 4-46) and the corresponding mode declarations are visible by opening it </p>
+<p>(see Figure 4-47). </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>60 / 80 </p>
+<p> </p>
+<p>Figure 4-46 </p>
+<p>Mode declaration group import in DaVinci Developer </p>
+<p> </p>
+<p>Figure 4-47 </p>
+<p>ComM mode declaration group </p>
+<p>This configuration gives then the following generated code: </p>
+<p> </p>
+<p>In SWC_A.c: </p>
+<p> </p>
+<p>Rte_ModeType_ComMMode </p>
+<p>Rte_Mode_ModeSwitch_Interfaces_<b>ComM_CurrentMode</b>_<b>ComMMode</b>_currentMode(void) </p>
+<p> </p>
+<p>//Modes of Rte_ModeType_<b>ComMMode</b>: </p>
+<p>//   - RTE_MODE_ComMMode_COMM_FULL_COMMUNICATION </p>
+<p>//   - RTE_MODE_ComMMode_COMM_NO_COMMUNICATION </p>
+<p>//   - RTE_MODE_ComMMode_COMM_SILENT_COMMUNICATION </p>
+<p>//   - RTE_TRANSITION_ComMMode </p>
+<p>In Rte_SWC_A.h: </p>
+<p> </p>
+<p>//Buffers for Mode Management </p>
+<p>extern </p>
+<p>VAR(Rte_ModeType_ComMMode, </p>
+<p>RTE_VAR_NOINIT) </p>
+<p>Rte_ModeMachine_BswM_ModeSwitch_Interfaces_<b>ComM_CurrentMode</b>_<b>ComMMode</b>_currentMode</p>
+<p>; </p>
+<p>In Rte.c: </p>
+<p> </p>
+<p>/* mode management initialization part 1 */ </p>
+<p>Rte_ModeMachine_BswM_ModeSwitch_Interfaces_<b>ComM_CurrentMode</b>_ComMMode_currentMode </p>
+<p>= RTE_MODE_<b>ComMMode</b>_COMM_NO_COMMUNICATION; </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>61 / 80 </p>
+<p>In Rte_Type.h: </p>
+<p> </p>
+<p>//define Rte_TypeDef_ComM_ModeType </p>
+<p>typedef uint8 <b>ComM_ModeType</b>; </p>
+<p> </p>
+<p>//Definitions for Mode Management </p>
+<p>typedef uint8 Rte_ModeType_<b>ComMMode</b>; </p>
+<p> </p>
+<p># define RTE_MODE_ComMMode_COMM_FULL_COMMUNICATION (0U) </p>
+<p># define RTE_MODE_ComMMode_COMM_NO_COMMUNICATION (1U) </p>
+<p># define RTE_MODE_ComMMode_COMM_SILENT_COMMUNICATION (2U) </p>
+<p># define RTE_TRANSITION_ComMMode (3U) </p>
+<p> </p>
+<p>The mode declaration group Com_ModeType is typed by uint8. </p>
+<p>The  mode  declarations  are  available  as  defines  and  their  uint8  value  is  given  in  the </p>
+<p>alphabetical order.  </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>62 / 80 </p>
+<p><b>4.4.3 </b></p>
+<p><b>Mode request port and mapping </b></p>
+<p> </p>
+<p> </p>
+<p>A </p>
+<p>component </p>
+<p>requesting </p>
+<p>a </p>
+<p>mode </p>
+<p>change </p>
+<p>to </p>
+<p>the </p>
+<p>mode </p>
+<p>master </p>
+<p>shall </p>
+<p>implement </p>
+<p>a </p>
+<p>sender/receiver  P-Port  as  mode  request  port.  The  corresponding  port  interface’s  data </p>
+<p>element  shall  be  typed  by  an  implementation  data  type  referencing  a  compu  method </p>
+<p>containing  an  enumeration  of  the  corresponding  modes.  That  implementation  data  type </p>
+<p>shall be mapped to the corresponding mode declaration group. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The  mode  declaration  group  for  the  example  will  be  My_ModeDeclarationGroup </p>
+<p>presented Figure 4-48. </p>
+<p> </p>
+<p>Figure 4-48 </p>
+<p>My_ModeDeclarationGroup </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A corresponding implementation data type is created: </p>
+<p>My_ModeDeclarationGroup_IType. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It is defined as type reference to uint8 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It contains a compu method which defined an enumeration of the 4 modes from </p>
+<p>My_ModeDeclatationGroup. The same strings shall be used. See Figure 4-49. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>63 / 80 </p>
+<p>  </p>
+<p> </p>
+<p>Figure 4-49 </p>
+<p>My_ModeDeclarationGroup_IType </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The  mode  declaration  group  and  the  implementation  data  type  are  mapped  in  a </p>
+<p>ModeRequestTypeMap (Figure 4-50). </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-50 </p>
+<p>Mode declaration group mapping </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The corresponding SWC shall implement a port and reference the type mapping set. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A service sender/receiver port interface is created containing 1 data element typed </p>
+<p>by My_ModeDeclarationGroup_IType (Figure 4-51). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>64 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-51 </p>
+<p>My_ModeRequestInterface </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A service P-Port prototype referencing this port interface is created on the SWC </p>
+<p>(Figure 4-52). </p>
+<p> </p>
+<p>Figure 4-52 </p>
+<p>My_ModeRequestPort </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The type mapping set is referenced by the SWC (Figure 4-53). </p>
+<p> </p>
+<p>Figure 4-53 </p>
+<p>Type mapping set reference for mode request </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>65 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A runnable of the SWC shall have write access on the created port. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In DaVinci Configurator, the corresponding mode request port on BswM can be </p>
+<p>created and mapped to the SWC port. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The generated code provides the following for the SWC: </p>
+<p> </p>
+<p>Type and enumeration definition: </p>
+<p> </p>
+<p>* Enumeration Types: </p>
+<p> * ================== </p>
+<p> *  My_ModeDeclarationGroup_IType:  Enumeration  of  integer  in  interval  [0...255]  with </p>
+<p>enumerators </p>
+<p> *   My_A_Mode (0U) </p>
+<p> *   My_B_Mode (1U) </p>
+<p> *   My_C_Mode (2U) </p>
+<p> *   My_D_Mode (3U) </p>
+<p> </p>
+<p> </p>
+<p>Mode request API for the SWC: </p>
+<p> </p>
+<p>Std_ReturnType Rte_Write_My_ModeRequestPort_My_ModeRequest(My_ModeDeclarationGroup_IType </p>
+<p>data) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>66 / 80 </p>
+<p><b>4.5 </b></p>
+<p><b>Implementation data type examples </b></p>
+<p> </p>
+<p>As a summary, the two following examples are showing how  implementation data types </p>
+<p>can be created as type reference (see 4.5.1) or as value (see 0). </p>
+<p>   </p>
+<p><b>4.5.1 </b></p>
+<p><b>Type reference </b></p>
+<p> </p>
+<p>It is possible to create an implementation data type out of an existing implementation data </p>
+<p>type. This is done by right-clicking the “Implementation Data Types” library and selecting </p>
+<p>“New Type Reference…”. </p>
+<p> </p>
+<p>As shown Figure 4-54, a name is given, as well as a reference to another implementation </p>
+<p>data type in the “Data Type” field. For the example uint8 is chosen. </p>
+<p>  </p>
+<p> </p>
+<p>Figure 4-54 </p>
+<p>New type reference </p>
+<p>At Rte generation, the following is generated in Rte_Type.h: </p>
+<p># define Rte_TypeDef_MyImpl_Type_Ref </p>
+<p>typedef uint8 <b>MyImpl_Type_Ref</b>; </p>
+<p> </p>
+<p>The </p>
+<p>new </p>
+<p>created </p>
+<p>implementation </p>
+<p>data </p>
+<p>type </p>
+<p>is </p>
+<p>used </p>
+<p>and </p>
+<p>typed </p>
+<p>via </p>
+<p>typedef </p>
+<p>by </p>
+<p>the </p>
+<p>referenced data type. </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>67 / 80 </p>
+<p><b>4.5.2 </b></p>
+<p><b>Value </b></p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It  is  possible  to  create  an  implementation  data  type  of  category  value  referencing  a </p>
+<p>base  type.  This  is  done  in  this  example  by  right-clicking  the  “Implementation  Data </p>
+<p>Types” library and selecting “New Value…”. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The Value implementation data type gets a name: “My_ImplValue” in this example. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>A reference to a base type has to be given in the “Base Type” field (see Figure 4-55). </p>
+<p>In this example a “My_ImplValue_base” base type is used (see Figure 4-56). A valid </p>
+<p>“Native Declaration” must be set in the base type: unsigned char here. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It is also optionally possible to set a constraint to the implementation data type, which </p>
+<p>is done in My_ImplValue_Constraint (see Figure 4-57). It is set here that the internal </p>
+<p>values are limited to the range [0;150]. </p>
+<p> </p>
+<p> </p>
+<p>Figure 4-55 </p>
+<p>Value implementation data type </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>68 / 80 </p>
+<p> </p>
+<p>Figure 4-56 </p>
+<p>My_ImplValue_base base type </p>
+<p> </p>
+<p>Figure 4-57 </p>
+<p>Implementation type constraint </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The  configured  implementation  data  type  is  generated  via  Rte  generator  and  the </p>
+<p>following can be seen: </p>
+<p> </p>
+<p>In Rte_Type.h: </p>
+<p># define Rte_TypeDef_My_ImplValue </p>
+<p>typedef unsigned char My_ImplValue; </p>
+<p> </p>
+<p>//Primitive Types: </p>
+<p>// ================ </p>
+<p>//My_ImplValue: Integer in interval [0...150] </p>
+<p> </p>
+<p>The new created implementation data type is typed via typedef by the native declaration of </p>
+<p>the  referenced  base  type. As  explained  chapter  3.5,  this  example  introduces  a  platform </p>
+<p>dependency because “unsigned char” meaning is platform dependent. </p>
+<p>The constraint set in the configuration appears only as comments in the code. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>69 / 80 </p>
+<p><b>5 </b></p>
+<p><b>Additional information </b></p>
+<p><b>5.1 </b></p>
+<p><b>Compatibility and conversion </b></p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>It is possible to create several implementation data types with the same name if they </p>
+<p>belong to 2 different packages.  </p>
+<p>At </p>
+<p>code  generation  only  1  implementation  data  type  is  generated. </p>
+<p>In  case  the </p>
+<p>implementation data types with the same name are not exactly the same (differences </p>
+<p>in  compu  methods,  constraints…)  an  information  message  #40286  is  displayed  in </p>
+<p>DaVinci Developer and in DaVinci Configurator Pro (see Figure 5-1). </p>
+<p> </p>
+<p>Figure 5-1 </p>
+<p>Info Message #40286 </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Compatibility  of  ports  is  verified  in  DaVinci  Developer  based  on  the  name  and  the </p>
+<p>category of the connected data elements. This check contains: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Data  elements  exchanged  by  both  ports  shall  have  the  same  category  (Value, </p>
+<p>Record, Array…) </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Primitive data elements exchanged by both ports shall have the same name </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In case of Record: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>For each receiver sub element, there shall be a sender sub element with the same </p>
+<p>name:  </p>
+<p>E.g.: </p>
+<p><b>&gt; </b> Sender of {element1; element2; element3} and receiver of {element1; element3} </p>
+<p>are compatible. </p>
+<p><b>&gt; </b> Sender  of  {element1;  element2}  and  receiver  of  {element1;  element3}  are <b> not </b></p>
+<p>compatible. </p>
+<p><b>&gt; </b> Sender of {element1} and receiver of {element1; element2} are <b>not </b>compatible. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>70 / 80 </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>In case of Array, array data elements exchanged by both ports shall have the same </p>
+<p>name </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>No conversion between data types is realized by the Rte in the generated code. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Compatibility  checks  are  about  to  be  extended  in  DaVinci  Developer  and  DaVinci </p>
+<p>Configurator Pro in the future releases. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b>5.2 </b></p>
+<p><b>Measurement and calibration </b></p>
+<p> </p>
+<p>For </p>
+<p>specific </p>
+<p>ECU </p>
+<p>project </p>
+<p>purposes </p>
+<p>data </p>
+<p>elements </p>
+<p>may </p>
+<p>have </p>
+<p>to </p>
+<p>be </p>
+<p>accessed </p>
+<p>via </p>
+<p>measurement and calibration tools (MCD tools). </p>
+<p>In  order  to  generate  an  A2L  file  used  by  an  MCD  tool,  the  A2L  generation  has  to  be </p>
+<p>activated in the Rte configuration. This configuration is done in DaVinci Configurator Pro </p>
+<p>as shown Figure 5-2.  </p>
+<p> </p>
+<p>Figure 5-2 </p>
+<p>Rte configuration for A2L generation </p>
+<p>A2L files are generated in /Config/McData/ folder of the ECU project (see Figure 5-3). </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-3 </p>
+<p>A2L generation folder  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>71 / 80 </p>
+<p>The following lines summarize what is generated and thus accessible from an MCD tool </p>
+<p>using the generated A2L file. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The mode port prototypes are always visible in the A2L file. A text table is joined to it </p>
+<p>representing the conversion between internal value and mode declaration name. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Data elements of Sender/Receiver interfaces are: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Not  accessible  if  “NotAccessible”  is  set  for  the  data  element  in  the  port  interface </p>
+<p>editor. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Read only if “ReadOnly” is set for the data element in the port interface editor. </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Read/Write if “ReadWrite” is set data element in the port interface editor. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Measurement and calibration settings in application and implementation data types are </p>
+<p>over ridden by the setting at the data element in DaVinci Developer. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Unit is accessible  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Conversion function and text tables are accessible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>1:1 is set in case factor is 1 and offset 0 in DaVinci developer </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Phys to Int factor Fp offset Op makes (Fp ≠ 0): “int to phys f(x)= (1/Fp).x-Op” in A2L </p>
+<p>file </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Int to Phys factor Fi offset Oi makes “int to phys f(x)= Fi.x + Op” in A2L file </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Factors and offsets set for units in DaVinci Developer are not taken into account </p>
+<p>in A2L files. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Operation  arguments  are  not  visible  in  the  A2L  even  if  explicitly  set  in  DaVinci </p>
+<p>Developer. </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Calibration parameters:  </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>They  are  accessible  as  set  in  DaVinci  Developer  (NotAccessible,  ReadOnly  or </p>
+<p>ReadWrite). </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>The unit is not available: the calibration parameter is only handled at implementation </p>
+<p>level with internal values. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>72 / 80 </p>
+<p><b>5.3 </b></p>
+<p><b>Symbols </b></p>
+<p> </p>
+<p>In  DaVinci  Developer  certain  elements  may  have  a  “Symbol”  field.  This  is  the  case  of </p>
+<p>implementation data types. A symbol field may be used in case the name of the element in </p>
+<p>the code shall be different from the name specified in DaVinci Developer. </p>
+<p>For instance, the implementation data type created in chapter 4.5.1 can receive a Symbol </p>
+<p>name  and  value  as  done  Figure  5-4.  In  this  example,  the  name  of  the  symbol  is </p>
+<p>“MyImpl_Type_Ref_Symbol” and the value is “MyImpl_Type_Ref_Value”. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-4 </p>
+<p>Symbol field for implementation data type </p>
+<p>The corresponding code generated is: </p>
+<p> </p>
+<p>In Rte_Type.h: </p>
+<p># define Rte_TypeDef_MyImpl_Type_Ref_Value </p>
+<p>typedef uint8 <b>MyImpl_Type_Ref_Value</b>; </p>
+<p> </p>
+<p>The Value of the Symbol field is used as implementation data type name in the generated </p>
+<p>code. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Symbols have a name field and a value field. </p>
+<p>The  name  field  is  the  name  of  the  symbol  element  handled  by  the  tools  and  the </p>
+<p>generators. The name that really appears in the code is what the value field contains. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>73 / 80 </p>
+<p><b>5.4 </b></p>
+<p><b>Data type mapping assistant </b></p>
+<p> </p>
+<p>A data type mapping assistant is available in DaVinci Developer. It is accessible by right </p>
+<p>click on the ECU Project root and by selecting “Data Type Mapping…” in the context menu </p>
+<p>(see Figure 5-5). </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-5 </p>
+<p>Data type mapping assistant opening </p>
+<p> </p>
+<p>Figure 5-6 </p>
+<p>Data type mapping assistant </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>74 / 80 </p>
+<p>This  assistant  is  a  comfort  editor  allowing  the  mapping  of  application  data  types  to </p>
+<p>implementation data types. In this editor it is possible: </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>To let the assistant finding and mapping automatically compatible implementation data </p>
+<p>types using the “Find Mapping” button </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>To let the assistant creating automatically a compatible implementation data types and </p>
+<p>mapping it using the “Find Mapping” button </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>To  create  manually  the  mapping  by  right-clicking  on  the  application  data  type  line, </p>
+<p>choose “Map…” and select the implementation data type among the existing ones. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The  assistant  is  working  only  in  the  context  of  the  ECU  project.  That  means  only </p>
+<p>application  data  types  that  are  used  in  an  ECU  project  will  be  displayed.  If  an </p>
+<p>application data type is only created in the library but not used, it will not appear in the </p>
+<p>list. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>Description of the editor fields: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Implementation </p>
+<p>Data </p>
+<p>Types”: </p>
+<p>package </p>
+<p>where </p>
+<p>the </p>
+<p>automatically </p>
+<p>created </p>
+<p>implementation data types shall be saved. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Platform Types”: package where the assistant shall look for platform types. </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Prefix”: prefix to add to the automatically created implementation data types. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Postfix”: suffix to add to the automatically created implementation data types. </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Use Platform Types”: if checked, the assistant will search only in the platform types’ </p>
+<p>list to find a compatible implementation data type to map. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Use custom Implementation Data Types”: lets the assistant searching for custom </p>
+<p>implementation data types. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Create </p>
+<p>primitive </p>
+<p>Data </p>
+<p>Types”: </p>
+<p>lets </p>
+<p>the </p>
+<p>assistant </p>
+<p>creating </p>
+<p>new </p>
+<p>primitive </p>
+<p>implementation data types </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>75 / 80 </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Create </p>
+<p>complex </p>
+<p>Data </p>
+<p>Types”: </p>
+<p>lets </p>
+<p>the </p>
+<p>assistant </p>
+<p>creating </p>
+<p>new </p>
+<p>complex </p>
+<p>implementation data type </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Prefer  integer  to  float  Data  Type”:  lets  the  assistant  mapping  by  preference  to </p>
+<p>integer types than to float types. </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Allow  selection  of  incompatible  Data Types”:  allows  that  non Autosar  compatible </p>
+<p>data types are mapped </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Find Mapping”: starts to search for a compatible implementation data type </p>
+<p> </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>“Reset”: resets to the state when the editor was open  </p>
+<p> </p>
+<p> </p>
+<p><b></b></p>
+<p><b> </b></p>
+<p>2 examples are presented here: </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>1st Example:  </p>
+<p> </p>
+<p>After  pressing  „Find  Mapping“,  the  mapping  assistant  proposes  to  map  with  uint8  (see </p>
+<p>Figure  5-7). The  state  is  set  as  “new”  because  it  is  a  new  proposal  from  the  assistant. </p>
+<p>Pressing “ok” or “apply now” creates the mapping and changes the state to “exists”. The </p>
+<p>new  mapping  creation  is reflected by  Figure  5-9:  a  new  data type  mapping  set  with  the </p>
+<p>default  name  “DataTypeMappings_DEV”  is  created  where  the  application  data  type  is </p>
+<p>mapped to uint8 and the corresponding SWC is referencing that data type mapping set. </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-7 </p>
+<p>New mapping </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-8 </p>
+<p>Existing mapping </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>76 / 80 </p>
+<p>     </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-9 </p>
+<p>Created after new mapping </p>
+<p> </p>
+<p><b>&gt; </b></p>
+<p>2nd example: </p>
+<p> </p>
+<p>„Create primitive Data Types“ is checked. By clicking “Find Mapping” the state changes to </p>
+<p>“create data type” (see Figure 5-10).  </p>
+<p>Clicking “ok” or “apply now” a new implementation data type is created and mapped to the </p>
+<p>application data type. Its name starts with the “Prefix” field, then the application data type </p>
+<p>name and then the “Postfix” field. The state changes to “exists” (see Figure 5-11). </p>
+<p>The new implementation data type can be found in the  implementation data type library, </p>
+<p>the  mapping  in  DataTypeMappings_DEV,  which  is  referenced  by  the  SWC  (see  Figure </p>
+<p>5-12). </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-10 </p>
+<p>New mapping with implementation data type creation </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>77 / 80 </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-11 </p>
+<p>Existing mapping with implementation data type creation </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5-12 </p>
+<p>Created after new mapping with implementation data type creation </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>The  assistant  needs  information  from  the  application  data  type  constraints  and/or </p>
+<p>compu methods to be able to map it. In case this information is not sufficient, then the </p>
+<p>assistant  will  not  be  able  to  map  automatically  and  the  state  will  be  “no  mapping </p>
+<p>possible”: </p>
+<p>  </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>78 / 80 </p>
+<p><b>5.5 </b></p>
+<p><b>Type emitter </b></p>
+<p> </p>
+<p>As  defined  by  Autosar  implementation  data  types  have  a  “Type  emitter”  parameter.  It </p>
+<p>defines the entity that shall provide the code definition of the implementation data type. </p>
+<p> </p>
+<p>If  Type  emitter  is  set  to  “RTE”  or  is  empty,  the  RTE  shall  generate  a  typedef  for  the </p>
+<p>implementation data type according to the native declaration of the referenced base type </p>
+<p>(category Value) or according to the referenced implementation data type (category Type </p>
+<p>Reference). </p>
+<p>If Type emitter has any other value, then the RTE does not generate the corresponding </p>
+<p>typedef.  It  is  here  intended  that  the  definition  of  that  implementation  data  type  will  be </p>
+<p>provided by another entity. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>79 / 80 </p>
+<p><b>6 </b></p>
+<p><b>Glossary and Abbreviations </b></p>
+<p><b>6.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>BswM </p>
+<p>Basic Software Manager </p>
+<p>ComM </p>
+<p>Communication Manager </p>
+<p>C </p>
+<p>Programming language C </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference Autosar 4.0 - DataTypes </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.1 </p>
+<p>based on template version 5.1.0 </p>
+<p>80 / 80 </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p><b>&gt; </b> News </p>
+<p><b>&gt; </b> Products </p>
+<p><b>&gt; </b> Demo software </p>
+<p><b>&gt; </b> Support </p>
+<p><b>&gt; </b> Training data </p>
+<p><b>&gt; </b> Addresses </p>
+<p> </p>
+<p><b>www.vector.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

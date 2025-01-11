@@ -1,0 +1,235 @@
+---
+layout: default
+title: DlogSharedGeneric_ReleaseNotes
+nav_order: 2
+parent: DlogShared
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Release Notes DlogSharedGeneric</p>
+<p>Project</p>
+<p>BMW AUTOSAR Core 4 Rel. 3 and adaptive BMW AUTOSAR Core Rel. 1</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.0.3</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233 (classic) / +49 89 382 - 22522 (adaptive)</p>
+<p>Contact</p>
+<p>bac@bmw.de (classic) / abac@bmw.de (adaptive)</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Issues</b></p>
+<p>5.0.3</p>
+<p>2017-12-14</p>
+<p>BAC-6711, BAC-6728, BAC-6702</p>
+<p>5.0.2</p>
+<p>2017-11-09</p>
+<p>BAC-6368, BAC-6362, BAC-6422</p>
+<p>5.0.1</p>
+<p>2017-09-14</p>
+<p>BAC-6223, BAC-5169</p>
+<p>5.0.0</p>
+<p>2017-06-29</p>
+<p>ReleaseNotes_DlogSharedGeneric, Version 5.0.3, Software Platforms</p>
+<p>Page 1 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Module Description</b></p>
+<p>Part of the configuration of the Dlog module that is shared between Bootloader, Bootmanager and</p>
+<p>Application.</p>
+<p><b>2</b></p>
+<p><b>Revisions and Modifications</b></p>
+<p><b>Revision 5.0.3 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6711</p>
+<p>CR Headline:</p>
+<p>missing MIN-MAX limits for parameter definitions</p>
+<p>Description of Issues:</p>
+<p>Many integer parameters used for sizes and address values in Blu</p>
+<p>and DlogShared do not have a MIN-MAX limit specified</p>
+<p>Description of Changes:</p>
+<p>add missing min and max values in DlogShared_paramdef.arxml</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6728</p>
+<p>CR Headline:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Description of Issues:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Description of Changes:</p>
+<p>Fix limits of Flash Timing Parameters</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6702</p>
+<p>CR Headline:</p>
+<p>Dlog: SVK Backup MAX Limit wrong in autosar def file?</p>
+<p>Description of Issues:</p>
+<p>According to BMW 61 places alltogether are supposed to be kept</p>
+<p>clear for the logistics of SVK Backups. In the AutoSAR definition of</p>
+<p>Dlog_Shared (DlogShared_paramdef.arxml) a maximum of 31</p>
+<p>places is stated.</p>
+<p>Description of Changes:</p>
+<p>increase max number of SVK backup from 31 to 61</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.2 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6368</p>
+<p>CR Headline:</p>
+<p>Remove obsolete configs for AuthCounter and MirrorSwe</p>
+<p>Description of Issues:</p>
+<p>Remove obsolete configs for AuthCounter and MirrorSwe</p>
+<p>Description of Changes:</p>
+<p>Remove obsolete configs for AuthCounter and MirrorSwe</p>
+<p>ReleaseNotes_DlogSharedGeneric, Version 5.0.3, Software Platforms</p>
+<p>Page 2 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6362</p>
+<p>CR Headline:</p>
+<p>Adapt to new postbuild variant handling</p>
+<p>Description of Issues:</p>
+<p>adapt to new postbuild variant handling</p>
+<p>Description of Changes:</p>
+<p>adapt to new postbuild variant handling</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6422</p>
+<p>CR Headline:</p>
+<p>Bs, Dlog, Pia: Schema of paramdefs, paramconfs and SWCDen</p>
+<p>should be AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Issues:</p>
+<p>Schema of paramdefs, paramconfs and SWCDen should be</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Description of Changes:</p>
+<p>change arxml schema to</p>
+<p>AUTOSAR_4-3-0_STRICT_COMPACT.xsd</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.1 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-6223</p>
+<p>CR Headline:</p>
+<p>Usage of IMPLEMENTATION-CONFIG-CLASSES is deprecated</p>
+<p>and shall be replaced by VALUE-CONFIG-CLASSES according to</p>
+<p>ASR4.2.2</p>
+<p>Description of Issues:</p>
+<p>TPS_ECUC_06051 is removed from spec. In schema</p>
+<p>AUTOSAR_4-2-2.xsd IMPLEMENTATION-CONFIG-CLASSES is</p>
+<p>marked as deprecated. That means: IMPLEMENTATION-</p>
+<p>CONFIG-CLASSES/IMPLEMENTATION-CONFIG-CLASS has to</p>
+<p>be replaed by</p>
+<p>VALUE-CONFIG-CLASSES/VALUE-CONFIG-CLASS entirely</p>
+<p>within paramdefs!</p>
+<p>Description of Changes:</p>
+<p>fix config classes in paramdef.arxml file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>BAC-5169</p>
+<p>CR Headline:</p>
+<p>Some (most?) BAC modules paramdef violate TPS_ECUC_06004</p>
+<p>ReleaseNotes_DlogSharedGeneric, Version 5.0.3, Software Platforms</p>
+<p>Page 3 of 4</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Description of Issues:</p>
+<p>According to AUTOSAR TPS_ECUConfiguration there is the</p>
+<p>following requirement:</p>
+<p>[TPS_ECUC_06004] AdminData field in ECU Configuration</p>
+<p>Parameter Definition XML file d An AdminData field is required at</p>
+<p>the beginning of every ECU Configuration Parameter Definition</p>
+<p>XML file (regardless whether it is the StMD or the VSMD file) to</p>
+<p>allow the setting of AdminData for the whole XML File. c()</p>
+<p>Most of our modules fail to define the AdminData Element (just</p>
+<p>saw it in Darh - and here the element contains mixed info to be</p>
+<p>fixed). It is somehow weired as we then will define version info</p>
+<p>within CommonPublishedInformation AND AdminData - but as it is</p>
+<p>formally required, we have to follow it.</p>
+<p>Description of Changes:</p>
+<p>add AdminData to paramdef file</p>
+<p>Changed Files:</p>
+<p>cfgdesc/DlogShared_paramdef.arxml</p>
+<p>Compatibility:</p>
+<p><b>Revision 5.0.0 [Released]</b></p>
+<p><b>Item</b></p>
+<p><b>Description</b></p>
+<p>CR ID:</p>
+<p>CR Headline:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Issues:</p>
+<p>Initial Release for SP2021</p>
+<p>Description of Changes:</p>
+<p>Initial Release for SP2021</p>
+<p>Changed Files:</p>
+<p>Compatibility:</p>
+<p>ReleaseNotes_DlogSharedGeneric, Version 5.0.3, Software Platforms</p>
+<p>Page 4 of 4</p>
+</body>
+</html>
+{% endraw %}

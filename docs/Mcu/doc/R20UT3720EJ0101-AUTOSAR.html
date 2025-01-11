@@ -1,0 +1,7216 @@
+---
+layout: default
+title: R20UT3720EJ0101-AUTOSAR
+nav_order: 3
+parent: MCU Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3</p>
+<p> </p>
+<p>User’s Manual</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MCU Driver Component Ver.1.0.9 </p>
+<p>Embedded User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Target Device: </p>
+<p>RH850/P1x </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>All information contained in these materials, including products and product specifications, </p>
+<p>represents information on the product at the time of publication and is subject to change by </p>
+<p>Renesas Electronics Corp. without notice. Please review the latest information published by </p>
+<p>Renesas Electronics Corp. through various means, including the Renesas Electronics Corp. </p>
+<p>website (http://www.renesas.com). </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>www.renesas.com </p>
+<p>Rev.1.01 Feb 2017</p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>2 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>3 </p>
+<p> </p>
+<p> </p>
+<p>N</p>
+<p>oti</p>
+<p>ce </p>
+<p>1.</p>
+<p> </p>
+<p>Descriptions of circuits, software and other related information in this document are provided only to illustrate the operation of </p>
+<p>semiconductor products and application examples. You are fully responsible for the incorporation or any other use of the circuits, </p>
+<p>software, and information in the design of your product or system. Renesas Electronics disclaims any and all liability for any losses </p>
+<p>and damages incurred by you or third parties arising from the use of these circuits, software, or information. </p>
+<p>2.</p>
+<p> </p>
+<p>Renesas Electronics hereby expressly disclaims any warranties against and liability for infringement or any other disputes involving patents, </p>
+<p>copyrights, or other intellectual property rights of third parties, by or arising from the use of Renesas Electronics products or technical </p>
+<p>information described in this document, including but not limited to, the product data, drawing, chart, program, algorithm, application </p>
+<p>examples. </p>
+<p>3.</p>
+<p> </p>
+<p>No license, express, implied or otherwise, is granted hereby under any patents, copyrights or other intellectual property rights of Renesas </p>
+<p>Electronics or others. </p>
+<p>4.</p>
+<p> </p>
+<p>You shall not alter, modify, copy, or otherwise misappropriate any Renesas Electronics product, whether in whole or in part. Renesas </p>
+<p>Electronics disclaims any and all liability for any losses or damages incurred by you or third parties arising from such alteration, </p>
+<p>modification, copy or otherwise misappropriation of Renesas Electronics products. </p>
+<p>5.</p>
+<p> </p>
+<p>Renesas Electronics products are classified according to the following two quality grades: &quot;Standard&quot; and &quot;High Quality&quot;. The intended </p>
+<p>applications for each Renesas Electronics product depends on the product’s quality grade, as indicated below.  </p>
+<p>&quot;Standard&quot;:          Computers; office equipment; communications equipment; test and measurement equipment; audio and visual equipment; </p>
+<p>home electronic appliances; machine tools; personal electronic equipment; and industrial robots etc. </p>
+<p>&quot;High Quality&quot;:   Transportation equipment (automobiles, trains, ships, etc.); traffic control (traffic lights); large-scale communication </p>
+<p>equipment; key financial terminal systems; safety control equipment; etc. </p>
+<p>Renesas Electronics products are neither intended nor authorized for use in products or systems that may pose a direct threat to human life or </p>
+<p>bodily injury (artificial life support devices or systems, surgical implantations etc.), or may cause serious property damages (space and </p>
+<p>undersea repeaters; nuclear power control systems; aircraft control systems; key plant systems; military equipment; etc.). Renesas Electronics </p>
+<p>disclaims any and all liability for any damages or losses incurred by you or third parties arising from the use of any Renesas Electronics </p>
+<p>product for which the product is not intended by Renesas Electronics. </p>
+<p>6.</p>
+<p> </p>
+<p>When using the Renesas Electronics products, refer to the latest product information (data sheets, user’s manuals, application notes, &quot;General </p>
+<p>Notes for Handling and Using Semiconductor Devices&quot; in the reliability handbook, etc.), and ensure that usage conditions are within the </p>
+<p>ranges specified by Renesas Electronics with respect to maximum ratings, operating power supply voltage range, heat radiation </p>
+<p>characteristics, installation, etc. Renesas Electronics disclaims any and all liability for any malfunctions or failure or accident arising out of </p>
+<p>the use of Renesas Electronics products beyond such specified ranges. </p>
+<p>7.</p>
+<p> </p>
+<p>Although Renesas Electronics endeavors to improve the quality and reliability of Renesas Electronics products, semiconductor products have </p>
+<p>specific characteristics such as the occurrence of failure at a certain rate and malfunctions under certain use conditions. Further, Renesas </p>
+<p>Electronics products are not subject to radiation resistance design. Please ensure to implement safety measures to guard them against the </p>
+<p>possibility of bodily injury, injury or damage caused by fire, and social damage in the event of failure or malfunction of Renesas Electronics </p>
+<p>products, such as safety design for hardware and software including but not limited to redundancy, fire control and malfunction prevention, </p>
+<p>appropriate treatment for aging degradation or any other appropriate measures by your own responsibility as warranty for your </p>
+<p>products/system. Because the evaluation of microcomputer software alone is very difficult and not practical, please evaluate the safety of the </p>
+<p>final products or systems manufactured by you. </p>
+<p>8.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office for details as to environmental matters such as the environmental compatibility of each </p>
+<p>Renesas Electronics product. Please investigate applicable laws and regulations that regulate the inclusion or use of controlled substances, </p>
+<p>including without limitation, the EU RoHS Directive carefully and sufficiently and use Renesas Electronics products in compliance with all </p>
+<p>these applicable laws and regulations. Renesas Electronics disclaims any and all liability for damages or losses occurring as a result of your </p>
+<p>noncompliance with applicable laws and regulations. </p>
+<p>9.</p>
+<p> </p>
+<p>Renesas Electronics products and technologies shall not be used for or incorporated into any products or systems whose manufacture, use, or </p>
+<p>sale is prohibited under any applicable domestic or foreign laws or regulations. You shall not use Renesas Electronics products or </p>
+<p>technologies for (1) any purpose relating to the development, design, manufacture, use, stockpiling, etc., of weapons of mass destruction, </p>
+<p>such as nuclear weapons, chemical weapons, or biological weapons, or missiles (including unmanned aerial vehicles (UAVs)) for delivering </p>
+<p>such weapons, (2) any purpose relating to the development, design, manufacture, or use of conventional weapons, or (3) any other purpose of </p>
+<p>disturbing international peace and security, and you shall not sell, export, lease, transfer, or release Renesas Electronics products or </p>
+<p>technologies to any third party whether directly or indirectly with knowledge or reason to know that the third party or any other party will </p>
+<p>engage in the activities described above. When exporting, selling, transferring, etc., Renesas Electronics products or technologies, you shall </p>
+<p>comply with any applicable export control laws and regulations promulgated and administered by the governments of the countries asserting </p>
+<p>jurisdiction over the parties or transactions. </p>
+<p>10.</p>
+<p> </p>
+<p>Please acknowledge and agree that you shall bear all the losses and damages which are incurred from the misuse or violation of the terms and </p>
+<p>conditions described in this document, including this notice, and hold Renesas Electronics harmless, if such misuse or violation results from </p>
+<p>your resale or making Renesas Electronics products available any third party. </p>
+<p>11.</p>
+<p> </p>
+<p>This document shall not be reprinted, reproduced or duplicated in any form, in whole or in part, without prior written consent of Renesas </p>
+<p>Electronics. </p>
+<p>12.</p>
+<p> </p>
+<p>Please contact a Renesas Electronics sales office if you have any questions regarding the information contained in this document or Renesas </p>
+<p>Electronics products. </p>
+<p> </p>
+<p>(Note 1)   &quot;Renesas Electronics&quot; as used in this document means Renesas Electronics Corporation and also includes its majority-owned </p>
+<p>subsidiaries. </p>
+<p>(Note 2)   &quot;Renesas Electronics product(s)&quot; means any product developed or manufactured by or for Renesas Electronics. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>4 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>5 </p>
+<p> </p>
+<p><b>Abbreviations and Acronyms </b></p>
+<p> </p>
+<p><b>Abbreviation / Acronym</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p>ADC</p>
+<p> </p>
+<p>Analog to Digital Converter</p>
+<p> </p>
+<p>ANSI</p>
+<p> </p>
+<p>American National Standards Institute</p>
+<p> </p>
+<p>API</p>
+<p> </p>
+<p>Application Programming Interface</p>
+<p> </p>
+<p>ARXML/arxml </p>
+<p>AutosaR eXtensible Mark-up Language </p>
+<p>ASIL </p>
+<p>Automotive Safety Integrity Level </p>
+<p>AUTOSAR</p>
+<p> </p>
+<p>AUTomotive Open System ARchitecture</p>
+<p> </p>
+<p>BSWMDT </p>
+<p>Basic Software Module Description Template </p>
+<p>CAN</p>
+<p> </p>
+<p>Controller Area Network</p>
+<p> </p>
+<p>CVM </p>
+<p>Core Voltage Monitor </p>
+<p>CLMA </p>
+<p>Clock Monitor  </p>
+<p>CPU </p>
+<p>Central Processing Unit </p>
+<p>DEM/Dem</p>
+<p> </p>
+<p>Diagnostic Event Manager</p>
+<p> </p>
+<p>DET/Det</p>
+<p> </p>
+<p>Development Error Tracer</p>
+<p> </p>
+<p>DIO</p>
+<p> </p>
+<p>Digital Input Output</p>
+<p> </p>
+<p>DMA</p>
+<p> </p>
+<p>Direct Memory Access</p>
+<p> </p>
+<p>ECU</p>
+<p> </p>
+<p>Electronic Control Unit</p>
+<p> </p>
+<p>EEPROM</p>
+<p> </p>
+<p>Electrically Erasable Programmable Read-Only Memory</p>
+<p> </p>
+<p>ECM/Ecm </p>
+<p>Error Control Module </p>
+<p>GNU</p>
+<p> </p>
+<p>GNU’s Not Unix</p>
+<p> </p>
+<p>GPT</p>
+<p> </p>
+<p>General Purpose Timer</p>
+<p> </p>
+<p>HW</p>
+<p> </p>
+<p>HardWare</p>
+<p> </p>
+<p>ICU</p>
+<p> </p>
+<p>Input Capture Unit</p>
+<p> </p>
+<p>ID/Id</p>
+<p> </p>
+<p>IDentifier</p>
+<p> </p>
+<p>ISR</p>
+<p> </p>
+<p>Interrupt Service Routine</p>
+<p> </p>
+<p>I/O</p>
+<p> </p>
+<p>Input and Output</p>
+<p> </p>
+<p>LIN</p>
+<p> </p>
+<p>Local Interconnect Network</p>
+<p> </p>
+<p>MCAL</p>
+<p> </p>
+<p>Microcontroller Abstraction Layer</p>
+<p> </p>
+<p>MHz </p>
+<p>Mega Hertz </p>
+<p>MCU/Mcu</p>
+<p> </p>
+<p>MicroController Unit</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>Not Applicable</p>
+<p> </p>
+<p>NMI </p>
+<p>Non Maskable Interrupt </p>
+<p>MI </p>
+<p>Maskable Interrupt </p>
+<p>OS/Os</p>
+<p> </p>
+<p>Operating System</p>
+<p> </p>
+<p>OSTM </p>
+<p>Operating System Timer </p>
+<p>PDF </p>
+<p>Parameter Definition File </p>
+<p>PWM</p>
+<p> </p>
+<p>Pulse Width Modulation</p>
+<p> </p>
+<p>PLL </p>
+<p>Phase Locked Loop </p>
+<p>RAM/Ram</p>
+<p> </p>
+<p>Random Access Memory</p>
+<p> </p>
+<p>Rev</p>
+<p>.</p>
+<p> </p>
+<p>Revision </p>
+<p>ROM</p>
+<p> </p>
+<p>Read Only Memory</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>6 </p>
+<p>RTE</p>
+<p> </p>
+<p>Run Time Environment</p>
+<p> </p>
+<p>SchM </p>
+<p>Scheduler Manager</p>
+<p> </p>
+<p>SCI </p>
+<p>Serial Communication Interface </p>
+<p>SPI</p>
+<p> </p>
+<p>Serial Peripheral Interface</p>
+<p> </p>
+<p>SW</p>
+<p> </p>
+<p>SoftWare </p>
+<p> </p>
+<p> </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>TAUD </p>
+<p>Timer Array Unit D </p>
+<p>WDT</p>
+<p> </p>
+<p>WatchDog Timer</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p><b>Term</b></p>
+<p> </p>
+<p><b>Represented by</b></p>
+<p> </p>
+<p>Configuration Description File </p>
+<p>(.arxml) </p>
+<p>Input file to MCU Driver Generation Tool. It is generated by ECU </p>
+<p>Configuration Editor. </p>
+<p>Project Makefile (.mak) </p>
+<p>This file has the script that guides the make utility to choose the </p>
+<p>appropriate program files that are to be compiled and linked together </p>
+<p>Sl. No.</p>
+<p> </p>
+<p>Serial Number</p>
+<p> </p>
+<p>Translation XML File (.trxml) </p>
+<p>This file contains the translation and device specific header file path. </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>7 </p>
+<p><b>Table of Contents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 1</b></p>
+<p> </p>
+<p><b>Introduction ..................................................................... 11</b></p>
+<p> </p>
+<p><b>1.1.</b></p>
+<p> </p>
+<p><b>Document Overview ................................................................................................................ 13</b></p>
+<p> </p>
+<p><b>Chapter 2</b></p>
+<p> </p>
+<p><b>Reference Documents .................................................... 15</b></p>
+<p> </p>
+<p><b>Chapter 3</b></p>
+<p> </p>
+<p><b>Integration and Build Process ....................................... 17</b></p>
+<p> </p>
+<p><b>3.1.</b></p>
+<p> </p>
+<p><b>MCU Driver Component Makefile ........................................................................................... 17</b></p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Folder Structure ....................................................................................................... 17</p>
+<p> </p>
+<p><b>Chapter 4</b></p>
+<p> </p>
+<p><b>Forethoughts ................................................................... 19</b></p>
+<p> </p>
+<p><b>4.1.</b></p>
+<p> </p>
+<p><b>General...................................................................................................................................... 19</b></p>
+<p> </p>
+<p><b>4.2.</b></p>
+<p> </p>
+<p><b>Preconditions ........................................................................................................................... 20</b></p>
+<p> </p>
+<p><b>4.3.</b></p>
+<p> </p>
+<p><b>Data Consistency ..................................................................................................................... 21</b></p>
+<p> </p>
+<p><b>4.4.</b></p>
+<p> </p>
+<p><b>User Mode and Supervisor Mode ........................................................................................... 23</b></p>
+<p> </p>
+<p><b>4.5.</b></p>
+<p> </p>
+<p><b>Deviation List ........................................................................................................................... 24</b></p>
+<p> </p>
+<p><b>4.6.</b></p>
+<p> </p>
+<p><b>RAM Initialization ..................................................................................................................... 24</b></p>
+<p> </p>
+<p><b>4.7.</b></p>
+<p> </p>
+<p><b>Callout API ................................................................................................................................ 24</b></p>
+<p> </p>
+<p><b>Chapter 5</b></p>
+<p> </p>
+<p><b>Architecture Details ........................................................ 25</b></p>
+<p> </p>
+<p><b>Chapter 6</b></p>
+<p> </p>
+<p><b>Registers Details ............................................................. 27</b></p>
+<p> </p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p><b>Interaction between the User and MCU Driver </b></p>
+<p><b>Component </b></p>
+<p><b>39</b></p>
+<p> </p>
+<p><b>7.1.</b></p>
+<p> </p>
+<p><b>Services Provided By MCU Driver Component To User ...................................................... 39</b></p>
+<p> </p>
+<p><b>Chapter 8</b></p>
+<p> </p>
+<p><b>MCU Driver Component Header And Source File </b></p>
+<p><b>Description </b></p>
+<p><b>41</b></p>
+<p> </p>
+<p><b>Chapter 9</b></p>
+<p> </p>
+<p><b>Generation Tool Guide .................................................... 45</b></p>
+<p> </p>
+<p><b>Chapter 10</b></p>
+<p> </p>
+<p><b>Application Programming Interface .............................. 47</b></p>
+<p> </p>
+<p><b>10.1.</b></p>
+<p> </p>
+<p><b>Imported Types ........................................................................................................................ 47</b></p>
+<p> </p>
+<p>10.1.1.</p>
+<p> </p>
+<p>Standard Types ....................................................................................................... 47</p>
+<p> </p>
+<p>10.1.2.</p>
+<p> </p>
+<p>Other Module Types ................................................................................................ 47</p>
+<p> </p>
+<p><b>10.2.</b></p>
+<p> </p>
+<p><b>Type Definitions ....................................................................................................................... 47</b></p>
+<p> </p>
+<p>10.2.1</p>
+<p> </p>
+<p>Mcu_ClockType ....................................................................................................... 47</p>
+<p> </p>
+<p>10.2.2</p>
+<p> </p>
+<p>Mcu_RawResetType ............................................................................................... 47</p>
+<p> </p>
+<p>10.2.3</p>
+<p> </p>
+<p>Mcu_RamSectionType ............................................................................................ 48</p>
+<p> </p>
+<p>10.2.4</p>
+<p> </p>
+<p>Mcu_PllStatusTypes ................................................................................................ 48</p>
+<p> </p>
+<p>10.2.5</p>
+<p> </p>
+<p>Mcu_RamStateType ................................................................................................ 48</p>
+<p> </p>
+<p>10.2.6</p>
+<p> </p>
+<p>Mcu_ResetType ...................................................................................................... 48</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>8 </p>
+<p>10.2.7</p>
+<p> </p>
+<p>Mcu_ClmaIndexType .............................................................................................. 50</p>
+<p> </p>
+<p>10.2.8</p>
+<p> </p>
+<p> Mcu_ModeType ...................................................................................................... 50</p>
+<p> </p>
+<p><b>10.3.</b></p>
+<p> </p>
+<p><b>Function Definitions ................................................................................................................ 50</b></p>
+<p> </p>
+<p>10.3.1.</p>
+<p> </p>
+<p>Mcu_Init ................................................................................................................... 51</p>
+<p> </p>
+<p>10.3.2.</p>
+<p> </p>
+<p>Mcu_InitRamSection ............................................................................................... 51</p>
+<p> </p>
+<p>10.3.3.</p>
+<p> </p>
+<p>Mcu_InitClock .......................................................................................................... 52</p>
+<p> </p>
+<p>10.3.4.</p>
+<p> </p>
+<p>Mcu_DistributePllClock ........................................................................................... 52</p>
+<p> </p>
+<p>10.3.5.</p>
+<p> </p>
+<p>Mcu_GetPllStatus .................................................................................................... 53</p>
+<p> </p>
+<p>10.3.6.</p>
+<p> </p>
+<p>Mcu_GetResetReason ............................................................................................ 53</p>
+<p> </p>
+<p>10.3.7.</p>
+<p> </p>
+<p>Mcu_GetResetRawValue ........................................................................................ 54</p>
+<p> </p>
+<p>10.3.8.</p>
+<p> </p>
+<p>Mcu_PerformReset ................................................................................................. 54</p>
+<p> </p>
+<p>10.3.9.</p>
+<p> </p>
+<p>Mcu_SetMode ......................................................................................................... 55</p>
+<p> </p>
+<p>10.3.10.</p>
+<p> </p>
+<p>Mcu_GetVersionInfo ................................................................................................ 55</p>
+<p> </p>
+<p>10.3.11.</p>
+<p> </p>
+<p>Mcu_GetRamState .................................................................................................. 56</p>
+<p> </p>
+<p>10.3.12.</p>
+<p> </p>
+<p>Mcu_EcmReleaseErrorOutPin ................................................................................ 56</p>
+<p> </p>
+<p><b>Chapter 11</b></p>
+<p> </p>
+<p><b>Development And Production Error .............................. 57</b></p>
+<p> </p>
+<p><b>11.1.</b></p>
+<p> </p>
+<p><b>MCU Driver Component Development Errors ....................................................................... 57</b></p>
+<p> </p>
+<p><b>11.2.</b></p>
+<p> </p>
+<p><b>MCU Driver Component Production Errors .......................................................................... 58</b></p>
+<p> </p>
+<p><b>Chapter 12</b></p>
+<p> </p>
+<p><b>Memory Organization ..................................................... 61</b></p>
+<p> </p>
+<p><b>Chapter 13</b></p>
+<p> </p>
+<p><b>P1M Specific Information ............................................... 65</b></p>
+<p> </p>
+<p><b>13.1.</b></p>
+<p> </p>
+<p><b>Interaction between the User and MCU Driver Component ................................................. 65</b></p>
+<p> </p>
+<p>13.1.1.</p>
+<p> </p>
+<p>Translation Header File ........................................................................................... 65</p>
+<p> </p>
+<p>13.1.2.</p>
+<p> </p>
+<p>ISR Function ............................................................................................................ 65</p>
+<p> </p>
+<p>13.1.2.1</p>
+<p> </p>
+<p>Interrupt routines for OS.......................................................................... 66</p>
+<p> </p>
+<p>13.1.3.</p>
+<p> </p>
+<p>Parameter Definition File ......................................................................................... 67</p>
+<p> </p>
+<p><b>13.2.</b></p>
+<p> </p>
+<p><b>Sample Application ................................................................................................................. 67</b></p>
+<p> </p>
+<p>13.2.1</p>
+<p> </p>
+<p>Sample Application Structure .................................................................................. 67</p>
+<p> </p>
+<p>13.2.2</p>
+<p> </p>
+<p>Building Sample Application .................................................................................... 69</p>
+<p> </p>
+<p>13.2.2.1.</p>
+<p> </p>
+<p>Configuration Example ............................................................................ 69</p>
+<p> </p>
+<p>13.2.2.2.</p>
+<p> </p>
+<p>Debugging the Sample Application ......................................................... 69</p>
+<p> </p>
+<p><b>13.3.</b></p>
+<p> </p>
+<p><b>Memory and Throughput ........................................................................................................ 70</b></p>
+<p> </p>
+<p>13.3.1.</p>
+<p> </p>
+<p>ROM/RAM Usage .................................................................................................... 70</p>
+<p> </p>
+<p>13.3.2.</p>
+<p> </p>
+<p>Stack Depth ............................................................................................................. 71</p>
+<p> </p>
+<p>13.3.3.</p>
+<p> </p>
+<p>Throughput Details .................................................................................................. 71</p>
+<p> </p>
+<p><b>Chapter 14</b></p>
+<p> </p>
+<p><b>Release Details ................................................................ 73</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>9 </p>
+<p><b>List of Figures </b></p>
+<p><b> </b></p>
+<p>Figure 1-1</p>
+<p> </p>
+<p>System Overview Of AUTOSAR Architecture .......................................................... 11</p>
+<p> </p>
+<p>Figure 1-2</p>
+<p> </p>
+<p>System Overview Of The MCU Driver In AUTOSAR MCAL Layer .......................... 12</p>
+<p> </p>
+<p>Figure 5-1</p>
+<p> </p>
+<p>MCU Driver Architecture ........................................................................................... 25</p>
+<p> </p>
+<p>Figure 12-1</p>
+<p> </p>
+<p>MCU Driver Component Memory Organization ........................................................ 61</p>
+<p> </p>
+<p>Figure 13-1</p>
+<p> </p>
+<p>Overview of MCU Driver Sample Application ........................................................... 67</p>
+<p> </p>
+<p> </p>
+<p><b>List of Tables </b></p>
+<p><b> </b></p>
+<p>Table 4-1</p>
+<p> </p>
+<p> MCU Driver Protected Resources List ..................................................................... 22</p>
+<p> </p>
+<p>Table 4-2</p>
+<p> </p>
+<p>Supervisor mode and User mode details .................................................................. 23</p>
+<p> </p>
+<p>Table 4-3</p>
+<p> </p>
+<p>MCU Driver Deviation List ......................................................................................... 24</p>
+<p> </p>
+<p>Table 6-1</p>
+<p> </p>
+<p>Register Details ......................................................................................................... 27</p>
+<p> </p>
+<p>Table 8-1</p>
+<p> </p>
+<p>Description of the MCU Driver Component Files ...................................................... 42</p>
+<p> </p>
+<p>Table 10-1</p>
+<p> </p>
+<p>API Provided by MCU Driver Component ................................................................. 50</p>
+<p> </p>
+<p>Table 11-1</p>
+<p> </p>
+<p>DET Errors of MCU Driver Component..................................................................... 57</p>
+<p> </p>
+<p>Table 11-2</p>
+<p> </p>
+<p>DEM Errors of MCU Driver Component .................................................................... 58</p>
+<p> </p>
+<p>Table 13-1</p>
+<p> </p>
+<p>ISR For MCU ............................................................................................................. 66</p>
+<p> </p>
+<p>Table 13-2</p>
+<p> </p>
+<p>PDF information for P1M .......................................................................................... 67</p>
+<p> </p>
+<p>Table 13-3</p>
+<p> </p>
+<p>ROM/RAM Details without DET ................................................................................ 70</p>
+<p> </p>
+<p>Table 13-4</p>
+<p> </p>
+<p>ROM/RAM Details with DET ..................................................................................... 71</p>
+<p> </p>
+<p>Table 13-5</p>
+<p> </p>
+<p>Throughput Details of the APIs ................................................................................. 71</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>10 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b> Introduction </b></p>
+<p><b>  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                  Chapter 1 </b></p>
+<p><b> </b></p>
+<p>11 </p>
+<p><b> </b></p>
+<p><b>Chapter 1 </b></p>
+<p><b>Introduction </b></p>
+<p> </p>
+<p> </p>
+<p>The purpose of this document is to describe the information related to </p>
+<p>MCU Driver Component for Renesas P1x microcontrollers. </p>
+<p> </p>
+<p>This document shall be used as reference by the users of MCU Driver </p>
+<p>Component. The system overview of complete AUTOSAR architecture </p>
+<p>is shown in the below Figure: </p>
+<p> </p>
+<p>                                   </p>
+<p> </p>
+<p>Application Layer</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR RTE</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>System  Services</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>On board Device Abstraction</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>                                                                                           MCU Dr</b></p>
+<p><b>i</b></p>
+<p><b>ver</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Figure 1-1 </b></p>
+<p><b>System Overview of AUTOSAR Architecture </b></p>
+<p><b> </b></p>
+<p>The MCU Driver is part of the Microcontroller Abstraction Layer (MCAL), </p>
+<p>the lowest layer of Basic Software in the AUTOSAR environment. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b> Chapter 1 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                                      Introduction</b></p>
+<p> </p>
+<p> </p>
+<p>12 </p>
+<p>PWM Driver </p>
+<p>ICU Driver </p>
+<p> FlexRay Driver </p>
+<p>CAN Driver </p>
+<p>LIN Driver </p>
+<p>SPIHandlerDriver </p>
+<p>internal EEPROM Driver </p>
+<p>internal Flash Driver </p>
+<p>external Flash Driver </p>
+<p><b> </b></p>
+<p>EEPRO </p>
+<p>M </p>
+<p>Flash </p>
+<p>RAM Test </p>
+<p>Core Test </p>
+<p>MCU Driver </p>
+<p>Watchdog Driver </p>
+<p>GPT Driver </p>
+<p>    PORT Driver </p>
+<p>DIO Driver </p>
+<p>ADC Driver </p>
+<p><b>Micro-  </b></p>
+<p><b>Controller </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>The Figure in the following page depicts the MCU Driver as part of layered </p>
+<p>AUTOSAR MCAL Layer: </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Microcontroller Drivers  </p>
+<p>Memory Drivers </p>
+<p>          Communication Drivers                                  I/O Drivers </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Figure 1-2 </b></p>
+<p><b>System Overview Of The MCU Driver In AUTOSAR MCAL Layer </b></p>
+<p> </p>
+<p>The RTE provides the encapsulation of Hardware channels and basic </p>
+<p>services to the Application Software Components. So it is possible to map the </p>
+<p>Application Software-Components between different ECUs. </p>
+<p> </p>
+<p>The Basic Software Modules are located below the RTE. The Basic Software </p>
+<p>itself is divided into the subgroups: System Services, Memory, </p>
+<p>Communication and I/O Hardware-Abstraction. The Complex Drivers are also </p>
+<p>located below the RTE. Among others, the Operating System (OS), the </p>
+<p>Watchdog manager and the Diagnostic services are located in the System </p>
+<p>Services subgroup. The Memory subgroup contains modules to provide </p>
+<p>access to the non-volatile memories, namely Flash and EEPROM. In the I/O </p>
+<p>Hardware-Abstraction subgroup the whole MCU Driver Component is </p>
+<p>provided. </p>
+<p> </p>
+<p>On board Device Abstraction provides an interface to physical values for </p>
+<p>AUTOSAR software components. It abstracts the physical origin of signals </p>
+<p>(their paths to the hardware ports) and normalizes the signals with respect to </p>
+<p>their physical appearance. The Microcontroller driver provides services for </p>
+<p>basic microcontroller initialization, power down functionality, reset and </p>
+<p>microcontroller specific functions required from the upper layers.</p>
+<p>ADC </p>
+<p>DIO </p>
+<p>LIN or  </p>
+<p>SCI</p>
+<p> </p>
+<p>CAN </p>
+<p>SPI </p>
+<p>Ext.Bus </p>
+<p>PWM </p>
+<p>ICU </p>
+<p>WDT </p>
+<p>GPT </p>
+<p>MC Power </p>
+<p>&amp; Clock </p>
+<p>Unit </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>   Introduction    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                    Chapter 1 </b></p>
+<p> </p>
+<p>13 </p>
+<p><b> </b></p>
+<p><b>1.1. </b></p>
+<p><b>Document Overview </b></p>
+<p> </p>
+<p> </p>
+<p>The document has been segmented for easy reference. The table below </p>
+<p>provides user with an overview of the contents of each section: </p>
+<p> </p>
+<p> </p>
+<p><b>Section</b></p>
+<p> </p>
+<p><b>Contents</b></p>
+<p> </p>
+<p>Section1 (Introduction)</p>
+<p> </p>
+<p>This section provides an introduction and overview of MCU Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 2 (Reference Documents)</p>
+<p> </p>
+<p>This section lists the documents referred for developing this document.</p>
+<p> </p>
+<p>Section 3 (Integration And Build </p>
+<p>Process)</p>
+<p> </p>
+<p>This section explains the folder structure, Makefile structure for MCU </p>
+<p>Driver Component. This section also explains about the Makefile </p>
+<p>descriptions, Integration of MCU Driver Component with other </p>
+<p>components, building the MCU Driver Component along with a sample </p>
+<p>application.</p>
+<p> </p>
+<p>Section 4 (Forethoughts)</p>
+<p> </p>
+<p>This section provides brief information about the MCU Driver </p>
+<p>Component, the preconditions that should be known to the user before </p>
+<p>it is used, data consistency details and deviation list.</p>
+<p> </p>
+<p>Section 5 (Architecture Details)</p>
+<p> </p>
+<p>This section describes the layered architectural details of the MCU Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 6 (Registers Details)</p>
+<p> </p>
+<p>This section describes the register details of MCU Driver Component.</p>
+<p> </p>
+<p>Section 7 (Interaction between </p>
+<p>The User And MCU Driver </p>
+<p>Component)</p>
+<p> </p>
+<p>This section describes interaction of the MCU Driver Component with </p>
+<p>the upper layers.</p>
+<p> </p>
+<p>Section 8 (MCU Driver </p>
+<p>Component Header And Source </p>
+<p>File Description)</p>
+<p> </p>
+<p>This section provides information about the MCU Driver Component </p>
+<p>source files is mentioned. This section also contains the brief note on </p>
+<p>the tool generated output file.</p>
+<p> </p>
+<p>Section 9 (Generation Tool Guide)</p>
+<p> </p>
+<p>This section provides information on the MCU Driver Component Code </p>
+<p>Generation Tool.</p>
+<p> </p>
+<p>Section 10 (Application </p>
+<p>Programming Interface)</p>
+<p> </p>
+<p>This section explains all the APIs provided by the MCU Driver </p>
+<p>Component.</p>
+<p> </p>
+<p>Section 11 (Development And </p>
+<p>Production Errors)</p>
+<p> </p>
+<p>This section lists the DET and DEM errors.</p>
+<p> </p>
+<p>Section 12 (Memory </p>
+<p>Organization)</p>
+<p> </p>
+<p>This section provides the typical memory organization, which must be </p>
+<p>met for proper functioning of component.</p>
+<p> </p>
+<p>Section 13 (P1M Specific </p>
+<p>Information)</p>
+<p> </p>
+<p>This section provides P1M specific information also the information </p>
+<p>about linker compiler and sample application.</p>
+<p> </p>
+<p>Section 14 (Release Details)</p>
+<p> </p>
+<p>This section provides release details with version name and base </p>
+<p>version.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 1 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                                      Introduction</b></p>
+<p> </p>
+<p> </p>
+<p>14 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p><b>Reference Documents  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>      Chapter 2</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>15 </p>
+<p> </p>
+<p><b>Chapter 2 </b></p>
+<p><b>Reference Documents </b></p>
+<p> </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Title</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p>1. </p>
+<p>AUTOSAR_SWS_MCUDriver.pdf </p>
+<p>3.2.0</p>
+<p> </p>
+<p>2. </p>
+<p>r01uh0436ej0130-rh850p1x.pdf </p>
+<p>1.30</p>
+<p> </p>
+<p>3. </p>
+<p>AUTOSAR_SWS_MemoryMapping.pdf </p>
+<p>1.4.0</p>
+<p> </p>
+<p>4. </p>
+<p>AUTOSAR_SWS_PlatformTypes.pdf </p>
+<p>2.5.0</p>
+<p> </p>
+<p>5. </p>
+<p>AUTOSAR_BSW_MakefileInterface.pdf </p>
+<p>0.3</p>
+<p> </p>
+<p>6. </p>
+<p>AUTOSAR_SWS_CompilerAbstraction.pdf </p>
+<p>3.2.0</p>
+<p> </p>
+<p>7. </p>
+<p>AUTOSAR BUGZILLA (http://www.autosar.org/bugzilla) </p>
+<p>Note: AUTOSAR BUGZILLA is a database, which contains concerns </p>
+<p>raised against information present in AUTOSAR Specifications. </p>
+<p>-</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 2                                                                                                             Reference Documents </b></p>
+<p> </p>
+<p>16 </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b> </b></p>
+<p><b>Integration and Build Process  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>     Chapter 3 </b></p>
+<p> </p>
+<p>17 </p>
+<p><b>Chapter 3 </b></p>
+<p><b>Integration and Build Process </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the folder structure of the MCU Driver Component is explained. </p>
+<p>Description of the Make files along with samples is provided in this section. </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>The details about the C Source and Header files that are generated by the </p>
+<p>MCU Driver Generation Tool are mentioned in the Generation Tool User’s </p>
+<p>Manual “R20UT3721EJ0101-AUTOSAR.pdf”. </p>
+<p> </p>
+<p><b>3.1. </b></p>
+<p><b>MCU Driver Component Makefile </b></p>
+<p> </p>
+<p>The Makefile provided with the MCU Driver Component consists of the GNU </p>
+<p>Make compatible script to build the MCU Driver Component in case of any </p>
+<p>change in the configuration. This can be used in the upper level Makefile (of </p>
+<p>the application) to link and build the final application executable. </p>
+<p> </p>
+<p><b> 3.1.1 </b></p>
+<p><b>Folder Structure </b></p>
+<p> </p>
+<p>The files are organized in the following folders: </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Trailing slash ‘\’ at the end indicates a folder </p>
+<p> </p>
+<p>X1X\P1x\modules\mcu\src </p>
+<p> </p>
+<p>\Mcu.c </p>
+<p> </p>
+<p>\Mcu_Irq.c </p>
+<p> </p>
+<p>\Mcu_Ram.c </p>
+<p> </p>
+<p>\Mcu_Version.c </p>
+<p> </p>
+<p>X1X\P1x\modules\mcu\include </p>
+<p> </p>
+<p>\Mcu.h </p>
+<p> </p>
+<p>\Mcu_Debug.h </p>
+<p> </p>
+<p>\Mcu_Irq.h </p>
+<p> </p>
+<p>\Mcu_PBTypes.h </p>
+<p> </p>
+<p>\Mcu_Ram.h </p>
+<p> </p>
+<p>\Mcu_Types.h </p>
+<p> </p>
+<p>\Mcu_Version.h </p>
+<p> </p>
+<p>\Mcu_RegWrite.h </p>
+<p> </p>
+<p> </p>
+<p>X1X\P1x\modules\mcu\sample_application\&lt;SubVariant&gt;\make\&lt;compiler&gt; </p>
+<p>\App_MCU_P1M_Sample.mak </p>
+<p>X1X\P1x\modules\mcu\sample_application\&lt;SubVariant&gt;\obj\&lt;Complier&gt; </p>
+<p>X1X\P1x\modules\mcu\generator </p>
+<p>\Mcu_P1x.dll </p>
+<p>\R403_MCU_P1x_BSWMDT.arxml </p>
+<p>X1X\P1x\common_family\generator </p>
+<p>\Global_Application_P1x.trxml </p>
+<p>\Sample_Application_P1x.trxml </p>
+<p>\P1x_translation.h </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 3                                                                                                 Integration and Build Process </b></p>
+<p>  </p>
+<p>18 </p>
+<p>\Test_Application_P1x.trxml </p>
+<p>X1X\P1x\modules\mcu\user_manual </p>
+<p>(User manuals will be available in this folder) </p>
+<p> </p>
+<p>Following stubs are required for the successful compilation of MCU module: </p>
+<p> </p>
+<p>X1X\common_platform\generic\stubs\4.0.3\Dem </p>
+<p>\include\Dem.h </p>
+<p>\include\</p>
+<p> </p>
+<p>Dem_Cfg.h </p>
+<p>\src\Dem.c </p>
+<p>\make\dem_defs.mak </p>
+<p>\make\dem_rules.mak </p>
+<p>\xml\Dem_Mcu.arxml </p>
+<p>X1X\common_platform\generic\stubs\4.0.3\Det </p>
+<p>\includeDet.h </p>
+<p>\src\Det.c </p>
+<p>\make\det_defs.mak </p>
+<p>\make\det_rules.mak </p>
+<p>X1X\common_platform\generic\stubs\4.0.3\Os </p>
+<p>\include\Os.h </p>
+<p>\make\os_defs.mak </p>
+<p>X1X\common_platform\generic\stubs\4.0.3\SchM </p>
+<p>\include\Rte.h </p>
+<p>\include\SchM_Mcu.h </p>
+<p>\src\SchM_Mcu.c </p>
+<p>\make\rte_defs.mak </p>
+<p>\make\rte_rules.mak </p>
+<p> </p>
+<p> </p>
+<p>                     Note:    1. &lt;Complier&gt; can be ghs. </p>
+<p>                     2. &lt;AUTOSAR_version&gt; should be 4.0.3. </p>
+<p>                     3. &lt;SubVariant&gt; can be P1M. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p>19 </p>
+<p><b>Chapter 4 </b></p>
+<p><b>Forethoughts </b></p>
+<p> </p>
+<p> </p>
+<p><b>4.1. </b></p>
+<p><b>General </b></p>
+<p> </p>
+<p>Following information will aid the user to use the MCU Driver Component </p>
+<p>software efficiently: </p>
+<p> </p>
+<p>• </p>
+<p>The MCU Driver does not enable or disable the ECU or Microcontroller </p>
+<p>power supply. The upper layer should handle this operation. </p>
+<p> </p>
+<p>• </p>
+<p>The start-up code is ECU and MCU specific. MCU Driver does </p>
+<p>not implement the start-up code. </p>
+<p> </p>
+<p>• </p>
+<p>MCU specific initializations such as reset registers, one time writable </p>
+<p>registers, interrupt stack pointer, user stack pointer and MCU internal </p>
+<p>watchdog, MCU specific features of internal memory and registers are not </p>
+<p>implemented by MCU Driver. These initializations should be implemented </p>
+<p>by the start-up code. </p>
+<p> </p>
+<p>• </p>
+<p>MCU Driver does not implement any call-back notification functions. </p>
+<p> </p>
+<p>• </p>
+<p>MCU Driver does not implement scheduled functions. </p>
+<p> </p>
+<p>• </p>
+<p>The MCU Driver component is implemented as a Post build variant. </p>
+<p> </p>
+<p>• </p>
+<p>MCU Driver depends on Scheduler and Wake-up source service Modules </p>
+<p>for disabling all relevant interrupts to protect writing into the protected </p>
+<p>registers and invoking the ECU state manager functions. </p>
+<p> </p>
+<p>• </p>
+<p>In P1x PLL clocks are not configurable and it cannot be controlled by </p>
+<p>software. It works with default values after main oscillator activated. </p>
+<p>Hence in P1x Mcu driver code Mcu_DistributePllClock() and </p>
+<p>Mcu_GetPllStatus()API's none of the action are taken care except DET </p>
+<p>errors. </p>
+<p> </p>
+<p>• </p>
+<p>The file Interrupt_VectorTable.c provided is just a Demo and not all </p>
+<p>interrupts will be mapped in this file. So the user has to update the </p>
+<p>Interrupt_VectorTable.c as per his configuration </p>
+<p> </p>
+<p>• </p>
+<p>The container 'McuResetReasonConf' is not used for implementation. Since </p>
+<p>this is coming under the published information and specific to hardware &amp; </p>
+<p>implementation, the user must not allowed to configure/rename this. So the </p>
+<p>other vendor specific containers are introduced here to achieve the same </p>
+<p>functionality. These containers have multiplicity 1 - 1 and have fixed values </p>
+<p>depends on the reset type. </p>
+<p> </p>
+<p>• </p>
+<p>The reset reason information from HW registers shall be cleared after </p>
+<p>reading and processing the information, in order to avoid multiple reset </p>
+<p>reasons. This should be done in the APIs Mcu_GetResetReason() and </p>
+<p>Mcu_GetResetRawValue(). </p>
+<p> </p>
+<p>• </p>
+<p>If the RAM init feature is enabled the API Mcu_InitRamSection follows this </p>
+<p>procedure: </p>
+<p> </p>
+<p>• </p>
+<p>Initialize the RAM section. </p>
+<p>• </p>
+<p>Unmask the maskable interrupts enabled for RAM error signals </p>
+<p>(within ECM). </p>
+<p> </p>
+<p>The procedure requires that the complete RAM is initialized before the RAM </p>
+<p>state functionality is used. </p>
+<p> </p>
+<p>• </p>
+<p>If the RAM init feature is not enabled the unmasking of maskable interrupts </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 4                                                                                                                           Forethoughts </b></p>
+<p> </p>
+<p>20 </p>
+<p>enabled for RAM error signals (within ECM) will be handled in API </p>
+<p>Mcu_Init(). </p>
+<p> </p>
+<p>If McuRamSectorSetting = FALSE, the local RAM error sources will be </p>
+<p>configured as part of Mcu_Init API. If McuRamSectorSetting = TRUE, the </p>
+<p>local RAM error sources will be configured as part of Mcu_InitRamSection </p>
+<p>API. </p>
+<p> </p>
+<p>• </p>
+<p>The accesses to HW registers is possible only in the low level driver layer. </p>
+<p>The MCAL user does never write or read directly from any register, but uses </p>
+<p>the AUTOSAR standard API provided by the MCAL. </p>
+<p> </p>
+<p>• </p>
+<p>The default value for the parameter 'McuLoopCount' is ‘5’. The user shall </p>
+<p>configure the parameter 'McuLoopCount' to standard default value ‘5’ for </p>
+<p>avoiding unwanted reporting of DEM due to stabilization issues. The </p>
+<p>maximum value of this parameter 'McuLoopCount' is '255'. </p>
+<p> </p>
+<p>• </p>
+<p>The parameter McuEcmDelayTimerOverflowValue specifies to configure the </p>
+<p>overflow value for the ECM delay timer. This value will be compared with </p>
+<p>ECM delay timer register. The ECM delay timer uses high speed peripheral </p>
+<p>clock signal for counting. </p>
+<p> </p>
+<p>• </p>
+<p>The parameter McuEcmErrorOutputMode used to configure the error output </p>
+<p>mode either in Dynamic or Non-Dynamic. If this parameter is configured as </p>
+<p>dynamic and parameter McuEcmErrorOutTimer is enabled, OSTM1 output </p>
+<p>will be used. If the parameter McuEcmErrorOutTimer is disabled, channel 15 </p>
+<p>in TAUD1 will be used. User should configure timer channels </p>
+<p>(OSTM1/TAUD1) outside the MCU driver .If timer is not configured, it will </p>
+<p>affect the expected output behavior of Dynamic Mode. </p>
+<p> </p>
+<p>• </p>
+<p>Back up RAM0 (BURAM0) is used in the startup self-test </p>
+<p>procedure.BURAM0 shall not be shared with other peripherals. </p>
+<p> </p>
+<p>• </p>
+<p>If the parameter McuStartUpSWResetTest or McuStartUpECMResetTest is </p>
+<p>configured as true, reset will happen during initialisation. </p>
+<p> </p>
+<p>• </p>
+<p>For handling Non-Maskable interrupts asm code is used to access system </p>
+<p>registers. User does not have permission to alter the asm code </p>
+<p> </p>
+<p>• </p>
+<p>McuCvmDiagLockBit needs to be set to TRUE when using in ASIL </p>
+<p>applications </p>
+<p> </p>
+<p>• </p>
+<p>If there are more than one interrupt with same priority setting across multiple </p>
+<p>MCAL modules, the interrupts are invoked as per the priority of the </p>
+<p>microcontroller interrupt vector table.  </p>
+<p> </p>
+<p>• </p>
+<p>The functions/variables with &quot;STATIC&quot; as pilot tag, provides an indication to </p>
+<p>the compiler that the function/variable following this tag is a static type, so </p>
+<p>the scope of static functions/variables is restricted to the file where they are </p>
+<p>declared. User should take care of the tag name with respect to compiler </p>
+<p>used.  </p>
+<p><b>4.2. </b></p>
+<p><b>Preconditions </b></p>
+<p> </p>
+<p>Following preconditions have to be adhered by the user, for proper </p>
+<p>functioning of the MCU Driver Component: </p>
+<p> </p>
+<p>• </p>
+<p>The Mcu_Cfg.h, Mcu_Cbk.h and Mcu_Reg.h files generated by the MCU </p>
+<p>Driver component Code Generation Tool must be compiled and linked </p>
+<p>along with MCU Driver component source files. </p>
+<p> </p>
+<p>• </p>
+<p>The application has to be rebuilt, if there is any change in the Mcu_Cfg.h file </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p>21 </p>
+<p>generated by the MCU Driver component Generation Tool. </p>
+<p> </p>
+<p>• </p>
+<p>File Mcu_PBcfg.c generated for single configuration set or multiple </p>
+<p>configuration sets using MCU Driver component Generation Tool can </p>
+<p>be compiled and linked independently. </p>
+<p> </p>
+<p>• </p>
+<p>The  authorization  of  the  user  for  calling  the  software  triggering  of  a </p>
+<p>hardware reset is not checked in the MCU Driver. This is the responsibility </p>
+<p>of the upper layer. </p>
+<p> </p>
+<p>• </p>
+<p>The MCU Driver component needs to be initialized before accepting </p>
+<p>any request. The API Mcu_Init should be called by the ECU State </p>
+<p>Manager Module to initialize MCU Driver Component. </p>
+<p> </p>
+<p>The user should ensure that MCU Driver component API requests </p>
+<p>are invoked in the correct and expected sequence and with correct </p>
+<p>input arguments. </p>
+<p> </p>
+<p>• </p>
+<p>Input parameters are validated only when the static configuration </p>
+<p>parameter MCU_DEV_ERROR_DETECT is enabled. Application should </p>
+<p>ensure that the right parameters are passed while invoking the APIs when </p>
+<p>MCU_DEV_ERROR_DETECT is disabled. </p>
+<p> </p>
+<p>• </p>
+<p>There are different clock settings possible. For more details, please refer </p>
+<p>the respective device specific component user manual. </p>
+<p> </p>
+<p>• </p>
+<p>If the handle of clock setting passed to the API Mcu_InitClock is not </p>
+<p>configured to any one of the supported clock settings, then the </p>
+<p>Development Error Detection function is invoked if the static configuration </p>
+<p>parameter MCU_DEV_ERROR_DETECT is enabled. </p>
+<p> </p>
+<p>• </p>
+<p>The MCU Driver initializes the clock generator as per the required </p>
+<p>configuration settings and provides the configured clock sources for the </p>
+<p>peripherals as applicable. It is the responsibility of the individual drivers to </p>
+<p>select and initialize the respective driver specific registers as required for </p>
+<p>their functionality with reference to the clock source provided by the MCU </p>
+<p>Driver. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_InitClock is implemented considering its invocation at run </p>
+<p>time. Hence, there is a possibility of change in the baud rate set by the </p>
+<p>peripheral drivers if the clock setting is different. Hence, the initialization of </p>
+<p>the respective drivers after the invocation of Mcu_InitClock, is the </p>
+<p>responsibility of the user of MCU Driver services. </p>
+<p> </p>
+<p>• </p>
+<p>A mismatch in the version numbers of header and the source files results in </p>
+<p>compilation error. User should ensure that the correct versions of the header </p>
+<p>and the source files are used.  </p>
+<p> </p>
+<p>• </p>
+<p>User must ensure that the Mcu_Init shall be called only once after power on </p>
+<p>or after reset, as there is no de-intialization function. Calling Mcu_Init() twice </p>
+<p>with no reset in between is an invalid call sequence. </p>
+<p> </p>
+<p><b>4.3. </b></p>
+<p><b>Data Consistency </b></p>
+<p> </p>
+<p>To support the re-entrance and interrupt services, the MCU Driver will ensure </p>
+<p>the data consistency while accessing its own RAM storage or hardware </p>
+<p>registers or to prevent any interrupts between the two write instructions of the </p>
+<p>write protected register and the corresponding write enable register. </p>
+<p>The MCU Driver will use SchM_Enter_Mcu_&lt;Exclusive Area&gt; and </p>
+<p>SchM_Exit_Mcu_&lt;Exclusive Area&gt; functions. </p>
+<p> </p>
+<p>The SchM_Enter_Mcu_&lt;Exclusive Area&gt; function is called before the data </p>
+<p>needs to be protected and SchM_Exit_Mcu_&lt;Exclusive Area&gt; function is </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 4                                                                                                                           Forethoughts </b></p>
+<p> </p>
+<p>22 </p>
+<p>called after the data is accessed. </p>
+<p>The flowchart will indicate the flow with the precompile option </p>
+<p>“McuCriticalSectionProtection” enabled. </p>
+<p> </p>
+<p>The following exclusive area along with scheduler services is used to provide </p>
+<p>data integrity for shared resources: </p>
+<p>MCU_REGISTER_PROTECTION </p>
+<p>MCU_VARIABLE_PROTECTION </p>
+<p>The functions SchM_Enter_Mcu_&lt;Exclusive Area&gt; and SchM_Exit_Mcu </p>
+<p>_&lt;Exclusive Area&gt; can be disabled by disabling the configuration parameter </p>
+<p>‘McuCriticalSectionProtection’. </p>
+<p> </p>
+<p>The MCU module will use below macro for exclusive area. </p>
+<p> </p>
+<p>#define MCU_ENTER_CRITICAL_SECTION(Exclusive_Area) \ </p>
+<p>                              SchM_Enter_Mcu_##Exclusive_Area() </p>
+<p> </p>
+<p>#define MCU_EXIT_CRITICAL_SECTION(Exclusive_Area) \ </p>
+<p>                              SchM_Exit_Mcu_##Exclusive_Area() </p>
+<p> </p>
+<p> </p>
+<p>                        <b>Table 4-1 </b></p>
+<p><b> MCU Driver Protected Resources List </b></p>
+<p>       </p>
+<p>Note: The worst case critical section value is 7.575 microseconds for MCU_FEINT_ISR.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>API Name </b></p>
+<p><b> </b></p>
+<p><b>Exclusive Area Type </b></p>
+<p><b> </b></p>
+<p><b>Protected Resources </b></p>
+<p>Mcu_Init </p>
+<p> </p>
+<p> </p>
+<p>MCU_REGISTER_PROTECTION </p>
+<p> </p>
+<p>HW Registers:  </p>
+<p>ECMMESSTR0 </p>
+<p>ECMESSTC0 </p>
+<p>IMR0 </p>
+<p>ECMDTMCTL</p>
+<p> </p>
+<p>Mcu_InitRamSection </p>
+<p> </p>
+<p>MCU_REGISTER_PROTECTION </p>
+<p> </p>
+<p>HW Registers:  </p>
+<p>ECMESSTC0 </p>
+<p>ECMMESSTR0 </p>
+<p>ECMESSTC1 </p>
+<p>ECMMESSTR1</p>
+<p> </p>
+<p>Mcu_GetRamState </p>
+<p> </p>
+<p>MCU_VARIABLE_PROTECTION </p>
+<p> </p>
+<p>Global variable </p>
+<p>Mcu_GblRAMInitStatus </p>
+<p>protected.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Forethoughts </b></p>
+<p><b>Chapter 4 </b></p>
+<p><b> </b></p>
+<p>23 </p>
+<p> </p>
+<p> </p>
+<p><b>4.4. </b></p>
+<p><b>User Mode and Supervisor Mode </b></p>
+<p><b> </b></p>
+<p>The below table specifies the APIs which can run in user mode, supervisor </p>
+<p>mode or both modes </p>
+<p> </p>
+<p><b>Table 4-2 </b></p>
+<p><b>Supervisor mode and User mode details </b></p>
+<p><b> </b></p>
+<p><b>Sl.No.</b></p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>User Mode</b></p>
+<p> </p>
+<p><b>Supervisor </b></p>
+<p><b>Mode</b></p>
+<p> </p>
+<p><b>Known limitation in User </b></p>
+<p><b>mode </b></p>
+<p>1.</p>
+<p> </p>
+<p>Mcu_Init</p>
+<p> </p>
+<p>- </p>
+<p>x</p>
+<p> </p>
+<p>1. The enabling of the </p>
+<p>interrupt will not be </p>
+<p>possible. </p>
+<p>2. Critical section protection </p>
+<p>cannot be enabled </p>
+<p>2.</p>
+<p> </p>
+<p>Mcu_InitRamSection</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>Critical section protection </p>
+<p>cannot be enabled</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>Mcu_InitClock</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>4. </p>
+<p>Mcu_DistributePllClock</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>5. </p>
+<p>Mcu_GetPllStatus</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>6. </p>
+<p>Mcu_GetResetReason</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>7. </p>
+<p>Mcu_GetResetRawValue</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>8. </p>
+<p>Mcu_PerformReset</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>x</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>9. </p>
+<p>Mcu_SetMode </p>
+<p>x </p>
+<p>x </p>
+<p>- </p>
+<p> 10. </p>
+<p>Mcu_GetRamState </p>
+<p>x </p>
+<p>x </p>
+<p>Critical section protection </p>
+<p>cannot be enabled</p>
+<p> </p>
+<p>11. </p>
+<p>Mcu_LockStepSelfDiagnosticTest </p>
+<p>x </p>
+<p>x </p>
+<p>Critical section protection </p>
+<p>cannot be enabled </p>
+<p>12. </p>
+<p>Mcu_CvmSelfDiagnosticTest </p>
+<p>x </p>
+<p>x </p>
+<p>-</p>
+<p> </p>
+<p>13. </p>
+<p>Mcu_ClmaSelfDiagnosticTest </p>
+<p>x </p>
+<p>x </p>
+<p>-</p>
+<p> </p>
+<p>14. </p>
+<p>Mcu_EcmSelfDiagnosticTest </p>
+<p>x </p>
+<p>x </p>
+<p>Critical section protection </p>
+<p>cannot be enabled</p>
+<p> </p>
+<p> 15. </p>
+<p>Mcu_SaveResetReason </p>
+<p>x </p>
+<p>x </p>
+<p>Critical section protection </p>
+<p>cannot be enabled </p>
+<p>       </p>
+<p>      Note: Implementation of Critical Section is not dependent on MCAL. Hence Critical Section is  </p>
+<p>                not considered to the entries for User mode in the above table. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 4                                                                                                                           Forethoughts </b></p>
+<p> </p>
+<p>24 </p>
+<p> </p>
+<p><b>4.5. </b></p>
+<p><b>Deviation List</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Table 4-3 </b></p>
+<p><b>MCU Driver Deviation List </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>AUTOSAR Bugzilla / Mantis</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>The parameter McuResetSetting from the </p>
+<p>sub-container McuModuleConfiguration is </p>
+<p>not considered.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>The MCU Driver considers the parameters of </p>
+<p>RAM section configuration as pre-compile </p>
+<p>parameters, since the number of RAM settings </p>
+<p>are not known and hence the generation of </p>
+<p>handles is not possible at post-build-time.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>The sub-container McuClockReferencePoint in </p>
+<p>the Clock setting configuration is not used as </p>
+<p>the reference frequencies specific to various </p>
+<p>peripheral devices need to be published by </p>
+<p>MCU Driver component.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>The parameter McuClockSettingId range in </p>
+<p>McuClockSettingConfig container is changed </p>
+<p>from “1 to 255” to “0 to 255” since 0 is valid </p>
+<p>minimum value for clock setting ID.</p>
+<p> </p>
+<p>54536</p>
+<p> </p>
+<p>5.</p>
+<p> </p>
+<p>If an invalid database is passed as a </p>
+<p>parameter to API Mcu_Init, DET Error code </p>
+<p>MCU_E_INVALID_DATABASE is reported to </p>
+<p>DET.</p>
+<p> </p>
+<p>-</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>4.6. </b></p>
+<p><b>RAM Initialization </b></p>
+<p> </p>
+<p>RAM initialization done by an API call to Mcu_InitRamSection must not </p>
+<p>overwrite other memory sections of static variables. A dedicated memory </p>
+<p>section shall be defined in linker directive file. </p>
+<p> </p>
+<p><b>4.7. </b></p>
+<p><b>Callout API   </b></p>
+<p> </p>
+<p>The MCU_RESET_CALLOUT() API is the call out API from the Mcu </p>
+<p>module which will be called by Mcu_PerformReset() API for the software </p>
+<p>reset when configuration parameter McuSwResetCall Api is true. This </p>
+<p>callout API needs to be filled by user to do the software reset. If the </p>
+<p>configuration parameter McuSwResetCall Api is false, the callout shall not </p>
+<p>be available and the software reset shall be handled by the MCU itself </p>
+<p>using HW feature of the SW reset. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Architecture Details </b></p>
+<p><b>Chapter 5 </b></p>
+<p> </p>
+<p>25 </p>
+<p> </p>
+<p><b>  </b></p>
+<p><b> </b></p>
+<p><b>      MCU Driver </b></p>
+<p><b>On-Chip Registers</b></p>
+<p> </p>
+<p><b>On-Chip Hardware</b></p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 5 </b></p>
+<p><b>Architecture Details </b></p>
+<p> </p>
+<p> </p>
+<p>                                        The MCU Driver architecture is shown in the following figure. The MCU user   </p>
+<p>                                        shall directly use the APIs to configure and execute the MCU conversions: </p>
+<p> </p>
+<p> </p>
+<p><b>    </b></p>
+<p>Application Software (MCU user)</p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>Figure 5-1 </b></p>
+<p><b>MCU Driver Architecture </b></p>
+<p> </p>
+<p>The MCU driver accesses the microcontroller hardware directly and is located </p>
+<p>in the MCAL. MCU component provides the functionalities related to PLL </p>
+<p>Initialization, Clock Initialization and Distribution, RAM sections Initialization, </p>
+<p>PreScaler Initialization, MCU reduced Power Modes Activation and MCU </p>
+<p>Reset Activation and Reason. </p>
+<p> </p>
+<p>The component consists of the following sub modules based on the </p>
+<p>functionality: </p>
+<p> </p>
+<p>• </p>
+<p>Initialization </p>
+<p> </p>
+<p>• </p>
+<p>Self-Diagnostic test for ECM, CVM, Clock Monitor and Lock Step. </p>
+<p> </p>
+<p>• </p>
+<p>Clock Initialization </p>
+<p> </p>
+<p>• </p>
+<p>RAM sections Initialization and Status Verification </p>
+<p> </p>
+<p>• </p>
+<p>MCU Reset Activation and Reason </p>
+<p> </p>
+<p>• </p>
+<p>Version Information </p>
+<p> </p>
+<p><b>Initialization </b></p>
+<p> </p>
+<p>This sub module provides the structures and APIs for both global and </p>
+<p>controller specific initialization. MCU specific initialization is necessary in </p>
+<p>order to ensure different startup behaviors of the microcontroller. This sub </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 5                                                                                                                Architecture Details </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>26 </p>
+<p>module also checks if the data base is flashed. </p>
+<p> </p>
+<p> </p>
+<p><b>Self-Diagnostic test for ECM, CVM, Clock Monitor and Lock Step </b></p>
+<p><b> </b></p>
+<p>This functionality is provided as part MCU module initialization. </p>
+<p>Self-diagnostic test for ECM error source is helpful to check the ECM error </p>
+<p>output signal by creating the real ECM error signal.  </p>
+<p>Self-diagnostic test for CVM and CLMA is possible in real scenario.  </p>
+<p><b>           </b></p>
+<p> </p>
+<p><b>Clock Initialization </b></p>
+<p> </p>
+<p>The clock initialization sub module provides the functionality for generating all </p>
+<p>the required clock signals for microcontroller operation from any one of the </p>
+<p>available sources. It enables the provision for individual clock source </p>
+<p>selection for CPU and groups of peripherals. </p>
+<p> </p>
+<p>This sub module also provides the functionality for obtaining various </p>
+<p>frequencies required for individual peripheral devices. </p>
+<p> </p>
+<p>For available clock sources, please refer to the respective device specific </p>
+<p>component user manual. </p>
+<p> </p>
+<p><b>RAM sections Initialization and Status Verification </b></p>
+<p> </p>
+<p>This sub module provides the functionality for initializing the RAM with the any </p>
+<p>given value, at the selected blocks of the RAM and to verify the status of RAM. </p>
+<p> </p>
+<p><b>MCU Reset Activation and Reason </b></p>
+<p> </p>
+<p>The microcontroller reset activation will be performed by forcing a software </p>
+<p>reset.</p>
+<p> </p>
+<p>This functionality will be done by using software reset register. ECM </p>
+<p>error sources can also be configured for internal reset so that if any error </p>
+<p>occurs device will activate reset. </p>
+<p> </p>
+<p>To provide the reset reason, this sub module captures the information </p>
+<p>available with RESF – Reset factor register. This register contains </p>
+<p>information. </p>
+<p> </p>
+<p><b>Version Information </b></p>
+<p> </p>
+<p>This module provides APIs for reading Module Id, Vendor Id and vendor </p>
+<p>specific version numbers. </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>27 </p>
+<p> </p>
+<p><b>Chapter 6 </b></p>
+<p><b>Registers Details </b></p>
+<p> </p>
+<p> </p>
+<p>This section describes the register details of MCU Driver Component. </p>
+<p><b> </b></p>
+<p><b>Table 6-1 </b></p>
+<p><b>Register Details </b></p>
+<p><b> </b></p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>Mcu_Init </p>
+<p>ECMIRCFG0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_IRCFG0_INIT_VALUE </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMEPCTL </p>
+<p>8 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ECM_ERROUT_TIMER, </p>
+<p>MCU_ZERO </p>
+<p>CVMDEW </p>
+<p>8 </p>
+<p>Mcu_GpConfi</p>
+<p>gPtr-</p>
+<p>&gt;ucCvmIndic</p>
+<p>ationReg </p>
+<p>w </p>
+<p>- </p>
+<p>PROTCMDCVM </p>
+<p>32 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROTSCVM </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p>- </p>
+<p>CVMREN </p>
+<p>32 </p>
+<p>ulCvmResetE</p>
+<p>nableReg </p>
+<p>w </p>
+<p>LulCntValue </p>
+<p>CVMDE </p>
+<p>8 </p>
+<p>ucCvmIndicati</p>
+<p>onReg </p>
+<p>r </p>
+<p>LucCVMCntValue | </p>
+<p>MCU_THREE </p>
+<p>CVMFC </p>
+<p>       8 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_CVM_FACTOR_CLEAR </p>
+<p>CVMF </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>RESF </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>MCU_ONE </p>
+<p>MCU_THREE </p>
+<p>BRAMDAT0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_LONG_WORD_ZERO </p>
+<p>MCU_LONG_WORD_ONE </p>
+<p>MCU_LONG_WORD_TWO </p>
+<p>ECMIRCFG0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ECM029_MASK_VALUE </p>
+<p>SWRESA </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_RES_CORRECT_VAL </p>
+<p>PROT1PHCMD </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPE0 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>w </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>28 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>RESFC </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_RESF_CLEAR </p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECMMESSTR0_FULL_</p>
+<p>MASK </p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_LONG_WORD_ONE </p>
+<p>POF </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_POF_RST </p>
+<p>POFC </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_POF_CLEAR </p>
+<p>RESF </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>RESFC </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_RESF_CLEAR </p>
+<p>CVMF </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_THREE </p>
+<p>CVMFC </p>
+<p>8 </p>
+<p>LucWriteData </p>
+<p>w </p>
+<p>- </p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>Mcu_GpEcm</p>
+<p>Setting-</p>
+<p>&gt;ulEcmIntern</p>
+<p>alResetReg0v</p>
+<p>alue </p>
+<p>r </p>
+<p>- </p>
+<p>ECMMESSTR1 </p>
+<p>32 </p>
+<p>Mcu_GpEcm</p>
+<p>Setting-</p>
+<p>&gt;ulEcmIntern</p>
+<p>alResetReg1v</p>
+<p>alue </p>
+<p>r </p>
+<p>- </p>
+<p>LVICNT </p>
+<p>32 </p>
+<p>Mcu_GpConfi</p>
+<p>gPtr-</p>
+<p>&gt;ulLVIindicati</p>
+<p>onReg  </p>
+<p>rw </p>
+<p>MCU_LVI_MASK </p>
+<p>LVICNT </p>
+<p>32 </p>
+<p>Mcu_GpConfi</p>
+<p>gPtr-</p>
+<p>&gt;ulLVIindicati</p>
+<p>onReg  </p>
+<p>rw </p>
+<p>MCU_LVI_MASK </p>
+<p>PROT1PHCMD </p>
+<p>32 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMCPCMD0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMPCMD</p>
+<p>0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>29 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMMECLR </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ONE </p>
+<p>ECMCECLR </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ONE </p>
+<p>ECMESSTC0 </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ECM029_MASK_VALUE </p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMEMK0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>(MCU_ECMEMK0 | </p>
+<p>MCU_ECM029_MASK_VALUE</p>
+<p>) </p>
+<p>ECMMICFG0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>(MCU_ECMMICFG0 &amp; </p>
+<p>(~MCU_ECM029_MASK_VAL</p>
+<p>UE)) </p>
+<p>ECMNMICFG0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>(MCU_ECMNMICFG0 &amp; </p>
+<p>(~MCU_ECM029_MASK_VAL</p>
+<p>UE)) </p>
+<p>ECMIRCFG0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>(MCU_ECMIRCFG0 &amp; </p>
+<p>(~MCU_ECM029_MASK_VAL</p>
+<p>UE)) </p>
+<p>TESTCOMPRE</p>
+<p>G1 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>(~MCU_LOCKSTEP_DUMMY_</p>
+<p>VALUE) </p>
+<p>TESTCOMPRE</p>
+<p>G0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_LOCKSTEP_DUMMY_V</p>
+<p>ALUE </p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_TWO </p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_TWO </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMEMK0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmError</p>
+<p>MaskReg0Val</p>
+<p>ue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMEMK1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmError</p>
+<p>MaskReg1Val</p>
+<p>ue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>30 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>w </p>
+<p>- </p>
+<p>ECMPE0 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>w </p>
+<p>- </p>
+<p>ECMEMK0 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ECM029_MASK_VALUE </p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>r </p>
+<p> </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMESSTR1 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMCESSTR0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPE1 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>w </p>
+<p>MCU_ERROROUT_STATUS </p>
+<p>ECMESSTC1 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>w </p>
+<p>- </p>
+<p>ECMMESSTR1 </p>
+<p>32 </p>
+<p>LulEcmPseud</p>
+<p>oData </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMCESSTR1 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>CVMF </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>CVMDMASK </p>
+<p>8 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CVMFC </p>
+<p>8 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_CVM_FACTOR_CLEAR </p>
+<p>CVMF </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>CVMDIAG </p>
+<p>8 </p>
+<p>- </p>
+<p>r/w </p>
+<p>- </p>
+<p>EIBD8 </p>
+<p>32 </p>
+<p> - </p>
+<p>rw </p>
+<p>MCU_EIBD08_CPU1_VALUE </p>
+<p>IMR0EIMK8 </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ENABLE_INTERRUPT </p>
+<p>ECMEPCFG </p>
+<p>8 </p>
+<p>- </p>
+<p>rw </p>
+<p>- </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>31 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p> </p>
+<p>w </p>
+<p>- </p>
+<p>ECMMICFG0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmMaskI</p>
+<p>nterReg0valu</p>
+<p>e  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMMICFG1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmMaskI</p>
+<p>nterReg1valu</p>
+<p>e  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMNMICFG0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmNonM</p>
+<p>askInterReg0</p>
+<p>value  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMNMICFG1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmNonM</p>
+<p>askInterReg1</p>
+<p>value  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMIRCFG0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmIntern</p>
+<p>alResetReg0v</p>
+<p>alue  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMIRCFG1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmIntern</p>
+<p>alResetReg1v</p>
+<p>alue  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMEMK0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmError</p>
+<p>MaskReg0Val</p>
+<p>ue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMEMK1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmError</p>
+<p>MaskReg1Val</p>
+<p>ue  </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMDTMCTL </p>
+<p>8 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECM_DELY_TIMER_ST</p>
+<p>OP </p>
+<p>ECMDTMCMP </p>
+<p>16 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ECM_DLYTIMER_VALU</p>
+<p>E </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>32 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMDTMCFG0 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmDelay</p>
+<p>TimerReg0Va</p>
+<p>lue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMDTMCFG1 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmDelay</p>
+<p>TimerReg1Va</p>
+<p>lue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMDTMCFG2 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmDelay</p>
+<p>TimerReg2Va</p>
+<p>lue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMDTMCFG3 </p>
+<p>32 </p>
+<p>LpEcmSetting</p>
+<p>-</p>
+<p>&gt;ulEcmDelay</p>
+<p>TimerReg3Va</p>
+<p>lue </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMMESSTR</p>
+<p>0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ECMMESSTR0_FULL</p>
+<p>_MASK </p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECMMESSTR0_FULL</p>
+<p>_MASK </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMESSTR</p>
+<p>1 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ECMMESSTR1_FULL</p>
+<p>_MASK </p>
+<p>ECMESSTC1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECMMESSTR1_FULL</p>
+<p>_MASK </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>Mcu_InitRamSecti</p>
+<p>on </p>
+<p>ECMMESSTR</p>
+<p>0 </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p>MCU_RAM_MASK0_VALUE </p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_RAM_MASK0_VALUE </p>
+<p>ECMMESSTR</p>
+<p>1 </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p>MCU_RAM_MASK1_VALUE </p>
+<p>ECMESSTC1 </p>
+<p>32 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_RAM_MASK1_VALUE </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>33 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>ECMMICFG0 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmMas</p>
+<p>kInterReg0</p>
+<p>value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMMICFG1 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmMas</p>
+<p>kInterReg1</p>
+<p>value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMNMICFG</p>
+<p>0 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmNon</p>
+<p>MaskInterR</p>
+<p>eg0value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMNMICFG</p>
+<p>1 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmNon</p>
+<p>MaskInterR</p>
+<p>eg1value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMIRCFG0 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmInter</p>
+<p>nalResetRe</p>
+<p>g0value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMIRCFG1 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmInter</p>
+<p>nalResetRe</p>
+<p>g1value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMEMK0 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmErro</p>
+<p>rMaskReg0</p>
+<p>Value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMEMK1 </p>
+<p>32 </p>
+<p>LpEcmSetti</p>
+<p>ng-</p>
+<p>&gt;ulEcmErro</p>
+<p>rMaskReg1</p>
+<p>Value </p>
+<p>rw </p>
+<p>- </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>Mcu_InitClock </p>
+<p>CLKD0DIV </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ZERO </p>
+<p>CKSC0CTL </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_LONG_WORD_ZERO </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>34 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>CSC0STAT </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ucExtClk0</p>
+<p>SelectedSr</p>
+<p>cClock </p>
+<p>r </p>
+<p>- </p>
+<p>CLKD1DIV </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ZERO </p>
+<p>CKSC1CTL </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_LONG_WORD_ZERO </p>
+<p>CSC1STAT </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ucExtClk1</p>
+<p>SelectedSr</p>
+<p>cClock </p>
+<p>r </p>
+<p>- </p>
+<p>CLKD0STAT </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_CLKOUT_ACTIVE_SY</p>
+<p>NC </p>
+<p>CLKD1STAT </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ulExternal</p>
+<p>Clk1Divider </p>
+<p>r </p>
+<p>MCU_CLKOUT_ACTIVE_SY</p>
+<p>NC </p>
+<p>PROT1PHCM</p>
+<p>D </p>
+<p>32  </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>CLKD0DIV </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ulExternal</p>
+<p>Clk0Divider </p>
+<p>rw </p>
+<p>- </p>
+<p>CLKD0STAT </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_CLKOUT_ACTIVE_SY</p>
+<p>NC </p>
+<p>CLKD1DIV </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>- </p>
+<p>CLKD1STAT </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ulExternal</p>
+<p>Clk1Divider </p>
+<p>r </p>
+<p>MCU_CLKOUT_ACTIVE_SY</p>
+<p>NC </p>
+<p>ADCKSC0CT</p>
+<p>L </p>
+<p>32 </p>
+<p>Mcu_GpClo</p>
+<p>ckSetting-</p>
+<p>&gt;ucAdcClk</p>
+<p>SelectCtrlR</p>
+<p>egValue </p>
+<p>rw </p>
+<p>- </p>
+<p>ADCKSC0ST</p>
+<p>AT </p>
+<p>32 </p>
+<p>(Mcu_GpCl</p>
+<p>ockSetting-</p>
+<p>&gt;ucAdcClk</p>
+<p>SelectCtrlR</p>
+<p>egValue) |  </p>
+<p>r </p>
+<p>MCU_CLOCK_ACTIVE </p>
+<p>PROT1PHCM</p>
+<p>D </p>
+<p>32  </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>35 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>CLMA0CMPH </p>
+<p>16  </p>
+<p>LpClmaCon</p>
+<p>figPtr-</p>
+<p>&gt;usCLMAn</p>
+<p>CMPHValu</p>
+<p>e </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA0CMPL </p>
+<p>16  </p>
+<p>LpClmaCon</p>
+<p>figPtr-</p>
+<p>&gt;usCLMAn</p>
+<p>CMPLValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA0PCMD </p>
+<p>8 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>CLMA0PS </p>
+<p> 8  </p>
+<p>- </p>
+<p>r </p>
+<p> - </p>
+<p>CLMA0CTL0 </p>
+<p> 8  </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CLMA1CMPH </p>
+<p>16  </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;usCLMAnC</p>
+<p>MPHValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA1CMPL </p>
+<p>16  </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;usCLMAnC</p>
+<p>MPLValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA1PCMD </p>
+<p>8  </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>CLMA1PS </p>
+<p>8  </p>
+<p>- </p>
+<p>r </p>
+<p> - </p>
+<p>CLMA1CTL0 </p>
+<p>8  </p>
+<p> - </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CLMA2CMPH </p>
+<p>16  </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;usCLMAnC</p>
+<p>MPHValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA2CMPL </p>
+<p>16  </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;usCLMAnC</p>
+<p>MPLValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA2PCMD </p>
+<p>       8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>CLMA2PS </p>
+<p>       8  </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>CLMA2CTL0 </p>
+<p>       8 </p>
+<p> - </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CLMA3CMPH </p>
+<p>      16 </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;usCLMAnC</p>
+<p>MPHValue </p>
+<p>rw </p>
+<p> - </p>
+<p>CLMA3CMPL </p>
+<p>16 </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>rw </p>
+<p> - </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>36 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>&gt;usCLMAnC</p>
+<p>MPLValue </p>
+<p>CLMA3PCMD </p>
+<p>8  </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>CLMA3PS </p>
+<p>8  </p>
+<p> - </p>
+<p>r </p>
+<p>-  </p>
+<p>CLMA3CTL0 </p>
+<p>8  </p>
+<p> - </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CLMATEST </p>
+<p>32 </p>
+<p>CLMA_SELF</p>
+<p>_TEST_VALU</p>
+<p>E  </p>
+<p>rw </p>
+<p>MCU_FOUR </p>
+<p>MCU_TWO </p>
+<p>MCU_ZERO </p>
+<p>CLMATESTS </p>
+<p>32 </p>
+<p>LpClmaConfi</p>
+<p>gPtr-</p>
+<p>&gt;enClmaIdx </p>
+<p>r </p>
+<p> </p>
+<p>PROT1PHCMD </p>
+<p>32  </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p> - </p>
+<p>r </p>
+<p> - </p>
+<p>Mcu_DistributePllClo</p>
+<p>ck </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Mcu_GetPllStatus </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Mcu_GetResetReas</p>
+<p>on </p>
+<p>- </p>
+<p>- </p>
+<p> - </p>
+<p>- </p>
+<p> - </p>
+<p>Mcu_GetResetRaw</p>
+<p>Value </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Mcu_PerformReset </p>
+<p>SWRESA </p>
+<p>32 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_RES_CORRECT_VAL </p>
+<p>PROT1PHCMD </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROT1PS </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>Mcu_SetMode </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Mcu_GetRamState </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>- </p>
+<p>Mcu_EcmReleaseEr</p>
+<p>rorOutPin </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMCPCMD0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMPCMD0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMECLR </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ONE </p>
+<p>ECMCECLR </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ONE </p>
+<p>ECMESSTC0 </p>
+<p>8 </p>
+<p> - </p>
+<p>w </p>
+<p>MCU_ECM029_MASK_VALUE </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>    </b></p>
+<p><b> </b></p>
+<p><b>  Registers Details                                                                                                                   Chapter 6 </b></p>
+<p> </p>
+<p>37 </p>
+<p><b>API Name </b></p>
+<p><b>Registers Used </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>8/16/32 </b></p>
+<p><b>bits </b></p>
+<p><b>Config </b></p>
+<p><b>Parameter </b></p>
+<p><b>Register </b></p>
+<p><b>Access </b></p>
+<p><b>r/w/rw </b></p>
+<p><b>Macro/Variable </b></p>
+<p>ECMMESSTR0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>ECMMESSTR</p>
+<p>0 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ECMMESSTR0_FULL</p>
+<p>_MASK </p>
+<p>ECMESSTC0 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECMMESSTR0_FULL</p>
+<p>_MASK </p>
+<p>ECMPCMD1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>ECMMESSTR</p>
+<p>1 </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ECMMESSTR1_FULL</p>
+<p>_MASK </p>
+<p>ECMESSTC1 </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_ECMMESSTR1_FULL</p>
+<p>_MASK </p>
+<p>ECMPS </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p>CVMF </p>
+<p>8 </p>
+<p>- </p>
+<p>r </p>
+<p>MCU_ZERO </p>
+<p>CVMDMASK </p>
+<p>8 </p>
+<p>- </p>
+<p>rw </p>
+<p>MCU_ONE </p>
+<p>CVMFC </p>
+<p>8 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_CVM_FACTOR_CLEAR </p>
+<p>PROTCMDCVM </p>
+<p>32 </p>
+<p>- </p>
+<p>w </p>
+<p>MCU_WRITE_DATA </p>
+<p>PROTSCVM </p>
+<p>32 </p>
+<p>- </p>
+<p>r </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>    From above table the Register write verification is implemented for following list of registers: </p>
+<p></p>
+<p> </p>
+<p>ECMMESSTR0 </p>
+<p></p>
+<p> </p>
+<p>ECMMESSTR1 </p>
+<p></p>
+<p> </p>
+<p>ECMIRCFG0 </p>
+<p></p>
+<p> </p>
+<p>CVMDE </p>
+<p></p>
+<p> </p>
+<p>CVMF </p>
+<p></p>
+<p> </p>
+<p>CVMDMASK </p>
+<p></p>
+<p> </p>
+<p>CVMDIAG </p>
+<p></p>
+<p> </p>
+<p>CLMAnCTL0 </p>
+<p></p>
+<p> </p>
+<p>CLMATEST </p>
+<p></p>
+<p> </p>
+<p>ECMEMK0 </p>
+<p></p>
+<p> </p>
+<p>ECMEMK1 </p>
+<p></p>
+<p> </p>
+<p>POF </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 6                                                                                                                       Registers Details </b></p>
+<p><b> </b></p>
+<p>38 </p>
+<p></p>
+<p> </p>
+<p>RESFC </p>
+<p></p>
+<p> </p>
+<p>ADCKSC0CTL </p>
+<p></p>
+<p> </p>
+<p>CLMAnCMPH </p>
+<p></p>
+<p> </p>
+<p>CLMAnCMPL </p>
+<p></p>
+<p> </p>
+<p>CLMAnCTL0 </p>
+<p></p>
+<p> </p>
+<p>ECMDTMCTL </p>
+<p></p>
+<p> </p>
+<p>ECMDTMR </p>
+<p></p>
+<p> </p>
+<p>ECMEPCFG </p>
+<p></p>
+<p> </p>
+<p>CKSCnCTL </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Interaction between the User and MCU Driver Component </b></p>
+<p><b>Chapter 7</b></p>
+<p> </p>
+<p> </p>
+<p>39 </p>
+<p><b>Chapter 7 </b></p>
+<p><b>Interaction between the User and MCU </b></p>
+<p><b>Driver Component </b></p>
+<p> </p>
+<p> </p>
+<p>The details of the services supported by the MCU Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p><b>7.1. </b></p>
+<p><b>Services Provided By MCU Driver Component To </b></p>
+<p><b>User </b></p>
+<p> </p>
+<p> </p>
+<p>The MCU Driver Component provides the following functions to upper layers, </p>
+<p>if supported by hardware: </p>
+<p> </p>
+<p>• </p>
+<p>To Perform the Self diagnostic test for the ECM, CVM, Clock Monitor and </p>
+<p>Lock step. </p>
+<p> </p>
+<p>• </p>
+<p>To initialize the RAM and to verify the status, section wise. </p>
+<p> </p>
+<p>• </p>
+<p>To initialize the MCU specific clock options. </p>
+<p> </p>
+<p>• </p>
+<p>To activate the specific clock to the MCU clock distribution. </p>
+<p> </p>
+<p>• </p>
+<p>To read the reset type from the hardware. </p>
+<p> </p>
+<p>• </p>
+<p>To perform the micro controller reset. </p>
+<p> </p>
+<p>• </p>
+<p>To read the MCU Driver component version information. </p>
+<p>• </p>
+<p>To clear the ERROROUT pin. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>Chapter 7                                                 Interaction between the User and MCU Driver Component   </b></p>
+<p><b> </b></p>
+<p>40 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8 </b></p>
+<p><b>MCU Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>41 </p>
+<p> </p>
+<p><b>Chapter 8 </b></p>
+<p><b>MCU Driver Component Header And </b></p>
+<p><b>Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the MCU Driver Component’s C Source and C Header </p>
+<p>files. These files have to be included in the project application while </p>
+<p>integrating with other modules. </p>
+<p> </p>
+<p>The C header file generated by MCU Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Mcu_Cfg.h </p>
+<p>• </p>
+<p>Mcu_Reg.h </p>
+<p>• </p>
+<p>Mcu_Cbk.h </p>
+<p> </p>
+<p>The C source file generated by MCU Driver Generation Tool: </p>
+<p> </p>
+<p>• </p>
+<p>Mcu_PBcfg.c </p>
+<p> </p>
+<p>The MCU Driver Component C header files: </p>
+<p> </p>
+<p>• </p>
+<p>Mcu.h </p>
+<p>• </p>
+<p>Mcu_Debug.h </p>
+<p>• </p>
+<p>Mcu_Irq </p>
+<p>• </p>
+<p>Mcu_PBTypes.h </p>
+<p>• </p>
+<p>Mcu_Ram.h </p>
+<p>• </p>
+<p>Mcu_Types.h </p>
+<p>• </p>
+<p>Mcu_Version.h </p>
+<p>• </p>
+<p>Mcu_RegWrite.h </p>
+<p> </p>
+<p>The MCU Driver Component source files: </p>
+<p> </p>
+<p>• </p>
+<p>Mcu.c </p>
+<p>• </p>
+<p>Mcu_Irq.c </p>
+<p>• </p>
+<p>Mcu_Ram.c </p>
+<p>• </p>
+<p>Mcu_Version.c </p>
+<p> </p>
+<p>The Stub C header files: </p>
+<p> </p>
+<p>• </p>
+<p>Compiler.h </p>
+<p>• </p>
+<p>Compiler_Cfg.h </p>
+<p>• </p>
+<p>MemMap.h </p>
+<p>• </p>
+<p>Platform_Types.h </p>
+<p>• </p>
+<p>rh850_Types.h  </p>
+<p>• </p>
+<p>Dem.h </p>
+<p>• </p>
+<p>Dem_Cfg.h </p>
+<p>• </p>
+<p>Det.h </p>
+<p>• </p>
+<p>SchM_Mcu.h </p>
+<p>• </p>
+<p>Os.h </p>
+<p>• </p>
+<p>Rte.h </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>    </b></p>
+<p><b>  Chapter 8  </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>           MCU Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p>42 </p>
+<p> </p>
+<p>The description of the MCU Driver Component files is provided in the table </p>
+<p>below: </p>
+<p> </p>
+<p><b>Table 8-1 </b></p>
+<p><b>Description of the MCU Driver Component Files </b></p>
+<p><b> </b></p>
+<p><b>File </b></p>
+<p><b>Details </b></p>
+<p>Mcu_Cfg.h </p>
+<p>This file is generated by the MCU Driver Module Code </p>
+<p>Generation Tool for MCU Driver Module pre-compile time </p>
+<p>parameters. The macros and the parameters generated will </p>
+<p>vary with respect to the configuration in the input ARXML file. </p>
+<p>Mcu_Reg.h </p>
+<p>This file contains the definitions for addresses of the hardware </p>
+<p>registers used in the MCU Driver Module. </p>
+<p>Mcu_Cbk.h </p>
+<p>This file contains the extern declaration of call back functions </p>
+<p>used in the MCU Driver Module. </p>
+<p>Mcu_PBcfg.c </p>
+<p>This file contains post-build configuration data. The structures </p>
+<p>related to MCU Initialization, clock and power mode setting are </p>
+<p>provided in this file. Data structures will vary with respect to </p>
+<p>parameters configured. </p>
+<p>Mcu.h </p>
+<p>This file provides extern declarations for all the MCU Driver </p>
+<p>Module APIs. This file provides service Ids of APIs, DET Error </p>
+<p>codes and type definitions for MCU Driver initialization </p>
+<p>structure. This header file shall be included in other modules to </p>
+<p>use the features of MCU Driver Module. </p>
+<p>Mcu_Irq.h </p>
+<p>This file contains the ISR functions prototypes of the MCU </p>
+<p>Driver Module. </p>
+<p>Mcu_Types.h </p>
+<p>This file provides data structure and type definitions for </p>
+<p>initialization of MCU Driver. </p>
+<p>Mcu_PBTypes.h </p>
+<p>This file contains the macros used for the post build time </p>
+<p>parameters. </p>
+<p>Mcu_Ram.h </p>
+<p>This file contains the extern declarations for the global variables </p>
+<p>that are defined in Mcu_Ram.c file and the version information </p>
+<p>of the file. </p>
+<p>Mcu_Version.h </p>
+<p>This file contains the macros of AUTOSAR version numbers of </p>
+<p>all modules that are interfaced to MCU. </p>
+<p>Mcu_Debug.h </p>
+<p>This file provides Provision of global variables for debugging </p>
+<p>purpose. </p>
+<p>Mcu_RegWrite.h </p>
+<p>This file provides macro definitions for the registers write verify. </p>
+<p>Mcu.c </p>
+<p>This file contains the implementation of all MCU Driver Module </p>
+<p>APIs. </p>
+<p>Mcu_Irq.c </p>
+<p>This file contains the ISR functions of the MCU Driver Module. </p>
+<p>Mcu_Ram.c </p>
+<p>This file contains the global variables used by MCU Driver </p>
+<p>Module. </p>
+<p>Mcu_Version.c </p>
+<p>This file contains the code for checking version of all modules </p>
+<p>that are interfaced to MCU. </p>
+<p>Compiler.h </p>
+<p>Provides compiler specific (non-ANSI) keywords. All mappings </p>
+<p>of keywords, which are not standardized, and/or compiler </p>
+<p>specific are placed and organized in this compiler specific </p>
+<p>header. </p>
+<p>Compiler_Cfg.h </p>
+<p>This file contains the memory and pointer classes. </p>
+<p>MemMap.h </p>
+<p>This file allows mapping of variables, constants and code of </p>
+<p>modules to individual memory sections. Memory mapping can </p>
+<p>be modified as per ECU specific needs. </p>
+<p>Platform_Types.h </p>
+<p>This file provides provision for defining platform and compiler </p>
+<p>dependent types. </p>
+<p>rh850_Types.h  </p>
+<p> </p>
+<p>This file provides macros to perform supervisor mode (SV) write </p>
+<p>enabled Register ICxxx and IMR register writing using </p>
+<p>OR/AND/Direct operation  </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Chapter 8 </b></p>
+<p><b>MCU Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>43 </p>
+<p><b>File </b></p>
+<p><b>Details </b></p>
+<p>Dem.h </p>
+<p>This file contains declaration of DEM event id, status and version </p>
+<p>macros. </p>
+<p>Dem_Cfg.h </p>
+<p>This file contains macro DEM event id numbers and version macros. </p>
+<p>Det.h </p>
+<p>This file contains structure for DET errors with module id, instance id, </p>
+<p>Api id and error id as elements and version macros. </p>
+<p>Schm_Mcu.h </p>
+<p>This file provide a stub for SchM component. </p>
+<p>Os.h </p>
+<p>This file contains Os timer related declarations and version macros. </p>
+<p>Rte.h </p>
+<p>This file contains version macros. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>    </b></p>
+<p><b>  Chapter 8  </b></p>
+<p><b> </b></p>
+<p><b>   </b></p>
+<p><b>           MCU Driver Component Header And Source File Description </b></p>
+<p> </p>
+<p>44 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>  Generation Tool Guide </b></p>
+<p><b>Chapter 9 </b></p>
+<p> </p>
+<p>45 </p>
+<p><b>Chapter 9 </b></p>
+<p><b>Generation Tool Guide </b></p>
+<p> </p>
+<p> </p>
+<p>For more information on the MCU Driver Component Generation Tool, please </p>
+<p>refer “R20UT3721EJ0101-AUTOSAR.pdf”. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b> </b></p>
+<p><b>  Chapter 9                                                                                                          Generation Tool Guide</b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p>46 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>47 </p>
+<p> </p>
+<p><b>Chapter 10 </b></p>
+<p><b>Application Programming Interface </b></p>
+<p> </p>
+<p> </p>
+<p>This section explains the Data types and APIs provided by the MCU Driver </p>
+<p>Component to the Upper layers. </p>
+<p> </p>
+<p><b>10.1. </b></p>
+<p><b>Imported Types </b></p>
+<p> </p>
+<p>This section explains the Data types imported by the MCU Driver Component </p>
+<p>and lists its dependency on other modules. </p>
+<p> </p>
+<p><b>10.1.1. </b></p>
+<p><b>Standard Types </b></p>
+<p> </p>
+<p>In this section all types included from the Std_Types.h are listed: </p>
+<p> </p>
+<p>• </p>
+<p>Std_ReturnType </p>
+<p> </p>
+<p>• </p>
+<p>Std_VersionInfoType </p>
+<p> </p>
+<p><b>10.1.2. </b></p>
+<p><b>Other Module Types </b></p>
+<p> </p>
+<p>In this chapter all types included from the Dem.h are listed: </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventIdType </p>
+<p> </p>
+<p>• </p>
+<p>Dem_EventStatusType </p>
+<p> </p>
+<p><b>10.2. </b></p>
+<p><b>Type Definitions </b></p>
+<p> </p>
+<p>This section explains the type definitions of MCU Driver Component </p>
+<p>according to AUTOSAR Specification. </p>
+<p> </p>
+<p>For more type definitions refer the SWS of MCU driver as mentioned in </p>
+<p>chapter 2. </p>
+<p><b>10.2.1 Mcu_ClockType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_ClockType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>1 to 2</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Mcu_ClockType used by the API Mcu_InitClock.</p>
+<p> </p>
+<p> </p>
+<p><b>10.2.2 </b></p>
+<p><b>Mcu_RawResetType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_RawResetType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint32</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 4294967295</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Mcu_RawResetType used by the API Mcu_GetResetRawValue.</p>
+<p> </p>
+<p>       </p>
+<p><b>      Note:   </b>Mcu_GetResetRawValue</p>
+<p> </p>
+<p>API is returning the RESF register status. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b> Chapter 10                                                                                   Application Programming Interface </b></p>
+<p>  </p>
+<p>48 </p>
+<p> </p>
+<p><b>10.2.3 Mcu_RamSectionType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_RamSectionType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 255</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Mcu_RamSectionType used by the API Mcu_InitRamSection.</p>
+<p> </p>
+<p> </p>
+<p><b>10.2.4 </b></p>
+<p><b>Mcu_PllStatusTypes </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_PllStatusType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>MCU_PLL_LOCKED</p>
+<p> </p>
+<p> PLL is locked</p>
+<p> </p>
+<p>MCU_PLL_UNLOCKED</p>
+<p> </p>
+<p>PLL is unlocked.</p>
+<p> </p>
+<p>MCU_PLL_STATUS_UNDEFINED</p>
+<p> </p>
+<p>PLL status is unknown</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Status value returned by the API Mcu_GetPllStatus.</p>
+<p> </p>
+<p><b>       </b></p>
+<p><b> Note:  </b>As per CPU manual Mcu_GetPllStatus API is not supporting the PLL clock implementation. </p>
+<p>            Hence Mcu_GetPllStatus is returning always MCU_PLL_LOCKED Status. </p>
+<p> </p>
+<p><b>10.2.5 </b></p>
+<p><b>Mcu_RamStateType </b></p>
+<p> </p>
+<p>Following are the type definitions which are specific to R4.0 used by the MCU </p>
+<p>Driver module: </p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_RamStateType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>Enumeration</p>
+<p> </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>MCU_RAMSTATE_INVALID</p>
+<p> </p>
+<p>RAM State is invalid.</p>
+<p> </p>
+<p>MCU_RAMSTATE_VALID</p>
+<p> </p>
+<p>RAM State is valid.</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Status value returned by the API Mcu_GetRamState</p>
+<p> </p>
+<p> </p>
+<p><b>10.2.6   Mcu_ResetType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_ResetType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>  Enumeration</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>  MCU_POWER_ON_CLEAR_RST</p>
+<p> </p>
+<p>  MCU_PIN_RST</p>
+<p> </p>
+<p>  MCU_SW_RST</p>
+<p> </p>
+<p>  MCU_WDT_RST</p>
+<p> </p>
+<p>  MCU_LOCK_STEP_CORE_RST</p>
+<p> </p>
+<p>  MCU_CLMA0_UPPER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA0_LOWER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA2_UPPER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA2_LOWER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA1_UPPER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA1_LOWER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_CLMA3_UPPER_LIMIT_RST</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>49 </p>
+<p>  MCU_CLMA3_LOWER_LIMIT_RST</p>
+<p> </p>
+<p>  MCU_LRAM_ECC2_ADDPTY_RST</p>
+<p> </p>
+<p>  MCU_GRAM_ECC2_ADDPTY_RST</p>
+<p> </p>
+<p>  MCU_CASHE_RAM_ECC2_RST</p>
+<p> </p>
+<p>  MCU_CFLH_ECC2_ADDPTY_RST</p>
+<p> </p>
+<p>  MCU_DATA_FLSH_ECC2_RST</p>
+<p> </p>
+<p>  MCU_DTS_RAM_ECC2_RST</p>
+<p> </p>
+<p>  MCU_CSIH_RAM_ECC2_RST</p>
+<p> </p>
+<p>  MCU_CAN_RAM_ECC2_RST</p>
+<p> </p>
+<p>  MCU_FLXR_RAM_ECC2_RST</p>
+<p> </p>
+<p>  MCU_MODE0_RST</p>
+<p> </p>
+<p>  MCU_MODE1_RST</p>
+<p> </p>
+<p>  MCU_MODE2_RST</p>
+<p> </p>
+<p>  MCU_PEGUARD_RST</p>
+<p> </p>
+<p>  MCU_GRAM_GUARD_RST</p>
+<p> </p>
+<p>  MCU_PBUSGUARD_RST</p>
+<p> </p>
+<p>  MCU_SAR_ADC_PTY_RST</p>
+<p> </p>
+<p>  MCU_DATA_PRTY_RST</p>
+<p> </p>
+<p>  MCU_ECM_COMP_RST</p>
+<p> </p>
+<p>  MCU_LVI_RST</p>
+<p> </p>
+<p>  MCU_TEMP_SENSE_RST</p>
+<p> </p>
+<p>  MCU_DMA_TRANSF_RST</p>
+<p> </p>
+<p>  MCU_DMA_REG_PROTECT_RST </p>
+<p>  MCU_LRAM_ECC1_PTY_RST </p>
+<p>  MCU_GRAM_ECC1_RST </p>
+<p>  MCU_CFLH_ECC1_RST </p>
+<p>  MCU_DATA_FLSH_ECC1_RST </p>
+<p>  MCU_DTS_RAM_ECC1_RST </p>
+<p>  MCU_ALL_PERI_RAM_ECC1_RST </p>
+<p>  MCU_BIST_ECC1_RST </p>
+<p>  MCU_BIST_ECC2_RST </p>
+<p>  MCU_FACI_TRANSF_RST </p>
+<p>  MCU_ECM_DELY_OVRFLW_RST </p>
+<p>  MCU_RESET_UNDEFINED </p>
+<p>  MCU_RESET_UNKNOWN </p>
+<p><b>   Description:</b></p>
+<p> </p>
+<p>Type of reset supported by the hardware</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Note:  </b></p>
+<p>1. </p>
+<p>All RAM related ECM error sources are enabled for maskable interrupts only after Ram </p>
+<p>initialization. </p>
+<p>2. </p>
+<p>User should configure only one ECM event for each ECM error source at a time priority </p>
+<p>level  for the ECM event should be as follow:  </p>
+<p>                                                                               </p>
+<p></p>
+<p> </p>
+<p>Internal Reset </p>
+<p></p>
+<p> </p>
+<p>Maskable Interrupt </p>
+<p></p>
+<p> </p>
+<p>Non Maskable Interrupt </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b> Chapter 10                                                                                   Application Programming Interface </b></p>
+<p>  </p>
+<p>50 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.2.7 </b></p>
+<p><b>Mcu_ClmaIndexType </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p> Mcu_ClmaIndexType </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p> Enumeration </p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p> MCU_CLMA0 </p>
+<p> CLMA0 </p>
+<p> MCU_CLMA1 </p>
+<p> CLMA1 </p>
+<p> MCU_CLMA2 </p>
+<p> CLMA2 </p>
+<p> MCU_CLMA3 </p>
+<p> CLMA3 </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p> Variable of this type is used to pass in Mcu_ClmaSelfDiagnosticTest API </p>
+<p> </p>
+<p><b>10.2.8 </b></p>
+<p><b> Mcu_ModeType </b></p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_ModeType</p>
+<p> </p>
+<p><b>Type:</b></p>
+<p> </p>
+<p>uint8</p>
+<p> </p>
+<p><b>Range:</b></p>
+<p> </p>
+<p>0 to 2</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>Type definition for Mcu_ModeType used by the API Mcu_SetMode.</p>
+<p> </p>
+<p><b>  </b></p>
+<p><b> Note:   </b>As per CPU Manual Mcu_SetMode API is not supporting for any standby mode. </p>
+<p>                  Hence the Mcu_ModeType parameter is unused for P1x MCU module implementation. </p>
+<p> </p>
+<p><b>10.3. </b></p>
+<p><b>Function Definitions </b></p>
+<p><b> </b></p>
+<p><b>Table 10-1 </b></p>
+<p><b>API Provided by MCU Driver Component </b></p>
+<p><b> </b></p>
+<p><b>Sl. No</b></p>
+<p> </p>
+<p><b>API’s name</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Mcu_Init </p>
+<p>2.</p>
+<p> </p>
+<p>Mcu_InitRamSection </p>
+<p>3.</p>
+<p> </p>
+<p>Mcu_InitClock </p>
+<p>4.</p>
+<p> </p>
+<p>Mcu_DistributePllClock </p>
+<p>5.</p>
+<p> </p>
+<p>Mcu_GetPllStatus </p>
+<p>6.</p>
+<p> </p>
+<p>Mcu_GetResetReason </p>
+<p>7.</p>
+<p> </p>
+<p>Mcu_GetResetRawValue </p>
+<p>8.</p>
+<p> </p>
+<p>Mcu_PerformReset </p>
+<p>9.</p>
+<p> </p>
+<p>Mcu_SetMode </p>
+<p>10.</p>
+<p> </p>
+<p>Mcu_GetRamState </p>
+<p>11. </p>
+<p>Mcu_GetVersionInfo</p>
+<p> </p>
+<p>12. </p>
+<p>Mcu_EcmReleaseErrorOutPin </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>51 </p>
+<p> </p>
+<p><b>10.3.1. </b></p>
+<p><b>Mcu_Init </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_Init</p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_Init (P2CONST(Mcu_ConfigType, </p>
+<p>AUTOMATIC, MCU_APPL_CONST) ConfigPtr) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x00</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Mcu_ConfigType</p>
+<p> </p>
+<p>ConfigPtr </p>
+<p>NA </p>
+<p><b>  Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>void</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service performs initialization of the MCU Driver component. </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.2. </b></p>
+<p><b>Mcu_InitRamSection </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_InitRamSection</p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p>  FUNC(Std_ReturnType,  MCU_PUBLIC_CODE) Mcu_InitRamSection     </p>
+<p>  Mcu_RamSectionType RamSection) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x01</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Mcu_RamSectionType</p>
+<p> </p>
+<p>RamSection </p>
+<p>NA </p>
+<p><b> Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p>E_OK, E_NOT_OK</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This function initializes the RAM section as provided from the configuration structure. </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Chapter 10 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> Application Programming Interface </b></p>
+<p> </p>
+<p>52 </p>
+<p> </p>
+<p><b>10.3.3. </b></p>
+<p><b>Mcu_InitClock </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_InitClock</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(Std_ReturnType, MCU_PUBLIC_CODE) Mcu_InitClock </p>
+<p>(Mcu_ClockType ClockSetting) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x02</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Mcu_ClockType</p>
+<p> </p>
+<p>ClockSetting </p>
+<p>NA </p>
+<p><b> Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Std_ReturnType</p>
+<p> </p>
+<p>E_OK, E_NOT_OK</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service initializes the PLL and other MCU specific</p>
+<p> </p>
+<p>clock options. </p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.4. </b></p>
+<p><b>Mcu_DistributePllClock </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_DistributePllClock</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_DistributePllClock (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x03</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Void</p>
+<p> </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>void</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service activates the PLL clock to the MCU clock distribution</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>53 </p>
+<p><b>10.3.5. </b></p>
+<p><b>Mcu_GetPllStatus </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_GetPllStatus</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_GetPllStatus (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x04</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Void</p>
+<p> </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Mcu_PllStatusType </p>
+<p> MCU_PLL_LOCKED = 0, </p>
+<p> MCU_PLL_STATUS_UNDEFINED </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service provides the lock status of the PLL</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.6. </b></p>
+<p><b>Mcu_GetResetReason </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_GetResetReason</p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(Mcu_ResetType, MCU_PUBLIC_CODE) Mcu_GetResetReason (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x05</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Void</p>
+<p> </p>
+<p>NA </p>
+<p>NA </p>
+<p><b> Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Mcu_ResetType </p>
+<p> Values are read from hardware register and mentioned in file </p>
+<p>Mcu_Types.h </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>The function reads the reset type from the hardware</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Chapter 10 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> Application Programming Interface </b></p>
+<p> </p>
+<p>54 </p>
+<p> </p>
+<p><b>10.3.7. </b></p>
+<p><b>Mcu_GetResetRawValue </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_GetResetRawValue</p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(Mcu_RawResetType, MCU_PUBLIC_CODE) Mcu_GetResetRawValue (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x06</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>  Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Void</p>
+<p> </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Mcu_RawResetType </p>
+<p> 32-bit value from hardware register </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>The service return reset type value from the hardware register</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.8. </b></p>
+<p><b>Mcu_PerformReset </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_PerformReset</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC (void, MCU_PUBLIC_CODE) Mcu_PerformReset (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x07</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Void</p>
+<p> </p>
+<p>NA </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service provides microcontroller reset by accessing the Software reset register</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Application Programming Interface   </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>    Chapter 10 </b></p>
+<p> </p>
+<p>55 </p>
+<p> </p>
+<p><b>10.3.9. </b></p>
+<p><b>Mcu_SetMode </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_SetMode</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC (void, MCU_PUBLIC_CODE) Mcu_SetMode (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x08</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>Mcu_ModeType</p>
+<p> </p>
+<p>McuMode </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service activates the MCU power modes</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.10. </b></p>
+<p><b>Mcu_GetVersionInfo </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_GetVersionInfo</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_GetVersionInfo (Std_VersionInfoType* </p>
+<p>versioninfo) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x09</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>None </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>versioninfo</p>
+<p> </p>
+<p>Pointer to where to store the version </p>
+<p>information of this module</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>None </p>
+<p> None </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service returns the version information of this module</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b> Chapter 10                                                                                   Application Programming Interface </b></p>
+<p>  </p>
+<p>56 </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.11. </b></p>
+<p><b>Mcu_GetRamState </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_GetRamState</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(Mcu_RamStateType, MCU_PUBLIC_CODE) Mcu_GetRamState (void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x0A</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>None </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>Mcu_RamStateType </p>
+<p> MCU_RAMSTATE_VALID = 0, </p>
+<p> MCU_RAMSTATE_INVALID </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This service provides the actual status of the microcontroller RAM area</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>10.3.12. </b></p>
+<p><b>Mcu_EcmReleaseErrorOutPin </b></p>
+<p> </p>
+<p><b>Name:</b></p>
+<p> </p>
+<p>Mcu_EcmReleaseErrorOutPin</p>
+<p> </p>
+<p> </p>
+<p><b>Prototype:</b></p>
+<p> </p>
+<p> </p>
+<p>FUNC(void, MCU_PUBLIC_CODE) Mcu_EcmReleaseErrorOutPin(void) </p>
+<p><b>Service ID:</b></p>
+<p> </p>
+<p>0x0B</p>
+<p> </p>
+<p><b>Sync/Async:</b></p>
+<p> </p>
+<p>Synchronous</p>
+<p> </p>
+<p><b>Reentrancy:</b></p>
+<p> </p>
+<p>Non-Reentrant</p>
+<p> </p>
+<p> </p>
+<p><b>Parameters In:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Parameter</b></p>
+<p> </p>
+<p><b>Value/Range</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>None </p>
+<p>NA </p>
+<p><b>Parameters InOut:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p><b>Parameters out:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p>NA</p>
+<p> </p>
+<p> </p>
+<p><b>Return Value:</b></p>
+<p> </p>
+<p><b>Type</b></p>
+<p> </p>
+<p><b>Possible Return Values</b></p>
+<p> </p>
+<p>None </p>
+<p> None </p>
+<p> </p>
+<p><b>Description:</b></p>
+<p> </p>
+<p>This is a vendor specific API. This service releases the ERROROUT pin of P1M </p>
+<p>microcontroller.</p>
+<p> </p>
+<p><b>Configuration </b></p>
+<p><b>Dependency:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p><b>Preconditions:</b></p>
+<p> </p>
+<p>None</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Development And Production Error </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                              Chapter 11 </b></p>
+<p> </p>
+<p>57 </p>
+<p> </p>
+<p> </p>
+<p><b>Chapter 11 </b></p>
+<p><b>Development And Production Error </b></p>
+<p> </p>
+<p> </p>
+<p>In this section the development errors that are reported by the MCU Driver </p>
+<p>Component are tabulated. The development errors will be reported only when </p>
+<p>the pre-compiler option McuDevErrorDetect is enabled in the configuration. </p>
+<p>The production code errors are not supported by MCU Driver Component. </p>
+<p> </p>
+<p> </p>
+<p><b>11.1. </b></p>
+<p><b>MCU Driver Component Development Errors </b></p>
+<p> </p>
+<p>The following table contains the DET errors that are reported by MCU Driver </p>
+<p>Component. These errors are reported to Development Error Tracer Module </p>
+<p>when the MCU Driver Component APIs are invoked with wrong input </p>
+<p>parameters or without initialization of the driver. </p>
+<p><b> </b></p>
+<p><b>Table 11-1 </b></p>
+<p><b>DET Errors of MCU Driver Component </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_PARAM_CONFIG</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API service is called without module initialization.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_PARAM_CLOCK</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_InitClock</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When Clock Setting is not within the settings defined in the configuration data </p>
+<p>structure.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_PARAM_RAMSECTION</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_InitRamSection</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When RamSection is not within the sections defined in the configuration data structure.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_PLL_NOT_LOCKED</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_DistributePllClock</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When PLL is not locked.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_UNINIT</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_InitRamSection, Mcu_InitClock, Mcu_DistributePllClock, Mcu_GetPllStatus, </p>
+<p>Mcu_GetResetReason, Mcu_GetResetRawValue, Mcu_PerformReset, </p>
+<p>Mcu_SetMode, Mcu_GetRamState</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the APIs are invoked without the initialization of the MCU Driver Component.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_INVALID_DATABASE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_Init</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API is invoked with no database. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>    </p>
+<p>   </p>
+<p><b>Chapter 11 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                           Development And Production Error</b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>58 </p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>7 </b></p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_PARAM_MODE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_SetMode</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When the API is invoked with invalid MCU mode.</p>
+<p> </p>
+<p> </p>
+<p><b>11.2. </b></p>
+<p><b>MCU Driver Component Production Errors </b></p>
+<p> </p>
+<p>In this section the DEM errors identified in the MCU Driver component are </p>
+<p>listed. MCU Driver component reports these errors to DEM by invoking </p>
+<p>Dem_ReportErrorStatus API. This API is invoked, when the processing of the </p>
+<p>given API request fails. </p>
+<p><b> </b></p>
+<p><b>Table 11-2 </b></p>
+<p><b>DEM Errors of MCU Driver Component </b></p>
+<p><b> </b></p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>1</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_CLOCK_FAILURE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_InitClock</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When there is failure of the monitored clock frequency.</p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p>Error Code</p>
+<p> </p>
+<p>MCU_E_WRITE_TIMEOUT_FAILURE</p>
+<p> </p>
+<p>Related API(s)</p>
+<p> </p>
+<p>Mcu_PerformReset, Mcu_ProtectedWrite</p>
+<p> </p>
+<p>Source of Error</p>
+<p> </p>
+<p>When writing to a write-protected register fails</p>
+<p> </p>
+<p><b>Sl. No. </b></p>
+<p><b>3 </b></p>
+<p>Error Code </p>
+<p>MCU_E_CVM_SELFDIAG_FAILURE </p>
+<p>Related API(s) </p>
+<p>Mcu_CvmSelfDiagnosticTest </p>
+<p>Source of Error </p>
+<p>When there is failure CVM self-diagnostic test. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p>4 </p>
+<p>Error Code </p>
+<p>MCU_E_CLM_SELFDIAG_FAILURE </p>
+<p>Related API(s) </p>
+<p>Mcu_ClmaSelfDiagnosticTest </p>
+<p>Source of Error </p>
+<p>When there is failure CLMA self-diagnostic test. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p>5 </p>
+<p>Error Code </p>
+<p>MCU_E_ECM_SELFDIAG_FAILURE </p>
+<p>Related API(s) </p>
+<p>Mcu_EcmSelfDiagnosticTest </p>
+<p>Source of Error </p>
+<p>When there is failure ECM self-diagnostic test. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p><b>6 </b></p>
+<p>Error Code </p>
+<p>MCU_E_LOCKSTEP_SELFDIAG_FAILURE </p>
+<p>Related API(s) </p>
+<p>Mcu_LockStepSelfDiagnosticTest </p>
+<p>Source of Error </p>
+<p>When there is failure Lock step self-diagnostic test. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p><b>7 </b></p>
+<p>Error Code </p>
+<p>MCU_E_RESETCONTROLLER_STARTUP_FAILURE </p>
+<p>Related API(s) </p>
+<p>Mcu_StartUPTest </p>
+<p>Source of Error </p>
+<p>When there is failure in startup test. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p><b>8 </b></p>
+<p>Error Code </p>
+<p>MCU_E_INT_INCONSISTENT </p>
+<p>Related API(s) </p>
+<p>MCU_ECM_EIC_ISR </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p><b>   Development And Production Error  </b></p>
+<p><b>                                                                      Chapter 11 </b></p>
+<p><b> </b></p>
+<p>59 </p>
+<p>Source of Error </p>
+<p>When there is failure in interrupt consistency check. </p>
+<p><b>Sl. No. </b></p>
+<p> </p>
+<p> </p>
+<p><b>9 </b></p>
+<p>Error Code </p>
+<p>MCU_E_REG_WRITE_VERIFY </p>
+<p>Related API(s) </p>
+<p>All APIs </p>
+<p>Source of Error </p>
+<p>When there is a failure in Register write. </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>    </p>
+<p>   </p>
+<p><b>Chapter 11 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                           Development And Production Error</b></p>
+<p>  </p>
+<p> </p>
+<p> </p>
+<p>60 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Memory Organization  </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                             Chapter 12 </b></p>
+<p> </p>
+<p>61 </p>
+<p><b> </b></p>
+<p><b>Chapter 12 </b></p>
+<p><b>Memory Organization </b></p>
+<p> </p>
+<p> </p>
+<p>Following picture depicts a typical memory organization, which must be met </p>
+<p>for proper functioning of MCU Driver Component software.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Figure 12-1  MCU Driver Component Memory Organization </b></p>
+<p><b>ROM Section </b></p>
+<p><b>MCU Driver Component </b></p>
+<p><b>Library </b></p>
+<p><b>Object </b></p>
+<p><b>es</b></p>
+<p> </p>
+<p><b>RAM </b></p>
+<p><b>ect</b></p>
+<p> </p>
+<p>MCU Driver code related to APIs is placed in </p>
+<p>this memory. </p>
+<p> </p>
+<p>Segment Name: </p>
+<p><b>MCU PUBLIC_CODE_ROM </b></p>
+<p> </p>
+<p>MCU Driver code related to internal </p>
+<p>functions are placed in this memory </p>
+<p> </p>
+<p>Segment Name: </p>
+<p><b>MCU_PRIVATE_CODE_ROM </b></p>
+<p> </p>
+<p>MCU Driver code related to ISR functions are </p>
+<p>are placed in this memory </p>
+<p>Segment Name: </p>
+<p><b>MCU_START_SEC_CODE_FAST </b></p>
+<p> </p>
+<p>Global RAM of unspecific size required for </p>
+<p>MCU driver functioning. </p>
+<p>Segment Name: </p>
+<p><b>NO_INIT_RAM_UNSPECIFIED</b></p>
+<p> </p>
+<p>Global 1-bit RAM initialized by MCU Driver. </p>
+<p>Segment Name: </p>
+<p><b>NO_INIT_RAM_1BIT </b></p>
+<p>Global 1-bit RAM to be initialized by start-</p>
+<p>up code </p>
+<p>Segment Name: </p>
+<p><b>RAM_1BIT </b></p>
+<p><b>X1 </b></p>
+<p><b>X2 </b></p>
+<p><b>X3 </b></p>
+<p><b>Y1 </b></p>
+<p><b>Y2 </b></p>
+<p><b>Y3</b></p>
+<p> </p>
+<p> </p>
+<p><b>Tool Generated Files </b></p>
+<p>The const section (other than </p>
+<p>MCU</p>
+<p> </p>
+<p>Configuration structure) in the file </p>
+<p>Mcu_PBcfg.c is placed in this memory </p>
+<p>Segmentname: </p>
+<p><b>MCU_CFG_DATA_UNSPECIFIED</b></p>
+<p> </p>
+<p><b>X4</b></p>
+<p> </p>
+<p>Global 32-bit RAM initialized by MCU </p>
+<p>Driver.</p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>NO_INIT_RAM_32BIT</b></p>
+<p> </p>
+<p><b>Y4</b></p>
+<p> </p>
+<p>Global 32-bit RAM to be initialized by start-</p>
+<p>up code</p>
+<p> </p>
+<p>Segment Name:</p>
+<p> </p>
+<p><b>RAM_32BIT</b></p>
+<p> </p>
+<p><b>Y5</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>    </p>
+<p>   </p>
+<p><b>Chapter 12 </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                                                   Memory Organization</b></p>
+<p><b> </b></p>
+<p> </p>
+<p>62 </p>
+<p> </p>
+<p><b>                                       </b></p>
+<p><b>  ROM Section (X1, X2, X3 and  X4): </b></p>
+<p> </p>
+<p><b>MCU_PUBLIC_CODE_ROM (X1): </b>API(s) of MCU Driver Component, which </p>
+<p>can be located in code memory. </p>
+<p> </p>
+<p><b>MCU_PRIVATE_CODE_ROM (X2): </b>Internal functions of MCU Driver </p>
+<p>Component code that can be located in code memory. </p>
+<p> </p>
+<p><b>MCU_START_SEC_CODE_FAST (X3):</b></p>
+<p><b> </b>Interrupt functions of MCU Driver </p>
+<p>Component code that can be located in code memory.</p>
+<p> </p>
+<p> </p>
+<p><b>MCU_CFG_DATA_UNSPECIFIED (X4): </b>This section consists of MCU </p>
+<p>Driver Component constant configuration structures. This can be located in </p>
+<p>code memory. </p>
+<p> </p>
+<p><b>RAM Section (Y1, Y2, Y3, Y4 and Y5): </b></p>
+<p> </p>
+<p><b>NO_INIT_RAM_UNSPECIFIED (Y1): </b>This section consists of the global RAM </p>
+<p>variables that are used internally by MCU Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>NO_INIT_RAM_1BIT (Y2): </b>This section consists of the global RAM variables of </p>
+<p>1-bit size that are used internally by MCU Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>RAM_1BIT (Y3): </b>This section consists of the global RAM variables of 1-bit </p>
+<p>size that are initialized by start-up code and used internally by MCU Driver </p>
+<p>Component. This can be located in data memory. </p>
+<p> </p>
+<p><b>NO_INIT_RAM_32BIT (Y4): </b>This section consists of the global RAM variables </p>
+<p>of 32-bit size that are used internally by MCU Driver Component. This can be </p>
+<p>located in data memory. </p>
+<p> </p>
+<p><b>RAM_32BIT (Y5): </b>This section consists of the global RAM variables of 32-bit </p>
+<p>size that are initialized by start-up code and used internally by MCU Driver </p>
+<p>Component. This can be located in data memory. </p>
+<p> </p>
+<p><b>Remark</b> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>X1, X2, Y1, Y2 , Y3 ,Y4 and Y5 pertain to only MCU Driver Component and </p>
+<p>do not include memory occupied by Mcu_PBcfg.c file generated by MCU </p>
+<p>Driver Component Generation Tool. </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>User must ensure that none of the memory areas overlap with each other. </p>
+<p>Even ‘debug’ information should not overlap. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  P1M Specific Information     </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                 Chapter 13 </b></p>
+<p> </p>
+<p>65 </p>
+<p> </p>
+<p><b>Chapter 13 </b></p>
+<p><b>P1M Specific Information </b></p>
+<p> </p>
+<p> </p>
+<p>P1M supports following devices: </p>
+<p></p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701305</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.1. </b></p>
+<p><b>Interaction between the User and MCU Driver Component </b></p>
+<p> </p>
+<p>The details of the services supported by the MCU Driver Component to the </p>
+<p>upper layers users and the mapping of the channels to the hardware units is </p>
+<p>provided in the following sections: </p>
+<p> </p>
+<p> </p>
+<p><b>13.1.1. </b></p>
+<p><b>Translation Header File </b></p>
+<p> </p>
+<p>The P1x_translation.h translation header file supports following devices: </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701304</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701305 </p>
+<p></p>
+<p> </p>
+<p>R7F701310</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701311</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701312</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701313</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701314</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701315</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701318</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701319</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701320</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701321</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701322</p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>R7F701323</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>13.1.2. </b></p>
+<p><b>ISR Function </b></p>
+<p> </p>
+<p>The table below provides the list of handler addresses corresponding to the </p>
+<p>hardware unit ISR(s) in MCU Driver Component. The user should configure </p>
+<p>the ISR functions mentioned below: </p>
+<p> </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>  Chapter 13                                                                                                       P1M Specific Information    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>66 </p>
+<p> </p>
+<p><b>Table 13-1 </b></p>
+<p><b>ISR For MCU </b></p>
+<p> </p>
+<p><b>Interrupt Source</b></p>
+<p> </p>
+<p><b>Name of the ISR Function</b></p>
+<p> </p>
+<p> </p>
+<p>INTECM</p>
+<p> </p>
+<p>MCU_FEINT_ISR</p>
+<p> </p>
+<p>MCU_ECM_EIC_ISR</p>
+<p> </p>
+<p> </p>
+<p>                                            </p>
+<p>Note: The functions with “INTERRUPT “as pilot tag, provides an indication to  </p>
+<p>                                        the compiler that the function following this tag is an interrupt function type.  </p>
+<p>                                       The tag name can vary according to the compiler. User should take care of   </p>
+<p>                                        the tag name with respect to compiler used. </p>
+<p>                                            </p>
+<p> </p>
+<p><b>13.1.2.1 </b></p>
+<p><b>Interrupt routines for OS </b></p>
+<p> </p>
+<p>Module's  &lt;Module&gt;_Irq.c/h  files  must  include  &quot;Os.h&quot;  header  file  to  obtain </p>
+<p>the </p>
+<p>interrupt </p>
+<p>category </p>
+<p>information </p>
+<p>configured </p>
+<p>in </p>
+<p>the </p>
+<p>OS. </p>
+<p>Therefore </p>
+<p>preprocessor  definitions  shown  by  below  table  must  be  expected  to  be </p>
+<p>published  in  Os.h  file  by  the  OS  in  case  of  CAT2  or  to  be  used  in  the </p>
+<p>interrupt  vector  table  in  case  of  CAT1.  In  case  of  CAT2  ISRs  the  “ISR </p>
+<p>(Isr_Name)” Keyword must be used in &lt;Module&gt;_Irq.c/h file. </p>
+<p> </p>
+<p><b>Interrupt Category</b></p>
+<p> </p>
+<p><b>Naming Convention</b></p>
+<p> </p>
+<p>CAT1 </p>
+<p>&lt;MCAL_INTERRUPT_NAME&gt;_ ISR </p>
+<p>CAT2 </p>
+<p>&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR </p>
+<p>CAT2 (In case the handles of the </p>
+<p>OsIsr container are generated </p>
+<p>without ‘Os_’ prefix by Os </p>
+<p>generation tool) </p>
+<p>Os_&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR </p>
+<p> </p>
+<p><b>Example of module_irq.h: </b></p>
+<p>/* Defines the CAT2 interrupt mapping */ </p>
+<p>#if defined (Os_&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR) || defined </p>
+<p>(&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR) </p>
+<p> /* Use ISR() macro from Os.h */ </p>
+<p> /* Defines the CAT1 interrupt mapping */ </p>
+<p>#else </p>
+<p>extern FUNC(type, memclass) &lt;MCAL_INTERRUPT_NAME&gt;_ ISR(void); </p>
+<p>#endif </p>
+<p><b>Example of module_irq.c: </b></p>
+<p>/* Defines the CAT2 interrupt mapping */ </p>
+<p>#if defined  (Os_&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR) || defined </p>
+<p>(&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR) </p>
+<p> ISR(&lt;MCAL_INTERRUPT_NAME&gt;_CAT2_ISR) </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  P1M Specific Information     </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                 Chapter 13 </b></p>
+<p> </p>
+<p>67 </p>
+<p>/* Defines the CAT1 interrupt mapping */ </p>
+<p>#else </p>
+<p>FUNC(type, memclass) &lt;MCAL_INTERRUPT_NAME&gt;_ ISR(void) </p>
+<p>#endif </p>
+<p>                     Note:    In case if the MCAL modules are to be used standalone without having standard </p>
+<p>Autosar Os module, the user has to prepare an Os.h stub file with the published </p>
+<p>handles only for those interrupt names which are to be used as CAT2. </p>
+<p> </p>
+<p><b>13.1.3. </b></p>
+<p><b>Parameter Definition File </b></p>
+<p> </p>
+<p>                                  Parameter definition files support information for P1M </p>
+<p><b>Table 13-2 </b></p>
+<p><b>PDF information for P1M </b></p>
+<p><b> </b></p>
+<p><b>PDF Files</b></p>
+<p> </p>
+<p><b>Devices supported</b></p>
+<p> </p>
+<p>R403_MCU_P1M_04_05.arxml </p>
+<p>701304, 701305 </p>
+<p>R403_MCU_P1M_10_to_15_18_to_23.arx</p>
+<p>ml </p>
+<p>701310, 701311, 701312, 701313, </p>
+<p>701314, 701315, 7013018, 701319, </p>
+<p>701320, 701321, 701322, 7013023 </p>
+<p> </p>
+<p> </p>
+<p><b>13.2. </b></p>
+<p><b>Sample Application </b></p>
+<p> </p>
+<p><b>13.2.1  Sample Application Structure </b></p>
+<p> </p>
+<p>The  Sample  Application  is  provided  as  reference  to  the  user  to  understand </p>
+<p>the method in which the MCU APIs can be invoked from the application. </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>                 Figure 13-1 Overview of MCU Driver Sample Application </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>  Chapter 13                                                                                                       P1M Specific Information    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>68 </p>
+<p> </p>
+<p>The Sample Application of the P1M is available in the path: </p>
+<p> </p>
+<p>X1X\P1x\modules\mcu\sample_application </p>
+<p> </p>
+<p>The Sample Application consists of the following folder structure: </p>
+<p> </p>
+<p>X1X\P1x\modules\mcu\definition\&lt;AUTOSAR_version&gt;\&lt;SubVariant&gt; </p>
+<p>                                         \R403_MCU_P1M_04_05.arxml </p>
+<p>                                         \R403_MCU_P1M_10_to_15_18_to_23.arxml </p>
+<p>X1X\P1x\modules\mcu\sample_application </p>
+<p>\&lt;SubVariant&gt;\&lt;AUTOSAR_version&gt; </p>
+<p>\src\Mcu_PBcfg.c </p>
+<p>\include\Mcu_Cfg.h </p>
+<p>\include\Mcu_Cbk.h </p>
+<p>\include\Mcu_Reg.h </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701304_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701305_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701310_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701311_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701312_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701313_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701314_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701315_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701318_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701319_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701320_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701321_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701322_Sample.arxml </p>
+<p> </p>
+<p>\config\App_MCU_P1M_701323_Sample.arxml </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>In the Sample Application all the MCU APIs are invoked in the following </p>
+<p>sequence: </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_Init is invoked with a valid database address for the proper </p>
+<p>initialization of the MCU Driver, all the MCU Driver control registers and </p>
+<p>RAM variables will get initialized after this API is called. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_InitRamSection is invoked to initialize the RAM section wise </p>
+<p>as provided from the configuration structure. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_InitClock is invoked to initialize the clock sources Main Osc, </p>
+<p>High Speed Internal ring Oscillator. </p>
+<p> </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_GetPllStatus is invoked to provide the lock status of the </p>
+<p>PLL. This API will return the PLLstatus as MCU_PLL_LOCKED or </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  P1M Specific Information     </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                 Chapter 13 </b></p>
+<p> </p>
+<p>69 </p>
+<p>MCU_PLL_UNLOCKED. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_GetResetReason is invoked to read the reset type from </p>
+<p>the hardware by checking the RESF register and if not supported, </p>
+<p>returns MCU_POWER_ON_RESET. This API shall clear the reset </p>
+<p>factor register. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_GetResetRawValue is invoked to return reset type value </p>
+<p>from the hardware register RESF </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_GetVersionInfo is invoked to get the version of the MCU </p>
+<p>Driver module with a variable of Std_VersionInfoType, after the call of </p>
+<p>this API the passed parameter will get updated with the MCU Driver </p>
+<p>version details. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_PerformReset invoked to microcontroller reset is </p>
+<p>performed by accessing the software reset register. </p>
+<p> </p>
+<p>• </p>
+<p>The API Mcu_SetMode is invoked to activate the MCU power modes.  </p>
+<p> </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>To unmask all resets ‘target pinmask k’ command is used. </p>
+<p> </p>
+<p> </p>
+<p><b>13.2.2  Building Sample Application </b></p>
+<p> </p>
+<p><b>13.2.2.1. </b></p>
+<p><b>Configuration Example </b></p>
+<p>This section contains the typical configuration which is used for measuring </p>
+<p>RAM/ROM consumption, stack depth and throughput details. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b>Configuration Details</b>: </p>
+<p>App_MCU_&lt;SubVariant&gt;_&lt;Device_Number&gt;_Sample.arxml </p>
+<p> </p>
+<p>For P1M the &lt;Device Number&gt; indicates the device to be compiled, which can </p>
+<p>be 701304, 701305, 701310, 701311, 701312, 701313, 701314, 701315, </p>
+<p>701318, 701319, 701320, 701321, 701322, 701323 </p>
+<p> </p>
+<p><b>13.2.2.2. </b></p>
+<p><b>Debugging the Sample Application </b></p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>GNU Make utility version 3.81 or above must be installed and available in the </p>
+<p>path  as  defined  by  the  environment  user  variable  “GNUMAKE”  to  complete </p>
+<p>the build process using the delivered sample files. </p>
+<p> </p>
+<p>Open a Command window and change the current working directory to “make” </p>
+<p>directory present as mentioned in below path: </p>
+<p> </p>
+<p> “X1X\P1x\common_family\make\&lt;compiler&gt;” </p>
+<p> </p>
+<p>Now execute the batch file SampleApp.bat with following parameters: </p>
+<p> </p>
+<p>SampleApp.bat mcu &lt;AUTOSAR_version&gt; &lt;Device_name&gt; </p>
+<p> </p>
+<p>• </p>
+<p>After this, the tool output files will be generated with the configuration </p>
+<p>as mentioned in App_MCU_P1M_701318_Sample.arxml file available </p>
+<p>in the path: </p>
+<p> </p>
+<p>“X1X\P1x\modules\mcu\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_ve</p>
+<p>rsion&gt;\config\App_MCU_P1M_701318_Sample.arxml” </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>  Chapter 13                                                                                                       P1M Specific Information    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>70 </p>
+<p> </p>
+<p>• </p>
+<p>After this, all the object files, map file and the executable file </p>
+<p>App_MCU_P1M_Sample.out will be available in the output folder: </p>
+<p>(“X1X\P1x\modules\mcu\sample_application\&lt;SubVariant&gt; </p>
+<p>\obj\&lt;compiler&gt;”) </p>
+<p> </p>
+<p>• </p>
+<p>The executable can be loaded into the debugger and the sample      </p>
+<p>application can be executed </p>
+<p> </p>
+<p><b>Remark </b></p>
+<p>Executable files with ‘*.out’ extension can be downloaded into the target </p>
+<p>hardware with the help of Green Hills debugger. </p>
+<p>• If any configuration changes (only post-build) are made to the ECU </p>
+<p>Configuration Description files </p>
+<p>“X1X\P1x\modules\mcu\sample_application\&lt;SubVariant&gt;\&lt;AUTOSAR_versi</p>
+<p>on&gt;\config\App_MCU_P1M_701318_Sample.arxml” </p>
+<p> </p>
+<p>• </p>
+<p>The database alone can be generated by using the following commands. </p>
+<p>make –f App_MCU_P1M_Sample.mak  generate_mcu_config </p>
+<p>                                             make –f App_MCU_P1M_Sample.mak  App_MCU_P1M_Sample.s37 </p>
+<p>• </p>
+<p>After this, a flash able Motorola S-Record file App_MCU_P1M_Sample.s37 </p>
+<p>is available in the output folder. </p>
+<p>Note:  The &lt;Device_name&gt; indicates the device to be compiled, which can be  </p>
+<p>701304, 701305, 701310, 701311, 701312, 701313, 701314, 701315, 701318, </p>
+<p>701319, 701320, 701321, 701322, 701323. </p>
+<p>  </p>
+<p><b>13.3. </b></p>
+<p><b>Memory and Throughput  </b></p>
+<p> </p>
+<p><b>13.3.1. ROM/RAM Usage </b></p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET disabled </p>
+<p>as provided in Section 13.2.2.1 <i>Configuration Example </i>are provided in this </p>
+<p>section. </p>
+<p> </p>
+<p><b>Table 13-3 </b></p>
+<p><b>ROM/RAM Details without DET </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p> </p>
+<p><b>ROM/RAM</b></p>
+<p> </p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in bytes in </b></p>
+<p><b>GHS</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>MCU_PUBLIC_CODE_ROM </p>
+<p>MCU_PRIVATE_CODE_ROM  </p>
+<p>MCU_FAST_CODE_ROM  </p>
+<p>MCU_CFG_DATA_UNSPECIFIED </p>
+<p> </p>
+<p>ROM.RAM_1BIT </p>
+<p> </p>
+<p>ROM.RAM_32BIT </p>
+<p>452 </p>
+<p>                5588 </p>
+<p>572 </p>
+<p>584 </p>
+<p>1 </p>
+<p>8 </p>
+<p>2.</p>
+<p> </p>
+<p>RAM</p>
+<p> </p>
+<p>NO_INIT_RAM_UNSPECIFIED</p>
+<p>RAM_1BIT  </p>
+<p>RAM_32BIT  </p>
+<p>28 </p>
+<p>3 </p>
+<p>0 </p>
+<p> </p>
+<p> </p>
+<p>The details of memory usage for the typical configuration, with DET enabled </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  P1M Specific Information     </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                 Chapter 13 </b></p>
+<p> </p>
+<p>71 </p>
+<p>and all other configurations as provided in 13.2.2.1 <i>Configuration Example </i></p>
+<p>are provided in this section. </p>
+<p> </p>
+<p><b>Table 13-4 </b></p>
+<p><b>ROM/RAM Details with DET </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p> </p>
+<p><b>ROM/RAM</b></p>
+<p> </p>
+<p> </p>
+<p><b>Segment Name</b></p>
+<p> </p>
+<p><b>Size in bytes in </b></p>
+<p><b>GHS</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>ROM</p>
+<p> </p>
+<p>MCU_PUBLIC_CODE_ROM </p>
+<p>MCU_PRIVATE_CODE_ROM  </p>
+<p>MCU_FAST_CODE_ROM </p>
+<p>MCU_CFG_DATA_UNSPECIFIED </p>
+<p> </p>
+<p>ROM.RAM_1BIT </p>
+<p> </p>
+<p>ROM.RAM_32BIT </p>
+<p> </p>
+<p>814 </p>
+<p>5588 </p>
+<p>572 </p>
+<p>584 </p>
+<p>1 </p>
+<p>0 </p>
+<p>2. </p>
+<p>RAM </p>
+<p>NO_INIT_RAM_UNSPECIFIED </p>
+<p>RAM_1BIT </p>
+<p>RAM_32BIT </p>
+<p> </p>
+<p>28 </p>
+<p>1 </p>
+<p>0 </p>
+<p><b>13.3.2. </b></p>
+<p><b>Stack Depth </b></p>
+<p> </p>
+<p>The worst-case stack depth for MCU Driver Component for the typical </p>
+<p>configuration provided in Section 13.2.2.1 Configuration Example is </p>
+<p>approximately 36 bytes. </p>
+<p> </p>
+<p><b>13.3.3. </b></p>
+<p><b>Throughput Details </b></p>
+<p> </p>
+<p>The throughput details of the APIs for the configuration mentioned in the </p>
+<p>Section 13.2.2.1 <i>Configuration Example </i>are listed here. The clock frequency </p>
+<p>used to measure the throughput is 160MHz for all APIs. </p>
+<p> </p>
+<p><b>Table 13-5 </b></p>
+<p><b>Throughput Details of the APIs </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p> </p>
+<p><b>API Name</b></p>
+<p> </p>
+<p><b>Throughput in </b></p>
+<p><b>microseconds in GHS</b></p>
+<p> </p>
+<p> </p>
+<p><b>Remarks</b></p>
+<p> </p>
+<p>1. </p>
+<p>Mcu_Init </p>
+<p>671.450 </p>
+<p>- </p>
+<p>2. </p>
+<p>Mcu_InitClock </p>
+<p>247.662 </p>
+<p>- </p>
+<p>3. </p>
+<p>Mcu_GetPllStatus </p>
+<p>0.87 </p>
+<p>- </p>
+<p>4. </p>
+<p>Mcu_InitRamSection </p>
+<p>10.450 </p>
+<p>- </p>
+<p>5. </p>
+<p>Mcu_GetResetReason </p>
+<p>0.125 </p>
+<p>- </p>
+<p>6. </p>
+<p>Mcu_GetResetRawValue </p>
+<p>0.112 </p>
+<p>- </p>
+<p>7. </p>
+<p>Mcu_GetVersionInfo </p>
+<p>0.162 </p>
+<p>- </p>
+<p>8. </p>
+<p>Mcu_GetRamState </p>
+<p>0.500 </p>
+<p>- </p>
+<p>9. </p>
+<p>Mcu_SetMode </p>
+<p>0.87 </p>
+<p>- </p>
+<p>10. </p>
+<p>Mcu_EcmReleaseErrorOutPin </p>
+<p>5.787 </p>
+<p> </p>
+<p>11. </p>
+<p>Mcu_PerformReset </p>
+<p>0.162 </p>
+<p>- </p>
+<p>12. </p>
+<p> Mcu_ProtectedWriteRetNone </p>
+<p>3.587 </p>
+<p>- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>  Chapter 13                                                                                                       P1M Specific Information    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>72 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>   </b></p>
+<p><b>  Release Details     </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>                             Chapter 14 </b></p>
+<p> </p>
+<p>73 </p>
+<p><b>Chapter 14 </b></p>
+<p><b>Release Details </b></p>
+<p> </p>
+<p> </p>
+<p><b>MCU Driver Software </b></p>
+<p> </p>
+<p>Version: 1.0.8 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>   </p>
+<p><b>  Chapter 14                                                                                                                        Release Details    </b></p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>74 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>75 </p>
+<p><b>Revision History </b></p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Initial Version</p>
+<p> </p>
+<p>1.0.0</p>
+<p> </p>
+<p>18-Oct-2013</p>
+<p> </p>
+<p>2. </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 2 is updated for reference documents. </p>
+<p>2. </p>
+<p>Section 4.3 is updated for Exclusive Area name change. </p>
+<p>3. </p>
+<p>Section 4.4 is updated for adding user and supervisor mode details </p>
+<p>for new APIs. </p>
+<p>4. </p>
+<p>Chapter 6 is updated for Register details used in APIs. </p>
+<p>5. </p>
+<p>Chapter 8 is updated for adding file description for tool generated </p>
+<p>file ‘Mcu_Cbk.h’. </p>
+<p>6. </p>
+<p>Section 10.3 is updated for adding new APIs in function definition. </p>
+<p>7. </p>
+<p>Section 11.1 is updated for adding DET error. </p>
+<p>8. </p>
+<p>Chapter 13 and section 13.1.1 is updated for adding new supported </p>
+<p>devices. </p>
+<p>9. </p>
+<p>Section 13.2 is updated for change in compiler and linker version </p>
+<p>details. </p>
+<p>10.  Section 13.3 is updated for adding latest configuration details for </p>
+<p>supported devices. </p>
+<p>11.  Section 13.3.2 is updated for change in configuration example for </p>
+<p>sample application testing. </p>
+<p>12.  Section 13.4 is updated for updating ROM/RAM, Stack and </p>
+<p>Throughput details. </p>
+<p>13.  Chapter 14 is updated for increment in MCU Driver software </p>
+<p>version. </p>
+<p>1.0.1 </p>
+<p>30-Apr-2014 </p>
+<p>3. </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 4 is updated for adding a new section regarding RAM </p>
+<p>Initialization. </p>
+<p>2. </p>
+<p>Chapter 13 and section 13.3.1 is updated for removal of </p>
+<p>unsupported devices. </p>
+<p>1.0.2 </p>
+<p>09-May-2014 </p>
+<p>4.  </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 2 is updated for referenced documents version. </p>
+<p>2. </p>
+<p>Section 13.1.1 is updated for adding the device names.  </p>
+<p>3. </p>
+<p>Section 13.2 is updated for compiler, assembler and linker details.  </p>
+<p>4. </p>
+<p>Section 13.3 is updated to add parameter definition file and sample </p>
+<p>application configuration files for all P1M devices.  </p>
+<p>5. </p>
+<p>Chapter 14 is updated for MCU driver component version </p>
+<p>information. </p>
+<p>6. </p>
+<p>Deviation list is updated to add MCU_E_PARAM_POINTER error </p>
+<p>for Mcu_GetVersioInfo API and AUTOSAR requirement. </p>
+<p>1.0.3 </p>
+<p>20-Oct-2014 </p>
+<p>5 </p>
+<p>Following changes are made: </p>
+<p>1.  Chapters 7 to 11 updated to start at odd page. </p>
+<p>2.  Date in Revision History updated. </p>
+<p>3.  Document page numbers are corrected. </p>
+<p>4.  Chapter 11 updated to add MCU_E_PARAM_MODE DET. </p>
+<p>5.</p>
+<p>  P</p>
+<p>age number is removed from publication info page. </p>
+<p>6. Section 13.2 is updated for compiler, assembler and linker    details. </p>
+<p>7. Chapter 8 is update to include rh850_types.h file. </p>
+<p>8. Section 13.4 is updated for Memory and throughput details. </p>
+<p> </p>
+<p>1.0.4 </p>
+<p>12-Dec-2014 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>76 </p>
+<p> </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>6 </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>New section, “4.7 Callout API” added to chapter 4.  </p>
+<p>2. </p>
+<p>Information regarding Interrupt vector table is added to “Section 4.1 </p>
+<p>General”. </p>
+<p>3. </p>
+<p>As part of device support activity for R7F701304, R7F701305, </p>
+<p>R7F701313, R7F701315, R7F701318 to R7F701323 updated </p>
+<p>sections 3.1.1, 13.1, 13.2. </p>
+<p>4. </p>
+<p>Removed section Compiler,Linker and Assembler in Chapter13. </p>
+<p>5. </p>
+<p>Updated section 13.3 for memory and throughput </p>
+<p>6. </p>
+<p>Copyright information has been changed to 2015  </p>
+<p>1.0.5 </p>
+<p>30-Apr-2015 </p>
+<p>7 </p>
+<p>Following changes are made: </p>
+<p>1. </p>
+<p>Added details of stubs in section 3.1.1.</p>
+<p> </p>
+<p>2. </p>
+<p>Section 4.1 General is updated. </p>
+<p>3. </p>
+<p>Chapter 6 Register Details is updated by adding the missing </p>
+<p>registers and APIs.</p>
+<p> </p>
+<p>4. </p>
+<p>Section 7.1 is updated for new functionality of clearing error </p>
+<p>out pin.</p>
+<p> </p>
+<p>5. </p>
+<p>Alignment of Headings and Tables are corrected in Section 10.2 </p>
+<p>Type definition. </p>
+<p>6. </p>
+<p>Section10.3 is updated for new API and 11.2 for new production </p>
+<p>errors. </p>
+<p>7. </p>
+<p>Alignment of bullet points of remarks are corrected in Chapter 12 </p>
+<p>Memory Organization. </p>
+<p>8. </p>
+<p>Alignment of the text &quot;P1x Mcu Sample Application&quot; is corrected in </p>
+<p>Figure 13-1 Overview of MCU Driver Sample Application. </p>
+<p>9. </p>
+<p>Section 13.1.2.1 is added for OS interrupt routines. </p>
+<p>10. Section 13.3 Memory and throughput updated. </p>
+<p>11. </p>
+<p>Clock frequency used to measure the throughput is updated </p>
+<p>in Section 13.3.3 Throughput Details.</p>
+<p> </p>
+<p>12. </p>
+<p>Exclusive area for register protection renamed to </p>
+<p>MCU_REGISTER_PROTECTION. Also added exclusive area </p>
+<p>VARIABLE_PROTECTION.</p>
+<p> </p>
+<p>13. Chapter14 is updated. </p>
+<p>1.0.6 </p>
+<p>08-Jan-2016 </p>
+<p>8 </p>
+<p>Following changes are made: </p>
+<p>1. Chapter 6 Register details are updated. </p>
+<p>2. Section 4.3 Data consistency is updated. </p>
+<p>3. Section 13.4 is updated for ROM/RAM, Stack and Throughput </p>
+<p>details </p>
+<p>4. Section 6.1 General is updated for the description of </p>
+<p>Mcu_InitRamSection and McuRamSectorSetting. </p>
+<p>5. R-number and Version are updated. </p>
+<p>1.0.7 </p>
+<p>25-Mar-2016 </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p>77 </p>
+<p><b>Sl. No.</b></p>
+<p> </p>
+<p><b>Description</b></p>
+<p> </p>
+<p><b>Version</b></p>
+<p> </p>
+<p><b>Date</b></p>
+<p> </p>
+<p>9 </p>
+<p> Following changes are made: </p>
+<p>1. </p>
+<p>Chapter 4 section 4.1 General 5 points added. </p>
+<p>2. </p>
+<p>Section 4.4 a Note is added below the table 'Supervisor mode and </p>
+<p>User mode details'. </p>
+<p>3. </p>
+<p>Table 4-1 MCU Driver Protected Resources List added in section  </p>
+<p>4.3 Data consistency. </p>
+<p>4. </p>
+<p>VARIABLE_PROTECTION changed to MCU_VARIABLE_PROTECTION </p>
+<p>in section  </p>
+<p>4.3 Data consistency. </p>
+<p>5. </p>
+<p>Chapter 6 Register details are updated. </p>
+<p>6. </p>
+<p>Section 3.1.1 Folder structure, chapter 8 C header file section, </p>
+<p>Table 8-1 updated by adding Mcu_RegWrite.h. </p>
+<p>7. </p>
+<p>DEM error for register write verify added in Table 11-2 DEM Errors </p>
+<p>of MCU Driver Component. </p>
+<p>8. </p>
+<p>Chapter 12 Memory Organization updated to follow initialization </p>
+<p>policy. </p>
+<p>9. </p>
+<p>Section 13.2 reference to .one and .html files are removed. </p>
+<p>10.  Note added in section 13.2.1 ISR function. </p>
+<p>11.  Added new section 13.3.4 Critical section details. </p>
+<p>12.  R Number updated. </p>
+<p>13.  Section 13.3 updated with throughput values.  </p>
+<p>14.  Chapter 4 forethoughts section updated by adding points for </p>
+<p>STATIC tag and for multiple invoke of Mcu_Init multiple times. </p>
+<p>15.  Chapter 14 release details updated. </p>
+<p> </p>
+<p>1.0.8 </p>
+<p>24-Oct-2016 </p>
+<p>10 </p>
+<p>  The following changes are made: </p>
+<p>   1. Abbreviations and Acronyms updated. </p>
+<p>   2. Chapter 14, Release Details updated. </p>
+<p>.   3. Updated R number, Notice and Copyright information. </p>
+<p>    4. Section 13.3 Memory and Throughput Details updated                        </p>
+<p> </p>
+<p> </p>
+<p>1.0.9 </p>
+<p>08-Feb-2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>AUTOSAR MCAL R4.0.3 User's Manual </b></p>
+<p><b>MCU Driver Component Ver.1.0.9 </b></p>
+<p><b>Embedded User’s Manual </b></p>
+<p> </p>
+<p>Publication Date: Rev.1.01, February 8, 2017 </p>
+<p> </p>
+<p>Published by: Renesas Electronics Corporation </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>SALES </b></p>
+<p><b>OFFICES</b></p>
+<p> </p>
+<p>http://www.renesas.com</p>
+<p> </p>
+<p>Refer  to </p>
+<p>&quot;http://www.renesas.com/&quot; </p>
+<p>for the latest  and detailed </p>
+<p>information.</p>
+<p> </p>
+<p><b>Renesas Electronics America Inc. </b></p>
+<p>2801 Scott Boulevard Santa Clara, CA 95050-2549, U.S.A. </p>
+<p>Tel: +1-408-588-6000, Fax: +1-408-588-6130 </p>
+<p><b>Renesas Electronics Canada Limited</b></p>
+<p><b> </b></p>
+<p>9251 Yonge Street, Suite 8309 Richmond Hill, Ontario Canada L4C 9T3 </p>
+<p>Tel: +1-905-237-2004 </p>
+<p><b>Renesas Electronics Europe Limited </b></p>
+<p>Dukes Meadow, Millboard Road, Bourne End, Buckinghamshire, SL8 5FH, U.K </p>
+<p>Tel: +44-1628-585-100, Fax: +44-1628-585-900 </p>
+<p><b>Renesas Electronics Europe GmbH </b></p>
+<p>Arcadiastrasse 10, 40472 Düsseldorf, Germany </p>
+<p>Tel: +49-211-6503-0, Fax: +49-211-6503-1327 </p>
+<p><b>Renesas Electronics (China) Co., Ltd. </b></p>
+<p>Room 1709, Quantum Plaza, No.27 ZhiChunLu Haidian District, Beijing 100191, P.R.China </p>
+<p>Tel: +86-10-8235-1155, Fax: +86-10-8235-7679 </p>
+<p><b>Renesas Electronics (Shanghai) Co., Ltd. </b></p>
+<p>Unit 301, Tower A, Central Towers, 555 Langao Road, Putuo District, Shanghai, P. R. China 200333 </p>
+<p>Tel: +86-21-2226-0888, Fax: +86-21-2226-0999 </p>
+<p><b>Renesas Electronics Hong Kong Limited</b></p>
+<p><b> </b></p>
+<p>Unit 1601-1611, 16/F., Tower 2, Grand Century Place, 193 Prince Edward Road West, Mongkok, Kowloon, Hong Kong </p>
+<p>Tel: +852-2265-6688, Fax: +852 2886-9022 </p>
+<p><b>Renesas Electronics Taiwan Co., Ltd. </b></p>
+<p>13F, No. 363, Fu Shing North Road, Taipei 10543, Taiwan </p>
+<p>Tel: +886-2-8175-9600, Fax: +886 2-8175-9670 </p>
+<p><b>Renesas Electronics Singapore Pte. Ltd. </b></p>
+<p>80 Bendemeer Road, Unit #06-02 Hyflux Innovation Centre, Singapore 339949 </p>
+<p>Tel: +65-6213-0200, Fax: +65-6213-0300 </p>
+<p><b>Renesas Electronics Malaysia Sdn.Bhd. </b></p>
+<p>Unit 1207, Block B, Menara Amcorp, Amcorp Trade Centre, No. 18, Jln Persiaran Barat, 46050 Petaling Jaya, Selangor Darul Ehsan, Malaysia </p>
+<p>Tel: +60-3-7955-9390, Fax: +60-3-7955-9510 </p>
+<p><b>Renesas Electronics India Pvt. Ltd. </b></p>
+<p>No.777C, 100 Feet Road, HAL II Stage, Indiranagar, Bangalore, India </p>
+<p>Tel: +91-80-67208700, Fax: +91-80-67208777 </p>
+<p><b>Renesas Electronics Korea Co., Ltd. </b></p>
+<p>12F., 234 Teheran-ro, Gangnam-Gu, Seoul, 135-080, Korea </p>
+<p>Tel: +82-2-558-3737, Fax: +82-2-558-5141 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>© 2006-2017 Renesas Electronics Corporation. All rights reserved. </p>
+<p>Colophon 4.1 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>AUTOSAR MCAL R4.0.3 </p>
+<p> </p>
+<p>User’s Manual </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>R20UT3720EJ0101 </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,4096 @@
+---
+layout: default
+title: Releasenotes_P1M-C_SPAL_R403_Ver4.02.00.D
+nav_order: 19
+parent: Renesas Mcal Support
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 1 of 55 </p>
+<p>Release Notes for P1M-C-OpenMarket / </p>
+<p>RH850:RENESAS_SW-AUTOSAR-P1M-C: MCAL </p>
+<p>Ver4.02.00.D </p>
+<p>Beta Quality </p>
+<p>1.1</p>
+<p> </p>
+<p>Purpose: </p>
+<p>To deliver AUTOSAR R4.0.3 MCAL software for P1x-C Ver4.02.00.D release using the following </p>
+<p>inputs. </p>
+<p> </p>
+<p>        Device Manual:       </p>
+<p>           </p>
+<p>r01uh0517ej0100_rh850p1x-c_Open.pdf </p>
+<p> </p>
+<p>        Device File:  </p>
+<p>                DF-RH850P1x-C-EE_E120b.zip </p>
+<p> </p>
+<p>        Operating Precautions:    R01TU0087ED0101_RH850P1M-C.pdf </p>
+<p>                                                   </p>
+<p>        Modules supported:          ADC, FLS, MCU, SPI and WDG. </p>
+<p>1.2</p>
+<p> </p>
+<p>Package information </p>
+<p><b>Product   </b></p>
+<p>RH850/P1x-C </p>
+<p><b>Variant </b></p>
+<p>P1M-C </p>
+<p><b>Product Release Version </b></p>
+<p>Ver4.02.00.D </p>
+<p><b>AUTOSAR Specification Version </b></p>
+<p>4.0.3 </p>
+<p><b>Devices supported </b></p>
+<p>RH850 </p>
+<p>P1M-C – R7F701373, R7F701374 </p>
+<p><b>Release Date </b></p>
+<p>28-Feb-2017 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 2 of 55 </p>
+<p>1.3</p>
+<p> </p>
+<p>Tools   </p>
+<p>1.3.1</p>
+<p> </p>
+<p>GHS </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>GreenHills </p>
+<p>Multi IDE – </p>
+<p>compiler </p>
+<p>Green Hills Multi </p>
+<p>V6.1.6 Compiler </p>
+<p>Version 2015.1.7 </p>
+<p> </p>
+<p>-c -g -gsize -Wundef -Wshadow -nofloatio --short_enum </p>
+<p>--prototype_errors --diag_error 193 -dual_debug </p>
+<p>--no_commons -cpu=rh850g3m -Osize -prepare_dispose </p>
+<p>-inline_prologue -no_callt </p>
+<p>-ignore_callt_state_in_interrupts -sda=all -reserve_r2 </p>
+<p>-large_sda -shorten_loads -shorten_moves -delete </p>
+<p>1.3.2</p>
+<p> </p>
+<p>Configuration code generator </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>ECU Spectrum </p>
+<p>4.0.14 </p>
+<p>- </p>
+<p>1.3.3</p>
+<p> </p>
+<p>Additional software </p>
+<p><b>Tool </b></p>
+<p><b>Version </b></p>
+<p><b>Options </b></p>
+<p>NA </p>
+<p>- </p>
+<p>- </p>
+<p> </p>
+<p> </p>
+<p>1.4</p>
+<p> </p>
+<p>Generic Information </p>
+<p>1.4.1</p>
+<p> </p>
+<p>Release Target </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>Generic </p>
+<p><b>Module Overview User Manual </b></p>
+<p>R20UT3827EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Getting Started for P1x-C MCAL User </b></p>
+<p><b>Manual </b></p>
+<p>R20UT3828EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p>1.4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>Generator Files </b></p>
+<p>CommonHelper </p>
+<p>0.0.3 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Updated macro IsBooleanParameterEnabledOrDisabled. </p>
+<p>2. Added macro IsBooleanNonMandateParameterEnabled. </p>
+<p><b>Common Files </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 3 of 55 </p>
+<p>ComStack_Types.h   </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>Std_Types.h   </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>rh850_Types.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>Platform_Types.h   </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D</p>
+<p> </p>
+<p><b>Compiler Files </b></p>
+<p>Compiler.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>Compiler_Cfg.h   </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>MemMap.h   </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Memory section of modules MCU, SPI, WDG and FLS are </p>
+<p>updated. </p>
+<p>Os.h   </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>Os.c   </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D</p>
+<p> </p>
+<p><b>Getting Started for P1x-C MCAL User Manual </b></p>
+<p>R20UT3828EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Added Section 4.10 – User Environment settings. </p>
+<p>2. Removed Description of Translation XML file from Chapter </p>
+<p>9 </p>
+<p>3. Updated Copyright year </p>
+<p>4. Added example for reference in section 4.4 </p>
+<p>5. In Chapter 4 Figure 4-2 has been updated as per version </p>
+<p>change </p>
+<p>6. Compiler Option Table updated </p>
+<p>7. In Chapter 5 Section 5.4.1 Trxml changed to Arxml format </p>
+<p>8. Chapter 9 Section 9.1 Configuration XML file remove since </p>
+<p>not relevant </p>
+<p>9. Document name corrected in second last and last page </p>
+<p><b>Module Overview User Manual </b></p>
+<p>R20UT3827EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Updated section Configuration Parameter Dependency for </p>
+<p>GPT, ICU and PWM. </p>
+<p>2. Added Dem for ADC, PWM, PORT, DIO, SPI and GPT. </p>
+<p>3. Removed details regarding Dem from the section 3.1.16, </p>
+<p>ETH. </p>
+<p>4. Updated R number </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 4 of 55 </p>
+<p>1.4.3 </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p>1.4.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 5 of 55 </p>
+<p>1.5</p>
+<p> </p>
+<p>Module Index </p>
+<p> </p>
+<p>2. ADC </p>
+<p> </p>
+<p>3. FLS </p>
+<p> </p>
+<p>4. MCU </p>
+<p> </p>
+<p>5. SPI </p>
+<p> </p>
+<p>6. WDG </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 6 of 55 </p>
+<p>2  ADC </p>
+<p>2.1 Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>ADC </p>
+<p><b>Software Version </b></p>
+<p>V1.0.1 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3635EJ0100-AUTOSAR.pdf– V1.0.2 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3636EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p> </p>
+<p>2.2 Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x-C - Parameter Definition files<i></b> </i></p>
+<p>R403_ADC_P1X-C.arxml </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Added Dem parameters ADC_E_DMA_FAILURE, </p>
+<p>ADC_E_INT_INCONSISTENT &amp; </p>
+<p>ADC_E_REG_WRITE_VERIFY. </p>
+<p>2. Added parameters AdcEnableSelfDiag, AdcEnableAdTimer, </p>
+<p>AdcEnableBufferAllocation, AdcInterruptConsistencyCheck, </p>
+<p>AdcWriteVerify, AdcDmacWriteVerify, AdcPic2cWriteVerify, </p>
+<p>AdcPullDownPulseWidth, AdcUlmtLlmtErrIntEnable, </p>
+<p>AdcEnableAdTimerTriggMode, AdcTimerPeriod, </p>
+<p>AdcTimerPhaseDelay, AdcIdErrIntEnable, </p>
+<p>AdcParityErrIntEnable. </p>
+<p>3. Modified parameter AdcSelfDiagMode. </p>
+<p>4. Updated description of AdcChannelRangeSelect, </p>
+<p>AdcEnableChSelfDiag, AdcSelfDiagConvCktRef, </p>
+<p>AdcEnablePullUpPullDown, AdcSelfDiagPinLevel. </p>
+<p>5. Max value of parameters AdcChannelConvTime, </p>
+<p>AdcChannelResolution, AdcChannelSampTime and </p>
+<p>AdcHwTrigTimer updated. </p>
+<p>6. Upper Multiplicity of AdcExtMuxValue and </p>
+<p>AdcExtMuxDelayCounter modified. </p>
+<p>7. Modified LITERALS of AdcSelfDiagConvCktRef. </p>
+<p>8. Added DOC-REVISION in ADMIN-DATA. </p>
+<p>9. Removed parameter AdcHwUnitMaxChannelId, </p>
+<p>AdcHwUnitTotalConvTime. </p>
+<p>10. Copy right information updated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 7 of 55 </p>
+<p>11. Limit check option 'ADC_RANGE_NOT_BETWEEN' is </p>
+<p>removed from the parameter 'AdcChannelRangeSelect'. </p>
+<p>12. Support for device R7F701371 added. </p>
+<p>13. Added parameter AdcWriteVerifyErrorInterface. </p>
+<p>14. As per ARDAAAF-1363, Warranty Disclaimer updated </p>
+<p>15. Removed literals ADTIM3_SG3_SG4 and </p>
+<p>ADTIM4_SG3_SG4 from parameter AdcHwTrigger. </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_ADC_P1x-C_BSWMDT.arx</p>
+<p>ml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1. CAN-ENTER-EXCLUSIVE-AREA-REF tag is added. </p>
+<p>2. Warranty Disclaimer updated. </p>
+<p>3. Software patch version incremented.   </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Adc.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_Irq.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_Private.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. PIC register implementation modified. </p>
+<p>3. Copyright information updated. </p>
+<p>4. Comments added for traceability. </p>
+<p>5. Removed Misra warning Msg(4:2892) from MISRA C Rule </p>
+<p>Violations. </p>
+<p>6. Added volatile to LpRunTimeData in APIs </p>
+<p>Adc_GroupCompleteMode, </p>
+<p>Adc_ConfigureGroupForConversion, </p>
+<p>Adc_HwEnableHardwareTrigger and Adc_ProcessQueue. </p>
+<p>Adc_Ram.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x branch. </p>
+<p>2. Added volatile to Adc_GpRunTimeData. </p>
+<p>3. Copyright information updated. </p>
+<p>Adc_Version.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x branch. </p>
+<p>2. Copyright information updated. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 8 of 55 </p>
+<p>Adc.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_Debug.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_Irq.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_PBTypes.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>4. Removed variable blExtMuxEnabled from structure </p>
+<p>STag_Adc_GroupConfigType. </p>
+<p>5. Removed ucHWTriggerType from structure </p>
+<p>STag_Adc_SgTriggType. </p>
+<p>Adc_Private.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>Adc_Ram.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>4. Added volatile to Adc_GpRunTimeData </p>
+<p>Adc_Types.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<p>4. Removed Unused Misra violation Msg(4:3453) from the </p>
+<p>file. </p>
+<p>Adc_RegWrite.h </p>
+<p>1.0.0 </p>
+<p>Initial version </p>
+<p>Adc_Version.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. File adapted from P1x V4.01.01 branch. </p>
+<p>2. Copyright information updated. </p>
+<p>3. Comments added for traceability. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 9 of 55 </p>
+<p><b>P1x-C TCODE file for ADC</b></p>
+<p> </p>
+<p>Adc_Hardware_c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Corrected the elements of array T_ADCF1 and </p>
+<p>DMA_BaseAddress. </p>
+<p>2. Copyright information updated. </p>
+<p>Adc_Hardware_h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Arrays ADC_BaseAddress and DMA_BaseAddress updated. </p>
+<p>2. Copyright information updated. </p>
+<p>Adc_Cfg_h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Added new macros : ADC_ENABLE_EXTERNAL_MUX, </p>
+<p>ADC_ENABLE_BUFFER_ALLOCATION, </p>
+<p>ADC_ENABLE_ERROR_INTERRUPT, </p>
+<p>ADC_ENABLE_SELF_DIAG_PIN_LVL, </p>
+<p>ADC_ENABLE_SELF_DIAG, </p>
+<p>ADC_ENABLE_SELF_DIAG_WIRE_BRK, </p>
+<p>ADC_WIRE_BRK_PIN_SELECT, </p>
+<p>ADC_ENABLE_ADTIMER, ADC_CONFIG_SETS, </p>
+<p>ADC_SG_UNITS, ADC_HW_UNITS, </p>
+<p>ADC_TOTAL_GROUPS, ADC_HW_TRIGG_GROUPS, </p>
+<p>ADC_DMA_UNIT_CONFIG, ADC_LIMIT_CHK_GROUPS, </p>
+<p>ADC_TOTAL_CHANNELS, ADC_SG_MAX_DMA_INDX, </p>
+<p>ADC_HW_UNIT_INDX, ADC_WRITE_VERIFY_ENABLE, </p>
+<p>ADC_DMAC_WRITE_VERIFY_ENABLE, </p>
+<p>ADC_PIC2C_WRITE_VERIFY_ENABLE, </p>
+<p>ADC_ENABLE_DIAGNOSTIC_SUPPORT, </p>
+<p>ADC_ALIGN_RIGHT_MASK, </p>
+<p>ADC_ALIGN_LEFT_MASK, ADC_HW_TRIGG_TYPE, </p>
+<p>ADC_ERRROR_NOTIFICATION, </p>
+<p>ADC_ERROR_INTERFACE_ENABLE, </p>
+<p>ADC_ERROR_INTERFACE </p>
+<p>ADC_INTERRUPT_CONSISTENCY_CHK. </p>
+<p>2. Copyright information updated </p>
+<p>3. Added macros AdcWriteVerify, AdcDmacWriteVerify, </p>
+<p>AdcUseWriteVerifyErrorInterface, AdcPic2cWriteVerify. </p>
+<p>4. Macro IsBooleanParameterEnabledOrDisabled is replaced </p>
+<p>with IsBooleanNonMandateParameterEnabled for </p>
+<p>non-mandatory parameters. </p>
+<p>Adc_Cbk_h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Generation of Call back function updated. </p>
+<p>2. Copyright information updated </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 10 of 55 </p>
+<p>3. Call back function added for </p>
+<p>AdcUseWriteVerifyErrorInterface. </p>
+<p>Adc_PBcfg_c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Updated all structures. </p>
+<p>2. As per ticket ARDAAAF-1659, macro </p>
+<p>IsBooleanParameterEnabledOrDisabled is replaced with </p>
+<p>IsBooleanNonMandateParameterEnabled for non-mandatory </p>
+<p>parameters. </p>
+<p>3. Copyright information updated. </p>
+<p>Adc_Validate </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Validation for write verify is added. </p>
+<p>2. Macro IsBooleanParameterEnabledOrDisabled is replaced </p>
+<p>with IsBooleanNonMandateParameterEnabled for </p>
+<p>non-mandatory parameters. </p>
+<p>3. Added error code 158 and 161. </p>
+<p><b>P1x-C ADC Common Sample Application Source file   </b></p>
+<p>App_ADC_Common_Sample.c </p>
+<p>1.0.0 </p>
+<p>No changes for release in Ver4.02.00.D </p>
+<p><b>P1x-C ADC Common Sample Application Header file </b></p>
+<p>App_ADC_Common_Sample.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Removed definition of AdcConfigSet0. </p>
+<p><b>P1x-C ADC Sample Application P1M-C Source file</b></p>
+<p> </p>
+<p>App_ADC_P1x-C_Sample.c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. </p>
+<p>Added </p>
+<p>function </p>
+<p>select_the_Table_Reference </p>
+<p>to </p>
+<p>enable </p>
+<p>interrupt control registers. </p>
+<p><b>P1x-C ADC Sample Application P1M-C Header file</b></p>
+<p> </p>
+<p>App_ADC_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Added macro ADC_SET_TABLE_REF_METHOD for </p>
+<p>enabling interrupt control registers </p>
+<p>TargetMap.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.Changed the precompile switch </p>
+<p>ADC_ENABLE_ERROR_CHECK to </p>
+<p>ADC_ENABLE_ERROR_INTERRUPT   </p>
+<p><b>P1x-C User Manual </b></p>
+<p>R20UT3635EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Added Table 4-10 ADC driver protected resources list. </p>
+<p>2. Updated Section 4.1 of Chapter 4. </p>
+<p>3. Updated Table 8-1 in Chapter 8. </p>
+<p>4. Updated Register details of section 6 in Table 6-1. </p>
+<p>5. Removed Section13.2 Complier, Linker, and Assembler. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 11 of 55 </p>
+<p>6. Throughput, Stack depth and ROM/RAM details updated in </p>
+<p>section 13.3 </p>
+<p>7. Device names updated in Chapter 13. </p>
+<p>8. .one and .html are removed </p>
+<p>R20UT3636EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Error messages added in section 10.1.1 Error Messages </p>
+<p>2. Warning messages added in section 10.1.2 Warning </p>
+<p>Messages </p>
+<p>3. Information messages added in section 10.1.3 Information </p>
+<p>Messages </p>
+<p>4. Section 9.3 User Environment Settings updated </p>
+<p>5. Removed Chapter 9 and Chapter 11 </p>
+<p>6. Added Diagram Container Overview in Chapter 8 </p>
+<p> </p>
+<p>2.3 Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p> </p>
+<p>2.4 Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 12 of 55 </p>
+<p>3 </p>
+<p>FLS </p>
+<p>3.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373</p>
+<p>,</p>
+<p> R7F701374 </p>
+<p><b>Module </b></p>
+<p>FLS </p>
+<p><b>Software Version </b></p>
+<p>V1.0.2 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3641EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3642EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x-C - Parameter Definition files<i></b> </i></p>
+<p>R403_FLS_P1X-C.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                             </p>
+<p>1.</p>
+<p> </p>
+<p>The minimum range of parameter FlsErasedValue is </p>
+<p>modified.                         </p>
+<p>2.</p>
+<p> </p>
+<p>The device support for R7F701371 is added.                                                             </p>
+<p>3.</p>
+<p> </p>
+<p>The enumeration parameter FlsWriteVerify is updated and </p>
+<p>FlsInterruptConsistencyCheck and </p>
+<p>FLS_E_INT_INCONSISTENT parameters are removed           </p>
+<p>4.</p>
+<p> </p>
+<p>The Warranty Disclaimer description is corrected.                                                 </p>
+<p>5.</p>
+<p> </p>
+<p>Description of FlsWriteTime, FlsEraseTime are updated.                                                                           </p>
+<p>6.</p>
+<p> </p>
+<p>Default value of FlsNumberOfSectors is corrected </p>
+<p>7.</p>
+<p> </p>
+<p>Maximum value of FlsSectorStartaddress corrected </p>
+<p>8.</p>
+<p> </p>
+<p>FlsNumberOfSectors description updated                       </p>
+<p>9.</p>
+<p> </p>
+<p>FlsMaxWriteNormalMode parameter is fixed to 4 bytes. </p>
+<p>10.</p>
+<p> </p>
+<p>FlsMaxEraseNormalMode parameter is fixed to 64 bytes.                                                                           </p>
+<p>11.</p>
+<p> </p>
+<p>FlsAcLocationErase parameter range is updated.                                           </p>
+<p>12.</p>
+<p> </p>
+<p>Upper multiplicity of FlsSpiReference is updated to 1.                                   </p>
+<p>13.</p>
+<p> </p>
+<p>Upper multiplicity of FlsSector updated to 3072.                                               </p>
+<p>14.</p>
+<p> </p>
+<p>Parameter FlsFaciUnit removed.                                                                                   </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_FLS_P1x-C_BSWMDT.arxml </p>
+<p>1.0.2 </p>
+<p>Following change is made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Patch version is updated.                                                 </p>
+<p>2.</p>
+<p> </p>
+<p>Added critical section FLS_CODE_FLASH_DISABLED                                         </p>
+<p>3.</p>
+<p> </p>
+<p>Warranty Disclaimer updated. </p>
+<p>4.</p>
+<p> </p>
+<p>'EXCLUSIVE-AREA' tag is removed from Fls_Read (), </p>
+<p>Fls_Suspend (), Fls_Resume () APIs.                               </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 13 of 55 </p>
+<p>5.</p>
+<p> </p>
+<p>'IS-SYNCHRONOUS tag' is updated for </p>
+<p>Fls_ReadImmediate () and Fls_MainFunction () APIs. </p>
+<p>6.</p>
+<p> </p>
+<p>'CAN-ENTER-EXCLUSIVE-AREA-REFS' tag is added </p>
+<p>under 'BSW-SCHEDULABLE-ENTITY' tag.                       </p>
+<p>7.</p>
+<p> </p>
+<p>'EVENTS' class for the scheduled function is added.                                                                                   </p>
+<p>8.</p>
+<p> </p>
+<p>&lt;IMPLEMENTED-ENTRY-REF&gt; tag is added under </p>
+<p>'BSW-SCHEDULABLE-ENTITY' tag.   </p>
+<p>9.</p>
+<p> </p>
+<p>Device support for R7F701371 is added.                                                           </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Fls.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Fls_MainFunction API is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Fls_Suspend API is modified to check current command. </p>
+<p>3.</p>
+<p> </p>
+<p>Pre compile switchesare corrected,removed switch </p>
+<p>FLS_INTERRUPT_MODE. </p>
+<p>4.</p>
+<p> </p>
+<p>Fls_Suspend API is modified. </p>
+<p>5.</p>
+<p> </p>
+<p>Justification for QAC Warnings are added. </p>
+<p>6.</p>
+<p> </p>
+<p>DET implementation is updated. </p>
+<p>7.</p>
+<p> </p>
+<p>'FLS_UT_001' Tag added for the non-covered parts of the </p>
+<p>code. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated data type for &quot;TargetAddressPtr&quot; in Fls_Read </p>
+<p>and Fls_ReadImmediate APIs. </p>
+<p>Fls_Internal.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                             </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected,removed switch </p>
+<p>FLS_INTERRUPT_MODE. </p>
+<p>2.</p>
+<p> </p>
+<p>The APIs Fls_ProcessReadImm, Fls_InitiateWriteJob and </p>
+<p>Fls_InitiateBlankCheckJob are modified. </p>
+<p>3.</p>
+<p> </p>
+<p>Added Fls_FastReadCheckECC API. </p>
+<p>4.</p>
+<p> </p>
+<p>Check for FLS_FCU_REGBIT_FSTATR_FRDY is </p>
+<p>removed from Fls_InitiateWriteJob API. </p>
+<p>5.</p>
+<p> </p>
+<p>Fls_InitiateEraseJob, </p>
+<p>Fls_PerformBlankCheckForReadOp, Fls_ClearIntReq </p>
+<p>function banner is updated. </p>
+<p>6.</p>
+<p> </p>
+<p>The definition of Fls_MainRead API is corrected. </p>
+<p>7.</p>
+<p> </p>
+<p>Fls_PerformBlankCheckForReadOp and </p>
+<p>Fls_TimeOutCheckAndProcessing are modified. </p>
+<p>8.</p>
+<p> </p>
+<p>Missing comments are added. </p>
+<p>9.</p>
+<p> </p>
+<p>Fls_MainErase is modified. </p>
+<p>10.</p>
+<p> </p>
+<p>Fls_InitiateEraseJob and Fls_InitiateBlankCheckJob APIs </p>
+<p>are modified. </p>
+<p>11.</p>
+<p> </p>
+<p>Fls_MainWrite is modified. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 14 of 55 </p>
+<p>12.</p>
+<p> </p>
+<p>Register Write Verify Implementation is done for all </p>
+<p>registers. </p>
+<p>13.</p>
+<p> </p>
+<p>Justification for QAC Warnings are added. </p>
+<p>14.</p>
+<p> </p>
+<p>LulRegValue removed from Fls_InitiateWriteJob, </p>
+<p>Fls_InitiateEraseJob definition to fix Msg (3:3203) and </p>
+<p>misra violation Msg(4:2983). </p>
+<p>15.</p>
+<p> </p>
+<p>Added justifications for Msg (4:1290). </p>
+<p>16.</p>
+<p> </p>
+<p>DET implementation is updated. </p>
+<p>17.</p>
+<p> </p>
+<p>'FLS_UT_002' Tag added for the non-covered parts of the </p>
+<p>code. </p>
+<p>18.</p>
+<p> </p>
+<p>Cleared the global status flag </p>
+<p>'Fls_GblJobSuspendRequest' in Fls_ProcessSuspend. </p>
+<p>19.</p>
+<p> </p>
+<p>Updated the macro FLS_FCU_ERR_TIMEOUT in </p>
+<p>InitiateBlankCheckJob, Fls_ProcessRead, </p>
+<p>Fls_TimeoutCheckAndProcessing APIs. </p>
+<p>  Fls_Private_Fcu.c</p>
+<p> </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Fls_FcuCheckJobStatus function to invoke </p>
+<p>Fls_ProcessSuspend function for erase and write </p>
+<p>operations </p>
+<p>3.</p>
+<p> </p>
+<p>Fls_FcuGetDFSize is updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Fls_FcuInitRAM function banner is updated. </p>
+<p>5.</p>
+<p> </p>
+<p>Fls_FcuSwitchMode and Fls_FcuForcedStop APIs are </p>
+<p>modified. </p>
+<p>6.</p>
+<p> </p>
+<p>Fls_FcuSwitchMode and Fls_FcuPerformBlankCheck </p>
+<p>APIs are modified. </p>
+<p>7.</p>
+<p> </p>
+<p>Register write-verify is implemented for DFERSTC </p>
+<p>register in Fls_FcuDataCopy. </p>
+<p>8.</p>
+<p> </p>
+<p>Register write-verify is implemented for all registers and </p>
+<p>FACI1 support is removed. </p>
+<p>9.</p>
+<p> </p>
+<p>Justification for QAC Warnings are added. </p>
+<p>10.</p>
+<p> </p>
+<p>Critical section protection for Fls_FcuGetFWParam(), </p>
+<p>Fls_FcuCopytoRam() added. </p>
+<p>11.</p>
+<p> </p>
+<p>Fls_FcuCopytoRam, Fls_FcuSwitchBFlash, </p>
+<p>Fls_FcuClearCache and Fls_FcuGetFWParam are kept </p>
+<p>under FLS_START_SEC_PRIVATERAM_CODE </p>
+<p>memory section. </p>
+<p>12.</p>
+<p> </p>
+<p>Code comments updated. </p>
+<p>13.</p>
+<p> </p>
+<p>Removed switch operation #if </p>
+<p>(FLS_INTERRUPT_MODE == STD_OFF) </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 15 of 55 </p>
+<p>14.</p>
+<p> </p>
+<p>Fls_FcuClearStatus API is updated to remove error bit </p>
+<p>checking. </p>
+<p>15.</p>
+<p> </p>
+<p>Fls_FcuSwitchMode is improved to handle mode switch </p>
+<p>to user mode and P/E separately and </p>
+<p>Fls_FcuCheckSequencerStatus is added to check </p>
+<p>16.</p>
+<p> </p>
+<p>FENTRYR register to identify command lock state and </p>
+<p>Lddmode in Fls_FcuSwitchMode changed to constant. </p>
+<p>17.</p>
+<p> </p>
+<p>Removed variable declaration LusModeRegVal to fix </p>
+<p>Msg(3:3203) </p>
+<p>18.</p>
+<p> </p>
+<p>Added justification for qac warning (2:3892) </p>
+<p>19.</p>
+<p> </p>
+<p>LucLoopCount in Fls_FcuForcedStop API is updated to </p>
+<p>check for FRDY bit using </p>
+<p>FLS_FCU_FRDY_POOL_COUNT value. </p>
+<p>Fls_Ram.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added Fls_GblJobSuspendRequest variable. </p>
+<p>2.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>3.</p>
+<p> </p>
+<p>Justification for QAC Warnings are added. </p>
+<p>Fls_Version.c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC Warning (2:0553) is justified. </p>
+<p>Fls.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Return type of Fls_Suspend API is modified. </p>
+<p>2.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated data type for &quot;TargetAddressPtr&quot; in Fls_Read </p>
+<p>and Fls_ReadImmediate APIs. </p>
+<p>Fls_Debug.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                               </p>
+<p>Pre compile switches are corrected. </p>
+<p>Fls_Internal.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>Added extern declaration for Fls_FastReadCheckECC </p>
+<p>API. </p>
+<p>3.</p>
+<p> </p>
+<p>Declaration of Fls_PerformBlankCheckForReadOp is </p>
+<p>modified. </p>
+<p>4.</p>
+<p> </p>
+<p>Missing comments are added. </p>
+<p>Fls_PBTypes.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>Write verification macros are moved to Fls_RegWrite.h </p>
+<p>3.</p>
+<p> </p>
+<p>FACI1 supporting code parts are removed. </p>
+<p>4.</p>
+<p> </p>
+<p>Added FLS_FCU_FRDY_POOL_COUNT macro. </p>
+<p>5.</p>
+<p> </p>
+<p>Added type cast in macro definitions </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 16 of 55 </p>
+<p>Fls_Private_Fcu.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>Pre compile switch added for Fls_FcuCopytoRam (), </p>
+<p>Fls_FcuSwitchBFlash (), Fls_FcuClearCache (), </p>
+<p>Fls_FcuGetFWParam (). </p>
+<p>3.</p>
+<p> </p>
+<p>Added Fls_FcuCheckSequencerStatus API declaration </p>
+<p>and Fls_FcuSwitchMode declaration updated. </p>
+<p>Fls_Ram.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added extern declaration of Fls_GblJobSuspendRequest </p>
+<p>variable. </p>
+<p>2.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>3.</p>
+<p> </p>
+<p>Memory class for Fls_GpConfigPtr corrected are </p>
+<p>corrected. </p>
+<p>4.</p>
+<p> </p>
+<p>Added justification for qac warning msg(2:0862) </p>
+<p>Fls_Types.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Pre compile switches are corrected. </p>
+<p>2.</p>
+<p> </p>
+<p>Register Write Verify macros are removed. </p>
+<p>Fls_Version.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>Pre compile switches are corrected. </p>
+<p>Fls_RegWrite.h </p>
+<p>1.0.0 </p>
+<p>Initial Version </p>
+<p><b>P1x-C TCODE file for FLS</b></p>
+<p> </p>
+<p>Fls_PBcfg_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>QAC Warnings are Justified. </p>
+<p>2.</p>
+<p> </p>
+<p>Added justification for qac warning Msg(2:0862) </p>
+<p>3.</p>
+<p> </p>
+<p>FlsJobEndNotification, FlsJobErrorNotification, </p>
+<p>FlsEccSedNotification and FlsEccDedNotification, </p>
+<p>FlsWriteVerifyErrorInterface are updated </p>
+<p>Fls_Hardware_c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>QAC Warnings are justified. </p>
+<p>2.</p>
+<p> </p>
+<p>FACI1 related code removed </p>
+<p>Fls_Cbk_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Extern declaration for user error interface function is </p>
+<p>added. </p>
+<p>2.</p>
+<p> </p>
+<p>Validation for FlsJobEndNotification, </p>
+<p>FlsJobErrorNotification, FlsEccSedNotification and </p>
+<p>FlsEccDedNotification, FlsWriteVerifyErrorInterface are </p>
+<p>updated </p>
+<p>Fls_Cfg_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added macro FLS_AR_VERSION. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 17 of 55 </p>
+<p>2.</p>
+<p> </p>
+<p>Comments for macros FLS_DF_POOL_SIZE, </p>
+<p>FLS_DF_TOTAL_SIZE and </p>
+<p>FLS_CPU_FREQUENCY_MHZ are improved. </p>
+<p>3.</p>
+<p> </p>
+<p>Macro FLS_DF_TOTAL_BLOCKS generation is </p>
+<p>removed. </p>
+<p>4.</p>
+<p> </p>
+<p>Macros FLS_WRITE_VERIFY, </p>
+<p>FLS_USE_WV_ERROR_INTERFACE are added. </p>
+<p>5.</p>
+<p> </p>
+<p>Macro FACIFRTEINT is typecasted. </p>
+<p>6.</p>
+<p> </p>
+<p>Validation for FlsJobEndNotification, </p>
+<p>FlsJobErrorNotification, FlsEccSedNotification and </p>
+<p>FlsEccDedNotification, FlsWriteVerifyErrorInterface are </p>
+<p>updated </p>
+<p>7.</p>
+<p> </p>
+<p>Removed validation for parameter </p>
+<p>FLS_INTERRUPT_MODE </p>
+<p>8.</p>
+<p> </p>
+<p>Macro FLS_DF_TOTAL_SIZE value calculation updated. </p>
+<p>9.</p>
+<p> </p>
+<p>Removed Macro FACI_UNIT </p>
+<p>Fls_Hardware_h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                               </p>
+<p>FACI1 related code removed. </p>
+<p>Fls_Validate </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Validation for uniqueness of FlsCallCycle parameter </p>
+<p>across multi config set is added. </p>
+<p>2.</p>
+<p> </p>
+<p>Validation for device 701371 is added. </p>
+<p>3.</p>
+<p> </p>
+<p>Validation for uniqueness of FlsTimeOutCountValue </p>
+<p>parameter across multi config set is added. </p>
+<p>4.</p>
+<p> </p>
+<p>Validation for FlsWriteVerify and </p>
+<p>FlsWriteVerifyErrorInterface are added. </p>
+<p>5.</p>
+<p> </p>
+<p>Validation for FlsJobEndNotification, </p>
+<p>FlsJobErrorNotification, FlsEccSedNotification and </p>
+<p>FlsEccDedNotification, FlsWriteVerifyErrorInterface are </p>
+<p>updated </p>
+<p>6.</p>
+<p> </p>
+<p>ERR-31 is added to validate 'FlsNumberOfSectors' </p>
+<p>parameter. </p>
+<p>7.</p>
+<p> </p>
+<p>ERR-32 is added to validate </p>
+<p>'FLS_E_REG_WRITE_VERIFY' parameter. </p>
+<p>8.</p>
+<p> </p>
+<p>Validation for multiple configset added for </p>
+<p>FlsEccDedNotification, FlsEccSedNotification, </p>
+<p>FlsJobErrorNotification, </p>
+<p>FlsJobEndNotification,FlsNumberOfSectors, </p>
+<p>FlsSectorStartaddress. Also added validation for to check </p>
+<p>if the container FlsSector is added more than once in any </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 18 of 55 </p>
+<p>configset. For all these ERR_59_92_033 to </p>
+<p>ERR_59_92_037 were added. </p>
+<p>9.</p>
+<p> </p>
+<p>Validation for FlsSectorStartaddress within the range and </p>
+<p>multiple of 64 added. </p>
+<p>10.</p>
+<p> </p>
+<p>Code Flash related validations and FlsSectorIndex </p>
+<p>validation removed </p>
+<p><b>P1x-C FLS Common Sample Application Source file </b></p>
+<p>App_FLS_Common_Sample.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Sample script is updated for checking Fls_Suspend and </p>
+<p>Fls_Resume. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated data type for &quot;TargetAddressPtr&quot; in Fls_Read </p>
+<p>and Fls_ReadImmediate APIs. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed swith operation                                                 </p>
+<p>#if (FLS_INTERRUPT_MODE == STD_ON) </p>
+<p><b>P1x-C FLS Common Sample Application Header file<i></b> </i></p>
+<p>App_FLS_Common_Sample.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C Sample Application P1M-C Source file </b></p>
+<p>App_FLS_P1x-C_Sample.c </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C Sample Application P1M-C Header file </b></p>
+<p>App_FLS_Device_Sample.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C User Manual </b></p>
+<p>R20UT3641EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>In chapter 4, section 4.2 Preconditions points are revised. </p>
+<p>2.</p>
+<p> </p>
+<p>Table 4-2 is updated with Known Limitation in User </p>
+<p>Mode. </p>
+<p>3.</p>
+<p> </p>
+<p>Table 4-1 is added to list protected resources in FLS </p>
+<p>driver. </p>
+<p>4.</p>
+<p> </p>
+<p>Chapter 8 is updated with Stub files and Table 8-1 is </p>
+<p>updated. </p>
+<p>5.</p>
+<p> </p>
+<p>In Chapter 6, Table 6-1 is updated with Register Files. </p>
+<p>6.</p>
+<p> </p>
+<p>In chapter 13, added references for device 701371. </p>
+<p>7.</p>
+<p> </p>
+<p>Chapter 12 and chapter 13.2 are updated with memory </p>
+<p>sections </p>
+<p>8.</p>
+<p> </p>
+<p>In Chapter 4, section 4.3 Data Consistency is updated. </p>
+<p>9.</p>
+<p> </p>
+<p>In Chapter 4.4 Deviation list updated. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated Chapter 13.2.3 added Throughput for main </p>
+<p>function and updated with Fls_BlankCheck, Fls_Suspend, </p>
+<p>Fls_Resume API details in chapter 4.1. </p>
+<p>11.</p>
+<p> </p>
+<p>Updated Chapter 12 Memory Organization </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 19 of 55 </p>
+<p>12.</p>
+<p> </p>
+<p>Updated Chapter 6 with details of the register as per </p>
+<p>individual APIs. </p>
+<p>13.</p>
+<p> </p>
+<p>Chapter 13, Added Processor name along with Device </p>
+<p>variants. </p>
+<p>14.</p>
+<p> </p>
+<p>In section 4.5, Note added. </p>
+<p>15.</p>
+<p> </p>
+<p>In Chapter 12 memory organization updated and in </p>
+<p>chapter 13.2.1 memory usage updated. </p>
+<p>16.</p>
+<p> </p>
+<p>In chapter 4.1 General section updated with time timeout </p>
+<p>monitoring details and chapter 4.4 with timeout </p>
+<p>monitoring deviation details. </p>
+<p>R20UT3642EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>INF_59_092_001 is added in section 9.3 </p>
+<p>2.</p>
+<p> </p>
+<p>Chapter 1, Updated Introduction. </p>
+<p>3.</p>
+<p> </p>
+<p>Section 2.1, Updated reference document details. </p>
+<p>4.</p>
+<p> </p>
+<p>Chapter 3, Updated the Heading Code Generation </p>
+<p>Overview with MCAL Code Generator overview   </p>
+<p>5.</p>
+<p> </p>
+<p>Chapter 5, Updated description of output files. </p>
+<p>6.</p>
+<p> </p>
+<p>Chapter 6, Added one more point in precautions. </p>
+<p>7.</p>
+<p> </p>
+<p>Section 8.1, Updated Pre-Compile Configurable </p>
+<p>Parameters </p>
+<p>8.</p>
+<p> </p>
+<p>Section 8.2, Updated Post Build Time Configurable </p>
+<p>Parameters </p>
+<p>9.</p>
+<p> </p>
+<p>Chapter 4, Updated description of Input files. </p>
+<p>10.</p>
+<p> </p>
+<p>Removed chapter 9, MCAL Code Generator Tool </p>
+<p>11.</p>
+<p> </p>
+<p>Removed Chapter 11 - Notes,   </p>
+<p>12.</p>
+<p> </p>
+<p>Replaced the words Tool, Generator Tool, FLS Driver </p>
+<p>Generator tool with MCAL Code Generator Tool in this </p>
+<p>document. </p>
+<p>13.</p>
+<p> </p>
+<p>Chapter 3, Added remark for common MCAL Code </p>
+<p>Generator Tool user manual. </p>
+<p>14.</p>
+<p> </p>
+<p>Updated Chapter 2, Chapter 3, Chapter 4 and Chapter 8 </p>
+<p>for maintaining consistency.   </p>
+<p>15.</p>
+<p> </p>
+<p>MCAL Code Generator Tool Overview to Code </p>
+<p>Generation Overview </p>
+<p>16.</p>
+<p> </p>
+<p>Removed parameters from Figure 8-1, Configuration </p>
+<p>Overview   </p>
+<p>17.</p>
+<p> </p>
+<p>Removed Error Messages from chapter 9. </p>
+<p>18.</p>
+<p> </p>
+<p>Added Error Messages in Chapter 9. </p>
+<p>19.</p>
+<p> </p>
+<p>Removed parameters FlsInterruptConsistencyCheck and </p>
+<p>FlsFaciUnit from section 8.2 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 20 of 55 </p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 21 of 55 </p>
+<p>4 </p>
+<p>MCU </p>
+<p>4.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>MCU </p>
+<p><b>Software Version </b></p>
+<p>V1.1.0 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3651EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3652EJ0100_AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p>4.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1xC - Parameter Definition files<i></b> </i></p>
+<p>R403_MCU_P1X-C.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Changed the type of the parameters </p>
+<p>McuClmxMonitoringClockAccuracy and </p>
+<p>McuClmxSamplingClockAccuracy(x =0..3,5) from </p>
+<p>integer to float. </p>
+<p>2.</p>
+<p> </p>
+<p>Added boolean parameter McuRamSectorSetting. </p>
+<p>3.</p>
+<p> </p>
+<p>Maximum value of the parameter McuResetReason is </p>
+<p>changed to 255. </p>
+<p>4.</p>
+<p> </p>
+<p>Support for Clock Monitor CLMA4 is added for P1H-C </p>
+<p>and P1H-CE devices. </p>
+<p>5.</p>
+<p> </p>
+<p>'McuInterruptConsistencyCheck' parameter is added in </p>
+<p>'McuGeneral container and </p>
+<p>'MCU_E_INT_INCONSISTENT' parameter is added </p>
+<p>'McuDemEventParameterRefs' container. </p>
+<p>6.</p>
+<p> </p>
+<p>Parameters 'McuWriteVerify', </p>
+<p>'McuUseWriteVerifyErrorInterface', </p>
+<p>'McuWriteVerifyErrorInterface' and </p>
+<p>'MCU_E_REG_WRITE_VERIFY are added. </p>
+<p>7.</p>
+<p> </p>
+<p>Parameters McuClma0SelfDiagnosticTest, </p>
+<p>McuClma1SelfDiagnosticTest, </p>
+<p>McuClma2SelfDiagnosticTest, </p>
+<p>McuClma3SelfDiagnosticTest, </p>
+<p>McuClma4SelfDiagnosticTest are added in </p>
+<p>McuGeneralConfiguration container, parameter </p>
+<p>'MCU_E_CLM_SELFDIAG_FAILURE' is added in </p>
+<p>'McuDemEventParameterRefs' container and removed all </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 22 of 55 </p>
+<p>the references to CLMA5 clock monitor. </p>
+<p>8.</p>
+<p> </p>
+<p>Added parameter McuCvmSelfDiagnosticTest in </p>
+<p>McuGeneralConfiguration container and </p>
+<p>MCU_E_CVM_SELFDIAG_FAILURE in </p>
+<p>'McuDemEventParameterRefs' container. </p>
+<p>9.</p>
+<p> </p>
+<p>Parameter McuEcmSelfDiagnosticTest is added in </p>
+<p>McuGeneralConfiguration container and </p>
+<p>MCU_E_ECM_SELFDIAG_FAILURE in </p>
+<p>'McuDemEventParameterRefs' container. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated the warranty disclaimer description. </p>
+<p>11.</p>
+<p> </p>
+<p>Parameter McuLockStepSelfDiagnosticTest is added in </p>
+<p>McuGeneralConfiguration container and </p>
+<p>MCU_E_LOCKSTEP_SELFDIAG_FAILURE in </p>
+<p>'McuDemEventParameterRefs' container. </p>
+<p>12.</p>
+<p> </p>
+<p>Added parameters 'McuCvmDiagLockBit' and </p>
+<p>'McuCvmResetEnable'. </p>
+<p>13.</p>
+<p> </p>
+<p>Parameter 'McuEcmInitialNotification' added in all ECM </p>
+<p>Error Source containers. </p>
+<p>14.</p>
+<p> </p>
+<p>Replaced the &lt;UPPER-MULTIPLICITY&gt; tag    of the </p>
+<p>container McuResetReasonConf with </p>
+<p>&lt;UPPER-MULTIPLICITY-INFINITE&gt; </p>
+<p>15.</p>
+<p> </p>
+<p>Parameter 'McuMainOsciFrequency' is updated as </p>
+<p>enumeration type with values 16Mhz, 20Mhz and 24Mhz. </p>
+<p>16.</p>
+<p> </p>
+<p>Description and default value for the parameter </p>
+<p>'McuLoopCount' is updated.   </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_MCU_P1x-C_BSWMDT.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Software minor version is updated.                       </p>
+<p>2.</p>
+<p> </p>
+<p>IS-SYNCHRONOUS tag updated as false for ISR </p>
+<p>functions. </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Mcu.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Updated the list of used registers in the function banner of </p>
+<p>API's. </p>
+<p>2.</p>
+<p> </p>
+<p>Added pre-compile switch </p>
+<p>MCU_RAM_SECTOR_SETTING_CONFIGURED for </p>
+<p>Mcu_InitRamSection API and added Local and Global </p>
+<p>RAM Error Initializations in function </p>
+<p>Mcu_ConfigureEcmRamErrors(). </p>
+<p>3.</p>
+<p> </p>
+<p>Added function call Mcu_ConfigureEcmRamErrors() in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 23 of 55 </p>
+<p>Mcu_Init API when the parameter </p>
+<p>MCU_RAM_SECTOR_SETTING_CONFIGURED is </p>
+<p>configured as FALSE. </p>
+<p>4.</p>
+<p> </p>
+<p>Added CLMA4 for all device variant except P1M-C </p>
+<p>devices. </p>
+<p>5.</p>
+<p> </p>
+<p>Added the inclusion of Mcu_RegWrite.h and Macro </p>
+<p>functions </p>
+<p>MCU_MASKED_CHECK_WRITE_VERIFY_INIT and </p>
+<p>MCU_MASKED_CHECK_WRITE_VERIFY_RUNTIM</p>
+<p>E are implemented. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated the wake up condition check in Mcu_SetMode() </p>
+<p>API for Dem Error reporting. </p>
+<p>7.</p>
+<p> </p>
+<p>Write access to IMRm register is done using </p>
+<p>RH850_SV_MODE_IMR macros to meet the requirement </p>
+<p>EAAR_PN0034_FR_0067 and also included </p>
+<p>&quot;rh850_Types.h&quot;. </p>
+<p>8.</p>
+<p> </p>
+<p>Added the API Mcu_ClmaSelfDiagnosticTest and </p>
+<p>removed all the references to CLMA5. </p>
+<p>9.</p>
+<p> </p>
+<p>Added the API Mcu_CvmSelfDiagnosticTest, </p>
+<p>Mcu_CvmNormalModeSetting and </p>
+<p>Mcu_CvmSelfDiagnosticSetting. </p>
+<p>10.</p>
+<p> </p>
+<p>Mcu_EcmResetReason API updated to add </p>
+<p>MCU_ECM_DELAY_TMR_OVF_RST. </p>
+<p>11.</p>
+<p> </p>
+<p>Delay timer overflow control register DTMCTL is </p>
+<p>enabled in Mcu_Init(). </p>
+<p>12.</p>
+<p> </p>
+<p>Added the API Mcu_LockStepSelfDiagnosticTest and </p>
+<p>‘Mcu_Init’ API is updated to invoke </p>
+<p>Mcu_LockStepSelfDiagnosticTest. </p>
+<p>13.</p>
+<p> </p>
+<p>Added function Mcu_ConfigureCvm and updated the </p>
+<p>switch case in Mcu_ResetReasonStore API for the </p>
+<p>addition of cases for Power on reset, Terminal reset and </p>
+<p>CVM reset. </p>
+<p>14.</p>
+<p> </p>
+<p>Added the API ‘Mcu_EcmErrorInitialNotification’ and </p>
+<p>also ‘Mcu_Init’ API is updated to invoke </p>
+<p>Mcu_EcmErrorInitialNotification. </p>
+<p>15.</p>
+<p> </p>
+<p>Added the UD IDs and requirements for achieving </p>
+<p>traceability. </p>
+<p>16.</p>
+<p> </p>
+<p>Justifications added for QAC MISRA violations &amp; QAC </p>
+<p>Warnings Msg(4:2880), Msg(4:0400), Msg(2:3204) </p>
+<p>Msg(3:3203), Msg(4:2995), Msg(2:2741), Msg(2:3206), </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 24 of 55 </p>
+<p>Msg(4:2992), Msg(4:2996) and Msg(0:2755). </p>
+<p>17.</p>
+<p> </p>
+<p>Added the APIs Mcu_ClearEcmErrorOutput, </p>
+<p>Mcu_EcmClearStatusRegister, </p>
+<p>Mcu_EcmSelfDiagnosticTest, Mcu_EcmPseudoErrorTest, </p>
+<p>Mcu_EcmZeroSelfTest and Mcu_EcmOneSelfTest. </p>
+<p>18.</p>
+<p> </p>
+<p>API Mcu_EcmReleaseErrorOutPin is added. </p>
+<p>19.</p>
+<p> </p>
+<p>Unreachable or bugs are pointed by added UT tags. eg : </p>
+<p>Start Tag MCU_UT_001 to Start Tag MCU_UT_008 and </p>
+<p>End with Tag MCU_UT_001 to End Tag MCU_UT_008 </p>
+<p>correspondingly. </p>
+<p>20.</p>
+<p> </p>
+<p>DTMCTL and ECMnEPCFG registers updated with </p>
+<p>MCU_PROTECTEDWRITE32BIT macros for protected </p>
+<p>writing. </p>
+<p>Mcu_Irq.c </p>
+<p> 1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Delay timer overflow control register is enabled in </p>
+<p>MCU_FEINT_ISR and MCU_ECM_EIC_ISR. </p>
+<p>2.</p>
+<p> </p>
+<p>Added the UD IDs and requirements for achieving </p>
+<p>traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Justification added for QAC Warning Msg(0:2755) and </p>
+<p>Msg(2:2824). </p>
+<p>4.</p>
+<p> </p>
+<p>Generated value 'MCU_NO_OF_ECM_INSTANCES' has </p>
+<p>been used to represent the total number of ECM instances </p>
+<p>to remove the ECM1 support for the P1M-C devices. </p>
+<p>5.</p>
+<p> </p>
+<p>Unreachable code or bugs are pointed by adding UT tags. </p>
+<p>eg : Start Tag MCU_UT_004,Start Tag MCU_UT_009 </p>
+<p>and End with End Tag MCU_UT_004 and End Tag </p>
+<p>MCU_UT_009 correspondingly. </p>
+<p>Mcu_Ram.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added the UD IDs and requirements for achieving </p>
+<p>traceability. </p>
+<p>2.</p>
+<p> </p>
+<p>Global variable Mcu_GulTestCompValue is added to </p>
+<p>access CMPTST0 value from global ram. </p>
+<p>3.</p>
+<p> </p>
+<p>Volatile declaration is added for Mcu_GblRAMInitStatus. </p>
+<p>4.</p>
+<p> </p>
+<p>Memory section for boolean variable is clubbed into one </p>
+<p>section. </p>
+<p>Mcu_Version.c </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D.</p>
+<p> </p>
+<p>Mcu.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added pre-compile switch </p>
+<p>MCU_RAM_SECTOR_SETTING_CONFIGURED for </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 25 of 55 </p>
+<p>Mcu_InitRamSection API. </p>
+<p>2.</p>
+<p> </p>
+<p>Added memory mappings for functions. </p>
+<p>3.</p>
+<p> </p>
+<p>Added UD IDs for traceability improvement. </p>
+<p>Mcu_Debug.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p>Mcu_Irq.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p>Mcu_PBTypes.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>The macro MCU_RAM_MASK0_VALUE and </p>
+<p>MCU_RAM_MASK1_VALUE are updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Added CLMA4 support for all the supported device </p>
+<p>variants and added the macro GETPEID. </p>
+<p>3.</p>
+<p> </p>
+<p>Added structure Mcu_CLMASelfDiag and removed the </p>
+<p>CLMA5 clock monitoring elements from the </p>
+<p>Mcu_ClockSetting structure. </p>
+<p>4.</p>
+<p> </p>
+<p>Added CVM SelfDiagnosis Support, changed the value of </p>
+<p>MCU_CVM_FACTOR_CLEAR and added the macro </p>
+<p>MCU_CVM_UNMASKED_ERROR_CHECK. </p>
+<p>5.</p>
+<p> </p>
+<p>Macro MCU_NINETYTHREE is added. </p>
+<p>6.</p>
+<p> </p>
+<p>Macro MCU_ECM_DELAY_TIMER_START, </p>
+<p>MCU_ECM_DELAY_TIMER_STOP_STS is added. </p>
+<p>7.</p>
+<p> </p>
+<p>Macro MCU_LOCKSTEP_DUMMY_VALUE is added. </p>
+<p>8.</p>
+<p> </p>
+<p>Added macros MCU_BIST_TER_POF_RST, </p>
+<p>MCU_BIST_TER_RST, </p>
+<p>MCU_CVM_DIAG_LOCK_MASK, </p>
+<p>MCU_CVMDE_WV_MASK, MCU_BIST_CVM_RST </p>
+<p>and MCU_BIST_CVM_TER_RST. </p>
+<p>9.</p>
+<p> </p>
+<p>Structure Mcu_InitErrorNotification is added and </p>
+<p>Mcu_EcmSetting updated with ucEcmInitErrorCount. </p>
+<p>10.</p>
+<p> </p>
+<p>Added UD IDs for traceability improvement. </p>
+<p>11.</p>
+<p> </p>
+<p>Justification added for MISRA violation Msg(4:3458). </p>
+<p>12.</p>
+<p> </p>
+<p>Typecasting for macros </p>
+<p>MCU_ECM_DELAY_TIMER_STOP, </p>
+<p>MCU_ECM_DELAY_TIMER_START, </p>
+<p>MCU_ECM_DELAY_TIMER_STOP_STS, and </p>
+<p>MCU_ECM_STATIC_MODE is updated as 32 bit. </p>
+<p>Mcu_Ram.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Global variable Mcu_GulTestCompValue is added to </p>
+<p>access CMPTST0 value from global ram. </p>
+<p>2.</p>
+<p> </p>
+<p>Added UD IDs for traceability improvement. </p>
+<p>3.</p>
+<p> </p>
+<p>Volatile declaration is added for Mcu_GblRAMInitStatus. </p>
+<p>4.</p>
+<p> </p>
+<p>Memory section for boolean variable is clubbed into one </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 26 of 55 </p>
+<p>section. </p>
+<p>Mcu_Types.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Structure Mcu_ConfigType is updated with </p>
+<p>MCU_CLMA4_RST. </p>
+<p>2.</p>
+<p> </p>
+<p>Added pointer to Mcu_CLMASelfDiagTest element in </p>
+<p>Mcu_ConfigType structure and removed </p>
+<p>MCU_CLMA5_RST from Mcu_ConfigType structure. </p>
+<p>3.</p>
+<p> </p>
+<p>Structure Mcu_ConfigType is updated with </p>
+<p>ucCvmDiagMask. </p>
+<p>4.</p>
+<p> </p>
+<p>MCU_ECM_DELAY_TMR_OVF_RST added on </p>
+<p>enumeration Mcu_ResetType. </p>
+<p>5.</p>
+<p> </p>
+<p>Renamed the variable ulCvmIndicationReg to </p>
+<p>ucCvmIndicationReg and changed the type to uint8. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated the structure Mcu_ConfigType with </p>
+<p>pErrorInitNotification callback function. </p>
+<p>7.</p>
+<p> </p>
+<p>Added UD IDs and Requirements for traceability </p>
+<p>improvement. </p>
+<p>Mcu_Version.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added UD IDs and Requirements for traceability </p>
+<p>improvement. </p>
+<p><b>P1x-C TCODE file for MCU</b></p>
+<p> </p>
+<p>Mcu_PBcfg_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Included float values for the calculation of Clock Monitor </p>
+<p>values. </p>
+<p>2.</p>
+<p> </p>
+<p>Added CLMA4 for all device variant except P1M-C </p>
+<p>device. </p>
+<p>3.</p>
+<p> </p>
+<p>Added support for Mcu Interrupt Consistency Check. </p>
+<p>4.</p>
+<p> </p>
+<p>Added support for Mcu Write Verify and added the </p>
+<p>inclusion of Cbk.h file. </p>
+<p>5.</p>
+<p> </p>
+<p>Added support for CLMA Self Diagnosis Test and </p>
+<p>removed all the references of CLMA5 Clock Monitor. </p>
+<p>6.</p>
+<p> </p>
+<p>Added support for CVM Self Diagnosis Test. </p>
+<p>7.</p>
+<p> </p>
+<p>Added new structure Mcu_GstErrorInitNotification for </p>
+<p>ECM initial error notification. </p>
+<p>8.</p>
+<p> </p>
+<p>Added support for parameters </p>
+<p>Mcu_CvmDiagLockBit,McuCvmResetEnable and </p>
+<p>removed the parameter McuCvmOutMaskDiag from the </p>
+<p>calculation of the CVMDEW Register value. </p>
+<p>9.</p>
+<p> </p>
+<p>Parameter 'McuMainOsciFrequency' is updated as </p>
+<p>enumeration type with values 16Mhz, 20Mhz and 24Mhz. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 27 of 55 </p>
+<p>Mcu_Hardware_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Structure tag is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Structure element of Clma_BaseAddress (CLMA4) added </p>
+<p>for all device variant except P1M-C device. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed all the references to CLMA5. </p>
+<p>Mcu_Cfg_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added pre-compile switch </p>
+<p>MCU_RAM_SECTOR_SETTING_CONFIGURED. </p>
+<p>2.</p>
+<p> </p>
+<p>Added CLMA4 for all device variant except P1M-C </p>
+<p>device. </p>
+<p>3.</p>
+<p> </p>
+<p>Added support for Mcu Interrupt Consistency Check. </p>
+<p>4.</p>
+<p> </p>
+<p>Added support for Mcu Write Verify. </p>
+<p>5.</p>
+<p> </p>
+<p>Added support for CLMA Self Diagnosis Test and </p>
+<p>removed all the references to CLMA5. </p>
+<p>6.</p>
+<p> </p>
+<p>Added support for ECM Self Diagnosis. </p>
+<p>7.</p>
+<p> </p>
+<p>Added support for CVM Self Diagnosis Test. </p>
+<p>8.</p>
+<p> </p>
+<p>Added support for Compare Unit Start-up Self Diagnosis </p>
+<p>Test. </p>
+<p>9.</p>
+<p> </p>
+<p>Added call back notification function for Initial ECM </p>
+<p>Errors. </p>
+<p>10.</p>
+<p> </p>
+<p>Total no of ECM units for P1x-C devices is generated </p>
+<p>using the macro MCU_NO_OF_ECM_INSTANCES. </p>
+<p>11.</p>
+<p> </p>
+<p>Generated parameter handler name for ModeSetting is </p>
+<p>updated. </p>
+<p>12.</p>
+<p> </p>
+<p>Typecast for MCU_ECM_ERROUT_MODE is updated </p>
+<p>as 32 bit. </p>
+<p>Mcu_Hardware_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Structure tag is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>Structure instance of Clma_BaseAddress(CLMA4) added </p>
+<p>for all device variant except P1M-C device. </p>
+<p>3.</p>
+<p> </p>
+<p>Added support for CLMA Self Diagnosis Test. </p>
+<p>4.</p>
+<p> </p>
+<p>Added support for CVM Self Diagnosis Test. </p>
+<p>5.</p>
+<p> </p>
+<p>Added support for Compare Unit Start-up Self Diagnosis </p>
+<p>Test. </p>
+<p>Mcu_Validate </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Validation is added for mandatory parameters. </p>
+<p>2.</p>
+<p> </p>
+<p>Validation added for parameters McuExternalClock0 and </p>
+<p>McuExternalClock1 to verify if clock frequency exceeds </p>
+<p>20MHz. </p>
+<p>3.</p>
+<p> </p>
+<p>Mcu Interrupt Consistency Check parameter is added to </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 28 of 55 </p>
+<p>validate. </p>
+<p>4.</p>
+<p> </p>
+<p>Added support for Mcu Write Verify. </p>
+<p>5.</p>
+<p> </p>
+<p>Added validation for the parameters </p>
+<p>McuEcmErrorMaskableInterrupt and </p>
+<p>McuEcmErrorNonMaskableInterrupt when the </p>
+<p>‘McuGetRamState’ API is true and added validation for </p>
+<p>the boolean parameter McuRamSectorSetting. </p>
+<p>6.</p>
+<p> </p>
+<p>Added validation for CLMA Self Diagnosis Test and </p>
+<p>removed all the instances to CLMA5. </p>
+<p>7.</p>
+<p> </p>
+<p>Added validation for ECM Self Diagnosis Test </p>
+<p>8.</p>
+<p> </p>
+<p>Added validation for CVM Self Diagnosis Test. </p>
+<p>9.</p>
+<p> </p>
+<p>Error messages 066 and 067 added for the validation of </p>
+<p>Compare Unit Start-up Self Diagnosis Test. </p>
+<p>10.</p>
+<p> </p>
+<p>Added validation for parameters 'McuCvmDiagLockBit' </p>
+<p>and 'McuCvmResetEnable'. </p>
+<p>11.</p>
+<p> </p>
+<p>Parameter 'McuMainOsciFrequency' is updated as </p>
+<p>enumeration type, validation and error ID 029 is updated. </p>
+<p><b>P1x-C Sample Application P1M-C Source file<i></b> </i></p>
+<p>App_MCU_P1x-C_Sample.c </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C Sample Application P1M-C Header files<i></b> </i></p>
+<p>App_MCU_Device_Sample.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p>TargetMap.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D </p>
+<p><b>P1x-C User Manual </b></p>
+<p>R20UT3651EJ0100_AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p> </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Removed Section 13.1 “Compiler Linker and Assembler”. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Section 4.4 to add note on User Mode. </p>
+<p>3.</p>
+<p> </p>
+<p>Chapter 6 “Register Details” is updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Added critical section details table in section 4.3 </p>
+<p>5.</p>
+<p> </p>
+<p>Chapter 14 “Release Details” is updated. </p>
+<p>6.</p>
+<p> </p>
+<p>Chapter 8 is updated for Stub C Header files and added </p>
+<p>the description of the stub files in Table 8-1. </p>
+<p>7.</p>
+<p> </p>
+<p>Updated the Table 4-1 Supervisor Mode and User Mode </p>
+<p>Details. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated Table 6-1 and Table 11-2 </p>
+<p>9.</p>
+<p> </p>
+<p>Section 4.6 register write verify has added. </p>
+<p>10.</p>
+<p> </p>
+<p>Chapter 5 Architecture Details is updated. </p>
+<p>11.</p>
+<p> </p>
+<p>Section 7.1 Services Provided by MCU driver component </p>
+<p>to user is updated. </p>
+<p>12.</p>
+<p> </p>
+<p>Section MCU driver generation tool has updated with </p>
+<p>Mcu_Cbk.h header file in chapter 8. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 29 of 55 </p>
+<p>13.</p>
+<p> </p>
+<p>Section 13.2.1 is updated with 701371 series. </p>
+<p>14.</p>
+<p> </p>
+<p>Device name R7F701370A, R7F701371 and R7F701372, </p>
+<p>updated in chapter13. </p>
+<p>15.</p>
+<p> </p>
+<p>Section 4.1 updated with forethought on ‘McuLoopCount’ </p>
+<p>parameter. </p>
+<p>16.</p>
+<p> </p>
+<p>Os.c and SchM_Mcu.c are added in the stub files and their </p>
+<p>descriptions are included in Table 8-1 </p>
+<p>17.</p>
+<p> </p>
+<p>Updated Table 4-1 Supervisor Mode and User Mode </p>
+<p>Details. </p>
+<p>18.</p>
+<p> </p>
+<p>Section 13.2.2 is updated with other device options. </p>
+<p>19.</p>
+<p> </p>
+<p>Section 4.1 updated with general thought regarding </p>
+<p>CLMA4 support. </p>
+<p>R20UT3652EJ0100_AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>The type of the parameters </p>
+<p>McuClm0MonitoringClockAccuracy, </p>
+<p>McuClm1MonitoringClockAccuracy, </p>
+<p>McuClm2MonitoringClockAccuracy, </p>
+<p>McuClm3MonitoringClockAccuracy, </p>
+<p>McuClm0SamplingClockAccuracy, </p>
+<p>McuClm1SamplingClockAccuracy, </p>
+<p>McuClm2SamplingClockAccuracy and </p>
+<p>McuClm3SamplingClockAccuracy are changed from </p>
+<p>integer to float in section 8.1.1 </p>
+<p>2.</p>
+<p> </p>
+<p>In section 10.1, error messages ERR_59_101_017 to </p>
+<p>ERR_59_101_067 are added and ERR_59_101_029 is </p>
+<p>updated. </p>
+<p>3.</p>
+<p> </p>
+<p>In section 8.1.1, parameters </p>
+<p>McuClm4MonitoringClockAccuracy, </p>
+<p>McuClm4SamplingClockAccuracy, </p>
+<p>McuInterruptConsistencyCheck, </p>
+<p>McuUseWriteVerifyErrorInterface, </p>
+<p>McuWriteVerifyErrorInterface, McuWriteVerify, Clma </p>
+<p>Self Diagnosis, McuCvmSelfDiagnosticTest, </p>
+<p>McuEcmSelfDiagnosticTest and </p>
+<p>McuLockStepSelfDiagnosticTest are added. </p>
+<p>4.</p>
+<p> </p>
+<p>Updated section 8.1.2 post build configuration </p>
+<p>parameters. </p>
+<p>5.</p>
+<p> </p>
+<p>Removed Translation XML File from Definition. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated Chapters 1,3,4,5,6,7 by rephrasing Tool and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 30 of 55 </p>
+<p>MCU Driver Generation Tool with MCAL Code </p>
+<p>Generator Tool </p>
+<p>7.</p>
+<p> </p>
+<p>Removed Chapter 9 Generation Tool Options, Chapter-10 </p>
+<p>Notes. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated Chapter 3 with a remark for common MCAL </p>
+<p>Code Generator Tool user manual </p>
+<p>9.</p>
+<p> </p>
+<p>Renamed the Chapter 3 heading as Code Generation </p>
+<p>Overview. </p>
+<p>10.</p>
+<p> </p>
+<p>Chapter-4 description rephrased and Flow chart in chapter </p>
+<p>3 updated. </p>
+<p>11.</p>
+<p> </p>
+<p>Updated parameter McuMainOsciFrequency in table 8-2 </p>
+<p>as enumeration type. </p>
+<p>12.</p>
+<p> </p>
+<p>ERR_59_101_026 and ERR_59_101_027 are removed. </p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p>4.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 31 of 55 </p>
+<p>5  SPI </p>
+<p>5.1</p>
+<p> </p>
+<p>Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>SPI </p>
+<p><b>Software Version </b></p>
+<p>V2.0.0 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3659EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3660EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p>5.2</p>
+<p> </p>
+<p>Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x-C - Parameter Definition files<i></b> </i></p>
+<p>R403_SPI_P1X-C.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>New parameter SpiInternalErrorBufferSize is added in </p>
+<p>General container for internal error buffer size </p>
+<p>configuration as a part of FUSA implementation. </p>
+<p>2.</p>
+<p> </p>
+<p>New parameters SpiLoopBackSelfTest,SpiECCSelfTest are </p>
+<p>added in General container and </p>
+<p>SPI_E_LOOPBACK_SELFTEST_FAILURE, </p>
+<p>SPI_E_ECC_SELFTEST_FAILURE are added in </p>
+<p>SpiDemEventParameterRefs container as a part of </p>
+<p>AR_PN0063_FSR_0202 and AR_PN0063_FSR_0209 </p>
+<p>implementation. </p>
+<p>3.</p>
+<p> </p>
+<p>New parameter SpiInterruptConsistencyCheck is added in </p>
+<p>SpiGeneral container and SPI_E_INT_INCONSISTENT is </p>
+<p>added in SpiDemEventParameterRefs container as a part of </p>
+<p>EAAR_PN0034_FSR_0008 implementation. </p>
+<p>4.</p>
+<p> </p>
+<p>New parameters SpiCSIHWriteVerify is added in </p>
+<p>SpiGeneral container and SPI_E_REG_WRITE_VERIFY is </p>
+<p>added in SpiDemEventParameterRefs container as a part of </p>
+<p>EAAR_PN0034_FSR_0002 implementation. </p>
+<p>5.</p>
+<p> </p>
+<p>New parameter SpiDMAWriteVerify is added in SpiGeneral </p>
+<p>container as a part of EAAR_PN0034_FSR_0002 </p>
+<p>implementation. </p>
+<p>6.</p>
+<p> </p>
+<p>New parameters Spi_UseWriteVerifyErrorInterface and </p>
+<p>SpiWriteVerifyErrorInterface are added in SpiGeneral </p>
+<p>container as a part of EAAR_PN0034_FSR_0003 and </p>
+<p>EAAR_PN0034_FSR_0004 implementation. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 32 of 55 </p>
+<p>7.</p>
+<p> </p>
+<p>New parameters SpiClockFrequencyRef is added in </p>
+<p>SpiExternalDevice container as a part of </p>
+<p>AR_PN0063_FR_0009 implementation. </p>
+<p>8.</p>
+<p> </p>
+<p>Descriptions of following parameters are updated- </p>
+<p>SpiBaudrate, SpiCsHoldTiming, SpiBroadcastingPriority, </p>
+<p>SpiMemoryModeSelection, SpiCsSelection, </p>
+<p>SpiJobEndNotification and SpiBaudrateRegisterSelect. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated Warranty Disclaimer description. </p>
+<p>10.</p>
+<p> </p>
+<p>The description for parameter 'SpiTimeClk2Cs' as per </p>
+<p>Autosar SWS. </p>
+<p>11.</p>
+<p> </p>
+<p>Updated the lower multiplicity of container </p>
+<p>'SpiMemoryMode' to one. </p>
+<p>12.</p>
+<p> </p>
+<p>Port pin values removed from parameter SpiPortPinSelect. </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_SPI_P1x-C_BSWMDT.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                         </p>
+<p>1.</p>
+<p> </p>
+<p>SW-MAJOR-VERSION is updated.                                         </p>
+<p>2.</p>
+<p> </p>
+<p>Missing entities are updated in BswCalledEntity and </p>
+<p>MODULE-ENTRY container.     </p>
+<p>3.</p>
+<p> </p>
+<p>&lt;IMPLEMENTED-ENTRY-REF&gt; tag updated for </p>
+<p>&lt;BSW-SCHEDULABLE-ENTITY&gt; of </p>
+<p>Spi_MainFunction_Handling.                                             </p>
+<p>4.</p>
+<p> </p>
+<p>Software Major version updated.                                   </p>
+<p>5.</p>
+<p> </p>
+<p>Removed exclusive area parameter </p>
+<p>'SPI_CHIP_SELECT_PROTECTION'.                   </p>
+<p>6.</p>
+<p> </p>
+<p>IS-SYNCHRONOUS tag updated as false for ISR </p>
+<p>functions.         </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Spi.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                         </p>
+<p>1.</p>
+<p> </p>
+<p>All APIs are updated with changing/adding description and </p>
+<p>QAC messages. </p>
+<p>2.</p>
+<p> </p>
+<p>New public APIs &quot;Spi_GetErrorInfo&quot; and &quot;Spi_SelfTest&quot; </p>
+<p>are added for internal Diagnosis. </p>
+<p>3.</p>
+<p> </p>
+<p>Spi_MainFunction_Handling is updated to exit </p>
+<p>functionality if the driver is uninitialized. </p>
+<p>4.</p>
+<p> </p>
+<p>MISRA violation START and END msgs for Msg(2:3204) </p>
+<p>is added at respective places. </p>
+<p>5.</p>
+<p> </p>
+<p>Added NULL pointer check for </p>
+<p>Spi_GpConfigPtr-&gt;pStatusArray and </p>
+<p>Spi_GpConfigPtr-&gt;pStsValueArray in the function </p>
+<p>Spi_AsyncTransmit. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 33 of 55 </p>
+<p>6.</p>
+<p> </p>
+<p>Added UD ID's 'SPI_ESDD_UD_xxx' and Requirements at </p>
+<p>respective places. </p>
+<p>7.</p>
+<p> </p>
+<p>Unit testing activity, compilation warning removed in the </p>
+<p>Api Spi_Init, when level delivered is configured as zero and </p>
+<p>HW priority is enabled. </p>
+<p>8.</p>
+<p> </p>
+<p>Software Major version updated. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated Spi_SelfTest API to perform the </p>
+<p>Spi_GddDriverStatus busy check even when DET is off. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated Spi_ReadIB API to put the accessing of </p>
+<p>Spi_GpConfigPtr-&gt;pChannelIBRead under correct </p>
+<p>pre-compile. </p>
+<p>11.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<p>12.</p>
+<p> </p>
+<p>Added untraced requirements. </p>
+<p>Spi_Driver.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                         </p>
+<p>1.</p>
+<p> </p>
+<p>All APIs are updated with changing/adding description and </p>
+<p>QAC messages. </p>
+<p>2.</p>
+<p> </p>
+<p>As part of Write-verify implementation, added APIID as </p>
+<p>argument for the required functions. </p>
+<p>3.</p>
+<p> </p>
+<p>The following new functions are created: Spi_StaticInit, </p>
+<p>Spi_LoopBackSelfTest, Spi_EccSelfTest, </p>
+<p>Spi_CsihStaticInit, Spi_CsihLoopBackSelfTest, </p>
+<p>Spi_EccAllZeroTest, Spi_EccAllOneTest, </p>
+<p>Spi_EccWalkOneTest, Spi_EccTwoBitTest, </p>
+<p>Spi_InitDetCheck, Spi_SeqJobChannelInit, </p>
+<p>Spi_InitiateSyncTransmit, Spi_SyncProcessData, </p>
+<p>Spi_GetCurrentRxData, Spi_SetEojAndCsriBits, </p>
+<p>Spi_SyncRegSettings, </p>
+<p>Spi_CsihTxDataAndErrorProcessing, </p>
+<p>Spi_GetCurrentRxData, Spi_CheckRegEmpty, </p>
+<p>Spi_CheckErrorInt, Spi_ReportErrorInSyncTx, </p>
+<p>Spi_StoreErrorInfo, Spi_AsyncDetCheck, </p>
+<p>Spi_AsyncInDirAccOrFifoMod, Spi_ProcessTransmission, </p>
+<p>Spi_ProcessChannelInFifoMod, </p>
+<p>Spi_ProcessChannelInDualOrTxMod, </p>
+<p>Spi_ProcessChannelInDirAccMod, </p>
+<p>Spi_AsyncChannelRegSettings, Spi_GetTxRegValue, </p>
+<p>Spi_FifoWriteData, Spi_CfgRegSettings, </p>
+<p>Spi_ProcessDirectAcessData, Spi_ProcessCsihData, </p>
+<p>Spi_ProcessExtendedData, Spi_ProcessFifoData, </p>
+<p>Spi_CheckAndInvokeTxIsr, Spi_CheckAndInvokeRxIsr, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 34 of 55 </p>
+<p>Spi_ProcessDualBufferData, Spi_ReceiveCsihData, </p>
+<p>Spi_ProcesSeqInDualOrTxMod,Spi_ChkCancelReqForSeq </p>
+<p>and Spi_ReceiveChannelPropSame. </p>
+<p>4.</p>
+<p> </p>
+<p>Removed the functions 'Spi_HWActivateCS' and </p>
+<p>'Spi_HWDeActivateCS' since these functions are used only </p>
+<p>for CSIG hardware. </p>
+<p>5.</p>
+<p> </p>
+<p>Removed Deactivate chip select from DeInit since </p>
+<p>functionality is used only for CSIG hardware. </p>
+<p>6.</p>
+<p> </p>
+<p>In Spi_CsihStaticInit API the parameter 'LpHWUnitInfo' </p>
+<p>and add new parameter 'LddHWUnit'. </p>
+<p>7.</p>
+<p> </p>
+<p>Global variable 'Spi_GusDataAccess' has been split into </p>
+<p>variables 'Spi_GusSynDataAccess' and </p>
+<p>'Spi_GusAsynDataAccess' for Synchronous and </p>
+<p>Asynchronous transmission respectively. </p>
+<p>8.</p>
+<p> </p>
+<p>Updated register write verification implementation as per </p>
+<p>the proposed template. </p>
+<p>9.</p>
+<p> </p>
+<p>RH850_SV_MODE_ICR_AND is added for </p>
+<p>'pErrorIntCntlAddress' and 'pTxCancelIntCntlAddress' in </p>
+<p>Spi_HWDisableInterrupts function. </p>
+<p>10.</p>
+<p> </p>
+<p>In order to update all CSIHnCFGx registers for all </p>
+<p>configured chip selects, do-while loop is added in function </p>
+<p>Spi_CsihStaticInit, Spi_CfgRegSettings and </p>
+<p>Spi_SeqJobChannelInit. </p>
+<p>11.</p>
+<p> </p>
+<p>MISRA violation START and END Msgs for Msg(4:0715) </p>
+<p>is added at respective places. </p>
+<p>12.</p>
+<p> </p>
+<p>Spi_HWInit and Spi_HWDeInit functions are updated. </p>
+<p>13.</p>
+<p> </p>
+<p>Updated Spi_HWWriteIB to set memory mode as Tx only </p>
+<p>or Dual buffer in register CSIHnMCTL0 before writing into </p>
+<p>CSIHnTX0W and CSIHnMRWP0 to avoid setting of bits </p>
+<p>which are prohibited in other memory modes. </p>
+<p>14.</p>
+<p> </p>
+<p>Added NULL pointer check for </p>
+<p>Spi_GpConfigPtr-&gt;pStatusArray and </p>
+<p>Spi_GpConfigPtr-&gt;pStsValueArray in </p>
+<p>Spi_TransmitCancelISR and Spi_ChkCancelReqForSeq </p>
+<p>functions. </p>
+<p>15.</p>
+<p> </p>
+<p>Updated functions Spi_HWMainFunction_Handling and </p>
+<p>Spi_CheckAndInvokeTxIsr for direct access mode. </p>
+<p>16.</p>
+<p> </p>
+<p>Removed DMA_TYPE_ONE related code implementation, </p>
+<p>since P1H-C supports DMA of DMA_TYPE_TWO only. </p>
+<p>17.</p>
+<p> </p>
+<p>Invoked Spi_CheckErrorInt function after reception to </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 35 of 55 </p>
+<p>check for errors in Spi_GetCsihRxData function. </p>
+<p>18.</p>
+<p> </p>
+<p>Check is updated in functions Spi_ProcessCsihData and </p>
+<p>Spi_ProcessChannelInDirAccMod in such a way that bit </p>
+<p>CSIHnEOJ will be set only if blEDLEnabled is </p>
+<p>SPI_FALSE. </p>
+<p>19.</p>
+<p> </p>
+<p>In API 'Spi_CsihStaticInit' is updated for CSRI bit is </p>
+<p>masked for FIFO Mode when number of buffers is greater </p>
+<p>than 128 and in API 'Spi_ProcessFifoData' is updated to </p>
+<p>reset PWR bit. </p>
+<p>20.</p>
+<p> </p>
+<p>Added UD ID's 'SPI_ESDD_UD_xxx' and Requirements at </p>
+<p>respective places. </p>
+<p>21.</p>
+<p> </p>
+<p>Spi_TxDmaConfig function has been updated. </p>
+<p>22.</p>
+<p> </p>
+<p>As part of Unit testing activity, Compilation warning </p>
+<p>removed in Spi_ProcessCsihData When 32 bit data width </p>
+<p>and High priority HW are enabled. </p>
+<p>23.</p>
+<p> </p>
+<p>As part of Unit testing activity, UT ID TAGs 'SPI_UT_xxx' </p>
+<p>are added for the uncovered parts of the code. </p>
+<p>24.</p>
+<p> </p>
+<p>In Spi_CsihStaticInit API the parameter 'LpHWUnitInfo' </p>
+<p>removed and added new parameter 'LddHWUnit'. </p>
+<p>25.</p>
+<p> </p>
+<p>In order to avoid QAC warning, updated API's - </p>
+<p>Spi_HWDeInit, Spi_ProcessCsihData and </p>
+<p>Spi_InitiateJobTx. </p>
+<p>26.</p>
+<p> </p>
+<p>In Spi_ReportErrorInSyncTx API error buffer updated with </p>
+<p>Hardware unit Index. </p>
+<p>27.</p>
+<p> </p>
+<p>In Spi_CsihStaticInit API 'SPI_SET_SLIT' masking </p>
+<p>updated. </p>
+<p>28.</p>
+<p> </p>
+<p>Updated Spi_ProcessChannelInFifoMod, Spi_DmaISR </p>
+<p>Spi_ProcessFifoData and Spi_TxDmaConfig functions for </p>
+<p>permitting more than 128 bytes of data when DMA is </p>
+<p>enabled in FIFO mode. </p>
+<p>29.</p>
+<p> </p>
+<p>Updated Spi_HWTransmitSyncJob and </p>
+<p>Spi_InitiateSyncTransmit APIs to update configuration </p>
+<p>register. </p>
+<p>30.</p>
+<p> </p>
+<p>Initialize the register CSIHnMCTL0 with configured </p>
+<p>memory mode in Spi_CsihStaticInit API. </p>
+<p>31.</p>
+<p> </p>
+<p>Added untraced requirements. </p>
+<p>Spi_Irq.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Interrupt consistency check is implemented. </p>
+<p>2.</p>
+<p> </p>
+<p>MISRA warnings justified and placed START and END </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 36 of 55 </p>
+<p>Msg tags at respective places. </p>
+<p>3.</p>
+<p> </p>
+<p>Added UD ID's 'SPI_ESDD_UD_xxx' and Requirements at </p>
+<p>respective places. </p>
+<p>4.</p>
+<p> </p>
+<p>Memory accessing for interrupt consistency is corrected in </p>
+<p>the Api SPI_CSIH1_TIR_ISR. </p>
+<p>5.</p>
+<p> </p>
+<p>Corrected the compilation issue in the Api </p>
+<p>SPI_DMA15_ISR. </p>
+<p>6.</p>
+<p> </p>
+<p>Type cast added for all interrupt consistency checking in all </p>
+<p>ISR Apis. </p>
+<p>7.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_Ram.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Spi_GstCommErrorInfo and Spi_GucBufferIndex are added </p>
+<p>for internal Diagnosis implementation. </p>
+<p>2.</p>
+<p> </p>
+<p>Declaration of global variable 'Spi_GusDataAccess' has </p>
+<p>been split into variables 'Spi_GusSynDataAccess' and </p>
+<p>'Spi_GusAsynDataAccess' for Synchronous and </p>
+<p>Asynchronous transmission respectively. </p>
+<p>3.</p>
+<p> </p>
+<p>START and END msgs for Msg(2:2022) and Msg(2:3211) </p>
+<p>are added at the respective places. </p>
+<p>4.</p>
+<p> </p>
+<p>New Global Variable 'Spi_GblCSRIMask' to check CSRI </p>
+<p>Mask Status of CSIH hardware units is added. </p>
+<p>5.</p>
+<p> </p>
+<p>Declarations of following variables were updated with </p>
+<p>volatile qualifier - Spi_GstFifoCurrentCommData, </p>
+<p>Spi_GstCommErrorInfo, Spi_GblQueueStatus, </p>
+<p>Spi_GaaHighPriorityCommRequest, </p>
+<p>Spi_GaaHighPriorityCommActive, </p>
+<p>Spi_GaaHighPriorityCommRequestAtIdle, </p>
+<p>Spi_GaaHighPrioritySequence, Spi_GddQueueIndex, </p>
+<p>Spi_GblInitiateJobTx, Spi_GucHwUnitStatus, </p>
+<p>Spi_GucBufferIndex, Spi_GusAllQueueSts, </p>
+<p>Spi_GusAsynDataAccess, Spi_GddDriverStatus, </p>
+<p>Spi_GucHWFifoBufferSts and Spi_GddDmaData. </p>
+<p>6.</p>
+<p> </p>
+<p>Updated memclass and memory sections for all the </p>
+<p>variables. </p>
+<p>Spi_Scheduler.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>All the API's are adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>In order to update status as 'SPI_JOB_QUEUED' of all jobs </p>
+<p>which are pushed in to job queue, updated </p>
+<p>Spi_PushWhenQueueNotEmpty and </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 37 of 55 </p>
+<p>Spi_PushRemainingJobsToQueue functions. </p>
+<p>3.</p>
+<p> </p>
+<p>Fixed/Justified MISRA warnings. </p>
+<p>4.</p>
+<p> </p>
+<p>Added NULL pointer check for </p>
+<p>Spi_GpConfigPtr-&gt;pStatusArray and </p>
+<p>Spi_GpConfigPtr-&gt;pStsValueArray in </p>
+<p>Spi_ProcessCancelledSequence and </p>
+<p>Spi_ProcessCompletedSequence functions. </p>
+<p>5.</p>
+<p> </p>
+<p>Added UD ID's 'SPI_ESDD_UD_xxx' and Requirements at </p>
+<p>respective places. </p>
+<p>6.</p>
+<p> </p>
+<p>Unit testing activity UT ID TAGs 'SPI_UT_xxx' are added </p>
+<p>for the uncovered parts of the code. </p>
+<p>7.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<p>8.</p>
+<p> </p>
+<p>Added untraced requirements. </p>
+<p>Spi_Version.c </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p>Spi.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>New public APIs &quot;Spi_GetErrorInfo&quot; and &quot;Spi_SelfTest&quot; </p>
+<p>are added for internal Diagnosis. </p>
+<p>2.</p>
+<p> </p>
+<p>For implementation of Self_Test functionality as User </p>
+<p>API,SPI_SELFTEST_SID, SPI_ALL_SELF_TEST, </p>
+<p>SPI_ECC_SELF_TEST and </p>
+<p>SPI_LOOP_BACK_SELF_TEST are added. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated memory section declaration for </p>
+<p>Spi_GstConfiguration. </p>
+<p>4.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_Driver.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>As part of Write-verify implementation, added APIID as </p>
+<p>argument for the required functions. </p>
+<p>2.</p>
+<p> </p>
+<p>Extern function declaration for the following API's added : </p>
+<p>Spi_StaticInit, Spi_CsihStaticInit, Spi_LoopBackSelfTest, </p>
+<p>Spi_CsihLoopBackSelfTest, Spi_EccSelfTest, </p>
+<p>Spi_EccAllZeroTest, Spi_EccAllOneTest, </p>
+<p>Spi_EccWalkOneTest, Spi_EccTwoBitTest, </p>
+<p>Spi_InitDetCheck, Spi_SeqJobChannelInit, </p>
+<p>Spi_InitiateSyncTransmit, Spi_SyncProcessData, </p>
+<p>Spi_GetCurrentRxData, Spi_SetEojAndCsriBits, </p>
+<p>Spi_SyncRegSettings, </p>
+<p>Spi_CsihTxDataAndErrorProcessing, </p>
+<p>Spi_GetCurrentRxData, Spi_CheckRegEmpty, </p>
+<p>Spi_CheckErrorInt, Spi_ReportErrorInSyncTx, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 38 of 55 </p>
+<p>Spi_StoreErrorInfo, Spi_AsyncDetCheck, </p>
+<p>Spi_AsyncInDirAccOrFifoMod, Spi_ProcessTransmission, </p>
+<p>Spi_ProcessChannelInFifoMod, </p>
+<p>Spi_ProcessChannelInDualOrTxMod, </p>
+<p>Spi_ProcessChannelInDirAccMod, </p>
+<p>Spi_AsyncChannelRegSettings, Spi_GetTxRegValue, </p>
+<p>Spi_FifoWriteData, Spi_CfgRegSettings, </p>
+<p>Spi_ProcessDirectAcessData, Spi_ProcessCsihData, </p>
+<p>Spi_ProcessExtendedData, Spi_ProcessFifoData, </p>
+<p>Spi_CheckAndInvokeTxIsr, Spi_CheckAndInvokeRxIsr, </p>
+<p>Spi_ProcessDualBufferData, </p>
+<p>Spi_ProcesSeqInDualOrTxMod,Spi_ChkCancelReqForSeq, </p>
+<p>Spi_ReceiveCsihData and Spi_ReceiveChannelPropSame </p>
+<p>3.</p>
+<p> </p>
+<p>Removed function declaration for Spi_ProcessChannel. </p>
+<p>4.</p>
+<p> </p>
+<p>Removed the function declarations for 'Spi_HWActivateCS' </p>
+<p>and 'Spi_HWDeActivateCS' since these functions are used </p>
+<p>only for CSIG hardware. </p>
+<p>5.</p>
+<p> </p>
+<p>In Spi_CsihStaticInit API the parameter 'LpHWUnitInfo' </p>
+<p>removed and added new parameter 'LddHWUnit' </p>
+<p>Spi_Irq.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added macro 'SPI_EIC_EIMK_MASK' and IC register </p>
+<p>addresses were defined for all hardware units to implement </p>
+<p>interrupt consistency checks. </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_LTTypes.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Added SPI_IB_MODE Macro, structures and macros </p>
+<p>required for self test are added. </p>
+<p>2.</p>
+<p> </p>
+<p>New macro 'SPI_CSIH_CLR_STS_FLAGS' is added to </p>
+<p>access to the register CSIHnSTCR0. </p>
+<p>3.</p>
+<p> </p>
+<p>The macros 'SPI_LOOPBACK_ENABLE', </p>
+<p>'SPI_LOOPBACK_CNTRL2_VALUE', </p>
+<p>'SPI_LOOPBACK_CSIH_CNTRL2_VALUE', </p>
+<p>'SPI_LOOPBACK_DLS_SETTING', </p>
+<p>'SPI_LOOPBACK_CSIH_BRS0_VALUE', </p>
+<p>'SPI_LOOPBACK_DATA', 'SPI_LOOPBACK_ERROR' </p>
+<p>are added for self test functionality. </p>
+<p>4.</p>
+<p> </p>
+<p>New macro SPI_OVE_ERR_CLR, SPI_PE_ERR_CLR, </p>
+<p>SPI_OFE_ERR_CLR, SPI_DCE_ERR_CLR added to clear </p>
+<p>the status bit. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 39 of 55 </p>
+<p>5.</p>
+<p> </p>
+<p>Added new element 'pEccBaseAddress' in the structure </p>
+<p>STag_Spi_HWUnitInfo. </p>
+<p>6.</p>
+<p> </p>
+<p>Added usBufferCount to the Spi_FifoCurrentCommData. </p>
+<p>7.</p>
+<p> </p>
+<p>Added macros SPI_CTL_32BIT_REG_VAL, </p>
+<p>SPI_CTL_16BIT_REG_DEINIT,SPI_CTL_8BIT_REG_M</p>
+<p>ASK, SPI_CTL2_16BIT_REG_DEINIT, </p>
+<p>SPI_MCTL0_16BIT_REG_DEINIT,SPI_DMA_DEINIT. </p>
+<p>8.</p>
+<p> </p>
+<p>To avoid QAC warning macros were updated with size </p>
+<p>extension. </p>
+<p>9.</p>
+<p> </p>
+<p>Macros SPI_DMA_HARDWARE_TRIGGER and </p>
+<p>SPI_DMA_DRS_MLE_MASK were added. </p>
+<p>10.</p>
+<p> </p>
+<p>Changed the memory section declaration for </p>
+<p>Spi_GaaJobResult and Spi_GaaSeqResult from </p>
+<p>SPI_START_SEC_VAR_NO_INIT_8 to </p>
+<p>SPI_START_SEC_VAR_NO_INIT_UNSPECIFIED. </p>
+<p>11.</p>
+<p> </p>
+<p>Copyright information is updated. </p>
+<p>Spi_PBTypes.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Created STag_Spi_DataFlag and STag_Spi_JobDetails </p>
+<p>structure. </p>
+<p>2.</p>
+<p> </p>
+<p>Since P1H-C supports DMA of DMA_TYPE_TWO only, </p>
+<p>so Removed structure related to DMA_TYPE_ONE. </p>
+<p>3.</p>
+<p> </p>
+<p>Critical section protection Macro added. </p>
+<p>4.</p>
+<p> </p>
+<p>Added the parameter blCSRIMasked to Spi_GstJobConfig </p>
+<p>structure. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated the memory sections of following global arrays - </p>
+<p>Spi_GaaSeqStatusBitArray, Spi_GaaChannelIBWrite and </p>
+<p>Spi_GaaChannelIBRead. </p>
+<p>Spi_Ram.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Spi_GstCommErrorInfo and Spi_GucBufferIndex are added </p>
+<p>for internal Diagnosis implementation. </p>
+<p>2.</p>
+<p> </p>
+<p>Extern declaration of global variable 'Spi_GusDataAccess' </p>
+<p>has been split into variables 'Spi_GusSynDataAccess' and </p>
+<p>'Spi_GusAsynDataAccess' for Synchronous and </p>
+<p>Asynchronous transmission respectively. </p>
+<p>3.</p>
+<p> </p>
+<p>Extern declaration for new Global Variable </p>
+<p>'Spi_GblCSRIMask' to check CSRI Mask Status of CSIH </p>
+<p>hardware units is added. </p>
+<p>4.</p>
+<p> </p>
+<p>Extern declarations of following variables were updated </p>
+<p>with volatile qualifier - Spi_GstFifoCurrentCommData, </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 40 of 55 </p>
+<p>Spi_GstCommErrorInfo, Spi_GblQueueStatus, </p>
+<p>Spi_GaaHighPriorityCommRequest, </p>
+<p>Spi_GaaHighPriorityCommActive, </p>
+<p>Spi_GaaHighPriorityCommRequestAtIdle, </p>
+<p>Spi_GaaHighPrioritySequence, Spi_GddQueueIndex, </p>
+<p>Spi_GblInitiateJobTx, Spi_GucHwUnitStatus, </p>
+<p>Spi_GucBufferIndex, Spi_GusAllQueueSts, </p>
+<p>Spi_GusAsynDataAccess, Spi_GddDriverStatus, </p>
+<p>Spi_GucHWFifoBufferSts and Spi_GddDmaData. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated memclass and memory sections for all the </p>
+<p>variables. </p>
+<p>Spi_Scheduler.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>Function declaration added for </p>
+<p>Spi_PushRemainingJobsToQueue, </p>
+<p>Spi_ProcessCancelledSequence, </p>
+<p>Spi_ProcessCompletedSequence, </p>
+<p>Spi_PushInterruptableSeqJobs and Spi_PopRemainingJobs </p>
+<p>functions. </p>
+<p>Spi_Types.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>As part of Write-verify user interface implementation, </p>
+<p>updated the macros for calling the error notification </p>
+<p>function when SPI_USE_WV_ERROR_INTERFACE is </p>
+<p>ON and also added macros for writing in to status clear </p>
+<p>registers. </p>
+<p>2.</p>
+<p> </p>
+<p>Structures and macros required for self-test are added. </p>
+<p>3.</p>
+<p> </p>
+<p>Created macros SPI_TX and SPI_RX. Added macro </p>
+<p>definitions, used as an offset value to perform the interrupt </p>
+<p>consistency checks. </p>
+<p>4.</p>
+<p> </p>
+<p>Created file Spi_RegWrite.h to move all the macros related </p>
+<p>to register write functionality. </p>
+<p>5.</p>
+<p> </p>
+<p>Added the macros SPI_TX_ONLY_MODE_SET, </p>
+<p>SPI_DUAL_BUFFER_MODE_SET, </p>
+<p>SPI_CHECK_BUFFER_MODE. </p>
+<p>6.</p>
+<p> </p>
+<p>Macro 'SPI_ONE_TWENTY_EIGHT' is added for 128. </p>
+<p>7.</p>
+<p> </p>
+<p>Following new enum tages were added - </p>
+<p>Spi_JobResultType and Spi_SeqResultType. </p>
+<p>Spi_RegWrite.h </p>
+<p>1.0.0 </p>
+<p>Initial Version </p>
+<p>Spi_Version.h </p>
+<p>1.0.1 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C TCODE file for SPI</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 41 of 55 </p>
+<p>Spi_Lcfg_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Condition for generating element 'pEccBaseAddress' in </p>
+<p>'Spi_GstHWUnitInfo' structure is updated. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC Warning section is updated and START and END tag </p>
+<p>for Msg(2:3211), Msg(2:3132) and Msg(2:3674) are added </p>
+<p>at respective places. </p>
+<p>3.</p>
+<p> </p>
+<p>Software Major version updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Path dependency of job is removed for the checking of </p>
+<p>'blIsSynchronous' in structure 'Spi_GstHWUnitInfo'. </p>
+<p>5.</p>
+<p> </p>
+<p>Changed the memory section declaration for </p>
+<p>Spi_GaaJobResult and Spi_GaaSeqResult from </p>
+<p>SPI_START_SEC_VAR_NO_INIT_8 to </p>
+<p>SPI_START_SEC_VAR_NO_INIT_UNSPECIFIED. </p>
+<p>Spi_PBcfg_c </p>
+<p>1.0.2 </p>
+<p> </p>
+<p> </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>QAC Warning section is updated and START and END tag </p>
+<p>for Msg(2:3211), Msg(2:3132) and Msg(2:3674) are added </p>
+<p>at respective places. </p>
+<p>2.</p>
+<p> </p>
+<p>Check added for non mandatory parameters generation - </p>
+<p>SpiJobEndNotification in Spi_GstJobConfig array </p>
+<p>generation and SpiSeqEndNotification in </p>
+<p>Spi_GstSeqConfig array generation. </p>
+<p>3.</p>
+<p> </p>
+<p>Software Major version updated. </p>
+<p>4.</p>
+<p> </p>
+<p>Information messages INFO_59_83_002 and </p>
+<p>INFO_59_83_003 were added. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated the check for the generation of array </p>
+<p>'Spi_GaaSeqStatusBitArray'. </p>
+<p>6.</p>
+<p> </p>
+<p>Generation handling of 'blHWUnitDmaMode' in structure </p>
+<p>'Spi_GstJobConfig' updated. </p>
+<p>7.</p>
+<p> </p>
+<p>Short name dependency for 'SpiChannel', </p>
+<p>'SpiExternalDevice' and 'SpiJob' were corrected. </p>
+<p>8.</p>
+<p> </p>
+<p>Generation handling of 'ddBufferIndex' in structure </p>
+<p>'Spi_GstChannelConfig' updated. </p>
+<p>9.</p>
+<p> </p>
+<p>Added the generation handling of parameter </p>
+<p>'blCSRIMasked' in 'Spi_GstJobConfig' structure. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated the generation handling of parameter </p>
+<p>'ulMainCtl1Value' in 'Spi_GstJobConfig' structure. </p>
+<p>11.</p>
+<p> </p>
+<p>Updated the memory sections of following global arrays - </p>
+<p>Spi_GaaSeqStatusBitArray, Spi_GaaChannelIBWrite and </p>
+<p>Spi_GaaChannelIBRead. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 42 of 55 </p>
+<p>12.</p>
+<p> </p>
+<p>Update the generation handling of parameter 'aaChipSelect' </p>
+<p>in 'Spi_GstConfiguration' structure. </p>
+<p>13.</p>
+<p> </p>
+<p>Updated the generation handling of parameter </p>
+<p>'ucChannelBufferType' in 'Spi_GstChannelConfig' </p>
+<p>structure. </p>
+<p>Spi_Hardware_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Structure tag for Ecc_BaseAddress is added. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC Warning START and END Msgs for Msg(2:3211) is </p>
+<p>added at respective places. </p>
+<p>Spi_Cbk_h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>As part of Write-verify user interface implementation, </p>
+<p>updated the template to add the generation of </p>
+<p>SPI_WV_ERROR_NOTIFICATION and added Dem.h </p>
+<p>header file. </p>
+<p>2.</p>
+<p> </p>
+<p>Check added for following non mandatory parameters </p>
+<p>generation - SpiJobEndNotification, SpiSeqEndNotification </p>
+<p>and SpiWriteVerifyErrorInterface. </p>
+<p>3.</p>
+<p> </p>
+<p>Check updated for following parameters generation- </p>
+<p>SpiSeqStartNotification and SpiSeqEndNotification. </p>
+<p>4.</p>
+<p> </p>
+<p>Software major version updated. </p>
+<p>Spi_Cfg_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>As part of Write-verify user interface implementation, </p>
+<p>following pre compiler macros and error notifications are </p>
+<p>added: SPI_WRITE_VERIFY, </p>
+<p>SPI_DMA_WRITE_VERIFY, </p>
+<p>SPI_USE_WV_ERROR_INTERFACE, </p>
+<p>SPI_E_REG_WRITE_VERIFY and </p>
+<p>SPI_ERROR_NOTIFICATION </p>
+<p>2.</p>
+<p> </p>
+<p>As part of implementation of the Self_Test functionality, </p>
+<p>following pre compiler macros and error notifications are </p>
+<p>added: SPI_LOOPBACK_SELFTEST, </p>
+<p>SPI_ECC_SELFTEST, SPI_SELF_TEST_API, </p>
+<p>SPI_E_LOOPBACK_SELFTEST_FAILURE and </p>
+<p>SPI_E_ECC_SELFTEST_FAILURE </p>
+<p>3.</p>
+<p> </p>
+<p>Pre compiler macro </p>
+<p>'SPI_INTERRUPT_CONSISTENCY_CHECK' and DEM </p>
+<p>error 'SPI_E_INT_INCONSISTENT' is added to implement </p>
+<p>interrupt consistency checks. </p>
+<p>4.</p>
+<p> </p>
+<p>EIC register addresses are defined for all hardware units to </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 43 of 55 </p>
+<p>implement interrupt consistency checks. </p>
+<p>5.</p>
+<p> </p>
+<p>Updated the macro name SPI_WRITE_VERIFY to </p>
+<p>SPI_CSIH_WRITE_VERIFY and renamed the parameters </p>
+<p>SpiWriteVerify and SpiDmaWriteVerify to </p>
+<p>SpiCSIHWriteVerify and SpiDMAWriteVerify respectively. </p>
+<p>6.</p>
+<p> </p>
+<p>Check added for following non mandatory parameters </p>
+<p>generation - SpiInternalErrorBufferSize, </p>
+<p>Spi_UseWriteVerifyErrorInterface and </p>
+<p>SpiWriteVerifyErrorInterface. </p>
+<p>7.</p>
+<p> </p>
+<p>Conditional check for the macro generation </p>
+<p>'SPI_INTERNAL_RW_BUFFERS' updated. </p>
+<p>8.</p>
+<p> </p>
+<p>Handling of 'CSIHX interrupt switches' updated. </p>
+<p>9.</p>
+<p> </p>
+<p>The generation of Tx channel DMA ISR disabled. </p>
+<p>Spi_Hardware_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>Global variable declaration for structure tag Ecc_BaseAddress </p>
+<p>is added. </p>
+<p>Spi_Validate </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                               </p>
+<p>1.</p>
+<p> </p>
+<p>Validation added for repeated Jobs configured same </p>
+<p>sequence in Dual Buffer / Tx Only Mode with error </p>
+<p>message ERR_59_83_065. </p>
+<p>2.</p>
+<p> </p>
+<p>Validation added for Jobs configured same sequence as </p>
+<p>Dual Buffer / Tx Only Mode are have same SpiHwUnit </p>
+<p>with error message ERR_59_83_066. </p>
+<p>3.</p>
+<p> </p>
+<p>Validation added for number of Jobs configured same </p>
+<p>hardware unit as Dual Buffer / Tx Only Mode are exceeded </p>
+<p>with error message ERR_59_83_067 and ERR_59_83_068. </p>
+<p>4.</p>
+<p> </p>
+<p>Validation added for Channel width configured for any </p>
+<p>channel not with in the permitted range with error message </p>
+<p>ERR_59_83_069. </p>
+<p>5.</p>
+<p> </p>
+<p>Validation added for Hardware units configured in DMA </p>
+<p>container are repeated with error message ERR_59_83_081. </p>
+<p>6.</p>
+<p> </p>
+<p>Validation added for Hardware units configured in DMA </p>
+<p>container are configured for at least one job with error </p>
+<p>message ERR_59_83_070. </p>
+<p>7.</p>
+<p> </p>
+<p>Validation added for following parameter are configured </p>
+<p>same number in multiple configsets: Sequences, Jobs, </p>
+<p>Channels, External Devices and DMA with error message </p>
+<p>ERR_59_83_072, ERR_59_83_073, ERR_59_83_007, </p>
+<p>ERR_59_83_074 and ERR_59_83_082. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 44 of 55 </p>
+<p>8.</p>
+<p> </p>
+<p>Validation added for following parameter are configured </p>
+<p>same value in multiple configsets: SpiChannelType in </p>
+<p>container SpiChannel and SpiHWUnit in container </p>
+<p>SpiExternalDevices with error message ERR_59_83_006, </p>
+<p>and ERR_59_83_075. </p>
+<p>9.</p>
+<p> </p>
+<p>Validation added for values of following parameter are </p>
+<p>configured are according to C syntax – </p>
+<p>SpiSeqStartNotification, SpiSeqEndNotification and </p>
+<p>SpiJobEndNotification with error message </p>
+<p>ERR_59_83_024, and ERR_59_83_076. </p>
+<p>10.</p>
+<p> </p>
+<p>Validation added for SpiSeqEndNotification in </p>
+<p>Synchronous Jobif SpiSyncSeqEndNotificationEnable is </p>
+<p>Disabled with error message ERR_59_83_077. </p>
+<p>11.</p>
+<p> </p>
+<p>Validation added for SpiSeqStartNotification, </p>
+<p>SpiSeqEndNotification and SpiJobEndNotification are </p>
+<p>unique with error messages ERR_59_83_083, </p>
+<p>ERR_59_83_079 and ERR_59_83_077. </p>
+<p>12.</p>
+<p> </p>
+<p>Validation added for Spi_UseWVErrorInterface and </p>
+<p>SpiWVErrorNotification with error messages </p>
+<p>ERR_59_83_084 and ERR_59_83_085. </p>
+<p>13.</p>
+<p> </p>
+<p>Validation added for SpiClockFrequencyRef is configured </p>
+<p>and has correct value with error messages ERR_59_83_086 </p>
+<p>and ERR_59_83_087. </p>
+<p>14.</p>
+<p> </p>
+<p>Validation added for SpiLoopBackSelfTest and </p>
+<p>SPI_E_LOOPBACK_SELFTEST_FAILURis configured </p>
+<p>and has correct value with error messages ERR_59_83_088 </p>
+<p>and ERR_59_83_089. </p>
+<p>15.</p>
+<p> </p>
+<p>Validation added for SpiECCSelfTest and </p>
+<p>SPI_E_ECC_SELFTEST_FAILURE    is configured and </p>
+<p>has correct value with error messages ERR_59_83_090 and </p>
+<p>ERR_59_83_091. </p>
+<p>16.</p>
+<p> </p>
+<p>Validation added for SpiInterruptConsistencyCheck and </p>
+<p>SPI_E_INT_INCONSISTENT is configured and has </p>
+<p>correct value with error messages ERR_59_83_092 and </p>
+<p>ERR_59_83_093. </p>
+<p>17.</p>
+<p> </p>
+<p>Validation added for SpiCSIHWriteVerify, </p>
+<p>SpiDMAWriteVerify and SPI_E_REG_WRITE_VERIFY is </p>
+<p>configured and has correct value with error messages </p>
+<p>ERR_59_83_094 and ERR_59_83_095. </p>
+<p>18.</p>
+<p> </p>
+<p>Validation added for repeated dem path configured in </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 45 of 55 </p>
+<p>container SpiDemEventParameterRefswith error messages </p>
+<p>ERR_59_83_096. </p>
+<p>19.</p>
+<p> </p>
+<p>Write verify parameter updated as SpiCSIHWriteVerify, </p>
+<p>SpiDMAWriteVerify, SpiWriteVerifyErrorInterface and </p>
+<p>Spi_UseWriteVerifyErrorInterface. </p>
+<p>20.</p>
+<p> </p>
+<p>Validation for HW property check added with error message </p>
+<p>ERR_59_83_097. </p>
+<p>21.</p>
+<p> </p>
+<p>Validation for DMA check in Level delivered added with </p>
+<p>error message ERR_59_83_106. </p>
+<p>22.</p>
+<p> </p>
+<p>Validation for mandatory parameter added with error </p>
+<p>message ERR_59_83_004. </p>
+<p>23.</p>
+<p> </p>
+<p>Validation for device check added with error message </p>
+<p>ERR_59_83_104. </p>
+<p>24.</p>
+<p> </p>
+<p>To implement AR_PN0063_FSR_0213 updated with error </p>
+<p>messages ERR_59_83_098. </p>
+<p>25.</p>
+<p> </p>
+<p>To implement INFO_59_83_002 message, new macro </p>
+<p>'Power' added to calculate power of number. </p>
+<p>26.</p>
+<p> </p>
+<p>Short name dependency for &quot;SpiChannel&quot;, </p>
+<p>&quot;SpiExternalDevice&quot; and &quot;SpiJob&quot; were corrected. </p>
+<p>27.</p>
+<p> </p>
+<p>Validation added for baud rate calculations with error </p>
+<p>messages ERR_59_83_107, ERR_59_83_108 and </p>
+<p>ERR_59_83_109. </p>
+<p>28.</p>
+<p> </p>
+<p>Validation for 'SpiLevelDelivered' and </p>
+<p>'SpiHwUnitSynchronous' added with error message </p>
+<p>ERR_59_83_110. </p>
+<p>29.</p>
+<p> </p>
+<p>Validation for CSL pin selection added with error message </p>
+<p>ERR_59_83_111. </p>
+<p>30.</p>
+<p> </p>
+<p>Removed the error message ERR_59_83_005. </p>
+<p>31.</p>
+<p> </p>
+<p>Copyright information is updated </p>
+<p><b>P1x-C SPI Common Sample Application Source file </b></p>
+<p>App_SPI_Common_Sample.c </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>Global buffer size updated. </p>
+<p><b>P1x-C SPI Common Sample Application Header file<i></b> </i></p>
+<p>App_SPI_Common_Sample.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Removed the macro 'SPI_CSIH0' </p>
+<p>2.</p>
+<p> </p>
+<p>Copyright information updated. </p>
+<p><b>P1x-C Sample Application P1M-C Source file<i></b> </i></p>
+<p>App_SPI_P1x-C_Sample.c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Copyright information updated </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 46 of 55 </p>
+<p><b>P1x-C Sample Application P1M-C Header file<i></b> </i></p>
+<p>App_SPI_Device_Sample.h </p>
+<p>1.0.1 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1. Updated macro details. </p>
+<p>TargetMap.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D. </p>
+<p><b>P1x-C User Manual </b></p>
+<p>R20UT3659EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Removed Section 13.2, Compiler, Linker and Assembler. </p>
+<p>2.</p>
+<p> </p>
+<p>In section 4.3, Note about entries for User mode </p>
+<p>dependency of Critical Section added. </p>
+<p>3.</p>
+<p> </p>
+<p>In section 4.5, Critical section details are updated by adding </p>
+<p>Table 4-6. </p>
+<p>4.</p>
+<p> </p>
+<p>In section 4.1, Note added regarding the DMA access for </p>
+<p>local RAM area. </p>
+<p>5.</p>
+<p> </p>
+<p>In section 12, Memory Organization is updated by adding </p>
+<p>information about SPI_START_SEC_CODE_FAST. </p>
+<p>6.</p>
+<p> </p>
+<p>Section 6, Register access details are updated. </p>
+<p>7.</p>
+<p> </p>
+<p>Updated section 13.2.1 Sample Application Structure to add </p>
+<p>details about Spi_GetErrorInfo API. </p>
+<p>8.</p>
+<p> </p>
+<p>Added Spi_GetErrorInfo API in section 11.1 under Related </p>
+<p>API(s) corresponding to the error SPI_E_UNINIT. </p>
+<p>9.</p>
+<p> </p>
+<p>Section 3 updated R number in remarks. </p>
+<p>10.</p>
+<p> </p>
+<p>Folder Structure updated in the section 3.1.1. </p>
+<p>11.</p>
+<p> </p>
+<p>Table 4-4 User mode and Supervisory mode is updated. </p>
+<p>12.</p>
+<p> </p>
+<p>Section 8 updated for file information. </p>
+<p>13.</p>
+<p> </p>
+<p>Section 9 updated for R number. </p>
+<p>14.</p>
+<p> </p>
+<p>Table 10-1 updated with API name. </p>
+<p>15.</p>
+<p> </p>
+<p>Memory, Throughput and stack depth Details are updated in </p>
+<p>section 13.3. </p>
+<p>16.</p>
+<p> </p>
+<p>Release details updated in section 14. </p>
+<p>17.</p>
+<p> </p>
+<p>Chapter 13, Added Processor name along with Device </p>
+<p>variants. </p>
+<p>18.</p>
+<p> </p>
+<p>Figure 12-1 SPI Driver Component Driver Organization has </p>
+<p>been updated in Chapter 12. </p>
+<p>19.</p>
+<p> </p>
+<p>Removed traces of .one and .html from the section 13.2 </p>
+<p>Sample Application. </p>
+<p>R20UT3660EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:- </p>
+<p>1.</p>
+<p> </p>
+<p>Introduction updated in section 1. </p>
+<p>2.</p>
+<p> </p>
+<p>Updated Chapters 1,3,4,5,6,7 by rephrasing Tool and SPI </p>
+<p>Driver Generation Tool with MCAL Code Generator Tool </p>
+<p>3.</p>
+<p> </p>
+<p>Precaution and remark updated in section 6. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 47 of 55 </p>
+<p>4.</p>
+<p> </p>
+<p>User Configuration Validation information updated in </p>
+<p>section 7. </p>
+<p>5.</p>
+<p> </p>
+<p>Notes updated in section 11. </p>
+<p>6.</p>
+<p> </p>
+<p>Remarks added in section 3. </p>
+<p>7.</p>
+<p> </p>
+<p>Table header name updated in Table 8.1 and Table 8.2. </p>
+<p>8.</p>
+<p> </p>
+<p>Removed Section 9.1 Common Messages. </p>
+<p>9.</p>
+<p> </p>
+<p>Error messages and information messages updated in the </p>
+<p>section 9.1 and 9.3. </p>
+<p>10.</p>
+<p> </p>
+<p>Removed Chapter 9 SPI Driver Generation Tool Options, </p>
+<p>Chapter-11 Notes. </p>
+<p>11.</p>
+<p> </p>
+<p>Chapter 3, Added remark for common MCAL Code </p>
+<p>Generator Tool user manual. </p>
+<p>12.</p>
+<p> </p>
+<p>Chapter 3, Updated Figure 3-2 Flowchart of MCAL Code </p>
+<p>Generator Tool. </p>
+<p>13.</p>
+<p> </p>
+<p>Chapter 3, Renamed chapter name MCAL Code Generator </p>
+<p>Tool Overview to Code Generation Overview. </p>
+<p>14.</p>
+<p> </p>
+<p>Removed parameters from Figure 8-1, Configuration </p>
+<p>Overview. </p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p>5.4</p>
+<p> </p>
+<p>Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 48 of 55 </p>
+<p>6  WDG </p>
+<p>6.1 Target Info </p>
+<p><b>Processor </b></p>
+<p>P1M-C - R7F701373, R7F701374 </p>
+<p><b>Module </b></p>
+<p>WDG </p>
+<p><b>Software Version </b></p>
+<p>V1.0.2 </p>
+<p><b>Embedded User Manual </b></p>
+<p>R20UT3661EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Tool User Manual </b></p>
+<p>R20UT3662EJ0100-AUTOSAR.pdf – V1.0.2 </p>
+<p><b>Date </b></p>
+<p>28-Feb-2017 </p>
+<p>6.2 Release Items </p>
+<p><b>Filename </b></p>
+<p><b>Version </b></p>
+<p><b>Change Description </b></p>
+<p><b>P1x-C - Parameter Definition files<i></b> </i></p>
+<p>R403_WDG_DriverA_P1X-C.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                                                                                               </p>
+<p>1.</p>
+<p> </p>
+<p>Added parameters WdgInterruptConsistencyCheck,</p>
+<p> </p>
+<p>WdgUseWriteVerifyErrorInterface,</p>
+<p> </p>
+<p>WdgWriteVerifyErrorInterface and WdgWriteVerify.         </p>
+<p>2.</p>
+<p> </p>
+<p>Added WdgExternalConfiguration container. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed the parameters WdgRegReadBackEnable and </p>
+<p>WDG_E_READBACK_FAILURE. </p>
+<p>4.</p>
+<p> </p>
+<p>WdgClkSettingsSlow and WdgClkSettingsFast value name </p>
+<p>and description are made in-line with the device user </p>
+<p>manual. </p>
+<p>R403_WDG_DriverB_P1X-C.arxml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                                                                                               </p>
+<p>1.</p>
+<p> </p>
+<p>Added parameters WdgInterruptConsistencyCheck,</p>
+<p> </p>
+<p>WdgUseWriteVerifyErrorInterface,</p>
+<p> </p>
+<p>WdgWriteVerifyErrorInterface and WdgWriteVerify.         </p>
+<p>2.</p>
+<p> </p>
+<p>Added WdgExternalConfiguration container. </p>
+<p>3.</p>
+<p> </p>
+<p>Removed the parameters WdgRegReadBackEnable and </p>
+<p>WDG_E_READBACK_FAILURE. </p>
+<p>4.</p>
+<p> </p>
+<p>WdgClkSettingsSlow and WdgClkSettingsFast value name </p>
+<p>and description are made in-line with the device user </p>
+<p>manual.   </p>
+<p><b>BSWMDT<i></b> </i></p>
+<p>R403_WDG_P1x-C_BSWMDT.arx</p>
+<p>ml </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                                                                                               </p>
+<p>1.</p>
+<p> </p>
+<p>Software patch version is updated. </p>
+<p><b>Source Code<i></b> </i></p>
+<p>Wdg_59_DriverA.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 49 of 55 </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings are fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>usSlowTimeValue, </p>
+<p>usFastTimeValue, DefaultTimeValue and </p>
+<p>Wdg_59_DriverA_GusTiggerCounter are changed to </p>
+<p>ulSlowTimeValue, ulFastTimeValue, ulDefaultTimeValue and </p>
+<p>Wdg_59_DriverA_GulTiggerCounter respectively. </p>
+<p>5. QAC warning tag corrected. </p>
+<p>Wdg_59_DriverA_Irq.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverA_GusTiggerCounter is changed to uint32. </p>
+<p>5.</p>
+<p> </p>
+<p>Added MISRA warning description and changed compiler </p>
+<p>switch condition check format. </p>
+<p>Wdg_59_DriverA_Private.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>Changed compiler switch condition check format. </p>
+<p>Wdg_59_DriverA_Ram.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverA_GusTiggerCounter and </p>
+<p>Wdg_59_DriverA_GddDriverState are declared volatile. </p>
+<p>5.</p>
+<p> </p>
+<p>Wdg_59_DriverA_GusTiggerCounter is changed to uint32. </p>
+<p>Wdg_59_DriverA_Version.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>Wdg_59_DriverB.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>usSlowTimeValue, </p>
+<p>usFastTimeValue,DefaultTimeValue and </p>
+<p>Wdg_59_DriverB_GusTiggerCounter are changed to </p>
+<p>ulSlowTimeValue,ulFastTimeValue,DefaultTimeValue </p>
+<p>and Wdg_59_DriverB_GulTiggerCounter respectively. </p>
+<p>5. QAC warning tag corrected. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 50 of 55 </p>
+<p>Wdg_59_DriverB_Irq.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverB_GusTiggerCounter is changed to uint32. </p>
+<p>5.</p>
+<p> </p>
+<p>Added MISRA warning description and changed compiler </p>
+<p>switch condition check format. </p>
+<p>Wdg_59_DriverB_Private.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>4.</p>
+<p> </p>
+<p>Changed compiler switch condition check format. </p>
+<p>Wdg_59_DriverB_Ram.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>3.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverB_GusTiggerCounter and </p>
+<p>Wdg_59_DriverB_GddDriverState are declared volatile. </p>
+<p>4.</p>
+<p> </p>
+<p>Wdg_59_DriverB_GusTiggerCounter is changed to uint32. </p>
+<p>Wdg_59_DriverB_Version.c </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>2.</p>
+<p> </p>
+<p>QAC warnings Justified. </p>
+<p>Wdg_59_DriverA.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Protected all the macros defined by appending U, UL </p>
+<p>accordingly. </p>
+<p>Wdg_59_DriverA_Debug.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>Wdg_59_DriverA_Irq.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>Wdg_59_DriverA_PBTypes.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Critical memory section macros are added. </p>
+<p>4.</p>
+<p> </p>
+<p>Macro WDG_59_DRIVERA_DBTOC_VALUE updated to </p>
+<p>avoid QAC warning. </p>
+<p>5.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>6.</p>
+<p> </p>
+<p>Macro value WDG_59_DRIVERA_COUNTER_ZERO </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 51 of 55 </p>
+<p>changed to UL. </p>
+<p>7.</p>
+<p> </p>
+<p>Protected all the macros defined by appending U, UL </p>
+<p>accordingly. </p>
+<p>Wdg_59_DriverA_Private.h </p>
+<p>2.0.0 </p>
+<p>Following change is made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>Wdg_59_DriverA_Ram.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverA_GusTiggerCounter and </p>
+<p>Wdg_59_DriverA_GddDriverState declared volatile. </p>
+<p>2.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverA_GusTiggerCounter is changed </p>
+<p>to Wdg_59_DriverA_GulTiggerCounter. </p>
+<p>Wdg_59_DriverA_RegWrite.h </p>
+<p>1.0.0 </p>
+<p>Initial Version. </p>
+<p>Wdg_59_DriverA_Types.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Type of SlowTimeValue, FastTimeValue, </p>
+<p>InitTimerCountValue, DefaultTimeValue are changed to </p>
+<p>uint32. </p>
+<p>Wdg_59_DriverA_Version.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>Wdg_59_DriverB.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Protected all the macros defined by appending U, UL </p>
+<p>accordingly. </p>
+<p>Wdg_59_DriverB_Debug.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>Wdg_59_DriverB_Irq.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>Wdg_59_DriverB_PBTypes.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Critical memory section macros are added. </p>
+<p>4.</p>
+<p> </p>
+<p>Macro WDG_59_DRIVERB_DBTOC_VALUE updated to </p>
+<p>avoid QAC warning. </p>
+<p>5.</p>
+<p> </p>
+<p>QAC and MISRA warnings fixed/Justified. </p>
+<p>6.</p>
+<p> </p>
+<p>Macro value WDG_59_DRIVERB_COUNTER_ZERO </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 52 of 55 </p>
+<p>changed to UL. </p>
+<p>7.</p>
+<p> </p>
+<p>Protected all the macros defined by appending U, UL </p>
+<p>accordingly. </p>
+<p>Wdg_59_DriverB_Private.h </p>
+<p>2.0.0 </p>
+<p>Following change is made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>Wdg_59_DriverB_Ram.h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverB_GusTiggerCounter and </p>
+<p>Wdg_59_DriverB_GddDriverState declared volatile. </p>
+<p>2.</p>
+<p> </p>
+<p>Variable Wdg_59_DriverB_GusTiggerCounter is changed </p>
+<p>to Wdg_59_DriverB_GulTiggerCounter. </p>
+<p>Wdg_59_DriverB_RegWrite.h </p>
+<p>1.0.0 </p>
+<p>Initial Version. </p>
+<p>Wdg_59_DriverB_Types.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p>3.</p>
+<p> </p>
+<p>Type of SlowTimeValue, FastTimeValue, </p>
+<p>InitTimerCountValue, DefaultTimeValue are changed to </p>
+<p>uint32. </p>
+<p>Wdg_59_DriverB_Version.h </p>
+<p>2.0.0 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>File adapted from P1x. </p>
+<p>2.</p>
+<p> </p>
+<p>Comments added for traceability. </p>
+<p><b>P1x-C TCODE file for WDG</b></p>
+<p> </p>
+<p>Wdg_Hardware_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Typedef declarations for structure is followed as per the </p>
+<p>coding guidelines. </p>
+<p>Wdg_PBcfg_c </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Precision of time value has been updated with values to be </p>
+<p>in microseconds for better accuracy. </p>
+<p>2.</p>
+<p> </p>
+<p>Memory section in the global data has been changed from </p>
+<p>      SEC_DBTOC_DATA_UNSPECIFIED to </p>
+<p>        SEC_CONFIG_DATA_UNSPECIFIED. </p>
+<p>3.</p>
+<p> </p>
+<p>Updated WdgClkSettingsFast/Slow parameters value </p>
+<p>extraction in accordance with the new naming convention. </p>
+<p>4.</p>
+<p> </p>
+<p>Type of InitTimerCountValue, DefaultTimeValue and </p>
+<p>SlowTimeValue is changed to uint32. </p>
+<p>Wdg_Cfg_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Replaced the Register ReadBack with WDG Write Verify. </p>
+<p>2.</p>
+<p> </p>
+<p>Added the macro WDG_USE_WV_ERROR_INTERFACE, </p>
+<p>WDG_E_REG_WRITE_VERIFY and </p>
+<p>WDG_E_INT_INCONSISTENT. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 53 of 55 </p>
+<p>3.</p>
+<p> </p>
+<p>WDG_59_${PaName}_E_MODE_FAILED_REPORTING </p>
+<p>and </p>
+<p>WDG_59_${PaName}_E_DISABLE_REJECTED_REPOR</p>
+<p>TING are added for reporting DEM Errors. </p>
+<p>Wdg_Hardware_h </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Typedef declarations for structure is followed as per the </p>
+<p>coding guidelines. </p>
+<p>Wdg_Cbk_h </p>
+<p>1.0.0 </p>
+<p>Initial Version. </p>
+<p>Wdg_Validate </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Added Reference Parameter Check for </p>
+<p>WDG_E_MODE_FAILED, and validation of </p>
+<p>WdgWriteVerify. </p>
+<p>2.</p>
+<p> </p>
+<p>Added ERR_59_102_041 for the Parameter </p>
+<p>WDG_E_INT_INCONSISTENT. </p>
+<p><b>P1x-C WDG Common Sample Application Source file </b></p>
+<p>App_WDG_Common_Sample.c </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D.                                               </p>
+<p><b>P1x-C WDG Common Sample Application Header file<i></b> </i></p>
+<p>App_WDG_Common_Sample.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D.                                               </p>
+<p><b>P1x-C Sample Application P1M-C Source file<i></b> </i></p>
+<p>App_WDG_P1x-C_Sample.c </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D.                                               </p>
+<p><b>P1x-C Sample Application P1M-C Header file<i></b> </i></p>
+<p>App_WDG_Device_Sample.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D.                                               </p>
+<p>TargetMap.h </p>
+<p>1.0.0 </p>
+<p>No changes for release Ver4.02.00.D.                                               </p>
+<p><b>P1x-C User Manual </b></p>
+<p>R20UT3661EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>Section 13.2.4 Precautions is added. </p>
+<p>2.</p>
+<p> </p>
+<p>Chapter 8 stub C header file is replaced with the port </p>
+<p>specific C header files and added the stub files. </p>
+<p>3.</p>
+<p> </p>
+<p>Added a ‘Note’ and updated the table 'Supervisor mode </p>
+<p>And User mode’ details. </p>
+<p>4.</p>
+<p> </p>
+<p>Section 13.2.1, naming convention of </p>
+<p>WdgClkSettingsFast and WdgClkSettingsSlow values are </p>
+<p>changed. </p>
+<p>5.</p>
+<p> </p>
+<p>Section 13.2 Memory and Throughput updated. </p>
+<p>6.</p>
+<p> </p>
+<p>R-number updated for the document. </p>
+<p>7.</p>
+<p> </p>
+<p>Device name updated. </p>
+<p>8.</p>
+<p> </p>
+<p>Section 13.1 Compiler, Linker and Assembler removed. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated Section 4.3 for Critical section details and added </p>
+<p>table WDG Driver Protected Resources List. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 54 of 55 </p>
+<p>10.</p>
+<p> </p>
+<p>  Reference for .one and .html are removed. </p>
+<p>11.</p>
+<p> </p>
+<p>In Section 4.7 updated Note to Note2 and added Note1. </p>
+<p>12.</p>
+<p> </p>
+<p>Added new errors in Table 11-2 DEM Errors Of WDG </p>
+<p>Driver Component and added Notes to Table 11-2 and </p>
+<p>Table 11-1. </p>
+<p>13.</p>
+<p> </p>
+<p>Updated Section 8 with a Note. </p>
+<p>14.</p>
+<p> </p>
+<p>Updated Content of Section 13.2.4. </p>
+<p>R20UT3662EJ0100-AUTOSAR.pdf </p>
+<p>1.0.2 </p>
+<p>Following changes are made in Ver4.02.00.D:-                                                 </p>
+<p>1.</p>
+<p> </p>
+<p>In section 8.1.2, replaced the old naming convention with </p>
+<p>TWO_POWOF_9_ DIVBY_ WDGCLK and </p>
+<p>TWO_POWOF_9_ DIVBY_ WDGCLK. </p>
+<p>2.</p>
+<p> </p>
+<p>R-number updated for the document. </p>
+<p>3.</p>
+<p> </p>
+<p>In section 9.1, ERR_59_102_003, ERR_59_102_007, </p>
+<p>ERR_59_102_034, ERR_59_102_041, ERR_59_102_042, </p>
+<p>ERR_59_102_045, ERR_59_102_046, ERR_59_102_047, </p>
+<p>ERR_59_102_048, ERR_59_102_052 &amp; ERR_59_102_054 </p>
+<p>are removed. </p>
+<p>4.</p>
+<p> </p>
+<p>In section 9.1, ERR_59_102_013, ERR_59_102_014, </p>
+<p>ERR_59_102_015, ERR_59_102_016, ERR_59_102_018, </p>
+<p>ERR_59_102_019, ERR_59_102_020, ERR_59_102_021, </p>
+<p>ERR_59_102_022, ERR_59_102_023, ERR_59_102_024, </p>
+<p>ERR_59_102_025, ERR_59_102_026 &amp; ERR_59_102_039 </p>
+<p>are added. </p>
+<p>5.</p>
+<p> </p>
+<p>In section 9.3, INFO_59_102_103 &amp; INFO_59_102_104 are </p>
+<p>added. </p>
+<p>6.</p>
+<p> </p>
+<p>Removed chapters Section 9 Generation Tool Options, </p>
+<p>Section11 Notes and replaced the phrases Tool, Generator </p>
+<p>Tool, WDG Driver Generator tool with MCAL Code </p>
+<p>Generator Tool in this document. </p>
+<p>7.</p>
+<p> </p>
+<p>Updated Reference Document details in Chapter 2. </p>
+<p>8.</p>
+<p> </p>
+<p>Figure 3-2 of Chapter 3 is updated and added Remark in the </p>
+<p>same chapter. </p>
+<p>9.</p>
+<p> </p>
+<p>Updated chapter 6 by adding two more points. </p>
+<p>10.</p>
+<p> </p>
+<p>Updated Figure 8-1, Table 8-1 and Table 8-2 in chapter 8. </p>
+<p>11.</p>
+<p> </p>
+<p>Figure 3-2 is renamed from Flow-Diagram of MCAL Code </p>
+<p>Generator Tool to Flow-Diagram of Code Generation. </p>
+<p>12.</p>
+<p> </p>
+<p>Updated section 9.1 Error Messages with new errors </p>
+<p>ERR_59_102_040, ERR_59_102_041, ERR_59_102_042, </p>
+<p>ERR_59_102_043. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>      Renesas Electronics </p>
+<p>                                Release Date: 28/02/2017 </p>
+<p> </p>
+<p>Page 55 of 55 </p>
+<p>13.</p>
+<p> </p>
+<p>Table 8-2 updated with WdgDemEventParameterRefs. </p>
+<p> </p>
+<p>6.3 Fixed Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the fixed issues list as shared from Renesas </p>
+<p>Ref. P1xC_FixedIssues_Ver4.02.00.D.xlsx </p>
+<p>6.4 Known Issues </p>
+<p><b>ID </b></p>
+<p><b>Description </b></p>
+<p>NA </p>
+<p>Please refer to the known issues list as shared from Renesas </p>
+<p>Ref. P1xC_OpenMarket_KnownIssues_CW09_2017.xlsx </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

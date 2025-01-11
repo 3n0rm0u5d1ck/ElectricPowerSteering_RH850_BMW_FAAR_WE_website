@@ -1,0 +1,289 @@
+---
+layout: default
+title: AN-ISC-8-1170_Use_AR3_SWCs_in_AR4
+nav_order: 42
+parent: Component Implementation
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p><b> </b></p>
+<p><b>Use AR3 SWCs in AR4 </b></p>
+<p><b>Version 1.02.00 </b></p>
+<p><b>2015-01-16 </b></p>
+<p><b>Application NoteAN-ISC-8-1170 </b></p>
+<p> </p>
+<p> </p>
+<p><i> </i></p>
+<p>Author(s) </p>
+<p>Alexander Zeeb </p>
+<p>Restrictions </p>
+<p>Customer confidential - Vector decides </p>
+<p>Abstract </p>
+<p>This application note describes how to use SWC developed for AR3 in pure AR4 </p>
+<p>environment.</p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><i><b>Table of Contents </b></i></p>
+<p><i><b> </b></i></p>
+<p><b> 1  </b></p>
+<p><i>Copyright © 2015 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector.com   or +49-711-80 670-0 </b></p>
+<p>1.0</p>
+<p> </p>
+<p>Overview .......................................................................................................................................................... 2</p>
+<p> </p>
+<p>2.0</p>
+<p> </p>
+<p>WdgM Wrapper Service Component for AR3 Legacy SWC ............................................................................ 2</p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>DaVinci Developer ......................................................................................................................................... 2</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>DaVinci Configurator Pro............................................................................................................................... 3</p>
+<p> </p>
+<p>2.3</p>
+<p> </p>
+<p>Mode Port WdgM_GlobalMode / WdgM_IndividualMode ............................................................................. 3</p>
+<p> </p>
+<p>3.0</p>
+<p> </p>
+<p>NVM Wrapper Service Component for AR3 Legacy SWC .............................................................................. 3</p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>DaVinci Developer ......................................................................................................................................... 4</p>
+<p> </p>
+<p>3.1.1</p>
+<p> </p>
+<p>Port: NvMAdministration ............................................................................................................................. 4</p>
+<p> </p>
+<p>3.1.2</p>
+<p> </p>
+<p>Port: NvMService ........................................................................................................................................ 4</p>
+<p> </p>
+<p>4.0</p>
+<p> </p>
+<p>Adaptation for ECUM and COMM ................................................................................................................... 4</p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>ECUM ............................................................................................................................................................ 4</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>COMM ........................................................................................................................................................... 4</p>
+<p> </p>
+<p>5.0</p>
+<p> </p>
+<p>Additional Resources ....................................................................................................................................... 4</p>
+<p> </p>
+<p>6.0</p>
+<p> </p>
+<p>Contacts ........................................................................................................................................................... 4</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p><i><b> </b></i></p>
+<p><b> 2  </b></p>
+<p><i>Copyright © 2015 - Vector Informatik GmbH </i></p>
+<p><b>Contact Information:   www.vector.com   or +49-711-80 670-0 </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>1.0 </b></p>
+<p><b>Overview </b></p>
+<p>This application note describes what has to be done to integrate AR3 SWC in an AR4 environment (BSW) with as </p>
+<p>little adaptations as possible. Adaptations are mainly necessary if the AR3 SWC has dependencies to the </p>
+<p>interfaces of the modules <b>NVM </b>and <b>WDGM</b>. These modules in contrast to <b>ECUM </b>and <b>COMM </b>do not provide an </p>
+<p>AR3 legacy interface and hence need a wrapper component which translates between AR3 and AR4 interfaces.  </p>
+<p><b>2.0 </b></p>
+<p><b>WdgM Wrapper Service Component for AR3 Legacy SWC </b></p>
+<p>The wrapper has to be designed and implemented manually and is realized by a Service Component Type in </p>
+<p>DaVinci Developer. This wrapper for the AR4 WDGM Service Component has to translate between the AR4 Port </p>
+<p>Interfaces of WDGM and the AR3 Port Interfaces of the SWC. </p>
+<p>Note: </p>
+<p>The AR4 Port Interface WdgM_AliveSupervision has a different and reduced set of Operations </p>
+<p>compared to AR3. AR4 does not support the de-/activation of Supervised Entities any more.  </p>
+<p>Instead of the de/activation of Supervised Entities separately like in AR3, WDGM modes have to </p>
+<p>be requested- and released by the wrapper to change the state of the Supervised Entities. The </p>
+<p>description of these modes however is not part of this document. </p>
+<p> </p>
+<p>The wrapper component provides <b>twice </b>the set of Port Interfaces required by the AR3 legacy SWC: </p>
+<p>•</p>
+<p> </p>
+<p>Compliant to AR3 (towards the SWC) </p>
+<p>•</p>
+<p> </p>
+<p>Compliant to AR4 (towards the WDGM) </p>
+<p> </p>
+<p>Both sets have to be connected appropriately in DaVinci Configurator Pro. All necessary steps are explained in the </p>
+<p>following chapters. </p>
+<p><b>2.1 </b></p>
+<p><b>DaVinci Developer </b></p>
+<p>•</p>
+<p> </p>
+<p>Create a <b>Service C/S Port Interface </b>WdgM_AliveSupervision with Operations according to AR3 like </p>
+<p>shown in the screenshot below. </p>
+<p> </p>
+<p> </p>
+<p>Figure 1 – AR3 C/S Port Interface WdgM_AliveSupervision </p>
+<p> </p>
+<p>Create the <b>Service Component Type </b>of the wrapper component: <b>WdgM_AR3_Wrapper </b>and assign the following </p>
+<p>two Port Interfaces:  </p>
+<p>•</p>
+<p> </p>
+<p>WdgM_AliveSupervision (AR4) Client (DWN_CS_AliveSupervision) </p>
+<p>•</p>
+<p> </p>
+<p>WdgM_AliveSupervision (AR3) Server (UP_CS_AliveSupervision) </p>
+<p> </p>
+<p>Each Operation of the WdgM_AliveSupervision Server Port Prototype requires a Runnable, which is triggered on </p>
+<p>the corresponding Operation invocation. The Runnable of the Operation CheckpointReached can directly call the </p>
+<p>Operation UpdateAliveCounter.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Use AR3 SWCs in AR4</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>3 </b></p>
+<p><i>Application NoteAN-ISC-8-1170 </i></p>
+<p> </p>
+<p>Note: </p>
+<p>When using the <b>UpdateAliveCounter </b>interface, each call will trigger the report of a development </p>
+<p>error in case the development checks are activated within the WDGM. This is an AR feature used </p>
+<p>to notify the user that a deprecated functionality is used. </p>
+<p> </p>
+<p><b>2.2 </b></p>
+<p><b>DaVinci Configurator Pro </b></p>
+<p>The WDGM wrapper is connected between WDGM and application SWC. The SWC’s remaining WDGM Interfaces </p>
+<p>are connected directly with the WDGM. </p>
+<p> </p>
+<p>Figure 4 – Port Mapping in DaVinci Configurator Pro </p>
+<p><b>2.3 </b></p>
+<p><b>Mode Port WdgM_GlobalMode / WdgM_IndividualMode </b></p>
+<p>Both Mode Ports semantically describe the same modes in AR3 and AR4. The only difference is the name of those </p>
+<p>modes. </p>
+<p><b>AR3 </b></p>
+<p><b>AR4 </b></p>
+<p><b>Value </b></p>
+<p>ALIVE_OK </p>
+<p>SUPERVISION_OK </p>
+<p>0 </p>
+<p>ALIVE_FAILED </p>
+<p>SUPERVISION_FAILED </p>
+<p>1 </p>
+<p>ALIVE_EXPIRED </p>
+<p>SUPERVISION_EXPIRED </p>
+<p>2 </p>
+<p>ALIVE_STOPPED </p>
+<p>SUPERVISION_STOPPED </p>
+<p>3 </p>
+<p>ALIVE_DEACTIVATED </p>
+<p>SUPERVISION_DEACTIVATED </p>
+<p>4 </p>
+<p>Table 1 – Differences in Mode WdgM_GlobalMode and WdgM_IndividualMode </p>
+<p>Since the modes are in the correct order, AR3- and AR4 Mode Ports are compatible from a functional point of view.  </p>
+<p>Note: </p>
+<p>The different naming can also be a reason for using the wrapper. </p>
+<p><b>3.0 </b></p>
+<p><b>NVM Wrapper Service Component for AR3 Legacy SWC </b></p>
+<p>The Port Interface of AR4 NVM is not compatible with Port Interface of AR3. Especially the return types have </p>
+<p>changed.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p> </p>
+<p> </p>
+<p>Use AR3 SWCs in AR4</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><i><b> </b></i></p>
+<p><b>4 </b></p>
+<p><i>Application NoteAN-ISC-8-1170 </i></p>
+<p> </p>
+<p>The wrapper has to be designed- and implemented manually and is realized by a Service Component Type in </p>
+<p>DaVinci Developer. This wrapper for the AR4 NVM Service Component translates between the AR4 Port Interfaces </p>
+<p>of NVM and the AR3 Port Interfaces of the SWC. </p>
+<p><b>3.1 </b></p>
+<p><b>DaVinci Developer </b></p>
+<p><b>3.1.1 </b></p>
+<p><b>Port: NvMAdministration </b></p>
+<p>The only Operation of this Port Interface (</p>
+<p>SetBlockProtection)</p>
+<p> changed its return value from </p>
+<p>POSSIBLE-</p>
+<p>ERRORS(&lt;none&gt;) </p>
+<p>to </p>
+<p>POSSIBLE-ERRORS(E_NOT_OK). </p>
+<p>To meet the AR4 return value, this definition can be adapted at the require-port instance of the AR3 SWC.  </p>
+<p><b>3.1.2 </b></p>
+<p><b>Port: NvMService </b></p>
+<p>Return types (</p>
+<p>POSSIBLE-ERRORS</p>
+<p>) of following Operations changed: </p>
+<p>•</p>
+<p> </p>
+<p>GetErrorStatus </p>
+<p>•</p>
+<p> </p>
+<p>GetDataIndex </p>
+<p>•</p>
+<p> </p>
+<p>SetDataIndex </p>
+<p>•</p>
+<p> </p>
+<p>SetRamBlockStatus</p>
+<p> </p>
+<p> </p>
+<p>Analog to NvMAdministration Port Interface, the SWC Port Interfaces have to be adapted to provide the new error </p>
+<p>codes.  </p>
+<p>Note: In contrast to AR3, NvM_SetDataIndex can return an error in AR4 which has to be handled by the </p>
+<p>application. This can only happen if ‘Development Error Detection’ is enabled. </p>
+<p><b>4.0 </b></p>
+<p><b>Adaptation for ECUM and COMM </b></p>
+<p>As mentioned in chapter 1.0, ECUM and COMM both provide legacy AR3 interfaces which which has to be </p>
+<p>activated. Further adaptations are not required..  </p>
+<p><b>4.1 </b></p>
+<p><b>ECUM </b></p>
+<p>Configure fixed-behaviour of ECUM (refer to ECUM Technical Reference: <b>Support of EcuM fixed</b>). </p>
+<p> </p>
+<p><b>4.2 </b></p>
+<p><b>COMM </b></p>
+<p>Instantiate the parameter ‘<b>Operation GetInhibition Status Enabled’ </b>and set this parameter to <b>FALSE </b></p>
+<p>(/MICROSAR/ComM/ComMGeneral/ComMOperationGetInhibitionStatusEnabled). </p>
+<p> </p>
+<p><b>5.0 </b></p>
+<p><b>Additional Resources </b></p>
+<p>VECTOR TECHNICAL REFERENCES </p>
+<p><b>TechnicalReference_Asr_EcuM.pdf </b></p>
+<p>Technical Reference EcuM  </p>
+<p> </p>
+<p><b>6.0 </b></p>
+<p><b>Contacts </b></p>
+<p>For a full list with all Vector locations and addresses worldwide, please visit http://vector.com/contact/. </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,479 @@
+---
+layout: default
+title: StmClassic_IntegrationManual
+nav_order: 2
+parent: Stm
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Stm Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.2.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Description</b></p>
+<p>5.2.0</p>
+<p>2017-12-14</p>
+<p>Initial version for SP2021</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 1 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>3</b></p>
+<p>1.1</p>
+<p>General</p>
+<p>3</p>
+<p>1.2</p>
+<p>Functional overview</p>
+<p>3</p>
+<p><b>2</b></p>
+<p><b>Acronyms and abbreviations</b></p>
+<p><b>4</b></p>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p><b>4</b></p>
+<p><b>Limitations and Known Issues</b></p>
+<p><b>6</b></p>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>5.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>5.1.1</p>
+<p>RTE</p>
+<p>7</p>
+<p>5.1.2</p>
+<p>Com</p>
+<p>7</p>
+<p>5.1.3</p>
+<p>Dem</p>
+<p>7</p>
+<p>5.1.4</p>
+<p>BswM</p>
+<p>7</p>
+<p>5.2</p>
+<p>Dependencies to BMW modules</p>
+<p>7</p>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>8</b></p>
+<p>6.1</p>
+<p>Configuration of other Modules</p>
+<p>8</p>
+<p>6.1.1</p>
+<p>Com</p>
+<p>8</p>
+<p>6.1.2</p>
+<p>BswM</p>
+<p>8</p>
+<p>6.1.3</p>
+<p>Dem</p>
+<p>9</p>
+<p>6.2</p>
+<p>Configuration</p>
+<p>9</p>
+<p>6.2.1</p>
+<p>StmGeneral</p>
+<p>9</p>
+<p>6.3</p>
+<p>Configuration of the RTE</p>
+<p>11</p>
+<p>6.3.1</p>
+<p>Assembly connectors</p>
+<p>11</p>
+<p>6.3.2</p>
+<p>Event Mapping</p>
+<p>12</p>
+<p>6.3.3</p>
+<p>Data Mapping</p>
+<p>12</p>
+<p>6.3.4</p>
+<p>Exclusive Areas</p>
+<p>13</p>
+<p>6.4</p>
+<p>Software Integration</p>
+<p>13</p>
+<p>6.4.1</p>
+<p>SWCD</p>
+<p>13</p>
+<p>6.4.2</p>
+<p>Startup/Initialisation</p>
+<p>14</p>
+<p>6.4.3</p>
+<p>Normal Operation</p>
+<p>14</p>
+<p>6.4.4</p>
+<p>Shutdown/Deactivation</p>
+<p>14</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 2 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>This Integration Manual describes the basis functionality, API and the configuration and integration of the</p>
+<p>BMW System Function Stm.</p>
+<p><b>General</b></p>
+<p>For a general introduction to the BAC4 Platform Modules, please refer to [1].</p>
+<p>This document only describes topics related to the Stm BAC4 Module.</p>
+<p>This Integration Manual describes the basis functionality, API and the configuration of the BMW system</p>
+<p>function Stm.</p>
+<p><b>Functional overview</b></p>
+<p>The main objective of the Stm functionality is to supervise signals that are communicated on the system</p>
+<p>busses and maintain these states for the local ECU. This means:</p>
+<p>This means:</p>
+<p>Make these states available as modes to other software.</p>
+<p>React on some changes of these states (for instance setting Dem enable conditions).</p>
+<p>React on timeouts of these communicated states (set default values, report error events accordingly).</p>
+<p>The Stm module itself is modeled as a SWC residing above the RTE.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 3 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Acronyms and abbreviations</b></p>
+<p><b>Abbreviation</b></p>
+<p><b>/ Acronym</b></p>
+<p><b>Description</b></p>
+<p>AUTOSAR</p>
+<p>Automotive Open Systems Architecture group</p>
+<p>BAC</p>
+<p>BMW AUTOSAR Core</p>
+<p>ECU</p>
+<p>Electronical Control Unit</p>
+<p>BswM</p>
+<p>Basic Software Mode Manager</p>
+<p>Com</p>
+<p>Communication Module</p>
+<p>Dem</p>
+<p>Diagnostic Event Manager</p>
+<p>PDU</p>
+<p>Protocol Data Unit</p>
+<p>RTE</p>
+<p>Runtime Environment</p>
+<p>Stm</p>
+<p>Status Monitoring</p>
+<p>SWC</p>
+<p>Software Component</p>
+<p>SWCD</p>
+<p>Software Component Description</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 4 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 5 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Limitations and Known Issues</b></p>
+<p>Currently there are no limitations known.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 6 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p>The current version of the Stm Module depends on the following BSW modules:</p>
+<p><b>RTE</b></p>
+<p>As a software component, the Stm module uses RTE client/server communication to communicate with</p>
+<p>other SWCs and BSW. Additionally the scheduling is done by the RTE.</p>
+<p><b>Com</b></p>
+<p>According to chapter 1.2 the Stm modules main objective is to monitor certain bus signals. Therefore,</p>
+<p>these signals have to be configured in Com and the data element to Com signal mapping has to be</p>
+<p>correctly implemented.</p>
+<p><b>Dem</b></p>
+<p>The Stm controls a Dem specific EnableCondition. It uses the Client-Server interface EnableCondition</p>
+<p>provided by the Dem.</p>
+<p><b>BswM</b></p>
+<p>The Stm module expects that it will be notified via ModeSwitchEvents, whether the ComSignal for</p>
+<p>centralErrorLock can be received or not. The receive ability depends on the state (started/stopped) of the</p>
+<p>ComPduGroup the ComSignal is part of. We suggest that the integrator monitors state changes of this</p>
+<p>ComPduGroup and notifies these by ModeSwitches with a corresponding rule configuration in the BswM.</p>
+<p><b>Dependencies to BMW modules</b></p>
+<p>Stm does not have dependencies to other modules.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 7 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>6</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p><b>Com</b></p>
+<p>It is optional to configure the following signals in the Com module. In case you disable the corresponding</p>
+<p>feature in all configuration variants of container StmFeatureActivation, you do not need to configure the</p>
+<p>related ComSignal. Also in cases, you use RTE transformers to serialize network data into data elements</p>
+<p>the configuration is done outside of Com.</p>
+<p><b>ComSignal for Stm data element vehicleState</b></p>
+<p>The ComSignal for the data element vehicleState shall be configured. This signal is currently named</p>
+<p>ST_CON_VEH in the BMW message catalog and is part of the PDU CON_VEH in CAN and Flexray</p>
+<p>configurations. In case of Ethernet configuration it is part of event VehicleCondition of service</p>
+<p>VehicleCondition in package BMW.INFRASTRUCTURE.<b> Note:</b> This is a new variant of the vehicle state</p>
+<p>information, which starts in the service pack 2015.</p>
+<p><b>ComSignal for Stm data element energyState</b></p>
+<p>The ComSignal for the data element energyState shall be configured. This signal is currently named</p>
+<p>ST_ENERG_FZM in the BMW message catalog and is part of the PDU FZZSTD in CAN and Flexray</p>
+<p>configurations. In case of Ethernet configuration, it is part of field VehicleStatus (member</p>
+<p>statusEnergyFZM) of service StatusEnergy in package BMW.INFRASTRUCTURE.<b> Note:</b> This is a new</p>
+<p>variant of the vehicle state information, which starts in the service pack 2015.</p>
+<p><b>ComSignal for Stm data element centralErrorLock</b></p>
+<p>The ComSignal for the data element centralErrorLock shall be configured. This signal is currently named</p>
+<p>ST_ILK_ERRM_FZM in the BMW message catalog and is part of the PDU FZZSTD in CAN and Flexray</p>
+<p>configurations. In case of Ethernet configuration, it is part of field VehicleStatus (member</p>
+<p>statusInterlockErrorMemoryFZM) of service StatusEnergy in package BMW.INFRASTRUCTURE.</p>
+<p><b>BswM</b></p>
+<p>Configure a rule and depending ActionLists to switch a ModeDeclarationGroup that is based on the</p>
+<p>interface ErrorMemoryLockSignalReceptionMode, depending on the ComSignalGroup state to either</p>
+<p>EM_LOCK_RECEIVABLE or EM_LOCK_NOT_RECEIVABLE.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 8 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Dem</b></p>
+<p>Stm interacts with Dem in a way, that it controls a so called Dem EnableCondition, which in turn controls if</p>
+<p>status changes (triggered by Dem_ReportErrorStatus/Dem_SetEventStatus) for Dem Events which are</p>
+<p>linked to this EnableCondition shall be ignored or not.</p>
+<p><b>DemEnableConditionSupport</b></p>
+<p>DemEnableConditionSupport hast to be enabled in Dem configuration.</p>
+<p><b>DemEnableCondition/DemEnableConditionGroup</b></p>
+<p>Inside Dem configuration an unique/special EnableCondition for Stm shall be configured. This</p>
+<p>EnableCondition shall be referenced by all EnableConditionGroups in the system, that depend on this</p>
+<p>EnableCondition. Example: At BMW the permission to report communication error relevant Dem events</p>
+<p>depends on the state of different sources (operating mode, diagnostic state and Stm centralErrorLock).</p>
+<p>Each of these sources is connected to its own EnableCondition and all these conditions are combined in</p>
+<p>one EnableConditionGroup. At the end, all Dem Events that represent communication errors shall</p>
+<p>reference this EnableGroup via their DemEnableConditionGroupRef parameter.</p>
+<p><b>Configuration</b></p>
+<p>The Stm configuration allows configuring the timeout supervision values for the four different</p>
+<p>ComSignals. The Stm configuration contains one configuration container StmGeneral and one container</p>
+<p>StmFeatureActivation.</p>
+<p><b>StmGeneral</b></p>
+<p>This container contains the configuration (parameters) of the Stm.</p>
+<p><b>StmInitialCentralErrorLockTimeout</b></p>
+<p>This FLOAT-parameter specifies the first/initial timeout in seconds after the ComPduGroup started to</p>
+<p>which the ComSignal mapped to data element centralErrorLock belongs. The default value as defined by</p>
+<p>Stm represents the value that is demanded by BMW specification.</p>
+<p><b>Note:</b> This parameter is ONLY for documentation purposes. The integrator has to make manually sure</p>
+<p>that the ComFirstTimeout configuration parameter of BSW module Com of the relevant signal is set to</p>
+<p>this value. The Stm module is a SWC and therefore can only parameterize values in its SWCD. Since</p>
+<p>there is in AUTOSAR NO connection from the SWCD to ComFirstTimeout configuration, this</p>
+<p>configuration value can only be documented.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 9 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>StmCentralErrorLockTimeout</b></p>
+<p>This FLOAT-parameter specifies the regular timeout in seconds after the ComPduGroup started to</p>
+<p>which the ComSignal mapped to data element centralErrorLock belongs. The default value as defined by</p>
+<p>Stm represents the value that is required by BMW specification at the time of development of this</p>
+<p>module. In case this requirement changes, the value can be adapted in a range from 1.0 to 32.0 seconds.</p>
+<p>The chosen value will be generated into the SWCD of the Stm module. The BSW stack RTE tooling</p>
+<p>should care for the correct timeout configuration in the Com configuration. That is, the Com configuration</p>
+<p>value ComTimeout of the relevant signal should be set to the chosen value automatically. In case the</p>
+<p>tooling does not support this feature, the integrator has to manually correct the Com configuration.</p>
+<p><b>StmEnergyStateTimeout</b></p>
+<p>This FLOAT-parameter specifies the regular timeout in seconds after the ComPduGroup started to</p>
+<p>which the ComSignal mapped to data element energyState belongs. The default value as defined by Stm</p>
+<p>represents the value that is required by BMW specification at the time of development of this module. In</p>
+<p>case this requirement changes, the value can be adapted in a range from 1.0 to 32.0 seconds.</p>
+<p>The chosen value will be generated into the SWCD of the Stm module. The BSW stack RTE tooling</p>
+<p>should care for the correct timeout configuration in the Com configuration. That is, the Com configuration</p>
+<p>value ComTimeout of the relevant signal should be set to the chosen value automatically. In case the</p>
+<p>tooling does not support this feature, the integrator has to manually correct the Com configuration.</p>
+<p><b>StmVehicleStateTimeout</b></p>
+<p>This FLOAT-parameter specifies the regular timeout in seconds after the ComPduGroup started to</p>
+<p>which the ComSignal mapped to data element vehicleState belongs. The default value as defined by Stm</p>
+<p>represents the value that is required by BMW specification at the time of development of this module. In</p>
+<p>case this requirement changes, the value can be adapted in a range from 0.1 to 32.0 seconds.</p>
+<p>The chosen value will be generated into the SWCD of the Stm module. The BSW stack RTE tooling</p>
+<p>should care for the correct timeout configuration in the Com configuration. That is, the Com configuration</p>
+<p>value ComTimeout of the relevant signal should be set to the chosen value automatically. In case the</p>
+<p>tooling does not support this feature, the integrator has to manually correct the Com configuration.</p>
+<p><b>StmComVariant</b></p>
+<p>With this enumeration switch it can be configured whether Stm module is integrated within a boardnet</p>
+<p>where the central error lock signal/event is sent cyclically or not. In case Stm is integrated within a</p>
+<p>boardnet, where the central error lock is only sent &quot;on-change&quot;, Stm has to implement timeout monitoring</p>
+<p>on its own and will call back the source of the central error lock signal/event via a C/S getter call. Currently</p>
+<p>the central error lock signal/event is sent cyclically in all BMW boardnet configurations, therefore the</p>
+<p>DEFAULT and to be used value of this parameter shall be set to STM_COM_CYCLIC_DATAELEMENTS.</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 10 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>StmFeatureActivation</b></p>
+<p>This container is a so-called multiple configuration container. It allows you to configure multiple instances</p>
+<p>of these configuration, where you can choose at runtime, which of these configurations shall be chosen.</p>
+<p>This allows post-build-selectable integration scenarios. In this container you can enable/disable certain</p>
+<p>signal supervisions. It is designed with a postbuild-selectable configuration concept, to support scenarios,</p>
+<p>where the same ECU software is integrated in different vehicle configurations/bordnet topologies, where</p>
+<p>the integrator needs the possibility to select at runtime which signal supervisions are needed in the</p>
+<p>current vehicle. For a general concept, how the BMW AUTOSAR Core handles SWCs with post build</p>
+<p>selectable support see [3].</p>
+<p><b>StmCentralErrorLockEnabled</b></p>
+<p>Enable/Disable the central error lock supervision.</p>
+<p><b>StmEnergyStateEnabled</b></p>
+<p>Enable/Disable the energy state supervision.</p>
+<p><b>StmVehicleStateEnabled</b></p>
+<p>Enable/Disable the vehicle state supervision.</p>
+<p><b>Configuration of the RTE</b></p>
+<p>After performing the steps indicated in chapter 6.1 and 6.2, the RTE configuration can be started. In other</p>
+<p>way, the RTE will report an interface incompatibility error.</p>
+<p><b>Assembly connectors</b></p>
+<p><b>Dem connection</b></p>
+<p>During integration, you have to connect the R-Port CentralErrorLockEnableCondition with the related</p>
+<p>Dem P-Port, that Dem must provide after the Stm specific EnableCondition has been configured (see</p>
+<p>chapter 6.1.3).</p>
+<p><b>ModeDeclarationGroup connection</b></p>
+<p>The R-Port EMLockSignalReceptionModeNotificationPort of Stm has to be connected with the</p>
+<p>corresponding P-Port of the mode manager. In case, you followed the suggestion (see chapter 5.1.4) to</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 11 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p>control this ModeDeclarationGroup through the BswM module, the generated SWCD of the BswM</p>
+<p>module will provide the corresponding P-Port.</p>
+<p><b>Event Mapping</b></p>
+<p>Stm has the following runnables (in brackets it is noted, whether it can be invoked concurrently):</p>
+<p>Runnable_ErrorCentralErrorLock (true).</p>
+<p>Runnable_ErrorEnergyMode (true).</p>
+<p>Runnable_ErrorVehicleState (true).</p>
+<p>Runnable_StopCentralErrorLockSupervision (false).</p>
+<p>Runnable_InitialCELSupervision (false).</p>
+<p>Runnable_ReceiveCentralErrorLock (true).</p>
+<p>Runnable_ReceiveEnergyMode (true).</p>
+<p>Runnable_ReceiveVehicleState (true).</p>
+<p>Depending at your RTE tooling at least the runnables that cannot be invoked concurrently must be</p>
+<p>mapped to tasks.</p>
+<p><b>Data Mapping</b></p>
+<p>The following S/R data elements shall be mapped to the corresponding ComSignals (see chapter 6.1):</p>
+<p>centralErrorLock (R-Port CentralErrorLockRx).</p>
+<p>energyState (R-Port EnergyModeRx).</p>
+<p>vehicleState (R-Port VehicleStateRx).</p>
+<p><b>Note:</b> The three data elements shown above are primitive data types from the viewpoint of Stm. In the</p>
+<p>bordnet configuration these data types are embedded within signalgroups/complex datatypes. In the</p>
+<p>AUTOSAR-Extracts provided by BMW therefore complex (record types) data elements are provided</p>
+<p>within the corresponding ports of the outer ECU composition. To connect sub-elements (members) of</p>
+<p>the ports of the outer composition with the primitive type data elements of Stm ports a port-interface</p>
+<p>mapping has to created, which is then attached to the delegation assembly connector.</p>
+<p>Example for a port interface mapping for centralErrorLock datat-element:</p>
+<p>&lt;?<b>xml</b></p>
+<p><b>version</b>= &quot; 1 . 0 &quot; ?&gt;</p>
+<p>&lt;PORT<i>−</i>INTERFACE<i>−</i>MAPPING<i>−</i>SET&gt;</p>
+<p>&lt;SHORT<i>−</i>NAME&gt;StmMappingSet&lt; /SHORT<i>−</i>NAME&gt;</p>
+<p>&lt;PORT<i>−</i>INTERFACE<i>−</i>MAPPINGS&gt;</p>
+<p>&lt;VARIABLE<i>−</i>AND<i>−</i>PARAMETER<i>−</i>INTERFACE<i>−</i>MAPPING&gt;</p>
+<p>&lt;SHORT<i>−</i>NAME&gt;Mapping_Stm_CentralErrorLockRx&lt; /SHORT<i>−</i>NAME&gt;</p>
+<p>&lt;DATA<i>−</i>MAPPINGS&gt;</p>
+<p>&lt;DATA<i>−</i>PROTOTYPE<i>−</i>MAPPING&gt;</p>
+<p>&lt;FIRST<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF DEST=&quot;VARIABLE<i>−</i>DATA<i>−</i>PROTOTYPE&quot;&gt; /BMW/ INFRASTRUCTURE /STATUSENERGY/</p>
+<p>V e h i c l e S t a t u s /</p>
+<p>F i e l d N o t i f i e r V e h i c l e S t a t u s /</p>
+<p>N o t i f i e r &lt; / FIRST<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF&gt;</p>
+<p>&lt;SECOND<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF DEST=&quot;VARIABLE<i>−</i>DATA<i>−</i>PROTOTYPE&quot;&gt; /BMW/</p>
+<p>P l a t f o r m / Stm /</p>
+<p>P o r t I n t e r f a c e s /</p>
+<p>C e n t r a l E r r o r L o c k S i g n a l I n t e r f a c e /</p>
+<p>c e n t r a l E r r o r L o c k &lt; /SECOND<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF&gt;</p>
+<p>&lt;SUB<i>−<b></i>ELEMENT<i></b>−</i>MAPPINGS&gt;</p>
+<p>&lt;SUB<i>−<b></i>ELEMENT<i></b>−</i>MAPPING&gt;</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 12 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p>&lt;FIRST<i>−</i>ELEMENTS&gt;</p>
+<p>&lt;APPLICATION<i>−</i>COMPOSITE<i>−</i>DATA<i>−</i>TYPE<i>−</i>SUB<i>−<b></i>ELEMENT<i></b>−</i>REF&gt;</p>
+<p>&lt;APPLICATION<i>−</i>COMPOSITE<i>−<b></i>ELEMENT<i></b>−</i>IREF&gt;</p>
+<p>&lt;ROOT<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF DEST=&quot;VARIABLE<i>−</i>DATA<i>−</i>PROTOTYPE&quot;&gt; /BMW/ INFRASTRUCTURE /STATUSENERGY/</p>
+<p>V e h i c l e S t a t u s /</p>
+<p>F i e l d N o t i f i e r V e h i c l e S t a t u s /</p>
+<p>N o t i f i e r &lt; /ROOT<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF&gt;</p>
+<p>&lt;TARGET<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF DEST=&quot;APPLICATION<i>−</i>RECORD<i>−</i>ELEMENT&quot;&gt; /BMW/ INFRASTRUCTURE / ApplicationDataTypes /</p>
+<p>V e h i c l e S t a t e / statusInterlockErrorMemoryFZM &lt; / TARGET<i>−</i>DATA<i>−</i>PROTOTYPE<i>−</i>REF&gt;</p>
+<p>&lt; / APPLICATION<i>−</i>COMPOSITE<i>−<b></i>ELEMENT<i></b>−</i>IREF&gt;</p>
+<p>&lt; / APPLICATION<i>−</i>COMPOSITE<i>−</i>DATA<i>−</i>TYPE<i>−</i>SUB<i>−<b></i>ELEMENT<i></b>−</i>REF&gt;</p>
+<p>&lt; / FIRST<i>−</i>ELEMENTS&gt;</p>
+<p>&lt; / SUB<i>−<b></i>ELEMENT<i></b>−</i>MAPPING&gt;</p>
+<p>&lt; / SUB<i>−<b></i>ELEMENT<i></b>−</i>MAPPINGS&gt;</p>
+<p>&lt; / DATA<i>−</i>PROTOTYPE<i>−</i>MAPPING&gt;</p>
+<p>&lt; / DATA<i>−</i>MAPPINGS&gt;</p>
+<p>&lt; / VARIABLE<i>−</i>AND<i>−</i>PARAMETER<i>−</i>INTERFACE<i>−</i>MAPPING&gt;</p>
+<p>&lt; /PORT<i>−</i>INTERFACE<i>−</i>MAPPINGS&gt;</p>
+<p>&lt; /PORT<i>−</i>INTERFACE<i>−</i>MAPPING<i>−</i>SET&gt;</p>
+<p><b>Exclusive Areas</b></p>
+<p>The exclusive area &quot;CentralErrorLockReadWrite_EA&quot; has to be configured in the RTE.</p>
+<p><b>Software Integration</b></p>
+<p><b>SWCD</b></p>
+<p>The file Stm_ext_interfaces.arxml contains two external dependencies, which are defined here to express</p>
+<p>the expectations of Stm (see explanation in [1]):</p>
+<p>A mode declaration group that indicates, whether the centralErrorLock signal is currently receivable or</p>
+<p>not.</p>
+<p>The ClientServer interface of Dem module to control so called EnableConditions (see chapter 6.1.3).</p>
+<p><b>Mode Declaration Group ErrorMemoryLockSignalReceptionMode</b></p>
+<p>The Stm expects that there exists a ModeDeclarationGroup that is controlled by integration code, that</p>
+<p>indicates, whether the centralErrorLock is currently receivable or not. In general, this depends on the state</p>
+<p>of the ComPduGoup, which the related ComSignal is connected to. The integrator shall configure the</p>
+<p>BswM rule system in a way that as soon as the corresponding PduGroup is stopped, the</p>
+<p>ModeDeclarationGroup changes to mode EM_LOCK_NOT_RECEIVABLE. In case the PduGroup is</p>
+<p>started, the mode shall be changed to EM_LOCK_RECEIVABLE.</p>
+<p><b>Interface EnableCondition of Dem</b></p>
+<p>In Stm_ext_interfaces.arxml you find BMWs interpretation of EnableCondition interface of the Dem BSW</p>
+<p>module. In case the interface signature looks different in your Dem implementation (which is very</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 13 of 14</p>
+<h1 style="page-break-before:always; "></h1>
+<p>unlikely), you could adapt it here, at least to a extent that does not change the C-signature of the runnable,</p>
+<p>implementing the C/S call.</p>
+<p><b>Startup/Initialisation</b></p>
+<p>Stm does not need a dedicated initialization or startup. It has no cyclically runnables but is fully driven by</p>
+<p>data received events/data received error events/mode switch events.</p>
+<p><b>Normal Operation</b></p>
+<p>Stm is automatically in normal operation.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>Not needed (see above).</p>
+<p>StmClassic_IntegrationManual.pdf, Version 5.2.0, Software Platforms</p>
+<p>Page 14 of 14</p>
+</body>
+</html>
+{% endraw %}

@@ -1,0 +1,2308 @@
+---
+layout: default
+title: TechnicalReference_EcuConfigurationFiles
+nav_order: 11
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>ECU-C File Handling </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.13 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Michael Schuele, Matthias Wernicke </p>
+<p><b>Version: </b></p>
+<p>1.13 </p>
+<p><b>Status: </b></p>
+<p>released </p>
+<p>(in preparation/completed/inspected/released)</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>2 / 34 </p>
+<p><b>History </b></p>
+<p> </p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>M. Schuele </p>
+<p>2009-02-19 </p>
+<p>0.1.0 </p>
+<p>Initial version </p>
+<p>M. Schuele </p>
+<p>2009-04-11 </p>
+<p>1.0.0 </p>
+<p>final version </p>
+<p>M. Wernicke </p>
+<p>2009-04-17 </p>
+<p>1.1 </p>
+<p>Review and update </p>
+<p>M. Schuele </p>
+<p>2009-08-03 </p>
+<p>1.2 </p>
+<p>Added description of difference dialog </p>
+<p>M. Schuele </p>
+<p>2010-01-27 </p>
+<p>1.3 </p>
+<p>Added new ECU-C parameters for DaVinci 3.0 </p>
+<p>M. Wernicke </p>
+<p>2010-01-28 </p>
+<p>1.4 </p>
+<p>Review and update </p>
+<p>M. Schuele </p>
+<p>2010-05-05 </p>
+<p>1.5 </p>
+<p>Introduced different but equivalent parameter values </p>
+<p>M. Schuele </p>
+<p>2010-05-14 </p>
+<p>1.6 </p>
+<p>Added new ECU-C parameters for DaVinci 3.0 SP2 </p>
+<p>M. Schuele </p>
+<p>2010-07-20 </p>
+<p>1.7 </p>
+<p>Added new ECU-C parameters for DaVinci 3.0 SP3 </p>
+<p>M. Schuele </p>
+<p>2010-11-29 </p>
+<p>1.8 </p>
+<p>Added new ECU-C parameters for DaVinci 3.0 SP4 </p>
+<p>M. Schuele </p>
+<p>2011-05-06 </p>
+<p>1.9 </p>
+<p>ComTimeoutFactor synchronization is configurable </p>
+<p>M. Schuele </p>
+<p>2012-02-02 </p>
+<p>1.10 </p>
+<p>Added new ECU-C parameters for DaVinci 3.0 SP5 and 3.1 </p>
+<p>M. Schuele </p>
+<p>2012-08-30 </p>
+<p>1.11 </p>
+<p>Added a note about AUTOSAR 4 </p>
+<p>M. Schuele </p>
+<p>2013-05-03 </p>
+<p>1.12 </p>
+<p>Added new ECU-C parameters for DaVinci 3.5 </p>
+<p>M. Schuele </p>
+<p>2014-03-27 </p>
+<p>1.13 </p>
+<p>Added SchM config to Rte section </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>3 / 34 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ......................................................................................................................... 5</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>Intended Audience .......................................................................................... 5</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Terms and Acronyms ....................................................................................... 5</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>The ECU-Configuration Process ................................................................................... 7</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>The ECU-Configuration File ............................................................................ 8</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>DaVinci DEV and the ECU-C file .................................................................................. 11</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Project Assistant............................................................................................. 11</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Initial synchronization (bi-directional update) .................................................. 11</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Automatic synchronization ............................................................................ 12</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>ECU-C file locking ......................................................................................... 12</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>BSWMD files ................................................................................................. 13</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Pre- and Recommended config sections ....................................................... 13</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>Synchronizing an ECU-C file ......................................................................... 13</p>
+<p> </p>
+<p>3.6.1</p>
+<p> </p>
+<p>Step 1: Analysis of the RTE configuration in the workspace .......................... 14</p>
+<p> </p>
+<p>3.6.2</p>
+<p> </p>
+<p>Step 2: Comparison of workspace and ECU-C file ........................................ 15</p>
+<p> </p>
+<p>3.6.3</p>
+<p> </p>
+<p>Synchronization direction “import” ................................................................. 16</p>
+<p> </p>
+<p>3.6.4</p>
+<p> </p>
+<p>Synchronization direction “export” ................................................................. 16</p>
+<p> </p>
+<p>3.6.5</p>
+<p> </p>
+<p>ECU-Configuration difference dialog ............................................................. 16</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>ECU-Configuration parameters ................................................................................... 18</b></p>
+<p> </p>
+<p>4.1</p>
+<p> </p>
+<p>Vendor Specific Configuration Parameters .................................................... 18</p>
+<p> </p>
+<p>4.2</p>
+<p> </p>
+<p>Rte module ................................................................................................... 18</p>
+<p> </p>
+<p>4.2.1</p>
+<p> </p>
+<p>Parameters ................................................................................................... 18</p>
+<p> </p>
+<p>4.3</p>
+<p> </p>
+<p>SchM module ................................................................................................ 19</p>
+<p> </p>
+<p>4.3.1</p>
+<p> </p>
+<p>General ......................................................................................................... 19</p>
+<p> </p>
+<p>4.3.2</p>
+<p> </p>
+<p>Parameters ................................................................................................... 20</p>
+<p> </p>
+<p>4.3.3</p>
+<p> </p>
+<p>Rte ................................................................................................................ 20</p>
+<p> </p>
+<p>4.3.4</p>
+<p> </p>
+<p>Os 20</p>
+<p> </p>
+<p>4.4</p>
+<p> </p>
+<p>Com module.................................................................................................. 21</p>
+<p> </p>
+<p>4.4.1</p>
+<p> </p>
+<p>Parameters ................................................................................................... 21</p>
+<p> </p>
+<p>4.4.2</p>
+<p> </p>
+<p>Equivalent parameter values ......................................................................... 22</p>
+<p> </p>
+<p>4.4.2.1</p>
+<p> </p>
+<p>ComTimeoutFactor ....................................................................................... 23</p>
+<p> </p>
+<p>4.5</p>
+<p> </p>
+<p>Os module .................................................................................................... 23</p>
+<p> </p>
+<p>4.5.1</p>
+<p> </p>
+<p>Parameters ................................................................................................... 23</p>
+<p> </p>
+<p>4.5.2</p>
+<p> </p>
+<p>Equivalent parameter values ......................................................................... 26</p>
+<p> </p>
+<p>4.6</p>
+<p> </p>
+<p>NvM module .................................................................................................. 26</p>
+<p> </p>
+<p>4.6.1</p>
+<p> </p>
+<p>Parameters ................................................................................................... 26</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>4 / 34 </p>
+<p>4.6.2</p>
+<p> </p>
+<p>Equivalent parameter values ......................................................................... 27</p>
+<p> </p>
+<p>4.7</p>
+<p> </p>
+<p>Board ............................................................................................................ 27</p>
+<p> </p>
+<p>4.7.1</p>
+<p> </p>
+<p>Parameters ................................................................................................... 27</p>
+<p> </p>
+<p>4.7.2</p>
+<p> </p>
+<p>Equivalent parameter values ......................................................................... 28</p>
+<p> </p>
+<p>4.8</p>
+<p> </p>
+<p>ComSignals and ComSignalGroups .............................................................. 28</p>
+<p> </p>
+<p>4.8.1</p>
+<p> </p>
+<p>dbc files ......................................................................................................... 28</p>
+<p> </p>
+<p>4.8.2</p>
+<p> </p>
+<p>ECU-Extract .................................................................................................. 28</p>
+<p> </p>
+<p>4.8.3</p>
+<p> </p>
+<p>AUTOSAR 2.1 ............................................................................................... 29</p>
+<p> </p>
+<p>4.8.4</p>
+<p> </p>
+<p>AUTOSAR 3.x ............................................................................................... 29</p>
+<p> </p>
+<p>4.8.5</p>
+<p> </p>
+<p>Relevant ComSignals .................................................................................... 29</p>
+<p> </p>
+<p>4.8.6</p>
+<p> </p>
+<p>Callbacks ...................................................................................................... 29</p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Best practices .............................................................................................................. 31</b></p>
+<p> </p>
+<p>5.1</p>
+<p> </p>
+<p>Always work on the latest communication databases .................................... 31</p>
+<p> </p>
+<p>5.2</p>
+<p> </p>
+<p>Do not edit the same module configuration in different tools at the same </p>
+<p>time ............................................................................................................... 31</p>
+<p> </p>
+<p>5.3</p>
+<p> </p>
+<p>Ensure that all tools use the same max. SHORT-NAME length ..................... 32</p>
+<p> </p>
+<p>5.4</p>
+<p> </p>
+<p>ECU-C files have to be valid according to the AUTOSAR schema ................ 32</p>
+<p> </p>
+<p>5.5</p>
+<p> </p>
+<p>Configuration elements must have unique SHORT-NAMEs .......................... 33</p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Contact ......................................................................................................................... 34</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>5 / 34 </p>
+<p><b>1 </b></p>
+<p><b> Overview </b></p>
+<p>DaVinci </p>
+<p>Developer </p>
+<p>is </p>
+<p>part </p>
+<p>of </p>
+<p>Vector’s </p>
+<p>solution </p>
+<p>for </p>
+<p>AUTOSAR </p>
+<p>compatible </p>
+<p>ECU </p>
+<p>development. It is used to configure and generate the Rte in AUTOSAR 3.x based projects </p>
+<p>and therefore interacts with other BSW configurators through the ECU-Configuration file. </p>
+<p>This  document describes the  configuration process  related to  DaVinci  Developer from a </p>
+<p>technical  point  of  view,  trying  to  give  the  user  a  better  understanding  of  the  internal </p>
+<p>processes and how the tool reacts in different situations. </p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Note </b></p>
+<p>Starting  with  DaVinci  Developer  3.3, AUTOSAR  4.0  based  software  designs  can  be </p>
+<p>created  and  edited.  However,  the  configuration  and generation  of the AUTOSAR  4.0 </p>
+<p>Rte has been moved from DaVinci Developer to DaVinci Configurator Pro. Therefore </p>
+<p>this document is only relevant for AUTOSAR 3.x based projects. </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p><b>1.1 </b></p>
+<p><b> Intended Audience </b></p>
+<p>This  document  aims  at  ECU  developers  who  are  involved  in  the AUTOSAR  compatible </p>
+<p>ECU-Configuration process and use DaVinci Developer to configure and generate the Rte </p>
+<p>module. </p>
+<p>As DaVinci DEV updates the ECU-Configuration file automatically during save and load of </p>
+<p>a workspace, the presented information is not essential when working with the tools but </p>
+<p>provides  some  additional  information  how  the  ECU-Configuration  process  is  handled </p>
+<p>behind the scenes. </p>
+<p><b>1.2 </b></p>
+<p><b>Terms and Acronyms </b></p>
+<p><b>Term </b></p>
+<p><b>Definition </b></p>
+<p>DaVinci DEV </p>
+<p>DaVinci Developer </p>
+<p>NWD </p>
+<p>Network Designer </p>
+<p>AR </p>
+<p>AUTOSAR – Automotive Open System Architecture </p>
+<p>GUI </p>
+<p>Graphical user interface </p>
+<p>Rte </p>
+<p>Runtime environment </p>
+<p>BSW </p>
+<p>Basic Software </p>
+<p>BSWMD </p>
+<p>Basic Software Module Description </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>6 / 34 </p>
+<p>ECU-C file </p>
+<p>ECU-Configuration file </p>
+<p>ECU-C-Synchronization </p>
+<p>Synchronization  of  DaVinci  DEV  workspace  with  the </p>
+<p>data in an ECU-C file </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>7 / 34 </p>
+<p><b>2 </b></p>
+<p><b>The ECU-Configuration Process </b></p>
+<p> </p>
+<p>Vector</p>
+<p>DaVinci DEV</p>
+<p>ECU Extract of </p>
+<p>System Description</p>
+<p>SW-Components</p>
+<p>Communication</p>
+<p>Vector</p>
+<p>DaVinci</p>
+<p>Configurator Pro</p>
+<p>RTE</p>
+<p>ECU Cfg</p>
+<p>Descr</p>
+<p>BSW</p>
+<p>Basic Software</p>
+<p>Module Description</p>
+<p> </p>
+<p>Figure 2-1 Basic SW Configuration process </p>
+<p>Figure </p>
+<p>2-1 </p>
+<p>displays </p>
+<p>the </p>
+<p>ECU </p>
+<p>configuration </p>
+<p>process </p>
+<p>as </p>
+<p>it </p>
+<p>is </p>
+<p>supported </p>
+<p>by </p>
+<p>Vector’s </p>
+<p>AUTOSAR  solution.  All  configuration  tools  read  from  and  write  to  a  common  ECU-</p>
+<p>Configuration  file  which  will  be  used  by  the  different  BSW  code  generators  after  the </p>
+<p>configuration of all modules has been completed. </p>
+<p>The various BSW modules are part of different layers of the AUTOSAR stack with the Rte </p>
+<p>lying on top. Whenever one module utilizes another one its configuration likely depends on </p>
+<p>the configuration of the utilized module and the configurator has to read or even write not </p>
+<p>only the configuration section corresponding to his own module but also the section of the </p>
+<p>other module. </p>
+<p>Since this document is focused on DaVinci DEV, chapter 4 describes the dependencies of </p>
+<p>the  Rte  configuration  on  other  module  configurations  in  detail.  But  before  going  into </p>
+<p>details, the next section provides some basic knowledge about the ECU-Configuration file </p>
+<p>structure. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>8 / 34 </p>
+<p><b>2.1 </b></p>
+<p><b>The ECU-Configuration File </b></p>
+<p>AUTOSAR  specifies  all  configuration  parameters  of  a  BSW  module  as  a  so  called </p>
+<p>„Standardized  Module  Definition“.  These  definitions  are  contained  in  an  XML-Document </p>
+<p>(AUTOSAR_EcucParamDef.arxml) and are modeled according to the „ECU Configuration </p>
+<p>Parameter Definition Meta model“.  </p>
+<p>To </p>
+<p>support </p>
+<p>vendor </p>
+<p>specific </p>
+<p>configuration </p>
+<p>parameters, </p>
+<p>BSW </p>
+<p>modules </p>
+<p>may </p>
+<p>provide </p>
+<p>a </p>
+<p>BSWMD </p>
+<p>(„Vendor </p>
+<p>Specific </p>
+<p>Module </p>
+<p>Definition“) </p>
+<p>file </p>
+<p>which </p>
+<p>includes </p>
+<p>the </p>
+<p>standardized </p>
+<p>parameter </p>
+<p>definitions </p>
+<p>for </p>
+<p>the </p>
+<p>particular </p>
+<p>module </p>
+<p>and </p>
+<p>defines </p>
+<p>additional </p>
+<p>parameters. </p>
+<p>Additionally,  a  BSWMD  may  contain  a  section  with  a  pre-configuration,  i.e.  parameter </p>
+<p>values  which  cannot  be  changed,  or  a  section  with  a  recommended  configuration,  i.e. </p>
+<p>parameter values which are appropriate for most use cases but can still be changed. </p>
+<p>BSWMD  files  define  which  parameters  are  available  to  configure  a  BSW  module,  an </p>
+<p>example is given in Figure 2-2. The ECU-Configuration file contains the actual parameter </p>
+<p>values, i.e. the configuration of the modules used on a specific ECU, an example is given </p>
+<p>in Figure 2-1. </p>
+<p> </p>
+<p> </p>
+<p>Figure 2-2 Configuration parameter definition of “ComBitPosition” in the BSWMD file </p>
+<p> </p>
+<p>&lt;AUTOSAR&gt; </p>
+<p> &lt;TOP-LEVEL-PACKAGES&gt; </p>
+<p>  &lt;AR-PACKAGE&gt; </p>
+<p>   &lt;SHORT-NAME&gt;<b>MICROSAR</b>&lt;/SHORT-NAME&gt; </p>
+<p>   &lt;ELEMENTS&gt; </p>
+<p>    &lt;MODULE-DEF&gt; </p>
+<p>     &lt;SHORT-NAME&gt;<b>Com</b>&lt;/SHORT-NAME&gt; </p>
+<p>     &lt;CONTAINERS&gt; </p>
+<p>      &lt;PARAM-CONF-CONTAINER-DEF&gt; </p>
+<p>       &lt;SHORT-NAME&gt;<b>ComConfig</b>&lt;/SHORT-NAME&gt; </p>
+<p>       &lt;SUB-CONTAINERS&gt; </p>
+<p>        &lt;PARAM-CONF-CONTAINER-DEF&gt; </p>
+<p>         &lt;SHORT-NAME&gt;<b>ComSignal</b>&lt;/SHORT-NAME&gt; </p>
+<p>         &lt;PARAMETERS&gt; </p>
+<p>          &lt;INTEGER-PARAM-DEF&gt; </p>
+<p>           &lt;SHORT-NAME&gt;<b>ComBitPosition</b>&lt;/SHORT-NAME&gt; </p>
+<p>           &lt;MAX&gt;63&lt;/MAX&gt; </p>
+<p>           &lt;MIN&gt;0&lt;/MIN&gt; </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>9 / 34 </p>
+<p> </p>
+<p>Figure 2-3 Value specification for configuration parameter “ComBitPosition” in the ECU-C file </p>
+<p>The two files are connected by means of standard AUTOSAR references as defined in the </p>
+<p>specification „Model Persistence Rules for XML“. A parameter is configured in the ECU-C </p>
+<p>file  by  referencing  its  parameter  definition  element  included  in  the  BSWMD  file  (via </p>
+<p>&lt;DEFINITION-REF&gt;</p>
+<p>)  and  defining  the  actual  value  (highlighted  in  red  in  the  given </p>
+<p>examples). </p>
+<p>&lt;AUTOSAR&gt; </p>
+<p>&lt;TOP-LEVEL-PACKAGES&gt; </p>
+<p>&lt;AR-PACKAGE&gt; </p>
+<p>&lt;SHORT-NAME&gt;<b>MyProject</b>&lt;/SHORT-NAME&gt; </p>
+<p>&lt;ELEMENTS&gt; </p>
+<p>&lt;ECU-CONFIGURATION&gt; </p>
+<p>&lt;SHORT-NAME&gt;MyEcu&lt;/SHORT-NAME&gt; </p>
+<p>&lt;ECU-EXTRACT-REF DEST=&quot;SYSTEM&quot;&gt; </p>
+<p>/VehicleProject/ReceiverEcu </p>
+<p>&lt;/ECU-EXTRACT-REF&gt; </p>
+<p>&lt;MODULE-REFS&gt; </p>
+<p>&lt;MODULE-REF DEST=&quot;MODULE-CONFIGURATION&quot;&gt; </p>
+<p><b>/MyProject/Com </b></p>
+<p>&lt;/MODULE-REF&gt; </p>
+<p>&lt;/MODULE-REFS&gt; </p>
+<p>&lt;/ECU-CONFIGURATION&gt; </p>
+<p> </p>
+<p>&lt;MODULE-CONFIGURATION&gt; </p>
+<p>&lt;SHORT-NAME&gt;<b>Com</b>&lt;/SHORT-NAME&gt; </p>
+<p>&lt;DEFINITION-REF DEST=&quot;MODULE-DEF&quot;&gt; </p>
+<p>/AUTOSAR/Com </p>
+<p>&lt;/DEFINITION-REF&gt; </p>
+<p>&lt;CONTAINERS&gt; </p>
+<p>&lt;CONTAINER&gt; </p>
+<p>&lt;SHORT-NAME&gt;ComConfig&lt;/SHORT-NAME&gt; </p>
+<p>&lt;DEFINITION-REF DEST=&quot;PARAM-CONF-CONTAINER-DEF&quot;&gt; </p>
+<p>/AUTOSAR/Com/ComConfig </p>
+<p>&lt;/DEFINITION-REF&gt; </p>
+<p>&lt;SUB-CONTAINERS&gt; </p>
+<p>&lt;CONTAINER&gt; </p>
+<p>&lt;SHORT-NAME&gt;Signal_1&lt;/SHORT-NAME&gt; </p>
+<p>&lt;DEFINITION-REF DEST=&quot;PARAM-CONF-CONTAINER-DEF&quot;&gt; </p>
+<p>/AUTOSAR/Com/ComConfig/ComSignal </p>
+<p>&lt;/DEFINITION-REF&gt; </p>
+<p>&lt;PARAMETER-VALUES&gt; </p>
+<p>&lt;INTEGER-VALUE&gt; </p>
+<p>&lt;DEFINITION-REF DEST=&quot;INTEGER-PARAM-DEF&quot;&gt; </p>
+<p><b>/AUTOSAR/Com/ComConfig/ComSignal/ComBitPosition </b></p>
+<p>&lt;/DEFINITION-REF&gt; </p>
+<p>&lt;VALUE&gt;7&lt;/VALUE&gt; </p>
+<p>&lt;/INTEGER-VALUE&gt; </p>
+<p>[…] </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>10 / 34 </p>
+<p>As  each  BSW  module’s  parameters  are  defined  in  a  separate </p>
+<p>&lt;MODULE-DEF&gt;</p>
+<p>,  one </p>
+<p>&lt;MODULE-CONFIGURATION&gt; </p>
+<p>is  needed  for  each  of  the  BSW  modules.  The  complete </p>
+<p>configuration  of  the  ECU  is  defined  by </p>
+<p>&lt;ECU-CONFIGURATION&gt;</p>
+<p>  which  references  all </p>
+<p>relevant BSW module configurations. </p>
+<p>All “Standardized Module Definitions” are included in a package named “AUTOSAR” and </p>
+<p>only those are allowed to be placed there. “Vendor Specific Module Definitions” must be </p>
+<p>included in a different package; Vector modules use “MICROSAR” as the package name. </p>
+<p>Since it is required that custom BSWMD files must include all standardized parameters as </p>
+<p>well,  the  package  name  is  visible  in  all  references  to  the  parameter  definitions.  Hence, </p>
+<p>switching  to  another  BSWMD  requires  adaption  of  all  corresponding  references  in  the </p>
+<p>ECU-C file. </p>
+<p>As  already  mentioned,  a  module’s  configuration  may  depend  on  the  settings  of  another </p>
+<p>module. In this case a reference parameter contains an AUTOSAR reference as its value, </p>
+<p>pointing into the configuration of the other module, e.g. the runnable mapping of the Rte </p>
+<p>module  configuration  references  the  task  of  the  Os  configuration  it  is  mapped  to  via </p>
+<p>&lt;VALUE-REF DEST=&quot;CONTAINER&quot;&gt;/MyProject/Os/Task1&lt;/VALUE-REF&gt;.</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>11 / 34 </p>
+<p><b>3 </b></p>
+<p><b>DaVinci DEV and the ECU-C file </b></p>
+<p>As displayed in Figure 2-1, DaVinci DEV is used to configure and eventually generate an </p>
+<p>AUTOSAR compatible RTE. Obviously this requires reading from and writing to the Rte </p>
+<p>module configuration in the ECU-C file, but also to other modules, which directly interface </p>
+<p>the RTE (called depending modules within this document). Depending modules are Com, </p>
+<p>NvM and Os. These modules may be read and/or changed, too. Some of these foreign </p>
+<p>parameters are directly visible and changeable; some are automatically derived from other </p>
+<p>settings or the software design. Some parameters are needed to ensure that the </p>
+<p>generated code of different BSW generators matches regarding used and/or provided </p>
+<p>APIs, handles and other interface related code. Details about the affected parameters and </p>
+<p>their sources or relation to the Rte configuration are given in chapter 4. </p>
+<p><b>3.1 </b></p>
+<p><b>Project Assistant </b></p>
+<p>The most convenient way to create a new ECU-C file is the Project Assistant (available via </p>
+<p>the menu item File | Project Assistant). The Project Assistant automatically creates one or </p>
+<p>more</p>
+<p>1</p>
+<p> ECU-C files based on an ECU Extract of System Description and a SIP (Software </p>
+<p>Integration Package) from Vector, and sets up an ECU-Project in DaVinci DEV. </p>
+<p><b>3.2 </b></p>
+<p><b>Initial synchronization (bi-directional update) </b></p>
+<p>To update an existing ECU-C file created by any third party tool without involving DaVinci </p>
+<p>DEV, you have to open the properties dialog of the ECU-Project (see Figure 3-1). The </p>
+<p>“select file” button (labeled “…”) shows a “File Open” dialog where an existing ECU-C file </p>
+<p>can be selected. The selected file is analyzed and if the configuration does not match the </p>
+<p>workspace settings, a synchronization dialog is displayed (this is explained in detail in </p>
+<p>section3.6.1). When the properties dialog is closed the ECU-C file will be assigned to the </p>
+<p>ECU-Project. To perform the synchronization process again, you can then select </p>
+<p>“Synchronize ECU-Configuration” from the context menu of the ECU-Project. </p>
+<p> </p>
+<p>                                            </p>
+<p>1</p>
+<p> Several ECU-C files are created if „one file per module“ is selected in the „Output Paths“ section. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>12 / 34 </p>
+<p> </p>
+<p>Figure 3-1 ECU-C file reference in the ECU-Project properties dialog </p>
+<p>Before the Rte generator is started, DaVinci DEV checks if the ECU-Project has an ECU-C </p>
+<p>file assigned and automatically executes the synchronization process. This ensures that </p>
+<p>the current workspace settings reflect the settings in the ECU-C file and that the ECU-C </p>
+<p>file contains the current configuration of the workspace. Both configurations must match </p>
+<p>because all code generators of the different modules have to work with exactly the same </p>
+<p>ECU configuration data. </p>
+<p><b>3.3 </b></p>
+<p><b>Automatic synchronization </b></p>
+<p>Once the ECU-C file is assigned to the ECU-Project it is checked for consistency during </p>
+<p>every  load  or  save  of  the  workspace. This  ensures  that  other  tools  always  work  with  a </p>
+<p>consistent configuration. </p>
+<p><b>3.4 </b></p>
+<p><b>ECU-C file locking </b></p>
+<p>The </p>
+<p>tools </p>
+<p>DaVinci </p>
+<p>Configurator, </p>
+<p>DaVinci </p>
+<p>Developer </p>
+<p>and </p>
+<p>GENy </p>
+<p>implement </p>
+<p>a </p>
+<p>locking </p>
+<p>mechanism to ensure that the user edits a specific configuration only in a single tool at a </p>
+<p>time. If the configuration is changed and not yet saved in one tool the other tools consider </p>
+<p>the configuration as read-only and display this state accordingly. This mechanism targets </p>
+<p>on  a  single  user’s  daily  work,  it  does  not  support  distributed  development  or  multi-user </p>
+<p>scenarios. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>13 / 34 </p>
+<p><b>3.5 </b></p>
+<p><b>BSWMD files </b></p>
+<p>The ECU-Project properties dialog allows selecting the BSWMD files for each of the </p>
+<p>potentially modified modules. These files are needed for two reasons: </p>
+<p>n</p>
+<p> </p>
+<p>Since configuration parameters are identified through an absolute reference to their </p>
+<p>parameter definition, the name of the root package in the BSWMD file has to be </p>
+<p>known. </p>
+<p>n</p>
+<p> </p>
+<p>DaVinci DEV only exports Vector specific configuration parameters if the </p>
+<p>corresponding BSWMD file is assigned to the ECU-Project. </p>
+<p>The selection of a specific BSWMD file for the Rte is not required because DaVinci DEV </p>
+<p>only configures the Vector’s MICROSAR RTE, which is based on the standard AUTOSAR </p>
+<p>BSWMD file of the RTE. </p>
+<p> </p>
+<p>If the ECU-C file follows the AUTOSAR Releases 2.1 Specification, DaVinci DEV uses the </p>
+<p>standard module definitions, </p>
+<p>&lt;DEFINITION-REF&gt;</p>
+<p> values therefore begin with </p>
+<p>“</p>
+<p>/AUTOSAR</p>
+<p>”. </p>
+<p> </p>
+<p>If the ECU-C file follows the AUTOSAR Releases 3.x Specification, DaVinci DEV implicitly </p>
+<p>uses the Rte BSWMD file, </p>
+<p>&lt;DEFINITION-REF&gt;</p>
+<p> values therefore begin with </p>
+<p>“</p>
+<p>/MICROSAR</p>
+<p>”. </p>
+<p> </p>
+<p>If there’s a mismatch between the configured BSWMD file and the module configuration in </p>
+<p>the ECU-C file (e.g. the BSWMD file’s package name is </p>
+<p>MICROSAR</p>
+<p> and the ECU-C file’s </p>
+<p>module configuration references an </p>
+<p>AUTOSAR</p>
+<p> package), the definition of the ECU-C file is </p>
+<p>used. A message about this misconfiguration is written to the “Action Log” window saying: </p>
+<p> </p>
+<p><b>ActionLog output </b></p>
+<p> </p>
+<p>Inconsistent BSWMD configuration detected: </p>
+<p>/MICROSAR/Os is defined by BSWMD file D:\BSWMD_files\Os_bswmd.arxml </p>
+<p>  /AUTOSAR/Os is used by ECU-C file D:\ECU_1_ecuc.arxml </p>
+<p>using ECU-C definition</p>
+<p> </p>
+<p> </p>
+<p>The misconfiguration can be detected because the module names are standardized, i.e. </p>
+<p>the </p>
+<p>&lt;DEFINITION-REF&gt;</p>
+<p> of a </p>
+<p>&lt;MODULE-CONFIGURATION&gt;</p>
+<p> always follows the rule </p>
+<p>/[MODULE-DEF-PACKAGE-NAME]/[standardized module name].</p>
+<p> </p>
+<p><b>3.5.1 </b></p>
+<p><b>Pre- and Recommended config sections </b></p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>in </p>
+<p>general </p>
+<p>does </p>
+<p>not </p>
+<p>evaluate </p>
+<p>Pre- </p>
+<p>and/or </p>
+<p>Recommended </p>
+<p>Module </p>
+<p>Configuration sections in the BSWMD or any other file. However, one exception exists for </p>
+<p>the  Os  where  a  preconfigured  OsCounter  is  set  as  an  Alarm’s  OsAlarmCounterRef  by </p>
+<p>default (see 4.5.1). </p>
+<p><b>3.6 </b></p>
+<p><b>Synchronizing an ECU-C file </b></p>
+<p>Synchronizing an ECU-C file is necessary if the configuration of the RTE does not match </p>
+<p>to the configuration of the depending modules (see section 4 for a detailed description of </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>14 / 34 </p>
+<p>the parameters for each module). The synchronization process can be divided into several </p>
+<p>steps which will be explained in the following sections. </p>
+<p><b>3.6.1 </b></p>
+<p><b>Step 1: Analysis of the RTE configuration in the workspace </b></p>
+<p>In  the  first  step  the  settings  of  the  workspace  (more  precisely,  the  ECU  project)  are </p>
+<p>analyzed  and  all  additionally  derived  attributes  are  calculated.  In  general,  there  are  two </p>
+<p>different categories of settings. </p>
+<p>The first category (explicit parameters) includes settings which are directly configured by </p>
+<p>the user in DaVinci DEV or derived from this configuration because of standardized rules </p>
+<p>given  in  AUTOSAR’s  System  Template  Specification  chapter  “Harmonisation  between </p>
+<p>Upstream Templates and ECU Configuration”. </p>
+<p>The  second  category  (implicit  parameters)  includes  implementation  dependant  settings </p>
+<p>which are determined by the Rte generator and consists of those Os module configuration </p>
+<p>elements which are written by DaVinci DEV and are not visible to the user (see section 4.5 </p>
+<p>for details). </p>
+<p>To ensure that the determined configuration is consistent the corresponding ECU-Project </p>
+<p>is checked for a correct design. If DaVinci DEV detects an error the dialog in Figure 3-2 is </p>
+<p>shown. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-2 ECU-Project is inconsistent </p>
+<p>In this case the implicit parameters won’t be available in the next steps. Depending on the </p>
+<p>next actions this may remove already existing implicit parameters from the configuration </p>
+<p>although this was not intended. Therefore the dialog is shown to indicate that there is a </p>
+<p>problem which should be fixed if a correct Os configuration is needed. The design errors </p>
+<p>are displayed in the “Messages” tab and should be checked for a more detailed description </p>
+<p>of the problem. </p>
+<p>If DaVinci DEV did not detect any problems or the user wants to continue anyway, the Rte </p>
+<p>generator  is  called  which  determines  all  required  Os  elements.  Since  some  design </p>
+<p>constraints are currently not checked by DaVinci DEV additional checks are performed by </p>
+<p>the  Rte  generator.  The  dialog  in  Figure  3-3  is  shown  if  the  Rte  generator  aborted  and </p>
+<p>reported an error. The detailed error message is available in the “Code Generator Log” tab. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>15 / 34 </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-3 The Rte generator detected an inconsistent system design </p>
+<p><b>3.6.2 </b></p>
+<p><b>Step 2: Comparison of workspace and ECU-C file </b></p>
+<p>If all parameters could be derived, the given ECU-C file is imported and the settings of the </p>
+<p>workspace are compared to the settings of the ECU-C file. If differences were detected the </p>
+<p>dialog in Figure 3-4 is shown. The user can then select whether the settings of the ECU-C </p>
+<p>file should be imported (direction “&lt;&lt;”), i.e. the ECU-Project should be changed according </p>
+<p>to the settings in the ECU-C file, or if the settings of the ECU-Project should be exported, </p>
+<p>i.e.  the  ECU-C  file  should  be  changed  according  to  the  settings  in  the  ECU-Project </p>
+<p>(direction  “&gt;&gt;”).  Remember  that  an  export  might  remove  existing  Os  elements  from  the </p>
+<p>ECU-C file if the ECU-Project is inconsistent but the previously shown dialog (Figure 3-2) </p>
+<p>was closed with “Yes” (“export anyway”). </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-4 ECU-C-Synchronization dialog </p>
+<p>On the left side the dialog displays the timestamp of the last synchronization of the ECU-</p>
+<p>Project, and on the right side the “last modified” timestamp of the ECU-C file is displayed. </p>
+<p>Since both the ECU-C file and the ECU-Project can be edited in parallel there’s no rule of </p>
+<p>thumb  to  decide  which  synchronization  direction  has  to  be  chosen  without  considering </p>
+<p>additional  information.  Therefore  the  “Details…”  button  shows  a  dialog  with  the  actual </p>
+<p>differences of both configurations. Section 3.6.5 describes the dialog in detail. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>16 / 34 </p>
+<p>Chapter 5 shows some practical approaches, which makes it easier for the user to avoid </p>
+<p>errors  like  selecting  the  wrong  synchronization  direction  or  to  run  a  synchronization </p>
+<p>process even though it is not required to do so. </p>
+<p>Chapter 4 shows in details, which parameters are affected or relevant for DaVinci DEV. </p>
+<p>The next sections describe what happens if the user selects “import” or “export”. </p>
+<p><b>3.6.3 </b></p>
+<p><b>Synchronization direction “import” </b></p>
+<p>If “import” is selected, the ECU-Project is changed according to the settings of the ECU-C </p>
+<p>file. If one of the modules Rte, Os, Com, NvM is not configured in the ECU-C file the user </p>
+<p>is asked if he wants to delete the corresponding settings in the ECU-Project as well or if </p>
+<p>they should be kept as they are. This is useful if the user already added a task mapping in </p>
+<p>DaVinci DEV but did not yet configure the Os module. When the import has completed the </p>
+<p>new ECU-Project settings are analyzed again and the resulting configuration parameters </p>
+<p>are compared to the ECU-C file settings. This is necessary because changes of the Rte </p>
+<p>configuration might result in additional changes of the Com or Os configuration. If this is </p>
+<p>the case the user is asked if he wants to update the corresponding module configuration in </p>
+<p>the ECU-C file or not (Figure 3-5). Depending on the user’s role he might be allowed to </p>
+<p>change the Os or Com configuration or he has to confer with the responsible person at </p>
+<p>first. </p>
+<p>Again, the “Details…” button allows to further investigate the actual differences between </p>
+<p>the ECU-Project’s implicit configuration and the settings from the ECU-C file. </p>
+<p> </p>
+<p> </p>
+<p>Figure 3-5 Module specific ECU-Configuration update dialog </p>
+<p><b>3.6.4 </b></p>
+<p><b>Synchronization direction “export” </b></p>
+<p>If  “export”  is  selected,  the  ECU-C  file  is  changed  according  to  the  settings  of  the  ECU-</p>
+<p>project. This means that the explicit parameters are written to the file. Then it is checked if </p>
+<p>other </p>
+<p>module </p>
+<p>configurations </p>
+<p>have </p>
+<p>to </p>
+<p>be </p>
+<p>updated </p>
+<p>with </p>
+<p>implicit </p>
+<p>parameters, </p>
+<p>e.g. </p>
+<p>ComCallbacks or Os elements. If this is the case, DaVinci DEV asks the user to decide if </p>
+<p>the corresponding module configuration in the ECU-C file should be updated or not (Figure </p>
+<p>3-5). </p>
+<p>Again, the “Details…” button allows to further investigate the actual differences between </p>
+<p>the ECU-Project’s implicit configuration and the settings from the ECU-C file. </p>
+<p><b>3.6.5 </b></p>
+<p><b>ECU-Configuration difference dialog </b></p>
+<p>The ECU-Configuration difference dialog helps the user to decide about his further actions </p>
+<p>whenever  the  configurations  of  the  ECU-Project  and  the  ECU-C  file  are  inconsistent.  It </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>17 / 34 </p>
+<p>may be opened from the ECU-C synchronization dialog described in section 3.6.2 as well </p>
+<p>as  the  dialogs  from  sections  3.6.3  and  3.6.4  which  are  displayed  for  each  module </p>
+<p>configuration. </p>
+<p> </p>
+<p>Figure 3-6 ECU-Configuration difference dialog </p>
+<p>The dialog displays the relevant module configurations and a status icon indicating if there </p>
+<p>are inconsistencies (</p>
+<p>) or if the settings in the ECU-Project and the ECU-C file are equal </p>
+<p>(</p>
+<p>)  or  equivalent  (</p>
+<p>).  Values  which  are  not  set  in  the  ECU-Project  (either  explicit  or </p>
+<p>implicit parameters) are not displayed in the dialog unless it is required that these values </p>
+<p>have to be removed from the ECU-C file as well. </p>
+<p>If there are only small changes in a complex configuration the “Show conflicts only” option </p>
+<p>may </p>
+<p>be </p>
+<p>used </p>
+<p>to </p>
+<p>reduce </p>
+<p>the </p>
+<p>displayed </p>
+<p>parameters </p>
+<p>to </p>
+<p>those </p>
+<p>which </p>
+<p>are </p>
+<p>considered </p>
+<p>inconsistent. </p>
+<p>Figure 3-6 shows an example where a new task “EventTask” was added in DaVinci DEV </p>
+<p>and  a  Runnable  was  moved  from  “ControlTask”  to  the  new  task.  The  SensorTask’s </p>
+<p>attribute “TaskType” is displayed as equivalent because “AUTO” is the default value if no </p>
+<p>specific attribute value is set in the ECU-C file. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>18 / 34 </p>
+<p><b>4 </b></p>
+<p><b>ECU-Configuration parameters </b></p>
+<p>The following sections list the parameters and/or containers which are read and/or written </p>
+<p>by DaVinci DEV. All other parameters/containers in the ECU-C file do not affect the RTE. </p>
+<p>They can be changed in the ECU-C file without need of synchronizing the workspace. </p>
+<p> </p>
+<p>For some parameters it is allowed that the ECU-Project and the ECU-C file contain </p>
+<p>different values. These parameters and the corresponding rules are given in the following </p>
+<p>sections as well. Remember these values are not displayed in the difference dialog if the </p>
+<p>ECU-Project’s parameter has no specific value. </p>
+<p><b>4.1 </b></p>
+<p><b>Vendor Specific Configuration Parameters </b></p>
+<p>Vendor  specific  configuration  parameters  for  Microsar  Modules  are  specified  in  each </p>
+<p>module’s BSWMD file which is named &lt;Modulename&gt;_bswmd.arxml. These parameters </p>
+<p>are marked with (MICROSAR) in the following sections. </p>
+<p><b>4.2 </b></p>
+<p><b>Rte module </b></p>
+<p><b>4.2.1 </b></p>
+<p><b>Parameters </b></p>
+<p><b>Rte module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p> </p>
+<p>RteVfbTrace </p>
+<p>r/w </p>
+<p> </p>
+<p>RteVfbTraceFunction </p>
+<p>r/w </p>
+<p> </p>
+<p>RteA2LVersion (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p>RteXcpEventSupport (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p>RteMeasurementSupport </p>
+<p>r/w </p>
+<p> </p>
+<p>RteCalibrationSupport </p>
+<p>r/w </p>
+<p> </p>
+<p>RteCalibrationBufferSize </p>
+<p>r/w </p>
+<p> </p>
+<p>RteOptimizationMode </p>
+<p>r/w </p>
+<p> </p>
+<p>RteTaskConfiguration (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p>RteTaskUsesSchedule (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p>RteTaskRef (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p>SwComponentInstance/ </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p>ImplementationRef </p>
+<p>w </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>19 / 34 </p>
+<p> </p>
+<p>ServiceComponentPrototypeRef </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>SoftwareComponentPrototypeRef </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ExclusiveAreaImplementation </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p>NvRamAllocation/ </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SwNvRamMappingReference </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>NvmBlockRef </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p>RunnableEntityMapping/ </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ActivationOffset </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PositionInTask </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>RTEEventRef (resolved to Runnable) </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>MappedToTaskRef </p>
+<p>r/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>RteCyclicTriggerImplementation (MICROSAR) </p>
+<p>r/w </p>
+<p> </p>
+<p>ComponentTypeCalibration/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>CalibrationSupportEnabled </p>
+<p>r/w </p>
+<p> </p>
+<p>Table 4-1 Rte configuration parameters </p>
+<p>These settings are configured in DaVinci DEV at ECU-Project level.  </p>
+<p>Please note: </p>
+<p>•</p>
+<p> </p>
+<p>The implementation selection is not read since DaVinci DEV always assumes that </p>
+<p>only one implementation per atomic component type exists. </p>
+<p>•</p>
+<p> </p>
+<p>RteCyclicTriggerImplementation </p>
+<p>is </p>
+<p>not </p>
+<p>visible </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>and </p>
+<p>cannot </p>
+<p>be </p>
+<p>modified. </p>
+<p>•</p>
+<p> </p>
+<p>RteTaskConfiguration </p>
+<p>settings </p>
+<p>are </p>
+<p>displayed </p>
+<p>in </p>
+<p>the </p>
+<p>Os </p>
+<p>section </p>
+<p>in </p>
+<p>the </p>
+<p>ECU-</p>
+<p>Configuration difference dialog (3.6.5). </p>
+<p><b>4.3 </b></p>
+<p><b>SchM module </b></p>
+<p><b>4.3.1 </b></p>
+<p><b>General </b></p>
+<p>The SchM module configuration is never changed by DaVinci DEV; it is only used as the </p>
+<p>read-only  master  configuration  for  RunnableEntityMappings  of  ServiceComponentTypes </p>
+<p>and the “Role” attribute of an OsTask. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>20 / 34 </p>
+<p><b>4.3.2 </b></p>
+<p><b>Parameters </b></p>
+<p><b>SchM module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p> </p>
+<p>SchMMainFunctionMapping/ </p>
+<p>r </p>
+<p> </p>
+<p> </p>
+<p>SchMMainFunctionSymbol </p>
+<p>r </p>
+<p> </p>
+<p> </p>
+<p>SchMBswActivationOffset </p>
+<p>r </p>
+<p> </p>
+<p> </p>
+<p>SchMMappedToTask </p>
+<p>r </p>
+<p> </p>
+<p> </p>
+<p>SchMPositionInTask </p>
+<p>r </p>
+<p> </p>
+<p>Table 4-2 SchM configuration parameters </p>
+<p><b>4.3.3 </b></p>
+<p><b>Rte </b></p>
+<p>The SchM module configuration contains a task mapping for BSW functions similar to the </p>
+<p>RTEEvent </p>
+<p>mapping </p>
+<p>in </p>
+<p>the </p>
+<p>Rte </p>
+<p>module </p>
+<p>configuration. </p>
+<p>If </p>
+<p>these </p>
+<p>BSW </p>
+<p>functions </p>
+<p>are </p>
+<p>represented by a Runnable of a corresponding ServiceComponentType the mapping of its </p>
+<p>RTEEvents to an OsTask has to be added to the Rte module configuration. </p>
+<p>If </p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>detects </p>
+<p>a </p>
+<p>SchMMainFunctionMapping </p>
+<p>for </p>
+<p>a </p>
+<p>Runnable</p>
+<p>2</p>
+<p> </p>
+<p>of </p>
+<p>a </p>
+<p>ServiceComponentType </p>
+<p>used </p>
+<p>in </p>
+<p>the </p>
+<p>ECUProject, </p>
+<p>a </p>
+<p>corresponding </p>
+<p>virtual </p>
+<p>RunnableEntityMapping is derived automatically. The mapping is called virtual because it </p>
+<p>is only displayed in the ECU-Configuration difference dialog and not automatically added </p>
+<p>to the Rte ECU-Configuration section. This has to be done by the usual synchronization </p>
+<p>mechanism, i.e. the new RunnableEntityMapping has to be imported in DaVinci DEV and </p>
+<p>exported to the Rte ECU-Configuration section. </p>
+<p>If  the  Runnable  of  the  ServiceComponentType  is  already  mapped  to  another  OsTask  in </p>
+<p>DaVinci DEV, the mapping will be adapted to ensure both SchM and the Rte use the same </p>
+<p>OsTask. As the actual position of a runnable within a task is not used by the Rte generator </p>
+<p>in </p>
+<p>this </p>
+<p>context, </p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>does </p>
+<p>not </p>
+<p>modify </p>
+<p>PositionInTask </p>
+<p>if </p>
+<p>it </p>
+<p>differs </p>
+<p>from </p>
+<p>SchMPositionInTask. </p>
+<p>Whenever DaVinci DEV adds a virtual RunnableEntityMapping or modifies the OsTask of </p>
+<p>an existing RunnableEntityMapping a log message is written to the Action Log. </p>
+<p> </p>
+<p><b>4.3.4 </b></p>
+<p><b>Os </b></p>
+<p>DaVinci DEV sets the “Role” attribute of an OsTask to “BSW Scheduler” if it is referenced </p>
+<p>by any SchMMainFunctionMapping container. </p>
+<p>                                            </p>
+<p>2</p>
+<p> the Runnable is found by matching its name with the value of SchMMainFunctionSymbol </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>21 / 34 </p>
+<p><b>4.4 </b></p>
+<p><b>Com module </b></p>
+<p><b>4.4.1 </b></p>
+<p><b>Parameters </b></p>
+<p><b>Com module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p> </p>
+<p>ComSignal/ </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ShortName </p>
+<p>(r) </p>
+<p> </p>
+<p> </p>
+<p>ComDataInvalidAction </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComInvalidNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComSignalDataInvalidValue </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>SystemTemplateSystemSignalRef </p>
+<p>(r)/w </p>
+<p> </p>
+<p> </p>
+<p>ComSignalInitValue </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComErrorNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComTimeoutNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComTimeoutFactor </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComSignalType </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComFilter/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComFilterAlgorithm </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComFilterMask </p>
+<p>w </p>
+<p> </p>
+<p>ComSignalGroup/ </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ShortName </p>
+<p>(r) </p>
+<p> </p>
+<p> </p>
+<p>ComDataInvalidAction </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComErrorNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComInvalidNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComTimeoutFactor </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>ComTimeoutNotification </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p>SystemTemplateSignalGroupRef </p>
+<p>(r)/w </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>22 / 34 </p>
+<p> </p>
+<p>ComGroupSignal/ </p>
+<p>(r)/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ShortName </p>
+<p>(r) </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComSignalDataInvalidValue </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComSignalInitValue </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComSignalType </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>SystemTemplateSystemSignalRef </p>
+<p>(r)/w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComFilter/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComFilterAlgorithm </p>
+<p>w </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComFilterMask </p>
+<p>w </p>
+<p> </p>
+<p>Table 4-3 Com configuration parameters </p>
+<p>For simplicity, only the term “ComSignal” is used in the following explanation but the basic </p>
+<p>principle is true for ComSignalGroups, too. </p>
+<p>DaVinci DEV assumes that the same communication database has been used to setup the </p>
+<p>workspace  as  well  as  the  ComSignals  in  the  ECU-C  file  (which  is  done  by  the  BSW </p>
+<p>Configuration Tool  by  importing  e.g.  a  dbc  file  or  an AUTOSAR  ECU  Extract  of  System </p>
+<p>Description). Therefore, DaVinci DEV does not import ComSignals. </p>
+<p>“(r)” means that either the ShortName or the SystemTemplateSignalRef is read to identify </p>
+<p>the  ComSignal  and  store  its  name  to  be  able  to  use  correct  ComSignal  handles  in  the </p>
+<p>generated Rte code. </p>
+<p>Please see section 4.8 for details about ComSignals and usage of their symbolic handles. </p>
+<p><b>4.4.2 </b></p>
+<p><b>Equivalent parameter values </b></p>
+<p><b>Com module configuration </b></p>
+<p>Parameter </p>
+<p>Equivalence rule </p>
+<p>ComSignal/ </p>
+<p> </p>
+<p> </p>
+<p>ComDataInvalidAction </p>
+<p>Parameter values “NONE” and “” (undefined attribute value) are equivalent </p>
+<p> </p>
+<p>ComInvalidNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComSignalInitValue </p>
+<p>ECU-Project parameter is not set (InvalidAction is not set to “Replace”) </p>
+<p> </p>
+<p>ComErrorNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComTimeoutNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>23 / 34 </p>
+<p> </p>
+<p>ComTimeoutFactor </p>
+<p>ECU-C file value is greater than 0 but less than ECU-Project value </p>
+<p>Starting  with  DaVinci  Developer  3.0  SP3  this  depends  on  the  workspace </p>
+<p>setting “SWC Alive Timeout overrides ComSignal” (see 4.4.2.1) </p>
+<p>ComSignalGroup/ </p>
+<p> </p>
+<p> </p>
+<p>ComDataInvalidAction </p>
+<p>Parameter values “NONE” and “” (undefined attribute value) are equivalent </p>
+<p> </p>
+<p>ComErrorNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComInvalidNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComTimeoutFactor </p>
+<p>ECU-C file value is greater than 0 but less than ECU-Project value </p>
+<p>Starting  with  DaVinci  Developer  3.0  SP3  this  depends  on  the  workspace </p>
+<p>setting “SWC Alive Timeout overrides ComSignal” (see 4.4.2.1) </p>
+<p> </p>
+<p>ComTimeoutNotification </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte callback </p>
+<p> </p>
+<p>ComGroupSignal/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>ComSignalInitValue </p>
+<p>ECU-Project parameter is not set (InvalidAction is not set to “Replace”) </p>
+<p>Table 4-4 Com equivalent parameter value rules </p>
+<p>If  a  ComSignal’s  callback  is  already  set  to  a  non-Rte  callback  this  configuration  is </p>
+<p>accepted  but  a  message  is  displayed  which  contains  the  ComSignal  name  and  the </p>
+<p>callback name. In this configuration the user is in charge to ensure that the Rte’s callback </p>
+<p>function is called. </p>
+<p><b>4.4.2.1 </b></p>
+<p><b>ComTimeoutFactor </b></p>
+<p>Depending  on  the  design  approach,  the  ComTimeoutFactor  may  be  specified  by  the </p>
+<p>communication  design  or  should  be  updated  based  on  the  software  design.  To  support </p>
+<p>both  strategies,  a  workspace  specific  setting  allows  specifying  how  to  synchronize  the </p>
+<p>ComTimeoutFactor:  “never”,  only  if  the  value  of  the  software  design  is  lower  than  the </p>
+<p>current ComTimeoutFactor value or “always”. </p>
+<p><b>4.5 </b></p>
+<p><b>Os module </b></p>
+<p><b>4.5.1 </b></p>
+<p><b>Parameters </b></p>
+<p>The </p>
+<p>column </p>
+<p>“Category“ </p>
+<p>of </p>
+<p>the </p>
+<p>following </p>
+<p>table </p>
+<p>specifies </p>
+<p>if </p>
+<p>the </p>
+<p>user </p>
+<p>can </p>
+<p>edit </p>
+<p>the </p>
+<p>corresponding parameter (“DEV“) or if it is automatically derived by the Rte code generator </p>
+<p>(“Rte generator“). </p>
+<p><b>Os module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p>Category </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>24 / 34 </p>
+<p>OsAlarm/ </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsAlarmAccessingApplication </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsAlarmAction/ </p>
+<p> </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmActivateTask/ </p>
+<p> </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmActivateTaskRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmSetEvent/ </p>
+<p> </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmSetEventRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmSetEventTaskRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsAlarmCounterRef </p>
+<p>w </p>
+<p>Explicit </p>
+<p>OsEvent/ </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsEventMask </p>
+<p>w </p>
+<p>Implicit </p>
+<p>OsApplication/ </p>
+<p>w </p>
+<p>Explicit / Implicit </p>
+<p> </p>
+<p>OsTrusted </p>
+<p>r/w </p>
+<p>Explicit / Implicit </p>
+<p> </p>
+<p>OsAppAlarmRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsAppResourceRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsAppTaskRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsApplicationTrustedFunction/ </p>
+<p> </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsTrustedFunctionName </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsApplicationParams (MICROSAR) </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsApplicationReturnType (MICROSAR) </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsApplicationGenerateStub (MICROSAR) </p>
+<p>w </p>
+<p>Implicit </p>
+<p>OsCounter </p>
+<p>w </p>
+<p>Explicit </p>
+<p>OsResource/ </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsResourceProperty </p>
+<p>w </p>
+<p>Implicit </p>
+<p>OsTask/ </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p>OsTaskPriority </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p>OsTaskSchedule </p>
+<p>r/w </p>
+<p>Explicit </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>25 / 34 </p>
+<p> </p>
+<p>OsTaskTYPE (MICROSAR) </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p>OsTaskActivation </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsTaskAutostart/ </p>
+<p> </p>
+<p>Implicit </p>
+<p> </p>
+<p> </p>
+<p>OsTaskAppModeRef </p>
+<p>r/w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsTaskAppMode </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsTaskEventRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsTaskResourceRef </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>OsTaskAccessingApplication </p>
+<p>w </p>
+<p>Explicit / Implicit </p>
+<p> </p>
+<p>AdminData/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DV_TaskTimingPreConfig (DaVinci DEV) </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p> </p>
+<p>DV_TaskTimingCycleTime (DaVinci DEV) </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p> </p>
+<p>DV_TaskTimingOffset (DaVinci DEV) </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p>Table 4-5 Os module parameters </p>
+<p>Most  of  the  Os objects  are  implicit,  i.e.  not directly  visible  and  editable  in  DaVinci  DEV.  </p>
+<p>Only OsTask and OsApplication can be changed by the user. All other objects (OsAlarm, </p>
+<p>OsEvent,  OsResource)  are  implicit.  They  reflect  the  implementation  of  the  MICROSAR </p>
+<p>RTE.  </p>
+<p>The OsApplication is classified as “Explicit / Implicit”, because an additional implicit special </p>
+<p>OsApplication named “Rte” might be required beside the explicitly defined OsApplications. </p>
+<p>The  existence  of  this  implicit  OsApplication  depends  on  runnable  and  task  mapping </p>
+<p>configuration. </p>
+<p>Depending on the Os module version the configuration parameter OsTaskTYPE is stored </p>
+<p>in different configuration container layouts; therefore the module’s BSWMD file has to be </p>
+<p>configured at the ECU-Project to ensure that the parameter is written in the correct layout. </p>
+<p>All implicit Os elements are prefixed with “Rte_”. Their name must not be changed.  </p>
+<p>OsCounter  and  OsAlarmCounterRef  are  only  exported  if  a BSWMD  is  configured  which </p>
+<p>contains  a  pre-config  section  with  an  OsCounter. The  OsAlarmCounterRef  is  set  to  this </p>
+<p>OsCounter by default but may be changed by the user in the Os configuration tool. </p>
+<p>The  optional  TaskTiming  configuration  is  used  by  DaVinci  DEV  to  check  for  consistent </p>
+<p>cyclic runnable triggers and is not evaluated by the Os module. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>26 / 34 </p>
+<p><b>4.5.2 </b></p>
+<p><b>Equivalent parameter values </b></p>
+<p><b>Os module configuration </b></p>
+<p>Parameter </p>
+<p>Equivalence rule </p>
+<p>OsAlarm/ </p>
+<p> </p>
+<p> </p>
+<p>OsAlarmCounterRef </p>
+<p>No Os-BSWMD file is referenced or the user has configured a specific </p>
+<p>OsCounter. </p>
+<p>OsTask/ </p>
+<p> </p>
+<p> </p>
+<p>OsTaskTYPE (MICROSAR) </p>
+<p>ECU-C </p>
+<p>file </p>
+<p>does </p>
+<p>not </p>
+<p>contain </p>
+<p>a </p>
+<p>value </p>
+<p>and </p>
+<p>no </p>
+<p>Os-BSWMD </p>
+<p>file </p>
+<p>is </p>
+<p>referenced by the ECU-Project which contains the parameter definition </p>
+<p> </p>
+<p>OsTaskAutostart </p>
+<p>ECU-Project parameter is not set </p>
+<p>Table 4-6 Os equivalent parameter value rules </p>
+<p><b>4.6 </b></p>
+<p><b>NvM module </b></p>
+<p><b>4.6.1 </b></p>
+<p><b>Parameters </b></p>
+<p><b>NvM module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p>Category </p>
+<p>NvmBlockDescriptor/ </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p>NvmNvBlockLength </p>
+<p>w </p>
+<p>Implicit/Explicit </p>
+<p> </p>
+<p>NvmRamBlockDataAddress </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>NvmRomBlockDataAddress </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>NvmNvramBlockIdentifier </p>
+<p>r/w </p>
+<p>Explicit </p>
+<p> </p>
+<p>NvmBlockUseSyncMechanism </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>NvmWriteRamBlockToNvCallback </p>
+<p>w </p>
+<p>Implicit </p>
+<p> </p>
+<p>NvmReadRamBlockFromNvCallback </p>
+<p>w </p>
+<p>Implicit </p>
+<p>Table 4-7 NvM configuration parameters </p>
+<p>To  be  able  to  do  a  memory  mapping  in  DaVinci  DEV,  NvMBlocks  are  imported from an </p>
+<p>ECU-C  file.  However,  other  attributes  cannot  be  changed  and  the  above  mentioned </p>
+<p>attributes  are  automatically  derived  from  an  existing  memory  mapping  during  ECU-C-</p>
+<p>Synchronization. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>27 / 34 </p>
+<p><b>4.6.2 </b></p>
+<p><b>Equivalent parameter values </b></p>
+<p><b>NvM module configuration </b></p>
+<p>Parameter </p>
+<p>Equivalence rule </p>
+<p>NvmBlockDescriptor/ </p>
+<p> </p>
+<p> </p>
+<p>NvmNvBlockLength </p>
+<p>ECU-Project </p>
+<p>parameter </p>
+<p>is </p>
+<p>not </p>
+<p>set </p>
+<p>(no </p>
+<p>MemoryMapping </p>
+<p>for </p>
+<p>NvMBlock) </p>
+<p> </p>
+<p>NvmRamBlockDataAddress </p>
+<p>ECU-Project </p>
+<p>parameter </p>
+<p>is </p>
+<p>not </p>
+<p>set </p>
+<p>(no </p>
+<p>MemoryMapping </p>
+<p>for </p>
+<p>NvMBlock) </p>
+<p> </p>
+<p>NvmRomBlockDataAddress </p>
+<p>ECU-Project </p>
+<p>parameter </p>
+<p>is </p>
+<p>not </p>
+<p>set </p>
+<p>(no </p>
+<p>MemoryMapping </p>
+<p>for </p>
+<p>NvMBlock) </p>
+<p> </p>
+<p>NvmNvramBlockIdentifier </p>
+<p>ECU-Project parameter is not set but the ECU-C file contains a </p>
+<p>value </p>
+<p> </p>
+<p>NvmBlockUseSyncMechanism </p>
+<p>ECU-Project  parameter is  not set to “true”  or the Nvm BSWMD </p>
+<p>does not specify this parameter </p>
+<p> </p>
+<p>NvmWriteRamBlockToNvCallback </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte </p>
+<p>callback or the Nvm BSWMD does not specify this parameter </p>
+<p> </p>
+<p>NvmReadRamBlockFromNvCallback </p>
+<p>ECU-Project parameter is set but ECU-C file contains a non-Rte </p>
+<p>callback or the Nvm BSWMD does not specify this parameter </p>
+<p>Table 4-8 NvM equivalent parameter value rules </p>
+<p><b>4.7 </b></p>
+<p><b>Board </b></p>
+<p><b>4.7.1 </b></p>
+<p><b>Parameters </b></p>
+<p><b>Board module configuration </b></p>
+<p>Parameter </p>
+<p>Read/Write </p>
+<p>Category </p>
+<p>BoardGeneral/ </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>BoardAtomicVariableAccess (MICROSAR) </p>
+<p>r </p>
+<p>(Explicit) </p>
+<p> </p>
+<p>BoardEnableSnvPrefixes (MICROSAR) </p>
+<p>r </p>
+<p>(Explicit) </p>
+<p>Table 4-9 Board configuration parameters </p>
+<p>The parameters are marked as “(Explicit)” because it is not visible in DaVinci DEV but the </p>
+<p>Rte generator adapts the Rte code according to the parameter’s value. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>28 / 34 </p>
+<p><b>4.7.2 </b></p>
+<p><b>Equivalent parameter values </b></p>
+<p><b>Board module configuration </b></p>
+<p>Parameter </p>
+<p>Equivalence rule </p>
+<p>BoardGeneral/ </p>
+<p> </p>
+<p> </p>
+<p>BoardAtomicVariableAccess </p>
+<p>   (MICROSAR) </p>
+<p>ECU-C file does not contain a value and ECU-Project parameter is set </p>
+<p>to default value “Atomic16BitAccess” </p>
+<p> </p>
+<p>BoardEnableSnvPrefixes </p>
+<p> </p>
+<p>(MICROSAR) </p>
+<p>ECU-C file does not contain a value and ECU-Project parameter is set </p>
+<p>to value “false” </p>
+<p>Table 4-10 Board equivalent parameter value rules </p>
+<p><b>4.8 </b></p>
+<p><b>ComSignals and ComSignalGroups </b></p>
+<p>Since the Rte utilizes the Com module to transfer application data over the communication </p>
+<p>bus it has to know the mapping of SystemSignals to ComSignal handles defined by the </p>
+<p>Com module. If the handles are completely different or even worse existing handles are </p>
+<p>used for the wrong SystemSignal the result may be a simple compile error or in the worst </p>
+<p>case the problem is only visible at run time. In general, it is not possible to always use the </p>
+<p>default approach and use the SystemSignal’s name as the ComSignal handle because the </p>
+<p>Rte  has  to  support  Gateway  signals  (receive)  and  FanOut  signals  (write).  In  this  case, </p>
+<p>more  than  one  ComSignal  exists  for  each  SystemSignal  and  the  Rte  has  to  call  the </p>
+<p>Com_SendSignal-API for each of these ComSignals with the correct handle.   </p>
+<p>To  ensure  that  the  Rte  knows  about  the  correct  ComSignal  handles,  there  are  different </p>
+<p>approaches  depending  on  the AUTOSAR  version  and  the  source  of  the  communication </p>
+<p>data. </p>
+<p><b>4.8.1 </b></p>
+<p><b>dbc files </b></p>
+<p>The signals in the dbc file are imported as SystemSignals and the ComSignal handles are </p>
+<p>derived from their name. In case of Gateway/FanOut signals the dbc file contains signal </p>
+<p>names following the rule &lt;SystemSignal&gt;_ISig_&lt;number&gt; to be able to identify the original </p>
+<p>SystemSignal and to provide a unique name for each of the ComSignals on the different </p>
+<p>communication buses. </p>
+<p> </p>
+<p>When such a dbc file is imported in DaVinci DEV one SystemSignal is created for each </p>
+<p>unique SystemSignal name and the complete signal name, e.g. SigMyData_ISig_0, is </p>
+<p>internally stored to be able to find the correct ComSignal during ECU-C-Synchronization. </p>
+<p> </p>
+<p>NWD creates dbc files with these signal names if the export option “Create GENy </p>
+<p>compatible signal names” is activated. </p>
+<p><b>4.8.2 </b></p>
+<p><b>ECU-Extract </b></p>
+<p>An ECU-Extract is imported as it is, i.e. SystemSignals are imported as SystemSignals </p>
+<p>and no special naming rules apply for these signals. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>29 / 34 </p>
+<p>If AUTOSAR 3.0 is used there’s one limitation: The AUTOSAR ShortName path of a </p>
+<p>SignalToIPDUMapping has to follow the rule: </p>
+<p>DaVinci/PKG_Cluster&lt;ClusterName&gt;/&lt;PDUName&gt;/&lt;SystemSignalName&gt;_S</p>
+<p> for </p>
+<p>Signals </p>
+<p>DaVinci/PKG_Cluster&lt;ClusterName&gt;/&lt;PDUName&gt;/&lt;SystemSignalName&gt;_SG </p>
+<p>for SignalGroups </p>
+<p>for CAN </p>
+<p>&lt;PDUName&gt;</p>
+<p> has to be the name of the CAN frame </p>
+<p> </p>
+<p>ECU-Extracts of DaVinci DEV and NWD follow this rule. </p>
+<p>If an ECU-Extract is used with a different package structure and/or naming of the relevant </p>
+<p>elements it is usually not possible to match the ComSignals of the ECU-C file with the </p>
+<p>SystemSignals of DaVinci DEV’s workspace. </p>
+<p><b>4.8.3 </b></p>
+<p><b>AUTOSAR 2.1 </b></p>
+<p>Since there is no explicit relation of a ComSignal to the corresponding SystemSignal the </p>
+<p>ECU-Synchronization identifies matching pairs of ComSignal/SystemSignal by their name. </p>
+<p><b>4.8.4 </b></p>
+<p><b>AUTOSAR 3.x </b></p>
+<p>With AUTOSAR 3.0 an indirect relation from ComSignal to the SystemSignal was </p>
+<p>introduced. The ComSignal references a SignalToIPduMapping which itself eventually </p>
+<p>references the SystemSignal. </p>
+<p>To be able to resolve this reference from the ECU-Configuration into the ECU-Extract, the </p>
+<p>naming rule described in section 4.8.2 has to be fulfilled. </p>
+<p> </p>
+<p><b>4.8.5 </b></p>
+<p><b>Relevant ComSignals  </b></p>
+<p>It is important to remember that the Rte does not need to know all ComSignals and their </p>
+<p>handles. Only those SystemSignal/ComSignal relations are relevant which are used by </p>
+<p>applications, i.e. where a data mapping of DataElements to SystemSignals exists. If </p>
+<p>attributes of other ComSignals or attributes which are not handled by DaVinci DEV are </p>
+<p>modified it is not necessary to perform an ECU-C-Synchronization. </p>
+<p>To support the dbc based Com module configuration in a Com configurator like GENy, </p>
+<p>DaVinci DEV derives certain ComSignal attributes from the ECU-Extract because they are </p>
+<p>not contained in a dbc file, e.g. ComSignalType. These attributes are written to the ECU-C </p>
+<p>file during ECU-C-Synchronization. This causes modification of ComSignals which are not </p>
+<p>data mapped to a DataElement. </p>
+<p><b>4.8.6 </b></p>
+<p><b>Callbacks </b></p>
+<p>Depending on the configuration the Rte needs to be informed by the Com module about </p>
+<p>certain events, e.g. when a signal is received. The Rte’s callback function name is set by </p>
+<p>DaVinci DEV at the corresponding ComSignal if the configuration parameter is not set. In </p>
+<p>case there is already a callback configured DaVinci DEV displays a corresponding warning </p>
+<p>message </p>
+<p>in </p>
+<p>the </p>
+<p>Messages </p>
+<p>window </p>
+<p>with </p>
+<p>all </p>
+<p>ComSignals, </p>
+<p>configured </p>
+<p>callbacks </p>
+<p>and </p>
+<p>additionally  needed  callbacks.  In  this  scenario  the  user  has  to  call  the  Rte  function </p>
+<p>manually. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>30 / 34 </p>
+<p><b>Message Details </b></p>
+<p> </p>
+<p>ECUProject ECU1 contains the following ComSignals/ComSignalGroups with non-Rte </p>
+<p>callbacks: </p>
+<p> </p>
+<p>ComSignal Com_Signal_Temp_EnvData: </p>
+<p> </p>
+<p>CallbackName </p>
+<p>Needed Rte callback: Rte_COMCbk_Com_Signal_Temp_EnvData </p>
+<p>Assigned callback  : Custom_Callback_Com_Signal_Temp_EnvData</p>
+<p> </p>
+<p> </p>
+<p>The same mechanism is used for Nvm callbacks. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>31 / 34 </p>
+<p><b>5 </b></p>
+<p><b>Best practices </b></p>
+<p>Since the process of ECU-Configuration is rather complex you should follow some basic </p>
+<p>rules given in this chapter. These rules should be seen as a guideline to avoid </p>
+<p>unnecessary ECU-C-Synchronization processes in DaVinci DEV and nevertheless ensure </p>
+<p>a consistent overall configuration. </p>
+<p><b>5.1 </b></p>
+<p><b>Always work on the latest communication databases </b></p>
+<p>Always ensure that you are working on the latest communication databases in all tools. It </p>
+<p>is  often  a  problem  that  updated  dbc  files  are  imported  in  a  BSW  configuration  tool  like </p>
+<p>GENy but not in DaVinci DEV. If both tools work on a different communication model it is </p>
+<p>very likely that they derive a different set of ComSignals and report various errors. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example Error Message: </b></p>
+<p>ComSignal </p>
+<p>with </p>
+<p>an </p>
+<p>invalid </p>
+<p>SystemSignal </p>
+<p>reference </p>
+<p>/DaVinci/PKG_ClusterCanA/PKG_PDU/Frame1/Signal1_S, the according </p>
+<p>ISignalToIPDUMapping object could not be identified.</p>
+<p> </p>
+<p><b> </b></p>
+<p><b> </b></p>
+<p>The given example shows an error message which is displayed if the ECU-C file contains </p>
+<p>a ComSignal which is not known in DaVinci DEV, i.e. the Com configuration was updated </p>
+<p>by  the  Com  configurator  based  on  a  certain  communication  database  but  DaVinci  DEV </p>
+<p>does not have the same information available. </p>
+<p>Another  reason  for  this  error  message  is  the  fact  that  DaVinci  DEV  can  only  work  with </p>
+<p>ECU-C files based on ECU-Extracts if the ECU-Extract follows a naming rule concerning </p>
+<p>ISignalToIPDUMappings (see section 4.8). </p>
+<p><b>5.2 </b></p>
+<p><b>Do not edit the same module configuration in different tools at the same time </b></p>
+<p>Since several tools may edit the same module configuration (e.g. OsTasks can be edited in </p>
+<p>DaVinci  DEV  and  third  party  BSW configuration  tool),  it  is  not  wise  to  use  both  tools  in </p>
+<p>parallel,  especially  if  some  of  the  configuration  settings  are  automatically  derived  from </p>
+<p>another  module’s  configuration.  The  decision  what  to  do  in  DaVinci  DEV,  i.e.  choose </p>
+<p>„import“  or  „export“  during  ECU-C-Synchronization,  becomes  much  easier  if  the  module </p>
+<p>configurations  are  edited  exclusively  by  one  tool  at  a  time.  So  you  might  add  a  new </p>
+<p>OsTask  in  DaVinci  DEV,  synchronize  the  ECU-C  file,  change  to  BSW  configuration  tool </p>
+<p>and  add  another  OsTask  for  a  non-Rte  purpose,  save  the  ECU-C  file,  switch  back  to </p>
+<p>DaVinci </p>
+<p>DEV, </p>
+<p>synchronize </p>
+<p>the </p>
+<p>ECU-C </p>
+<p>file </p>
+<p>again </p>
+<p>and </p>
+<p>add </p>
+<p>some  more </p>
+<p>OsTasks  for </p>
+<p>additional runnables. You should not add these new OsTasks in both tools in parallel, since </p>
+<p>either </p>
+<p>the </p>
+<p>OsTasks </p>
+<p>defined </p>
+<p>in </p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>or </p>
+<p>the </p>
+<p>OsTaks </p>
+<p>defined </p>
+<p>in </p>
+<p>the </p>
+<p>BSW </p>
+<p>configuration tool will be lost when running the synchronization. </p>
+<p>If you execute external generators and/or configurators from DaVinci DEV’s generator or </p>
+<p>configurator </p>
+<p>lists </p>
+<p>you </p>
+<p>may </p>
+<p>enable </p>
+<p>“Options/Settings/ECU </p>
+<p>generation/Automatic </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>32 / 34 </p>
+<p>synchronization </p>
+<p>of </p>
+<p>ECU </p>
+<p>Configuration </p>
+<p>file”. </p>
+<p>In </p>
+<p>this </p>
+<p>case </p>
+<p>the </p>
+<p>ECU-C </p>
+<p>file </p>
+<p>is </p>
+<p>always </p>
+<p>synchronized  before  the  executable  is  run  and  after  it  has  been  closed.  Although  this </p>
+<p>ensures that the ECU-Project and the ECU-C file are always in a consistent state, it might </p>
+<p>be  better  to  not  use  this  option  and  explicitly  synchronize  the  ECU-C  file  to  avoid </p>
+<p>unnecessary and probably time consuming synchronizations when you edit configuration </p>
+<p>parameters </p>
+<p>which </p>
+<p>are </p>
+<p>not </p>
+<p>relevant </p>
+<p>for </p>
+<p>DaVinci </p>
+<p>DEV </p>
+<p>and </p>
+<p>the </p>
+<p>executed </p>
+<p>generator/configurator. </p>
+<p>As  explained  in  3.4  Vector  tools  implement  a  mechanism  to  ensure  that  the  ECU </p>
+<p>configuration is editable in only one tool at the same time. So you don’t have the problems </p>
+<p>mentioned above when just working with the Vector tools. </p>
+<p><b>5.3 </b></p>
+<p><b>Ensure that all tools use the same max. SHORT-NAME length </b></p>
+<p>Although AUTOSAR specifications up to releases 3.0.6 and 3.1.4 specify that a SHORT-</p>
+<p>NAME must not exceed the length of 32 characters, DaVinci DEV supports an extended </p>
+<p>length of up to 128 characters. If this setting is enabled (Options/Settings/AUTOSAR XML) </p>
+<p>it has to be ensured that all other tools support this extension, too. If this is not the case </p>
+<p>configuration elements won’t be found during ECU-C-Synchronization and will be created </p>
+<p>a second time if the name is longer than 32 characters. </p>
+<p>Starting  with  AUTOSAR  releases  3.0.7,  3.1.6  and  3.2,  SHORT-NAMEs  with  up  to  128 </p>
+<p>characters are allowed by the standard. </p>
+<p><b>5.4 </b></p>
+<p><b>ECU-C files have to be valid according to the AUTOSAR schema </b></p>
+<p>DaVinci  DEV  validates  the  ECU-C  file  against  the  corresponding  AUTOSAR  schema </p>
+<p>before it is imported. If the file is not valid the XML parser error is displayed in a dialog and </p>
+<p>the ECU-C-Synchronization is aborted. </p>
+<p> </p>
+<p>Figure 5-1 Validation of the ECU-C file failed </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>33 / 34 </p>
+<p><b>5.5 </b></p>
+<p><b>Configuration elements must have unique SHORT-NAMEs </b></p>
+<p>To be able to uniquely identify a configuration element all elements of the same hierarchy </p>
+<p>level must have unique SHORT-NAMEs. If this is not the case references within the ECU-</p>
+<p>C file may point to several different elements which makes the configuration inconsistent. </p>
+<p>Since </p>
+<p>this </p>
+<p>constraint </p>
+<p>is </p>
+<p>not </p>
+<p>checked </p>
+<p>by </p>
+<p>the </p>
+<p>XML </p>
+<p>schema, </p>
+<p>an </p>
+<p>additional </p>
+<p>check </p>
+<p>is </p>
+<p>implemented  in  DaVinci  DEV  and  an error  message  is printed  in  the  „Action  Log“  tab if </p>
+<p>such an error occurred. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>ECU-C File Handling Technical Reference </p>
+<p> </p>
+<p></p>
+<p>2014, Vector Informatik GmbH </p>
+<p>Version: 1.13 </p>
+<p> </p>
+<p> </p>
+<p>34 / 34 </p>
+<p><b>6 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+<p> </p>
+</body>
+</html>
+{% endraw %}

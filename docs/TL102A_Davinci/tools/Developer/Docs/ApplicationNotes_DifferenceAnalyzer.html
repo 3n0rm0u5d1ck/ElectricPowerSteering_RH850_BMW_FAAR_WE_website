@@ -1,0 +1,715 @@
+---
+layout: default
+title: ApplicationNotes_DifferenceAnalyzer
+nav_order: 7
+parent: Davinci (TL102A)
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>DaVinci Difference Analyzer </b></p>
+<p>Application Note </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Version 1.7 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>Authors: </b></p>
+<p>Stefanie Kruse, Matthias Wernicke, Andreas </p>
+<p>Claus, Daniel Fürderer </p>
+<p><b>Version: </b></p>
+<p>1.7 </p>
+<p><b>Status: </b></p>
+<p>released  </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>History </b></p>
+<p> </p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Ske </p>
+<p>2009-05-20 </p>
+<p>1.0 </p>
+<p>Initial version </p>
+<p>Ske </p>
+<p>2009-06-10 </p>
+<p>1.1 </p>
+<p>Description of starting DaVinci Difference Analyzer enhanced </p>
+<p>Wk </p>
+<p>2009-07-29 </p>
+<p>1.2 </p>
+<p>Document restructured and completed </p>
+<p>Cs </p>
+<p>2011-06-28 </p>
+<p>1.3 </p>
+<p>Description of filter options added </p>
+<p>Dfr </p>
+<p>2012-01-24 </p>
+<p>1.4 </p>
+<p>Updated figures and added description of view options (3.6), </p>
+<p>Parent Path (3.7) and DPA compare (3.8) </p>
+<p>Cs </p>
+<p>2012-05-02 </p>
+<p>1.5 </p>
+<p>Additional Copyrights added </p>
+<p>Dfr </p>
+<p>2014-01-28 </p>
+<p>1.6 </p>
+<p>Added description of ‘Filter equal elements’ option (3.5.2 and 4) </p>
+<p>Cs </p>
+<p>2015-05-28 </p>
+<p>1.7 </p>
+<p>Usage of Saxon-PE distributable package </p>
+<p><b> </b></p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Overview ................................................................................................................... 5</b></p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Installation ................................................................................................................ 6</b></p>
+<p> </p>
+<p>2.1</p>
+<p> </p>
+<p>Setup program ............................................................................................ 6</p>
+<p> </p>
+<p>2.2</p>
+<p> </p>
+<p>Licensing .................................................................................................... 6</p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Using DaVinci Difference Viewer ............................................................................. 7</b></p>
+<p> </p>
+<p>3.1</p>
+<p> </p>
+<p>Starting the difference analysis ................................................................... 7</p>
+<p> </p>
+<p>3.2</p>
+<p> </p>
+<p>Display of the differences ........................................................................... 8</p>
+<p> </p>
+<p>3.3</p>
+<p> </p>
+<p>Saving the result of a difference analysis .................................................... 9</p>
+<p> </p>
+<p>3.4</p>
+<p> </p>
+<p>Opening the result file of a difference analysis ............................................ 9</p>
+<p> </p>
+<p>3.5</p>
+<p> </p>
+<p>Filter Options .............................................................................................. 9</p>
+<p> </p>
+<p>3.5.1</p>
+<p> </p>
+<p>Element Identification ............................................................................... 10</p>
+<p> </p>
+<p>3.5.2</p>
+<p> </p>
+<p>Filter equal elements ................................................................................ 11</p>
+<p> </p>
+<p>3.5.3</p>
+<p> </p>
+<p>Element Filter ........................................................................................... 11</p>
+<p> </p>
+<p>3.5.4</p>
+<p> </p>
+<p>Loading/Storing Options ........................................................................... 11</p>
+<p> </p>
+<p>3.6</p>
+<p> </p>
+<p>View Options ............................................................................................ 11</p>
+<p> </p>
+<p>3.7</p>
+<p> </p>
+<p>Parent path changes ................................................................................ 12</p>
+<p> </p>
+<p>3.8</p>
+<p> </p>
+<p>Comparing DPA Projects .......................................................................... 12</p>
+<p> </p>
+<p>3.8.1</p>
+<p> </p>
+<p>Starting the difference analysis ................................................................. 12</p>
+<p> </p>
+<p>3.8.2</p>
+<p> </p>
+<p>Result Overview ....................................................................................... 12</p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Command line usage ............................................................................................. 14</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Result file ................................................................................................................ 15</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Additional Copyrights ............................................................................................ 17</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Saxon-HE ................................................................................................. 17</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>IKVM Runtime .......................................................................................... 17</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>Contact .................................................................................................................... 18</b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>1 </b></p>
+<p><b> Overview </b></p>
+<p>This document explains the usage of the command line tool “DaVinci Difference Analyzer” </p>
+<p>Version 2.7 and tells how to interpret the result.  </p>
+<p> </p>
+<p>DaVinci Difference Analyzer compares two ARXML files and puts the result into a result </p>
+<p>file.  Additionally  you  can  compare  two  DaVinci  Project  Assistant  projects  by  their  DPA </p>
+<p>files. For further information on DPA compare see chapter 3.8. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>2  Installation </b></p>
+<p><b>2.1 </b></p>
+<p><b>Setup program </b></p>
+<p>The </p>
+<p>DaVinci </p>
+<p>Difference </p>
+<p>Analyzer </p>
+<p>can </p>
+<p>be </p>
+<p>installed </p>
+<p>by </p>
+<p>starting </p>
+<p>the </p>
+<p>setup </p>
+<p>program </p>
+<p>DaVinciDiff.msi. This setup is part of a DaVinci tool setup and is installed during the tool </p>
+<p>installation procedure. </p>
+<p>The DaVinci Difference Analyzer is installed into one of the following folders: </p>
+<p>n</p>
+<p> </p>
+<p>English Windows: C:\Program Files\Common Files\Vector </p>
+<p>n</p>
+<p> </p>
+<p>German Windows: C:\Programme\Gemeinsame Dateien\Vector </p>
+<p>The following executables are installed in the sub-folder “DiffAnalyzer”: </p>
+<p>n</p>
+<p> </p>
+<p>DVDiffSys.exe: Command line program for comparing AUTOSAR XML files </p>
+<p>(System Description files, Software Component Description files or ECU </p>
+<p>Configuration Description files) </p>
+<p>n</p>
+<p> </p>
+<p>DVDiffView.exe: Program for displaying the differences between two AUTOSAR </p>
+<p>XML files </p>
+<p><b>2.2 </b></p>
+<p><b>Licensing </b></p>
+<p>In order to run DaVinci Difference Analyzer a license of at least one of the following tools is </p>
+<p>required on the PC: </p>
+<p>n</p>
+<p> </p>
+<p>DaVinci Configurator Pro </p>
+<p>n</p>
+<p> </p>
+<p>DaVinci Developer </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>3 </b></p>
+<p><b>Using DaVinci Difference Viewer </b></p>
+<p><b>3.1 </b></p>
+<p><b>Starting the difference analysis </b></p>
+<p>The difference analysis can be started via one of the following options </p>
+<p> </p>
+<p>n</p>
+<p> </p>
+<p>Via the Program menu </p>
+<p>Using <b>Program menu | &lt;DaVinci tool, e.g. Vector DaVinci Configurator 4.0&gt; </b></p>
+<p><b>| DaVinci Difference Viewer </b>the DaVinci Difference Viewer is started. Using </p>
+<p><b>File | New </b>you can open a dialog for selecting the two AUTOSAR XML files to </p>
+<p>be compared. After confirming this dialog, the comparison is started and the </p>
+<p>differences are displayed. </p>
+<p>n</p>
+<p> </p>
+<p>Via the Windows Explorer </p>
+<p>After selecting two files with extension .arxml in the Windows Explorer, you can </p>
+<p>display the differences between these files using the context menu entry </p>
+<p><b>AUTOSAR XML Diff </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 1: Analyze two files with the shell extension of DaVinci Difference Analyzer </p>
+<p> </p>
+<p>Alternatively, you can select the first file, use the context menu entry <b>Select as left </b></p>
+<p><b>side for AUTOSAR XML Diff </b></p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 2: Select source file to compare AUTOSAR files with the DaVinci Difference Analyzer </p>
+<p> </p>
+<p> </p>
+<p>and then select the second file and context menu entry <b>AUTOSAR XML Diff with </b></p>
+<p> </p>
+<p> </p>
+<p>Figure 3: Shell Extension of DaVinci Difference Analyzer </p>
+<p><b>3.2 </b></p>
+<p><b>Display of the differences </b></p>
+<p>The </p>
+<p>differences </p>
+<p>are  displayed </p>
+<p>in </p>
+<p>the </p>
+<p>DaVinci </p>
+<p>Difference </p>
+<p>Viewer </p>
+<p>(Figure </p>
+<p>4: </p>
+<p>DaVinci </p>
+<p>Difference Viewer). </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 4: DaVinci Difference Viewer </p>
+<p><b>3.3 </b></p>
+<p><b>Saving the result of a difference analysis </b></p>
+<p>Using <b>File | Save As </b>you can save the results of the difference analysis can be saved to a </p>
+<p>DaVinci Difference File (extension .dvdiff, see chapter 5). </p>
+<p><b>3.4 </b></p>
+<p><b>Opening the result file of a difference analysis </b></p>
+<p>After opening the DaVinci Difference Viewer you can load a DaVinci Difference File using </p>
+<p><b>File | Open</b>. Alternatively you can doubleclick the DaVinci Difference File in the Windows </p>
+<p>Explorer. </p>
+<p><b>3.5 </b></p>
+<p><b>Filter Options </b></p>
+<p>A dialog can be opened using <b>Tools | Options </b>to specify the element identification and </p>
+<p>filter for the next comparison. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 5: Options Dialog </p>
+<p>If  options  are  modified  and  the  dialog  has  been  closed  using <b> OK </b> you  can  re-start  the </p>
+<p>comparison process with the currently selected files by using the <b>File | Reload </b></p>
+<p><b>3.5.1 </b></p>
+<p><b>Element Identification </b></p>
+<p>Elements can be identified by Short-Name or UUID: </p>
+<p>n</p>
+<p> </p>
+<p><b>Short-Name </b></p>
+<p>The elements have to be in the same package and the Short-Name has to be </p>
+<p>identical. This means if an element is renamed or was moved to another </p>
+<p>package it will be shown as removed in the source file and added in the changed </p>
+<p>file.  </p>
+<p>n</p>
+<p> </p>
+<p><b>UUID </b></p>
+<p>In UUID-Mode the elements are identified by their UUID. Thus Short-Name or </p>
+<p>package modifications are shown as a usual modification. If an element does not </p>
+<p>have an UUID, it is identified by Short-Name or if it does not have a Short-Name </p>
+<p>it is identified according to its position. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>3.5.2 </b></p>
+<p><b>Filter equal elements </b></p>
+<p>Enabling  filter  equal  elements  (see  Figure  6:  Filter  equal  elements  option)  will  remove </p>
+<p>equal AR-ELEMENTS from differing process. This option will speed up the diff process, </p>
+<p>but you cannot see equal elements in the DaVinci Difference View (see 3.6 View Options). </p>
+<p> </p>
+<p>Figure 6: Filter equal elements option </p>
+<p><b>3.5.3 </b></p>
+<p><b>Element Filter </b></p>
+<p>To ignore certain elements during the comparison the XML element can be added to the </p>
+<p>ignorer  list.  These  ignored  elements  do  not  exist  in  the  diff  result  file.  For  hierarchical </p>
+<p>elements all children of ignored elements are ignored too. </p>
+<p><b>3.5.4 </b></p>
+<p><b>Loading/Storing Options </b></p>
+<p>The currently defined options can be stored as a configuration for later usage. By pressing </p>
+<p>the <b> New... </b> button  the  configuration  is  created  with  the  given  name.  With <b> Select… </b> the </p>
+<p>options can be loaded from a stored configuration. </p>
+<p>The  configurations  are  stored  in  the  file  DVUserDefinedConfiguration.ini  located  in  the </p>
+<p>shared documents folder for all users: </p>
+<p>n</p>
+<p> </p>
+<p>English Windows:  </p>
+<p>C:\Documents and Settings\All Users\Documents\Vector\DaVinci\DiffAnalyzer </p>
+<p>n</p>
+<p> </p>
+<p>German Windows:  </p>
+<p>C:\Dokumente und Einstellungen\All </p>
+<p>Users\Dokumente\Vector\DaVinci\DiffAnalyzer </p>
+<p><b>3.6 </b></p>
+<p><b>View Options </b></p>
+<p>The view options enable you to filter elements by their changes. Elements are considered </p>
+<p>as equal, modified, added or removed. The buttons from the toolbar (Figure 7: View </p>
+<p>Options) toggle between showing and hiding elements of the specific category. Thus you </p>
+<p>can configure your specific view of a diff, e.g. show only new elements. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Figure 7: View Options </p>
+<p><b>3.7 </b></p>
+<p><b>Parent path changes </b></p>
+<p>In the options (see chapter 3.5.1) the identification type of an element can be set. While in </p>
+<p>short-name mode elements are identified by their short-name within the same package, in </p>
+<p>UUID  mode  it  is  possible  to  identify  elements  across  different  packages  by  UUID.  The </p>
+<p>AUTOSAR path of the parent element is introduced to visualize changes of the package </p>
+<p>structure. </p>
+<p>In  the  viewer  you  can  define  weather  you  want  to  care  about  changes  of  the  package </p>
+<p>structure or not. If only the parent path was modified and the parent path is set to ignore </p>
+<p>the element is considered as equal. </p>
+<p> </p>
+<p>Figure 8: Show/Hide parent path changes </p>
+<p>Note: The parent path button is only activated if the file was compared with UUID-</p>
+<p>identification. A refresh is required if you change the element identification in the options </p>
+<p>dialog. </p>
+<p><b>3.8 </b></p>
+<p><b>Comparing DPA Projects </b></p>
+<p><b>3.8.1 </b></p>
+<p><b>Starting the difference analysis </b></p>
+<p>To compare two DPA projects you can choose one of the described starting methods </p>
+<p>(3.1). In the open file dialog you have to change the file extension filter to ‘DaVinci Files </p>
+<p>(*.arxml, *.dpa)’. The result is presented in the Result Overview (Figure 9: DPA project </p>
+<p>comparison) which is immediately opened.  </p>
+<p><b>3.8.2 </b></p>
+<p><b>Result Overview </b></p>
+<p>In the Result Overview (Figure 9: DPA project comparison) a listed of items to compare is </p>
+<p>shown. An item can be a value of the project configuration itself, e.g. the project name or </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p>binary files like DLLs or AUTOSAR files which are part of the project. At any time you can </p>
+<p>show or hide the Result Overview over the <b>View | Result Overview </b>menu or pressing the </p>
+<p>shortcut ‘Ctrl+r’. </p>
+<p>The status column signalize if a value was compared. For AUTOSAR files a file icon </p>
+<p>appears and the difference result view can be shown by double clicking the row. </p>
+<p> </p>
+<p>Figure 9: DPA project comparison </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>4 </b></p>
+<p><b>Command line usage </b></p>
+<p>You can run the difference analysis by the following command: </p>
+<p>DVDiffSys  –s &lt;arfile1&gt; -c &lt;arfile2&gt; -o &lt;resultfile&gt;  </p>
+<p>[-r  [-e &lt; schemafile&gt;]] </p>
+<p>[-u] [-p &lt;presetname&gt;] [-fe &lt;XMLElementName1[,XMLElementNameN]*&gt;] </p>
+<p> </p>
+<p>n</p>
+<p> </p>
+<p>Mandatory parameters </p>
+<p>n</p>
+<p> </p>
+<p>–s &lt;arfile1&gt;</p>
+<p> source file. </p>
+<p>n</p>
+<p> </p>
+<p>–c &lt;arfile2&gt;</p>
+<p> AUTOSAR file which is compared with the source file. </p>
+<p>n</p>
+<p> </p>
+<p>–o  &lt;resultfile&gt;</p>
+<p>  path  of  an  xml  result  file  which  contains  the  differences </p>
+<p>between </p>
+<p>&lt;arfile1&gt;</p>
+<p> and </p>
+<p>&lt;arfile2&gt;</p>
+<p>. </p>
+<p> </p>
+<p>n</p>
+<p> </p>
+<p>Optional parameters </p>
+<p>n</p>
+<p> </p>
+<p>–p  &lt;presetname&gt;</p>
+<p> </p>
+<p>Name </p>
+<p>of </p>
+<p>the </p>
+<p>preconfigured </p>
+<p>configuration </p>
+<p>containing </p>
+<p>the </p>
+<p>options and filter definitions.  </p>
+<p>n</p>
+<p> </p>
+<p>–fe  &lt;XMLElementName1[,XMLElementNameN]*&gt; </p>
+<p>List  of  elements  to  be  ignored </p>
+<p>during comparison.  If </p>
+<p>–p</p>
+<p> and </p>
+<p>–fe </p>
+<p>is specified the filter list will be appended to </p>
+<p>the preconfigured filters </p>
+<p>n</p>
+<p> </p>
+<p>–r</p>
+<p> validation of AUTOSAR files against the xml schema referenced within the </p>
+<p>source/changed file. If this parameter is not specified validation is disabled by </p>
+<p>default. </p>
+<p>n</p>
+<p> </p>
+<p>–r  -e  &lt;schemafile&gt;</p>
+<p>  The  AUTOSAR  files  are  validated  against  the  defined </p>
+<p>external xml schema.  </p>
+<p>n</p>
+<p> </p>
+<p>–u </p>
+<p>use UUID instead of short name to identify objects.  </p>
+<p>n</p>
+<p> </p>
+<p>-fee</p>
+<p>  To  speed  up  the  diff  process  equal  AR-ELEMENTs  are  excluded  from </p>
+<p>diffing. In the Difference Viewer it is not possible to show equal AR-ELEMENTS </p>
+<p>when enabling the equal elements filter (see 3.6 View Options). </p>
+<p> </p>
+<p>Note: </p>
+<p>DaVinci </p>
+<p>Difference </p>
+<p>Analyzer </p>
+<p>supports </p>
+<p>AUTOSAR </p>
+<p>2.1, </p>
+<p>AUTOSAR </p>
+<p>3.x, </p>
+<p>and </p>
+<p>AUTOSAR 4.x </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>5  Result file </b></p>
+<p>The results of a difference analysis can be stored in a DaVinci Difference File (XML file </p>
+<p>with extension .dvdiff).  </p>
+<p> </p>
+<p>Description of the XML tags: </p>
+<p>n</p>
+<p> </p>
+<p>MASTER-FILE  </p>
+<p>Specifies the master (source) file of the comparison. The attribute “file” specifies an </p>
+<p>absolute or relative file path. </p>
+<p>n</p>
+<p> </p>
+<p>MODIFIED-FILE </p>
+<p>Specifies  the  modified  file  to  compare  with  the  master  file.  The  attribute  “file” </p>
+<p>specifies an absolute or relative file path. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p>n</p>
+<p> </p>
+<p>CONFIGURATION </p>
+<p>Used options for this comparison including the full list of ignored elements </p>
+<p>n</p>
+<p> </p>
+<p>CHANGED </p>
+<p>Specifies that the object itself or one or more if its children had been changed. The </p>
+<p>attribute “type” specifies the type of the object. The attribute “short-name” specifies </p>
+<p>the name of the object. </p>
+<p>If something is changed somewhere in the sub branch, the object is followed by a </p>
+<p>&lt;CHANGED&gt;, &lt;ADDED&gt; or &lt;REMOVED&gt; tag.  </p>
+<p>If the value of the object itself is changed, the object is followed by an &lt;OLD&gt; and </p>
+<p>&lt;NEW&gt; tag. </p>
+<p>n</p>
+<p> </p>
+<p>ADDED </p>
+<p>Specifies  the  object  and  its  children  have  been  added  to  the  modified  file.  The </p>
+<p>attribute “type” specifies the type of the object. The attribute “short-name” specifies </p>
+<p>the name of the object. </p>
+<p>n</p>
+<p> </p>
+<p>REMOVED </p>
+<p>Specifies the object and its children have been removed from the master file. The </p>
+<p>attribute “type” specifies the type of the object. The attribute “short-name” specifies </p>
+<p>the name of the object. </p>
+<p>n</p>
+<p> </p>
+<p>OLD </p>
+<p>Value of an object in master file. </p>
+<p>n</p>
+<p> </p>
+<p>NEW </p>
+<p>Value of an object in modified file. </p>
+<p>n</p>
+<p> </p>
+<p>NO_CHANGES </p>
+<p>Files are equal. </p>
+<p>n</p>
+<p> </p>
+<p>NO_AUTOSAR </p>
+<p>File is not an AUTOSAR file. </p>
+<p>n</p>
+<p> </p>
+<p>EQUAL </p>
+<p>Elements are equal. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>6 </b></p>
+<p><b>Additional Copyrights </b></p>
+<p><b>6.1 </b></p>
+<p><b>Saxon-PE Redistribution </b></p>
+<p>Difference algorithm is executed using XSLT style-sheets processed by &quot;The Saxon XSLT </p>
+<p>and XQuery Processor from Saxonica Limited&quot; available at http://www.saxonica.com/.  </p>
+<p> </p>
+<p>DaVinci  Difference  Analyzer  links  to  the  Saxon-PE  binary  libraries.  The  libraries  are </p>
+<p>distributed as separate binary DLL files. No modifications have been made to the libraries. </p>
+<p><b>6.1.1 </b></p>
+<p><b>IKVM Runtime </b></p>
+<p>Saxon links dynamically to the IKVM Runtime. See http://www.ikvm.net/.  </p>
+<p>Can be downloaded from http://sourceforge.net/projects/ikvm/files/ </p>
+<p>License is at http://weblog.ikvm.net/story.aspx/license </p>
+<h1 style="page-break-before:always; "></h1>
+<p>DaVinci Difference Analyzer Application Note </p>
+<p> </p>
+<p></p>
+<p>2015, Vector Informatik GmbH </p>
+<p>Version: 1.7 </p>
+<p> </p>
+<p> </p>
+<p><b>7 </b></p>
+<p><b>Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+</body>
+</html>
+{% endraw %}

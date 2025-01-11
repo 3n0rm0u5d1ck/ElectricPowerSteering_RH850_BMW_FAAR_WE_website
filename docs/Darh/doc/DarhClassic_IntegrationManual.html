@@ -1,0 +1,471 @@
+---
+layout: default
+title: DarhClassic_IntegrationManual
+nav_order: 2
+parent: Darh
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p>Darh Classic Integration Manual</p>
+<p>Project</p>
+<p>BMW AUTOSAR 4 Core Rel. 3</p>
+<p>Author</p>
+<p>BMW AG</p>
+<p>Release Date</p>
+<p>2017-12-14</p>
+<p>Version</p>
+<p>5.1.0</p>
+<p>Status</p>
+<p>Release</p>
+<p>Hotline</p>
+<p>+49 89 382 - 32233</p>
+<p>Contact</p>
+<p>bac@bmw.de</p>
+<p>https://asc.bmw.com/jira/browse/BSUP (extern)</p>
+<p>https://asc.bmwgroup.net/jira/browse/BSUP (intern)</p>
+<p><b>Company</b></p>
+<p>Bayerische</p>
+<p>Motoren Werke</p>
+<p>Aktiengesellschaft</p>
+<p><b>Postal address</b></p>
+<p>BMW AG</p>
+<p>80788 München</p>
+<p><b>Office address</b></p>
+<p>Forschungs- und</p>
+<p>Innovationszentrum</p>
+<p>(FIZ)</p>
+<p>Hufelandstr. 1</p>
+<p>80937 München</p>
+<p><b>Telephone</b></p>
+<p>Switchboard</p>
+<p>+49 89 382-0</p>
+<p><b>Internet</b></p>
+<p>www.bmwgroup.com</p>
+<p>Revision History</p>
+<p><b>Version</b></p>
+<p><b>Date</b></p>
+<p><b>Changed by</b></p>
+<p><b>Description</b></p>
+<p>5.1.0</p>
+<p>2017-12-14</p>
+<p>JC-42</p>
+<p>Document use of the Com port</p>
+<p>5.0.2</p>
+<p>2017-11-09</p>
+<p>JC-42</p>
+<p>Version Update</p>
+<p>5.0.1</p>
+<p>2017-10-12</p>
+<p>JC-42</p>
+<p>Version Update</p>
+<p>5.0.0</p>
+<p>2017-04-13</p>
+<p>Mariano</p>
+<p>Cerdeiro</p>
+<p>Initial version for SP2021</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 1 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Table of Contents</b></p>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p><b>4</b></p>
+<p>1.1</p>
+<p>Functional overview</p>
+<p>4</p>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>5</b></p>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p><b>6</b></p>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>7</b></p>
+<p>4.1</p>
+<p>Dependencies on AUTOSAR modules</p>
+<p>7</p>
+<p>4.1.1</p>
+<p>RTE</p>
+<p>7</p>
+<p>4.1.2</p>
+<p>Det</p>
+<p>7</p>
+<p>4.1.3</p>
+<p>Dcm</p>
+<p>7</p>
+<p>4.1.4</p>
+<p>Dem</p>
+<p>7</p>
+<p>4.1.5</p>
+<p>Nvm</p>
+<p>7</p>
+<p>4.2</p>
+<p>Dependencies to other modules</p>
+<p>7</p>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>8</b></p>
+<p>5.1</p>
+<p>Configuration of other Modules</p>
+<p>8</p>
+<p>5.1.1</p>
+<p>Dcm</p>
+<p>8</p>
+<p>5.1.1.1</p>
+<p>Read Data By Identifer</p>
+<p>8</p>
+<p>5.1.1.2</p>
+<p>Routine Control</p>
+<p>8</p>
+<p>5.1.2</p>
+<p>NvM</p>
+<p>8</p>
+<p>5.1.3</p>
+<p>Dem</p>
+<p>9</p>
+<p>5.1.3.1</p>
+<p>Event</p>
+<p>9</p>
+<p>5.1.4</p>
+<p>Det</p>
+<p>9</p>
+<p>5.1.5</p>
+<p>BswM</p>
+<p>9</p>
+<p>5.1.6</p>
+<p>Com</p>
+<p>10</p>
+<p>5.2</p>
+<p>Configuration</p>
+<p>10</p>
+<p>5.2.1</p>
+<p>DarhGeneral</p>
+<p>10</p>
+<p>5.2.1.1</p>
+<p>DarhDevErrorDetect</p>
+<p>10</p>
+<p>5.2.1.2</p>
+<p>DarhQueueHandlerCycleTime</p>
+<p>10</p>
+<p>5.2.2</p>
+<p>DarhQueueSize</p>
+<p>10</p>
+<p>5.2.3</p>
+<p>DarhActiveReportListType</p>
+<p>10</p>
+<p>5.2.4</p>
+<p>DarhActiveReportedEvent</p>
+<p>11</p>
+<p>5.3</p>
+<p>Configuration of the RTE</p>
+<p>11</p>
+<p>5.3.1</p>
+<p>Event Mapping</p>
+<p>11</p>
+<p>5.3.2</p>
+<p>Data Mapping</p>
+<p>11</p>
+<p>5.3.2.1</p>
+<p>Dcm</p>
+<p>11</p>
+<p>5.3.2.2</p>
+<p>Det</p>
+<p>11</p>
+<p>5.3.3</p>
+<p>Dem</p>
+<p>11</p>
+<p>5.3.4</p>
+<p>NvM</p>
+<p>12</p>
+<p>5.3.5</p>
+<p>BswM</p>
+<p>12</p>
+<p>5.3.6</p>
+<p>NvM</p>
+<p>12</p>
+<p>5.3.7</p>
+<p>User SWC</p>
+<p>12</p>
+<p>5.3.8</p>
+<p>Exclusive Areas</p>
+<p>12</p>
+<p>5.4</p>
+<p>Software Integration</p>
+<p>12</p>
+<p>5.4.1</p>
+<p>Startup/Initialization</p>
+<p>13</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 2 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p>5.4.2</p>
+<p>Normal Operation</p>
+<p>13</p>
+<p>5.4.3</p>
+<p>Shutdown/Deactivation</p>
+<p>13</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 3 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>1</b></p>
+<p><b>Introduction</b></p>
+<p>This Integration Manual describes the basis functionality, API and the configuration and integration of the</p>
+<p>BMW System Function Darh.</p>
+<p><b>Functional overview</b></p>
+<p>The main objective of the Darh functionality is to send errors that occurred locally in the ECU and are</p>
+<p>reported to the Dem to a central master over the system bus. The idea is to collect errors of the individual</p>
+<p>ECUs in the vehicle in one central place to allow later analysis of error correlations between the different</p>
+<p>ECUs.</p>
+<p>For this purpose, errors are sent to the master containing timestamp information. This allows deducing</p>
+<p>the order in which errors occurred in the complete system and helps to find out the original reason of a</p>
+<p>complex causal loop.</p>
+<p>The Darh module itself is modeled as an AUTOSAR software component (SWC).</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 4 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>2</b></p>
+<p><b>Related documentation</b></p>
+<p><b>References</b></p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 5 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>3</b></p>
+<p><b>Limitations</b></p>
+<p>No limitations are known.</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 6 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>4</b></p>
+<p><b>Software Architecture</b></p>
+<p><b>Dependencies on AUTOSAR modules</b></p>
+<p>The current version of the Module Darh depends on the following BSW modules:</p>
+<p><b>RTE</b></p>
+<p>As a software component, the Darh module uses RTE client/server communication to communicate with</p>
+<p>other SWCs and BSW. Additionally the scheduling is done by the RTE.</p>
+<p><b>Det</b></p>
+<p>In case Det usage is enabled in the Darh configuration, Darh will report development errors by using the</p>
+<p>Det functionality.</p>
+<p><b>Dcm</b></p>
+<p>The Darh is tightly coupled with the Dcm. The Darh implements certain RDBI and RC services. Dcm shall</p>
+<p>be configured in a way, that it dispatches theses jobs to the Darh SWC.</p>
+<p><b>Dem</b></p>
+<p>The Darh receives general callbacks of the Dem in case event related data changed. Additionally the Darh</p>
+<p>controls specific events via ClientServerInterface DiagnosticMonitor of the Dem.</p>
+<p><b>Nvm</b></p>
+<p>The Darh uses the NvM to store and read the content of the error queue which shall be stored on non</p>
+<p>volatile memory at shutdown and restored at startup. Darh also stores if the tranmission is enabled or not.</p>
+<p><b>Dependencies to other modules</b></p>
+<p>Darh does not have dependencies to other modules.</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 7 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>5</b></p>
+<p><b>Integration</b></p>
+<p><b>Configuration of other Modules</b></p>
+<p>The following modules shall be configured, before this module can be generated, compiled and linked.</p>
+<p><b>Dcm</b></p>
+<p><b>Read Data By Identifer</b></p>
+<p>The RDBI command 22 17 23 shall be configured within Dcm:</p>
+<p>DcmDspDataSize shall be long enough to store the complete list of DTC configured within Darh</p>
+<p>(DarhActiveReportedEvent). Greater than count of DarhActiveReportedEvent * 3.</p>
+<p>DcmDspDataInfoRef shall reference to DcmDspDataInfo with DcmDspDataFixedLength set to false</p>
+<p>DcmDspDataUsePort shall be set to USE_DATA_SYNCH_CLIENT_SERVER</p>
+<p>DID shall be configured to be read in all sessions and security levels</p>
+<p><b>Routine Control</b></p>
+<p>Two Routine Control command shall be configured within Dcm.</p>
+<p>One used to trigger two Dummy DTCs (31 01 03 04):</p>
+<p>DcmDspRoutineFixedLength shall be true</p>
+<p>DcmDspRoutineUsePort shall be true</p>
+<p>Only DcmDspStartRoutineIn shall be configured</p>
+<p>DcmDspRoutineSignalLength shall be set to 8</p>
+<p>DcmDspRoutineSignalPos shall be set to 0</p>
+<p>DcmDspStartRoutineOut</p>
+<p>4 paramters with a length of 8 bits shall be configured</p>
+<p>DcmDspRoutineSignalPos shall be set to 0, 8, 16, and 24.</p>
+<p><b>[]<i></b> d</i>The second one to start and stop the transmission to the diagnose master (31 0x 40 0A):</p>
+<p><i>c</i>(DMA_PA_9154)</p>
+<p>DcmDspRoutineFixedLength shall be true</p>
+<p>DcmDspRoutineUsePort shall be true</p>
+<p>Neither input or output parameters are needed</p>
+<p>Start and Stop sub services shall be supported</p>
+<p><b>NvM</b></p>
+<p>The Darh needs 2 NvM blocks to store the event queue and the status of the transmission.</p>
+<p>The variable Darh_ErrorQueue shall be mapped to the NvM block:</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 8 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Darh_ErrorQueue</p>
+<p>Block size shall be set to the size of Darh_ErrorQueue</p>
+<p>Ram block address shall be set to Darh_ErrorQueue</p>
+<p>Rom block address shall be left empty. The default value shall be 0</p>
+<p>NvmBlockManagementType shall be set to NVM_BLOCK_NATIVE</p>
+<p>NvmBlockUseCrc shall be set to true</p>
+<p>NvmSelectBlockForReadall shall be set to true</p>
+<p>NvMSelectBlockForWriteAll shall be set to true</p>
+<p>Darh_DiagnoseMasterEnable</p>
+<p>Block size shall be set to the size of boolean</p>
+<p>Ram block address shall be set to Darh_DiagnoseMasterEnable</p>
+<p>Rom block address shall be left empty.</p>
+<p>NvmBlockManagementType shall be set to NVM_BLOCK_NATIVE</p>
+<p>NvmSelectBlockForReadall shall be set to true</p>
+<p>NvMSelectBlockForWriteAll shall be set to false</p>
+<p><b>Dem</b></p>
+<p><b>Event</b></p>
+<p>Two Dem events shall be configured for Darh:</p>
+<p>DTC vale shall be set to 0xC90400 + (0x4000 * ECUDiagnosticAddress) + 0x07FF</p>
+<p>Event destination: primary origin</p>
+<p>Event kind: DEM_EVENT_KIND_SWC</p>
+<p>Description: Dummy Network DTC</p>
+<p>DTC vale shall be set to 0x02FF00 + ECUDiagnosticAddress</p>
+<p>Event destination: primary origin</p>
+<p>Event kind: DEM_EVENT_KIND_SWC</p>
+<p>Description: Dummy Application DTC</p>
+<p><b>Det</b></p>
+<p>A Darh entry shall be added to the Software Component List from Det.</p>
+<p><b>BswM</b></p>
+<p>The BswM controls the states of the Darh module.</p>
+<p>BswMModeRequestPort for the Darh operation mode</p>
+<p>BswMRules to switch the Darh operation mode</p>
+<p>BswMRteSwitch actions for the Darh operation mode</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 9 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>Com</b></p>
+<p>The Darh requires a IPDU Multiplexer PDU for the transmission of the DTCs and their corresponding</p>
+<p>timestamp to the diagnostic master ECU. The Com port shall be connected to the corresponding port in</p>
+<p>Com. At the moment of this release there was not definition in the BNE regarding this PDU.</p>
+<p><b>Configuration</b></p>
+<p>The Darh configuration contains the following containers:</p>
+<p>Darh General</p>
+<p>DarhActiveReportEvent</p>
+<p><b>DarhGeneral</b></p>
+<p>This container contains the configuration (parameters) of the Darh</p>
+<p><b>DarhDevErrorDetect</b></p>
+<p>Activate/Deactivate the Development Error Detection and Notification. true: Development Error Detection</p>
+<p>and Notification activated false: Development Error Detection and Notification deactivated.</p>
+<p><b>DarhQueueHandlerCycleTime</b></p>
+<p>Cycle time of the Queue handler functionality. This value determines in which interval the queue is</p>
+<p>checked for pending entries that have to be sent to the Diagnose Master.</p>
+<p><b>[]<i></b> d</i>The valid range is between 1 and 16 seconds, but the delay between a Event is Report by the Dem</p>
+<p>and the transmission to the master shall be less than 10 seconds.<i> c</i>(DMA_PA_5762, DMA_PA_8248)</p>
+<p><b>DarhQueueSize</b></p>
+<p>Max. number of entries (of type Darh_QueueElementType) the queue can contain.</p>
+<p><b>DarhActiveReportListType</b></p>
+<p>This parameter defines how and if Darh handles the DarhActiveReportedEvent to report errors to the</p>
+<p>Diagnose Master.</p>
+<p>If configured to POSITIVE_LIST the event listed in DarhActiveReportedEvent are those reported to the</p>
+<p>Diagnose Master (mode compatible to Darh in SP2015). If configured to DYNAMICALLY the events listed</p>
+<p>in DarhActiveReportedEvent are ignored, the Operation EventToReport of the Client Server Interface</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 10 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p>DarhReportDynamicallyEvent (over the port ReportDynamicallyEventPort) is used to check if a specific</p>
+<p>event shall be reported to Diagnose Master.</p>
+<p>NOTE: NEGATIVE_LIST is not more supported in SP2021 (BAC4 Rel. 3).</p>
+<p><b>DarhActiveReportedEvent</b></p>
+<p>This container contains the Dem events to be reported to the Darh master.</p>
+<p><b>[]<i></b> d</i>Please refer to</p>
+<p>DMA</p>
+<p><i>P</i></p>
+<p><i>A</i></p>
+<p>8</p>
+<p>415<i>andDMA</i></p>
+<p><i>P</i></p>
+<p><i>A</i></p>
+<p>8</p>
+<p>417<i>toincludeinthislistthecorrectDT Cs/Eventstobereported.c</i>(DMA_PA_8415,</p>
+<p>DMA_PA_8417)</p>
+<p><b>Configuration of the RTE</b></p>
+<p><b>Event Mapping</b></p>
+<p>The followings runnable entities shall be mapped:</p>
+<p>Init (triggers the Darh function Darh_Init)</p>
+<p>QueueHandler (triggers the Darh function Darh_QueueHandler).</p>
+<p><b>Data Mapping</b></p>
+<p><b>Dcm</b></p>
+<p>The port ActivelyReportedDtcPort shall be connected to the Dcm generated DataService_&lt;xxx&gt; see</p>
+<p>6.1 Dcm.</p>
+<p>The port TriggerDTCPort shall be connected to the Dcm generated RoutineService_&lt;xxx&gt; see 6.1</p>
+<p>Dcm.</p>
+<p><b>Det</b></p>
+<p>The port DetPort shall be connected to the Det generated service port.</p>
+<p><b>Dem</b></p>
+<p>The ApplicationDTCInfoPort shall be connected to the Dem generated EvtInfo_&lt;xxx&gt;.</p>
+<p>The ApplicationDTCPort shall be connected to the Dem generated Event_&lt;xxx&gt;.</p>
+<p>The NetworkDTCInfoPort shall be connected to the Dem generated EvtInfo_&lt;xxx&gt;.</p>
+<p>The NetworkDTCPort shall be connected to the Dem generated Event_&lt;xxx&gt;.</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 11 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p><b>NvM</b></p>
+<p>The port NvMServicePort shall be connected to the NvM generated service port see 6.1. NvM.</p>
+<p><b>BswM</b></p>
+<p>The port notificationDarhModePort shall be connected to the BswM generated mode switch port see</p>
+<p>6.1 BswM.</p>
+<p>The port requestDarhModePort shall be connected to the BswM generated mode request port see 6.1</p>
+<p>BswM.</p>
+<p>The port DarhReportErrorMode shall be connected to the BswM generated mode request port see 6.1</p>
+<p>BswM.</p>
+<p><b>NvM</b></p>
+<p>The port DiagnoseMasterStatus shall be connected to the NvM port created for the NvM block</p>
+<p>Darh_DiagnoseMasterEnable.</p>
+<p>The port ErrorQueueBlock shall be connected to the NvM port created for the NvM block</p>
+<p>Darh_ErrorQueue.</p>
+<p><b>User SWC</b></p>
+<p>It the configuration parameter DarhActiveReportListType is set to DYNAMICALLY the port</p>
+<p>ReportDynamicallyEventPort shall be connected to a user implemented SWC which indicates which</p>
+<p>Events shall be reported to the Diagnose Master.</p>
+<p>This CSI shall implement the following methods:</p>
+<p>EventToReportCount: shall return the count of events to be reported.</p>
+<p>EventIdx2EventId: shall return the event (intsance ID) for an event index between 0 and GetEventCount.</p>
+<p>EventToReport: shall return if a specific event (instance ID) shall be reported or not.</p>
+<p><b>Exclusive Areas</b></p>
+<p>The Darh uses one exclusive area. The exclusive area shall be configured within the RTE.</p>
+<p><b>Software Integration</b></p>
+<p>The SWC description file has to be updated manually after the Dcm configuration.</p>
+<p>After generating the Dem and Dcm SWC description files the integrator shall perform changes within</p>
+<p>Darh_ext_interface.arxml.tt to make the RTE interfaces between Dcm/Dem and Darh compatible from</p>
+<p>RTE point of view.</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 12 of 13</p>
+<h1 style="page-break-before:always; "></h1>
+<p>Within the Darh_ext_interface.arxml.tt the &lt;ARRAY-SIZE&gt; of the parameters Dem_MaxDataValueType</p>
+<p>and Dcm_RequestData_ArrayType shall be set to the vaules given by Dcm and Dem.</p>
+<p>The size of the parameter Dem_MaxDataValueType shall be set to the length indicated within the Dem</p>
+<p>client server interface GeneralDiagnosticInfo, the operation GetEventFreezeFrameData the parameter</p>
+<p>FFData. The size of the parameter Dcm_RequestData_ArrayType shall be set to the length indicated</p>
+<p>within the Dcm interface ServiceRequestNotification, the operation Indication the parameter</p>
+<p>RequestData.</p>
+<p><b>Startup/Initialization</b></p>
+<p>The NvM ReadAll shall be complete before the Darh mode DARH_INIT is switched.</p>
+<p>The Darh will request an DARH_RUN after initialization is completed.</p>
+<p>The BswM shall switch the Darh Mode to DARH_RUN when the DARH requests this mode.</p>
+<p>While in DARH_RUN the Darh will receive and store errors but will not transmit them to the Diagnose</p>
+<p>Master.</p>
+<p>The BswM shall switch the Darh ReportErrorMode to DARH_REPORT_ERROR_ACTIVE to activate the</p>
+<p>transmission of the errors to the Diagnose Master, this may be performed for example when</p>
+<p>COM_FULL_COMMUNICATION is requested.</p>
+<p>To request a specific state the user shall use the port LifeCycleRequest.</p>
+<p><b>Normal Operation</b></p>
+<p>If needed the BswM may switch the Darh ReportErrorMode to DARH_REPORT_ERROR_INACTIVE to</p>
+<p>disable the transmission of errors to the Diagnose Master. To activate the transmission again the mode</p>
+<p>DARH_REPORT_ERROR_ACTIVE shall be set again.</p>
+<p><b>Shutdown/Deactivation</b></p>
+<p>The BswM shall switch the Darh Mode to DARH_STOP to stop the Darh SW-C.</p>
+<p>DarhClassic_IntegrationManual.pdf, Version 5.1.0, Software Platforms</p>
+<p>Page 13 of 13</p>
+</body>
+</html>
+{% endraw %}

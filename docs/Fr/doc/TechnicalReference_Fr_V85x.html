@@ -1,0 +1,1412 @@
+---
+layout: default
+title: TechnicalReference_Fr_V85x
+nav_order: 3
+parent: FlexRay Driver
+---
+{% raw %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
+  <meta name="created" content="00:00:00"/>
+  <meta name="changed" content="00:00:00"/>
+</head>
+<body>
+<h1></h1>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>MICROSAR Fr ERay </b></p>
+<p>Technical Reference </p>
+<p> </p>
+<p>Communication Controller E-Ray V850 </p>
+<p>Version 1.41 </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Authors </p>
+<p>Juergen Schaeffer, Mario Kunz, Sebastian Gärtner, </p>
+<p>Sebastian Schmar, Oliver Reineke, Roland Hocke, </p>
+<p>Matthias Müller </p>
+<p>Status </p>
+<p>Released </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>2 / 24 </p>
+<p><b>1 </b></p>
+<p><b>Document Information </b></p>
+<p><b>1.1 </b></p>
+<p><b>History </b></p>
+<p><b>Author </b></p>
+<p><b>Date </b></p>
+<p><b>Version </b></p>
+<p><b>Remarks </b></p>
+<p>Roland Hocke </p>
+<p>2013-05-14 </p>
+<p>1.34 </p>
+<p>Creation and content copy </p>
+<p>from MSR3 document </p>
+<p> </p>
+<p>2013-06-26 </p>
+<p>1.35 </p>
+<p>Remove obsolete MTS </p>
+<p>Roland Hocke </p>
+<p>2014-01-29 </p>
+<p>1.37 </p>
+<p>Buffer alignment hints </p>
+<p> </p>
+<p>Matthias Müller </p>
+<p>2015-02-20 </p>
+<p>1.38 </p>
+<p>Renaming of document name </p>
+<p>Matthias Müller </p>
+<p>2015-09-28 </p>
+<p>1.39 </p>
+<p>Description of Endinit and </p>
+<p>Protected Register Access </p>
+<p>Matthias Müller </p>
+<p>2015-11-27 </p>
+<p>1.40 </p>
+<p>ESCAN00080370 The usage </p>
+<p>of the Appl_TricoreAurixInit() </p>
+<p>function is not described in </p>
+<p>the TechRef </p>
+<p>SafeBSW limitations </p>
+<p>Matthias Müller </p>
+<p>2017-02-01 </p>
+<p>1.41 </p>
+<p>Added hint about the specifics </p>
+<p>of RH850 P1X </p>
+<p>Table 1-1  </p>
+<p>History of the document </p>
+<p><b>1.2 </b></p>
+<p><b>Reference Documents </b></p>
+<p><b>No. </b></p>
+<p><b>Title </b></p>
+<p><b>Version </b></p>
+<p>[1] </p>
+<p> </p>
+<p>AUTOSAR_SWS_DevelopmentErrorTracer.pdf </p>
+<p>3.2.0 </p>
+<p>[2] </p>
+<p> </p>
+<p>AUTOSAR_SWS_DiagnosticEventManager.pdf </p>
+<p>4.2.0 </p>
+<p>[3] </p>
+<p> </p>
+<p>TechnicalReference_Fr.pdf </p>
+<p>1.0 or later </p>
+<p>[4] </p>
+<p> </p>
+<p>E-Ray_Errata_Sheet_20100215.pdf and later </p>
+<p>REL20100215 and </p>
+<p>later</p>
+<p> </p>
+<p>[5] </p>
+<p> </p>
+<p>TechnicalReference_SchM.pdf </p>
+<p>2.5 or later</p>
+<p> </p>
+<p>Table 1-2  </p>
+<p>Reference documents </p>
+<p><b>1.3 </b></p>
+<p><b>Scope of the Document </b></p>
+<p> </p>
+<p>This technical reference describes the specific use of the FlexRay ERay driver software. It </p>
+<p>supplements the general FlexRay driver technical reference [3]. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>3 / 24 </p>
+<p> </p>
+<p><b>Please note </b></p>
+<p>We have configured the programs in accordance with your specifications in the </p>
+<p>questionnaire. Whereas the programs do support other configurations than the one </p>
+<p>specified in your questionnaire, Vector´s release of the programs delivered to your </p>
+<p>company is expressly restricted to the configuration you have specified in the </p>
+<p>questionnaire. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>4 / 24 </p>
+<p><b>Contents </b></p>
+<p><b>1</b></p>
+<p> </p>
+<p><b>Document Information ................................................................................................... 2</b></p>
+<p> </p>
+<p>1.1</p>
+<p> </p>
+<p>History ............................................................................................................. 2</p>
+<p> </p>
+<p>1.2</p>
+<p> </p>
+<p>Reference Documents ..................................................................................... 2</p>
+<p> </p>
+<p>1.3</p>
+<p> </p>
+<p>Scope of the Document ................................................................................... 2</p>
+<p> </p>
+<p><b>2</b></p>
+<p> </p>
+<p><b>Hardware Overview ........................................................................................................ 7</b></p>
+<p> </p>
+<p><b>3</b></p>
+<p> </p>
+<p><b>Component History ........................................................................................................ 8</b></p>
+<p> </p>
+<p><b>4</b></p>
+<p> </p>
+<p><b>Introduction .................................................................................................................... 9</b></p>
+<p> </p>
+<p><b>5</b></p>
+<p> </p>
+<p><b>Functional Description ................................................................................................ 10</b></p>
+<p> </p>
+<p><b>6</b></p>
+<p> </p>
+<p><b>Integration .................................................................................................................... 11</b></p>
+<p> </p>
+<p>6.1</p>
+<p> </p>
+<p>Scope of Delivery .......................................................................................... 11</p>
+<p> </p>
+<p>6.1.1</p>
+<p> </p>
+<p>Static Files ..................................................................................................... 11</p>
+<p> </p>
+<p>6.1.2</p>
+<p> </p>
+<p>Dynamic Files................................................................................................ 11</p>
+<p> </p>
+<p>6.2</p>
+<p> </p>
+<p>Compiler Abstraction and Memory Mapping .................................................. 11</p>
+<p> </p>
+<p>6.3</p>
+<p> </p>
+<p>Critical Sections ............................................................................................ 12</p>
+<p> </p>
+<p>6.4</p>
+<p> </p>
+<p>General Integration notes .............................................................................. 14</p>
+<p> </p>
+<p>6.4.1</p>
+<p> </p>
+<p>Calculation of Timeout Loops ........................................................................ 14</p>
+<p> </p>
+<p>6.5</p>
+<p> </p>
+<p>Integration notes for NEC V850 ..................................................................... 14</p>
+<p> </p>
+<p>6.5.1</p>
+<p> </p>
+<p>ERay Base Address ...................................................................................... 14</p>
+<p> </p>
+<p>6.5.2</p>
+<p> </p>
+<p>FlexRay Memory buffer number .................................................................... 15</p>
+<p> </p>
+<p>6.5.3</p>
+<p> </p>
+<p>FlexRay Memory Buffer size ......................................................................... 15</p>
+<p> </p>
+<p>6.5.4</p>
+<p> </p>
+<p>Interrupt routines ........................................................................................... 15</p>
+<p> </p>
+<p>6.5.5</p>
+<p> </p>
+<p>Timer interrupt ............................................................................................... 16</p>
+<p> </p>
+<p>6.5.6</p>
+<p> </p>
+<p>Buffer alignment ............................................................................................ 16</p>
+<p> </p>
+<p>6.6</p>
+<p> </p>
+<p>Integration notes for RH850 .......................................................................... 16</p>
+<p> </p>
+<p>6.6.1</p>
+<p> </p>
+<p>Buffer alignment ............................................................................................ 16</p>
+<p> </p>
+<p>6.6.2</p>
+<p> </p>
+<p>Specifics of RH850 P1x ................................................................................. 16</p>
+<p> </p>
+<p><b>7</b></p>
+<p> </p>
+<p><b>API Description ............................................................................................................ 18</b></p>
+<p> </p>
+<p>7.1</p>
+<p> </p>
+<p>Type Definitions ............................................................................................. 18</p>
+<p> </p>
+<p>7.2</p>
+<p> </p>
+<p>Interrupt Service Routines provided by Fr ERay ............................................ 18</p>
+<p> </p>
+<p>7.4</p>
+<p> </p>
+<p>Services provided by Fr ERay and differs from standard ............................... 20</p>
+<p> </p>
+<p>7.4.1</p>
+<p> </p>
+<p>Fr_EnableAbsoluteTimerIRQ......................................................................... 20</p>
+<p> </p>
+<p>7.4.2</p>
+<p> </p>
+<p>Fr_DisableAbsoluteTimerIRQ ........................................................................ 20</p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>5 / 24 </p>
+<p>7.5</p>
+<p> </p>
+<p>Services used by Fr ERay ............................................................................. 20</p>
+<p> </p>
+<p>7.6</p>
+<p> </p>
+<p>Callback Functions ........................................................................................ 20</p>
+<p> </p>
+<p>7.7</p>
+<p> </p>
+<p>Configurable Interfaces ................................................................................. 20</p>
+<p> </p>
+<p>7.7.1</p>
+<p> </p>
+<p>Notifications .................................................................................................. 20</p>
+<p> </p>
+<p>7.7.2</p>
+<p> </p>
+<p>Callout Functions .......................................................................................... 20</p>
+<p> </p>
+<p><b>8</b></p>
+<p> </p>
+<p><b>Configuration................................................................................................................ 21</b></p>
+<p> </p>
+<p>8.1</p>
+<p> </p>
+<p>Hardware Fifo................................................................................................ 21</p>
+<p> </p>
+<p>8.2</p>
+<p> </p>
+<p>Configuration with DaVinci Configurator 5 ..................................................... 21</p>
+<p> </p>
+<p><b>9</b></p>
+<p> </p>
+<p><b>AUTOSAR Standard Compliance ................................................................................ 22</b></p>
+<p> </p>
+<p>9.1</p>
+<p> </p>
+<p>Deviations ..................................................................................................... 22</p>
+<p> </p>
+<p>9.1.1</p>
+<p> </p>
+<p>Fr_GetSyncFrameList ................................................................................... 22</p>
+<p> </p>
+<p>9.1.2</p>
+<p> </p>
+<p>Fr_GetPOCStatus ......................................................................................... 22</p>
+<p> </p>
+<p>9.2</p>
+<p> </p>
+<p>Additions/ Extensions .................................................................................... 22</p>
+<p> </p>
+<p>9.3</p>
+<p> </p>
+<p>Limitations ..................................................................................................... 22</p>
+<p> </p>
+<p><b>10</b></p>
+<p> </p>
+<p><b>Glossary and Abbreviations ........................................................................................ 23</b></p>
+<p> </p>
+<p>10.1</p>
+<p> </p>
+<p>Glossary ........................................................................................................ 23</p>
+<p> </p>
+<p>10.2</p>
+<p> </p>
+<p>Abbreviations ................................................................................................ 23</p>
+<p> </p>
+<p><b>11</b></p>
+<p> </p>
+<p><b>Contact .......................................................................................................................... 24</b></p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>6 / 24 </p>
+<p><b>Illustrations </b></p>
+<p><b>Es konnten keine Einträge für ein Abbildungsverzeichnis gefunden werden. </b></p>
+<p><b>Tables </b></p>
+<p>Table 1-1 </p>
+<p> </p>
+<p>History of the document .............................................................................. 2</p>
+<p> </p>
+<p>Table 1-2 </p>
+<p> </p>
+<p>Reference documents ................................................................................. 2</p>
+<p> </p>
+<p>Table 2-1 </p>
+<p> </p>
+<p>Supported Hardware Overview ................................................................... 7</p>
+<p> </p>
+<p>Table 2-2 </p>
+<p> </p>
+<p>Supported Errata ........................................................................................ 7</p>
+<p> </p>
+<p>Table 3-1 </p>
+<p> </p>
+<p>Component history...................................................................................... 8</p>
+<p> </p>
+<p>Table 6-1 </p>
+<p> </p>
+<p>Static files ................................................................................................. 11</p>
+<p> </p>
+<p>Table 6-2 </p>
+<p> </p>
+<p>Compiler abstraction and memory mapping .............................................. 12</p>
+<p> </p>
+<p>Table 6-3</p>
+<p> </p>
+<p>CC base address ...................................................................................... 14</p>
+<p> </p>
+<p>Table 6-4</p>
+<p> </p>
+<p>Message RAM .......................................................................................... 15</p>
+<p> </p>
+<p>Table 7-1 </p>
+<p> </p>
+<p>Fr_IrqLine0/Fr_IrqLine1 ............................................................................ 18</p>
+<p> </p>
+<p>Table 7-2 </p>
+<p> </p>
+<p>Fr_IrqTimer0 ............................................................................................. 19</p>
+<p> </p>
+<p>Table 7-3 </p>
+<p> </p>
+<p>Configuration dependent services used by Fr ERay ................................. 20</p>
+<p> </p>
+<p>Table 10-1 </p>
+<p> </p>
+<p>Glossary ................................................................................................... 23</p>
+<p> </p>
+<p>Table 10-2 </p>
+<p> </p>
+<p>Abbreviations ............................................................................................ 23</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>7 / 24 </p>
+<p><b>2 </b></p>
+<p><b>Hardware Overview </b></p>
+<p>The following table gives you detailed information about the derivatives and compilers. As </p>
+<p>very important information the documentations of the hardware manufacturers are listed. </p>
+<p>The driver is based upon these documents in the given version.   </p>
+<p> </p>
+<p><b>Derivative </b></p>
+<p><b>Compiler </b></p>
+<p><b>Hardware Manufacturer Document </b></p>
+<p><b>Version </b></p>
+<p>µPD70F3441 </p>
+<p> </p>
+<p>Greenhills </p>
+<p>5.1.6c</p>
+<p> </p>
+<p>U17754EE6V0UM00.pdf </p>
+<p>April 2010 </p>
+<p>µPD70F3461(A) </p>
+<p>Greenhills </p>
+<p>5.1.6c </p>
+<p>U18577EE1V3UM00.PDF </p>
+<p>December </p>
+<p>2008 </p>
+<p>µPD70F3501 </p>
+<p>Greenhills </p>
+<p>5.1.6c</p>
+<p> </p>
+<p>U19944EE0V3UM00.pdf </p>
+<p>July 16, 2010 </p>
+<p>µPD70F4010 </p>
+<p>Greenhills </p>
+<p>5.1.6c </p>
+<p>U19944EE0V3UM00.pdf </p>
+<p>July 16, 2010 </p>
+<p>Table 2-1  </p>
+<p>Supported Hardware Overview </p>
+<p><b> </b></p>
+<p><b>Derivative: </b>This can be a single information or a list of derivatives, the Flexray Driver can be used on. </p>
+<p><b>Compiler: </b>List of Compilers the Flexray Driver is working with. </p>
+<p><b>Hardware Manufacturer Document: </b>List of hardware documentation the Flexray Driver is based on.  </p>
+<p><b>Version: </b>To be able to reference to this hardware documentation its version is very important. </p>
+<p> </p>
+<p> </p>
+<p><b>Derivative </b></p>
+<p><b>Errata Document </b></p>
+<p><b>Release Date </b></p>
+<p>µPD70F3441 </p>
+<p> </p>
+<p>R01TU0011ED0100_V850E_PHO3.PDF </p>
+<p>Sep 14, 2010 </p>
+<p>µPD70F3461(A) </p>
+<p>R01TU0010ED0105_V850E_DAN.PDF </p>
+<p>November 2010 </p>
+<p>µPD70F3501 </p>
+<p>Not available </p>
+<p>Not available </p>
+<p>µPD70F4010 </p>
+<p>Not available </p>
+<p>Not available </p>
+<p>Table 2-2  </p>
+<p>Supported Errata </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>8 / 24 </p>
+<p><b>3 </b></p>
+<p><b>Component History </b></p>
+<p><b>Component </b></p>
+<p><b>Version </b></p>
+<p><b>New Features </b></p>
+<p>3.0 </p>
+<p>Initial version </p>
+<p>3.3 </p>
+<p>ISR routines in separate file </p>
+<p>3.9 </p>
+<p>Fifo added </p>
+<p>3.11 </p>
+<p>Read and verification of the FlexRay configuration </p>
+<p>3.13 </p>
+<p>Added Fr_GetChannelStatus,Fr_GetClockCorrection, Fr_GetSyncFrameList, </p>
+<p>Fr_DisableLPdu and Fr_ReconfigLPdu </p>
+<p>3.14 </p>
+<p>Optimization </p>
+<p>Table 3-1  </p>
+<p>Component history </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>9 / 24 </p>
+<p><b>4 </b></p>
+<p><b>Introduction </b></p>
+<p>This document describes the functionality, API and configuration of the AUTOSAR BSW </p>
+<p>module Fr ERay that is specific for the communication controller E-Ray and the used micro </p>
+<p>controller. </p>
+<p>The </p>
+<p>basic </p>
+<p>functionality </p>
+<p>API </p>
+<p>architecture </p>
+<p>is </p>
+<p>already </p>
+<p>described </p>
+<p>within </p>
+<p>the </p>
+<p>document [3].  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>10 / 24 </p>
+<p><b>5 </b></p>
+<p><b>Functional Description </b></p>
+<p>Please refer to [3]. </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>11 / 24 </p>
+<p><b>6 </b></p>
+<p><b>Integration </b></p>
+<p>This chapter gives necessary information for the integration of the MICROSAR  Fr ERay </p>
+<p>into an application environment of an ECU. It describes ERay specific issues in addition to </p>
+<p>[3]. </p>
+<p><b>6.1 </b></p>
+<p><b>Scope of Delivery </b></p>
+<p>The delivery of the Fr ERay contains the files which are described in the chapters 6.1.1 </p>
+<p>and 6.1.2: </p>
+<p><b>6.1.1 </b></p>
+<p><b>Static Files </b></p>
+<p><b>File Name </b></p>
+<p><b>Description </b></p>
+<p>Fr_ERay.h </p>
+<p>This file replaces the file Fr_&lt;CC&gt;.h listed in the document [3]. </p>
+<p> </p>
+<p> </p>
+<p>Table 6-1  </p>
+<p>Static files </p>
+<p> </p>
+<p><b>6.1.2 </b></p>
+<p><b>Dynamic Files </b></p>
+<p>No additional dynamic files. Please refer to [3]. </p>
+<p> </p>
+<p><b>6.2 </b></p>
+<p><b>Compiler Abstraction and Memory Mapping  </b></p>
+<p>The  following  table  contains  the  memory  section  names  and  the  compiler  abstraction </p>
+<p>definitions defined for the Fr ERay and illustrates their assignment among each other. </p>
+<p><b>Compiler Abstraction </b></p>
+<p><b>Definitions </b></p>
+<p> </p>
+<p> </p>
+<p><b>Memory Mapping </b></p>
+<p><b>Sections </b></p>
+<p>[Abstraction Name] </p>
+<p>FR_CODE </p>
+<p>FR_VAR_NOINIT </p>
+<p>FR_VAR_NOINIT_FAST </p>
+<p>FR_VAR_FRM </p>
+<p>FR_CONST </p>
+<p>FR_PBCFG </p>
+<p>FR_APPL_CODE </p>
+<p>FR_CODE_ISR </p>
+<p>[Section Name] </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_CODE </p>
+<p>FR_STOP_SEC_CODE </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p>FR_STOP_SEC_VAR_NOINIT_UNSPECIFIED </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_VAR_FAST_NOINIT_UNSPECIFIED </p>
+<p>FR_STOP_SEC_VAR_FAST_NOINIT_UNSPECIFIED </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>12 / 24 </p>
+<p>FR_START_SEC_CONST_UNSPECIFIED </p>
+<p>FR_STOP_SEC_CONST_UNSPECIFIED </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_PBCFG_ROOT </p>
+<p>FR_ STOP _SEC_PBCFG_ROOT </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_PBCFG  </p>
+<p>FR_STOP_SEC_PBCFG </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_CONST_32BIT </p>
+<p>FR_STOP_SEC_CONST_32BIT </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_CONST_16BIT </p>
+<p>FR_STOP_SEC_CONST_16BIT </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_CONST_8BIT </p>
+<p>FR_STOP_SEC_CONST_8BIT </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>FR_APPL_START_SEC_CODE </p>
+<p>FR_APPL_STOP_SEC_CODE </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p> </p>
+<p>FR_START_SEC_CODE_ISR </p>
+<p>FR_STOP_SEC_CODE_ISR </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p></p>
+<p> </p>
+<p>Table 6-2  </p>
+<p>Compiler abstraction and memory mapping </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Caution </b></p>
+<p>Please ensure that the define FR_PBCFG get the same value as FR_ CONST in </p>
+<p>configuration type “Pre-compile Configuration” or “Link-time Configuration” </p>
+<p><b>6.3 </b></p>
+<p><b>Critical Sections </b></p>
+<p>To  ensure  data  consistency  and  a  correct  function  of  the  Fr  ERay  the  exclusive  area </p>
+<p>FR_EXCLUSIVE_AREA_0</p>
+<p> has to be provided during the integration. </p>
+<p>Considering the timing behavior of your system (e.g. depending on the CPU load of your </p>
+<p>system,  priorities  and  interruptibility  of  interrupts  and  OS  tasks  and  their  jitter and  delay </p>
+<p>times) the integrator has to choose and configure a critical section solution in such way </p>
+<p>that it is ensured that the API functions do not interrupt each other. You can find a set of </p>
+<p>rules below which describes whether an exclusive area is needed by the Fr ERay or not. </p>
+<p>The </p>
+<p>FR_EXCLUSIVE_AREA_0</p>
+<p>  has  to  be  used  if  at  least  one  of  the  following  rules  hold </p>
+<p>true: </p>
+<p></p>
+<p> </p>
+<p>It  is  possible  that  the  function </p>
+<p>Fr_TransmitTxLPdu</p>
+<p>  is  interrupted  by  the  function </p>
+<p>Fr_TransmitTxLPdu </p>
+<p>itself. E.g. at execution of method </p>
+<p>Fr_TransmitTxLPdu,</p>
+<p> that </p>
+<p>was </p>
+<p>triggered </p>
+<p>by </p>
+<p>upper </p>
+<p>layer </p>
+<p>because </p>
+<p>the </p>
+<p>attribute </p>
+<p>FrIfImmediate</p>
+<p> </p>
+<p>is </p>
+<p>set, </p>
+<p>is </p>
+<p>interrupted </p>
+<p>by </p>
+<p>the </p>
+<p>job </p>
+<p>list </p>
+<p>execution </p>
+<p>of </p>
+<p>FrIf </p>
+<p>that </p>
+<p>contains </p>
+<p>a </p>
+<p>call </p>
+<p>of </p>
+<p>the </p>
+<p>method </p>
+<p>Fr_TransmitTxLPdu</p>
+<p>, or vice versa. </p>
+<p></p>
+<p> </p>
+<p>At </p>
+<p>enabled </p>
+<p>feature </p>
+<p>“Reconfig </p>
+<p>LPdu </p>
+<p>Support” </p>
+<p>it </p>
+<p>is </p>
+<p>possible </p>
+<p>that </p>
+<p>the </p>
+<p>functions </p>
+<p>Fr_DisableLPdu </p>
+<p>or</p>
+<p> </p>
+<p>Fr_ReconfigLPdu</p>
+<p> </p>
+<p>are </p>
+<p>interrupted </p>
+<p>by </p>
+<p>the </p>
+<p>function </p>
+<p>Fr_TransmitTxLPdu </p>
+<p>and </p>
+<p>vice </p>
+<p>versa. </p>
+<p>E.g. </p>
+<p>at </p>
+<p>execution </p>
+<p>of </p>
+<p>the </p>
+<p>method </p>
+<p>Fr_DisableLPdu </p>
+<p>or</p>
+<p> Fr_ReconfigLPdu</p>
+<p>  is  interrupted  by  the  job  list  execution  of </p>
+<p>FrIf that contains a call of the method </p>
+<p>Fr_TransmitTxLPdu</p>
+<p>.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>13 / 24 </p>
+<p>The recommended implementation for the </p>
+<p>FR_EXCLUSIVE_AREA_0 </p>
+<p>of the component Fr </p>
+<p>ERay depends on the integration context of the job list execution.   </p>
+<p>The </p>
+<p>FR_EXCLUSIVE_AREA_0 </p>
+<p>shall  disable/enable  the  FlexRay  timer  interrupt  or  call </p>
+<p>SuspendAllInterrupts()</p>
+<p> </p>
+<p> </p>
+<p>and </p>
+<p> </p>
+<p>ResumeAllInterrupts()</p>
+<p> </p>
+<p>in </p>
+<p>case </p>
+<p>the </p>
+<p>job </p>
+<p>list </p>
+<p>execution is done at interrupt context to ensure data consistency. </p>
+<p>The </p>
+<p>FR_EXCLUSIVE_AREA_0 </p>
+<p>shall </p>
+<p>call </p>
+<p>SuspendOSInterrupts()</p>
+<p> </p>
+<p> </p>
+<p>and  </p>
+<p>ResumeOSInterrupts()</p>
+<p> in case the case the job list execution is done at task context </p>
+<p>to ensure data consistency.  Alternative the undesired task activation can be prevent by </p>
+<p>implement OS resource lock at the involved tasks.  </p>
+<p>The Fr ERay supports one of the following two alternatives as implementation for these </p>
+<p>exclusive areas depending on your questionnaire: </p>
+<p></p>
+<p> </p>
+<p>The BSW Scheduler (refer to [5] for a detailed description) </p>
+<p></p>
+<p> </p>
+<p>the Vector Standard Library (VStdLib) </p>
+<p>The VStdLib offers the possibility of mapping the interrupt handling to OS services or to </p>
+<p>user defined functions. In the first case interrupt handling is done by the OS, in the second </p>
+<p>case the user has to take care by providing corresponding functions. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>14 / 24 </p>
+<p><b>6.4 </b></p>
+<p><b>General Integration notes </b></p>
+<p>A workaround for errata #27 in [4] is implemented in module FrSm. If no FrSm is used, the </p>
+<p>application has to implement a workaround. </p>
+<p> </p>
+<p><b>6.4.1 </b></p>
+<p><b>Calculation of Timeout Loops </b></p>
+<p>Please refer to [3] for generically description of this feature. The following text describes </p>
+<p>the worst case value for given platform. </p>
+<p>The  worst  case  time  value  depends  on  the  “BCLK“  speed.  The  time  value  can  be </p>
+<p>calculated as follow: </p>
+<p>Worst case time = 1/BCLK * 1329 </p>
+<p>e.g. </p>
+<p>Worst case time = 1/64MHz * 1329 = 20,7 micro seconds </p>
+<p>The worst case time wait is reached with the “Timeout Duration Factor” that can be set </p>
+<p>within configuration. The “Timeout Duration Factor” value for the given example worst case </p>
+<p>time of 20,7 micro seconds is 380 in case the internal system clock of the micro controller </p>
+<p>is set to 128MHz. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Info</b> </p>
+<p>The timeout expiration is controlled by simply while loop. You can adapt the “Timeout </p>
+<p>Duration Factor” in case you use other BCLK or internal system clock values. The new </p>
+<p>value of the “Timeout Duration Factor” can be find out by measuring the execution time </p>
+<p>of the while loop. </p>
+<p>while (timeoutCounter &lt; “Timeout Duration Factor”) </p>
+<p>{ </p>
+<p>  timeoutCounter++; </p>
+<p>}</p>
+<p> </p>
+<p><b> </b></p>
+<p><b>6.5 </b></p>
+<p><b>Integration notes for NEC V850 </b></p>
+<p><b>6.5.1 </b></p>
+<p><b>ERay Base Address </b></p>
+<p>The base address for V85x CC depends on the device and can be found in Table 6-3. </p>
+<p><b>Device name </b></p>
+<p><b>CC base address </b></p>
+<p>µPD70F3441 </p>
+<p> </p>
+<p>0x0F800000 </p>
+<p>µPD70F3461(A) </p>
+<p>0x0F800000 </p>
+<p>µPD70F3501 </p>
+<p>0xFF580000 </p>
+<p>µPD70F4010 </p>
+<p>0xFF580000 </p>
+<p>Table 6-3 </p>
+<p>CC base address </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>15 / 24 </p>
+<p><b>6.5.2 </b></p>
+<p><b>FlexRay Memory buffer number </b></p>
+<p>The ERay CC at V85x can address a maximum number of 128 message buffers. </p>
+<p><b>6.5.3 </b></p>
+<p><b>FlexRay Memory Buffer size </b></p>
+<p>The  available  FlexRay  Message  RAM  for  V85x  CC  depends  on  the  device  and  can  be </p>
+<p>found in Table 6-4. </p>
+<p><b>Device name </b></p>
+<p><b>Message RAM </b></p>
+<p>µPD70F3441 </p>
+<p> </p>
+<p>6 kB </p>
+<p>µPD70F3461(A) </p>
+<p>8 kB </p>
+<p>µPD70F3501 </p>
+<p>8 kB </p>
+<p>µPD70F4010 </p>
+<p>8 kB </p>
+<p>Table 6-4 </p>
+<p>Message RAM </p>
+<p><b>6.5.4 </b></p>
+<p><b>Interrupt routines </b></p>
+<p>The  Fr  ERay  module  configures  the  CC  with  its  interrupt  registers.  But  the  FlexRay </p>
+<p>interrupts are not enabled on V850 interrupt controller by Fr ERay.  </p>
+<p>The application has to enable the FlexRay interrupts on the V850 interrupt controller. As an </p>
+<p>example a small function is given within the next lines: </p>
+<p> </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p> </p>
+<p>void EnableInterrupts(void) </p>
+<p>{ </p>
+<p>  ECU_FRIC0 = ECU_FRIC0 &amp; (~0x40); </p>
+<p>  ECU_FRIC1 = ECU_FRIC1 &amp; (~0x40); </p>
+<p>  ECU_FRIC2 = ECU_FRIC2 &amp; (~0x40); </p>
+<p>}</p>
+<p>  </p>
+<p><b> </b></p>
+<p>The interrupt function can be called directly from OS or integration of V850. Therefore the </p>
+<p>interrupt routines </p>
+<p><b>&gt; </b> Fr_IrqLine0 or Fr_IrqLine1 line selected at optional parameter “Line select for status </p>
+<p>interrupts”. By default Fr_IrqLine0 is used. This interrupt is only necessary if </p>
+<p>configuration attribute “Cycle Start Interrupt” or ECUC Parameter FrCycleStartInterrup is </p>
+<p>enabled. Otherwise this interrupt does need not be enabled. </p>
+<p><b>&gt; </b> Fr_IrqTimer0 </p>
+<p>are implemented in file Fr_Irq.c. They call the corresponding interrupt function out of which </p>
+<p>the application callout functions are called. To save resources, Fr_IrqTimer0 directly calls </p>
+<p>the application callout function or FrIf, according to configuration. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>16 / 24 </p>
+<p><b>6.5.5 </b></p>
+<p><b>Timer interrupt </b></p>
+<p>At V850 with ERay it is not possible to switch off FlexRay timer interrupts on ERay. The </p>
+<p>configuration of Eray allows disconnecting the timer interrupt from line 0 or line 1 interrupt. </p>
+<p>This  is  the  default  configuration  of  FR.  But  there  is  an  additional  interrupt  line  for  timer </p>
+<p>interrupt  which  is  not  configurable  by  Eray  registers.  This  additional  interrupt  line  is </p>
+<p>connected directly to V850 interrupt controller. </p>
+<p>So enabling or disabling the timer interrupt on V850 interrupt controller has to be done by </p>
+<p>the application by configuration of V850 interrupt controller. </p>
+<p><b>6.5.6 </b></p>
+<p><b>Buffer alignment </b></p>
+<p>The  used  FlexRay  buffers  shall  be  aligned  to  16  bit  addresses.  This  is  important  for </p>
+<p>message  buffers  which  are  sent  with  FrIf mode  immediately  or  no  FrIf  is used.  If  FrIf  is </p>
+<p>used,  FrIf  automatically  aligns  the  buffers  to  32  bit.  The  used  FlexRay  buffers  shall  be </p>
+<p>aligned to 16 bit addresses. </p>
+<p>In  case  this  is  not  possible,  FlexRay  driver  can  align  unaligned  message  itself.  This </p>
+<p>functionality  needs  more  runtime  to  transmit  unaligned  messages  and  needs  to  check </p>
+<p>every message for its alignment. It can be activated with a define switch in userconfig-file. </p>
+<p><b> </b></p>
+<p> </p>
+<p><b>Example </b></p>
+<p> </p>
+<p>#define</p>
+<p> </p>
+<p>FR_NONALIGNED_SRCMEMORY</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><b>6.6 </b></p>
+<p><b>Integration notes for RH850 </b></p>
+<p>The ERay CC at RH850 can address a maximum number of 128 message buffers. The </p>
+<p>maximum amount of usable message buffers depends heavily on the size of the frames, </p>
+<p>and thus, on the specific configuration. </p>
+<p><b>6.6.1 </b></p>
+<p><b>Buffer alignment </b></p>
+<p>The  used  FlexRay  buffers  shall  be  aligned  to  16  bit  addresses.  This  is  important  for </p>
+<p>message  buffers  which  are  sent  with  FrIf mode  immediately  or  no  FrIf  is used.  If  FrIf  is </p>
+<p>used,  FrIf  automatically  aligns  the  buffers  to  32  bit.  The  used  FlexRay  buffers  shall  be </p>
+<p>aligned to 16 bit addresses. </p>
+<p><b>6.6.2 </b></p>
+<p><b>Specifics of RH850 P1x </b></p>
+<p>We  discovered  a  problem  with  RH850  derivatives  of  type  P1x.  With  these  chips  our </p>
+<p>FlexRay  might  not  work  as  expected.  We  observed  an  abortion  of  the  initialization </p>
+<p>sequence. </p>
+<p>The </p>
+<p>result </p>
+<p>is </p>
+<p>that </p>
+<p>no </p>
+<p>FlexRay </p>
+<p>communication </p>
+<p>can </p>
+<p>be </p>
+<p>established </p>
+<p>(ESCAN00093807). </p>
+<p>We observed this behavior on the following P1x: </p>
+<p><b>&gt; </b> P1H-C 1331 </p>
+<p><b>&gt; </b> P1H-C 1372 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>17 / 24 </p>
+<p><b>&gt; </b> P1M 1312 </p>
+<p>There is a workaround that can be controlled by defining FR_WAIT_STATES via a user </p>
+<p>config file. If FR_WAIT_STATES is not defined its default value will be 5 which means 5 </p>
+<p>ms. A user config file can look like that: </p>
+<p> </p>
+<p>#define FR_WAIT_STATES 3 /* number means time in ms */ </p>
+<p> </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>18 / 24 </p>
+<p><b>7 </b></p>
+<p><b>API Description </b></p>
+<p><b>7.1 </b></p>
+<p><b>Type Definitions </b></p>
+<p>The types defined by the Fr ERay are described in this chapter. </p>
+<p>The Fr ERay does not define specific type definitions.  </p>
+<p><b>7.2 </b></p>
+<p><b>Interrupt Service Routines provided by Fr ERay  </b></p>
+<p>For general description please refer to [3] and the respective chapters under “Functional </p>
+<p>Description”. </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_CODE) </p>
+<p><b>Fr_IrqLine0/Fr_IrqLine1</b></p>
+<p> () </p>
+<p><b>Parameter </b></p>
+<p>---</p>
+<p> </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>--- </p>
+<p> </p>
+<p><b>Functional Description </b></p>
+<p>Executes the status interrupts of ERay. By default cycle start interrupt are used by Fr ERay to synchronize </p>
+<p>Application with callback function </p>
+<p>ApplFr_ISR_CycleStart</p>
+<p>.  </p>
+<p> </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Particularities, limitations, post-conditions, pre-conditions </p>
+<p><b>&gt; </b></p>
+<p>An interrupt splitting is used. </p>
+<p>Fr ERay is initialized and interrupts are enabled. </p>
+<p><b>&gt; </b></p>
+<p>Configuration attribute “Cycle Start Interrupt” or ECUC Parameter FrCycleStartInterrupt is enabled.  </p>
+<p>Table 7-1  </p>
+<p>Fr_IrqLine0/Fr_IrqLine1 </p>
+<p> </p>
+<p><b>Prototype </b></p>
+<p>FUNC(void, FR_CODE) </p>
+<p><b>Fr_IrqTimer0</b></p>
+<p><b> </b>() </p>
+<p><b>Parameter </b></p>
+<p>---</p>
+<p> </p>
+<p> </p>
+<p><b>Return code </b></p>
+<p>--- </p>
+<p> </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>19 / 24 </p>
+<p><b>Functional Description </b></p>
+<p>Executes the Timer0 interrupt of ERay. By default this interrupt is used by Fr ERay. It also disables the </p>
+<p>interrupt. </p>
+<p><b>Particularities and Limitations </b></p>
+<p><b>&gt; </b></p>
+<p>Particularities, limitations, post-conditions, pre-conditions </p>
+<p><b>&gt; </b></p>
+<p>A separate interrupt for Timer0 is called by hardware and interrupt splitting is used. </p>
+<p>Fr ERay is initialized and interrupts are enabled. </p>
+<p>Table 7-2  </p>
+<p>Fr_IrqTimer0 </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>20 / 24 </p>
+<p><b>7.3 </b></p>
+<p><b>  </b></p>
+<p><b>7.4 </b></p>
+<p><b>Services provided by Fr ERay and differs from standard </b></p>
+<p>The  Fr  ERay  API  consists  of  services,  which  are  realized  by  function  calls.  General </p>
+<p>services are described in [3]. The following services differ from standard behavior. </p>
+<p><b>7.4.1 </b></p>
+<p><b>Fr_EnableAbsoluteTimerIRQ </b></p>
+<p>Fr ERay module does not enable or disable ERay timer interrupts or assign them to an </p>
+<p>ERay interrupt line. The application has to enable or disable the ERay timer interrupt at the </p>
+<p>controller specific interrupt controller.  </p>
+<p><b>7.4.2 </b></p>
+<p><b>Fr_DisableAbsoluteTimerIRQ </b></p>
+<p>Please refer to 7.4.1 </p>
+<p><b>7.5 </b></p>
+<p><b>Services used by Fr ERay </b></p>
+<p>General services are described in [3]. </p>
+<p>Depending on configuration services used by Fr ERay are listed in next table. For details </p>
+<p>about prototype and functionality refer to the documentation of the providing component. </p>
+<p><b>Configuration/Precondition </b></p>
+<p><b>Component </b></p>
+<p><b>API </b></p>
+<p>Application callback at timer 0 interrupt and  </p>
+<p>BSM FrIf is used </p>
+<p>FrIf </p>
+<p>FrIf_JobListExec_0 </p>
+<p>Table 7-3  </p>
+<p>Configuration dependent services used by Fr ERay </p>
+<p><b>7.6 </b></p>
+<p><b>Callback Functions </b></p>
+<p>There is no Fr ERay specific callback function available.  </p>
+<p><b>7.7 </b></p>
+<p><b>Configurable Interfaces </b></p>
+<p><b>7.7.1 </b></p>
+<p><b>Notifications </b></p>
+<p>There is no Fr ERay specific notification function available.  </p>
+<p><b>7.7.2 </b></p>
+<p><b>Callout Functions </b></p>
+<p>There is no Fr ERay specific callout function available.  </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>21 / 24 </p>
+<p><b>8 </b></p>
+<p><b>Configuration </b></p>
+<p>In the Fr ERay the attributes can be configured with the following methods: </p>
+<p><b>&gt; </b> Configuration in DaVinci Configurator 5; for a detailed description see 8.2. </p>
+<p><b>8.1 </b></p>
+<p><b>Hardware Fifo </b></p>
+<p>This platform does not support Hardware Fifo support. Therefore it cannot be configured. </p>
+<p><b>8.2 </b></p>
+<p><b>Configuration with DaVinci Configurator 5  </b></p>
+<p>The Fr ERay is configured with the help of the configuration tool DaVinci Configurator 5. </p>
+<p>For general configuration information please refer to [3]. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>22 / 24 </p>
+<p><b>9 </b></p>
+<p><b>AUTOSAR Standard Compliance </b></p>
+<p><b>9.1 </b></p>
+<p><b>Deviations </b></p>
+<p>For general deviations please refer to [3] and [4]. </p>
+<p><b>9.1.1 </b></p>
+<p><b>Fr_GetSyncFrameList </b></p>
+<p>Eray CC always receives a transmitted SYNC frame on both channels, even if a channel is </p>
+<p>not used. The transmission of a SYNC frame depends on configuration. </p>
+<p><b>9.1.2 </b></p>
+<p><b>Fr_GetPOCStatus </b></p>
+<p>The value for Fr_POCStatusPtr-&gt;SlotMode is derived out of the Eray bit CCSV.SLT. </p>
+<p>At Eray versions higher than 1.0.1 the Eray Bit CCSV.SLT (single slot mode) can not be </p>
+<p>read in Poc states: “Config, Default Config, Halt” and always return</p>
+<p> 0. In all other POC states </p>
+<p>the Value is according configuration. For a detailed description please refer to [4]. </p>
+<p><b>9.2 </b></p>
+<p><b>Additions/ Extensions </b></p>
+<p>Please refer to [3]. </p>
+<p><b>9.3 </b></p>
+<p><b>Limitations </b></p>
+<p>Please refer to [3].  </p>
+<p> </p>
+<p> </p>
+<p>For  the  hardware  limitations  described  in  [4],  workarounds  are  implemented  or  configuration </p>
+<p>warnings with suggestions for solutions are displayed at configuration time. </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>23 / 24 </p>
+<p><b>10  Glossary and Abbreviations </b></p>
+<p><b>10.1 </b></p>
+<p><b>Glossary </b></p>
+<p><b>Term </b></p>
+<p><b>Description </b></p>
+<p>EAD </p>
+<p>Embedded Architecture Designer; generation tool for MICROSAR </p>
+<p>components </p>
+<p>Cfg 5 </p>
+<p>DaVinci Configurator 5. Configuration tool for Microsar 4 </p>
+<p>Table 10-1  </p>
+<p>Glossary </p>
+<p> </p>
+<p> </p>
+<p><b>10.2 </b></p>
+<p><b>Abbreviations </b></p>
+<p><b>Abbreviation </b></p>
+<p><b>Description </b></p>
+<p>API </p>
+<p>Application Programming Interface </p>
+<p> </p>
+<p>AUTOSAR </p>
+<p>Automotive Open System Architecture </p>
+<p>BSW </p>
+<p>Basis Software </p>
+<p>CC </p>
+<p>FlexRay Communication Controller </p>
+<p>E-Ray </p>
+<p>Specific implementation of a FlexRay Communication Controller </p>
+<p>DBA </p>
+<p>Direct Buffer Access </p>
+<p>DEM </p>
+<p>Diagnostic Event Manager </p>
+<p>DET </p>
+<p>Development Error Tracer </p>
+<p>EAD </p>
+<p>Embedded Architecture Designer </p>
+<p>ECU </p>
+<p>Electronic Control Unit </p>
+<p>HIS </p>
+<p>Hersteller Initiative Software </p>
+<p>ISR </p>
+<p>Interrupt Service Routine </p>
+<p>MICROSAR </p>
+<p>Microcontroller Open System Architecture (the Vector AUTOSAR </p>
+<p>solution) </p>
+<p>PPort </p>
+<p>Provide Port </p>
+<p>RPort </p>
+<p>Require Port </p>
+<p>RTE </p>
+<p>Runtime Environment </p>
+<p>SRS </p>
+<p>Software Requirement Specification </p>
+<p>SWC </p>
+<p>Software Component </p>
+<p>SWS </p>
+<p>Software Specification </p>
+<p>Table 10-2  </p>
+<p>Abbreviations </p>
+<h1 style="page-break-before:always; "></h1>
+<p>Technical Reference MICROSAR Fr ERay Communication Controller E-Ray </p>
+<p> </p>
+<p></p>
+<p>2017, Vector Informatik GmbH </p>
+<p>Version: 1.41 </p>
+<p>based on template version 3.1 </p>
+<p>24 / 24 </p>
+<p><b>11  Contact </b></p>
+<p>Visit our website for more information on </p>
+<p> </p>
+<p>&gt;   News </p>
+<p>&gt;   Products </p>
+<p>&gt;   Demo software </p>
+<p>&gt;   Support </p>
+<p>&gt;   Training data </p>
+<p>&gt;   Addresses </p>
+<p> </p>
+<p><b>www.vector-informatik.com </b></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</body>
+</html>
+{% endraw %}
